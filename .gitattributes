@@ -1,0 +1,3 @@
+# Keep maintained evidence CSVs stable in Windows and Unix checkouts.
+/docs/app/baseline/*.csv text eol=lf
+/docs/app/migration/*.csv text eol=lf

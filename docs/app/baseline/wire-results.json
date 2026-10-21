@@ -1,0 +1,117 @@
+{
+  "evidenceKind": "synthetic-inputs-through-pinned-source",
+  "songs": [
+    {
+      "id": "jellyfin-song-0",
+      "schema": "passed",
+      "normalized": {
+        "id": "song-000000",
+        "serverId": "fixture-jellyfin",
+        "durationMs": 180000
+      }
+    },
+    {
+      "id": "jellyfin-song-1",
+      "schema": "passed",
+      "normalized": {
+        "id": "song-000001",
+        "serverId": "fixture-jellyfin",
+        "durationMs": 180000
+      }
+    },
+    {
+      "id": "navidrome-song-0",
+      "schema": "passed",
+      "normalized": {
+        "id": "song-000000",
+        "serverId": "fixture-navidrome",
+        "durationMs": 180000
+      }
+    },
+    {
+      "id": "navidrome-song-1",
+      "schema": "passed",
+      "normalized": {
+        "id": "song-000001",
+        "serverId": "fixture-navidrome",
+        "durationMs": 180000
+      }
+    },
+    {
+      "id": "subsonic-song-0",
+      "schema": "passed",
+      "normalized": {
+        "id": "song-000000",
+        "serverId": "fixture-subsonic",
+        "durationMs": 180000
+      }
+    },
+    {
+      "id": "subsonic-song-1",
+      "schema": "passed",
+      "normalized": {
+        "id": "song-000001",
+        "serverId": "fixture-subsonic",
+        "durationMs": 180000
+      }
+    },
+    {
+      "id": "jellyfin-missing-id",
+      "schema": "rejected-as-expected"
+    },
+    {
+      "id": "jellyfin-invalid-duration",
+      "schema": "rejected-as-expected"
+    },
+    {
+      "id": "navidrome-missing-id",
+      "schema": "rejected-as-expected"
+    },
+    {
+      "id": "navidrome-invalid-duration",
+      "schema": "rejected-as-expected"
+    },
+    {
+      "id": "subsonic-missing-id",
+      "schema": "rejected-as-expected"
+    },
+    {
+      "id": "subsonic-invalid-duration",
+      "schema": "rejected-as-expected"
+    }
+  ],
+  "featureVersionProbe": {
+    "0.47.0": {},
+    "0.48.0": {
+      "smart": [
+        1
+      ]
+    },
+    "0.57.0": {
+      "queue": [
+        2
+      ],
+      "smart": [
+        1
+      ]
+    },
+    "development": {
+      "queue": [
+        2
+      ],
+      "smart": [
+        1
+      ]
+    },
+    "0.57.0-dev": {
+      "queue": [
+        2
+      ],
+      "smart": [
+        1
+      ]
+    }
+  },
+  "warnings": 2,
+  "limitations": "No live server, HTTP transport, authentication, playback or complete normalization parity verified."
+}

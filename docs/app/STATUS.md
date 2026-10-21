@@ -1,13 +1,15 @@
 # Project scratchpad
 
-- Stage: planning/foundation; no Cargo workspace, Rust app or verified runtime behavior yet.
+- Stage: P00 baseline characterization open; no Cargo workspace or Rust application.
 - Direction: egui desktop UI; native performance/usability first; appearance may differ from Feishin.
-- Present: project rules, public README, GPL-3.0 license and app docs/tooling directories.
-- Active implementation: none; latest setup initializes local Git on `main` and connects the project remote.
+- Present: [P00 evidence](baseline/README.md), 52 source-anchored target journeys, route/import audit, synthetic fixtures and tooling.
+- P00.01/.02/.05: baseline verified, static route/journey work and bounded P01 criteria recorded.
+- Partial P00.03/.04/.06/.07/.08: see evidence matrix; no phase exit or runtime parity claim.
 - Pipeline: implement -> tests -> fix/retest -> two independent reviews -> fix/retest -> commit/push.
-- App docs/tools/tests: tracked under `docs/app/`, `tools/app/` and `tests/`; no app code or executable tools yet.
+- Reference: pinned web/remote production builds pass with lifecycle scripts disabled; desktop not launched.
 - Reference evidence: local rewrite plan, inventory/archive and analysis tools remain ignored.
-- Last checks: inventory validation, six tracking regression tests and analysis-script syntax passed.
-- Git: local `main` and `origin` configured for `https://github.com/Serhij-coder/navidrome-client.git`; verify delivery/tracking with `git status`.
-- Next development work: baseline characterization and egui feasibility when implementation is requested.
+- Checks: 10 tooling + 6 inventory tests, hashes/links/ignore/syntax and staged checks pass; both reviews satisfied after fixes.
+- Blockers: no controllable browser; live server captures, full behavior traces and calibrated hardware/audio measurements missing.
+- Git: main tracks origin/main (SSH remote); verify task delivery with git status.
+- Next: close P00 runtime/measurement/license gates; do not start P01 yet.
 - Rules and detailed documentation: [AGENTS.md](../../AGENTS.md), [app documentation](README.md).

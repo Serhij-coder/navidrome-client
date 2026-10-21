@@ -1,0 +1,280 @@
+{
+  "schema": 1,
+  "provenance": "Synthetic scenarios and responses, not live server captures. Versions are test inputs, not claims of currently available releases or support.",
+  "profiles": [
+    {
+      "id": "jellyfin-old",
+      "backend": "jellyfin",
+      "advertised_version": "10.8.13",
+      "role": "admin",
+      "extension_policy": "none",
+      "library_sizes": [
+        0,
+        10,
+        10000,
+        100000
+      ],
+      "evidence": "synthetic-scenario; live instance not provisioned",
+      "source": "https://github.com/jeffvli/feishin/blob/7d6ad318c79802e226996cfc39acba6b05bb22e8/src/renderer/api/jellyfin/jellyfin-controller.ts"
+    },
+    {
+      "id": "jellyfin-current",
+      "backend": "jellyfin",
+      "advertised_version": "10.10.0",
+      "role": "admin",
+      "extension_policy": "discover-do-not-assume",
+      "library_sizes": [
+        0,
+        10,
+        10000,
+        100000
+      ],
+      "evidence": "synthetic-scenario; live instance not provisioned",
+      "source": "https://github.com/jeffvli/feishin/blob/7d6ad318c79802e226996cfc39acba6b05bb22e8/src/renderer/api/jellyfin/jellyfin-controller.ts"
+    },
+    {
+      "id": "jellyfin-non-admin",
+      "backend": "jellyfin",
+      "advertised_version": "10.10.0",
+      "role": "non-admin",
+      "extension_policy": "discover-do-not-assume",
+      "library_sizes": [
+        0,
+        10,
+        10000,
+        100000
+      ],
+      "evidence": "synthetic-scenario; live instance not provisioned",
+      "source": "https://github.com/jeffvli/feishin/blob/7d6ad318c79802e226996cfc39acba6b05bb22e8/src/renderer/api/jellyfin/jellyfin-controller.ts"
+    },
+    {
+      "id": "jellyfin-missing-extensions",
+      "backend": "jellyfin",
+      "advertised_version": "10.10.0",
+      "role": "admin",
+      "extension_policy": "none",
+      "library_sizes": [
+        0,
+        10,
+        10000,
+        100000
+      ],
+      "evidence": "synthetic-scenario; live instance not provisioned",
+      "source": "https://github.com/jeffvli/feishin/blob/7d6ad318c79802e226996cfc39acba6b05bb22e8/src/renderer/api/jellyfin/jellyfin-controller.ts"
+    },
+    {
+      "id": "navidrome-old",
+      "backend": "navidrome",
+      "advertised_version": "0.47.5",
+      "role": "admin",
+      "extension_policy": "none",
+      "library_sizes": [
+        0,
+        10,
+        10000,
+        100000
+      ],
+      "evidence": "synthetic-scenario; live instance not provisioned",
+      "source": "https://github.com/jeffvli/feishin/blob/7d6ad318c79802e226996cfc39acba6b05bb22e8/src/renderer/api/navidrome/navidrome-controller.ts"
+    },
+    {
+      "id": "navidrome-current",
+      "backend": "navidrome",
+      "advertised_version": "0.61.0",
+      "role": "admin",
+      "extension_policy": "discover-do-not-assume",
+      "library_sizes": [
+        0,
+        10,
+        10000,
+        100000
+      ],
+      "evidence": "synthetic-scenario; live instance not provisioned",
+      "source": "https://github.com/jeffvli/feishin/blob/7d6ad318c79802e226996cfc39acba6b05bb22e8/src/renderer/api/navidrome/navidrome-controller.ts"
+    },
+    {
+      "id": "navidrome-non-admin",
+      "backend": "navidrome",
+      "advertised_version": "0.61.0",
+      "role": "non-admin",
+      "extension_policy": "discover-do-not-assume",
+      "library_sizes": [
+        0,
+        10,
+        10000,
+        100000
+      ],
+      "evidence": "synthetic-scenario; live instance not provisioned",
+      "source": "https://github.com/jeffvli/feishin/blob/7d6ad318c79802e226996cfc39acba6b05bb22e8/src/renderer/api/navidrome/navidrome-controller.ts"
+    },
+    {
+      "id": "navidrome-missing-extensions",
+      "backend": "navidrome",
+      "advertised_version": "0.61.0",
+      "role": "admin",
+      "extension_policy": "none",
+      "library_sizes": [
+        0,
+        10,
+        10000,
+        100000
+      ],
+      "evidence": "synthetic-scenario; live instance not provisioned",
+      "source": "https://github.com/jeffvli/feishin/blob/7d6ad318c79802e226996cfc39acba6b05bb22e8/src/renderer/api/navidrome/navidrome-controller.ts"
+    },
+    {
+      "id": "subsonic-old",
+      "backend": "subsonic",
+      "advertised_version": "1.13.0",
+      "role": "admin",
+      "extension_policy": "none",
+      "library_sizes": [
+        0,
+        10,
+        10000,
+        100000
+      ],
+      "evidence": "synthetic-scenario; live instance not provisioned",
+      "source": "https://github.com/jeffvli/feishin/blob/7d6ad318c79802e226996cfc39acba6b05bb22e8/src/renderer/api/subsonic/subsonic-controller.ts"
+    },
+    {
+      "id": "subsonic-current",
+      "backend": "subsonic",
+      "advertised_version": "1.16.1",
+      "role": "admin",
+      "extension_policy": "discover-do-not-assume",
+      "library_sizes": [
+        0,
+        10,
+        10000,
+        100000
+      ],
+      "evidence": "synthetic-scenario; live instance not provisioned",
+      "source": "https://github.com/jeffvli/feishin/blob/7d6ad318c79802e226996cfc39acba6b05bb22e8/src/renderer/api/subsonic/subsonic-controller.ts"
+    },
+    {
+      "id": "subsonic-non-admin",
+      "backend": "subsonic",
+      "advertised_version": "1.16.1",
+      "role": "non-admin",
+      "extension_policy": "discover-do-not-assume",
+      "library_sizes": [
+        0,
+        10,
+        10000,
+        100000
+      ],
+      "evidence": "synthetic-scenario; live instance not provisioned",
+      "source": "https://github.com/jeffvli/feishin/blob/7d6ad318c79802e226996cfc39acba6b05bb22e8/src/renderer/api/subsonic/subsonic-controller.ts"
+    },
+    {
+      "id": "subsonic-missing-extensions",
+      "backend": "subsonic",
+      "advertised_version": "1.16.1",
+      "role": "admin",
+      "extension_policy": "none",
+      "library_sizes": [
+        0,
+        10,
+        10000,
+        100000
+      ],
+      "evidence": "synthetic-scenario; live instance not provisioned",
+      "source": "https://github.com/jeffvli/feishin/blob/7d6ad318c79802e226996cfc39acba6b05bb22e8/src/renderer/api/subsonic/subsonic-controller.ts"
+    }
+  ],
+  "http_cases": [
+    {
+      "id": "subsonic-auth-failed",
+      "backend": "subsonic",
+      "status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "failed",
+          "version": "1.16.1",
+          "error": {
+            "code": 40,
+            "message": "Wrong username or password"
+          }
+        }
+      },
+      "expected": "protocol authentication failure, despite HTTP 200"
+    },
+    {
+      "id": "subsonic-no-extensions",
+      "backend": "subsonic",
+      "status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "failed",
+          "version": "1.13.0",
+          "error": {
+            "code": 70,
+            "message": "Not supported"
+          }
+        }
+      },
+      "expected": "unsupported extension; preserve base protocol operations"
+    },
+    {
+      "id": "navidrome-non-admin",
+      "backend": "navidrome",
+      "status": 403,
+      "body": {
+        "error": "Forbidden"
+      },
+      "expected": "permission error; do not erase profile or capability map"
+    },
+    {
+      "id": "jellyfin-expired-session",
+      "backend": "jellyfin",
+      "status": 401,
+      "body": null,
+      "expected": "authentication error; preserve copied profile"
+    },
+    {
+      "id": "malformed-body",
+      "backend": "all",
+      "status": 200,
+      "body_text": "{broken",
+      "expected": "wire parse error"
+    },
+    {
+      "id": "timeout",
+      "backend": "all",
+      "response": null,
+      "expected": "deadline failure; no success mutation acknowledgement"
+    },
+    {
+      "id": "canceled-stale-page",
+      "backend": "all",
+      "request_generation": 1,
+      "active_generation": 2,
+      "expected": "late page rejected"
+    }
+  ],
+  "identity_cases": [
+    {
+      "id": "duplicate-playlist-song",
+      "song_ids": [
+        "song-000000",
+        "song-000000"
+      ],
+      "entry_ids": [
+        "entry-1",
+        "entry-2"
+      ],
+      "expected": "remove entry-2 preserves entry-1"
+    },
+    {
+      "id": "same-id-two-servers",
+      "song_id": "song-000000",
+      "server_ids": [
+        "server-a",
+        "server-b"
+      ],
+      "expected": "cache and library identities differ"
+    }
+  ],
+  "live_captures": []
+}

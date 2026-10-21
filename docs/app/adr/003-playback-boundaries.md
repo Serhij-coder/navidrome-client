@@ -1,0 +1,19 @@
+# ADR-003: native playback replacements and browser policy
+
+Status: boundary decision recorded; specific engine/library and fallback feasibility pending P01. No native audio dependency is added in P00.
+
+Start P01 evaluation with managed mpv JSON IPC as the desktop default candidate. Preserve process/socket/named-pipe ownership, command correlation/deadlines, observed properties, current/next preload and bounded graceful/forced shutdown. The reference requires an external mpv binary; its README identifies 0.35/0.36 as known working and 0.34 as broken, which is historical source evidence, not a new compatibility promise. The rewrite must test its selected version and state whether release packages bundle it.
+
+| Upstream surface | Native strategy to demonstrate | Browser strategy |
+| --- | --- | --- |
+| mpv/local | Managed process actor, generation isolation, executable/argument validation, device and property errors | Not a local browser engine |
+| Web two-player gapless/crossfade | Measure mpv capabilities; compare an existing native audio library or bounded second native engine for missing dual-stream transitions | Browser media elements with WebAudio gain/DSP behind WASM adapter |
+| WaveSurfer waveform | Native waveform data generation/display with readiness/cancellation and bounded caches; investigate actual source reachability before disposition | Browser waveform/media adapter where supported |
+| mpv startup fallback to web | Explicit native fallback candidate must play representative authenticated streams, seek, switch and tear down; no silent switch to a desktop webview | Codec/autoplay/CORS negotiation and explicit failure; jukebox only when supported |
+| EQ/compressor/speed/pitch/gain/device | Compare native engine filters and device controls against upstream cases and measured audio | WebAudio and media capabilities; unsupported controls explicit |
+| Analysis/visualization/capture | Native bounded samples or authorized OS capture and preset renderer; bridge boundary/cost in ADR-008 | Browser audio nodes and permitted capture only |
+| DLNA and server jukebox | Separate adapters sending typed commands/events through the same state owner | Jukebox if advertised; remote can control desktop casting |
+
+P01.05 must test source failure, missing/wrong binary, stalled quit, process death, late callbacks, rapid engine switch, gapless/crossfade timing, filters, waveform readiness and audio analysis on the required matrix. P01.08 covers capture denial/minimize/disposal and representative preset cost. Record actual audio/device evidence; unsupported required capabilities block the gate until a bounded remediation is accepted. A custom decoder and general JavaScript bridge are not initial defaults; either needs a separate measured decision. A bridge must have bounded IPC, lifecycle, dependencies/notices and CPU/RSS/GPU cost, without becoming a second playback state owner.
+
+Browser default is browser media/WebAudio, conditional on actual stream, codec, CORS and autoplay tests. Do not assume mpv's codecs imply browser support or use browser playback as a native fallback without evidence. Engine capabilities, server capabilities and user permissions remain separate.
