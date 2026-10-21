@@ -1,0 +1,11 @@
+# Local rewrite planning, source evidence and analysis tools.
+# App documentation and tools have separate, tracked directories.
+/docs/*
+!/docs/app/
+/tools/*
+!/tools/app/
+
+# Generated Rust and Python artifacts.
+/target/
+__pycache__/
+*.py[cod]
