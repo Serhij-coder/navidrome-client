@@ -21,3 +21,5 @@ The [P01 continuation](../docs/app/p01/continuation.md) wires `tests/native-spik
 Unix P01 native tests execute the tracked `fake_mpv.py` / `fake_capture.py` fixtures through temporary named symlinks. Preserve their Git executable modes in copied inputs; writing executable fixtures immediately before concurrent process launch can race inherited write descriptors. These fixtures generate only owned protocol/PCM data.
 
 P01.03 session reorder tests are wired as the model `reorder` Cargo integration target and the UI private `drag_tests` module. They cover real egui pointer events, selected-track order, whole-album moves, repeated operations, filtered selection, rejected cross-album/stale drops, a generated vector oracle and cancellation across 100k records. These are synthetic view operations, not queue or playlist mutations.
+
+The native CI wrapper defaults to workspace tests. `python3 tools/app/test-native.py --external-audio` runs the five explicitly ignored native audio/capture probes only with the isolated owned sink/server described in the P01 guide. Both modes preserve Cargo failure status and publish only failed Rust identifiers as CI annotations.

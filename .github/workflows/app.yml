@@ -75,7 +75,7 @@ jobs:
           pulseaudio -n --daemonize=yes --exit-idle-time=-1 --load="module-null-sink sink_name=p01_owned" --load="module-native-protocol-unix socket=/tmp/p01-owned-pulse.sock auth-anonymous=1"
           export PULSE_SERVER=unix:/tmp/p01-owned-pulse.sock
           export P01_CAPTURE_MONITOR=p01_owned.monitor
-          cargo test -p feishin-native-spike --test native --locked -- --ignored
+          python3 tools/app/test-native.py --external-audio
           pactl exit
       - run: curl --fail --location 'https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-${{ matrix.arch }}.AppImage' --output /tmp/linuxdeploy.AppImage
       - run: chmod +x /tmp/linuxdeploy.AppImage && python3 tools/app/package-appimage.py --linuxdeploy /tmp/linuxdeploy.AppImage

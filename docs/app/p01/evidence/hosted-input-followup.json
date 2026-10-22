@@ -1,0 +1,65 @@
+{
+  "recorded_utc": "2026-10-22T23:43:35.160563+00:00",
+  "head_sha": "15c7b4114ab0f5da90c1d75e2fe925b70809b0bb",
+  "run_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39872528227",
+  "status": "completed",
+  "conclusion": "cancelled",
+  "jobs": [
+    {
+      "id": 120150149363,
+      "name": "native (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39872528227/job/120150149363"
+    },
+    {
+      "id": 120150149551,
+      "name": "portable-and-tooling",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39872528227/job/120150149551"
+    },
+    {
+      "id": 120150149558,
+      "name": "linux-appimage-smoke (ubuntu-24.04, x86_64)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39872528227/job/120150149558"
+    },
+    {
+      "id": 120150149634,
+      "name": "linux-appimage-smoke (ubuntu-24.04-arm, aarch64)",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39872528227/job/120150149634"
+    },
+    {
+      "id": 120150149645,
+      "name": "wasm",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39872528227/job/120150149645"
+    },
+    {
+      "id": 120150149649,
+      "name": "native (ubuntu-24.04)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39872528227/job/120150149649"
+    },
+    {
+      "id": 120150149669,
+      "name": "native (macos-14)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39872528227/job/120150149669"
+    }
+  ],
+  "failure_annotations": [
+    {
+      "title": "",
+      "message": "Process completed with exit code 101."
+    }
+  ],
+  "limits": "Snapshot for 15c7b41 only. All three native jobs passed; aarch64 failed in the external audio/capture step. No failing Rust test identifier was annotated by that step. Detailed logs remain unavailable; cause is not inferred. The subsequent drag-task push cancelled unfinished x86_64 packaging. No physical-device certification."
+}

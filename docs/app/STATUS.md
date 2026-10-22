@@ -7,9 +7,9 @@
 - Capture: one-slot off-UI supervisor with generation isolation, suspend/re-enable/retry and real owned-monitor checks; no default host capture.
 - Browser: real disposable Navidrome FLAC/MP3 on three lab engines; six session callbacks, cancellable/deadlined play, lifecycle/reload checks; Firefox/WebKit seeks remain open.
 - Packaging/accessibility: rebuilt Ubuntu x86_64 AppImage runs without checkout/Rust; Linux AT-SPI names audited after fixing unnamed filter; no screen-reader/device certification.
-- Hosted 15c7b41: native Linux/Windows/macOS, portable and WASM passed; aarch64 external audio step failed; full run pending.
-- Latest checks: 32 default Rust, 47 Python with reference; format/default-WASM-wgpu Clippy and release web builds passed; older runtime manifests stay historical.
+- Hosted 15c7b41: native Linux/Windows/macOS, portable and WASM passed; aarch64 external audio step failed; x86_64 packaging cancelled by the next push.
+- Latest checks: 32 default Rust, 49 Python with reference; five external native probes via wrapper passed on Ubuntu x86_64; format/default-WASM-wgpu Clippy and release web builds passed; older runtime manifests stay historical.
 - Records: [continuation](p01/continuation.md), [matrix](p01/README.md), [migration map](migration/p01-map.csv), [license gaps](licenses/README.md).
-- Active: P01.03 drag continuation implemented; 32 Rust/47 Python and native/WASM/wgpu checks passed; both reviews satisfied after stale-doc correction.
+- Active: reviewed drag task pushed as 7c3ef91; external audio CI annotations now implemented, 49 Python and five real native probes passed; both reviews satisfied.
 - Open: calibrated physical budgets, renderer/input/IME/RTL/touch/screen-reader/OS matrix, Windows IPC, full native fallback and release licensing; no P01 exit.
-- Next: commit/push drag continuation, then diagnose hosted aarch64 audio failure; P02 only after verified P01 exit.
+- Next: commit/push safe external-test diagnostics, identify/fix hosted aarch64 failure; P02 only after verified P01 exit.
