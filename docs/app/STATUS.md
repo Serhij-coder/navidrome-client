@@ -1,17 +1,16 @@
 # Project scratchpad
 
-- Stage: P00 baseline characterization open; no Cargo workspace or Rust application.
+- Stage: P00 baseline characterization open; no Cargo workspace or Rust application; do not start P01.
 - Direction: egui desktop UI; native performance/usability first; appearance may differ from Feishin.
-- Present: [P00 evidence](baseline/README.md), source journeys, synthetic data and 92 live responses from six disposable servers.
-- P00.01/.02/.05: baseline verified, static route/journey work and bounded P01 criteria recorded.
-- P00.04/.06: 54 offline adapter cases now follow saved responses/callback arguments through original clients; [limits](baseline/adapter-characterization.md).
-- P00.06: 25 queue/persistence cases, 1,000 seeded commands and 8 progress traces; explicit headless boundaries.
-- P00.07/.08: raw 10k/100k queue measurements and font notice snapshots added; desktop calibration/release rights still open.
-- Pipeline: implement -> tests -> fix/retest -> two independent reviews -> fix/retest -> commit/push.
-- Reference: pinned web/remote production builds pass with lifecycle scripts disabled; desktop not launched.
-- Reference evidence: local rewrite plan, inventory/archive and analysis tools remain ignored.
-- Checks: 31 tooling + 6 inventory tests and source/ID/link/syntax/clean-input checks pass; both reviews satisfied after LF checkout fix.
-- Remaining: UI/screenshots, full hook/adapter/engine flows, live large libraries, hardware/audio calibration and exact font rights.
-- Git: main tracks origin/main (SSH remote); verify task delivery with git status.
-- Next: close P00 runtime/measurement/license gates; do not start P01 yet.
+- Present: [baseline evidence](baseline/README.md), 52 source journeys, six live server fixtures and 54 offline adapter cases.
+- P00.03/.04: [original UI captures](baseline/browser-characterization.md): 43 web + 8 desktop/remote screenshots; six backend UI logins.
+- P00.06: real keyboard selection, duplicate queue, mouse drag/reload, browser media progress/pause and current-version settings import/reload.
+- Remote: authenticated original desktop queue push/clear with matched successful acknowledgement and empty persisted desktop queue.
+- Correction: C01 split-settings defect is an unused-helper result; active combined storage survives current import/reload.
+- Earlier evidence: 25 queue/persistence cases, 1,000 seeded commands, 8 progress traces and raw 10k/100k queue samples.
+- Environment: standalone browser tools prepared externally; no project/container dependency or live profile mount.
+- Checks: 40 tooling + 6 inventory tests, clean-input evidence checks, source/ID/link/syntax checks pass; both independent reviews satisfied after path/privacy and portable-test fixes.
+- Remaining: full journeys/Auto DJ/historical exports, live large libraries, engine/reporting/OS/audio/device runs and performance calibration.
+- P00.08: font notice evidence exists; exact font rights/provenance remain open.
+- Next: continue P00 full journeys/Auto DJ/historical profiles and remaining measurement/license gates.
 - Rules and detailed documentation: [AGENTS.md](../../AGENTS.md), [app documentation](README.md).

@@ -1,0 +1,42 @@
+- img
+- button:
+  - img
+- button "Show full artwork" [disabled]:
+  - img
+- button [disabled]:
+  - img
+- button [disabled]:
+  - img
+- button [disabled]:
+  - img
+- button [disabled]:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button "Unmute":
+  - img
+- slider
+- text: "0"
+- navigation:
+  - link "Home":
+    - /url: "#/"
+    - img
+    - text: Home
+  - link "Library":
+    - /url: "#/library"
+    - img
+    - text: Library
+  - link "Playlists":
+    - /url: "#/playlists"
+    - img
+    - text: Playlists
+  - link "Radio":
+    - /url: "#/radio"
+    - img
+    - text: Radio
+  - link "Queue":
+    - /url: "#/queue"
+    - img
+    - text: Queue

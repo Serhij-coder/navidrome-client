@@ -106,7 +106,10 @@ class AdapterEvidence(unittest.TestCase):
             self.assertEqual(0, result.returncode, result.stderr)
 
     def test_hash_bound_fixtures_survive_autocrlf_checkout(self):
-        paths = [Path("tests/fixtures/p00/live-responses.json"), Path("tests/fixtures/p00/scrobble-traces.json")]
+        paths = [Path("tests/fixtures/p00/live-responses.json"), Path("tests/fixtures/p00/scrobble-traces.json"),
+                 Path("docs/app/baseline/source-audit.json"),
+                 Path("tests/fixtures/p00/browser/2026-10-22/browser-run.json"),
+                 Path("tests/fixtures/p00/browser/2026-10-22/desktop-window-settings.txt")]
         with tempfile.TemporaryDirectory() as directory:
             checkout = Path(directory)
             shutil.copy2(ROOT / ".gitattributes", checkout / ".gitattributes")

@@ -1,0 +1,161 @@
+- banner
+- complementary:
+  - img
+  - textbox "Search"
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - button "My Library" [expanded]:
+    - img
+    - text: My Library
+  - region "My Library":
+    - link "Home":
+      - /url: "#/"
+      - img
+      - text: Home
+    - link "Favorites":
+      - /url: "#/favorites"
+      - img
+      - text: Favorites
+    - link "Albums":
+      - /url: "#/library/albums"
+      - img
+      - text: Albums
+    - link "Tracks":
+      - /url: "#/library/songs"
+      - img
+      - text: Tracks
+    - link "Album Artists":
+      - /url: "#/library/album-artists"
+      - img
+      - text: Album Artists
+    - link "Artists":
+      - /url: "#/library/artists"
+      - img
+      - text: Artists
+    - link "Genres":
+      - /url: "#/library/genres"
+      - img
+      - text: Genres
+    - link "Folders":
+      - /url: "#/library/folders"
+      - img
+      - text: Folders
+    - link "Radio Stations":
+      - /url: "#/radio"
+      - img
+      - text: Radio Stations
+  - separator
+  - button "Playlists" [expanded]:
+    - img
+    - text: Playlists
+    - button:
+      - img
+    - link:
+      - /url: "#/playlists"
+      - img
+  - region "Playlists"
+- main:
+  - button:
+    - img
+  - link "Album":
+    - /url: "#/library/albums"
+  - heading "Fixture Album" [level=1]
+  - text: ♫ 2 tracks • 7s • 75.32 KiB • 2 plays
+  - link "Fixture Artist":
+    - /url: "#/library/album-artists/3fqn6fOUD3F7Tlqh8xKJ61"
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - radio "0" [checked]
+  - img
+  - radio "1"
+  - img
+  - radio "2"
+  - img
+  - radio "3"
+  - img
+  - radio "4"
+  - img
+  - radio "5"
+  - img
+  - button:
+    - img
+  - button:
+    - img
+  - img
+  - textbox "Search"
+  - button "ID"
+  - button:
+    - img
+  - button:
+    - img
+  - grid
+  - grid:
+    - row "TITLE":
+      - img
+      - text: TITLE
+      - img
+      - img
+  - grid:
+    - row "1 P00 Tone A 0:03"
+    - row "2 P00 Tone B 0:04"
+  - text: External links
+  - link "Last.fm":
+    - /url: https://www.last.fm/music/Fixture%20Artist/Fixture%20Album
+    - img "Last.fm"
+  - link "ListenBrainz":
+    - /url: https://listenbrainz.org/search/?search_term=Fixture%20Artist%20Fixture%20Album
+    - img "ListenBrainz"
+  - link "Qobuz":
+    - /url: https://www.qobuz.com/us-en/search/albums/Fixture%20Artist%20Fixture%20Album
+    - img "Qobuz"
+  - link "Spotify":
+    - /url: https://open.spotify.com/search/Fixture%20Artist%20Fixture%20Album
+    - img "Spotify"
+- button:
+  - img
+- link "—":
+  - /url: "#/now-playing"
+- link "—":
+  - /url: "#/"
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button [disabled]:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- img
+- text: 0:00
+- slider
+- button "0:00"
+- button "Auto DJ"
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- slider

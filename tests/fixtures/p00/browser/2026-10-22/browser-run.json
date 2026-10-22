@@ -1,0 +1,4689 @@
+{
+  "schema": 1,
+  "tasks": [
+    "P00.03",
+    "P00.04",
+    "P00.06"
+  ],
+  "commit": "7d6ad318c79802e226996cfc39acba6b05bb22e8",
+  "evidenceKind": "original-production-web-browser-run",
+  "sourceAuditSha256": "1a2417159743adae9d8b5cd111dd7b3f856f10ffb992b482822dac2a4816969c",
+  "date": "2026-10-22T10:58:27.041Z",
+  "screenshots": [
+    {
+      "id": "navidrome-current-onboarding",
+      "fixture": "navidrome-current",
+      "file": "navidrome-current-onboarding.png",
+      "sha256": "05c22948b02ad6746b8419127a3e2eed17d1ff0ca25c27ea7aafdbf712f869f7",
+      "domFile": "navidrome-current-onboarding.txt",
+      "domSha256": "29d702b9b5c7053848e8da0156aec7e8f35497b3f48287152644c7255eb58743",
+      "route": "#/action-required",
+      "note": "Fresh isolated original profile; credentials have not been entered"
+    },
+    {
+      "id": "navidrome-current-home",
+      "fixture": "navidrome-current",
+      "file": "navidrome-current-home.png",
+      "sha256": "429e4cadf430e73bcb22243cde05139841d96f41c14b560102b5bc3a284d677e",
+      "domFile": "navidrome-current-home.txt",
+      "domSha256": "780e84ed380ae2b9a7634e4752bfc86a0af317cd3098627f6bf21bf74a3f91c4",
+      "route": "#/",
+      "note": "Authenticated home, actual disposable service responses; release notes dismissed through UI"
+    },
+    {
+      "id": "navidrome-current-tracks",
+      "fixture": "navidrome-current",
+      "file": "navidrome-current-tracks.png",
+      "sha256": "8a42826918db2a190d4377959740cd07d3e0a96379e43a9821a60f86f4552dd4",
+      "domFile": "navidrome-current-tracks.txt",
+      "domSha256": "79eb2d143ae4b22f09acc190edb27162b87f4ff1f75a6ba5c9bbb1dbee2fecec",
+      "route": "#/library/songs",
+      "note": "Two owned tones in the original virtualized track table"
+    },
+    {
+      "id": "navidrome-current-albums",
+      "fixture": "navidrome-current",
+      "file": "navidrome-current-albums.png",
+      "sha256": "eef9333de241ae1bab98732fd57aee2b24aba0bf08a974465d79ddfa7bd23d07",
+      "domFile": "navidrome-current-albums.txt",
+      "domSha256": "297debea747a40376456224a7a1ec119207432a2958f23f2dd8d1b71460cfe44",
+      "route": "#/library/albums",
+      "note": "Original album browsing against the disposable fixture"
+    },
+    {
+      "id": "navidrome-current-album-detail",
+      "fixture": "navidrome-current",
+      "file": "navidrome-current-album-detail.png",
+      "sha256": "a7d9388d97b9c3c297fbd8a95dfe2a8a0c37241de7a9ea7d29c37b8bbac480e3",
+      "domFile": "navidrome-current-album-detail.txt",
+      "domSha256": "ba008b1c2484fdb5e8d46742708b0625bb6467f2ecc5910156a4bafe5214dc4c",
+      "route": "#/library/albums/5pRJuHR2Ib33o0cuYv8dZp",
+      "note": "Original album detail and track list"
+    },
+    {
+      "id": "navidrome-current-artists",
+      "fixture": "navidrome-current",
+      "file": "navidrome-current-artists.png",
+      "sha256": "1866a0fb63c08dc4663d8d7f6d0b788b27ffa2c701fb0aeb9c8532ccc8ee277b",
+      "domFile": "navidrome-current-artists.txt",
+      "domSha256": "4afe76df163ea8177c0df766cb8fe034c79cb17a0b2590d21d000a3e670abe27",
+      "route": "#/library/album-artists",
+      "note": "Direct hash navigation in the original app; two-tone fixture data"
+    },
+    {
+      "id": "navidrome-current-genres",
+      "fixture": "navidrome-current",
+      "file": "navidrome-current-genres.png",
+      "sha256": "7a9bc957024ec9b67de9672abada9b15ec9acac0a473c58b974ac5de48535c5a",
+      "domFile": "navidrome-current-genres.txt",
+      "domSha256": "ac428a094b657c89c145a37921f991dcd5b94154d9a98f413015abd5b7be7261",
+      "route": "#/library/genres",
+      "note": "Direct hash navigation in the original app; two-tone fixture data"
+    },
+    {
+      "id": "navidrome-current-favorites",
+      "fixture": "navidrome-current",
+      "file": "navidrome-current-favorites.png",
+      "sha256": "4163cdc0d7f4b90bdd372c2cb193f1d5e8dedf1a2ab953e86a6f235123dccb32",
+      "domFile": "navidrome-current-favorites.txt",
+      "domSha256": "7809600588bf538e083cba771adfac64e7100151d4e6d22b8261169c70ae66d3",
+      "route": "#/favorites",
+      "note": "Direct hash navigation in the original app; two-tone fixture data"
+    },
+    {
+      "id": "navidrome-current-playlists",
+      "fixture": "navidrome-current",
+      "file": "navidrome-current-playlists.png",
+      "sha256": "6c7d88bff482579fc935cbee35c2f8bcdcee33cbb08f3bab3602c3faf779cc8f",
+      "domFile": "navidrome-current-playlists.txt",
+      "domSha256": "67773aee2442305e598121320c257db1a827ec7e72e0f079723d1706721f78e5",
+      "route": "#/playlists",
+      "note": "Direct hash navigation in the original app; two-tone fixture data"
+    },
+    {
+      "id": "navidrome-current-radio",
+      "fixture": "navidrome-current",
+      "file": "navidrome-current-radio.png",
+      "sha256": "5a6fe840263dbe32f8ce0cafba9dff70d7f09c7b0829971e08a0b6db12264c2c",
+      "domFile": "navidrome-current-radio.txt",
+      "domSha256": "d8da20945367fd20496f3200bad1a2ac30943415ccab1c6af5ab49c8efcaedc9",
+      "route": "#/radio",
+      "note": "Direct hash navigation in the original app; two-tone fixture data"
+    },
+    {
+      "id": "navidrome-current-keyboard-selection",
+      "fixture": "navidrome-current",
+      "file": "navidrome-current-keyboard-selection.png",
+      "sha256": "bcd790a58c6a7cd82a3ad22c58364062f10bd63df18927c53c692aac125eae93",
+      "domFile": "navidrome-current-keyboard-selection.txt",
+      "domSha256": "8d6a9d82c55c1b5ad39fe88c21b6402b834d9fbd2574ff3b6b79c5c3d511a424",
+      "route": "#/library/songs",
+      "note": "Clicked first track then pressed ArrowDown; DOM selection observed separately"
+    },
+    {
+      "id": "navidrome-current-duplicate-queue",
+      "fixture": "navidrome-current",
+      "file": "navidrome-current-duplicate-queue.png",
+      "sha256": "da2842f95843b4cf7a7ebc68d7dddfaee0c83716df9fd8b635aaceef23632c04",
+      "domFile": "navidrome-current-duplicate-queue.txt",
+      "domSha256": "0b2396cf944597418baf3e442171ac56291229b84d0ddc8fa3c15255fc5b366e",
+      "route": "#/library/songs",
+      "note": "Two distinct persisted occurrences of the same track followed by a second track"
+    },
+    {
+      "id": "navidrome-current-queue-after-drag",
+      "fixture": "navidrome-current",
+      "file": "navidrome-current-queue-after-drag.png",
+      "sha256": "afa71ed5812febd28f16139920e81ec659628b032822905b6fbbcb7ca3a07b2c",
+      "domFile": "navidrome-current-queue-after-drag.txt",
+      "domSha256": "fe05655c75b931c18d6c7317e7886efb3e2f632f3d85635a59bc6f752b5934a4",
+      "route": "#/library/songs",
+      "note": "Actual mouse drag moves the final queue occurrence before the first; persisted IDs preserved"
+    },
+    {
+      "id": "navidrome-current-paused-playback",
+      "fixture": "navidrome-current",
+      "file": "navidrome-current-paused-playback.png",
+      "sha256": "72871382c1725f0854508083a2c802d4a7109dacbc3d6a630012136c6e066d7f",
+      "domFile": "navidrome-current-paused-playback.txt",
+      "domSha256": "71254d5193b1b5ad5eea6b5d399760252e3c56ed02536249c20eb5dabfa52b3b",
+      "route": "#/library/songs",
+      "note": "Real Chromium media progress followed by Space hotkey pause; physical audio output unverified"
+    },
+    {
+      "id": "navidrome-current-advanced-settings",
+      "fixture": "navidrome-current",
+      "file": "navidrome-current-advanced-settings.png",
+      "sha256": "74435a0d3968beff68852b58c66ce25f2b6d11789ad2365ca8fc31a8c3fd65d5",
+      "domFile": "navidrome-current-advanced-settings.txt",
+      "domSha256": "cde354a082ac8ec083ea3a54af23257a1614ed538f2e76c086138a14a2721e68",
+      "route": "#/settings",
+      "note": "Original advanced settings, analytics disabled before startup"
+    },
+    {
+      "id": "navidrome-current-invalid-settings-import",
+      "fixture": "navidrome-current",
+      "file": "navidrome-current-invalid-settings-import.png",
+      "sha256": "24374be30c5111734730227709cc413f9010f33efbf55952f1684601df98f444",
+      "domFile": "navidrome-current-invalid-settings-import.txt",
+      "domSha256": "b52fcbc66b3d84017e4bc3a3ee3bac7f3ee2b0509fef791c6c78ded937ad2257",
+      "route": "#/settings",
+      "note": "Actual import validation rejects malformed JSON"
+    },
+    {
+      "id": "navidrome-current-settings-import-preview",
+      "fixture": "navidrome-current",
+      "file": "navidrome-current-settings-import-preview.png",
+      "sha256": "aa51ca66745fce5b96bcf65c55c12d7bf99dbc8b33f892dd89a847ed6b2b12dc",
+      "domFile": "navidrome-current-settings-import-preview.txt",
+      "domSha256": "3842952ea461416fbc3a9efee8aa0cd51a9b9d4a783c45b4fae4f60206b67e8d",
+      "route": "#/settings",
+      "note": "Derived current-version export changes only general.resume; not a historical profile"
+    },
+    {
+      "id": "navidrome-current-settings-import-complete",
+      "fixture": "navidrome-current",
+      "file": "navidrome-current-settings-import-complete.png",
+      "sha256": "e9098d85dd321b9bf88aac1f9036d9b04579b42a8a58109c694d9a1c2a50585a",
+      "domFile": "navidrome-current-settings-import-complete.txt",
+      "domSha256": "bcf209ab4ea3facba134658b9f37765714ccdb2d0c34904af19a86eda79e3300",
+      "route": "#/settings",
+      "note": "Original UI reports import completion"
+    },
+    {
+      "id": "navidrome-old-onboarding",
+      "fixture": "navidrome-old",
+      "file": "navidrome-old-onboarding.png",
+      "sha256": "692f01daf9022c8ae2ccf8b4a091e6f64d7f979e813a4f765a5b5c1df708e7ef",
+      "domFile": "navidrome-old-onboarding.txt",
+      "domSha256": "29d702b9b5c7053848e8da0156aec7e8f35497b3f48287152644c7255eb58743",
+      "route": "#/action-required",
+      "note": "Fresh isolated original profile; credentials have not been entered"
+    },
+    {
+      "id": "navidrome-old-home",
+      "fixture": "navidrome-old",
+      "file": "navidrome-old-home.png",
+      "sha256": "c730f2cce77dbacdf49affb8c34e660f10a83ae2e14652572e19fba6187d37b1",
+      "domFile": "navidrome-old-home.txt",
+      "domSha256": "be4883ddc2476f35d4e154e4b61830ca9fbad5210fbe1b2b6c7c77356398b57a",
+      "route": "#/",
+      "note": "Authenticated home, actual disposable service responses; release notes dismissed through UI"
+    },
+    {
+      "id": "navidrome-old-tracks",
+      "fixture": "navidrome-old",
+      "file": "navidrome-old-tracks.png",
+      "sha256": "06eb7b4d798cb5139e60223ef33dbc4f9e774b4110b45f041402c07e21b36be3",
+      "domFile": "navidrome-old-tracks.txt",
+      "domSha256": "f2f53e1a5522e2ac5438f1086f0852e8c0650db32a436060a18dec5be3c94809",
+      "route": "#/library/songs",
+      "note": "Two owned tones in the original virtualized track table"
+    },
+    {
+      "id": "navidrome-old-albums",
+      "fixture": "navidrome-old",
+      "file": "navidrome-old-albums.png",
+      "sha256": "24a5ff34afcf27ff4ad78989b29f7f48fd30326d387b74c2463e19df95947e16",
+      "domFile": "navidrome-old-albums.txt",
+      "domSha256": "5ffc5f0f1bad746f5e90e3f9032666454ffe1a682094098a80f031d25251a487",
+      "route": "#/library/albums",
+      "note": "Original album browsing against the disposable fixture"
+    },
+    {
+      "id": "navidrome-old-album-detail",
+      "fixture": "navidrome-old",
+      "file": "navidrome-old-album-detail.png",
+      "sha256": "1d6acf788e4b198a04cf9b6e19263a96b1bd1c10798661f075c277d432c7db7f",
+      "domFile": "navidrome-old-album-detail.txt",
+      "domSha256": "3de462c5428c7e19b9b4e4fd1bcea90e844a07b875c3ff7c77541b526f98ed12",
+      "route": "#/library/albums/5c6259445dd7f5b07b17eba6f7c5d83e",
+      "note": "Original album detail and track list"
+    },
+    {
+      "id": "gonic-current-onboarding",
+      "fixture": "gonic-current",
+      "file": "gonic-current-onboarding.png",
+      "sha256": "46724699bc7b3f26b28bee3fea1b9a381170aa8c662d1fb9fda39a5b90d7fc0f",
+      "domFile": "gonic-current-onboarding.txt",
+      "domSha256": "160ff17dc82d203b2691925d3c549580a24207fe54745860a2c638427c1daae9",
+      "route": "#/action-required",
+      "note": "Fresh isolated original profile; credentials have not been entered"
+    },
+    {
+      "id": "gonic-current-home",
+      "fixture": "gonic-current",
+      "file": "gonic-current-home.png",
+      "sha256": "e0ac5ab0b5ae2ea287475c5dd18d902944684fd4b85c1ae24e45365f4e8626dc",
+      "domFile": "gonic-current-home.txt",
+      "domSha256": "602b9ef5ce4be98ea38c6981aa602a02e33b2ac708770ece8f20ca4e782640d7",
+      "route": "#/",
+      "note": "Authenticated home, actual disposable service responses; release notes dismissed through UI"
+    },
+    {
+      "id": "gonic-current-tracks",
+      "fixture": "gonic-current",
+      "file": "gonic-current-tracks.png",
+      "sha256": "0f343261bc562a7c28a4d6ad980f577b3632645deafbd21c920dcc2b057c0d7c",
+      "domFile": "gonic-current-tracks.txt",
+      "domSha256": "41ee33f5fb20324b253a05768b98dc67c6fd45ec8441a8850d79635e42118a53",
+      "route": "#/library/songs",
+      "note": "Two owned tones in the original virtualized track table"
+    },
+    {
+      "id": "gonic-current-albums",
+      "fixture": "gonic-current",
+      "file": "gonic-current-albums.png",
+      "sha256": "7622755a12c66d242d9fc801b73f2ef7e53b525183a95d31a22c95b1b48dd5fd",
+      "domFile": "gonic-current-albums.txt",
+      "domSha256": "8d991c9f4f6984a2f29675240568f15f14c4c1a967925a9b9c98663027733e4c",
+      "route": "#/library/albums",
+      "note": "Original album browsing against the disposable fixture"
+    },
+    {
+      "id": "gonic-current-album-detail",
+      "fixture": "gonic-current",
+      "file": "gonic-current-album-detail.png",
+      "sha256": "a468fdc569cea409b54a711e38cd44e78d9b14f871f3e13492b8370262e768ef",
+      "domFile": "gonic-current-album-detail.txt",
+      "domSha256": "f2d6bbd7ba2e9e1452e18435a004a66e643d40158bd4079ebe879152774da5fb",
+      "route": "#/library/albums/al-3",
+      "note": "Original album detail and track list"
+    },
+    {
+      "id": "gonic-old-onboarding",
+      "fixture": "gonic-old",
+      "file": "gonic-old-onboarding.png",
+      "sha256": "d75819f81ebc4e59d1a9197b654e061d6188c9c9093e108737b7d2a028daf73e",
+      "domFile": "gonic-old-onboarding.txt",
+      "domSha256": "160ff17dc82d203b2691925d3c549580a24207fe54745860a2c638427c1daae9",
+      "route": "#/action-required",
+      "note": "Fresh isolated original profile; credentials have not been entered"
+    },
+    {
+      "id": "gonic-old-home",
+      "fixture": "gonic-old",
+      "file": "gonic-old-home.png",
+      "sha256": "e0ac5ab0b5ae2ea287475c5dd18d902944684fd4b85c1ae24e45365f4e8626dc",
+      "domFile": "gonic-old-home.txt",
+      "domSha256": "602b9ef5ce4be98ea38c6981aa602a02e33b2ac708770ece8f20ca4e782640d7",
+      "route": "#/",
+      "note": "Authenticated home, actual disposable service responses; release notes dismissed through UI"
+    },
+    {
+      "id": "gonic-old-tracks",
+      "fixture": "gonic-old",
+      "file": "gonic-old-tracks.png",
+      "sha256": "0f343261bc562a7c28a4d6ad980f577b3632645deafbd21c920dcc2b057c0d7c",
+      "domFile": "gonic-old-tracks.txt",
+      "domSha256": "41ee33f5fb20324b253a05768b98dc67c6fd45ec8441a8850d79635e42118a53",
+      "route": "#/library/songs",
+      "note": "Two owned tones in the original virtualized track table"
+    },
+    {
+      "id": "gonic-old-albums",
+      "fixture": "gonic-old",
+      "file": "gonic-old-albums.png",
+      "sha256": "7622755a12c66d242d9fc801b73f2ef7e53b525183a95d31a22c95b1b48dd5fd",
+      "domFile": "gonic-old-albums.txt",
+      "domSha256": "8d991c9f4f6984a2f29675240568f15f14c4c1a967925a9b9c98663027733e4c",
+      "route": "#/library/albums",
+      "note": "Original album browsing against the disposable fixture"
+    },
+    {
+      "id": "gonic-old-album-detail",
+      "fixture": "gonic-old",
+      "file": "gonic-old-album-detail.png",
+      "sha256": "a468fdc569cea409b54a711e38cd44e78d9b14f871f3e13492b8370262e768ef",
+      "domFile": "gonic-old-album-detail.txt",
+      "domSha256": "f2d6bbd7ba2e9e1452e18435a004a66e643d40158bd4079ebe879152774da5fb",
+      "route": "#/library/albums/al-3",
+      "note": "Original album detail and track list"
+    },
+    {
+      "id": "jellyfin-current-onboarding",
+      "fixture": "jellyfin-current",
+      "file": "jellyfin-current-onboarding.png",
+      "sha256": "146396d13bac7a44045fefdcf6376808f88d365e667471687ad118bc41ec2055",
+      "domFile": "jellyfin-current-onboarding.txt",
+      "domSha256": "bf44267a77a788dccece5688ec89cf99f7abf68b343a7746fff2bc7dfddd356b",
+      "route": "#/action-required",
+      "note": "Fresh isolated original profile; credentials have not been entered"
+    },
+    {
+      "id": "jellyfin-current-home",
+      "fixture": "jellyfin-current",
+      "file": "jellyfin-current-home.png",
+      "sha256": "e0ac5ab0b5ae2ea287475c5dd18d902944684fd4b85c1ae24e45365f4e8626dc",
+      "domFile": "jellyfin-current-home.txt",
+      "domSha256": "bf52280661457b216cef3f18f30204f81638438ad20b34f6a2f560d06da512f6",
+      "route": "#/",
+      "note": "Authenticated home, actual disposable service responses; release notes dismissed through UI"
+    },
+    {
+      "id": "jellyfin-current-tracks",
+      "fixture": "jellyfin-current",
+      "file": "jellyfin-current-tracks.png",
+      "sha256": "569f78d7738b1c0e33d98cc350cebcb34f3982a5738853daa634182696646c64",
+      "domFile": "jellyfin-current-tracks.txt",
+      "domSha256": "341cfbf454169b797a3206fd7c812608cd5821eb007ebbddba8f9ca22e407fe0",
+      "route": "#/library/songs",
+      "note": "Two owned tones in the original virtualized track table"
+    },
+    {
+      "id": "jellyfin-current-albums",
+      "fixture": "jellyfin-current",
+      "file": "jellyfin-current-albums.png",
+      "sha256": "dcdfcabf00a48a9be683d23f0195949fa1fd7f16c6c3d26e116bf9f6a59acd38",
+      "domFile": "jellyfin-current-albums.txt",
+      "domSha256": "24315c2fc63824fcd25a959e12e817c849d057a6d585620e368415cb91a4d811",
+      "route": "#/library/albums",
+      "note": "Original album browsing against the disposable fixture"
+    },
+    {
+      "id": "jellyfin-current-album-detail",
+      "fixture": "jellyfin-current",
+      "file": "jellyfin-current-album-detail.png",
+      "sha256": "dd7c6d83dbf18069d85eed1b219cd28ed5eb5a9ecbd23000c2407dd01fe7245f",
+      "domFile": "jellyfin-current-album-detail.txt",
+      "domSha256": "3578dca276edd76230b8bd42db5f8f17cdedf099af56c8a36ee97d571a57e1cb",
+      "route": "#/library/albums/a252f62608e3b4d1c2af866a99842ae4",
+      "note": "Original album detail and track list"
+    },
+    {
+      "id": "jellyfin-old-onboarding",
+      "fixture": "jellyfin-old",
+      "file": "jellyfin-old-onboarding.png",
+      "sha256": "146396d13bac7a44045fefdcf6376808f88d365e667471687ad118bc41ec2055",
+      "domFile": "jellyfin-old-onboarding.txt",
+      "domSha256": "bf44267a77a788dccece5688ec89cf99f7abf68b343a7746fff2bc7dfddd356b",
+      "route": "#/action-required",
+      "note": "Fresh isolated original profile; credentials have not been entered"
+    },
+    {
+      "id": "jellyfin-old-home",
+      "fixture": "jellyfin-old",
+      "file": "jellyfin-old-home.png",
+      "sha256": "e0ac5ab0b5ae2ea287475c5dd18d902944684fd4b85c1ae24e45365f4e8626dc",
+      "domFile": "jellyfin-old-home.txt",
+      "domSha256": "bf52280661457b216cef3f18f30204f81638438ad20b34f6a2f560d06da512f6",
+      "route": "#/",
+      "note": "Authenticated home, actual disposable service responses; release notes dismissed through UI"
+    },
+    {
+      "id": "jellyfin-old-tracks",
+      "fixture": "jellyfin-old",
+      "file": "jellyfin-old-tracks.png",
+      "sha256": "7e41cfc00fa76e17c5b40a4e97660dd349469569528dd72583db76a2cf7fbecd",
+      "domFile": "jellyfin-old-tracks.txt",
+      "domSha256": "b32ea8b5fd379b07cf57616cbc917283e2e893ea27c883844b3ca31baa8e8f61",
+      "route": "#/library/songs",
+      "note": "Two owned tones in the original virtualized track table"
+    },
+    {
+      "id": "jellyfin-old-albums",
+      "fixture": "jellyfin-old",
+      "file": "jellyfin-old-albums.png",
+      "sha256": "e963c4421f53af7c26beb9e3fff3e14f2f364011f5f3c6028cdd095096a6bf79",
+      "domFile": "jellyfin-old-albums.txt",
+      "domSha256": "537929ae42eef0bb2e6be4bfdd936e162a22dd07fb0e5a71d02bb583e41a32f9",
+      "route": "#/library/albums",
+      "note": "Original album browsing against the disposable fixture"
+    },
+    {
+      "id": "jellyfin-old-album-detail",
+      "fixture": "jellyfin-old",
+      "file": "jellyfin-old-album-detail.png",
+      "sha256": "dd7c6d83dbf18069d85eed1b219cd28ed5eb5a9ecbd23000c2407dd01fe7245f",
+      "domFile": "jellyfin-old-album-detail.txt",
+      "domSha256": "3578dca276edd76230b8bd42db5f8f17cdedf099af56c8a36ee97d571a57e1cb",
+      "route": "#/library/albums/a252f62608e3b4d1c2af866a99842ae4",
+      "note": "Original album detail and track list"
+    }
+  ],
+  "operations": [
+    {
+      "fixture": "navidrome-current",
+      "id": "login",
+      "status": "observed",
+      "observed": {
+        "route": "#/",
+        "loginUi": true
+      }
+    },
+    {
+      "fixture": "navidrome-current",
+      "id": "tracks",
+      "status": "observed",
+      "observed": {
+        "visibleTrackNames": [
+          "P00 Tone A",
+          "P00 Tone B"
+        ]
+      }
+    },
+    {
+      "fixture": "navidrome-current",
+      "id": "albums",
+      "status": "observed",
+      "observed": {
+        "album": "Fixture Album"
+      }
+    },
+    {
+      "fixture": "navidrome-current",
+      "id": "artists",
+      "status": "observed",
+      "observed": {
+        "route": "/library/album-artists"
+      }
+    },
+    {
+      "fixture": "navidrome-current",
+      "id": "genres",
+      "status": "observed",
+      "observed": {
+        "route": "/library/genres"
+      }
+    },
+    {
+      "fixture": "navidrome-current",
+      "id": "favorites",
+      "status": "observed",
+      "observed": {
+        "route": "/favorites"
+      }
+    },
+    {
+      "fixture": "navidrome-current",
+      "id": "playlists",
+      "status": "observed",
+      "observed": {
+        "route": "/playlists"
+      }
+    },
+    {
+      "fixture": "navidrome-current",
+      "id": "radio",
+      "status": "observed",
+      "observed": {
+        "route": "/radio"
+      }
+    },
+    {
+      "fixture": "navidrome-current",
+      "id": "keyboard-selection-and-duplicate-queue",
+      "status": "observed",
+      "observed": {
+        "selectedText": [
+          "2",
+          "P00 Tone BFixture Artist",
+          "0:04",
+          "Fixture Album",
+          "",
+          " ",
+          ""
+        ],
+        "occurrences": 3,
+        "distinctOccurrenceIds": 3,
+        "repeatedSongId": true
+      }
+    },
+    {
+      "fixture": "navidrome-current",
+      "id": "drag-queue-reorder",
+      "status": "observed",
+      "observed": {
+        "beforeIds": [
+          "t5QZ48EuUvJRVqJCY2ttS",
+          "oDsvcUCVE_HEhAcMK0xIo",
+          "5cuw2-Do_oggaNzNqrfFr"
+        ],
+        "afterIds": [
+          "5cuw2-Do_oggaNzNqrfFr",
+          "t5QZ48EuUvJRVqJCY2ttS",
+          "oDsvcUCVE_HEhAcMK0xIo"
+        ],
+        "movedId": "5cuw2-Do_oggaNzNqrfFr"
+      }
+    },
+    {
+      "fixture": "navidrome-current",
+      "id": "queue-reload",
+      "status": "observed",
+      "observed": {
+        "beforeIds": [
+          "5cuw2-Do_oggaNzNqrfFr",
+          "t5QZ48EuUvJRVqJCY2ttS",
+          "oDsvcUCVE_HEhAcMK0xIo"
+        ],
+        "afterIds": [
+          "5cuw2-Do_oggaNzNqrfFr",
+          "t5QZ48EuUvJRVqJCY2ttS",
+          "oDsvcUCVE_HEhAcMK0xIo"
+        ],
+        "restored": true
+      }
+    },
+    {
+      "fixture": "navidrome-current",
+      "id": "browser-playback-and-space-pause",
+      "status": "observed",
+      "observed": {
+        "before": [
+          {
+            "currentTimeSec": 0.25542,
+            "durationSec": 3,
+            "paused": false,
+            "readyState": 4
+          },
+          {
+            "currentTimeSec": 0,
+            "durationSec": 4,
+            "paused": true,
+            "readyState": 4
+          }
+        ],
+        "after": [
+          {
+            "currentTimeSec": 0.626939,
+            "durationSec": 3,
+            "ended": false,
+            "paused": true
+          },
+          {
+            "currentTimeSec": 0,
+            "durationSec": 4,
+            "ended": false,
+            "paused": true
+          }
+        ],
+        "pausedButton": true
+      }
+    },
+    {
+      "fixture": "navidrome-current",
+      "id": "settings-export-import-reload",
+      "status": "observed",
+      "observed": {
+        "version": 34,
+        "downloadedFile": "navidrome-current-settings-export.json",
+        "downloadedSha256": "9228a34bb7acc8cfe666802ae27c739b99d3909459104e2a0be9b15f741c20d0",
+        "derivedInput": {
+          "general": {
+            "resume": false
+          }
+        },
+        "appliedResume": false,
+        "reloadedResume": false,
+        "afterImportFile": "navidrome-current-settings-after-import.json",
+        "afterReloadFile": "navidrome-current-settings-after-reload.json",
+        "storageKeys": [
+          "store_settings"
+        ],
+        "currentVersionOnly": true
+      }
+    },
+    {
+      "fixture": "navidrome-old",
+      "id": "login",
+      "status": "observed",
+      "observed": {
+        "route": "#/",
+        "loginUi": true
+      }
+    },
+    {
+      "fixture": "navidrome-old",
+      "id": "tracks",
+      "status": "observed",
+      "observed": {
+        "visibleTrackNames": [
+          "P00 Tone A",
+          "P00 Tone B"
+        ]
+      }
+    },
+    {
+      "fixture": "navidrome-old",
+      "id": "albums",
+      "status": "observed",
+      "observed": {
+        "album": "Fixture Album"
+      }
+    },
+    {
+      "fixture": "gonic-current",
+      "id": "login",
+      "status": "observed",
+      "observed": {
+        "route": "#/",
+        "loginUi": true
+      }
+    },
+    {
+      "fixture": "gonic-current",
+      "id": "tracks",
+      "status": "observed",
+      "observed": {
+        "visibleTrackNames": [
+          "P00 Tone A",
+          "P00 Tone B"
+        ]
+      }
+    },
+    {
+      "fixture": "gonic-current",
+      "id": "albums",
+      "status": "observed",
+      "observed": {
+        "album": "Fixture Album"
+      }
+    },
+    {
+      "fixture": "gonic-old",
+      "id": "login",
+      "status": "observed",
+      "observed": {
+        "route": "#/",
+        "loginUi": true
+      }
+    },
+    {
+      "fixture": "gonic-old",
+      "id": "tracks",
+      "status": "observed",
+      "observed": {
+        "visibleTrackNames": [
+          "P00 Tone A",
+          "P00 Tone B"
+        ]
+      }
+    },
+    {
+      "fixture": "gonic-old",
+      "id": "albums",
+      "status": "observed",
+      "observed": {
+        "album": "Fixture Album"
+      }
+    },
+    {
+      "fixture": "jellyfin-current",
+      "id": "login",
+      "status": "observed",
+      "observed": {
+        "route": "#/",
+        "loginUi": true
+      }
+    },
+    {
+      "fixture": "jellyfin-current",
+      "id": "tracks",
+      "status": "observed",
+      "observed": {
+        "visibleTrackNames": [
+          "P00 Tone A",
+          "P00 Tone B"
+        ]
+      }
+    },
+    {
+      "fixture": "jellyfin-current",
+      "id": "albums",
+      "status": "observed",
+      "observed": {
+        "album": "Fixture Album"
+      }
+    },
+    {
+      "fixture": "jellyfin-old",
+      "id": "login",
+      "status": "observed",
+      "observed": {
+        "route": "#/",
+        "loginUi": true
+      }
+    },
+    {
+      "fixture": "jellyfin-old",
+      "id": "tracks",
+      "status": "observed",
+      "observed": {
+        "visibleTrackNames": [
+          "P00 Tone A",
+          "P00 Tone B"
+        ]
+      }
+    },
+    {
+      "fixture": "jellyfin-old",
+      "id": "albums",
+      "status": "observed",
+      "observed": {
+        "album": "Fixture Album"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/auth/login",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getUser.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "username",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/ping.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/ping.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getOpenSubsonicExtensions.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/jukeboxControl.view",
+      "queryKeys": [
+        "action",
+        "c",
+        "f",
+        "v"
+      ],
+      "status": 501
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/album",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "missing"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/tag",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "tag_name"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/album",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "missing"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/album",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "missing"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/album",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "missing"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/album",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "missing"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/album",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "missing"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/playlist",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/playlist",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/song",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "missing"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/artist",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "missing",
+        "role"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/tag",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/album",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "missing"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/tag",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/tag",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "tag_name"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/album/5pRJuHR2Ib33o0cuYv8dZp",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/song",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "album_id",
+        "missing"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/album",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "artist_id",
+        "missing"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "artists",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/artist",
+      "queryKeys": [
+        "_end",
+        "_sort",
+        "_start",
+        "missing",
+        "role"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "artists",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "genres",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/tag",
+      "queryKeys": [
+        "_end",
+        "_sort",
+        "_start",
+        "tag_name"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "genres",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/tag",
+      "queryKeys": [
+        "_end",
+        "_sort",
+        "_start",
+        "tag_name"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "favorites",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/song",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "missing",
+        "starred"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "playlists",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/playlist",
+      "queryKeys": [
+        "_end",
+        "_sort",
+        "_start"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "playlists",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/playlist",
+      "queryKeys": [
+        "_end",
+        "_sort",
+        "_start"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "radio",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/radio",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "keyboard-selection-and-duplicate-queue",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "keyboard-selection-and-duplicate-queue",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "keyboard-selection-and-duplicate-queue",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "keyboard-selection-and-duplicate-queue",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "keyboard-selection-and-duplicate-queue",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/playlist",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "smart"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "keyboard-selection-and-duplicate-queue",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getTranscodeDecision.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "mediaId",
+        "mediaType",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "keyboard-selection-and-duplicate-queue",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/stream.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "v"
+      ],
+      "status": 206
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "keyboard-selection-and-duplicate-queue",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "keyboard-selection-and-duplicate-queue",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "keyboard-selection-and-duplicate-queue",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "keyboard-selection-and-duplicate-queue",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "keyboard-selection-and-duplicate-queue",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "drag-queue-reorder",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "drag-queue-reorder",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getTranscodeDecision.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "mediaId",
+        "mediaType",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "drag-queue-reorder",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "drag-queue-reorder",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "drag-queue-reorder",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/stream.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "v"
+      ],
+      "status": 206
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "queue-reload",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getTranscodeDecision.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "mediaId",
+        "mediaType",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "queue-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/stream.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "v"
+      ],
+      "status": 206
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "queue-reload",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getUser.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "queue-reload",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/ping.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "queue-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/stream.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "v"
+      ],
+      "status": 206
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "queue-reload",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/ping.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "queue-reload",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getOpenSubsonicExtensions.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "queue-reload",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/jukeboxControl.view",
+      "queryKeys": [],
+      "status": 501
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "queue-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/stream.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "v"
+      ],
+      "status": 206
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "queue-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "queue-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "queue-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "queue-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/song",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "missing"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "queue-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/playlist",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "queue-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/artist",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "missing",
+        "role"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "queue-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "queue-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "queue-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/tag",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "browser-playback-and-space-pause",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/tag",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "tag_name"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "browser-playback-and-space-pause",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getTranscodeDecision.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "mediaId",
+        "mediaType",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "browser-playback-and-space-pause",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "browser-playback-and-space-pause",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "browser-playback-and-space-pause",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/song/LxuW6lJwQ0it4Aeykz0hHz",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "browser-playback-and-space-pause",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "browser-playback-and-space-pause",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "browser-playback-and-space-pause",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/stream.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "v"
+      ],
+      "status": 206
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "browser-playback-and-space-pause",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "browser-playback-and-space-pause",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getLyricsBySongId.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "settings-export-import-reload",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getRandomSongs.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "settings-export-import-reload",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getTranscodeDecision.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "mediaId",
+        "mediaType",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "settings-export-import-reload",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getTranscodeDecision.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "mediaId",
+        "mediaType",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "settings-export-import-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/song/LxuW6lJwQ0it4Aeykz0hHz",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "settings-export-import-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/stream.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "v"
+      ],
+      "status": 206
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "settings-export-import-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/stream.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "v"
+      ],
+      "status": 206
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "settings-export-import-reload",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getUser.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "settings-export-import-reload",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/ping.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "settings-export-import-reload",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/ping.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "settings-export-import-reload",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getOpenSubsonicExtensions.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "settings-export-import-reload",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/jukeboxControl.view",
+      "queryKeys": [],
+      "status": 501
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "settings-export-import-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/stream.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "v"
+      ],
+      "status": 206
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "settings-export-import-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/stream.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "v"
+      ],
+      "status": 206
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "settings-export-import-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "settings-export-import-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "settings-export-import-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-current",
+      "operation": "settings-export-import-reload",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14533",
+      "path": "/api/playlist",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/auth/login",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/rest/getUser.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "username",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/rest/ping.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/rest/ping.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/api/album",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/rest/getGenres.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/api/album",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/api/album",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/api/album",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/api/album",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/api/playlist",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/api/album",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/api/playlist",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/api/song",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/api/artist",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "role"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/api/album",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/rest/getGenres.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/api/album/5c6259445dd7f5b07b17eba6f7c5d83e",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/api/song",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "album_id"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/api/album",
+      "queryKeys": [
+        "_end",
+        "_order",
+        "_sort",
+        "_start",
+        "artist_id"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "navidrome-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14534",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getUser.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "username",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getUser.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "username",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/ping.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getOpenSubsonicExtensions.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/jukeboxControl.view",
+      "queryKeys": [
+        "action",
+        "c",
+        "f",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "login",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getAlbumList2.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "login",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getGenres.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "login",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getAlbumList2.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "login",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getAlbumList2.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "login",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getAlbumList2.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "login",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getPlaylists.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "login",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getAlbumList2.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "login",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getAlbumList2.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "login",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getPlaylists.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "tracks",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/search3.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "tracks",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/search3.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "tracks",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/search3.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "tracks",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/search3.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "tracks",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getGenres.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "tracks",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getArtists.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "albums",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getAlbumList2.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "albums",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getGenres.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "albums",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getAlbumList2.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "albums",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getAlbum.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "albums",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getAlbumList2.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-current",
+      "operation": "albums",
+      "method": "POST",
+      "origin": "http://127.0.0.1:14747",
+      "path": "/rest/getArtist.view",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getUser.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "username",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getUser.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "username",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/ping.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getAlbumList2.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "offset",
+        "size",
+        "type",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getGenres.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getAlbumList2.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "offset",
+        "size",
+        "type",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getAlbumList2.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "offset",
+        "size",
+        "type",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getAlbumList2.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "fromYear",
+        "offset",
+        "size",
+        "toYear",
+        "type",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getAlbumList2.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "offset",
+        "size",
+        "type",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getAlbumList2.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "offset",
+        "size",
+        "type",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getPlaylists.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getPlaylists.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/search3.view",
+      "queryKeys": [
+        "albumCount",
+        "albumOffset",
+        "artistCount",
+        "artistOffset",
+        "c",
+        "f",
+        "query",
+        "songCount",
+        "songOffset",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/search3.view",
+      "queryKeys": [
+        "albumCount",
+        "albumOffset",
+        "artistCount",
+        "artistOffset",
+        "c",
+        "f",
+        "query",
+        "songCount",
+        "songOffset",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/search3.view",
+      "queryKeys": [
+        "albumCount",
+        "albumOffset",
+        "artistCount",
+        "artistOffset",
+        "c",
+        "f",
+        "query",
+        "songCount",
+        "songOffset",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getGenres.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/search3.view",
+      "queryKeys": [
+        "albumCount",
+        "albumOffset",
+        "artistCount",
+        "artistOffset",
+        "c",
+        "f",
+        "query",
+        "songCount",
+        "songOffset",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getArtists.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getAlbumList2.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "offset",
+        "size",
+        "type",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getCoverArt.view",
+      "queryKeys": [
+        "c",
+        "id",
+        "size",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getGenres.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getAlbumList2.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "offset",
+        "size",
+        "type",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getAlbum.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "id",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getAlbumList2.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "genre",
+        "offset",
+        "size",
+        "type",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "gonic-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:14748",
+      "path": "/rest/getArtist.view",
+      "queryKeys": [
+        "c",
+        "f",
+        "id",
+        "v"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "login",
+      "method": "POST",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/users/authenticatebyname",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/users/8b93b19f89714ded9e0e2716a321f144",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/system/info",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/users/8b93b19f89714ded9e0e2716a321f144/items",
+      "queryKeys": [
+        "Fields",
+        "IncludeItemTypes",
+        "Limit",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/musicgenres",
+      "queryKeys": [
+        "EnableTotalRecordCount",
+        "Fields",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex",
+        "UserId"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/users/8b93b19f89714ded9e0e2716a321f144/items",
+      "queryKeys": [
+        "Fields",
+        "IncludeItemTypes",
+        "Limit",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/users/8b93b19f89714ded9e0e2716a321f144/items",
+      "queryKeys": [
+        "Fields",
+        "IncludeItemTypes",
+        "Limit",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/users/8b93b19f89714ded9e0e2716a321f144/items",
+      "queryKeys": [
+        "Fields",
+        "IncludeItemTypes",
+        "Limit",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/users/8b93b19f89714ded9e0e2716a321f144/items",
+      "queryKeys": [
+        "Fields",
+        "IncludeItemTypes",
+        "Limit",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/users/8b93b19f89714ded9e0e2716a321f144/items",
+      "queryKeys": [
+        "Fields",
+        "IncludeItemTypes",
+        "Limit",
+        "MediaTypes",
+        "Recursive",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/users/8b93b19f89714ded9e0e2716a321f144/items",
+      "queryKeys": [
+        "Fields",
+        "IncludeItemTypes",
+        "Limit",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/users/8b93b19f89714ded9e0e2716a321f144/items",
+      "queryKeys": [
+        "Fields",
+        "IncludeItemTypes",
+        "MediaTypes",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/users/8b93b19f89714ded9e0e2716a321f144/items",
+      "queryKeys": [
+        "Fields",
+        "IncludeItemTypes",
+        "Limit",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/artists/albumArtists",
+      "queryKeys": [
+        "Fields",
+        "ImageTypeLimit",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex",
+        "UserId"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/items/filters",
+      "queryKeys": [
+        "IncludeItemTypes",
+        "UserId"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/studios",
+      "queryKeys": [
+        "EnableTotalRecordCount",
+        "IncludeItemTypes"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/users/8b93b19f89714ded9e0e2716a321f144/items",
+      "queryKeys": [
+        "Fields",
+        "IncludeItemTypes",
+        "Limit",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/items/filters",
+      "queryKeys": [
+        "IncludeItemTypes",
+        "UserId"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/studios",
+      "queryKeys": [
+        "EnableTotalRecordCount",
+        "IncludeItemTypes"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/musicgenres",
+      "queryKeys": [
+        "EnableTotalRecordCount",
+        "Fields",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex",
+        "UserId"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/Items/ed761ca3fc3b7d1f16f380ccc9df66c4/Images/Primary",
+      "queryKeys": [
+        "quality",
+        "width"
+      ],
+      "status": 404
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/users/8b93b19f89714ded9e0e2716a321f144/items/a252f62608e3b4d1c2af866a99842ae4",
+      "queryKeys": [
+        "Fields"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/users/8b93b19f89714ded9e0e2716a321f144/items",
+      "queryKeys": [
+        "EnableUserData",
+        "Fields",
+        "IncludeItemTypes",
+        "ParentId",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex",
+        "UserId"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-current",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18096",
+      "path": "/users/8b93b19f89714ded9e0e2716a321f144/items",
+      "queryKeys": [
+        "ArtistIds",
+        "Fields",
+        "IncludeItemTypes",
+        "Limit",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "login",
+      "method": "POST",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/users/authenticatebyname",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/users/2473845e9718461792189f4d14b6f40f",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/system/info",
+      "queryKeys": [],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/users/2473845e9718461792189f4d14b6f40f/items",
+      "queryKeys": [
+        "Fields",
+        "IncludeItemTypes",
+        "Limit",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/musicgenres",
+      "queryKeys": [
+        "EnableTotalRecordCount",
+        "Fields",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex",
+        "UserId"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/users/2473845e9718461792189f4d14b6f40f/items",
+      "queryKeys": [
+        "Fields",
+        "IncludeItemTypes",
+        "Limit",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/users/2473845e9718461792189f4d14b6f40f/items",
+      "queryKeys": [
+        "Fields",
+        "IncludeItemTypes",
+        "Limit",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/users/2473845e9718461792189f4d14b6f40f/items",
+      "queryKeys": [
+        "Fields",
+        "IncludeItemTypes",
+        "Limit",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/users/2473845e9718461792189f4d14b6f40f/items",
+      "queryKeys": [
+        "Fields",
+        "IncludeItemTypes",
+        "Limit",
+        "MediaTypes",
+        "Recursive",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/users/2473845e9718461792189f4d14b6f40f/items",
+      "queryKeys": [
+        "Fields",
+        "IncludeItemTypes",
+        "Limit",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/users/2473845e9718461792189f4d14b6f40f/items",
+      "queryKeys": [
+        "Fields",
+        "IncludeItemTypes",
+        "Limit",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "login",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/users/2473845e9718461792189f4d14b6f40f/items",
+      "queryKeys": [
+        "Fields",
+        "IncludeItemTypes",
+        "MediaTypes",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/users/2473845e9718461792189f4d14b6f40f/items",
+      "queryKeys": [
+        "Fields",
+        "IncludeItemTypes",
+        "Limit",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/artists/albumArtists",
+      "queryKeys": [
+        "Fields",
+        "ImageTypeLimit",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex",
+        "UserId"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/items/filters",
+      "queryKeys": [
+        "IncludeItemTypes",
+        "UserId"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/studios",
+      "queryKeys": [
+        "EnableTotalRecordCount",
+        "IncludeItemTypes"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/musicgenres",
+      "queryKeys": [
+        "EnableTotalRecordCount",
+        "Fields",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex",
+        "UserId"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "tracks",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/Items/43f160cf84a3a6dcdb92ac8a74ebab60/Images/Primary",
+      "queryKeys": [
+        "quality",
+        "width"
+      ],
+      "status": 404
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/users/2473845e9718461792189f4d14b6f40f/items",
+      "queryKeys": [
+        "Fields",
+        "IncludeItemTypes",
+        "Limit",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/items/filters",
+      "queryKeys": [
+        "IncludeItemTypes",
+        "UserId"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/studios",
+      "queryKeys": [
+        "EnableTotalRecordCount",
+        "IncludeItemTypes"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/Items/43f160cf84a3a6dcdb92ac8a74ebab60/Images/Primary",
+      "queryKeys": [
+        "quality",
+        "width"
+      ],
+      "status": 404
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/users/2473845e9718461792189f4d14b6f40f/items/a252f62608e3b4d1c2af866a99842ae4",
+      "queryKeys": [
+        "Fields"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/users/2473845e9718461792189f4d14b6f40f/items",
+      "queryKeys": [
+        "EnableUserData",
+        "Fields",
+        "IncludeItemTypes",
+        "ParentId",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex",
+        "UserId"
+      ],
+      "status": 200
+    },
+    {
+      "fixture": "jellyfin-old",
+      "operation": "albums",
+      "method": "GET",
+      "origin": "http://127.0.0.1:18097",
+      "path": "/users/2473845e9718461792189f4d14b6f40f/items",
+      "queryKeys": [
+        "ArtistIds",
+        "Fields",
+        "IncludeItemTypes",
+        "Limit",
+        "Recursive",
+        "SortBy",
+        "SortOrder",
+        "StartIndex"
+      ],
+      "status": 200
+    }
+  ],
+  "servedAssets": {
+    "/": {
+      "sha256": "d79219990f3b807cf8f55d323a466afc948e45bc9eceb0451703b0aa414fd902",
+      "bytes": 1675
+    },
+    "/settings.js": {
+      "sha256": "2d2e7d9964625e14e0a978052246e4ac4218be49e762d156f1681fa859eff689",
+      "bytes": 34
+    },
+    "/assets/32x32-DY25J4OV.js": {
+      "sha256": "af85e36c0d9e7da989349661b46c33f03bb5a312c30d7ea6573077ff23121894",
+      "bytes": 112
+    },
+    "/assets/index-C7r0ATTu.css": {
+      "sha256": "a638bc8c4656d5a3269c4310bc42fb64e38e9b3423b45a183ceeb30375f83cdb",
+      "bytes": 417149
+    },
+    "/assets/index-BYyETnjn.js": {
+      "sha256": "18882ed6f1355f8611dce5414171ab174dcd22c5e97883d94bb5d489fc42ca18",
+      "bytes": 5232964
+    },
+    "/assets/update-available-dialog-Cb3g5iAX.css": {
+      "sha256": "632eccfeab7ea1630afdb0af776c061e6f6f85c5c2f9994070db765bba73905d",
+      "bytes": 186
+    },
+    "/assets/action-required-route-CDTinbIz.css": {
+      "sha256": "3b5facacc9f5a698530640fdd27fa881e74601c4077842c84358a16304b37984",
+      "bytes": 922
+    },
+    "/assets/animated-page-CHoGoDwx.css": {
+      "sha256": "4491c872b0b90d5e8c88b3fe4e4bf86940eb412ea65cabd16b49288d58c89e74",
+      "bytes": 159
+    },
+    "/assets/memoize-one.esm-DhmFm5Lm.js": {
+      "sha256": "8b11af3d6fad2f62f51ec993792a8f5fc72d6d364d633d6b56ad82978b547c9d",
+      "bytes": 603
+    },
+    "/assets/update-available-dialog-CGDtZnyq.js": {
+      "sha256": "4286253a3a7584a8ebd992d35a96ae6597c6628445d8b818dbc9b56e59a1ac9c",
+      "bytes": 4264
+    },
+    "/assets/index-D7-5gAXm.js": {
+      "sha256": "41b9da89c875e55e2d97cdb841d23d4310e3fdf7bffd7ae8f86b16ee5e839d71",
+      "bytes": 27643
+    },
+    "/assets/page-error-boundary-BUu-kDEF.js": {
+      "sha256": "7ef6bd62fe90bdbbccbd837b843829f38304055c8dcfda70ce15758786e803af",
+      "bytes": 2011
+    },
+    "/assets/action-required-route-b40UvW9Y.js": {
+      "sha256": "de31aee875648f16eaf71e3d74a16d9365714eb497b8ffc9316317b5318b8f5c",
+      "bytes": 5561
+    },
+    "/assets/animated-page--6x4KUgz.js": {
+      "sha256": "6d68d28be012c8285a64e28f1c362313e9713d6bd16b4bfed58ec17aac68d1f6",
+      "bytes": 516
+    },
+    "/assets/login-route-QX1_SUpA.js": {
+      "sha256": "9fa791c04bbb0ea2bcd82b3067d65316897efad7cddfdf7c100181ef40d4e65e",
+      "bytes": 4512
+    },
+    "/assets/Inter-VariableFont_opsz_wght-FIwubZjA.woff2": {
+      "sha256": "ac833b693ccac9a61a37aac1c723afb038d27a1381aaaa12d34bcf38d22fe276",
+      "bytes": 349424
+    },
+    "/assets/FilePlayer-G0uXd0mb.js": {
+      "sha256": "86317404163f7207715c50c877d0ff38189affb76f168d98d9b7e4c28c479fd5",
+      "bytes": 9187
+    },
+    "/assets/sidebar-B_qA1kYb.js": {
+      "sha256": "94b30c42a30447c45f8d8881f507f4bd94a688081af989b26afaafef13a3a2ae",
+      "bytes": 8133
+    },
+    "/assets/query-params-CkyUZxmC.js": {
+      "sha256": "7fa2654726368044077274222221870c63610bcc50e21d7245f8db96deaed328",
+      "bytes": 1620
+    },
+    "/assets/sidebar-collection-list-DsOiM6hk.js": {
+      "sha256": "efe385b54b483e57351f1cfb26dcb7f9783da2f7b24b376f0808025c4e183cdc",
+      "bytes": 5342
+    },
+    "/assets/native-scroll-area-xCwy57Lf.css": {
+      "sha256": "c94c2c9cdb93dc8b75037a5c0fe39658442622bccbec66a6691e140db4dedf09",
+      "bytes": 2229
+    },
+    "/assets/library-header-CRDHNpXh.css": {
+      "sha256": "f46ce6b2b0d76dbeb43a3122a2e6d09e56ef5753ce84fd5d2fd48f1842103562",
+      "bytes": 4414
+    },
+    "/assets/sidebar-collection-list-Brm02Fdo.css": {
+      "sha256": "7462b63af26a3e1fa2a6250b519eacafea63af12ea53fa8b64c30b1d920a4bf6",
+      "bytes": 2034
+    },
+    "/assets/item-card-controls-Cmzto3XR.css": {
+      "sha256": "05dd347bcbf1b04eecfd8d965f7a8fbc945aa5895c2abb0f65414a572b0e5c48",
+      "bytes": 2537
+    },
+    "/assets/sidebar-c52ctm8r.css": {
+      "sha256": "add54ea38bb7754107ef8915ea1808901d4d6a5eae2d703adc916f41d6f8499e",
+      "bytes": 1461
+    },
+    "/assets/use-grid-rows-DYYIOMVB.css": {
+      "sha256": "b7763a565e7b63be839c54bde79541760e12ed2b62cf2dbdf3f86ac324115cfc",
+      "bytes": 4551
+    },
+    "/assets/use-grid-rows-jf2PaWrg.js": {
+      "sha256": "14c9086099646212e2a585ccc8e4b9a55e27870fa38f0c140037079adf2476da",
+      "bytes": 27449
+    },
+    "/assets/home-route-Cot6ZoIm.css": {
+      "sha256": "2727dbb3befbbf2548aa284973b73b08ef0d039a261ff0cedce3e01f722101d6",
+      "bytes": 10488
+    },
+    "/assets/use-container-query-2KTtRs7l.js": {
+      "sha256": "5d8ce5d787cdace878ee9dd7e0e4d5ca21a31f84246f8d2a6381396d7478089f",
+      "bytes": 844
+    },
+    "/assets/native-scroll-area-CPNdy6hK.js": {
+      "sha256": "b208cc366c53c04d0ab275ed13a0fc6f9da912f588ba13f9a9cfbff5b965c5c3",
+      "bytes": 8847
+    },
+    "/assets/item-card-controls-DP0NaejS.js": {
+      "sha256": "d5624429ac7ce66d214118eaf651638af1b62f9120e19485f7e6c74aec2ff0ab",
+      "bytes": 6731
+    },
+    "/assets/home-route-BwLf29Q-.js": {
+      "sha256": "9f17bcb970998b4824ffa14f8dbfdbd30b68d8272cbf8cf1ffcae6b40ff55c20",
+      "bytes": 28491
+    },
+    "/assets/use-element-size-D_oXzB0G.js": {
+      "sha256": "8da028c8f116052540f8fa743b26bd305d7965988b6f2dfe404e11d6191c01a9",
+      "bytes": 121
+    },
+    "/assets/album-infinite-carousel-E6N0VmZ6.js": {
+      "sha256": "84731ed3bb6a951e09a47bfdb0eb34450d23a7aa7e33c05a01d4d94c61a92fa9",
+      "bytes": 2950
+    },
+    "/assets/library-header-DRgZg9pd.js": {
+      "sha256": "8433467e7d6d3eb4e4884694730a1a12335517ded239189feea71cef17152c7d",
+      "bytes": 7438
+    },
+    "/assets/list-filters-DB2rWZuV.css": {
+      "sha256": "ad29dca1364d53331afc6affe98d863ec612c28bd54d9f34f5b2f065b81bfc59",
+      "bytes": 2169
+    },
+    "/assets/filter-bar-BYuogx1J.css": {
+      "sha256": "a9ff0a669ab34eefd8ffef9f828109646e828bf981c7851976cbb993690951b9",
+      "bytes": 127
+    },
+    "/assets/list-with-sidebar-container-DRTf7Ha7.css": {
+      "sha256": "d4f6788d05d36bf06bb4d195cb6f3d2b9ac91a46e94adcfc36b28871336e724a",
+      "bytes": 920
+    },
+    "/assets/song-list-route-pBqPLPjH.js": {
+      "sha256": "09244d98e375449fdcbcfc0d19b9b25eea92b40343d2a619e0d2df1789410e3d",
+      "bytes": 4412
+    },
+    "/assets/list-with-sidebar-container-CmWYF1ov.js": {
+      "sha256": "9e82c9cddebf42f5705618b1b7199c92b4a4d4d8cf6d1ef88ebe072f062d1bf6",
+      "bytes": 2000
+    },
+    "/assets/song-list-content-DoPw49EL.js": {
+      "sha256": "af00535178b409dd4e8fb19f46c7f0a423c115ffc759c151e7439518a02c4a56",
+      "bytes": 5828
+    },
+    "/assets/filter-bar-CdsTdCYC.js": {
+      "sha256": "565ce47dc844348fcf43ffa41a30ba8f1cbe1c34a37588fecce1305d3fb87998",
+      "bytes": 883
+    },
+    "/assets/use-is-fetching-item-list-VXVEphJM.js": {
+      "sha256": "020955d0e9ea0dfbd30cae55e3c3fdb6f2240b2d2ee1295248cd4d573cb5465a",
+      "bytes": 344
+    },
+    "/assets/use-sort-order-filter-Cw0u4DDg.js": {
+      "sha256": "ab6aa721e028176088c2a30e3f8b2c5f2cfafddff37559549315018f2b955f19",
+      "bytes": 1763
+    },
+    "/assets/list-search-input-JZn5XpNo.js": {
+      "sha256": "9f1a91fffe2993b1a55556673e3c3a5ee1021891f87b99087b5bc71a4bee21ca",
+      "bytes": 641
+    },
+    "/assets/song-list-header-filters-fqjAWuhn.js": {
+      "sha256": "aacec5ffd39b4045d44d08006a958cbe0413ef44345a6021133fabd4fc811911",
+      "bytes": 2335
+    },
+    "/assets/list-filters-Ca3Q3K-D.js": {
+      "sha256": "9dbaeb381d7948729b87e7b53cf5d7b5ac7fceb2bd3c08265ecc96b49110c0bf",
+      "bytes": 66305
+    },
+    "/assets/list-display-type-toggle-button-Dk7Y8J0h.js": {
+      "sha256": "35e510bab52879f42fa16d7561d9f64ec45b53e5b1ac66e99b6a5dabaa1239d1",
+      "bytes": 1319
+    },
+    "/assets/list-sort-order-toggle-button-Cxvj0uW7.js": {
+      "sha256": "9cbd2b8ea77b94cc603365a7b5f4d6c3d3a7ea685f38a8682f044f36c6f2c7ff",
+      "bytes": 14171
+    },
+    "/assets/song-list-paginated-table-DURybHg-.js": {
+      "sha256": "17677ff4e90bb9b63008052a993c2245e78f29d94c790006130e6533641f50bc",
+      "bytes": 2828
+    },
+    "/assets/item-list-paginated-loader-C27jrLBV.js": {
+      "sha256": "ea000319e37a58a6097c2b432cda4a534974e6eefb31c6ca428740751602bc8d",
+      "bytes": 2116
+    },
+    "/assets/item-list-pagination-CUVxrPuY.css": {
+      "sha256": "8d16511189586629902e79ee3664f71bd8b4ce7af66bfe3270fe0f5838aeafa9",
+      "bytes": 1183
+    },
+    "/assets/use-item-list-scroll-persist-Ca-QCHoE.js": {
+      "sha256": "c92b2b18c5477675648e413dc088596b21445f531a3768140556be3b3c67e602",
+      "bytes": 623
+    },
+    "/assets/item-list-pagination-pZKc7je1.js": {
+      "sha256": "a0e5b28e37701a7eba75f57cd00723ee6c5e45d357d84e4889a83b38ddab25c9",
+      "bytes": 12328
+    },
+    "/assets/album-list-header-filters-B3NQmXsQ.js": {
+      "sha256": "61a8793911f1534bc4809ce7a90f995d0806d5a995a89c0c6b881a670892dcd6",
+      "bytes": 2622
+    },
+    "/assets/album-list-content-FkmDlvjf.js": {
+      "sha256": "1e51ec92d1b5be3449da0d9a82207d4139b805a11d033cd9ecde1d62095b97e5",
+      "bytes": 6890
+    },
+    "/assets/album-list-route-azRbCjF1.js": {
+      "sha256": "07b4b03d8d05b39b8ff9e512c8ab33264e2b80ee8d55fdf83db2c595f5560168",
+      "bytes": 4510
+    },
+    "/assets/album-list-infinite-grid-Ct0No3qU.js": {
+      "sha256": "6fd435bc56a512b203320c81a31c71fc631ef84a4f5b932b8de9a478f814eae7",
+      "bytes": 2045
+    },
+    "/assets/item-grid-list-DrVjOZnI.css": {
+      "sha256": "23034f81e3dcbef00bdbf9f17dc56a11475272a48b2fe56b4cc8a5e4c3c7b0bb",
+      "bytes": 1232
+    },
+    "/assets/item-grid-list-CTHcLuEX.js": {
+      "sha256": "08e1c0dbc24b737fa8f7689bfbfcb28b4c4c1b7953e8102b8c15ce65b2f3fde0",
+      "bytes": 24221
+    },
+    "/assets/album-detail-route-wxcJZnBj.css": {
+      "sha256": "1d3be7858b1cdc87caa7428d8edcf928667a0b5a6b622bde6d4deba13de2c00e",
+      "bytes": 2788
+    },
+    "/assets/pill-B8xuHdmV.css": {
+      "sha256": "9eed9937089131688645ac7a0e185b33b685ee1b7b0a66c9448be9a67306c68c",
+      "bytes": 1482
+    },
+    "/assets/pill-DZ1X18bT.js": {
+      "sha256": "e30be6db60671cfd6815ac6086b7e59d6296360ed5d3f9a9f7e7530ad79090c0",
+      "bytes": 2786
+    },
+    "/assets/album-detail-route-LRoLvGdF.js": {
+      "sha256": "1225162d4a66388223a35f2dc07a96d38f5a686c9b78e4abfdb9796863931e7c",
+      "bytes": 24551
+    },
+    "/assets/album-artist-list-route-Ds1GW90z.js": {
+      "sha256": "44baa9d6c2e1a56fda75e64a97e3292c32dbc98a47effdb36b707c3f48f819eb",
+      "bytes": 2574
+    },
+    "/assets/album-artist-list-content-CDoz7uqH.js": {
+      "sha256": "19737001e817760031797ac8d64b8df7200f911dbe3815a9ef75b9aeb573e0ff",
+      "bytes": 5812
+    },
+    "/assets/album-artist-list-header-filters-Gi3qynpB.js": {
+      "sha256": "7149208cb788bafc0d546d50e027c2e152a6ba8dba505c12ba6205c71d94413a",
+      "bytes": 957
+    },
+    "/assets/album-artist-list-infinite-grid-DmPBHUXU.js": {
+      "sha256": "b8fadacef4d2147f53c9a5c0c75dd74e314a60ca8b4f77be1bc7e7332e352a5f",
+      "bytes": 2039
+    },
+    "/assets/genre-list-route-HQAng9AU.js": {
+      "sha256": "eca534325f2c7581daac96b8e5b916c9e67f77f02f099f1a7d9e347f4ec59a49",
+      "bytes": 8291
+    },
+    "/assets/genre-list-infinite-table-B6dFCRji.js": {
+      "sha256": "38577e30dea2950ccc09e253287217ece84cc7257beac7ba88fabcdf60eade9e",
+      "bytes": 2550
+    },
+    "/assets/favorites-route-B6teIlTE.js": {
+      "sha256": "80f8ed9cd69e7130e5b2463c3de2f79fcaccd290bccea5ce1fbec0b50289cbd5",
+      "bytes": 8492
+    },
+    "/assets/playlist-list-route-DQA-LOMP.js": {
+      "sha256": "29f7300d3d7470bfafc01ed69858e7d71f2780c417646d39731d2262cbeb4dbb",
+      "bytes": 9218
+    },
+    "/assets/playlist-list-infinite-table-BJ03vKlB.js": {
+      "sha256": "daa977693f15e5c6a9720e14484937a2adcc6a3917fc26708906f48bcc095376",
+      "bytes": 2573
+    },
+    "/assets/radio-list-route-BuqIqrXV.css": {
+      "sha256": "8db7f74fb3acc0d84d141f88aa0129e56fd6672d942f3b929aff6d6e0e548d71",
+      "bytes": 1478
+    },
+    "/assets/file-button-Bh0Qmf2o.js": {
+      "sha256": "6806ec5047f48ea1cfe3b76e1280a3643d0ded86bd3f462f3cfa180d99fa5a88",
+      "bytes": 116
+    },
+    "/assets/radio-list-route-BA3BihPF.js": {
+      "sha256": "2ae1e6ae71a560079eb06c4fcca2d01c666086c0cf2ba55cf4e6f2e4edad9346",
+      "bytes": 17560
+    },
+    "/assets/visualizer-BLaxxEZ8.css": {
+      "sha256": "7ba61e7a148dd1116fcd9112e5d88418b2ee12e76844d4f5647c4cd1938877cd",
+      "bytes": 533
+    },
+    "/assets/open-visualizer-settings-modal-BEXlkh-7.js": {
+      "sha256": "fbf336558fd96e9334f34190816e219631b23ac4f096ebcb5cf83097886526ff",
+      "bytes": 475
+    },
+    "/assets/visualizer-CaegC-jM.js": {
+      "sha256": "1f2bad88d6edf2b1939b088120ed1c0b1013ca8060b6ecbfa166aee05534189d",
+      "bytes": 5157
+    },
+    "/assets/audioMotion-analyzer-BdcHGKNF.js": {
+      "sha256": "a5240a093d6b03dee6976fe109ac7154eba1ebf9669fdd047c46e221790e8601",
+      "bytes": 31147
+    },
+    "/assets/settings-route-CZZVpSyQ.js": {
+      "sha256": "deda82beb31d7400b4e9c77f58b8d9dd947d2f6484d1d207bf7132ea06396c3d",
+      "bytes": 816
+    }
+  },
+  "serverDiscovery": {
+    "navidrome-current": {
+      "protocolVersion": "1.16.1",
+      "serverVersion": "0.61.0 (c5bb920b)",
+      "openSubsonic": true
+    },
+    "navidrome-old": {
+      "protocolVersion": "1.16.1",
+      "serverVersion": "0.47.5 (86fe1e3b)",
+      "openSubsonic": false
+    },
+    "gonic-current": {
+      "protocolVersion": "1.15.0",
+      "serverVersion": "0.16.4",
+      "openSubsonic": true
+    },
+    "gonic-old": {
+      "protocolVersion": "1.15.0",
+      "serverVersion": null,
+      "openSubsonic": false
+    },
+    "jellyfin-current": {
+      "serverVersion": "10.10.7"
+    },
+    "jellyfin-old": {
+      "serverVersion": "10.8.13"
+    }
+  },
+  "externalRequestsBlocked": [
+    {
+      "fixture": "navidrome-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "navidrome-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "navidrome-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases"
+    },
+    {
+      "fixture": "navidrome-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/tags/v1.17.0"
+    },
+    {
+      "fixture": "navidrome-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases"
+    },
+    {
+      "fixture": "navidrome-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/tags/v1.17.0"
+    },
+    {
+      "fixture": "navidrome-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "navidrome-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "navidrome-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "navidrome-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "navidrome-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "navidrome-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "navidrome-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "navidrome-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "navidrome-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases"
+    },
+    {
+      "fixture": "navidrome-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/tags/v1.17.0"
+    },
+    {
+      "fixture": "navidrome-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases"
+    },
+    {
+      "fixture": "navidrome-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/tags/v1.17.0"
+    },
+    {
+      "fixture": "navidrome-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "gonic-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "gonic-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "gonic-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases"
+    },
+    {
+      "fixture": "gonic-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/tags/v1.17.0"
+    },
+    {
+      "fixture": "gonic-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases"
+    },
+    {
+      "fixture": "gonic-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/tags/v1.17.0"
+    },
+    {
+      "fixture": "gonic-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "gonic-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "gonic-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "gonic-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases"
+    },
+    {
+      "fixture": "gonic-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/tags/v1.17.0"
+    },
+    {
+      "fixture": "gonic-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases"
+    },
+    {
+      "fixture": "gonic-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/tags/v1.17.0"
+    },
+    {
+      "fixture": "gonic-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "jellyfin-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "jellyfin-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "jellyfin-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases"
+    },
+    {
+      "fixture": "jellyfin-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/tags/v1.17.0"
+    },
+    {
+      "fixture": "jellyfin-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases"
+    },
+    {
+      "fixture": "jellyfin-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/tags/v1.17.0"
+    },
+    {
+      "fixture": "jellyfin-current",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "jellyfin-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "jellyfin-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    },
+    {
+      "fixture": "jellyfin-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases"
+    },
+    {
+      "fixture": "jellyfin-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/tags/v1.17.0"
+    },
+    {
+      "fixture": "jellyfin-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases"
+    },
+    {
+      "fixture": "jellyfin-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/tags/v1.17.0"
+    },
+    {
+      "fixture": "jellyfin-old",
+      "origin": "https://api.github.com",
+      "path": "/repos/jeffvli/feishin/releases/latest"
+    }
+  ],
+  "pageErrors": [],
+  "environment": {
+    "playwright": "1.56.1",
+    "node": "v22.20.0",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "headless": true,
+    "browserServiceWorkers": "blocked",
+    "audioOutput": "browser default; physical output/loopback not observed",
+    "chromium": "141.0.7390.37"
+  },
+  "limitations": [
+    "Screenshots and DOM/input/network observations concern the original production web build, not Electron or Rust.",
+    "Disposable two-tone servers; no real library/profile. Only listed operations were executed.",
+    "Analytics disabled before first HTML script and nonloopback browser requests blocked.",
+    "No physical audio, hardware frame/input latency or desktop minimized/tray performance claim.",
+    "Private persistent profiles and original unredacted downloads remain outside tracked evidence."
+  ]
+}

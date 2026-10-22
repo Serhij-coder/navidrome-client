@@ -1,0 +1,224 @@
+- banner
+- complementary:
+  - img
+  - textbox "Search"
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - button "My Library" [expanded]:
+    - img
+    - text: My Library
+  - region "My Library":
+    - link "Home":
+      - /url: "#/"
+      - img
+      - text: Home
+    - link "Favorites":
+      - /url: "#/favorites"
+      - img
+      - text: Favorites
+    - link "Albums":
+      - /url: "#/library/albums"
+      - img
+      - text: Albums
+    - link "Tracks":
+      - /url: "#/library/songs"
+      - img
+      - text: Tracks
+    - link "Album Artists":
+      - /url: "#/library/album-artists"
+      - img
+      - text: Album Artists
+    - link "Artists":
+      - /url: "#/library/artists"
+      - img
+      - text: Artists
+    - link "Genres":
+      - /url: "#/library/genres"
+      - img
+      - text: Genres
+    - link "Folders":
+      - /url: "#/library/folders"
+      - img
+      - text: Folders
+    - link "Radio Stations":
+      - /url: "#/radio"
+      - img
+      - text: Radio Stations
+  - separator
+  - button "Playlists" [expanded]:
+    - img
+    - text: Playlists
+    - button:
+      - img
+    - link:
+      - /url: "#/playlists"
+      - img
+  - region "Playlists"
+- complementary:
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - separator
+  - img
+  - textbox
+  - button:
+    - img
+  - separator
+  - button:
+    - img
+  - grid
+  - grid:
+    - row "TITLE":
+      - img
+      - text: TITLE
+      - img
+      - img
+  - grid:
+    - row "P00 Tone A Fixture Artist 0:03":
+      - img
+      - img
+      - text: P00 Tone A
+      - link "Fixture Artist":
+        - /url: "#/library/album-artists/3fqn6fOUD3F7Tlqh8xKJ61"
+      - text: 0:03
+    - row "2 P00 Tone B Fixture Artist 0:04":
+      - text: "2"
+      - img
+      - text: P00 Tone B
+      - link "Fixture Artist":
+        - /url: "#/library/album-artists/3fqn6fOUD3F7Tlqh8xKJ61"
+      - text: 0:04
+  - separator "horizontal divider 1"
+  - group:
+    - button:
+      - img
+    - button:
+      - img
+    - button:
+      - img
+  - button:
+    - img
+  - text: No lyrics found
+  - button "Decrease lyric offset":
+    - img
+  - textbox "Lyric offset": "0"
+  - button "Increase lyric offset":
+    - img
+  - button "Refresh"
+  - separator "horizontal divider 2"
+  - group:
+    - button:
+      - img
+    - button [disabled]:
+      - img
+    - button:
+      - img
+  - button:
+    - img
+  - button:
+    - img
+- main:
+  - heading "Settings" [level=1]
+  - img
+  - textbox
+  - button:
+    - img
+  - button "Reset to default"
+  - tablist:
+    - tab "General"
+    - tab "Playback"
+    - tab "Hotkeys"
+    - tab "Advanced" [selected]
+  - tabpanel "Advanced":
+    - heading "Update" [level=4]
+    - separator
+    - heading "Analytics" [level=4]
+    - text: Send usage-based analytics Anonymized usage data is sent to the developer to help improve the application
+    - switch "Send usage-based analytics"
+    - separator
+    - heading "Import/export" [level=4]
+    - text: Import / export settings Export and import settings via JSON
+    - button "Export settings"
+    - button "Import settings"
+    - separator
+    - heading "Logger" [level=4]
+    - text: Log level Sets the minimum log level to display
+    - combobox: Info
+    - img
+    - separator
+    - heading "Cache" [level=4]
+    - text: Clear Feishin cache A 'soft clear' of Feishin. This will refresh playlists, track metadata, and reset saved lyrics. Settings, server credentials and cached images are preserved
+    - button "Clear"
+- button:
+  - img
+- link "P00 Tone A":
+  - /url: "#/now-playing"
+- button:
+  - img
+- link "Fixture Artist":
+  - /url: "#/library/album-artists/3fqn6fOUD3F7Tlqh8xKJ61"
+- link "Fixture Album":
+  - /url: "#/library/albums/5pRJuHR2Ib33o0cuYv8dZp"
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- img
+- text: 0:00
+- slider
+- button "0:03"
+- radio "0" [checked]
+- img
+- radio "1"
+- img
+- radio "2"
+- img
+- radio "3"
+- img
+- radio "4"
+- img
+- radio "5"
+- img
+- button "Auto DJ"
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- slider
+- dialog "Import Feishin settings":
+  - banner:
+    - heading "Import Feishin settings" [level=2]
+    - button:
+      - img
+  - text: Settings have been imported successfully!

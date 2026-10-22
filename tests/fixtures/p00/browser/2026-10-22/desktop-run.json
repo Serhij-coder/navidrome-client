@@ -1,0 +1,234 @@
+{
+  "schema": 1,
+  "tasks": [
+    "P00.03",
+    "P00.06"
+  ],
+  "commit": "7d6ad318c79802e226996cfc39acba6b05bb22e8",
+  "sourceAuditSha256": "1a2417159743adae9d8b5cd111dd7b3f856f10ffb992b482822dac2a4816969c",
+  "evidenceKind": "original-desktop-xvfb-and-live-remote-run",
+  "date": "2026-10-22T11:10:07.236Z",
+  "screenshots": [
+    {
+      "id": "desktop-onboarding",
+      "file": "desktop-onboarding.png",
+      "sha256": "7743a1fd413bfdded158ece844a9dcaefe20147f066705926216c9494eaa6999",
+      "domFile": "desktop-onboarding.txt",
+      "domSha256": "e3ff8d4d319b0bf56afaba586fb893a4449b9b224783b9af7212234f85f16f12",
+      "viewport": {
+        "width": 1439,
+        "height": 999
+      },
+      "maskedElementCount": 0,
+      "note": "Actual Linux Electron renderer under Xvfb, before credential entry"
+    },
+    {
+      "id": "desktop-home",
+      "file": "desktop-home.png",
+      "sha256": "b7683ed97611e67b8feef5258cdcb76281d764290c7c751569f0ade89c1c66f4",
+      "domFile": "desktop-home.txt",
+      "domSha256": "b457be6b8cebf59299ab8e1bca2de356acbcccd99a284e17b0ad28e52d2e3e92",
+      "viewport": {
+        "width": 1439,
+        "height": 999
+      },
+      "maskedElementCount": 0,
+      "note": "Authenticated original desktop home; actual disposable Navidrome service"
+    },
+    {
+      "id": "desktop-tracks",
+      "file": "desktop-tracks.png",
+      "sha256": "a809082dafe2a02f77b50c5eb142c6ee281f179dcd974133e87b04f3e6d783c2",
+      "domFile": "desktop-tracks.txt",
+      "domSha256": "650351c1b1bfb2832d8584c2a40bd1b12f881b4baa9f9d5027113942c710405e",
+      "viewport": {
+        "width": 1439,
+        "height": 999
+      },
+      "maskedElementCount": 0,
+      "note": "Original desktop track table with two owned tones"
+    },
+    {
+      "id": "desktop-window-settings",
+      "file": "desktop-window-settings.png",
+      "sha256": "25a32af89a468e8ab45b6ac471da33ca4e85fe9dde5099e95a8bb96a9ffecfbd",
+      "domFile": "desktop-window-settings.txt",
+      "domSha256": "ff7b141a4756de43b54cd0b9629363adf5e0f950b0ad32aef86e3f55e28e63f0",
+      "viewport": {
+        "width": 1439,
+        "height": 999
+      },
+      "maskedElementCount": 30,
+      "note": "Original desktop-only settings; all text inputs masked to protect remote credentials"
+    },
+    {
+      "id": "remote-home",
+      "file": "remote-home.png",
+      "sha256": "1360b896e3c56e3f7a0c7b3b97a3ff55235a88bc14b84ae661becd74c92c6019",
+      "domFile": "remote-home.txt",
+      "domSha256": "3e670864152738216fe99e1e54c4e4810532b85b7907d57eb212866cc3a8f3ea",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "maskedElementCount": 0,
+      "note": "Actual authenticated mobile remote client connected to original desktop"
+    },
+    {
+      "id": "remote-library",
+      "file": "remote-library.png",
+      "sha256": "c27bee7af43eeb326fb013c1684febf9526e53b9a1540c72faeaf0e1d6c4eeb9",
+      "domFile": "remote-library.txt",
+      "domSha256": "284293efb242c3cfb2800243924f367ce8f491da273cd5db46c71d8e0f34fdcf",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "maskedElementCount": 0,
+      "note": "Original remote library view and desktop request forwarding"
+    },
+    {
+      "id": "remote-queue",
+      "file": "remote-queue.png",
+      "sha256": "25917d48dceed0ea216b587249c746e6425937f1f49c5e4ed1a35040a65ab7cd",
+      "domFile": "remote-queue.txt",
+      "domSha256": "ed71b3a5b41ef834bca1f691e8208b469053f5158e66c1698f53a1dbd38d9576",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "maskedElementCount": 0,
+      "note": "Original desktop queue pushed to the authenticated remote"
+    },
+    {
+      "id": "remote-cleared-queue",
+      "file": "remote-cleared-queue.png",
+      "sha256": "f1182a26136439f8ab47d8f93a7e6cd4be87ac111290b5ac07b0379e3176084b",
+      "domFile": "remote-cleared-queue.txt",
+      "domSha256": "305e7ff5433b13ee9413f88ce294d4f369d2576b0d245efc8130226e382b9d88",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "maskedElementCount": 0,
+      "note": "Clear Queue was confirmed in the remote; empty state observed"
+    }
+  ],
+  "operations": [
+    {
+      "id": "desktop-login-and-tracks",
+      "status": "observed",
+      "trackNames": [
+        "P00 Tone A",
+        "P00 Tone B"
+      ]
+    },
+    {
+      "id": "remote-auth-queue-clear-ack",
+      "status": "observed",
+      "requestId": "F2bl__8arJMZXUDk9FmkY",
+      "acknowledgementError": null,
+      "queueEmpty": true,
+      "desktopQueuePresent": true,
+      "desktopQueueCount": 0
+    }
+  ],
+  "socketEvents": [
+    {
+      "direction": "sent",
+      "event": "authenticate"
+    },
+    {
+      "direction": "received",
+      "event": "state"
+    },
+    {
+      "direction": "received",
+      "event": "queue-state"
+    },
+    {
+      "direction": "received",
+      "event": "radio-status"
+    },
+    {
+      "direction": "received",
+      "event": "confirm-queue-changes-setting"
+    },
+    {
+      "direction": "received",
+      "event": "accent-color"
+    },
+    {
+      "direction": "sent",
+      "event": "tracks-request",
+      "requestId": "sOeabCD8T08Evw8y8GFAK"
+    },
+    {
+      "direction": "received",
+      "event": "tracks-response"
+    },
+    {
+      "direction": "sent",
+      "event": "clear-queue",
+      "requestId": "F2bl__8arJMZXUDk9FmkY"
+    },
+    {
+      "direction": "received",
+      "event": "playback"
+    },
+    {
+      "direction": "received",
+      "event": "playback"
+    },
+    {
+      "direction": "received",
+      "event": "operation-ack",
+      "requestId": "F2bl__8arJMZXUDk9FmkY",
+      "error": null
+    },
+    {
+      "direction": "received",
+      "event": "queue-state"
+    }
+  ],
+  "environment": {
+    "playwright": "1.56.1",
+    "display": "Xvfb 1440x1000x24",
+    "nativeGpu": false,
+    "browserSandbox": false,
+    "runtime": {
+      "name": "feishin",
+      "version": "1.17.0",
+      "electron": "43.7.0",
+      "chromium": "150.0.7871.250"
+    },
+    "analytics": {
+      "disabled": true,
+      "optOut": "1"
+    },
+    "remoteListeners": [
+      {
+        "address": "127.0.0.1",
+        "family": "IPv4",
+        "port": 18433
+      }
+    ]
+  },
+  "instrumentation": [
+    "External launcher retains original package name/version and loads unchanged compiled main/preload/renderer.",
+    "Separate profile, updates disabled, analytics opt-out preload and renderer network allowlist before first HTML script.",
+    "HTTP listen host forced to 127.0.0.1; local remote service uses port 18433. No LAN remote/device claim.",
+    "Virtual display and --disable-gpu/--no-sandbox are characterization conditions, not packaging/performance results."
+  ],
+  "limitations": [
+    "No AppImage/installer, real desktop compositor, GPU, audio device, keyring or OS media/tray behavior verified.",
+    "Remote evidence covers one authenticated client, initial queue, library view and acknowledged clear only.",
+    "Runtime wrappers/profiles and raw credentials are private external reference inputs, not project dependencies."
+  ],
+  "buildFiles": {
+    "out/main/index.js": "8fafade10ce70bc248191ee9884c0d85323e49ed46a920413d6890c79afacc8b",
+    "out/preload/index.js": "2502530b93de58279d93a9a6602cbca95b9babf186659465061dc8ebb23050a7",
+    "out/renderer/index.html": "0dc202ad3f6347d921dcb9dfef463fa12d622180e81a3e86d5c2c46c4c81b174",
+    "out/remote/index.html": "d0b4b013927352945e558f21a31c56d4e50cc2698f25b1e382a9e4d3193c6aff"
+  }
+}

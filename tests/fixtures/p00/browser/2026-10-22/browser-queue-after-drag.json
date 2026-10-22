@@ -1,0 +1,29 @@
+{
+  "default": [
+    "5cuw2-Do_oggaNzNqrfFr",
+    "t5QZ48EuUvJRVqJCY2ttS",
+    "oDsvcUCVE_HEhAcMK0xIo"
+  ],
+  "shuffled": [],
+  "priority": [],
+  "songs": {
+    "t5QZ48EuUvJRVqJCY2ttS": {
+      "id": "LxuW6lJwQ0it4Aeykz0hHz",
+      "name": "P00 Tone A",
+      "serverId": "AmVoZb4v8vIpev_O3UnE1",
+      "durationMs": 3000
+    },
+    "oDsvcUCVE_HEhAcMK0xIo": {
+      "id": "LxuW6lJwQ0it4Aeykz0hHz",
+      "name": "P00 Tone A",
+      "serverId": "AmVoZb4v8vIpev_O3UnE1",
+      "durationMs": 3000
+    },
+    "5cuw2-Do_oggaNzNqrfFr": {
+      "id": "bpIGMScYSHhPZhAKH7KZlm",
+      "name": "P00 Tone B",
+      "serverId": "AmVoZb4v8vIpev_O3UnE1",
+      "durationMs": 4050
+    }
+  }
+}

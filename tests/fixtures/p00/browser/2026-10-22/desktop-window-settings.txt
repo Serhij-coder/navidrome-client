@@ -1,0 +1,186 @@
+- text: (Paused) (0 / 2) undefined
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- complementary:
+  - img
+  - textbox "Search"
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - button "My Library" [expanded]:
+    - img
+    - text: My Library
+  - region "My Library":
+    - link "Home":
+      - /url: "#/"
+      - img
+      - text: Home
+    - link "Favorites":
+      - /url: "#/favorites"
+      - img
+      - text: Favorites
+    - link "Albums":
+      - /url: "#/library/albums"
+      - img
+      - text: Albums
+    - link "Tracks":
+      - /url: "#/library/songs"
+      - img
+      - text: Tracks
+    - link "Album Artists":
+      - /url: "#/library/album-artists"
+      - img
+      - text: Album Artists
+    - link "Artists":
+      - /url: "#/library/artists"
+      - img
+      - text: Artists
+    - link "Genres":
+      - /url: "#/library/genres"
+      - img
+      - text: Genres
+    - link "Folders":
+      - /url: "#/library/folders"
+      - img
+      - text: Folders
+    - link "Radio Stations":
+      - /url: "#/radio"
+      - img
+      - text: Radio Stations
+  - separator
+  - button "Playlists" [expanded]:
+    - img
+    - text: Playlists
+    - button:
+      - img
+    - link:
+      - /url: "#/playlists"
+      - img
+  - region "Playlists"
+- main:
+  - heading "Settings" [level=1]
+  - img
+  - textbox
+  - button:
+    - img
+  - button "Reset to default"
+  - tablist:
+    - tab "General"
+    - tab "Playback"
+    - tab "Hotkeys"
+    - tab "Window" [selected]
+    - tab "Advanced"
+  - tabpanel "Window":
+    - heading "Application" [level=4]
+    - text: Window bar style Select the style of the window bar
+    - combobox: Windows
+    - img
+    - text: Track info in Window Title Show current track's title and artist, queue position, and Playing/Paused state in the Window's Title.
+    - switch "Toggle track info in Window Bar" [checked]
+    - text: Show tray
+    - img
+    - text: Show/hide tray icon/menu. If disabled, also disables minimize/exit to tray
+    - switch "toggle hiding tray" [checked]
+    - text: Minimize to tray Minimize the application to the system tray
+    - switch "Toggle minimize to tray"
+    - text: Exit to tray Exit the application to the system tray
+    - switch "Toggle exit to tray"
+    - text: Start minimized Start the application in system tray
+    - switch "Toggle start in tray"
+    - text: Prevent display sleep on playback Prevent the display from turning off while music is playing
+    - switch "Toggle prevent sleep on playback"
+    - text: Prevent system sleep on playback Prevent the system from going to sleep while music is playing
+    - switch "Toggle prevent suspend on playback"
+    - separator
+    - heading "Discord" [level=4]
+    - text: "Discord rich presence Enable playback status in Discord rich presence. Image keys are: icon, playing, and paused"
+    - switch
+    - text: Discord application ID The application ID for Discord rich presence (defaults to 1165957668758900787)
+    - textbox: "1165957668758900787"
+    - text: Show rich presence when paused When enabled, status will show when player is paused
+    - switch [checked]
+    - text: Show playing icon Show a small playing icon in the rich presence status. The paused icon is always shown when "show rich presence when paused" is enabled
+    - switch [checked]
+    - text: Show status as listening Show status as listening instead of playing
+    - switch
+    - text: Discord presence display type Changes what you are listening to in your status
+    - 'combobox "{{discord}} presence display type"': Feishin
+    - img
+    - text: Discord presence links Adds last.fm or musicbrainz links to Discord rich presence. musicbrainz is the most accurate but requires tags and doesn't provide artist links while last.fm should always provide a link. Makes no extra network requests
+    - 'combobox "{{discord}} presence links"': None
+    - img
+    - text: Serve Discord images from server Share cover art for Discord rich presence from server itself, only available for Jellyfin and Navidrome. Discord uses a bot to fetch images, so your server must be reachable from the public internet
+    - switch
+    - text: Last.fm API key The API key for Last.fm. Required for cover art
+    - textbox
+    - separator
+    - heading "Remote" [level=4]
+    - text: Enable remote control server Enables the remote control server to allow other devices to control the application
+    - link "http://localhost:18433":
+      - /url: http://localhost:18433
+    - switch [checked]
+    - text: Remote control server port Sets the port for the remote control server
+    - textbox: "18433"
+    - text: Remote control server username Sets the username for the remote control server. If both username and password are empty, authentication will be disabled
+    - textbox: p00-remote
+    - text: Remote control server password Sets the password for the remote control server. These credentials are by default transferred insecurely, so you should use a unique password that you do not care about
+    - textbox: <redacted>
+    - separator
+    - text: Passwords/secret store What password/secret store to use. Change this if you are having issues storing passwords
+    - combobox "Passwords/secret store": libsecret
+    - img
+- button:
+  - img
+- link "—":
+  - /url: "#/now-playing"
+- link "—":
+  - /url: "#/"
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button [disabled]:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- img
+- text: 0:00
+- slider
+- button "0:00"
+- button "Auto DJ"
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- slider
+- alert:
+  - text: Warning Discrepancies were found between the settings in the renderer and the main process. Restart the application to apply the changes
+  - button:
+    - img
+- alert:
+  - text: Warning Restart the server to apply the new port
+  - button:
+    - img

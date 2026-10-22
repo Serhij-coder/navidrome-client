@@ -1,0 +1,178 @@
+- banner
+- complementary:
+  - img
+  - textbox "Search"
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - button "My Library" [expanded]:
+    - img
+    - text: My Library
+  - region "My Library":
+    - link "Home":
+      - /url: "#/"
+      - img
+      - text: Home
+    - link "Favorites":
+      - /url: "#/favorites"
+      - img
+      - text: Favorites
+    - link "Albums":
+      - /url: "#/library/albums"
+      - img
+      - text: Albums
+    - link "Tracks":
+      - /url: "#/library/songs"
+      - img
+      - text: Tracks
+    - link "Album Artists":
+      - /url: "#/library/album-artists"
+      - img
+      - text: Album Artists
+    - link "Artists":
+      - /url: "#/library/artists"
+      - img
+      - text: Artists
+    - link "Genres":
+      - /url: "#/library/genres"
+      - img
+      - text: Genres
+    - link "Folders":
+      - /url: "#/library/folders"
+      - img
+      - text: Folders
+    - link "Radio Stations":
+      - /url: "#/radio"
+      - img
+      - text: Radio Stations
+  - separator
+  - button "Playlists" [expanded]:
+    - img
+    - text: Playlists
+    - button:
+      - img
+    - link:
+      - /url: "#/playlists"
+      - img
+  - region "Playlists"
+- main:
+  - heading "Genres" [level=3]
+  - link "View more":
+    - /url: "#/library/genres"
+  - heading "Explore from your library" [level=3]
+  - button:
+    - img
+  - button [disabled]:
+    - img
+  - button [disabled]:
+    - img
+  - link:
+    - /url: "#/library/albums/a252f62608e3b4d1c2af866a99842ae4"
+    - img
+  - link "Fixture Album":
+    - /url: "#/library/albums/a252f62608e3b4d1c2af866a99842ae4"
+  - link "Fixture Artist":
+    - /url: "#/library/album-artists/43f160cf84a3a6dcdb92ac8a74ebab60"
+  - heading "Newly added releases" [level=3]
+  - button:
+    - img
+  - button [disabled]:
+    - img
+  - button [disabled]:
+    - img
+  - link:
+    - /url: "#/library/albums/a252f62608e3b4d1c2af866a99842ae4"
+    - img
+  - link "Fixture Album":
+    - /url: "#/library/albums/a252f62608e3b4d1c2af866a99842ae4"
+  - link "Fixture Artist":
+    - /url: "#/library/album-artists/43f160cf84a3a6dcdb92ac8a74ebab60"
+  - heading "Recently released" [level=3]
+  - button:
+    - img
+  - button [disabled]:
+    - img
+  - button [disabled]:
+    - img
+  - link:
+    - /url: "#/library/albums/a252f62608e3b4d1c2af866a99842ae4"
+    - img
+  - link "Fixture Album":
+    - /url: "#/library/albums/a252f62608e3b4d1c2af866a99842ae4"
+  - link "Fixture Artist":
+    - /url: "#/library/album-artists/43f160cf84a3a6dcdb92ac8a74ebab60"
+  - heading "Recently played" [level=3]
+  - button:
+    - img
+  - button [disabled]:
+    - img
+  - button [disabled]:
+    - img
+  - img
+  - text: P00 Tone B
+  - link "Fixture Artist":
+    - /url: "#/library/album-artists/43f160cf84a3a6dcdb92ac8a74ebab60"
+  - img
+  - text: P00 Tone A
+  - link "Fixture Artist":
+    - /url: "#/library/album-artists/43f160cf84a3a6dcdb92ac8a74ebab60"
+  - heading "Most Played" [level=3]
+  - button:
+    - img
+  - button [disabled]:
+    - img
+  - button [disabled]:
+    - img
+  - img
+  - text: P00 Tone B
+  - link "Fixture Artist":
+    - /url: "#/library/album-artists/43f160cf84a3a6dcdb92ac8a74ebab60"
+  - img
+  - text: P00 Tone A
+  - link "Fixture Artist":
+    - /url: "#/library/album-artists/43f160cf84a3a6dcdb92ac8a74ebab60"
+- button:
+  - img
+- link "—":
+  - /url: "#/now-playing"
+- link "—":
+  - /url: "#/"
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button [disabled]:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- img
+- text: 0:00
+- slider
+- button "0:00"
+- button "Auto DJ"
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- slider
+- alert:
+  - text: Success Server added successfully
+  - button:
+    - img

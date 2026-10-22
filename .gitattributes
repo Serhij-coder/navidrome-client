@@ -4,3 +4,6 @@
 
 # Fixture provenance hashes bind exact bytes across platform checkouts.
 /tests/fixtures/p00/*.json text eol=lf
+/docs/app/baseline/source-audit.json text eol=lf
+/tests/fixtures/p00/browser/**/*.json text eol=lf
+/tests/fixtures/p00/browser/**/*.txt text eol=lf

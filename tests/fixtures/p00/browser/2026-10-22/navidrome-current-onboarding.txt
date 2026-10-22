@@ -1,0 +1,67 @@
+- banner
+- main:
+  - text: Server required
+  - radiogroup:
+    - radio "Jellyfin"
+    - img
+    - text: Jellyfin
+    - radio "Navidrome" [checked]
+    - img
+    - text: Navidrome
+    - radio "OpenSubsonic"
+    - img
+    - text: OpenSubsonic
+  - text: Server Name
+  - textbox "Server Name": My Server
+  - text: URL
+  - textbox "URL": https://
+  - text: Public URL
+  - paragraph: Used in place of URL for external features, like shared links. Leave this blank unless your server is reachable at a different address from outside your network.
+  - textbox "Public URL":
+    - /placeholder: "Optional: public URL for external features"
+  - text: Username
+  - textbox "Username"
+  - text: Password
+  - paragraph: Reverse proxy (SSO) authentication is not supported. Only username/password authentication and Subsonic authentication are supported
+  - textbox "Password"
+  - button "Toggle password visibility":
+    - img
+  - button "Add" [disabled]
+- button:
+  - img
+- link "—":
+  - /url: "#/now-playing"
+- link "—":
+  - /url: "#/"
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button [disabled]:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- img
+- text: 0:00
+- slider
+- button "0:00"
+- button "Auto DJ"
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- slider

@@ -1,0 +1,110 @@
+- banner
+- complementary:
+  - img
+  - textbox "Search"
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - button "My Library" [expanded]:
+    - img
+    - text: My Library
+  - region "My Library":
+    - link "Home":
+      - /url: "#/"
+      - img
+      - text: Home
+    - link "Favorites":
+      - /url: "#/favorites"
+      - img
+      - text: Favorites
+    - link "Albums":
+      - /url: "#/library/albums"
+      - img
+      - text: Albums
+    - link "Tracks":
+      - /url: "#/library/songs"
+      - img
+      - text: Tracks
+    - link "Album Artists":
+      - /url: "#/library/album-artists"
+      - img
+      - text: Album Artists
+    - link "Artists":
+      - /url: "#/library/artists"
+      - img
+      - text: Artists
+    - link "Genres":
+      - /url: "#/library/genres"
+      - img
+      - text: Genres
+    - link "Folders":
+      - /url: "#/library/folders"
+      - img
+      - text: Folders
+    - link "Radio Stations":
+      - /url: "#/radio"
+      - img
+      - text: Radio Stations
+  - separator
+  - button "Playlists" [expanded]:
+    - img
+    - text: Playlists
+    - button:
+      - img
+    - link:
+      - /url: "#/playlists"
+      - img
+  - region "Playlists"
+- main:
+  - heading "Radio stations" [level=1]
+  - text: "0"
+  - img
+  - textbox
+  - button:
+    - img
+  - button "Name"
+  - separator
+  - button:
+    - img
+  - button "Create Radio Station"
+- button:
+  - img
+- link "—":
+  - /url: "#/now-playing"
+- link "—":
+  - /url: "#/"
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button [disabled]:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- img
+- text: 0:00
+- slider
+- button "0:00"
+- button "Auto DJ"
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- slider

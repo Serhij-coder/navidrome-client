@@ -1,0 +1,186 @@
+- banner
+- complementary:
+  - img
+  - textbox "Search"
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - button "My Library" [expanded]:
+    - img
+    - text: My Library
+  - region "My Library":
+    - link "Home":
+      - /url: "#/"
+      - img
+      - text: Home
+    - link "Favorites":
+      - /url: "#/favorites"
+      - img
+      - text: Favorites
+    - link "Albums":
+      - /url: "#/library/albums"
+      - img
+      - text: Albums
+    - link "Tracks":
+      - /url: "#/library/songs"
+      - img
+      - text: Tracks
+    - link "Album Artists":
+      - /url: "#/library/album-artists"
+      - img
+      - text: Album Artists
+    - link "Artists":
+      - /url: "#/library/artists"
+      - img
+      - text: Artists
+    - link "Genres":
+      - /url: "#/library/genres"
+      - img
+      - text: Genres
+    - link "Folders":
+      - /url: "#/library/folders"
+      - img
+      - text: Folders
+    - link "Radio Stations":
+      - /url: "#/radio"
+      - img
+      - text: Radio Stations
+  - separator
+  - button "Playlists" [expanded]:
+    - img
+    - text: Playlists
+    - button:
+      - img
+    - link:
+      - /url: "#/playlists"
+      - img
+  - region "Playlists"
+- main:
+  - button:
+    - img
+  - heading "Albums" [level=1]
+  - text: "1"
+  - img
+  - textbox
+  - button:
+    - img
+  - button "Name"
+  - separator
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - text: Filters
+  - button "Reset"
+  - button:
+    - img
+  - text: Is favorited
+  - radiogroup:
+    - radio "None" [checked]
+    - text: None
+    - radio "Yes"
+    - text: "Yes"
+    - radio "No"
+    - text: "No"
+  - text: Is rated
+  - radiogroup:
+    - radio "None" [checked]
+    - text: None
+    - radio "Yes"
+    - text: "Yes"
+    - radio "No"
+    - text: "No"
+  - text: Is compilation
+  - radiogroup:
+    - radio "None" [checked]
+    - text: None
+    - radio "Yes"
+    - text: "Yes"
+    - radio "No"
+    - text: "No"
+  - text: Is recently played
+  - switch
+  - separator
+  - text: Artists
+  - radiogroup:
+    - radio "Single"
+    - text: Single
+    - radio "Multi" [checked]
+    - text: Multi
+  - textbox "Artists Single Multi"
+  - img
+  - list:
+    - img
+    - text: Fixture Artist 1 Album
+  - separator
+  - text: Genres
+  - radiogroup:
+    - radio "Single"
+    - text: Single
+    - radio "Multi" [checked]
+    - text: Multi
+  - textbox "Genres Single Multi"
+  - img
+  - text: The query returned no results
+  - separator
+  - text: Year
+  - textbox "Year"
+  - button "Save as collection"
+  - link:
+    - /url: "#/library/albums/5c6259445dd7f5b07b17eba6f7c5d83e"
+    - img
+  - link "Fixture Album":
+    - /url: "#/library/albums/5c6259445dd7f5b07b17eba6f7c5d83e"
+  - link "Fixture Artist":
+    - /url: "#/library/album-artists/5e048364e6ea52fb8140b97b5014a842"
+- button:
+  - img
+- link "—":
+  - /url: "#/now-playing"
+- link "—":
+  - /url: "#/"
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button [disabled]:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- img
+- text: 0:00
+- slider
+- button "0:00"
+- button "Auto DJ"
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- button:
+  - img
+- slider
+- alert:
+  - text: Success Server added successfully
+  - button:
+    - img
