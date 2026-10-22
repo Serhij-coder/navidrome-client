@@ -1,7 +1,8 @@
 //! P01 feasibility surface. No server, profile, production queue or persistence.
 use egui::{Color32, RichText, Sense, Vec2};
 use feishin_spike_model::{
-    Analysis, Query, Record, Selection, ViewRow, build_view, css_report, records,
+    Analysis, DragSource, Query, Record, Reorder, ReorderError, Selection, ViewRow, build_view,
+    css_report, records,
 };
 use std::{sync::Arc, time::Duration};
 
@@ -16,7 +17,10 @@ enum Column {
 #[derive(Clone)]
 struct ColumnDrag(Column);
 #[derive(Clone)]
-struct TrackDrag(usize);
+struct RowDrag {
+    source: DragSource,
+    rows: Arc<Vec<ViewRow>>,
+}
 
 #[cfg(not(target_arch = "wasm32"))]
 mod artwork;
@@ -45,6 +49,9 @@ pub struct SpikeApp {
     test_keyboard: Option<egui::Response>,
     #[cfg(test)]
     test_filter: Option<egui::Response>,
+    #[cfg(test)]
+    test_rows: Vec<(ViewRow, egui::Response)>,
+    reorder_notice: Option<&'static str>,
     scroll_to: Option<usize>,
     #[cfg(not(target_arch = "wasm32"))]
     worker: worker::Worker,
@@ -91,6 +98,9 @@ impl SpikeApp {
             test_keyboard: None,
             #[cfg(test)]
             test_filter: None,
+            #[cfg(test)]
+            test_rows: Vec::new(),
+            reorder_notice: None,
             scroll_to: None,
         }
     }
@@ -125,16 +135,50 @@ impl SpikeApp {
         ctx.request_repaint();
     }
 
+    fn receive_view(&mut self, result: Result<Vec<ViewRow>, ReorderError>) {
+        match result {
+            Ok(rows) => self.rows = Arc::new(rows),
+            Err(error) => self.reorder_notice = Some(error.message()),
+        }
+        self.pending = false;
+    }
+
+    fn reorder(&mut self, ctx: &egui::Context, source: &RowDrag, before: ViewRow) {
+        if self.pending || !Arc::ptr_eq(&source.rows, &self.rows) {
+            self.reorder_notice = Some(ReorderError::ChangedView.message());
+            return;
+        }
+        let request = Reorder {
+            rows: self.rows.clone(),
+            source: source.source.clone(),
+            before,
+            grouped: self.query.grouped,
+        };
+        self.generation += 1;
+        self.reorder_notice = Some("Sorting, filtering or grouping resets session order.");
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            self.pending = true;
+            self.worker.reorder(self.generation, request);
+        }
+        #[cfg(target_arch = "wasm32")]
+        if let Some(result) = feishin_spike_model::reorder_view(&self.data, &request, || false) {
+            self.receive_view(result);
+        }
+        ctx.request_repaint();
+    }
+
     pub fn show(&mut self, ctx: &egui::Context) {
         self.frames += 1;
+        #[cfg(test)]
+        self.test_rows.clear();
         self.rows_drawn = 0;
         self.max_row_height = 0.0;
         #[cfg(not(target_arch = "wasm32"))]
         if let Some((generation, rows)) = self.worker.take()
             && generation == self.generation
         {
-            self.rows = Arc::new(rows);
-            self.pending = false;
+            self.receive_view(rows);
         }
         #[cfg(not(target_arch = "wasm32"))]
         self.artwork.receive(ctx);
@@ -151,13 +195,15 @@ impl SpikeApp {
                 changed |= filter.changed();
                 changed |= ui.checkbox(&mut self.query.descending, "Descending").changed();
                 changed |= ui.checkbox(&mut self.query.grouped, "Album groups").changed();
-                if ui.button("Reset order").clicked() { self.query.move_before = None; changed = true; }
+                if ui.button("Reset order").clicked() { changed = true; }
                 ui.toggle_value(&mut self.rtl, "RTL layout");
                 ui.toggle_value(&mut self.visualizer, "Analysis preset");
                 ui.add_enabled(!cfg!(target_arch = "wasm32"), egui::Checkbox::new(&mut self.artwork_enabled, "Owned artwork churn"));
                 egui::widgets::global_theme_preference_buttons(ui);
             });
-            if changed { self.query.move_before = None; self.submit(ctx); }
+            if changed { self.reorder_notice = None; self.submit(ctx); }
+            ui.label("Drag selected tracks to reorder. With album groups, tracks stay in one album; drag a header to move its whole album.");
+            if let Some(notice) = self.reorder_notice { ui.label(notice); }
             ui.horizontal(|ui| {
                 ui.label("Scale");
                 let mut scale = ctx.zoom_factor();
@@ -312,12 +358,26 @@ impl SpikeApp {
                                 layout,
                                 |ui| match row {
                                     ViewRow::Album(album) => {
-                                        ui.add_sized(
+                                        let response = ui.add_sized(
                                             [self.widths.iter().sum(), ROW_HEIGHT],
                                             egui::Label::new(
                                                 RichText::new(format!("Album {album}")).strong(),
-                                            ),
+                                            )
+                                            .sense(Sense::click_and_drag()),
                                         );
+                                        #[cfg(test)]
+                                        self.test_rows.push((row, response.clone()));
+                                        if response.drag_started() {
+                                            response.dnd_set_drag_payload(RowDrag {
+                                                source: DragSource::Album(album),
+                                                rows: rows.clone(),
+                                            });
+                                        }
+                                        if let Some(source) =
+                                            response.dnd_release_payload::<RowDrag>()
+                                        {
+                                            moved = Some((source, row));
+                                        }
                                     }
                                     ViewRow::Track(id) => {
                                         let record = &self.data[id];
@@ -356,11 +416,25 @@ impl SpikeApp {
                                             if response.clicked() {
                                                 clicked = Some(id);
                                             }
-                                            response.dnd_set_drag_payload(TrackDrag(id));
+                                            #[cfg(test)]
+                                            if slot == 0 {
+                                                self.test_rows.push((row, response.clone()));
+                                            }
+                                            if response.drag_started() {
+                                                if !self.selection.selected.contains(&id) {
+                                                    self.selection.select(&rows, id, false, false);
+                                                }
+                                                response.dnd_set_drag_payload(RowDrag {
+                                                    source: DragSource::Tracks(
+                                                        self.selection.selected.clone(),
+                                                    ),
+                                                    rows: rows.clone(),
+                                                });
+                                            }
                                             if let Some(source) =
-                                                response.dnd_release_payload::<TrackDrag>()
+                                                response.dnd_release_payload::<RowDrag>()
                                             {
-                                                moved = Some((source.0, id));
+                                                moved = Some((source, row));
                                             }
                                             response.context_menu(|ui| {
                                                 if ui.button("Copy synthetic title").clicked() {
@@ -391,11 +465,8 @@ impl SpikeApp {
                 self.selection
                     .select(&rows, id, modifiers.shift, modifiers.command);
             }
-            if let Some(pair) = moved
-                && !self.query.grouped
-            {
-                self.query.move_before = Some(pair);
-                self.submit(ctx);
+            if let Some((source, before)) = moved {
+                self.reorder(ctx, &source, before);
             }
         });
         // No periodic repaint for a quiescent table. PCM producers request repaint.
@@ -451,6 +522,10 @@ pub fn analysis_from_pcm(pcm: &[f32]) -> Option<Analysis> {
 #[cfg(test)]
 #[path = "../../../tests/spike-ui/keyboard.rs"]
 mod keyboard_tests;
+
+#[cfg(test)]
+#[path = "../../../tests/spike-ui/drag.rs"]
+mod drag_tests;
 
 #[cfg(all(test, unix))]
 #[path = "../../../tests/performance/concurrent.rs"]

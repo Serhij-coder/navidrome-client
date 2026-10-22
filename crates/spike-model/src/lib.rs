@@ -31,13 +31,153 @@ pub enum ViewRow {
     Track(usize),
 }
 
+#[derive(Clone, Debug)]
+pub enum DragSource {
+    Tracks(Arc<BTreeSet<usize>>),
+    Album(usize),
+}
+
+/// A session-only view operation. Does not change records, album membership or a queue.
+#[derive(Clone, Debug)]
+pub struct Reorder {
+    pub rows: Arc<Vec<ViewRow>>,
+    pub source: DragSource,
+    pub before: ViewRow,
+    pub grouped: bool,
+}
+
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum ReorderError {
+    ChangedView,
+    CrossAlbum,
+}
+
+impl ReorderError {
+    pub fn message(self) -> &'static str {
+        match self {
+            Self::ChangedView => "The view changed. Try dragging again.",
+            Self::CrossAlbum => {
+                "Tracks can move within one album. Drag an album header to move its whole group."
+            }
+        }
+    }
+}
+
+/// Bounded, cancellable worker operation preserving displayed order and group identity.
+/// Selection outside the filtered view is not moved. A grouped track move across
+/// albums is rejected, rather than silently editing metadata or splitting groups.
+pub fn reorder_view(
+    records: &[Record],
+    request: &Reorder,
+    cancelled: impl Fn() -> bool,
+) -> Option<Result<Vec<ViewRow>, ReorderError>> {
+    use ReorderError::{ChangedView, CrossAlbum};
+    let rows = &request.rows;
+    let mut seen = vec![false; records.len()];
+    let mut albums = BTreeSet::new();
+    let mut album = None;
+    let mut target_album = None;
+    let mut source_album = None;
+    let mut source_found = false;
+    let mut cross_album = false;
+    let mut target_found = false;
+    for (index, row) in rows.iter().enumerate() {
+        if index % 256 == 0 && cancelled() {
+            return None;
+        }
+        match *row {
+            ViewRow::Album(id) => {
+                if !request.grouped || !albums.insert(id) {
+                    return Some(Err(ChangedView));
+                }
+                album = Some(id);
+                if matches!(request.source, DragSource::Album(source) if source == id) {
+                    source_found = true;
+                }
+            }
+            ViewRow::Track(id) => {
+                let Some(record) = records.get(id) else {
+                    return Some(Err(ChangedView));
+                };
+                if seen[id] || (request.grouped && album != Some(record.album)) {
+                    return Some(Err(ChangedView));
+                }
+                seen[id] = true;
+                if let DragSource::Tracks(ids) = &request.source
+                    && ids.contains(&id)
+                {
+                    source_found = true;
+                    if source_album.is_some_and(|source| source != record.album) {
+                        cross_album = true;
+                    }
+                    source_album = Some(record.album);
+                }
+            }
+        }
+        if *row == request.before {
+            target_found = true;
+            target_album = match *row {
+                ViewRow::Album(id) => Some(id),
+                ViewRow::Track(id) => Some(records[id].album),
+            };
+        }
+    }
+    if !source_found || !target_found {
+        return Some(Err(ChangedView));
+    }
+    if request.grouped
+        && matches!(request.source, DragSource::Tracks(_))
+        && (cross_album || source_album != target_album)
+    {
+        return Some(Err(CrossAlbum));
+    }
+    let mut moved = Vec::new();
+    let mut rest = Vec::with_capacity(rows.len());
+    album = None;
+    for (index, row) in rows.iter().enumerate() {
+        if index % 256 == 0 && cancelled() {
+            return None;
+        }
+        if let ViewRow::Album(id) = row {
+            album = Some(*id);
+        }
+        let selected = match &request.source {
+            DragSource::Tracks(ids) => matches!(row, ViewRow::Track(id) if ids.contains(id)),
+            DragSource::Album(id) => album == Some(*id),
+        };
+        if selected {
+            moved.push(*row);
+        } else {
+            rest.push(*row);
+        }
+    }
+    // Dropping onto the dragged block is a no-op, including its own album header.
+    let destination = match request.source {
+        DragSource::Album(_) => ViewRow::Album(target_album?),
+        DragSource::Tracks(_) => request.before,
+    };
+    let mut output = Vec::with_capacity(rows.len());
+    if let Some(index) = rest.iter().position(|row| *row == destination) {
+        // Track drops onto their album header mean the start of that album.
+        let index = index
+            + usize::from(
+                matches!(request.source, DragSource::Tracks(_))
+                    && matches!(destination, ViewRow::Album(_)),
+            );
+        output.extend_from_slice(&rest[..index]);
+        output.append(&mut moved);
+        output.extend_from_slice(&rest[index..]);
+    } else {
+        output.extend_from_slice(rows);
+    }
+    (!cancelled()).then_some(Ok(output))
+}
+
 #[derive(Clone, Debug, Default)]
 pub struct Query {
     pub text: String,
     pub descending: bool,
     pub grouped: bool,
-    /// A single prototype drag operation, not a durable library mutation.
-    pub move_before: Option<(usize, usize)>,
 }
 
 /// Called on a bounded worker on native targets. Aborted results must not be published.
@@ -75,19 +215,6 @@ pub fn build_view(
     if query.descending {
         ids.reverse();
     }
-    if !query.grouped
-        && let Some((from, to)) = query.move_before
-        && let (Some(source), Some(_)) = (
-            ids.iter().position(|id| *id == from),
-            ids.iter().position(|id| *id == to),
-        )
-        && from != to
-    {
-        let id = ids.remove(source);
-        if let Some(target) = ids.iter().position(|id| *id == to) {
-            ids.insert(target, id);
-        }
-    }
     let mut rows =
         Vec::with_capacity(ids.len() + if query.grouped { ids.len() / 10 + 1 } else { 0 });
     let mut album = None;
@@ -107,7 +234,7 @@ pub fn build_view(
 
 #[derive(Default)]
 pub struct Selection {
-    pub selected: BTreeSet<usize>,
+    pub selected: Arc<BTreeSet<usize>>,
     pub focus: Option<usize>,
     anchor: Option<usize>,
 }
@@ -117,25 +244,26 @@ impl Selection {
         let Some(target) = view.iter().position(|row| *row == ViewRow::Track(id)) else {
             return;
         };
+        let selected = Arc::make_mut(&mut self.selected);
         if extend {
             let anchor = self
                 .anchor
                 .and_then(|id| view.iter().position(|row| *row == ViewRow::Track(id)))
                 .unwrap_or(target);
             if !toggle {
-                self.selected.clear();
+                selected.clear();
             }
             for row in &view[anchor.min(target)..=anchor.max(target)] {
                 if let ViewRow::Track(id) = row {
-                    self.selected.insert(*id);
+                    selected.insert(*id);
                 }
             }
         } else {
             if !toggle {
-                self.selected.clear();
+                selected.clear();
             }
-            if !toggle || !self.selected.remove(&id) {
-                self.selected.insert(id);
+            if !toggle || !selected.remove(&id) {
+                selected.insert(id);
             }
             self.anchor = Some(id);
         }

@@ -12,3 +12,7 @@ workspace = true
 [[test]]
 name = "model"
 path = "../../tests/spike-model/model.rs"
+
+[[test]]
+name = "reorder"
+path = "../../tests/spike-model/reorder.rs"

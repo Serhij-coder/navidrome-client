@@ -1,5 +1,5 @@
 use super::*;
-fn frame(
+pub(super) fn frame(
     app: &mut SpikeApp,
     ctx: &egui::Context,
     time: &mut f64,
@@ -21,7 +21,7 @@ fn frame(
         |ctx| app.show(ctx),
     );
 }
-fn click(app: &mut SpikeApp, ctx: &egui::Context, time: &mut f64, position: egui::Pos2) {
+pub(super) fn click(app: &mut SpikeApp, ctx: &egui::Context, time: &mut f64, position: egui::Pos2) {
     for pressed in [true, false] {
         frame(
             app,

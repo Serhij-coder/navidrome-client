@@ -2,14 +2,14 @@
 
 - Stage: P01.01 complete; P01.02-.08 have prototypes/evidence but open exit gates. No P02+ implementation.
 - Native UI: pinned Rust 1.92 / egui 0.33.3; Glow/wgpu candidates, separate web/remote WASM roots; keyboard Tab/arrows/Home/End and named controls.
-- Table: 100k virtual rows, bounded worker/artwork; 6000 CPU-only concurrent scrolling/sort/filter/group/playback/monitor samples, not presented frames.
+- Table: 100k virtual rows, bounded worker/artwork; multi-track/album-block moves with cancellation and stale-view rejection; 6000 CPU-only concurrent scrolling/sort/filter/group/playback/monitor samples, not presented frames.
 - Media: Unix mpv; explicit ffplay/SDL and offline FFmpeg filter/waveform candidates, not a selected production fallback.
 - Capture: one-slot off-UI supervisor with generation isolation, suspend/re-enable/retry and real owned-monitor checks; no default host capture.
 - Browser: real disposable Navidrome FLAC/MP3 on three lab engines; six session callbacks, cancellable/deadlined play, lifecycle/reload checks; Firefox/WebKit seeks remain open.
 - Packaging/accessibility: rebuilt Ubuntu x86_64 AppImage runs without checkout/Rust; Linux AT-SPI names audited after fixing unnamed filter; no screen-reader/device certification.
-- Hosted d233: six jobs including Windows/both AppImage CPUs passed; macOS Unicode-path test failed. Early input validation/portable fixture follow-up awaits CI.
-- Checks: 23 default Rust + five explicit native runtime; 47 Python with reference; format/Clippy/WASM, six cross checks, browser and copied-input checks passed.
+- Hosted 15c7b41: native Linux/Windows/macOS, portable and WASM passed; aarch64 external audio step failed; full run pending.
+- Latest checks: 32 default Rust, 47 Python with reference; format/default-WASM-wgpu Clippy and release web builds passed; older runtime manifests stay historical.
 - Records: [continuation](p01/continuation.md), [matrix](p01/README.md), [migration map](migration/p01-map.csv), [license gaps](licenses/README.md).
-- Active: native input/fixture follow-up passed affected local checks; both independent reviews satisfied; commit/push and hosted confirmation next.
+- Active: P01.03 drag continuation implemented; 32 Rust/47 Python and native/WASM/wgpu checks passed; both reviews satisfied after stale-doc correction.
 - Open: calibrated physical budgets, renderer/input/IME/RTL/touch/screen-reader/OS matrix, Windows IPC, full native fallback and release licensing; no P01 exit.
-- Next: review/push native follow-up and inspect hosted result; P02 authorized only after verified P01 exit.
+- Next: commit/push drag continuation, then diagnose hosted aarch64 audio failure; P02 only after verified P01 exit.

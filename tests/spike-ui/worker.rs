@@ -20,6 +20,7 @@ fn newest_generation_wins_and_shutdown_does_not_lose_wakeup() {
             if let Some((generation, rows)) = worker.take()
                 && generation == 20
             {
+                let rows = rows.unwrap();
                 assert!(rows.iter().all(|row| match row {
                     ViewRow::Track(id) => format!("Track {id:06}").contains("20"),
                     _ => false,

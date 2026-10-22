@@ -1,11 +1,18 @@
-use feishin_spike_model::{Query, Record, ViewRow, build_view};
+use feishin_spike_model::{
+    Query, Record, Reorder, ReorderError, ViewRow, build_view, reorder_view,
+};
 use std::sync::{
     Arc, Condvar, Mutex,
     atomic::{AtomicBool, AtomicU64, Ordering},
 };
 
-type RequestSlot = Arc<(Mutex<Option<(u64, Query)>>, Condvar)>;
-type ResultSlot = Arc<Mutex<Option<(u64, Vec<ViewRow>)>>>;
+enum Request {
+    Query(Query),
+    Reorder(Reorder),
+}
+type RequestSlot = Arc<(Mutex<Option<(u64, Request)>>, Condvar)>;
+type ViewResult = Result<Vec<ViewRow>, ReorderError>;
+type ResultSlot = Arc<Mutex<Option<(u64, ViewResult)>>>;
 
 pub(super) struct Worker {
     request: RequestSlot,
@@ -43,7 +50,11 @@ impl Worker {
                 drop(slot);
                 let cancelled =
                     || stop.load(Ordering::Acquire) || current.load(Ordering::Acquire) != id;
-                if let Some(rows) = build_view(&data, &query, cancelled)
+                let result = match query {
+                    Request::Query(query) => build_view(&data, &query, cancelled).map(Ok),
+                    Request::Reorder(request) => reorder_view(&data, &request, cancelled),
+                };
+                if let Some(rows) = result
                     && !cancelled()
                 {
                     *results.lock().unwrap_or_else(|poison| poison.into_inner()) = Some((id, rows));
@@ -60,6 +71,12 @@ impl Worker {
         }
     }
     pub(super) fn submit(&self, id: u64, query: Query) {
+        self.request(id, Request::Query(query));
+    }
+    pub(super) fn reorder(&self, id: u64, request: Reorder) {
+        self.request(id, Request::Reorder(request));
+    }
+    fn request(&self, id: u64, query: Request) {
         self.generation.store(id, Ordering::Release);
         *self
             .request
@@ -68,7 +85,7 @@ impl Worker {
             .unwrap_or_else(|poison| poison.into_inner()) = Some((id, query));
         self.request.1.notify_one();
     }
-    pub(super) fn take(&self) -> Option<(u64, Vec<ViewRow>)> {
+    pub(super) fn take(&self) -> Option<(u64, ViewResult)> {
         self.result
             .lock()
             .unwrap_or_else(|poison| poison.into_inner())

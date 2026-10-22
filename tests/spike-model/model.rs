@@ -1,7 +1,7 @@
 use feishin_spike_model::*;
 
 #[test]
-fn large_view_identity_grouping_filter_cancel_and_move() {
+fn large_view_identity_grouping_filter_and_cancel() {
     let data = records(100_000);
     let grouped = build_view(
         &data,
@@ -25,19 +25,6 @@ fn large_view_identity_grouping_filter_cancel_and_move() {
     assert_eq!(
         build_view(&data, &query, || false).unwrap(),
         [ViewRow::Track(99999)]
-    );
-    let moved = build_view(
-        &data,
-        &Query {
-            move_before: Some((0, 2)),
-            ..Default::default()
-        },
-        || false,
-    )
-    .unwrap();
-    assert_eq!(
-        &moved[..3],
-        &[ViewRow::Track(1), ViewRow::Track(0), ViewRow::Track(2)]
     );
     assert_eq!(records(usize::MAX).len(), MAX_RECORDS);
 }
