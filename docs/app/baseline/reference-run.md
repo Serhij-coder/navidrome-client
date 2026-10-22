@@ -2,6 +2,8 @@
 
 Date: 2026-10-21. Source: the archive and commit recorded in [baseline](README.md). No live Feishin profile was opened or modified. No source baseline/inventory or ignored reference plan was edited. Network dependency access used approved sandbox escalation; no release/deployment was performed.
 
+This historical run is supplemented on 2026-10-22 by [headless queue/persistence/scrobble execution](headless-characterization.md), [live disposable server captures](live-servers.md) and [headless queue measurements](queue-measurements.json). Those additions no longer depend on the earlier browser blocker, but do not replace the missing UI/desktop/audio evidence described below.
+
 The archive was extracted with Python `tarfile.extractall(filter='data')` into `/tmp/feishin-p00-reference`. Node v22.22.2 and npm 10.9.7 were available. pnpm 11.5.2 and TypeScript 6.0.3 were installed under `/tmp/feishin-p00-tooling` using npm `--ignore-scripts --no-audit --no-fund`, with cache under `/tmp`. Frozen reference dependencies were installed with all lifecycle scripts disabled:
 
 ```sh

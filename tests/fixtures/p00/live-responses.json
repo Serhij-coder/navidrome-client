@@ -1,0 +1,5144 @@
+{
+  "schema": 1,
+  "task": "P00.04",
+  "evidenceKind": "live-disposable-server-http-capture",
+  "date": "2026-10-22",
+  "summaries": [
+    {
+      "fixture": "navidrome-0.61.0",
+      "serverVersion": "0.61.0 (c5bb920b)",
+      "protocolVersion": "1.16.1",
+      "openSubsonicAdvertised": true,
+      "extensionHttpStatus": 200,
+      "extensionProtocolStatus": "ok",
+      "songs": 2,
+      "readerAuthentication": "ok"
+    },
+    {
+      "fixture": "navidrome-0.47.5",
+      "serverVersion": "0.47.5 (86fe1e3b)",
+      "protocolVersion": "1.16.1",
+      "openSubsonicAdvertised": false,
+      "extensionHttpStatus": 404,
+      "extensionProtocolStatus": null,
+      "songs": 2,
+      "readerAuthentication": "ok"
+    },
+    {
+      "fixture": "gonic-0.16.4",
+      "serverVersion": "0.16.4",
+      "protocolVersion": "1.15.0",
+      "openSubsonicAdvertised": true,
+      "extensionHttpStatus": 200,
+      "extensionProtocolStatus": "ok",
+      "songs": 2,
+      "readerAuthentication": "ok"
+    },
+    {
+      "fixture": "gonic-0.15.2",
+      "serverVersion": null,
+      "protocolVersion": "1.15.0",
+      "openSubsonicAdvertised": false,
+      "extensionHttpStatus": 200,
+      "extensionProtocolStatus": "failed",
+      "songs": 2,
+      "readerAuthentication": "ok"
+    },
+    {
+      "fixture": "jellyfin-10.10.7",
+      "serverVersion": "10.10.7",
+      "songs": 2,
+      "readerAuthentication": "ok",
+      "readerIsAdministrator": false
+    },
+    {
+      "fixture": "jellyfin-10.8.13",
+      "serverVersion": "10.8.13",
+      "songs": 2,
+      "readerAuthentication": "ok",
+      "readerIsAdministrator": false
+    }
+  ],
+  "records": [
+    {
+      "fixture": "navidrome-0.61.0:admin",
+      "method": "GET",
+      "path": "/rest/ping",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.61.0 (c5bb920b)",
+          "openSubsonic": true
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.61.0:admin",
+      "method": "GET",
+      "path": "/rest/getOpenSubsonicExtensions",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.61.0 (c5bb920b)",
+          "openSubsonic": true,
+          "openSubsonicExtensions": [
+            {
+              "name": "transcodeOffset",
+              "versions": [
+                1
+              ]
+            },
+            {
+              "name": "formPost",
+              "versions": [
+                1
+              ]
+            },
+            {
+              "name": "songLyrics",
+              "versions": [
+                1
+              ]
+            },
+            {
+              "name": "indexBasedQueue",
+              "versions": [
+                1
+              ]
+            },
+            {
+              "name": "transcoding",
+              "versions": [
+                1
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.61.0:admin",
+      "method": "GET",
+      "path": "/rest/ping",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "failed",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.61.0 (c5bb920b)",
+          "openSubsonic": true,
+          "error": {
+            "code": 40,
+            "message": "Wrong username or password"
+          }
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.61.0:admin",
+      "method": "GET",
+      "path": "/rest/startScan",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.61.0 (c5bb920b)",
+          "openSubsonic": true,
+          "scanStatus": {
+            "scanning": true,
+            "count": 0,
+            "folderCount": 0,
+            "lastScan": "2026-10-22T05:00:42.454004309Z",
+            "scanType": "quick",
+            "elapsedTime": 55623549440
+          }
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.61.0:admin",
+      "method": "GET",
+      "path": "/rest/search3",
+      "query": {
+        "query": "P00",
+        "songCount": 20,
+        "artistCount": 0,
+        "albumCount": 0
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.61.0 (c5bb920b)",
+          "openSubsonic": true,
+          "searchResult3": {
+            "song": [
+              {
+                "id": "LxuW6lJwQ0it4Aeykz0hHz",
+                "parent": "5pRJuHR2Ib33o0cuYv8dZp",
+                "isDir": false,
+                "title": "P00 Tone A",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "track": 1,
+                "coverArt": "al-5pRJuHR2Ib33o0cuYv8dZp_0",
+                "size": 44420,
+                "contentType": "audio/flac",
+                "suffix": "flac",
+                "duration": 3,
+                "bitRate": 96,
+                "path": "Fixture Artist/Fixture Album/01 - P00 Tone A.flac",
+                "created": "2026-10-22T04:34:48.321402943Z",
+                "albumId": "5pRJuHR2Ib33o0cuYv8dZp",
+                "artistId": "3fqn6fOUD3F7Tlqh8xKJ61",
+                "type": "music",
+                "bpm": 0,
+                "comment": "",
+                "sortName": "p00 tone a",
+                "mediaType": "song",
+                "musicBrainzId": "",
+                "isrc": [],
+                "genres": [],
+                "replayGain": {},
+                "channelCount": 1,
+                "samplingRate": 44100,
+                "bitDepth": 16,
+                "moods": [],
+                "artists": [
+                  {
+                    "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayArtist": "Fixture Artist",
+                "albumArtists": [
+                  {
+                    "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayAlbumArtist": "Fixture Artist",
+                "contributors": [],
+                "displayComposer": "",
+                "explicitStatus": ""
+              },
+              {
+                "id": "bpIGMScYSHhPZhAKH7KZlm",
+                "parent": "5pRJuHR2Ib33o0cuYv8dZp",
+                "isDir": false,
+                "title": "P00 Tone B",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "track": 2,
+                "coverArt": "al-5pRJuHR2Ib33o0cuYv8dZp_0",
+                "size": 32703,
+                "contentType": "audio/mpeg",
+                "suffix": "mp3",
+                "duration": 4,
+                "bitRate": 64,
+                "path": "Fixture Artist/Fixture Album/02 - P00 Tone B.mp3",
+                "created": "2026-10-22T04:34:48.32151793Z",
+                "albumId": "5pRJuHR2Ib33o0cuYv8dZp",
+                "artistId": "3fqn6fOUD3F7Tlqh8xKJ61",
+                "type": "music",
+                "bpm": 0,
+                "comment": "",
+                "sortName": "p00 tone b",
+                "mediaType": "song",
+                "musicBrainzId": "",
+                "isrc": [],
+                "genres": [],
+                "replayGain": {},
+                "channelCount": 1,
+                "samplingRate": 44100,
+                "bitDepth": 0,
+                "moods": [],
+                "artists": [
+                  {
+                    "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayArtist": "Fixture Artist",
+                "albumArtists": [
+                  {
+                    "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayAlbumArtist": "Fixture Artist",
+                "contributors": [],
+                "displayComposer": "",
+                "explicitStatus": ""
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.61.0:admin",
+      "method": "GET",
+      "path": "/rest/search3",
+      "query": {
+        "query": "P00",
+        "songOffset": 2,
+        "songCount": 20
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.61.0 (c5bb920b)",
+          "openSubsonic": true,
+          "searchResult3": {}
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.61.0:admin",
+      "method": "GET",
+      "path": "/rest/createPlaylist",
+      "query": {
+        "name": "P00 disposable duplicates",
+        "songId": [
+          "LxuW6lJwQ0it4Aeykz0hHz",
+          "LxuW6lJwQ0it4Aeykz0hHz"
+        ]
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.61.0 (c5bb920b)",
+          "openSubsonic": true,
+          "playlist": {
+            "id": "fJHzqUsEAYBYvnVYAtltWc",
+            "name": "P00 disposable duplicates",
+            "songCount": 2,
+            "duration": 6,
+            "owner": "fixture-admin",
+            "created": "2026-10-22T05:01:37.631857579Z",
+            "changed": "2026-10-22T05:01:37.632175569Z",
+            "coverArt": "pl-fJHzqUsEAYBYvnVYAtltWc_6ad998b1",
+            "readonly": false,
+            "entry": [
+              {
+                "id": "LxuW6lJwQ0it4Aeykz0hHz",
+                "parent": "5pRJuHR2Ib33o0cuYv8dZp",
+                "isDir": false,
+                "title": "P00 Tone A",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "track": 1,
+                "coverArt": "al-5pRJuHR2Ib33o0cuYv8dZp_0",
+                "size": 44420,
+                "contentType": "audio/flac",
+                "suffix": "flac",
+                "duration": 3,
+                "bitRate": 96,
+                "path": "Fixture Artist/Fixture Album/01 - P00 Tone A.flac",
+                "created": "2026-10-22T04:34:48.321402943Z",
+                "albumId": "5pRJuHR2Ib33o0cuYv8dZp",
+                "artistId": "3fqn6fOUD3F7Tlqh8xKJ61",
+                "type": "music",
+                "bpm": 0,
+                "comment": "",
+                "sortName": "p00 tone a",
+                "mediaType": "song",
+                "musicBrainzId": "",
+                "isrc": [],
+                "genres": [],
+                "replayGain": {},
+                "channelCount": 1,
+                "samplingRate": 44100,
+                "bitDepth": 16,
+                "moods": [],
+                "artists": [
+                  {
+                    "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayArtist": "Fixture Artist",
+                "albumArtists": [
+                  {
+                    "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayAlbumArtist": "Fixture Artist",
+                "contributors": [],
+                "displayComposer": "",
+                "explicitStatus": ""
+              },
+              {
+                "id": "LxuW6lJwQ0it4Aeykz0hHz",
+                "parent": "5pRJuHR2Ib33o0cuYv8dZp",
+                "isDir": false,
+                "title": "P00 Tone A",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "track": 1,
+                "coverArt": "al-5pRJuHR2Ib33o0cuYv8dZp_0",
+                "size": 44420,
+                "contentType": "audio/flac",
+                "suffix": "flac",
+                "duration": 3,
+                "bitRate": 96,
+                "path": "Fixture Artist/Fixture Album/01 - P00 Tone A.flac",
+                "created": "2026-10-22T04:34:48.321402943Z",
+                "albumId": "5pRJuHR2Ib33o0cuYv8dZp",
+                "artistId": "3fqn6fOUD3F7Tlqh8xKJ61",
+                "type": "music",
+                "bpm": 0,
+                "comment": "",
+                "sortName": "p00 tone a",
+                "mediaType": "song",
+                "musicBrainzId": "",
+                "isrc": [],
+                "genres": [],
+                "replayGain": {},
+                "channelCount": 1,
+                "samplingRate": 44100,
+                "bitDepth": 16,
+                "moods": [],
+                "artists": [
+                  {
+                    "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayArtist": "Fixture Artist",
+                "albumArtists": [
+                  {
+                    "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayAlbumArtist": "Fixture Artist",
+                "contributors": [],
+                "displayComposer": "",
+                "explicitStatus": ""
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.61.0:admin",
+      "method": "GET",
+      "path": "/rest/getPlaylist",
+      "query": {
+        "id": "fJHzqUsEAYBYvnVYAtltWc"
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.61.0 (c5bb920b)",
+          "openSubsonic": true,
+          "playlist": {
+            "id": "fJHzqUsEAYBYvnVYAtltWc",
+            "name": "P00 disposable duplicates",
+            "songCount": 2,
+            "duration": 6,
+            "owner": "fixture-admin",
+            "created": "2026-10-22T05:01:37.631857579Z",
+            "changed": "2026-10-22T05:01:37.632175569Z",
+            "coverArt": "pl-fJHzqUsEAYBYvnVYAtltWc_6ad998b1",
+            "readonly": false,
+            "entry": [
+              {
+                "id": "LxuW6lJwQ0it4Aeykz0hHz",
+                "parent": "5pRJuHR2Ib33o0cuYv8dZp",
+                "isDir": false,
+                "title": "P00 Tone A",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "track": 1,
+                "coverArt": "al-5pRJuHR2Ib33o0cuYv8dZp_0",
+                "size": 44420,
+                "contentType": "audio/flac",
+                "suffix": "flac",
+                "duration": 3,
+                "bitRate": 96,
+                "path": "Fixture Artist/Fixture Album/01 - P00 Tone A.flac",
+                "created": "2026-10-22T04:34:48.321402943Z",
+                "albumId": "5pRJuHR2Ib33o0cuYv8dZp",
+                "artistId": "3fqn6fOUD3F7Tlqh8xKJ61",
+                "type": "music",
+                "bpm": 0,
+                "comment": "",
+                "sortName": "p00 tone a",
+                "mediaType": "song",
+                "musicBrainzId": "",
+                "isrc": [],
+                "genres": [],
+                "replayGain": {},
+                "channelCount": 1,
+                "samplingRate": 44100,
+                "bitDepth": 16,
+                "moods": [],
+                "artists": [
+                  {
+                    "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayArtist": "Fixture Artist",
+                "albumArtists": [
+                  {
+                    "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayAlbumArtist": "Fixture Artist",
+                "contributors": [],
+                "displayComposer": "",
+                "explicitStatus": ""
+              },
+              {
+                "id": "LxuW6lJwQ0it4Aeykz0hHz",
+                "parent": "5pRJuHR2Ib33o0cuYv8dZp",
+                "isDir": false,
+                "title": "P00 Tone A",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "track": 1,
+                "coverArt": "al-5pRJuHR2Ib33o0cuYv8dZp_0",
+                "size": 44420,
+                "contentType": "audio/flac",
+                "suffix": "flac",
+                "duration": 3,
+                "bitRate": 96,
+                "path": "Fixture Artist/Fixture Album/01 - P00 Tone A.flac",
+                "created": "2026-10-22T04:34:48.321402943Z",
+                "albumId": "5pRJuHR2Ib33o0cuYv8dZp",
+                "artistId": "3fqn6fOUD3F7Tlqh8xKJ61",
+                "type": "music",
+                "bpm": 0,
+                "comment": "",
+                "sortName": "p00 tone a",
+                "mediaType": "song",
+                "musicBrainzId": "",
+                "isrc": [],
+                "genres": [],
+                "replayGain": {},
+                "channelCount": 1,
+                "samplingRate": 44100,
+                "bitDepth": 16,
+                "moods": [],
+                "artists": [
+                  {
+                    "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayArtist": "Fixture Artist",
+                "albumArtists": [
+                  {
+                    "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayAlbumArtist": "Fixture Artist",
+                "contributors": [],
+                "displayComposer": "",
+                "explicitStatus": ""
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.61.0:admin",
+      "method": "GET",
+      "path": "/rest/updatePlaylist",
+      "query": {
+        "playlistId": "fJHzqUsEAYBYvnVYAtltWc",
+        "songIndexToRemove": 1
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.61.0 (c5bb920b)",
+          "openSubsonic": true
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.61.0:admin",
+      "method": "GET",
+      "path": "/rest/getPlaylist",
+      "query": {
+        "id": "fJHzqUsEAYBYvnVYAtltWc"
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.61.0 (c5bb920b)",
+          "openSubsonic": true,
+          "playlist": {
+            "id": "fJHzqUsEAYBYvnVYAtltWc",
+            "name": "P00 disposable duplicates",
+            "songCount": 1,
+            "duration": 3,
+            "owner": "fixture-admin",
+            "created": "2026-10-22T05:01:37.631857579Z",
+            "changed": "2026-10-22T05:01:37.63822201Z",
+            "coverArt": "pl-fJHzqUsEAYBYvnVYAtltWc_6ad998b1",
+            "readonly": false,
+            "entry": [
+              {
+                "id": "LxuW6lJwQ0it4Aeykz0hHz",
+                "parent": "5pRJuHR2Ib33o0cuYv8dZp",
+                "isDir": false,
+                "title": "P00 Tone A",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "track": 1,
+                "coverArt": "al-5pRJuHR2Ib33o0cuYv8dZp_0",
+                "size": 44420,
+                "contentType": "audio/flac",
+                "suffix": "flac",
+                "duration": 3,
+                "bitRate": 96,
+                "path": "Fixture Artist/Fixture Album/01 - P00 Tone A.flac",
+                "created": "2026-10-22T04:34:48.321402943Z",
+                "albumId": "5pRJuHR2Ib33o0cuYv8dZp",
+                "artistId": "3fqn6fOUD3F7Tlqh8xKJ61",
+                "type": "music",
+                "bpm": 0,
+                "comment": "",
+                "sortName": "p00 tone a",
+                "mediaType": "song",
+                "musicBrainzId": "",
+                "isrc": [],
+                "genres": [],
+                "replayGain": {},
+                "channelCount": 1,
+                "samplingRate": 44100,
+                "bitDepth": 16,
+                "moods": [],
+                "artists": [
+                  {
+                    "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayArtist": "Fixture Artist",
+                "albumArtists": [
+                  {
+                    "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayAlbumArtist": "Fixture Artist",
+                "contributors": [],
+                "displayComposer": "",
+                "explicitStatus": ""
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.61.0:admin",
+      "method": "GET",
+      "path": "/rest/deletePlaylist",
+      "query": {
+        "id": "fJHzqUsEAYBYvnVYAtltWc"
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.61.0 (c5bb920b)",
+          "openSubsonic": true
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.61.0:reader",
+      "method": "GET",
+      "path": "/rest/ping",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.61.0 (c5bb920b)",
+          "openSubsonic": true
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.61.0:reader",
+      "method": "GET",
+      "path": "/rest/search3",
+      "query": {
+        "query": "P00",
+        "songCount": 20
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.61.0 (c5bb920b)",
+          "openSubsonic": true,
+          "searchResult3": {
+            "song": [
+              {
+                "id": "LxuW6lJwQ0it4Aeykz0hHz",
+                "parent": "5pRJuHR2Ib33o0cuYv8dZp",
+                "isDir": false,
+                "title": "P00 Tone A",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "track": 1,
+                "coverArt": "al-5pRJuHR2Ib33o0cuYv8dZp_0",
+                "size": 44420,
+                "contentType": "audio/flac",
+                "suffix": "flac",
+                "duration": 3,
+                "bitRate": 96,
+                "path": "Fixture Artist/Fixture Album/01 - P00 Tone A.flac",
+                "created": "2026-10-22T04:34:48.321402943Z",
+                "albumId": "5pRJuHR2Ib33o0cuYv8dZp",
+                "artistId": "3fqn6fOUD3F7Tlqh8xKJ61",
+                "type": "music",
+                "bpm": 0,
+                "comment": "",
+                "sortName": "p00 tone a",
+                "mediaType": "song",
+                "musicBrainzId": "",
+                "isrc": [],
+                "genres": [],
+                "replayGain": {},
+                "channelCount": 1,
+                "samplingRate": 44100,
+                "bitDepth": 16,
+                "moods": [],
+                "artists": [
+                  {
+                    "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayArtist": "Fixture Artist",
+                "albumArtists": [
+                  {
+                    "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayAlbumArtist": "Fixture Artist",
+                "contributors": [],
+                "displayComposer": "",
+                "explicitStatus": ""
+              },
+              {
+                "id": "bpIGMScYSHhPZhAKH7KZlm",
+                "parent": "5pRJuHR2Ib33o0cuYv8dZp",
+                "isDir": false,
+                "title": "P00 Tone B",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "track": 2,
+                "coverArt": "al-5pRJuHR2Ib33o0cuYv8dZp_0",
+                "size": 32703,
+                "contentType": "audio/mpeg",
+                "suffix": "mp3",
+                "duration": 4,
+                "bitRate": 64,
+                "path": "Fixture Artist/Fixture Album/02 - P00 Tone B.mp3",
+                "created": "2026-10-22T04:34:48.32151793Z",
+                "albumId": "5pRJuHR2Ib33o0cuYv8dZp",
+                "artistId": "3fqn6fOUD3F7Tlqh8xKJ61",
+                "type": "music",
+                "bpm": 0,
+                "comment": "",
+                "sortName": "p00 tone b",
+                "mediaType": "song",
+                "musicBrainzId": "",
+                "isrc": [],
+                "genres": [],
+                "replayGain": {},
+                "channelCount": 1,
+                "samplingRate": 44100,
+                "bitDepth": 0,
+                "moods": [],
+                "artists": [
+                  {
+                    "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayArtist": "Fixture Artist",
+                "albumArtists": [
+                  {
+                    "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayAlbumArtist": "Fixture Artist",
+                "contributors": [],
+                "displayComposer": "",
+                "explicitStatus": ""
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.61.0:reader",
+      "method": "GET",
+      "path": "/rest/startScan",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "failed",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.61.0 (c5bb920b)",
+          "openSubsonic": true,
+          "error": {
+            "code": 50,
+            "message": "User is not authorized for the given operation"
+          }
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.61.0:admin",
+      "method": "POST",
+      "path": "/auth/login",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "id": "s8DDYNtdSbKYrSljafZNV4",
+        "isAdmin": true,
+        "name": "Fixture-Admin",
+        "subsonicSalt": "<redacted>",
+        "subsonicToken": "<redacted>",
+        "token": "<redacted>",
+        "username": "fixture-admin"
+      }
+    },
+    {
+      "fixture": "navidrome-0.61.0:admin",
+      "method": "GET",
+      "path": "/api/song",
+      "query": {
+        "_start": 0,
+        "_end": 20
+      },
+      "http_status": 200,
+      "body": [
+        {
+          "bookmarkPosition": 0,
+          "id": "LxuW6lJwQ0it4Aeykz0hHz",
+          "libraryId": 1,
+          "libraryPath": "/music",
+          "libraryName": "Music Library",
+          "folderId": "4U6aTyxy0puNBRm8vScQEY",
+          "path": "Fixture Artist/Fixture Album/tone-a.flac",
+          "title": "P00 Tone A",
+          "album": "Fixture Album",
+          "artistId": "3fqn6fOUD3F7Tlqh8xKJ61",
+          "artist": "Fixture Artist",
+          "albumArtistId": "3fqn6fOUD3F7Tlqh8xKJ61",
+          "albumArtist": "Fixture Artist",
+          "albumId": "5pRJuHR2Ib33o0cuYv8dZp",
+          "hasCoverArt": false,
+          "trackNumber": 1,
+          "discNumber": 0,
+          "year": 0,
+          "originalYear": 0,
+          "releaseYear": 0,
+          "size": 44420,
+          "suffix": "flac",
+          "duration": 3,
+          "bitRate": 96,
+          "sampleRate": 44100,
+          "bitDepth": 16,
+          "channels": 1,
+          "codec": "",
+          "genre": "",
+          "orderTitle": "p00 tone a",
+          "orderAlbumName": "fixture album",
+          "orderArtistName": "fixture artist",
+          "orderAlbumArtistName": "fixture artist",
+          "compilation": false,
+          "lyrics": "[]",
+          "explicitStatus": "",
+          "rgAlbumGain": null,
+          "rgAlbumPeak": null,
+          "rgTrackGain": null,
+          "rgTrackPeak": null,
+          "participants": {
+            "albumartist": [
+              {
+                "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                "name": "Fixture Artist",
+                "missing": false
+              }
+            ],
+            "artist": [
+              {
+                "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                "name": "Fixture Artist",
+                "missing": false
+              }
+            ]
+          },
+          "missing": false,
+          "birthTime": "2026-10-22T04:34:48.321402943Z",
+          "createdAt": "2026-10-22T04:34:48.324181496Z",
+          "updatedAt": "2026-10-22T04:28:40.299207056Z"
+        },
+        {
+          "bookmarkPosition": 0,
+          "id": "bpIGMScYSHhPZhAKH7KZlm",
+          "libraryId": 1,
+          "libraryPath": "/music",
+          "libraryName": "Music Library",
+          "folderId": "4U6aTyxy0puNBRm8vScQEY",
+          "path": "Fixture Artist/Fixture Album/tone-b.mp3",
+          "title": "P00 Tone B",
+          "album": "Fixture Album",
+          "artistId": "3fqn6fOUD3F7Tlqh8xKJ61",
+          "artist": "Fixture Artist",
+          "albumArtistId": "3fqn6fOUD3F7Tlqh8xKJ61",
+          "albumArtist": "Fixture Artist",
+          "albumId": "5pRJuHR2Ib33o0cuYv8dZp",
+          "hasCoverArt": false,
+          "trackNumber": 2,
+          "discNumber": 0,
+          "year": 0,
+          "originalYear": 0,
+          "releaseYear": 0,
+          "size": 32703,
+          "suffix": "mp3",
+          "duration": 4.05,
+          "bitRate": 64,
+          "sampleRate": 44100,
+          "bitDepth": 0,
+          "channels": 1,
+          "codec": "MP3",
+          "genre": "",
+          "orderTitle": "p00 tone b",
+          "orderAlbumName": "fixture album",
+          "orderArtistName": "fixture artist",
+          "orderAlbumArtistName": "fixture artist",
+          "compilation": false,
+          "lyrics": "[]",
+          "explicitStatus": "",
+          "rgAlbumGain": null,
+          "rgAlbumPeak": null,
+          "rgTrackGain": null,
+          "rgTrackPeak": null,
+          "participants": {
+            "albumartist": [
+              {
+                "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                "name": "Fixture Artist",
+                "missing": false
+              }
+            ],
+            "artist": [
+              {
+                "id": "3fqn6fOUD3F7Tlqh8xKJ61",
+                "name": "Fixture Artist",
+                "missing": false
+              }
+            ]
+          },
+          "missing": false,
+          "birthTime": "2026-10-22T04:34:48.32151793Z",
+          "createdAt": "2026-10-22T04:34:48.325620452Z",
+          "updatedAt": "2026-10-22T04:28:40.47020751Z"
+        }
+      ]
+    },
+    {
+      "fixture": "navidrome-0.61.0:reader",
+      "method": "POST",
+      "path": "/auth/login",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "id": "VFvco3H6oRXqlUfLDcqFrd",
+        "isAdmin": false,
+        "name": "Fixture reader",
+        "subsonicSalt": "<redacted>",
+        "subsonicToken": "<redacted>",
+        "token": "<redacted>",
+        "username": "fixture-reader"
+      }
+    },
+    {
+      "fixture": "navidrome-0.61.0:reader",
+      "method": "GET",
+      "path": "/api/user",
+      "query": {},
+      "http_status": 403,
+      "body": {
+        "error": "Error reading user: Permission denied"
+      }
+    },
+    {
+      "fixture": "navidrome-0.47.5:admin",
+      "method": "GET",
+      "path": "/rest/ping",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.47.5 (86fe1e3b)"
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.47.5:admin",
+      "method": "GET",
+      "path": "/rest/getOpenSubsonicExtensions",
+      "query": {},
+      "http_status": 404,
+      "body": {
+        "non_json": true,
+        "bytes": 19
+      }
+    },
+    {
+      "fixture": "navidrome-0.47.5:admin",
+      "method": "GET",
+      "path": "/rest/ping",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "failed",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.47.5 (86fe1e3b)",
+          "error": {
+            "code": 40,
+            "message": "Wrong username or password"
+          }
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.47.5:admin",
+      "method": "GET",
+      "path": "/rest/startScan",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.47.5 (86fe1e3b)",
+          "scanStatus": {
+            "scanning": false,
+            "count": 2,
+            "folderCount": 1,
+            "lastScan": "2026-10-22T05:00:42.46741626Z"
+          }
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.47.5:admin",
+      "method": "GET",
+      "path": "/rest/search3",
+      "query": {
+        "query": "P00",
+        "songCount": 20,
+        "artistCount": 0,
+        "albumCount": 0
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.47.5 (86fe1e3b)",
+          "searchResult3": {
+            "song": [
+              {
+                "id": "e61a03cf37b6cf55beeefddb21a7b0bf",
+                "parent": "5c6259445dd7f5b07b17eba6f7c5d83e",
+                "isDir": false,
+                "title": "P00 Tone A",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "track": 1,
+                "coverArt": "al-5c6259445dd7f5b07b17eba6f7c5d83e",
+                "size": 44420,
+                "contentType": "audio/flac",
+                "suffix": "flac",
+                "duration": 3,
+                "bitRate": 96,
+                "path": "Fixture Artist/Fixture Album/P00 Tone A.flac",
+                "created": "2026-10-22T04:42:25.961587192Z",
+                "albumId": "5c6259445dd7f5b07b17eba6f7c5d83e",
+                "artistId": "5e048364e6ea52fb8140b97b5014a842",
+                "type": "music",
+                "isVideo": false
+              },
+              {
+                "id": "88f0eb79eb2cd6c88b5da22c1309f314",
+                "parent": "5c6259445dd7f5b07b17eba6f7c5d83e",
+                "isDir": false,
+                "title": "P00 Tone B",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "track": 2,
+                "coverArt": "al-5c6259445dd7f5b07b17eba6f7c5d83e",
+                "size": 32703,
+                "contentType": "audio/mpeg",
+                "suffix": "mp3",
+                "duration": 4,
+                "bitRate": 64,
+                "path": "Fixture Artist/Fixture Album/P00 Tone B.mp3",
+                "created": "2026-10-22T04:42:25.961571101Z",
+                "albumId": "5c6259445dd7f5b07b17eba6f7c5d83e",
+                "artistId": "5e048364e6ea52fb8140b97b5014a842",
+                "type": "music",
+                "isVideo": false
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.47.5:admin",
+      "method": "GET",
+      "path": "/rest/search3",
+      "query": {
+        "query": "P00",
+        "songOffset": 2,
+        "songCount": 20
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.47.5 (86fe1e3b)",
+          "searchResult3": {}
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.47.5:admin",
+      "method": "GET",
+      "path": "/rest/createPlaylist",
+      "query": {
+        "name": "P00 disposable duplicates",
+        "songId": [
+          "e61a03cf37b6cf55beeefddb21a7b0bf",
+          "e61a03cf37b6cf55beeefddb21a7b0bf"
+        ]
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.47.5 (86fe1e3b)",
+          "playlist": {
+            "id": "2a73e017-929a-4ab5-84bc-dc8ed927b75e",
+            "name": "P00 disposable duplicates",
+            "songCount": 2,
+            "duration": 6,
+            "public": false,
+            "owner": "fixture-admin",
+            "created": "2026-10-22T05:01:37.665890245Z",
+            "changed": "2026-10-22T05:01:37Z",
+            "entry": [
+              {
+                "id": "e61a03cf37b6cf55beeefddb21a7b0bf",
+                "parent": "5c6259445dd7f5b07b17eba6f7c5d83e",
+                "isDir": false,
+                "title": "P00 Tone A",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "track": 1,
+                "coverArt": "al-5c6259445dd7f5b07b17eba6f7c5d83e",
+                "size": 44420,
+                "contentType": "audio/flac",
+                "suffix": "flac",
+                "duration": 3,
+                "bitRate": 96,
+                "path": "Fixture Artist/Fixture Album/P00 Tone A.flac",
+                "created": "2026-10-22T04:42:25.961587192Z",
+                "albumId": "5c6259445dd7f5b07b17eba6f7c5d83e",
+                "artistId": "5e048364e6ea52fb8140b97b5014a842",
+                "type": "music",
+                "isVideo": false
+              },
+              {
+                "id": "e61a03cf37b6cf55beeefddb21a7b0bf",
+                "parent": "5c6259445dd7f5b07b17eba6f7c5d83e",
+                "isDir": false,
+                "title": "P00 Tone A",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "track": 1,
+                "coverArt": "al-5c6259445dd7f5b07b17eba6f7c5d83e",
+                "size": 44420,
+                "contentType": "audio/flac",
+                "suffix": "flac",
+                "duration": 3,
+                "bitRate": 96,
+                "path": "Fixture Artist/Fixture Album/P00 Tone A.flac",
+                "created": "2026-10-22T04:42:25.961587192Z",
+                "albumId": "5c6259445dd7f5b07b17eba6f7c5d83e",
+                "artistId": "5e048364e6ea52fb8140b97b5014a842",
+                "type": "music",
+                "isVideo": false
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.47.5:admin",
+      "method": "GET",
+      "path": "/rest/getPlaylist",
+      "query": {
+        "id": "2a73e017-929a-4ab5-84bc-dc8ed927b75e"
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.47.5 (86fe1e3b)",
+          "playlist": {
+            "id": "2a73e017-929a-4ab5-84bc-dc8ed927b75e",
+            "name": "P00 disposable duplicates",
+            "songCount": 2,
+            "duration": 6,
+            "public": false,
+            "owner": "fixture-admin",
+            "created": "2026-10-22T05:01:37.665890245Z",
+            "changed": "2026-10-22T05:01:37Z",
+            "entry": [
+              {
+                "id": "e61a03cf37b6cf55beeefddb21a7b0bf",
+                "parent": "5c6259445dd7f5b07b17eba6f7c5d83e",
+                "isDir": false,
+                "title": "P00 Tone A",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "track": 1,
+                "coverArt": "al-5c6259445dd7f5b07b17eba6f7c5d83e",
+                "size": 44420,
+                "contentType": "audio/flac",
+                "suffix": "flac",
+                "duration": 3,
+                "bitRate": 96,
+                "path": "Fixture Artist/Fixture Album/P00 Tone A.flac",
+                "created": "2026-10-22T04:42:25.961587192Z",
+                "albumId": "5c6259445dd7f5b07b17eba6f7c5d83e",
+                "artistId": "5e048364e6ea52fb8140b97b5014a842",
+                "type": "music",
+                "isVideo": false
+              },
+              {
+                "id": "e61a03cf37b6cf55beeefddb21a7b0bf",
+                "parent": "5c6259445dd7f5b07b17eba6f7c5d83e",
+                "isDir": false,
+                "title": "P00 Tone A",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "track": 1,
+                "coverArt": "al-5c6259445dd7f5b07b17eba6f7c5d83e",
+                "size": 44420,
+                "contentType": "audio/flac",
+                "suffix": "flac",
+                "duration": 3,
+                "bitRate": 96,
+                "path": "Fixture Artist/Fixture Album/P00 Tone A.flac",
+                "created": "2026-10-22T04:42:25.961587192Z",
+                "albumId": "5c6259445dd7f5b07b17eba6f7c5d83e",
+                "artistId": "5e048364e6ea52fb8140b97b5014a842",
+                "type": "music",
+                "isVideo": false
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.47.5:admin",
+      "method": "GET",
+      "path": "/rest/updatePlaylist",
+      "query": {
+        "playlistId": "2a73e017-929a-4ab5-84bc-dc8ed927b75e",
+        "songIndexToRemove": 1
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.47.5 (86fe1e3b)"
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.47.5:admin",
+      "method": "GET",
+      "path": "/rest/getPlaylist",
+      "query": {
+        "id": "2a73e017-929a-4ab5-84bc-dc8ed927b75e"
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.47.5 (86fe1e3b)",
+          "playlist": {
+            "id": "2a73e017-929a-4ab5-84bc-dc8ed927b75e",
+            "name": "P00 disposable duplicates",
+            "songCount": 1,
+            "duration": 3,
+            "public": false,
+            "owner": "fixture-admin",
+            "created": "2026-10-22T05:01:37.665890245Z",
+            "changed": "2026-10-22T05:01:37Z",
+            "entry": [
+              {
+                "id": "e61a03cf37b6cf55beeefddb21a7b0bf",
+                "parent": "5c6259445dd7f5b07b17eba6f7c5d83e",
+                "isDir": false,
+                "title": "P00 Tone A",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "track": 1,
+                "coverArt": "al-5c6259445dd7f5b07b17eba6f7c5d83e",
+                "size": 44420,
+                "contentType": "audio/flac",
+                "suffix": "flac",
+                "duration": 3,
+                "bitRate": 96,
+                "path": "Fixture Artist/Fixture Album/P00 Tone A.flac",
+                "created": "2026-10-22T04:42:25.961587192Z",
+                "albumId": "5c6259445dd7f5b07b17eba6f7c5d83e",
+                "artistId": "5e048364e6ea52fb8140b97b5014a842",
+                "type": "music",
+                "isVideo": false
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.47.5:admin",
+      "method": "GET",
+      "path": "/rest/deletePlaylist",
+      "query": {
+        "id": "2a73e017-929a-4ab5-84bc-dc8ed927b75e"
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.47.5 (86fe1e3b)"
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.47.5:reader",
+      "method": "GET",
+      "path": "/rest/ping",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.47.5 (86fe1e3b)"
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.47.5:reader",
+      "method": "GET",
+      "path": "/rest/search3",
+      "query": {
+        "query": "P00",
+        "songCount": 20
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.47.5 (86fe1e3b)",
+          "searchResult3": {
+            "song": [
+              {
+                "id": "e61a03cf37b6cf55beeefddb21a7b0bf",
+                "parent": "5c6259445dd7f5b07b17eba6f7c5d83e",
+                "isDir": false,
+                "title": "P00 Tone A",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "track": 1,
+                "coverArt": "al-5c6259445dd7f5b07b17eba6f7c5d83e",
+                "size": 44420,
+                "contentType": "audio/flac",
+                "suffix": "flac",
+                "duration": 3,
+                "bitRate": 96,
+                "path": "Fixture Artist/Fixture Album/P00 Tone A.flac",
+                "created": "2026-10-22T04:42:25.961587192Z",
+                "albumId": "5c6259445dd7f5b07b17eba6f7c5d83e",
+                "artistId": "5e048364e6ea52fb8140b97b5014a842",
+                "type": "music",
+                "isVideo": false
+              },
+              {
+                "id": "88f0eb79eb2cd6c88b5da22c1309f314",
+                "parent": "5c6259445dd7f5b07b17eba6f7c5d83e",
+                "isDir": false,
+                "title": "P00 Tone B",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "track": 2,
+                "coverArt": "al-5c6259445dd7f5b07b17eba6f7c5d83e",
+                "size": 32703,
+                "contentType": "audio/mpeg",
+                "suffix": "mp3",
+                "duration": 4,
+                "bitRate": 64,
+                "path": "Fixture Artist/Fixture Album/P00 Tone B.mp3",
+                "created": "2026-10-22T04:42:25.961571101Z",
+                "albumId": "5c6259445dd7f5b07b17eba6f7c5d83e",
+                "artistId": "5e048364e6ea52fb8140b97b5014a842",
+                "type": "music",
+                "isVideo": false
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.47.5:reader",
+      "method": "GET",
+      "path": "/rest/startScan",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "failed",
+          "version": "1.16.1",
+          "type": "navidrome",
+          "serverVersion": "0.47.5 (86fe1e3b)",
+          "error": {
+            "code": 50,
+            "message": "User is not authorized for the given operation"
+          }
+        }
+      }
+    },
+    {
+      "fixture": "navidrome-0.47.5:admin",
+      "method": "POST",
+      "path": "/auth/login",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "id": "24e84f03-b8ce-4efd-ac8b-7e2cf9a85215",
+        "isAdmin": true,
+        "name": "Fixture-Admin",
+        "subsonicSalt": "<redacted>",
+        "subsonicToken": "<redacted>",
+        "token": "<redacted>",
+        "username": "fixture-admin"
+      }
+    },
+    {
+      "fixture": "navidrome-0.47.5:admin",
+      "method": "GET",
+      "path": "/api/song",
+      "query": {
+        "_start": 0,
+        "_end": 20
+      },
+      "http_status": 200,
+      "body": [
+        {
+          "playCount": 0,
+          "playDate": "0001-01-01T00:00:00Z",
+          "rating": 0,
+          "starred": false,
+          "starredAt": "0001-01-01T00:00:00Z",
+          "bookmarkPosition": 0,
+          "id": "88f0eb79eb2cd6c88b5da22c1309f314",
+          "path": "/music/Fixture Artist/Fixture Album/tone-b.mp3",
+          "title": "P00 Tone B",
+          "album": "Fixture Album",
+          "artistId": "5e048364e6ea52fb8140b97b5014a842",
+          "artist": "Fixture Artist",
+          "albumArtistId": "5e048364e6ea52fb8140b97b5014a842",
+          "albumArtist": "Fixture Artist",
+          "albumId": "5c6259445dd7f5b07b17eba6f7c5d83e",
+          "hasCoverArt": false,
+          "trackNumber": 2,
+          "discNumber": 0,
+          "year": 0,
+          "size": 32703,
+          "suffix": "mp3",
+          "duration": 4.05,
+          "bitRate": 64,
+          "channels": 1,
+          "genre": "",
+          "genres": null,
+          "fullText": " album artist b fixture p00 tone",
+          "orderTitle": "P00 Tone B",
+          "orderAlbumName": "Fixture Album",
+          "orderArtistName": "Fixture Artist",
+          "orderAlbumArtistName": "Fixture Artist",
+          "compilation": false,
+          "createdAt": "2026-10-22T04:42:25.961571101Z",
+          "updatedAt": "2026-10-22T04:28:40.47020751Z"
+        },
+        {
+          "playCount": 0,
+          "playDate": "0001-01-01T00:00:00Z",
+          "rating": 0,
+          "starred": false,
+          "starredAt": "0001-01-01T00:00:00Z",
+          "bookmarkPosition": 0,
+          "id": "e61a03cf37b6cf55beeefddb21a7b0bf",
+          "path": "/music/Fixture Artist/Fixture Album/tone-a.flac",
+          "title": "P00 Tone A",
+          "album": "Fixture Album",
+          "artistId": "5e048364e6ea52fb8140b97b5014a842",
+          "artist": "Fixture Artist",
+          "albumArtistId": "5e048364e6ea52fb8140b97b5014a842",
+          "albumArtist": "Fixture Artist",
+          "albumId": "5c6259445dd7f5b07b17eba6f7c5d83e",
+          "hasCoverArt": false,
+          "trackNumber": 1,
+          "discNumber": 0,
+          "year": 0,
+          "size": 44420,
+          "suffix": "flac",
+          "duration": 3,
+          "bitRate": 96,
+          "channels": 1,
+          "genre": "",
+          "genres": null,
+          "fullText": " a album artist fixture p00 tone",
+          "orderTitle": "P00 Tone A",
+          "orderAlbumName": "Fixture Album",
+          "orderArtistName": "Fixture Artist",
+          "orderAlbumArtistName": "Fixture Artist",
+          "compilation": false,
+          "createdAt": "2026-10-22T04:42:25.961587192Z",
+          "updatedAt": "2026-10-22T04:28:40.299207056Z"
+        }
+      ]
+    },
+    {
+      "fixture": "navidrome-0.47.5:reader",
+      "method": "POST",
+      "path": "/auth/login",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "id": "cf2a5eeb-0072-4dda-a06b-b7f9bc10ae62",
+        "isAdmin": false,
+        "name": "Fixture reader",
+        "subsonicSalt": "<redacted>",
+        "subsonicToken": "<redacted>",
+        "token": "<redacted>",
+        "username": "fixture-reader"
+      }
+    },
+    {
+      "fixture": "navidrome-0.47.5:reader",
+      "method": "GET",
+      "path": "/api/user",
+      "query": {},
+      "http_status": 403,
+      "body": {
+        "error": "Error reading user: Permission denied"
+      }
+    },
+    {
+      "fixture": "gonic-0.16.4:admin",
+      "method": "GET",
+      "path": "/rest/ping",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "serverVersion": "0.16.4",
+          "openSubsonic": true
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.16.4:admin",
+      "method": "GET",
+      "path": "/rest/getOpenSubsonicExtensions",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "serverVersion": "0.16.4",
+          "openSubsonic": true,
+          "openSubsonicExtensions": [
+            {
+              "name": "transcodeOffset",
+              "versions": [
+                1
+              ]
+            },
+            {
+              "name": "formPost",
+              "versions": [
+                1
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.16.4:admin",
+      "method": "GET",
+      "path": "/rest/ping",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "failed",
+          "version": "1.15.0",
+          "type": "gonic",
+          "serverVersion": "0.16.4",
+          "openSubsonic": true,
+          "error": {
+            "code": 40,
+            "message": "invalid password"
+          }
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.16.4:admin",
+      "method": "GET",
+      "path": "/rest/startScan",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "serverVersion": "0.16.4",
+          "openSubsonic": true,
+          "scanStatus": {
+            "scanning": false,
+            "count": 2
+          }
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.16.4:admin",
+      "method": "GET",
+      "path": "/rest/search3",
+      "query": {
+        "query": "P00",
+        "songCount": 20,
+        "artistCount": 0,
+        "albumCount": 0
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "serverVersion": "0.16.4",
+          "openSubsonic": true,
+          "searchResult3": {
+            "song": [
+              {
+                "id": "tr-1",
+                "album": "Fixture Album",
+                "albumId": "al-3",
+                "artist": "Fixture Artist",
+                "artistId": "ar-1",
+                "artists": [
+                  {
+                    "id": "ar-1",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayArtist": "Fixture Artist",
+                "albumArtists": [
+                  {
+                    "id": "ar-1",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayAlbumArtist": "Fixture Artist",
+                "bitRate": 96,
+                "contentType": "audio/flac",
+                "created": "2026-10-22T04:42:25.973394545Z",
+                "duration": 3,
+                "genre": "Unknown Genre",
+                "genres": [
+                  {
+                    "name": "Unknown Genre"
+                  }
+                ],
+                "isDir": false,
+                "isVideo": false,
+                "parent": "al-3",
+                "path": "Fixture Artist/Fixture Album/tone-a.flac",
+                "size": 44420,
+                "suffix": "flac",
+                "title": "P00 Tone A",
+                "track": 1,
+                "type": "music",
+                "musicBrainzId": ""
+              },
+              {
+                "id": "tr-2",
+                "album": "Fixture Album",
+                "albumId": "al-3",
+                "artist": "Fixture Artist",
+                "artistId": "ar-1",
+                "artists": [
+                  {
+                    "id": "ar-1",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayArtist": "Fixture Artist",
+                "albumArtists": [
+                  {
+                    "id": "ar-1",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayAlbumArtist": "Fixture Artist",
+                "bitRate": 64,
+                "contentType": "audio/mpeg",
+                "created": "2026-10-22T04:42:25.97413932Z",
+                "duration": 4,
+                "genre": "Unknown Genre",
+                "genres": [
+                  {
+                    "name": "Unknown Genre"
+                  }
+                ],
+                "isDir": false,
+                "isVideo": false,
+                "parent": "al-3",
+                "path": "Fixture Artist/Fixture Album/tone-b.mp3",
+                "size": 32703,
+                "suffix": "mp3",
+                "title": "P00 Tone B",
+                "track": 2,
+                "type": "music",
+                "musicBrainzId": ""
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.16.4:admin",
+      "method": "GET",
+      "path": "/rest/search3",
+      "query": {
+        "query": "P00",
+        "songOffset": 2,
+        "songCount": 20
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "serverVersion": "0.16.4",
+          "openSubsonic": true,
+          "searchResult3": {}
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.16.4:admin",
+      "method": "GET",
+      "path": "/rest/createPlaylist",
+      "query": {
+        "name": "P00 disposable duplicates",
+        "songId": [
+          "tr-1",
+          "tr-1"
+        ]
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "serverVersion": "0.16.4",
+          "openSubsonic": true,
+          "playlist": {
+            "id": "MS8xNzkyNjQ1Mjk3Njk2LTE3OTI2NDUyOTc2OTYubTN1",
+            "name": "P00 disposable duplicates",
+            "comment": "",
+            "owner": "admin",
+            "songCount": 2,
+            "created": "2026-10-22T05:01:37.696567228Z",
+            "changed": "2026-10-22T05:01:37.696567228Z",
+            "duration": 6,
+            "entry": [
+              {
+                "id": "tr-1",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "artists": [
+                  {
+                    "id": "ar-1",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayArtist": "",
+                "albumArtists": null,
+                "displayAlbumArtist": "",
+                "bitRate": 96,
+                "contentType": "audio/flac",
+                "created": "2026-10-22T04:42:25.973394545Z",
+                "duration": 3,
+                "isDir": false,
+                "isVideo": false,
+                "parent": "al-3",
+                "path": "Fixture Artist/Fixture Album/tone-a.flac",
+                "size": 44420,
+                "suffix": "flac",
+                "title": "P00 Tone A",
+                "track": 1,
+                "type": "music",
+                "musicBrainzId": ""
+              },
+              {
+                "id": "tr-1",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "artists": [
+                  {
+                    "id": "ar-1",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayArtist": "",
+                "albumArtists": null,
+                "displayAlbumArtist": "",
+                "bitRate": 96,
+                "contentType": "audio/flac",
+                "created": "2026-10-22T04:42:25.973394545Z",
+                "duration": 3,
+                "isDir": false,
+                "isVideo": false,
+                "parent": "al-3",
+                "path": "Fixture Artist/Fixture Album/tone-a.flac",
+                "size": 44420,
+                "suffix": "flac",
+                "title": "P00 Tone A",
+                "track": 1,
+                "type": "music",
+                "musicBrainzId": ""
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.16.4:admin",
+      "method": "GET",
+      "path": "/rest/getPlaylist",
+      "query": {
+        "id": "MS8xNzkyNjQ1Mjk3Njk2LTE3OTI2NDUyOTc2OTYubTN1"
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "serverVersion": "0.16.4",
+          "openSubsonic": true,
+          "playlist": {
+            "id": "MS8xNzkyNjQ1Mjk3Njk2LTE3OTI2NDUyOTc2OTYubTN1",
+            "name": "P00 disposable duplicates",
+            "comment": "",
+            "owner": "admin",
+            "songCount": 2,
+            "created": "2026-10-22T05:01:37.695478191Z",
+            "changed": "2026-10-22T05:01:37.695478191Z",
+            "duration": 6,
+            "entry": [
+              {
+                "id": "tr-1",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "artists": [
+                  {
+                    "id": "ar-1",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayArtist": "",
+                "albumArtists": null,
+                "displayAlbumArtist": "",
+                "bitRate": 96,
+                "contentType": "audio/flac",
+                "created": "2026-10-22T04:42:25.973394545Z",
+                "duration": 3,
+                "isDir": false,
+                "isVideo": false,
+                "parent": "al-3",
+                "path": "Fixture Artist/Fixture Album/tone-a.flac",
+                "size": 44420,
+                "suffix": "flac",
+                "title": "P00 Tone A",
+                "track": 1,
+                "type": "music",
+                "musicBrainzId": ""
+              },
+              {
+                "id": "tr-1",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "artists": [
+                  {
+                    "id": "ar-1",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayArtist": "",
+                "albumArtists": null,
+                "displayAlbumArtist": "",
+                "bitRate": 96,
+                "contentType": "audio/flac",
+                "created": "2026-10-22T04:42:25.973394545Z",
+                "duration": 3,
+                "isDir": false,
+                "isVideo": false,
+                "parent": "al-3",
+                "path": "Fixture Artist/Fixture Album/tone-a.flac",
+                "size": 44420,
+                "suffix": "flac",
+                "title": "P00 Tone A",
+                "track": 1,
+                "type": "music",
+                "musicBrainzId": ""
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.16.4:admin",
+      "method": "GET",
+      "path": "/rest/updatePlaylist",
+      "query": {
+        "playlistId": "MS8xNzkyNjQ1Mjk3Njk2LTE3OTI2NDUyOTc2OTYubTN1",
+        "songIndexToRemove": 1
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "serverVersion": "0.16.4",
+          "openSubsonic": true
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.16.4:admin",
+      "method": "GET",
+      "path": "/rest/getPlaylist",
+      "query": {
+        "id": "MS8xNzkyNjQ1Mjk3Njk2LTE3OTI2NDUyOTc2OTYubTN1"
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "serverVersion": "0.16.4",
+          "openSubsonic": true,
+          "playlist": {
+            "id": "MS8xNzkyNjQ1Mjk3Njk2LTE3OTI2NDUyOTc2OTYubTN1",
+            "name": "P00 disposable duplicates",
+            "comment": "",
+            "owner": "admin",
+            "songCount": 1,
+            "created": "2026-10-22T05:01:37.70247821Z",
+            "changed": "2026-10-22T05:01:37.70247821Z",
+            "duration": 3,
+            "entry": [
+              {
+                "id": "tr-1",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "artists": [
+                  {
+                    "id": "ar-1",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayArtist": "",
+                "albumArtists": null,
+                "displayAlbumArtist": "",
+                "bitRate": 96,
+                "contentType": "audio/flac",
+                "created": "2026-10-22T04:42:25.973394545Z",
+                "duration": 3,
+                "isDir": false,
+                "isVideo": false,
+                "parent": "al-3",
+                "path": "Fixture Artist/Fixture Album/tone-a.flac",
+                "size": 44420,
+                "suffix": "flac",
+                "title": "P00 Tone A",
+                "track": 1,
+                "type": "music",
+                "musicBrainzId": ""
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.16.4:admin",
+      "method": "GET",
+      "path": "/rest/deletePlaylist",
+      "query": {
+        "id": "MS8xNzkyNjQ1Mjk3Njk2LTE3OTI2NDUyOTc2OTYubTN1"
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "serverVersion": "0.16.4",
+          "openSubsonic": true
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.16.4:reader",
+      "method": "GET",
+      "path": "/rest/ping",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "serverVersion": "0.16.4",
+          "openSubsonic": true
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.16.4:reader",
+      "method": "GET",
+      "path": "/rest/search3",
+      "query": {
+        "query": "P00",
+        "songCount": 20
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "serverVersion": "0.16.4",
+          "openSubsonic": true,
+          "searchResult3": {
+            "song": [
+              {
+                "id": "tr-1",
+                "album": "Fixture Album",
+                "albumId": "al-3",
+                "artist": "Fixture Artist",
+                "artistId": "ar-1",
+                "artists": [
+                  {
+                    "id": "ar-1",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayArtist": "Fixture Artist",
+                "albumArtists": [
+                  {
+                    "id": "ar-1",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayAlbumArtist": "Fixture Artist",
+                "bitRate": 96,
+                "contentType": "audio/flac",
+                "created": "2026-10-22T04:42:25.973394545Z",
+                "duration": 3,
+                "genre": "Unknown Genre",
+                "genres": [
+                  {
+                    "name": "Unknown Genre"
+                  }
+                ],
+                "isDir": false,
+                "isVideo": false,
+                "parent": "al-3",
+                "path": "Fixture Artist/Fixture Album/tone-a.flac",
+                "size": 44420,
+                "suffix": "flac",
+                "title": "P00 Tone A",
+                "track": 1,
+                "type": "music",
+                "musicBrainzId": ""
+              },
+              {
+                "id": "tr-2",
+                "album": "Fixture Album",
+                "albumId": "al-3",
+                "artist": "Fixture Artist",
+                "artistId": "ar-1",
+                "artists": [
+                  {
+                    "id": "ar-1",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayArtist": "Fixture Artist",
+                "albumArtists": [
+                  {
+                    "id": "ar-1",
+                    "name": "Fixture Artist"
+                  }
+                ],
+                "displayAlbumArtist": "Fixture Artist",
+                "bitRate": 64,
+                "contentType": "audio/mpeg",
+                "created": "2026-10-22T04:42:25.97413932Z",
+                "duration": 4,
+                "genre": "Unknown Genre",
+                "genres": [
+                  {
+                    "name": "Unknown Genre"
+                  }
+                ],
+                "isDir": false,
+                "isVideo": false,
+                "parent": "al-3",
+                "path": "Fixture Artist/Fixture Album/tone-b.mp3",
+                "size": 32703,
+                "suffix": "mp3",
+                "title": "P00 Tone B",
+                "track": 2,
+                "type": "music",
+                "musicBrainzId": ""
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.16.4:reader",
+      "method": "GET",
+      "path": "/rest/startScan",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "serverVersion": "0.16.4",
+          "openSubsonic": true,
+          "scanStatus": {
+            "scanning": false,
+            "count": 2
+          }
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.15.2:admin",
+      "method": "GET",
+      "path": "/rest/ping",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic"
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.15.2:admin",
+      "method": "GET",
+      "path": "/rest/getOpenSubsonicExtensions",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "failed",
+          "version": "1.15.0",
+          "type": "gonic",
+          "error": {
+            "code": 70,
+            "message": "view not found"
+          }
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.15.2:admin",
+      "method": "GET",
+      "path": "/rest/ping",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "failed",
+          "version": "1.15.0",
+          "type": "gonic",
+          "error": {
+            "code": 40,
+            "message": "invalid password"
+          }
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.15.2:admin",
+      "method": "GET",
+      "path": "/rest/startScan",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "scanStatus": {
+            "scanning": false,
+            "count": 2
+          }
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.15.2:admin",
+      "method": "GET",
+      "path": "/rest/search3",
+      "query": {
+        "query": "P00",
+        "songCount": 20,
+        "artistCount": 0,
+        "albumCount": 0
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "searchResult3": {
+            "song": [
+              {
+                "id": "tr-1",
+                "album": "Fixture Album",
+                "albumId": "al-3",
+                "artist": "Fixture Artist",
+                "artistId": "ar-1",
+                "bitRate": 96,
+                "contentType": "audio/x-flac",
+                "created": "2026-10-22T04:46:38.384867851Z",
+                "duration": 3,
+                "genre": "Unknown Genre",
+                "isDir": false,
+                "isVideo": false,
+                "parent": "al-3",
+                "path": "Fixture Artist/Fixture Album/tone-a.flac",
+                "size": 44420,
+                "suffix": "flac",
+                "title": "P00 Tone A",
+                "track": 1,
+                "type": "music"
+              },
+              {
+                "id": "tr-2",
+                "album": "Fixture Album",
+                "albumId": "al-3",
+                "artist": "Fixture Artist",
+                "artistId": "ar-1",
+                "bitRate": 64,
+                "contentType": "audio/mpeg",
+                "created": "2026-10-22T04:46:38.385377884Z",
+                "duration": 4,
+                "genre": "Unknown Genre",
+                "isDir": false,
+                "isVideo": false,
+                "parent": "al-3",
+                "path": "Fixture Artist/Fixture Album/tone-b.mp3",
+                "size": 32703,
+                "suffix": "mp3",
+                "title": "P00 Tone B",
+                "track": 2,
+                "type": "music"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.15.2:admin",
+      "method": "GET",
+      "path": "/rest/search3",
+      "query": {
+        "query": "P00",
+        "songOffset": 2,
+        "songCount": 20
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "searchResult3": {}
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.15.2:admin",
+      "method": "GET",
+      "path": "/rest/createPlaylist",
+      "query": {
+        "name": "P00 disposable duplicates",
+        "songId": [
+          "tr-1",
+          "tr-1"
+        ]
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "playlist": {
+            "id": 4,
+            "name": "P00 disposable duplicates",
+            "comment": "",
+            "owner": "admin",
+            "songCount": 2,
+            "created": "2026-10-22T05:01:37.723164671Z",
+            "duration": 6,
+            "entry": [
+              {
+                "id": "tr-1",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "bitRate": 96,
+                "contentType": "audio/x-flac",
+                "created": "2026-10-22T04:46:38.384867851Z",
+                "duration": 3,
+                "isDir": false,
+                "isVideo": false,
+                "parent": "al-3",
+                "path": "Fixture Artist/Fixture Album/tone-a.flac",
+                "size": 44420,
+                "suffix": "flac",
+                "title": "P00 Tone A",
+                "track": 1,
+                "type": "music"
+              },
+              {
+                "id": "tr-1",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "bitRate": 96,
+                "contentType": "audio/x-flac",
+                "created": "2026-10-22T04:46:38.384867851Z",
+                "duration": 3,
+                "isDir": false,
+                "isVideo": false,
+                "parent": "al-3",
+                "path": "Fixture Artist/Fixture Album/tone-a.flac",
+                "size": 44420,
+                "suffix": "flac",
+                "title": "P00 Tone A",
+                "track": 1,
+                "type": "music"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.15.2:admin",
+      "method": "GET",
+      "path": "/rest/getPlaylist",
+      "query": {
+        "id": 4
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "playlist": {
+            "id": 4,
+            "name": "P00 disposable duplicates",
+            "comment": "",
+            "owner": "admin",
+            "songCount": 2,
+            "created": "2026-10-22T05:01:37.723164671Z",
+            "duration": 6,
+            "entry": [
+              {
+                "id": "tr-1",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "bitRate": 96,
+                "contentType": "audio/x-flac",
+                "created": "2026-10-22T04:46:38.384867851Z",
+                "duration": 3,
+                "isDir": false,
+                "isVideo": false,
+                "parent": "al-3",
+                "path": "Fixture Artist/Fixture Album/tone-a.flac",
+                "size": 44420,
+                "suffix": "flac",
+                "title": "P00 Tone A",
+                "track": 1,
+                "type": "music"
+              },
+              {
+                "id": "tr-1",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "bitRate": 96,
+                "contentType": "audio/x-flac",
+                "created": "2026-10-22T04:46:38.384867851Z",
+                "duration": 3,
+                "isDir": false,
+                "isVideo": false,
+                "parent": "al-3",
+                "path": "Fixture Artist/Fixture Album/tone-a.flac",
+                "size": 44420,
+                "suffix": "flac",
+                "title": "P00 Tone A",
+                "track": 1,
+                "type": "music"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.15.2:admin",
+      "method": "GET",
+      "path": "/rest/updatePlaylist",
+      "query": {
+        "playlistId": 4,
+        "songIndexToRemove": 1
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic"
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.15.2:admin",
+      "method": "GET",
+      "path": "/rest/getPlaylist",
+      "query": {
+        "id": 4
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "playlist": {
+            "id": 4,
+            "name": "P00 disposable duplicates",
+            "comment": "",
+            "owner": "admin",
+            "songCount": 1,
+            "created": "2026-10-22T05:01:37.723164671Z",
+            "duration": 3,
+            "entry": [
+              {
+                "id": "tr-1",
+                "album": "Fixture Album",
+                "artist": "Fixture Artist",
+                "bitRate": 96,
+                "contentType": "audio/x-flac",
+                "created": "2026-10-22T04:46:38.384867851Z",
+                "duration": 3,
+                "isDir": false,
+                "isVideo": false,
+                "parent": "al-3",
+                "path": "Fixture Artist/Fixture Album/tone-a.flac",
+                "size": 44420,
+                "suffix": "flac",
+                "title": "P00 Tone A",
+                "track": 1,
+                "type": "music"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.15.2:admin",
+      "method": "GET",
+      "path": "/rest/deletePlaylist",
+      "query": {
+        "id": 4
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic"
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.15.2:reader",
+      "method": "GET",
+      "path": "/rest/ping",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic"
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.15.2:reader",
+      "method": "GET",
+      "path": "/rest/search3",
+      "query": {
+        "query": "P00",
+        "songCount": 20
+      },
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "searchResult3": {
+            "song": [
+              {
+                "id": "tr-1",
+                "album": "Fixture Album",
+                "albumId": "al-3",
+                "artist": "Fixture Artist",
+                "artistId": "ar-1",
+                "bitRate": 96,
+                "contentType": "audio/x-flac",
+                "created": "2026-10-22T04:46:38.384867851Z",
+                "duration": 3,
+                "genre": "Unknown Genre",
+                "isDir": false,
+                "isVideo": false,
+                "parent": "al-3",
+                "path": "Fixture Artist/Fixture Album/tone-a.flac",
+                "size": 44420,
+                "suffix": "flac",
+                "title": "P00 Tone A",
+                "track": 1,
+                "type": "music"
+              },
+              {
+                "id": "tr-2",
+                "album": "Fixture Album",
+                "albumId": "al-3",
+                "artist": "Fixture Artist",
+                "artistId": "ar-1",
+                "bitRate": 64,
+                "contentType": "audio/mpeg",
+                "created": "2026-10-22T04:46:38.385377884Z",
+                "duration": 4,
+                "genre": "Unknown Genre",
+                "isDir": false,
+                "isVideo": false,
+                "parent": "al-3",
+                "path": "Fixture Artist/Fixture Album/tone-b.mp3",
+                "size": 32703,
+                "suffix": "mp3",
+                "title": "P00 Tone B",
+                "track": 2,
+                "type": "music"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": "gonic-0.15.2:reader",
+      "method": "GET",
+      "path": "/rest/startScan",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "subsonic-response": {
+          "status": "ok",
+          "version": "1.15.0",
+          "type": "gonic",
+          "scanStatus": {
+            "scanning": false,
+            "count": 2
+          }
+        }
+      }
+    },
+    {
+      "fixture": "jellyfin-10.10.7",
+      "method": "GET",
+      "path": "/System/Info/Public",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "LocalAddress": "http://10.89.0.21:8096",
+        "ServerName": "4978def1657b",
+        "Version": "10.10.7",
+        "ProductName": "Jellyfin Server",
+        "OperatingSystem": "",
+        "Id": "57437d054a504effb34ed47048508c49",
+        "StartupWizardCompleted": true
+      }
+    },
+    {
+      "fixture": "jellyfin-10.10.7:admin",
+      "method": "POST",
+      "path": "/Users/AuthenticateByName",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "User": {
+          "Name": "fixture-admin",
+          "ServerId": "57437d054a504effb34ed47048508c49",
+          "Id": "8b93b19f89714ded9e0e2716a321f144",
+          "HasPassword": true,
+          "HasConfiguredPassword": true,
+          "HasConfiguredEasyPassword": false,
+          "EnableAutoLogin": false,
+          "LastLoginDate": "2026-10-22T05:01:37.90751Z",
+          "LastActivityDate": "2026-10-22T05:01:37.90751Z",
+          "Configuration": {
+            "PlayDefaultAudioTrack": true,
+            "SubtitleLanguagePreference": "",
+            "DisplayMissingEpisodes": false,
+            "GroupedFolders": [],
+            "SubtitleMode": "Default",
+            "DisplayCollectionsView": false,
+            "EnableLocalPassword": false,
+            "OrderedViews": [],
+            "LatestItemsExcludes": [],
+            "MyMediaExcludes": [],
+            "HidePlayedInLatest": true,
+            "RememberAudioSelections": true,
+            "RememberSubtitleSelections": true,
+            "EnableNextEpisodeAutoPlay": true,
+            "CastReceiverId": "F007D354"
+          },
+          "Policy": {
+            "IsAdministrator": true,
+            "IsHidden": true,
+            "EnableCollectionManagement": false,
+            "EnableSubtitleManagement": false,
+            "EnableLyricManagement": false,
+            "IsDisabled": false,
+            "BlockedTags": [],
+            "AllowedTags": [],
+            "EnableUserPreferenceAccess": true,
+            "AccessSchedules": [],
+            "BlockUnratedItems": [],
+            "EnableRemoteControlOfOtherUsers": true,
+            "EnableSharedDeviceControl": true,
+            "EnableRemoteAccess": true,
+            "EnableLiveTvManagement": true,
+            "EnableLiveTvAccess": true,
+            "EnableMediaPlayback": true,
+            "EnableAudioPlaybackTranscoding": true,
+            "EnableVideoPlaybackTranscoding": true,
+            "EnablePlaybackRemuxing": true,
+            "ForceRemoteSourceTranscoding": false,
+            "EnableContentDeletion": true,
+            "EnableContentDeletionFromFolders": [],
+            "EnableContentDownloading": true,
+            "EnableSyncTranscoding": true,
+            "EnableMediaConversion": true,
+            "EnabledDevices": [],
+            "EnableAllDevices": true,
+            "EnabledChannels": [],
+            "EnableAllChannels": true,
+            "EnabledFolders": [],
+            "EnableAllFolders": true,
+            "InvalidLoginAttemptCount": 0,
+            "LoginAttemptsBeforeLockout": -1,
+            "MaxActiveSessions": 0,
+            "EnablePublicSharing": true,
+            "BlockedMediaFolders": [],
+            "BlockedChannels": [],
+            "RemoteClientBitrateLimit": 0,
+            "AuthenticationProviderId": "Jellyfin.Server.Implementations.Users.DefaultAuthenticationProvider",
+            "PasswordResetProviderId": "Jellyfin.Server.Implementations.Users.DefaultPasswordResetProvider",
+            "SyncPlayAccess": "CreateAndJoinGroups"
+          }
+        },
+        "SessionInfo": {
+          "PlayState": {
+            "CanSeek": false,
+            "IsPaused": false,
+            "IsMuted": false,
+            "RepeatMode": "RepeatNone",
+            "PlaybackOrder": "Default"
+          },
+          "AdditionalUsers": [],
+          "Capabilities": {
+            "PlayableMediaTypes": [],
+            "SupportedCommands": [],
+            "SupportsMediaControl": false,
+            "SupportsPersistentIdentifier": true
+          },
+          "RemoteEndPoint": "10.89.0.21",
+          "PlayableMediaTypes": [],
+          "Id": "7e689ef8d47a5d1f3de3931310819e53",
+          "UserId": "8b93b19f89714ded9e0e2716a321f144",
+          "UserName": "fixture-admin",
+          "Client": "P00",
+          "LastActivityDate": "2026-10-22T05:01:37.9254748Z",
+          "LastPlaybackCheckIn": "0001-01-01T00:00:00.0000000Z",
+          "DeviceName": "fixture",
+          "DeviceId": "p00",
+          "ApplicationVersion": "1",
+          "IsActive": true,
+          "SupportsMediaControl": false,
+          "SupportsRemoteControl": false,
+          "NowPlayingQueue": [],
+          "NowPlayingQueueFullItems": [],
+          "HasCustomDeviceName": false,
+          "ServerId": "57437d054a504effb34ed47048508c49",
+          "SupportedCommands": []
+        },
+        "AccessToken": "<redacted>",
+        "ServerId": "57437d054a504effb34ed47048508c49"
+      }
+    },
+    {
+      "fixture": "jellyfin-10.10.7:admin",
+      "method": "GET",
+      "path": "/Users/8b93b19f89714ded9e0e2716a321f144/Items",
+      "query": {
+        "Recursive": "true",
+        "IncludeItemTypes": "Audio",
+        "Fields": "MediaSources,DateCreated,Genres,ParentId,Path",
+        "Limit": 20
+      },
+      "http_status": 200,
+      "body": {
+        "Items": [
+          {
+            "Name": "P00 Tone A",
+            "ServerId": "57437d054a504effb34ed47048508c49",
+            "Id": "cc9ffe97f1422ea53618c082b3b2e059",
+            "DateCreated": "2026-10-22T04:28:40.299207Z",
+            "HasLyrics": false,
+            "Container": "flac",
+            "PremiereDate": "0001-01-01T00:00:00.0000000Z",
+            "MediaSources": [
+              {
+                "Protocol": "File",
+                "Id": "cc9ffe97f1422ea53618c082b3b2e059",
+                "Path": "/media/Fixture Artist/Fixture Album/tone-a.flac",
+                "Type": "Default",
+                "Container": "flac",
+                "Size": 44420,
+                "Name": "tone-a",
+                "IsRemote": false,
+                "ETag": "6f1e601e3940704a4dcef7acce3c1258",
+                "RunTimeTicks": 30000000,
+                "ReadAtNativeFramerate": false,
+                "IgnoreDts": false,
+                "IgnoreIndex": false,
+                "GenPtsInput": false,
+                "SupportsTranscoding": true,
+                "SupportsDirectStream": true,
+                "SupportsDirectPlay": true,
+                "IsInfiniteStream": false,
+                "UseMostCompatibleTranscodingProfile": false,
+                "RequiresOpening": false,
+                "RequiresClosing": false,
+                "RequiresLooping": false,
+                "SupportsProbing": true,
+                "MediaStreams": [
+                  {
+                    "Codec": "flac",
+                    "TimeBase": "1/44100",
+                    "VideoRange": "Unknown",
+                    "VideoRangeType": "Unknown",
+                    "AudioSpatialFormat": "None",
+                    "LocalizedDefault": "Default",
+                    "LocalizedExternal": "External",
+                    "DisplayTitle": "FLAC - Mono",
+                    "IsInterlaced": false,
+                    "IsAVC": false,
+                    "ChannelLayout": "mono",
+                    "BitRate": 118453,
+                    "BitDepth": 16,
+                    "Channels": 1,
+                    "SampleRate": 44100,
+                    "IsDefault": false,
+                    "IsForced": false,
+                    "IsHearingImpaired": false,
+                    "Type": "Audio",
+                    "Index": 0,
+                    "IsExternal": false,
+                    "IsTextSubtitleStream": false,
+                    "SupportsExternalStream": false,
+                    "Level": 0
+                  }
+                ],
+                "MediaAttachments": [],
+                "Formats": [],
+                "Bitrate": 118453,
+                "RequiredHttpHeaders": {},
+                "TranscodingSubProtocol": "http",
+                "DefaultAudioStreamIndex": 0,
+                "HasSegments": false
+              }
+            ],
+            "Path": "/media/Fixture Artist/Fixture Album/tone-a.flac",
+            "ChannelId": null,
+            "Genres": [],
+            "RunTimeTicks": 30000000,
+            "IndexNumber": 1,
+            "IsFolder": false,
+            "ParentId": "a252f62608e3b4d1c2af866a99842ae4",
+            "Type": "Audio",
+            "GenreItems": [],
+            "UserData": {
+              "PlaybackPositionTicks": 0,
+              "PlayCount": 0,
+              "IsFavorite": false,
+              "Played": false,
+              "Key": "Fixture Artist-Fixture Album-0001P00 Tone A",
+              "ItemId": "00000000000000000000000000000000"
+            },
+            "Artists": [
+              "Fixture Artist"
+            ],
+            "ArtistItems": [
+              {
+                "Name": "Fixture Artist",
+                "Id": "43f160cf84a3a6dcdb92ac8a74ebab60"
+              }
+            ],
+            "Album": "Fixture Album",
+            "AlbumId": "a252f62608e3b4d1c2af866a99842ae4",
+            "AlbumArtist": "Fixture Artist",
+            "AlbumArtists": [
+              {
+                "Name": "Fixture Artist",
+                "Id": "43f160cf84a3a6dcdb92ac8a74ebab60"
+              }
+            ],
+            "ImageTags": {},
+            "BackdropImageTags": [],
+            "ImageBlurHashes": {},
+            "LocationType": "FileSystem",
+            "MediaType": "Audio"
+          },
+          {
+            "Name": "P00 Tone B",
+            "ServerId": "57437d054a504effb34ed47048508c49",
+            "Id": "b256bfeae941534adef594cf3d3d8949",
+            "DateCreated": "2026-10-22T04:28:40.4702075Z",
+            "HasLyrics": false,
+            "Container": "mp3",
+            "PremiereDate": "0001-01-01T00:00:00.0000000Z",
+            "MediaSources": [
+              {
+                "Protocol": "File",
+                "Id": "b256bfeae941534adef594cf3d3d8949",
+                "Path": "/media/Fixture Artist/Fixture Album/tone-b.mp3",
+                "Type": "Default",
+                "Container": "mp3",
+                "Size": 32703,
+                "Name": "tone-b",
+                "IsRemote": false,
+                "ETag": "7f010e2ac940d281512377bfd240e9b8",
+                "RunTimeTicks": 40489800,
+                "ReadAtNativeFramerate": false,
+                "IgnoreDts": false,
+                "IgnoreIndex": false,
+                "GenPtsInput": false,
+                "SupportsTranscoding": true,
+                "SupportsDirectStream": true,
+                "SupportsDirectPlay": true,
+                "IsInfiniteStream": false,
+                "UseMostCompatibleTranscodingProfile": false,
+                "RequiresOpening": false,
+                "RequiresClosing": false,
+                "RequiresLooping": false,
+                "SupportsProbing": true,
+                "MediaStreams": [
+                  {
+                    "Codec": "mp3",
+                    "TimeBase": "1/14112000",
+                    "VideoRange": "Unknown",
+                    "VideoRangeType": "Unknown",
+                    "AudioSpatialFormat": "None",
+                    "LocalizedDefault": "Default",
+                    "LocalizedExternal": "External",
+                    "DisplayTitle": "MP3 - Mono",
+                    "IsInterlaced": false,
+                    "IsAVC": false,
+                    "ChannelLayout": "mono",
+                    "BitRate": 64000,
+                    "Channels": 1,
+                    "SampleRate": 44100,
+                    "IsDefault": false,
+                    "IsForced": false,
+                    "IsHearingImpaired": false,
+                    "Type": "Audio",
+                    "Index": 0,
+                    "IsExternal": false,
+                    "IsTextSubtitleStream": false,
+                    "SupportsExternalStream": false,
+                    "Level": 0
+                  }
+                ],
+                "MediaAttachments": [],
+                "Formats": [],
+                "Bitrate": 64614,
+                "RequiredHttpHeaders": {},
+                "TranscodingSubProtocol": "http",
+                "DefaultAudioStreamIndex": 0,
+                "HasSegments": false
+              }
+            ],
+            "Path": "/media/Fixture Artist/Fixture Album/tone-b.mp3",
+            "ChannelId": null,
+            "Genres": [],
+            "RunTimeTicks": 40489800,
+            "IndexNumber": 2,
+            "IsFolder": false,
+            "ParentId": "a252f62608e3b4d1c2af866a99842ae4",
+            "Type": "Audio",
+            "GenreItems": [],
+            "UserData": {
+              "PlaybackPositionTicks": 0,
+              "PlayCount": 0,
+              "IsFavorite": false,
+              "Played": false,
+              "Key": "Fixture Artist-Fixture Album-0002P00 Tone B",
+              "ItemId": "00000000000000000000000000000000"
+            },
+            "Artists": [
+              "Fixture Artist"
+            ],
+            "ArtistItems": [
+              {
+                "Name": "Fixture Artist",
+                "Id": "43f160cf84a3a6dcdb92ac8a74ebab60"
+              }
+            ],
+            "Album": "Fixture Album",
+            "AlbumId": "a252f62608e3b4d1c2af866a99842ae4",
+            "AlbumArtist": "Fixture Artist",
+            "AlbumArtists": [
+              {
+                "Name": "Fixture Artist",
+                "Id": "43f160cf84a3a6dcdb92ac8a74ebab60"
+              }
+            ],
+            "ImageTags": {},
+            "BackdropImageTags": [],
+            "ImageBlurHashes": {},
+            "LocationType": "FileSystem",
+            "MediaType": "Audio"
+          }
+        ],
+        "TotalRecordCount": 2,
+        "StartIndex": 0
+      }
+    },
+    {
+      "fixture": "jellyfin-10.10.7:admin",
+      "method": "GET",
+      "path": "/Users/8b93b19f89714ded9e0e2716a321f144/Items",
+      "query": {
+        "Recursive": "true",
+        "IncludeItemTypes": "Audio",
+        "StartIndex": 2
+      },
+      "http_status": 200,
+      "body": {
+        "Items": [],
+        "TotalRecordCount": 2,
+        "StartIndex": 2
+      }
+    },
+    {
+      "fixture": "jellyfin-10.10.7:admin",
+      "method": "GET",
+      "path": "/System/Info",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "OperatingSystemDisplayName": "",
+        "HasPendingRestart": false,
+        "IsShuttingDown": false,
+        "SupportsLibraryMonitor": true,
+        "WebSocketPortNumber": 8096,
+        "CompletedInstallations": [],
+        "CanSelfRestart": true,
+        "CanLaunchWebBrowser": false,
+        "ProgramDataPath": "/config",
+        "WebPath": "/jellyfin/jellyfin-web",
+        "ItemsByNamePath": "/config/metadata",
+        "CachePath": "/cache",
+        "LogPath": "/config/log",
+        "InternalMetadataPath": "/config/metadata",
+        "TranscodingTempPath": "/cache/transcodes",
+        "CastReceiverApplications": [
+          {
+            "Id": "F007D354",
+            "Name": "Stable"
+          },
+          {
+            "Id": "6F511C87",
+            "Name": "Unstable"
+          }
+        ],
+        "HasUpdateAvailable": false,
+        "EncoderLocation": "System",
+        "SystemArchitecture": "X64",
+        "LocalAddress": "http://10.89.0.21:8096",
+        "ServerName": "4978def1657b",
+        "Version": "10.10.7",
+        "OperatingSystem": "",
+        "Id": "57437d054a504effb34ed47048508c49"
+      }
+    },
+    {
+      "fixture": "jellyfin-10.10.7:admin",
+      "method": "GET",
+      "path": "/System/Configuration",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "EnableMetrics": false,
+        "EnableNormalizedItemByNameIds": true,
+        "IsPortAuthorized": true,
+        "QuickConnectAvailable": true,
+        "EnableCaseSensitiveItemIds": true,
+        "DisableLiveTvChannelUserDataName": true,
+        "MetadataPath": "",
+        "PreferredMetadataLanguage": "en",
+        "MetadataCountryCode": "US",
+        "SortReplaceCharacters": [
+          ".",
+          "+",
+          "%"
+        ],
+        "SortRemoveCharacters": [
+          ",",
+          "&",
+          "-",
+          "{",
+          "}",
+          "'"
+        ],
+        "SortRemoveWords": [
+          "the",
+          "a",
+          "an"
+        ],
+        "MinResumePct": 5,
+        "MaxResumePct": 90,
+        "MinResumeDurationSeconds": 300,
+        "MinAudiobookResume": 5,
+        "MaxAudiobookResume": 5,
+        "InactiveSessionThreshold": 0,
+        "LibraryMonitorDelay": 60,
+        "LibraryUpdateDuration": 30,
+        "ImageSavingConvention": "Legacy",
+        "MetadataOptions": [
+          {
+            "ItemType": "Book",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "Movie",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "MusicVideo",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [
+              "The Open Movie Database"
+            ],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [
+              "The Open Movie Database"
+            ],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "Series",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "MusicAlbum",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [
+              "TheAudioDB"
+            ],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "MusicArtist",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [
+              "TheAudioDB"
+            ],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "BoxSet",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "Season",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "Episode",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          }
+        ],
+        "SkipDeserializationForBasicTypes": true,
+        "ServerName": "",
+        "UICulture": "en-US",
+        "SaveMetadataHidden": false,
+        "ContentTypes": [],
+        "RemoteClientBitrateLimit": 0,
+        "EnableFolderView": false,
+        "EnableGroupingIntoCollections": false,
+        "DisplaySpecialsWithinSeasons": true,
+        "CodecsUsed": [],
+        "PluginRepositories": [
+          {
+            "Name": "Jellyfin Stable",
+            "Url": "https://repo.jellyfin.org/files/plugin/manifest.json",
+            "Enabled": true
+          }
+        ],
+        "EnableExternalContentInSuggestions": true,
+        "ImageExtractionTimeoutMs": 0,
+        "PathSubstitutions": [],
+        "EnableSlowResponseWarning": true,
+        "SlowResponseThresholdMs": 500,
+        "CorsHosts": [
+          "*"
+        ],
+        "ActivityLogRetentionDays": 30,
+        "LibraryScanFanoutConcurrency": 0,
+        "LibraryMetadataRefreshConcurrency": 0,
+        "RemoveOldPlugins": true,
+        "AllowClientLogUpload": true,
+        "DummyChapterDuration": 0,
+        "ChapterImageResolution": "MatchSource",
+        "ParallelImageEncodingLimit": 0,
+        "CastReceiverApplications": [
+          {
+            "Id": "F007D354",
+            "Name": "Stable"
+          },
+          {
+            "Id": "6F511C87",
+            "Name": "Unstable"
+          }
+        ],
+        "TrickplayOptions": {
+          "EnableHwAcceleration": false,
+          "EnableHwEncoding": false,
+          "EnableKeyFrameOnlyExtraction": false,
+          "ScanBehavior": "NonBlocking",
+          "ProcessPriority": "BelowNormal",
+          "Interval": 10000,
+          "WidthResolutions": [
+            320
+          ],
+          "TileWidth": 10,
+          "TileHeight": 10,
+          "Qscale": 4,
+          "JpegQuality": 90,
+          "ProcessThreads": 1
+        },
+        "LogFileRetentionDays": 3,
+        "IsStartupWizardCompleted": true
+      }
+    },
+    {
+      "fixture": "jellyfin-10.10.7:admin",
+      "method": "GET",
+      "path": "/System/ActivityLog/Entries",
+      "query": {
+        "Limit": 1
+      },
+      "http_status": 200,
+      "body": {
+        "Items": [
+          {
+            "Id": 32,
+            "Name": "fixture-admin successfully authenticated",
+            "ShortOverview": "IP address: 10.89.0.21",
+            "Type": "AuthenticationSucceeded",
+            "Date": "2026-10-22T05:01:37.9267497Z",
+            "UserId": "8b93b19f89714ded9e0e2716a321f144",
+            "Severity": "Information"
+          }
+        ],
+        "TotalRecordCount": 32,
+        "StartIndex": 0
+      }
+    },
+    {
+      "fixture": "jellyfin-10.10.7:reader",
+      "method": "POST",
+      "path": "/Users/AuthenticateByName",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "User": {
+          "Name": "fixture-reader",
+          "ServerId": "57437d054a504effb34ed47048508c49",
+          "Id": "1dd803e093524e888fd071617193a706",
+          "HasPassword": true,
+          "HasConfiguredPassword": true,
+          "HasConfiguredEasyPassword": false,
+          "EnableAutoLogin": false,
+          "LastLoginDate": "2026-10-22T05:01:38.4118886Z",
+          "LastActivityDate": "2026-10-22T05:01:38.4118886Z",
+          "Configuration": {
+            "PlayDefaultAudioTrack": true,
+            "SubtitleLanguagePreference": "",
+            "DisplayMissingEpisodes": false,
+            "GroupedFolders": [],
+            "SubtitleMode": "Default",
+            "DisplayCollectionsView": false,
+            "EnableLocalPassword": false,
+            "OrderedViews": [],
+            "LatestItemsExcludes": [],
+            "MyMediaExcludes": [],
+            "HidePlayedInLatest": true,
+            "RememberAudioSelections": true,
+            "RememberSubtitleSelections": true,
+            "EnableNextEpisodeAutoPlay": true,
+            "CastReceiverId": "F007D354"
+          },
+          "Policy": {
+            "IsAdministrator": false,
+            "IsHidden": true,
+            "EnableCollectionManagement": false,
+            "EnableSubtitleManagement": false,
+            "EnableLyricManagement": false,
+            "IsDisabled": false,
+            "BlockedTags": [],
+            "AllowedTags": [],
+            "EnableUserPreferenceAccess": true,
+            "AccessSchedules": [],
+            "BlockUnratedItems": [],
+            "EnableRemoteControlOfOtherUsers": false,
+            "EnableSharedDeviceControl": true,
+            "EnableRemoteAccess": true,
+            "EnableLiveTvManagement": true,
+            "EnableLiveTvAccess": true,
+            "EnableMediaPlayback": true,
+            "EnableAudioPlaybackTranscoding": true,
+            "EnableVideoPlaybackTranscoding": true,
+            "EnablePlaybackRemuxing": true,
+            "ForceRemoteSourceTranscoding": false,
+            "EnableContentDeletion": false,
+            "EnableContentDeletionFromFolders": [],
+            "EnableContentDownloading": true,
+            "EnableSyncTranscoding": true,
+            "EnableMediaConversion": true,
+            "EnabledDevices": [],
+            "EnableAllDevices": true,
+            "EnabledChannels": [],
+            "EnableAllChannels": true,
+            "EnabledFolders": [],
+            "EnableAllFolders": true,
+            "InvalidLoginAttemptCount": 0,
+            "LoginAttemptsBeforeLockout": -1,
+            "MaxActiveSessions": 0,
+            "EnablePublicSharing": true,
+            "BlockedMediaFolders": [],
+            "BlockedChannels": [],
+            "RemoteClientBitrateLimit": 0,
+            "AuthenticationProviderId": "Jellyfin.Server.Implementations.Users.DefaultAuthenticationProvider",
+            "PasswordResetProviderId": "Jellyfin.Server.Implementations.Users.DefaultPasswordResetProvider",
+            "SyncPlayAccess": "CreateAndJoinGroups"
+          }
+        },
+        "SessionInfo": {
+          "PlayState": {
+            "CanSeek": false,
+            "IsPaused": false,
+            "IsMuted": false,
+            "RepeatMode": "RepeatNone",
+            "PlaybackOrder": "Default"
+          },
+          "AdditionalUsers": [],
+          "Capabilities": {
+            "PlayableMediaTypes": [],
+            "SupportedCommands": [],
+            "SupportsMediaControl": false,
+            "SupportsPersistentIdentifier": true
+          },
+          "RemoteEndPoint": "10.89.0.21",
+          "PlayableMediaTypes": [],
+          "Id": "7e689ef8d47a5d1f3de3931310819e53",
+          "UserId": "1dd803e093524e888fd071617193a706",
+          "UserName": "fixture-reader",
+          "Client": "P00",
+          "LastActivityDate": "2026-10-22T05:01:38.423337Z",
+          "LastPlaybackCheckIn": "0001-01-01T00:00:00.0000000Z",
+          "DeviceName": "fixture",
+          "DeviceId": "p00",
+          "ApplicationVersion": "1",
+          "IsActive": true,
+          "SupportsMediaControl": false,
+          "SupportsRemoteControl": false,
+          "NowPlayingQueue": [],
+          "NowPlayingQueueFullItems": [],
+          "HasCustomDeviceName": false,
+          "ServerId": "57437d054a504effb34ed47048508c49",
+          "SupportedCommands": []
+        },
+        "AccessToken": "<redacted>",
+        "ServerId": "57437d054a504effb34ed47048508c49"
+      }
+    },
+    {
+      "fixture": "jellyfin-10.10.7:reader",
+      "method": "GET",
+      "path": "/Users/1dd803e093524e888fd071617193a706/Items",
+      "query": {
+        "Recursive": "true",
+        "IncludeItemTypes": "Audio",
+        "Fields": "MediaSources,DateCreated,Genres,ParentId,Path",
+        "Limit": 20
+      },
+      "http_status": 200,
+      "body": {
+        "Items": [
+          {
+            "Name": "P00 Tone A",
+            "ServerId": "57437d054a504effb34ed47048508c49",
+            "Id": "cc9ffe97f1422ea53618c082b3b2e059",
+            "DateCreated": "2026-10-22T04:28:40.299207Z",
+            "HasLyrics": false,
+            "Container": "flac",
+            "PremiereDate": "0001-01-01T00:00:00.0000000Z",
+            "MediaSources": [
+              {
+                "Protocol": "File",
+                "Id": "cc9ffe97f1422ea53618c082b3b2e059",
+                "Path": "/media/Fixture Artist/Fixture Album/tone-a.flac",
+                "Type": "Default",
+                "Container": "flac",
+                "Size": 44420,
+                "Name": "tone-a",
+                "IsRemote": false,
+                "ETag": "6f1e601e3940704a4dcef7acce3c1258",
+                "RunTimeTicks": 30000000,
+                "ReadAtNativeFramerate": false,
+                "IgnoreDts": false,
+                "IgnoreIndex": false,
+                "GenPtsInput": false,
+                "SupportsTranscoding": true,
+                "SupportsDirectStream": true,
+                "SupportsDirectPlay": true,
+                "IsInfiniteStream": false,
+                "UseMostCompatibleTranscodingProfile": false,
+                "RequiresOpening": false,
+                "RequiresClosing": false,
+                "RequiresLooping": false,
+                "SupportsProbing": true,
+                "MediaStreams": [
+                  {
+                    "Codec": "flac",
+                    "TimeBase": "1/44100",
+                    "VideoRange": "Unknown",
+                    "VideoRangeType": "Unknown",
+                    "AudioSpatialFormat": "None",
+                    "LocalizedDefault": "Default",
+                    "LocalizedExternal": "External",
+                    "DisplayTitle": "FLAC - Mono",
+                    "IsInterlaced": false,
+                    "IsAVC": false,
+                    "ChannelLayout": "mono",
+                    "BitRate": 118453,
+                    "BitDepth": 16,
+                    "Channels": 1,
+                    "SampleRate": 44100,
+                    "IsDefault": false,
+                    "IsForced": false,
+                    "IsHearingImpaired": false,
+                    "Type": "Audio",
+                    "Index": 0,
+                    "IsExternal": false,
+                    "IsTextSubtitleStream": false,
+                    "SupportsExternalStream": false,
+                    "Level": 0
+                  }
+                ],
+                "MediaAttachments": [],
+                "Formats": [],
+                "Bitrate": 118453,
+                "RequiredHttpHeaders": {},
+                "TranscodingSubProtocol": "http",
+                "DefaultAudioStreamIndex": 0,
+                "HasSegments": false
+              }
+            ],
+            "Path": "/media/Fixture Artist/Fixture Album/tone-a.flac",
+            "ChannelId": null,
+            "Genres": [],
+            "RunTimeTicks": 30000000,
+            "IndexNumber": 1,
+            "IsFolder": false,
+            "ParentId": "a252f62608e3b4d1c2af866a99842ae4",
+            "Type": "Audio",
+            "GenreItems": [],
+            "UserData": {
+              "PlaybackPositionTicks": 0,
+              "PlayCount": 0,
+              "IsFavorite": false,
+              "Played": false,
+              "Key": "Fixture Artist-Fixture Album-0001P00 Tone A",
+              "ItemId": "00000000000000000000000000000000"
+            },
+            "Artists": [
+              "Fixture Artist"
+            ],
+            "ArtistItems": [
+              {
+                "Name": "Fixture Artist",
+                "Id": "43f160cf84a3a6dcdb92ac8a74ebab60"
+              }
+            ],
+            "Album": "Fixture Album",
+            "AlbumId": "a252f62608e3b4d1c2af866a99842ae4",
+            "AlbumArtist": "Fixture Artist",
+            "AlbumArtists": [
+              {
+                "Name": "Fixture Artist",
+                "Id": "43f160cf84a3a6dcdb92ac8a74ebab60"
+              }
+            ],
+            "ImageTags": {},
+            "BackdropImageTags": [],
+            "ImageBlurHashes": {},
+            "LocationType": "FileSystem",
+            "MediaType": "Audio"
+          },
+          {
+            "Name": "P00 Tone B",
+            "ServerId": "57437d054a504effb34ed47048508c49",
+            "Id": "b256bfeae941534adef594cf3d3d8949",
+            "DateCreated": "2026-10-22T04:28:40.4702075Z",
+            "HasLyrics": false,
+            "Container": "mp3",
+            "PremiereDate": "0001-01-01T00:00:00.0000000Z",
+            "MediaSources": [
+              {
+                "Protocol": "File",
+                "Id": "b256bfeae941534adef594cf3d3d8949",
+                "Path": "/media/Fixture Artist/Fixture Album/tone-b.mp3",
+                "Type": "Default",
+                "Container": "mp3",
+                "Size": 32703,
+                "Name": "tone-b",
+                "IsRemote": false,
+                "ETag": "7f010e2ac940d281512377bfd240e9b8",
+                "RunTimeTicks": 40489800,
+                "ReadAtNativeFramerate": false,
+                "IgnoreDts": false,
+                "IgnoreIndex": false,
+                "GenPtsInput": false,
+                "SupportsTranscoding": true,
+                "SupportsDirectStream": true,
+                "SupportsDirectPlay": true,
+                "IsInfiniteStream": false,
+                "UseMostCompatibleTranscodingProfile": false,
+                "RequiresOpening": false,
+                "RequiresClosing": false,
+                "RequiresLooping": false,
+                "SupportsProbing": true,
+                "MediaStreams": [
+                  {
+                    "Codec": "mp3",
+                    "TimeBase": "1/14112000",
+                    "VideoRange": "Unknown",
+                    "VideoRangeType": "Unknown",
+                    "AudioSpatialFormat": "None",
+                    "LocalizedDefault": "Default",
+                    "LocalizedExternal": "External",
+                    "DisplayTitle": "MP3 - Mono",
+                    "IsInterlaced": false,
+                    "IsAVC": false,
+                    "ChannelLayout": "mono",
+                    "BitRate": 64000,
+                    "Channels": 1,
+                    "SampleRate": 44100,
+                    "IsDefault": false,
+                    "IsForced": false,
+                    "IsHearingImpaired": false,
+                    "Type": "Audio",
+                    "Index": 0,
+                    "IsExternal": false,
+                    "IsTextSubtitleStream": false,
+                    "SupportsExternalStream": false,
+                    "Level": 0
+                  }
+                ],
+                "MediaAttachments": [],
+                "Formats": [],
+                "Bitrate": 64614,
+                "RequiredHttpHeaders": {},
+                "TranscodingSubProtocol": "http",
+                "DefaultAudioStreamIndex": 0,
+                "HasSegments": false
+              }
+            ],
+            "Path": "/media/Fixture Artist/Fixture Album/tone-b.mp3",
+            "ChannelId": null,
+            "Genres": [],
+            "RunTimeTicks": 40489800,
+            "IndexNumber": 2,
+            "IsFolder": false,
+            "ParentId": "a252f62608e3b4d1c2af866a99842ae4",
+            "Type": "Audio",
+            "GenreItems": [],
+            "UserData": {
+              "PlaybackPositionTicks": 0,
+              "PlayCount": 0,
+              "IsFavorite": false,
+              "Played": false,
+              "Key": "Fixture Artist-Fixture Album-0002P00 Tone B",
+              "ItemId": "00000000000000000000000000000000"
+            },
+            "Artists": [
+              "Fixture Artist"
+            ],
+            "ArtistItems": [
+              {
+                "Name": "Fixture Artist",
+                "Id": "43f160cf84a3a6dcdb92ac8a74ebab60"
+              }
+            ],
+            "Album": "Fixture Album",
+            "AlbumId": "a252f62608e3b4d1c2af866a99842ae4",
+            "AlbumArtist": "Fixture Artist",
+            "AlbumArtists": [
+              {
+                "Name": "Fixture Artist",
+                "Id": "43f160cf84a3a6dcdb92ac8a74ebab60"
+              }
+            ],
+            "ImageTags": {},
+            "BackdropImageTags": [],
+            "ImageBlurHashes": {},
+            "LocationType": "FileSystem",
+            "MediaType": "Audio"
+          }
+        ],
+        "TotalRecordCount": 2,
+        "StartIndex": 0
+      }
+    },
+    {
+      "fixture": "jellyfin-10.10.7:reader",
+      "method": "GET",
+      "path": "/Users/1dd803e093524e888fd071617193a706/Items",
+      "query": {
+        "Recursive": "true",
+        "IncludeItemTypes": "Audio",
+        "StartIndex": 2
+      },
+      "http_status": 200,
+      "body": {
+        "Items": [],
+        "TotalRecordCount": 2,
+        "StartIndex": 2
+      }
+    },
+    {
+      "fixture": "jellyfin-10.10.7:reader",
+      "method": "GET",
+      "path": "/System/Info",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "OperatingSystemDisplayName": "",
+        "HasPendingRestart": false,
+        "IsShuttingDown": false,
+        "SupportsLibraryMonitor": true,
+        "WebSocketPortNumber": 8096,
+        "CompletedInstallations": [],
+        "CanSelfRestart": true,
+        "CanLaunchWebBrowser": false,
+        "ProgramDataPath": "/config",
+        "WebPath": "/jellyfin/jellyfin-web",
+        "ItemsByNamePath": "/config/metadata",
+        "CachePath": "/cache",
+        "LogPath": "/config/log",
+        "InternalMetadataPath": "/config/metadata",
+        "TranscodingTempPath": "/cache/transcodes",
+        "CastReceiverApplications": [
+          {
+            "Id": "F007D354",
+            "Name": "Stable"
+          },
+          {
+            "Id": "6F511C87",
+            "Name": "Unstable"
+          }
+        ],
+        "HasUpdateAvailable": false,
+        "EncoderLocation": "System",
+        "SystemArchitecture": "X64",
+        "LocalAddress": "http://10.89.0.21:8096",
+        "ServerName": "4978def1657b",
+        "Version": "10.10.7",
+        "OperatingSystem": "",
+        "Id": "57437d054a504effb34ed47048508c49"
+      }
+    },
+    {
+      "fixture": "jellyfin-10.10.7:reader",
+      "method": "GET",
+      "path": "/System/Configuration",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "EnableMetrics": false,
+        "EnableNormalizedItemByNameIds": true,
+        "IsPortAuthorized": true,
+        "QuickConnectAvailable": true,
+        "EnableCaseSensitiveItemIds": true,
+        "DisableLiveTvChannelUserDataName": true,
+        "MetadataPath": "",
+        "PreferredMetadataLanguage": "en",
+        "MetadataCountryCode": "US",
+        "SortReplaceCharacters": [
+          ".",
+          "+",
+          "%"
+        ],
+        "SortRemoveCharacters": [
+          ",",
+          "&",
+          "-",
+          "{",
+          "}",
+          "'"
+        ],
+        "SortRemoveWords": [
+          "the",
+          "a",
+          "an"
+        ],
+        "MinResumePct": 5,
+        "MaxResumePct": 90,
+        "MinResumeDurationSeconds": 300,
+        "MinAudiobookResume": 5,
+        "MaxAudiobookResume": 5,
+        "InactiveSessionThreshold": 0,
+        "LibraryMonitorDelay": 60,
+        "LibraryUpdateDuration": 30,
+        "ImageSavingConvention": "Legacy",
+        "MetadataOptions": [
+          {
+            "ItemType": "Book",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "Movie",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "MusicVideo",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [
+              "The Open Movie Database"
+            ],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [
+              "The Open Movie Database"
+            ],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "Series",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "MusicAlbum",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [
+              "TheAudioDB"
+            ],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "MusicArtist",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [
+              "TheAudioDB"
+            ],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "BoxSet",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "Season",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "Episode",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          }
+        ],
+        "SkipDeserializationForBasicTypes": true,
+        "ServerName": "",
+        "UICulture": "en-US",
+        "SaveMetadataHidden": false,
+        "ContentTypes": [],
+        "RemoteClientBitrateLimit": 0,
+        "EnableFolderView": false,
+        "EnableGroupingIntoCollections": false,
+        "DisplaySpecialsWithinSeasons": true,
+        "CodecsUsed": [],
+        "PluginRepositories": [
+          {
+            "Name": "Jellyfin Stable",
+            "Url": "https://repo.jellyfin.org/files/plugin/manifest.json",
+            "Enabled": true
+          }
+        ],
+        "EnableExternalContentInSuggestions": true,
+        "ImageExtractionTimeoutMs": 0,
+        "PathSubstitutions": [],
+        "EnableSlowResponseWarning": true,
+        "SlowResponseThresholdMs": 500,
+        "CorsHosts": [
+          "*"
+        ],
+        "ActivityLogRetentionDays": 30,
+        "LibraryScanFanoutConcurrency": 0,
+        "LibraryMetadataRefreshConcurrency": 0,
+        "RemoveOldPlugins": true,
+        "AllowClientLogUpload": true,
+        "DummyChapterDuration": 0,
+        "ChapterImageResolution": "MatchSource",
+        "ParallelImageEncodingLimit": 0,
+        "CastReceiverApplications": [
+          {
+            "Id": "F007D354",
+            "Name": "Stable"
+          },
+          {
+            "Id": "6F511C87",
+            "Name": "Unstable"
+          }
+        ],
+        "TrickplayOptions": {
+          "EnableHwAcceleration": false,
+          "EnableHwEncoding": false,
+          "EnableKeyFrameOnlyExtraction": false,
+          "ScanBehavior": "NonBlocking",
+          "ProcessPriority": "BelowNormal",
+          "Interval": 10000,
+          "WidthResolutions": [
+            320
+          ],
+          "TileWidth": 10,
+          "TileHeight": 10,
+          "Qscale": 4,
+          "JpegQuality": 90,
+          "ProcessThreads": 1
+        },
+        "LogFileRetentionDays": 3,
+        "IsStartupWizardCompleted": true
+      }
+    },
+    {
+      "fixture": "jellyfin-10.10.7:reader",
+      "method": "GET",
+      "path": "/System/ActivityLog/Entries",
+      "query": {
+        "Limit": 1
+      },
+      "http_status": 403,
+      "body": null
+    },
+    {
+      "fixture": "jellyfin-10.10.7",
+      "method": "GET",
+      "path": "/System/Info",
+      "query": {},
+      "http_status": 401,
+      "body": null
+    },
+    {
+      "fixture": "jellyfin-10.8.13",
+      "method": "GET",
+      "path": "/System/Info/Public",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "LocalAddress": "http://10.89.0.22:8096",
+        "ServerName": "f42f62467733",
+        "Version": "10.8.13",
+        "ProductName": "Jellyfin Server",
+        "OperatingSystem": "Linux",
+        "Id": "fe67cd9ae2294afdb958ad592c68e49e",
+        "StartupWizardCompleted": true
+      }
+    },
+    {
+      "fixture": "jellyfin-10.8.13:admin",
+      "method": "POST",
+      "path": "/Users/AuthenticateByName",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "User": {
+          "Name": "fixture-admin",
+          "ServerId": "fe67cd9ae2294afdb958ad592c68e49e",
+          "Id": "2473845e9718461792189f4d14b6f40f",
+          "HasPassword": true,
+          "HasConfiguredPassword": true,
+          "HasConfiguredEasyPassword": false,
+          "EnableAutoLogin": false,
+          "LastLoginDate": "2026-10-22T05:01:38.5234421Z",
+          "LastActivityDate": "2026-10-22T05:01:38.5234421Z",
+          "Configuration": {
+            "PlayDefaultAudioTrack": true,
+            "SubtitleLanguagePreference": "",
+            "DisplayMissingEpisodes": false,
+            "GroupedFolders": [],
+            "SubtitleMode": "Default",
+            "DisplayCollectionsView": false,
+            "EnableLocalPassword": false,
+            "OrderedViews": [],
+            "LatestItemsExcludes": [],
+            "MyMediaExcludes": [],
+            "HidePlayedInLatest": true,
+            "RememberAudioSelections": true,
+            "RememberSubtitleSelections": true,
+            "EnableNextEpisodeAutoPlay": true
+          },
+          "Policy": {
+            "IsAdministrator": true,
+            "IsHidden": true,
+            "IsDisabled": false,
+            "BlockedTags": [],
+            "EnableUserPreferenceAccess": true,
+            "AccessSchedules": [],
+            "BlockUnratedItems": [],
+            "EnableRemoteControlOfOtherUsers": true,
+            "EnableSharedDeviceControl": true,
+            "EnableRemoteAccess": true,
+            "EnableLiveTvManagement": true,
+            "EnableLiveTvAccess": true,
+            "EnableMediaPlayback": true,
+            "EnableAudioPlaybackTranscoding": true,
+            "EnableVideoPlaybackTranscoding": true,
+            "EnablePlaybackRemuxing": true,
+            "ForceRemoteSourceTranscoding": false,
+            "EnableContentDeletion": true,
+            "EnableContentDeletionFromFolders": [],
+            "EnableContentDownloading": true,
+            "EnableSyncTranscoding": true,
+            "EnableMediaConversion": true,
+            "EnabledDevices": [],
+            "EnableAllDevices": true,
+            "EnabledChannels": [],
+            "EnableAllChannels": true,
+            "EnabledFolders": [],
+            "EnableAllFolders": true,
+            "InvalidLoginAttemptCount": 0,
+            "LoginAttemptsBeforeLockout": -1,
+            "MaxActiveSessions": 0,
+            "EnablePublicSharing": true,
+            "BlockedMediaFolders": [],
+            "BlockedChannels": [],
+            "RemoteClientBitrateLimit": 0,
+            "AuthenticationProviderId": "Jellyfin.Server.Implementations.Users.DefaultAuthenticationProvider",
+            "PasswordResetProviderId": "Jellyfin.Server.Implementations.Users.DefaultPasswordResetProvider",
+            "SyncPlayAccess": "CreateAndJoinGroups"
+          }
+        },
+        "SessionInfo": {
+          "PlayState": {
+            "CanSeek": false,
+            "IsPaused": false,
+            "IsMuted": false,
+            "RepeatMode": "RepeatNone"
+          },
+          "AdditionalUsers": [],
+          "Capabilities": {
+            "PlayableMediaTypes": [],
+            "SupportedCommands": [],
+            "SupportsMediaControl": false,
+            "SupportsContentUploading": false,
+            "SupportsPersistentIdentifier": true,
+            "SupportsSync": false
+          },
+          "RemoteEndPoint": "10.89.0.22",
+          "PlayableMediaTypes": [],
+          "Id": "7e689ef8d47a5d1f3de3931310819e53",
+          "UserId": "2473845e9718461792189f4d14b6f40f",
+          "UserName": "fixture-admin",
+          "Client": "P00",
+          "LastActivityDate": "2026-10-22T05:01:38.5297522Z",
+          "LastPlaybackCheckIn": "0001-01-01T00:00:00.0000000Z",
+          "DeviceName": "fixture",
+          "DeviceId": "p00",
+          "ApplicationVersion": "1",
+          "IsActive": true,
+          "SupportsMediaControl": false,
+          "SupportsRemoteControl": false,
+          "NowPlayingQueue": [],
+          "NowPlayingQueueFullItems": [],
+          "HasCustomDeviceName": false,
+          "ServerId": "fe67cd9ae2294afdb958ad592c68e49e",
+          "SupportedCommands": []
+        },
+        "AccessToken": "<redacted>",
+        "ServerId": "fe67cd9ae2294afdb958ad592c68e49e"
+      }
+    },
+    {
+      "fixture": "jellyfin-10.8.13:admin",
+      "method": "GET",
+      "path": "/Users/2473845e9718461792189f4d14b6f40f/Items",
+      "query": {
+        "Recursive": "true",
+        "IncludeItemTypes": "Audio",
+        "Fields": "MediaSources,DateCreated,Genres,ParentId,Path",
+        "Limit": 20
+      },
+      "http_status": 200,
+      "body": {
+        "Items": [
+          {
+            "Name": "P00 Tone A",
+            "ServerId": "fe67cd9ae2294afdb958ad592c68e49e",
+            "Id": "cc9ffe97f1422ea53618c082b3b2e059",
+            "DateCreated": "2026-10-22T04:28:40.299207Z",
+            "MediaSources": [
+              {
+                "Protocol": "File",
+                "Id": "cc9ffe97f1422ea53618c082b3b2e059",
+                "Path": "/media/Fixture Artist/Fixture Album/tone-a.flac",
+                "Type": "Default",
+                "Container": "flac",
+                "Size": 44420,
+                "Name": "tone-a",
+                "IsRemote": false,
+                "ETag": "6f1e601e3940704a4dcef7acce3c1258",
+                "RunTimeTicks": 30000000,
+                "ReadAtNativeFramerate": false,
+                "IgnoreDts": false,
+                "IgnoreIndex": false,
+                "GenPtsInput": false,
+                "SupportsTranscoding": true,
+                "SupportsDirectStream": true,
+                "SupportsDirectPlay": true,
+                "IsInfiniteStream": false,
+                "RequiresOpening": false,
+                "RequiresClosing": false,
+                "RequiresLooping": false,
+                "SupportsProbing": true,
+                "MediaStreams": [
+                  {
+                    "Codec": "flac",
+                    "TimeBase": "1/44100",
+                    "DisplayTitle": "FLAC - Mono",
+                    "IsInterlaced": false,
+                    "ChannelLayout": "mono",
+                    "BitRate": 118453,
+                    "BitDepth": 16,
+                    "Channels": 1,
+                    "SampleRate": 44100,
+                    "IsDefault": false,
+                    "IsForced": false,
+                    "Type": "Audio",
+                    "Index": 0,
+                    "IsExternal": false,
+                    "IsTextSubtitleStream": false,
+                    "SupportsExternalStream": false,
+                    "Level": 0
+                  }
+                ],
+                "MediaAttachments": [],
+                "Formats": [],
+                "Bitrate": 118453,
+                "RequiredHttpHeaders": {},
+                "DefaultAudioStreamIndex": 0
+              }
+            ],
+            "Path": "/media/Fixture Artist/Fixture Album/tone-a.flac",
+            "ChannelId": null,
+            "Genres": [],
+            "RunTimeTicks": 30000000,
+            "IndexNumber": 1,
+            "IsFolder": false,
+            "ParentId": "a252f62608e3b4d1c2af866a99842ae4",
+            "Type": "Audio",
+            "GenreItems": [],
+            "UserData": {
+              "PlaybackPositionTicks": 0,
+              "PlayCount": 0,
+              "IsFavorite": false,
+              "Played": false,
+              "Key": "Fixture Artist-Fixture Album-0001P00 Tone A"
+            },
+            "Artists": [
+              "Fixture Artist"
+            ],
+            "ArtistItems": [
+              {
+                "Name": "Fixture Artist",
+                "Id": "43f160cf84a3a6dcdb92ac8a74ebab60"
+              }
+            ],
+            "Album": "Fixture Album",
+            "AlbumId": "a252f62608e3b4d1c2af866a99842ae4",
+            "AlbumArtist": "Fixture Artist",
+            "AlbumArtists": [
+              {
+                "Name": "Fixture Artist",
+                "Id": "43f160cf84a3a6dcdb92ac8a74ebab60"
+              }
+            ],
+            "ImageTags": {},
+            "BackdropImageTags": [],
+            "ImageBlurHashes": {},
+            "LocationType": "FileSystem",
+            "MediaType": "Audio"
+          },
+          {
+            "Name": "P00 Tone B",
+            "ServerId": "fe67cd9ae2294afdb958ad592c68e49e",
+            "Id": "b256bfeae941534adef594cf3d3d8949",
+            "DateCreated": "2026-10-22T04:28:40.4702075Z",
+            "MediaSources": [
+              {
+                "Protocol": "File",
+                "Id": "b256bfeae941534adef594cf3d3d8949",
+                "Path": "/media/Fixture Artist/Fixture Album/tone-b.mp3",
+                "Type": "Default",
+                "Container": "mp3",
+                "Size": 32703,
+                "Name": "tone-b",
+                "IsRemote": false,
+                "ETag": "7f010e2ac940d281512377bfd240e9b8",
+                "RunTimeTicks": 40489800,
+                "ReadAtNativeFramerate": false,
+                "IgnoreDts": false,
+                "IgnoreIndex": false,
+                "GenPtsInput": false,
+                "SupportsTranscoding": true,
+                "SupportsDirectStream": true,
+                "SupportsDirectPlay": true,
+                "IsInfiniteStream": false,
+                "RequiresOpening": false,
+                "RequiresClosing": false,
+                "RequiresLooping": false,
+                "SupportsProbing": true,
+                "MediaStreams": [
+                  {
+                    "Codec": "mp3",
+                    "TimeBase": "1/14112000",
+                    "DisplayTitle": "MP3 - Mono",
+                    "IsInterlaced": false,
+                    "ChannelLayout": "mono",
+                    "BitRate": 64000,
+                    "Channels": 1,
+                    "SampleRate": 44100,
+                    "IsDefault": false,
+                    "IsForced": false,
+                    "Type": "Audio",
+                    "Index": 0,
+                    "IsExternal": false,
+                    "IsTextSubtitleStream": false,
+                    "SupportsExternalStream": false,
+                    "Level": 0
+                  }
+                ],
+                "MediaAttachments": [],
+                "Formats": [],
+                "Bitrate": 64614,
+                "RequiredHttpHeaders": {},
+                "DefaultAudioStreamIndex": 0
+              }
+            ],
+            "Path": "/media/Fixture Artist/Fixture Album/tone-b.mp3",
+            "ChannelId": null,
+            "Genres": [],
+            "RunTimeTicks": 40489800,
+            "IndexNumber": 2,
+            "IsFolder": false,
+            "ParentId": "a252f62608e3b4d1c2af866a99842ae4",
+            "Type": "Audio",
+            "GenreItems": [],
+            "UserData": {
+              "PlaybackPositionTicks": 0,
+              "PlayCount": 0,
+              "IsFavorite": false,
+              "Played": false,
+              "Key": "Fixture Artist-Fixture Album-0002P00 Tone B"
+            },
+            "Artists": [
+              "Fixture Artist"
+            ],
+            "ArtistItems": [
+              {
+                "Name": "Fixture Artist",
+                "Id": "43f160cf84a3a6dcdb92ac8a74ebab60"
+              }
+            ],
+            "Album": "Fixture Album",
+            "AlbumId": "a252f62608e3b4d1c2af866a99842ae4",
+            "AlbumArtist": "Fixture Artist",
+            "AlbumArtists": [
+              {
+                "Name": "Fixture Artist",
+                "Id": "43f160cf84a3a6dcdb92ac8a74ebab60"
+              }
+            ],
+            "ImageTags": {},
+            "BackdropImageTags": [],
+            "ImageBlurHashes": {},
+            "LocationType": "FileSystem",
+            "MediaType": "Audio"
+          }
+        ],
+        "TotalRecordCount": 2,
+        "StartIndex": 0
+      }
+    },
+    {
+      "fixture": "jellyfin-10.8.13:admin",
+      "method": "GET",
+      "path": "/Users/2473845e9718461792189f4d14b6f40f/Items",
+      "query": {
+        "Recursive": "true",
+        "IncludeItemTypes": "Audio",
+        "StartIndex": 2
+      },
+      "http_status": 200,
+      "body": {
+        "Items": [],
+        "TotalRecordCount": 2,
+        "StartIndex": 2
+      }
+    },
+    {
+      "fixture": "jellyfin-10.8.13:admin",
+      "method": "GET",
+      "path": "/System/Info",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "OperatingSystemDisplayName": "Linux",
+        "HasPendingRestart": false,
+        "IsShuttingDown": false,
+        "SupportsLibraryMonitor": true,
+        "WebSocketPortNumber": 8096,
+        "CompletedInstallations": [],
+        "CanSelfRestart": false,
+        "CanLaunchWebBrowser": false,
+        "ProgramDataPath": "/config",
+        "WebPath": "/jellyfin/jellyfin-web",
+        "ItemsByNamePath": "/config/metadata",
+        "CachePath": "/cache",
+        "LogPath": "/config/log",
+        "InternalMetadataPath": "/config/metadata",
+        "TranscodingTempPath": "/config/transcodes",
+        "HasUpdateAvailable": false,
+        "EncoderLocation": "NotFound",
+        "SystemArchitecture": "X64",
+        "LocalAddress": "http://10.89.0.22:8096",
+        "ServerName": "f42f62467733",
+        "Version": "10.8.13",
+        "OperatingSystem": "Linux",
+        "Id": "fe67cd9ae2294afdb958ad592c68e49e"
+      }
+    },
+    {
+      "fixture": "jellyfin-10.8.13:admin",
+      "method": "GET",
+      "path": "/System/Configuration",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "EnableMetrics": false,
+        "EnableNormalizedItemByNameIds": true,
+        "IsPortAuthorized": true,
+        "QuickConnectAvailable": true,
+        "EnableCaseSensitiveItemIds": true,
+        "DisableLiveTvChannelUserDataName": true,
+        "MetadataPath": "",
+        "MetadataNetworkPath": "",
+        "PreferredMetadataLanguage": "en",
+        "MetadataCountryCode": "US",
+        "SortReplaceCharacters": [
+          ".",
+          "+",
+          "%"
+        ],
+        "SortRemoveCharacters": [
+          ",",
+          "&",
+          "-",
+          "{",
+          "}",
+          "'"
+        ],
+        "SortRemoveWords": [
+          "the",
+          "a",
+          "an"
+        ],
+        "MinResumePct": 5,
+        "MaxResumePct": 90,
+        "MinResumeDurationSeconds": 300,
+        "MinAudiobookResume": 5,
+        "MaxAudiobookResume": 5,
+        "LibraryMonitorDelay": 60,
+        "ImageSavingConvention": "Legacy",
+        "MetadataOptions": [
+          {
+            "ItemType": "Book",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "Movie",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "MusicVideo",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [
+              "The Open Movie Database"
+            ],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [
+              "The Open Movie Database"
+            ],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "Series",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "MusicAlbum",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [
+              "TheAudioDB"
+            ],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "MusicArtist",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [
+              "TheAudioDB"
+            ],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "BoxSet",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "Season",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "Episode",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          }
+        ],
+        "SkipDeserializationForBasicTypes": true,
+        "ServerName": "",
+        "UICulture": "en-US",
+        "SaveMetadataHidden": false,
+        "ContentTypes": [],
+        "RemoteClientBitrateLimit": 0,
+        "EnableFolderView": false,
+        "EnableGroupingIntoCollections": false,
+        "DisplaySpecialsWithinSeasons": true,
+        "CodecsUsed": [],
+        "PluginRepositories": [
+          {
+            "Name": "Jellyfin Stable",
+            "Url": "https://repo.jellyfin.org/releases/plugin/manifest-stable.json",
+            "Enabled": true
+          }
+        ],
+        "EnableExternalContentInSuggestions": true,
+        "ImageExtractionTimeoutMs": 0,
+        "PathSubstitutions": [],
+        "EnableSlowResponseWarning": true,
+        "SlowResponseThresholdMs": 500,
+        "CorsHosts": [
+          "*"
+        ],
+        "ActivityLogRetentionDays": 30,
+        "LibraryScanFanoutConcurrency": 0,
+        "LibraryMetadataRefreshConcurrency": 0,
+        "RemoveOldPlugins": false,
+        "AllowClientLogUpload": true,
+        "LogFileRetentionDays": 3,
+        "IsStartupWizardCompleted": true
+      }
+    },
+    {
+      "fixture": "jellyfin-10.8.13:admin",
+      "method": "GET",
+      "path": "/System/ActivityLog/Entries",
+      "query": {
+        "Limit": 1
+      },
+      "http_status": 200,
+      "body": {
+        "Items": [
+          {
+            "Id": 11,
+            "Name": "fixture-admin is online from fixture",
+            "ShortOverview": "IP address: 10.89.0.22",
+            "Type": "SessionStarted",
+            "Date": "2026-10-22T05:01:14.4038802Z",
+            "UserId": "2473845e9718461792189f4d14b6f40f",
+            "Severity": "Information"
+          }
+        ],
+        "TotalRecordCount": 11,
+        "StartIndex": 0
+      }
+    },
+    {
+      "fixture": "jellyfin-10.8.13:reader",
+      "method": "POST",
+      "path": "/Users/AuthenticateByName",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "User": {
+          "Name": "fixture-reader",
+          "ServerId": "fe67cd9ae2294afdb958ad592c68e49e",
+          "Id": "dc1f21cc195f4e36a81a761cf29c5ab1",
+          "HasPassword": true,
+          "HasConfiguredPassword": true,
+          "HasConfiguredEasyPassword": false,
+          "EnableAutoLogin": false,
+          "LastLoginDate": "2026-10-22T05:01:38.7834766Z",
+          "LastActivityDate": "2026-10-22T05:01:38.7834766Z",
+          "Configuration": {
+            "PlayDefaultAudioTrack": true,
+            "SubtitleLanguagePreference": "",
+            "DisplayMissingEpisodes": false,
+            "GroupedFolders": [],
+            "SubtitleMode": "Default",
+            "DisplayCollectionsView": false,
+            "EnableLocalPassword": false,
+            "OrderedViews": [],
+            "LatestItemsExcludes": [],
+            "MyMediaExcludes": [],
+            "HidePlayedInLatest": true,
+            "RememberAudioSelections": true,
+            "RememberSubtitleSelections": true,
+            "EnableNextEpisodeAutoPlay": true
+          },
+          "Policy": {
+            "IsAdministrator": false,
+            "IsHidden": true,
+            "IsDisabled": false,
+            "BlockedTags": [],
+            "EnableUserPreferenceAccess": true,
+            "AccessSchedules": [],
+            "BlockUnratedItems": [],
+            "EnableRemoteControlOfOtherUsers": false,
+            "EnableSharedDeviceControl": true,
+            "EnableRemoteAccess": true,
+            "EnableLiveTvManagement": true,
+            "EnableLiveTvAccess": true,
+            "EnableMediaPlayback": true,
+            "EnableAudioPlaybackTranscoding": true,
+            "EnableVideoPlaybackTranscoding": true,
+            "EnablePlaybackRemuxing": true,
+            "ForceRemoteSourceTranscoding": false,
+            "EnableContentDeletion": false,
+            "EnableContentDeletionFromFolders": [],
+            "EnableContentDownloading": true,
+            "EnableSyncTranscoding": true,
+            "EnableMediaConversion": true,
+            "EnabledDevices": [],
+            "EnableAllDevices": true,
+            "EnabledChannels": [],
+            "EnableAllChannels": true,
+            "EnabledFolders": [],
+            "EnableAllFolders": true,
+            "InvalidLoginAttemptCount": 0,
+            "LoginAttemptsBeforeLockout": -1,
+            "MaxActiveSessions": 0,
+            "EnablePublicSharing": true,
+            "BlockedMediaFolders": [],
+            "BlockedChannels": [],
+            "RemoteClientBitrateLimit": 0,
+            "AuthenticationProviderId": "Jellyfin.Server.Implementations.Users.DefaultAuthenticationProvider",
+            "PasswordResetProviderId": "Jellyfin.Server.Implementations.Users.DefaultPasswordResetProvider",
+            "SyncPlayAccess": "CreateAndJoinGroups"
+          }
+        },
+        "SessionInfo": {
+          "PlayState": {
+            "CanSeek": false,
+            "IsPaused": false,
+            "IsMuted": false,
+            "RepeatMode": "RepeatNone"
+          },
+          "AdditionalUsers": [],
+          "Capabilities": {
+            "PlayableMediaTypes": [],
+            "SupportedCommands": [],
+            "SupportsMediaControl": false,
+            "SupportsContentUploading": false,
+            "SupportsPersistentIdentifier": true,
+            "SupportsSync": false
+          },
+          "RemoteEndPoint": "10.89.0.22",
+          "PlayableMediaTypes": [],
+          "Id": "7e689ef8d47a5d1f3de3931310819e53",
+          "UserId": "dc1f21cc195f4e36a81a761cf29c5ab1",
+          "UserName": "fixture-reader",
+          "Client": "P00",
+          "LastActivityDate": "2026-10-22T05:01:38.7923568Z",
+          "LastPlaybackCheckIn": "0001-01-01T00:00:00.0000000Z",
+          "DeviceName": "fixture",
+          "DeviceId": "p00",
+          "ApplicationVersion": "1",
+          "IsActive": true,
+          "SupportsMediaControl": false,
+          "SupportsRemoteControl": false,
+          "NowPlayingQueue": [],
+          "NowPlayingQueueFullItems": [],
+          "HasCustomDeviceName": false,
+          "ServerId": "fe67cd9ae2294afdb958ad592c68e49e",
+          "SupportedCommands": []
+        },
+        "AccessToken": "<redacted>",
+        "ServerId": "fe67cd9ae2294afdb958ad592c68e49e"
+      }
+    },
+    {
+      "fixture": "jellyfin-10.8.13:reader",
+      "method": "GET",
+      "path": "/Users/dc1f21cc195f4e36a81a761cf29c5ab1/Items",
+      "query": {
+        "Recursive": "true",
+        "IncludeItemTypes": "Audio",
+        "Fields": "MediaSources,DateCreated,Genres,ParentId,Path",
+        "Limit": 20
+      },
+      "http_status": 200,
+      "body": {
+        "Items": [
+          {
+            "Name": "P00 Tone A",
+            "ServerId": "fe67cd9ae2294afdb958ad592c68e49e",
+            "Id": "cc9ffe97f1422ea53618c082b3b2e059",
+            "DateCreated": "2026-10-22T04:28:40.299207Z",
+            "MediaSources": [
+              {
+                "Protocol": "File",
+                "Id": "cc9ffe97f1422ea53618c082b3b2e059",
+                "Path": "/media/Fixture Artist/Fixture Album/tone-a.flac",
+                "Type": "Default",
+                "Container": "flac",
+                "Size": 44420,
+                "Name": "tone-a",
+                "IsRemote": false,
+                "ETag": "6f1e601e3940704a4dcef7acce3c1258",
+                "RunTimeTicks": 30000000,
+                "ReadAtNativeFramerate": false,
+                "IgnoreDts": false,
+                "IgnoreIndex": false,
+                "GenPtsInput": false,
+                "SupportsTranscoding": true,
+                "SupportsDirectStream": true,
+                "SupportsDirectPlay": true,
+                "IsInfiniteStream": false,
+                "RequiresOpening": false,
+                "RequiresClosing": false,
+                "RequiresLooping": false,
+                "SupportsProbing": true,
+                "MediaStreams": [
+                  {
+                    "Codec": "flac",
+                    "TimeBase": "1/44100",
+                    "DisplayTitle": "FLAC - Mono",
+                    "IsInterlaced": false,
+                    "ChannelLayout": "mono",
+                    "BitRate": 118453,
+                    "BitDepth": 16,
+                    "Channels": 1,
+                    "SampleRate": 44100,
+                    "IsDefault": false,
+                    "IsForced": false,
+                    "Type": "Audio",
+                    "Index": 0,
+                    "IsExternal": false,
+                    "IsTextSubtitleStream": false,
+                    "SupportsExternalStream": false,
+                    "Level": 0
+                  }
+                ],
+                "MediaAttachments": [],
+                "Formats": [],
+                "Bitrate": 118453,
+                "RequiredHttpHeaders": {},
+                "DefaultAudioStreamIndex": 0
+              }
+            ],
+            "Path": "/media/Fixture Artist/Fixture Album/tone-a.flac",
+            "ChannelId": null,
+            "Genres": [],
+            "RunTimeTicks": 30000000,
+            "IndexNumber": 1,
+            "IsFolder": false,
+            "ParentId": "a252f62608e3b4d1c2af866a99842ae4",
+            "Type": "Audio",
+            "GenreItems": [],
+            "UserData": {
+              "PlaybackPositionTicks": 0,
+              "PlayCount": 0,
+              "IsFavorite": false,
+              "Played": false,
+              "Key": "Fixture Artist-Fixture Album-0001P00 Tone A"
+            },
+            "Artists": [
+              "Fixture Artist"
+            ],
+            "ArtistItems": [
+              {
+                "Name": "Fixture Artist",
+                "Id": "43f160cf84a3a6dcdb92ac8a74ebab60"
+              }
+            ],
+            "Album": "Fixture Album",
+            "AlbumId": "a252f62608e3b4d1c2af866a99842ae4",
+            "AlbumArtist": "Fixture Artist",
+            "AlbumArtists": [
+              {
+                "Name": "Fixture Artist",
+                "Id": "43f160cf84a3a6dcdb92ac8a74ebab60"
+              }
+            ],
+            "ImageTags": {},
+            "BackdropImageTags": [],
+            "ImageBlurHashes": {},
+            "LocationType": "FileSystem",
+            "MediaType": "Audio"
+          },
+          {
+            "Name": "P00 Tone B",
+            "ServerId": "fe67cd9ae2294afdb958ad592c68e49e",
+            "Id": "b256bfeae941534adef594cf3d3d8949",
+            "DateCreated": "2026-10-22T04:28:40.4702075Z",
+            "MediaSources": [
+              {
+                "Protocol": "File",
+                "Id": "b256bfeae941534adef594cf3d3d8949",
+                "Path": "/media/Fixture Artist/Fixture Album/tone-b.mp3",
+                "Type": "Default",
+                "Container": "mp3",
+                "Size": 32703,
+                "Name": "tone-b",
+                "IsRemote": false,
+                "ETag": "7f010e2ac940d281512377bfd240e9b8",
+                "RunTimeTicks": 40489800,
+                "ReadAtNativeFramerate": false,
+                "IgnoreDts": false,
+                "IgnoreIndex": false,
+                "GenPtsInput": false,
+                "SupportsTranscoding": true,
+                "SupportsDirectStream": true,
+                "SupportsDirectPlay": true,
+                "IsInfiniteStream": false,
+                "RequiresOpening": false,
+                "RequiresClosing": false,
+                "RequiresLooping": false,
+                "SupportsProbing": true,
+                "MediaStreams": [
+                  {
+                    "Codec": "mp3",
+                    "TimeBase": "1/14112000",
+                    "DisplayTitle": "MP3 - Mono",
+                    "IsInterlaced": false,
+                    "ChannelLayout": "mono",
+                    "BitRate": 64000,
+                    "Channels": 1,
+                    "SampleRate": 44100,
+                    "IsDefault": false,
+                    "IsForced": false,
+                    "Type": "Audio",
+                    "Index": 0,
+                    "IsExternal": false,
+                    "IsTextSubtitleStream": false,
+                    "SupportsExternalStream": false,
+                    "Level": 0
+                  }
+                ],
+                "MediaAttachments": [],
+                "Formats": [],
+                "Bitrate": 64614,
+                "RequiredHttpHeaders": {},
+                "DefaultAudioStreamIndex": 0
+              }
+            ],
+            "Path": "/media/Fixture Artist/Fixture Album/tone-b.mp3",
+            "ChannelId": null,
+            "Genres": [],
+            "RunTimeTicks": 40489800,
+            "IndexNumber": 2,
+            "IsFolder": false,
+            "ParentId": "a252f62608e3b4d1c2af866a99842ae4",
+            "Type": "Audio",
+            "GenreItems": [],
+            "UserData": {
+              "PlaybackPositionTicks": 0,
+              "PlayCount": 0,
+              "IsFavorite": false,
+              "Played": false,
+              "Key": "Fixture Artist-Fixture Album-0002P00 Tone B"
+            },
+            "Artists": [
+              "Fixture Artist"
+            ],
+            "ArtistItems": [
+              {
+                "Name": "Fixture Artist",
+                "Id": "43f160cf84a3a6dcdb92ac8a74ebab60"
+              }
+            ],
+            "Album": "Fixture Album",
+            "AlbumId": "a252f62608e3b4d1c2af866a99842ae4",
+            "AlbumArtist": "Fixture Artist",
+            "AlbumArtists": [
+              {
+                "Name": "Fixture Artist",
+                "Id": "43f160cf84a3a6dcdb92ac8a74ebab60"
+              }
+            ],
+            "ImageTags": {},
+            "BackdropImageTags": [],
+            "ImageBlurHashes": {},
+            "LocationType": "FileSystem",
+            "MediaType": "Audio"
+          }
+        ],
+        "TotalRecordCount": 2,
+        "StartIndex": 0
+      }
+    },
+    {
+      "fixture": "jellyfin-10.8.13:reader",
+      "method": "GET",
+      "path": "/Users/dc1f21cc195f4e36a81a761cf29c5ab1/Items",
+      "query": {
+        "Recursive": "true",
+        "IncludeItemTypes": "Audio",
+        "StartIndex": 2
+      },
+      "http_status": 200,
+      "body": {
+        "Items": [],
+        "TotalRecordCount": 2,
+        "StartIndex": 2
+      }
+    },
+    {
+      "fixture": "jellyfin-10.8.13:reader",
+      "method": "GET",
+      "path": "/System/Info",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "OperatingSystemDisplayName": "Linux",
+        "HasPendingRestart": false,
+        "IsShuttingDown": false,
+        "SupportsLibraryMonitor": true,
+        "WebSocketPortNumber": 8096,
+        "CompletedInstallations": [],
+        "CanSelfRestart": false,
+        "CanLaunchWebBrowser": false,
+        "ProgramDataPath": "/config",
+        "WebPath": "/jellyfin/jellyfin-web",
+        "ItemsByNamePath": "/config/metadata",
+        "CachePath": "/cache",
+        "LogPath": "/config/log",
+        "InternalMetadataPath": "/config/metadata",
+        "TranscodingTempPath": "/config/transcodes",
+        "HasUpdateAvailable": false,
+        "EncoderLocation": "NotFound",
+        "SystemArchitecture": "X64",
+        "LocalAddress": "http://10.89.0.22:8096",
+        "ServerName": "f42f62467733",
+        "Version": "10.8.13",
+        "OperatingSystem": "Linux",
+        "Id": "fe67cd9ae2294afdb958ad592c68e49e"
+      }
+    },
+    {
+      "fixture": "jellyfin-10.8.13:reader",
+      "method": "GET",
+      "path": "/System/Configuration",
+      "query": {},
+      "http_status": 200,
+      "body": {
+        "EnableMetrics": false,
+        "EnableNormalizedItemByNameIds": true,
+        "IsPortAuthorized": true,
+        "QuickConnectAvailable": true,
+        "EnableCaseSensitiveItemIds": true,
+        "DisableLiveTvChannelUserDataName": true,
+        "MetadataPath": "",
+        "MetadataNetworkPath": "",
+        "PreferredMetadataLanguage": "en",
+        "MetadataCountryCode": "US",
+        "SortReplaceCharacters": [
+          ".",
+          "+",
+          "%"
+        ],
+        "SortRemoveCharacters": [
+          ",",
+          "&",
+          "-",
+          "{",
+          "}",
+          "'"
+        ],
+        "SortRemoveWords": [
+          "the",
+          "a",
+          "an"
+        ],
+        "MinResumePct": 5,
+        "MaxResumePct": 90,
+        "MinResumeDurationSeconds": 300,
+        "MinAudiobookResume": 5,
+        "MaxAudiobookResume": 5,
+        "LibraryMonitorDelay": 60,
+        "ImageSavingConvention": "Legacy",
+        "MetadataOptions": [
+          {
+            "ItemType": "Book",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "Movie",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "MusicVideo",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [
+              "The Open Movie Database"
+            ],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [
+              "The Open Movie Database"
+            ],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "Series",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "MusicAlbum",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [
+              "TheAudioDB"
+            ],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "MusicArtist",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [
+              "TheAudioDB"
+            ],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "BoxSet",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "Season",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          },
+          {
+            "ItemType": "Episode",
+            "DisabledMetadataSavers": [],
+            "LocalMetadataReaderOrder": [],
+            "DisabledMetadataFetchers": [],
+            "MetadataFetcherOrder": [],
+            "DisabledImageFetchers": [],
+            "ImageFetcherOrder": []
+          }
+        ],
+        "SkipDeserializationForBasicTypes": true,
+        "ServerName": "",
+        "UICulture": "en-US",
+        "SaveMetadataHidden": false,
+        "ContentTypes": [],
+        "RemoteClientBitrateLimit": 0,
+        "EnableFolderView": false,
+        "EnableGroupingIntoCollections": false,
+        "DisplaySpecialsWithinSeasons": true,
+        "CodecsUsed": [],
+        "PluginRepositories": [
+          {
+            "Name": "Jellyfin Stable",
+            "Url": "https://repo.jellyfin.org/releases/plugin/manifest-stable.json",
+            "Enabled": true
+          }
+        ],
+        "EnableExternalContentInSuggestions": true,
+        "ImageExtractionTimeoutMs": 0,
+        "PathSubstitutions": [],
+        "EnableSlowResponseWarning": true,
+        "SlowResponseThresholdMs": 500,
+        "CorsHosts": [
+          "*"
+        ],
+        "ActivityLogRetentionDays": 30,
+        "LibraryScanFanoutConcurrency": 0,
+        "LibraryMetadataRefreshConcurrency": 0,
+        "RemoveOldPlugins": false,
+        "AllowClientLogUpload": true,
+        "LogFileRetentionDays": 3,
+        "IsStartupWizardCompleted": true
+      }
+    },
+    {
+      "fixture": "jellyfin-10.8.13:reader",
+      "method": "GET",
+      "path": "/System/ActivityLog/Entries",
+      "query": {
+        "Limit": 1
+      },
+      "http_status": 403,
+      "body": null
+    },
+    {
+      "fixture": "jellyfin-10.8.13",
+      "method": "GET",
+      "path": "/System/Info",
+      "query": {},
+      "http_status": 401,
+      "body": null
+    }
+  ],
+  "limitations": [
+    "Direct server HTTP API probes; no pinned Feishin controller, UI or audio/device execution.",
+    "Two owned test tones; 10k/100k synthetic recipes are separate and not live large-library evidence.",
+    "This is a six-instance Linux/x86_64 matrix, not all server implementations or platforms.",
+    "Gonic accounts seeded in stopped disposable database because createUser is unsupported."
+  ]
+}

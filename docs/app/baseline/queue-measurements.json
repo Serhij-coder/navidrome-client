@@ -1,0 +1,422 @@
+{
+  "schema": 1,
+  "task": "P00.07",
+  "evidenceKind": "headless-original-queue-subset-measurement",
+  "date": "2026-10-22",
+  "host": {
+    "cpu": "AMD Ryzen 7 7435HS",
+    "logicalCpus": 16,
+    "totalMemoryBytes": 16424075264,
+    "platform": "linux",
+    "architecture": "x64",
+    "kernel": "7.2.9-200.nobara.fc44.x86_64",
+    "node": "v22.22.2"
+  },
+  "conditions": "Six disposable music servers stopped; no concurrent reference harnesses. Desktop background load, CPU governor and thermal state not controlled.",
+  "fixture": {
+    "records": [
+      10000,
+      100000
+    ],
+    "fieldsPerNormalizedSong": 61,
+    "source": "pinned ssNormalize.song on tracked synthetic DTO",
+    "samplesPerOperation": 5,
+    "warmups": 1
+  },
+  "provenance": {
+    "commit": "7d6ad318c79802e226996cfc39acba6b05bb22e8",
+    "sourceFiles": [
+      "src/renderer/events/event-emitter.ts",
+      "src/renderer/lib/zustand.ts",
+      "src/renderer/store/player.store.ts",
+      "src/renderer/store/timestamp.store.ts",
+      "src/renderer/store/utils.ts",
+      "src/renderer/utils/shuffle.ts",
+      "src/shared/api/jellyfin/jellyfin-types.ts",
+      "src/shared/api/navidrome/navidrome-types.ts",
+      "src/shared/api/partial-iso-date.ts",
+      "src/shared/api/subsonic/subsonic-normalize.ts",
+      "src/shared/types/domain-types.ts",
+      "src/shared/types/types.ts"
+    ],
+    "boundaries": [
+      "idb-keyval",
+      "nanoid",
+      "/@/renderer/store/settings.store",
+      "/@/renderer/features/radio/hooks/use-radio-player",
+      "/@/renderer/utils/logger"
+    ],
+    "random": "LCG seed 1729",
+    "storage": "in-memory async adapter and localStorage; no browser IndexedDB",
+    "limitation": "Actual pinned Zustand/Immer store and persistence code; no React UI, engine, OS, HTTP or browser lifecycle.",
+    "compilerVersion": "0.25.12"
+  },
+  "rows": [
+    {
+      "count": 10000,
+      "sample": 0,
+      "operation": "replace-queue",
+      "applyMs": 263.06503,
+      "settledMs": 305.743252,
+      "processRssBytes": 213909504,
+      "heapUsedBytes": 79349880
+    },
+    {
+      "count": 10000,
+      "sample": 0,
+      "operation": "toggle-shuffle",
+      "applyMs": 8.651908000000049,
+      "settledMs": 52.168341000000055,
+      "processRssBytes": 238047232,
+      "heapUsedBytes": 103462368
+    },
+    {
+      "count": 10000,
+      "sample": 0,
+      "operation": "move-last-to-next",
+      "applyMs": 24.03776300000004,
+      "settledMs": 67.61170500000003,
+      "processRssBytes": 262176768,
+      "heapUsedBytes": 127706000
+    },
+    {
+      "count": 10000,
+      "sample": 0,
+      "operation": "remove-last-occurrence",
+      "applyMs": 152.76901099999986,
+      "settledMs": 196.24592000000007,
+      "processRssBytes": 286822400,
+      "heapUsedBytes": 152293368
+    },
+    {
+      "count": 10000,
+      "sample": 1,
+      "operation": "replace-queue",
+      "applyMs": 258.44657400000006,
+      "settledMs": 301.53258500000015,
+      "processRssBytes": 295141376,
+      "heapUsedBytes": 160117304
+    },
+    {
+      "count": 10000,
+      "sample": 1,
+      "operation": "toggle-shuffle",
+      "applyMs": 7.392901000000165,
+      "settledMs": 50.9558320000001,
+      "processRssBytes": 319270912,
+      "heapUsedBytes": 184234144
+    },
+    {
+      "count": 10000,
+      "sample": 1,
+      "operation": "move-last-to-next",
+      "applyMs": 23.871729999999843,
+      "settledMs": 67.99038999999993,
+      "processRssBytes": 343605248,
+      "heapUsedBytes": 208538080
+    },
+    {
+      "count": 10000,
+      "sample": 1,
+      "operation": "remove-last-occurrence",
+      "applyMs": 159.1852100000001,
+      "settledMs": 203.715557,
+      "processRssBytes": 219807744,
+      "heapUsedBytes": 71578688
+    },
+    {
+      "count": 10000,
+      "sample": 2,
+      "operation": "replace-queue",
+      "applyMs": 253.4911320000001,
+      "settledMs": 296.66802499999994,
+      "processRssBytes": 221519872,
+      "heapUsedBytes": 79421032
+    },
+    {
+      "count": 10000,
+      "sample": 2,
+      "operation": "toggle-shuffle",
+      "applyMs": 7.431645000000117,
+      "settledMs": 50.405033,
+      "processRssBytes": 245559296,
+      "heapUsedBytes": 103526360
+    },
+    {
+      "count": 10000,
+      "sample": 2,
+      "operation": "move-last-to-next",
+      "applyMs": 24.01515100000006,
+      "settledMs": 67.44691499999999,
+      "processRssBytes": 269598720,
+      "heapUsedBytes": 127850160
+    },
+    {
+      "count": 10000,
+      "sample": 2,
+      "operation": "remove-last-occurrence",
+      "applyMs": 149.90331399999968,
+      "settledMs": 193.30708400000003,
+      "processRssBytes": 294371328,
+      "heapUsedBytes": 152476376
+    },
+    {
+      "count": 10000,
+      "sample": 3,
+      "operation": "replace-queue",
+      "applyMs": 255.50190699999985,
+      "settledMs": 298.8663929999998,
+      "processRssBytes": 296022016,
+      "heapUsedBytes": 160292200
+    },
+    {
+      "count": 10000,
+      "sample": 3,
+      "operation": "toggle-shuffle",
+      "applyMs": 7.429551000000174,
+      "settledMs": 51.155399000000216,
+      "processRssBytes": 320147456,
+      "heapUsedBytes": 184420128
+    },
+    {
+      "count": 10000,
+      "sample": 3,
+      "operation": "move-last-to-next",
+      "applyMs": 23.912578000000394,
+      "settledMs": 68.69346700000006,
+      "processRssBytes": 344092672,
+      "heapUsedBytes": 208666232
+    },
+    {
+      "count": 10000,
+      "sample": 3,
+      "operation": "remove-last-occurrence",
+      "applyMs": 159.68098599999985,
+      "settledMs": 205.45252500000015,
+      "processRssBytes": 220430336,
+      "heapUsedBytes": 71574840
+    },
+    {
+      "count": 10000,
+      "sample": 4,
+      "operation": "replace-queue",
+      "applyMs": 254.50073800000018,
+      "settledMs": 297.6299009999998,
+      "processRssBytes": 221990912,
+      "heapUsedBytes": 79416328
+    },
+    {
+      "count": 10000,
+      "sample": 4,
+      "operation": "toggle-shuffle",
+      "applyMs": 7.4359230000000025,
+      "settledMs": 51.019002,
+      "processRssBytes": 246030336,
+      "heapUsedBytes": 103521656
+    },
+    {
+      "count": 10000,
+      "sample": 4,
+      "operation": "move-last-to-next",
+      "applyMs": 24.06544500000018,
+      "settledMs": 67.52080299999989,
+      "processRssBytes": 270069760,
+      "heapUsedBytes": 127886208
+    },
+    {
+      "count": 10000,
+      "sample": 4,
+      "operation": "remove-last-occurrence",
+      "applyMs": 150.5038470000004,
+      "settledMs": 194.10797599999978,
+      "processRssBytes": 294400000,
+      "heapUsedBytes": 152450760
+    },
+    {
+      "count": 100000,
+      "sample": 0,
+      "operation": "replace-queue",
+      "applyMs": 2587.1569799999997,
+      "settledMs": 3022.1039220000002,
+      "processRssBytes": 1415454720,
+      "heapUsedBytes": 1260856536
+    },
+    {
+      "count": 100000,
+      "sample": 0,
+      "operation": "toggle-shuffle",
+      "applyMs": 71.57637700000123,
+      "settledMs": 509.68249000000105,
+      "processRssBytes": 1661239296,
+      "heapUsedBytes": 1506603600
+    },
+    {
+      "count": 100000,
+      "sample": 0,
+      "operation": "move-last-to-next",
+      "applyMs": 245.9651190000004,
+      "settledMs": 698.416134000001,
+      "processRssBytes": 1919758336,
+      "heapUsedBytes": 1765908768
+    },
+    {
+      "count": 100000,
+      "sample": 0,
+      "operation": "remove-last-occurrence",
+      "applyMs": 1662.5666360000014,
+      "settledMs": 2107.383383999999,
+      "processRssBytes": 1143873536,
+      "heapUsedBytes": 923119864
+    },
+    {
+      "count": 100000,
+      "sample": 1,
+      "operation": "replace-queue",
+      "applyMs": 2557.2385890000005,
+      "settledMs": 2992.799268999999,
+      "processRssBytes": 1174405120,
+      "heapUsedBytes": 1010613296
+    },
+    {
+      "count": 100000,
+      "sample": 1,
+      "operation": "toggle-shuffle",
+      "applyMs": 74.90720299999884,
+      "settledMs": 510.01701200000025,
+      "processRssBytes": 1420374016,
+      "heapUsedBytes": 1256547664
+    },
+    {
+      "count": 100000,
+      "sample": 1,
+      "operation": "move-last-to-next",
+      "applyMs": 247.87821899999835,
+      "settledMs": 687.0178730000007,
+      "processRssBytes": 1670033408,
+      "heapUsedBytes": 1506446752
+    },
+    {
+      "count": 100000,
+      "sample": 1,
+      "operation": "remove-last-occurrence",
+      "applyMs": 1652.3002420000012,
+      "settledMs": 2090.551018000002,
+      "processRssBytes": 903000064,
+      "heapUsedBytes": 678128416
+    },
+    {
+      "count": 100000,
+      "sample": 2,
+      "operation": "replace-queue",
+      "applyMs": 2569.2595150000016,
+      "settledMs": 3003.7417490000007,
+      "processRssBytes": 929226752,
+      "heapUsedBytes": 765606496
+    },
+    {
+      "count": 100000,
+      "sample": 2,
+      "operation": "toggle-shuffle",
+      "applyMs": 88.59306099999958,
+      "settledMs": 523.7426349999987,
+      "processRssBytes": 870121472,
+      "heapUsedBytes": 620561016
+    },
+    {
+      "count": 100000,
+      "sample": 2,
+      "operation": "move-last-to-next",
+      "applyMs": 258.5682629999974,
+      "settledMs": 704.8980559999982,
+      "processRssBytes": 882266112,
+      "heapUsedBytes": 636241584
+    },
+    {
+      "count": 100000,
+      "sample": 2,
+      "operation": "remove-last-occurrence",
+      "applyMs": 1636.8263589999988,
+      "settledMs": 2085.346935999998,
+      "processRssBytes": 1169727488,
+      "heapUsedBytes": 953879040
+    },
+    {
+      "count": 100000,
+      "sample": 3,
+      "operation": "replace-queue",
+      "applyMs": 2593.133660000003,
+      "settledMs": 3028.6227240000007,
+      "processRssBytes": 1203490816,
+      "heapUsedBytes": 1041319936
+    },
+    {
+      "count": 100000,
+      "sample": 3,
+      "operation": "toggle-shuffle",
+      "applyMs": 74.90511999999944,
+      "settledMs": 510.80936799999836,
+      "processRssBytes": 1449463808,
+      "heapUsedBytes": 1287254112
+    },
+    {
+      "count": 100000,
+      "sample": 3,
+      "operation": "move-last-to-next",
+      "applyMs": 262.92063799999596,
+      "settledMs": 705.061275,
+      "processRssBytes": 884506624,
+      "heapUsedBytes": 632255568
+    },
+    {
+      "count": 100000,
+      "sample": 3,
+      "operation": "remove-last-occurrence",
+      "applyMs": 1634.382117000001,
+      "settledMs": 2069.585632000002,
+      "processRssBytes": 1163272192,
+      "heapUsedBytes": 935346064
+    },
+    {
+      "count": 100000,
+      "sample": 4,
+      "operation": "replace-queue",
+      "applyMs": 2569.269873999998,
+      "settledMs": 3002.0527719999955,
+      "processRssBytes": 1189519360,
+      "heapUsedBytes": 1022815152
+    },
+    {
+      "count": 100000,
+      "sample": 4,
+      "operation": "toggle-shuffle",
+      "applyMs": 89.65040600000066,
+      "settledMs": 527.6244399999996,
+      "processRssBytes": 879718400,
+      "heapUsedBytes": 620602952
+    },
+    {
+      "count": 100000,
+      "sample": 4,
+      "operation": "move-last-to-next",
+      "applyMs": 246.5864220000003,
+      "settledMs": 693.4601119999934,
+      "processRssBytes": 1134129152,
+      "heapUsedBytes": 879890672
+    },
+    {
+      "count": 100000,
+      "sample": 4,
+      "operation": "remove-last-occurrence",
+      "applyMs": 1632.8433229999937,
+      "settledMs": 2068.460638999997,
+      "processRssBytes": 1413419008,
+      "heapUsedBytes": 1183537208
+    }
+  ],
+  "limitations": [
+    "Node production-mode bundle, not packaged Electron or Rust application.",
+    "Timers measure synchronous command application and subsequent in-memory persistence settling; no physical disk/IndexedDB latency.",
+    "RSS is this measurement process only, including bundling overhead; not total app/helper RSS. No GPU/display/audio data.",
+    "Five measured samples per operation; report range/median only, no p95/p99 or desktop budget calibration."
+  ]
+}

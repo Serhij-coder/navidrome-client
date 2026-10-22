@@ -70,6 +70,10 @@ def validate(root, archive=None, functions=None):
     for row in journeys:
         errors.extend(validate_journey(row, baseline))
     migration = csv_rows(root / "docs/app/migration/p00-map.csv")
+    runtime_map = csv_rows(root / "docs/app/migration/p00-runtime-map.csv")
+    for row in runtime_map:
+        if row["disposition"] != "unmapped" or row["rust_symbol"] or not (root / row["test_or_evidence"]).is_file():
+            errors.append("invalid runtime source evidence anchor")
     if len(migration) != len(journeys) or [(r["feature_id"], r["upstream_id"]) for r in migration] != [(r["feature_id"], r["upstream_id"]) for r in journeys]:
         errors.append("migration anchors disagree with journeys")
     if any(r["disposition"] != "unmapped" or r["rust_symbol"] or r["status"] != "source-anchored-proposal" for r in migration):
@@ -118,6 +122,9 @@ def validate(root, archive=None, functions=None):
         for row in journeys:
             if row["upstream_id"] not in ids:
                 errors.append(f"unknown stable upstream ID: {row['upstream_id']}")
+        for row in runtime_map:
+            if row["upstream_id"] not in ids:
+                errors.append(f"unknown runtime upstream ID: {row['upstream_id']}")
     return errors
 
 

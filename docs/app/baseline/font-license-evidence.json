@@ -1,0 +1,339 @@
+{
+  "schema": 1,
+  "task": "P00.08",
+  "source_commit": "7d6ad318c79802e226996cfc39acba6b05bb22e8",
+  "metadata_tool": "fontTools 4.62.1",
+  "fonts": [
+    {
+      "path": "assets/fonts/Inter-VariableFont_opsz,wght.woff2",
+      "sha256": "ac833b693ccac9a61a37aac1c723afb038d27a1381aaaa12d34bcf38d22fe276",
+      "family": "inter",
+      "embedded_names": {
+        "0": [
+          "Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter)"
+        ],
+        "1": [
+          "Inter"
+        ],
+        "5": [
+          "Version 4.001;git-66647c0bb"
+        ],
+        "13": [
+          "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://openfontlicense.org"
+        ],
+        "14": [
+          "https://openfontlicense.org"
+        ]
+      },
+      "publisher_license": "licenses/inter-OFL.json",
+      "distribution_status": "not-selected; exact-version provenance and copyright reconciliation still required"
+    },
+    {
+      "path": "assets/fonts/NotoSansHebrew-VariableFont_wdth,wght.woff2",
+      "sha256": "5c49d684a536a9b48696911c3119eebf670e8f05877421d9d7d52eb98d10d09d",
+      "family": "notosanshebrew",
+      "embedded_names": {
+        "0": [
+          "Copyright 2024 The Noto Project Authors (https://github.com/notofonts/hebrew)"
+        ],
+        "1": [
+          "Noto Sans Hebrew Thin"
+        ],
+        "5": [
+          "Version 3.001"
+        ],
+        "13": [
+          "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://openfontlicense.org"
+        ],
+        "14": [
+          "https://openfontlicense.org"
+        ]
+      },
+      "publisher_license": "licenses/notosanshebrew-OFL.json",
+      "distribution_status": "not-selected; exact-version provenance and copyright reconciliation still required"
+    },
+    {
+      "path": "assets/fonts/NotoSansJP-VariableFont_wght.woff2",
+      "sha256": "b1c7d93631058dd351aa323b84e835ad87741400a4355a8b47de222121d1ee9f",
+      "family": "notosansjp",
+      "embedded_names": {
+        "0": [
+          "(c) 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'."
+        ],
+        "1": [
+          "Noto Sans JP Thin"
+        ],
+        "5": [
+          "Version 2.004-H2;hotconv 1.0.118;makeotfexe 2.5.65603"
+        ],
+        "13": [
+          "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL"
+        ],
+        "14": [
+          "http://scripts.sil.org/OFL"
+        ]
+      },
+      "publisher_license": "licenses/notosansjp-OFL.json",
+      "distribution_status": "not-selected; exact-version provenance and copyright reconciliation still required"
+    },
+    {
+      "path": "assets/fonts/Poppins-Black.woff2",
+      "sha256": "55f3b479497a1eb1bb824803a535c78133e55c60a51414a8dbc6e8c5de768d81",
+      "family": "poppins",
+      "embedded_names": {
+        "0": [
+          "Copyright 2020 The Poppins Project Authors (https://github.com/itfoundry/Poppins)"
+        ],
+        "1": [
+          "Poppins Black"
+        ],
+        "5": [
+          "4.004"
+        ],
+        "13": [
+          "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL"
+        ],
+        "14": [
+          "https://scripts.sil.org/OFL"
+        ]
+      },
+      "publisher_license": "licenses/poppins-OFL.json",
+      "distribution_status": "not-selected; exact-version provenance and copyright reconciliation still required"
+    },
+    {
+      "path": "assets/fonts/Poppins-Bold.woff2",
+      "sha256": "5bd7a1e006fa739a820cbf397667fc86e7c4e2eb700df81b532121f78ef7d3d7",
+      "family": "poppins",
+      "embedded_names": {
+        "0": [
+          "Copyright 2020 The Poppins Project Authors (https://github.com/itfoundry/Poppins)"
+        ],
+        "1": [
+          "Poppins"
+        ],
+        "5": [
+          "4.004"
+        ],
+        "13": [
+          "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL"
+        ],
+        "14": [
+          "https://scripts.sil.org/OFL"
+        ]
+      },
+      "publisher_license": "licenses/poppins-OFL.json",
+      "distribution_status": "not-selected; exact-version provenance and copyright reconciliation still required"
+    },
+    {
+      "path": "assets/fonts/Poppins-ExtraBold.woff2",
+      "sha256": "7c7fd857ca3716d26140f5d92d13cea81fbe9661c7d51caff16f0935e6ce3713",
+      "family": "poppins",
+      "embedded_names": {
+        "0": [
+          "Copyright 2020 The Poppins Project Authors (https://github.com/itfoundry/Poppins)"
+        ],
+        "1": [
+          "Poppins ExtraBold"
+        ],
+        "5": [
+          "4.004"
+        ],
+        "13": [
+          "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL"
+        ],
+        "14": [
+          "https://scripts.sil.org/OFL"
+        ]
+      },
+      "publisher_license": "licenses/poppins-OFL.json",
+      "distribution_status": "not-selected; exact-version provenance and copyright reconciliation still required"
+    },
+    {
+      "path": "assets/fonts/Poppins-Italic.woff2",
+      "sha256": "e5c881781b5f13b6a618751ac58527fbaac9e728b471608462171d615639d9d1",
+      "family": "poppins",
+      "embedded_names": {
+        "0": [
+          "Copyright 2020 The Poppins Project Authors (https://github.com/itfoundry/Poppins)"
+        ],
+        "1": [
+          "Poppins"
+        ],
+        "5": [
+          "4.004"
+        ],
+        "13": [
+          "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL"
+        ],
+        "14": [
+          "https://scripts.sil.org/OFL"
+        ]
+      },
+      "publisher_license": "licenses/poppins-OFL.json",
+      "distribution_status": "not-selected; exact-version provenance and copyright reconciliation still required"
+    },
+    {
+      "path": "assets/fonts/Poppins-Light.woff2",
+      "sha256": "c976ba6a1fbe6e96abde9f19d73ef069f67a079e7778269300fb4dcc36605c0c",
+      "family": "poppins",
+      "embedded_names": {
+        "0": [
+          "Copyright 2020 The Poppins Project Authors (https://github.com/itfoundry/Poppins)"
+        ],
+        "1": [
+          "Poppins Light"
+        ],
+        "5": [
+          "4.004"
+        ],
+        "13": [
+          "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL"
+        ],
+        "14": [
+          "https://scripts.sil.org/OFL"
+        ]
+      },
+      "publisher_license": "licenses/poppins-OFL.json",
+      "distribution_status": "not-selected; exact-version provenance and copyright reconciliation still required"
+    },
+    {
+      "path": "assets/fonts/Poppins-Medium.woff2",
+      "sha256": "54cedf5dd7570144d85d5f94e823e02147777e9063d548723122099546d149bd",
+      "family": "poppins",
+      "embedded_names": {
+        "0": [
+          "Copyright 2020 The Poppins Project Authors (https://github.com/itfoundry/Poppins)"
+        ],
+        "1": [
+          "Poppins Medium"
+        ],
+        "5": [
+          "4.004"
+        ],
+        "13": [
+          "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL"
+        ],
+        "14": [
+          "https://scripts.sil.org/OFL"
+        ]
+      },
+      "publisher_license": "licenses/poppins-OFL.json",
+      "distribution_status": "not-selected; exact-version provenance and copyright reconciliation still required"
+    },
+    {
+      "path": "assets/fonts/Poppins-Regular.woff2",
+      "sha256": "a2c1dd01db85a00fb60520dce8e9fbce9e80ef72b602a6750689fe606fb626e8",
+      "family": "poppins",
+      "embedded_names": {
+        "0": [
+          "Copyright 2020 The Poppins Project Authors (https://github.com/itfoundry/Poppins)"
+        ],
+        "1": [
+          "Poppins"
+        ],
+        "5": [
+          "4.004"
+        ],
+        "13": [
+          "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL"
+        ],
+        "14": [
+          "https://scripts.sil.org/OFL"
+        ]
+      },
+      "publisher_license": "licenses/poppins-OFL.json",
+      "distribution_status": "not-selected; exact-version provenance and copyright reconciliation still required"
+    },
+    {
+      "path": "assets/fonts/Poppins-SemiBold.woff2",
+      "sha256": "0bcf29d5a91c47ba2452ef5dd89570db049ce7803ec79b3621978e49f73bc02b",
+      "family": "poppins",
+      "embedded_names": {
+        "0": [
+          "Copyright 2020 The Poppins Project Authors (https://github.com/itfoundry/Poppins)"
+        ],
+        "1": [
+          "Poppins SemiBold"
+        ],
+        "5": [
+          "4.004"
+        ],
+        "13": [
+          "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL"
+        ],
+        "14": [
+          "https://scripts.sil.org/OFL"
+        ]
+      },
+      "publisher_license": "licenses/poppins-OFL.json",
+      "distribution_status": "not-selected; exact-version provenance and copyright reconciliation still required"
+    },
+    {
+      "path": "assets/fonts/Symbola.woff2",
+      "sha256": "805bb67403986895c850727beda27a5812f11f9f2f4a388740873c162e0e15fb",
+      "family": "symbola",
+      "embedded_names": {
+        "0": [
+          "Unicode Fonts for Ancient Scripts; George Douros; 2016"
+        ],
+        "1": [
+          "Symbola"
+        ],
+        "5": [
+          "Version 9.00"
+        ],
+        "13": [
+          "Fonts in this site are free for any use."
+        ],
+        "14": [
+          "http://users.teilar.gr/~g1951d/"
+        ]
+      },
+      "publisher_license": null,
+      "distribution_status": "not-selected; authoritative redistribution terms unresolved"
+    }
+  ],
+  "publisher_licenses": [
+    {
+      "family": "inter",
+      "path": "licenses/inter-OFL.json",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/OFL.txt",
+      "retrieved": "2026-10-22",
+      "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57",
+      "scope": "Publisher license snapshot; main branch, not proof of exact archived font binary version",
+      "sha256_scope": "Decoded UTF-8 license text, including original whitespace"
+    },
+    {
+      "family": "poppins",
+      "path": "licenses/poppins-OFL.json",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/poppins/OFL.txt",
+      "retrieved": "2026-10-22",
+      "sha256": "6be04893d770899a015649c7aa3b582f871b272f8747a92b78b17c3e5c8b2573",
+      "scope": "Publisher license snapshot; main branch, not proof of exact archived font binary version",
+      "sha256_scope": "Decoded UTF-8 license text, including original whitespace"
+    },
+    {
+      "family": "notosanshebrew",
+      "path": "licenses/notosanshebrew-OFL.json",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosanshebrew/OFL.txt",
+      "retrieved": "2026-10-22",
+      "sha256": "9b9fe028b5ba74d231659a1bbaf0ed09b11e759d1ca6a070999e16d151616b47",
+      "scope": "Publisher license snapshot; main branch, not proof of exact archived font binary version",
+      "sha256_scope": "Decoded UTF-8 license text, including original whitespace"
+    },
+    {
+      "family": "notosansjp",
+      "path": "licenses/notosansjp-OFL.json",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosansjp/OFL.txt",
+      "retrieved": "2026-10-22",
+      "sha256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9",
+      "scope": "Publisher license snapshot; main branch, not proof of exact archived font binary version",
+      "sha256_scope": "Decoded UTF-8 license text, including original whitespace"
+    }
+  ],
+  "limitations": [
+    "No font binaries added or selected for distribution.",
+    "Inter/Hebrew publisher copyright years differ from embedded metadata; preserve both evidence and reconcile exact-version distribution before reuse.",
+    "Symbola embedded free-use statement does not complete authoritative redistribution review."
+  ]
+}

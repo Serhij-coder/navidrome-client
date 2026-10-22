@@ -1,0 +1,4168 @@
+{
+  "schema": 1,
+  "task": "P00.06",
+  "evidenceKind": "exact-progress-callback-with-explicit-boundaries",
+  "provenance": {
+    "source": "src/renderer/features/player/hooks/use-scrobble.ts",
+    "boundaries": "Exact progress callback, refs/settings/player snapshot, useCallback identity and request recorder; no React effects/timers, success callback or network.",
+    "upstream_ids": [
+      "src/renderer/features/player/hooks/use-scrobble.ts:43:26",
+      "src/renderer/features/player/hooks/use-scrobble.ts:91:33",
+      "src/renderer/features/player/hooks/use-scrobble.ts:248:9"
+    ]
+  },
+  "cases": [
+    {
+      "id": "speed-0.5",
+      "options": {
+        "speed": 0.5
+      },
+      "samples": [
+        [
+          0
+        ],
+        [
+          0.5
+        ],
+        [
+          1
+        ],
+        [
+          1.5
+        ],
+        [
+          2
+        ],
+        [
+          2.5
+        ],
+        [
+          3
+        ],
+        [
+          3.5
+        ],
+        [
+          4
+        ],
+        [
+          4.5
+        ],
+        [
+          5
+        ],
+        [
+          5.5
+        ],
+        [
+          6
+        ],
+        [
+          6.5
+        ],
+        [
+          7
+        ],
+        [
+          7.5
+        ],
+        [
+          8
+        ],
+        [
+          8.5
+        ],
+        [
+          9
+        ],
+        [
+          9.5
+        ],
+        [
+          10
+        ],
+        [
+          10.5
+        ],
+        [
+          11
+        ],
+        [
+          11.5
+        ],
+        [
+          12
+        ],
+        [
+          12.5
+        ],
+        [
+          13
+        ],
+        [
+          13.5
+        ],
+        [
+          14
+        ],
+        [
+          14.5
+        ],
+        [
+          15
+        ],
+        [
+          15.5
+        ],
+        [
+          16
+        ],
+        [
+          16.5
+        ],
+        [
+          17
+        ],
+        [
+          17.5
+        ],
+        [
+          18
+        ],
+        [
+          18.5
+        ],
+        [
+          19
+        ],
+        [
+          19.5
+        ],
+        [
+          20
+        ],
+        [
+          20.5
+        ],
+        [
+          21
+        ],
+        [
+          21.5
+        ],
+        [
+          22
+        ],
+        [
+          22.5
+        ],
+        [
+          23
+        ],
+        [
+          23.5
+        ],
+        [
+          24
+        ],
+        [
+          24.5
+        ],
+        [
+          25
+        ],
+        [
+          25.5
+        ],
+        [
+          26
+        ],
+        [
+          26.5
+        ],
+        [
+          27
+        ],
+        [
+          27.5
+        ],
+        [
+          28
+        ],
+        [
+          28.5
+        ],
+        [
+          29
+        ],
+        [
+          29.5
+        ],
+        [
+          30
+        ],
+        [
+          30.5
+        ],
+        [
+          31
+        ],
+        [
+          31.5
+        ],
+        [
+          32
+        ],
+        [
+          32.5
+        ],
+        [
+          33
+        ],
+        [
+          33.5
+        ],
+        [
+          34
+        ],
+        [
+          34.5
+        ],
+        [
+          35
+        ],
+        [
+          35.5
+        ],
+        [
+          36
+        ],
+        [
+          36.5
+        ],
+        [
+          37
+        ],
+        [
+          37.5
+        ],
+        [
+          38
+        ],
+        [
+          38.5
+        ],
+        [
+          39
+        ],
+        [
+          39.5
+        ],
+        [
+          40
+        ],
+        [
+          40.5
+        ],
+        [
+          41
+        ],
+        [
+          41.5
+        ],
+        [
+          42
+        ],
+        [
+          42.5
+        ],
+        [
+          43
+        ],
+        [
+          43.5
+        ],
+        [
+          44
+        ],
+        [
+          44.5
+        ],
+        [
+          45
+        ],
+        [
+          45.5
+        ],
+        [
+          46
+        ],
+        [
+          46.5
+        ],
+        [
+          47
+        ],
+        [
+          47.5
+        ],
+        [
+          48
+        ],
+        [
+          48.5
+        ],
+        [
+          49
+        ],
+        [
+          49.5
+        ],
+        [
+          50
+        ],
+        [
+          50.5
+        ],
+        [
+          51
+        ],
+        [
+          51.5
+        ],
+        [
+          52
+        ],
+        [
+          52.5
+        ],
+        [
+          53
+        ],
+        [
+          53.5
+        ],
+        [
+          54
+        ],
+        [
+          54.5
+        ],
+        [
+          55
+        ],
+        [
+          55.5
+        ],
+        [
+          56
+        ],
+        [
+          56.5
+        ],
+        [
+          57
+        ],
+        [
+          57.5
+        ],
+        [
+          58
+        ],
+        [
+          58.5
+        ],
+        [
+          59
+        ],
+        [
+          59.5
+        ],
+        [
+          60
+        ]
+      ],
+      "states": [
+        {
+          "positionSec": 0,
+          "status": "playing",
+          "listenedMs": 0,
+          "submitted": false
+        },
+        {
+          "positionSec": 0.5,
+          "status": "playing",
+          "listenedMs": 500,
+          "submitted": false
+        },
+        {
+          "positionSec": 1,
+          "status": "playing",
+          "listenedMs": 1000,
+          "submitted": false
+        },
+        {
+          "positionSec": 1.5,
+          "status": "playing",
+          "listenedMs": 1500,
+          "submitted": false
+        },
+        {
+          "positionSec": 2,
+          "status": "playing",
+          "listenedMs": 2000,
+          "submitted": false
+        },
+        {
+          "positionSec": 2.5,
+          "status": "playing",
+          "listenedMs": 2500,
+          "submitted": false
+        },
+        {
+          "positionSec": 3,
+          "status": "playing",
+          "listenedMs": 3000,
+          "submitted": false
+        },
+        {
+          "positionSec": 3.5,
+          "status": "playing",
+          "listenedMs": 3500,
+          "submitted": false
+        },
+        {
+          "positionSec": 4,
+          "status": "playing",
+          "listenedMs": 4000,
+          "submitted": false
+        },
+        {
+          "positionSec": 4.5,
+          "status": "playing",
+          "listenedMs": 4500,
+          "submitted": false
+        },
+        {
+          "positionSec": 5,
+          "status": "playing",
+          "listenedMs": 5000,
+          "submitted": false
+        },
+        {
+          "positionSec": 5.5,
+          "status": "playing",
+          "listenedMs": 5500,
+          "submitted": false
+        },
+        {
+          "positionSec": 6,
+          "status": "playing",
+          "listenedMs": 6000,
+          "submitted": false
+        },
+        {
+          "positionSec": 6.5,
+          "status": "playing",
+          "listenedMs": 6500,
+          "submitted": false
+        },
+        {
+          "positionSec": 7,
+          "status": "playing",
+          "listenedMs": 7000,
+          "submitted": false
+        },
+        {
+          "positionSec": 7.5,
+          "status": "playing",
+          "listenedMs": 7500,
+          "submitted": false
+        },
+        {
+          "positionSec": 8,
+          "status": "playing",
+          "listenedMs": 8000,
+          "submitted": false
+        },
+        {
+          "positionSec": 8.5,
+          "status": "playing",
+          "listenedMs": 8500,
+          "submitted": false
+        },
+        {
+          "positionSec": 9,
+          "status": "playing",
+          "listenedMs": 9000,
+          "submitted": false
+        },
+        {
+          "positionSec": 9.5,
+          "status": "playing",
+          "listenedMs": 9500,
+          "submitted": false
+        },
+        {
+          "positionSec": 10,
+          "status": "playing",
+          "listenedMs": 10000,
+          "submitted": false
+        },
+        {
+          "positionSec": 10.5,
+          "status": "playing",
+          "listenedMs": 10500,
+          "submitted": false
+        },
+        {
+          "positionSec": 11,
+          "status": "playing",
+          "listenedMs": 11000,
+          "submitted": false
+        },
+        {
+          "positionSec": 11.5,
+          "status": "playing",
+          "listenedMs": 11500,
+          "submitted": false
+        },
+        {
+          "positionSec": 12,
+          "status": "playing",
+          "listenedMs": 12000,
+          "submitted": false
+        },
+        {
+          "positionSec": 12.5,
+          "status": "playing",
+          "listenedMs": 12500,
+          "submitted": false
+        },
+        {
+          "positionSec": 13,
+          "status": "playing",
+          "listenedMs": 13000,
+          "submitted": false
+        },
+        {
+          "positionSec": 13.5,
+          "status": "playing",
+          "listenedMs": 13500,
+          "submitted": false
+        },
+        {
+          "positionSec": 14,
+          "status": "playing",
+          "listenedMs": 14000,
+          "submitted": false
+        },
+        {
+          "positionSec": 14.5,
+          "status": "playing",
+          "listenedMs": 14500,
+          "submitted": false
+        },
+        {
+          "positionSec": 15,
+          "status": "playing",
+          "listenedMs": 15000,
+          "submitted": false
+        },
+        {
+          "positionSec": 15.5,
+          "status": "playing",
+          "listenedMs": 15500,
+          "submitted": false
+        },
+        {
+          "positionSec": 16,
+          "status": "playing",
+          "listenedMs": 16000,
+          "submitted": false
+        },
+        {
+          "positionSec": 16.5,
+          "status": "playing",
+          "listenedMs": 16500,
+          "submitted": false
+        },
+        {
+          "positionSec": 17,
+          "status": "playing",
+          "listenedMs": 17000,
+          "submitted": false
+        },
+        {
+          "positionSec": 17.5,
+          "status": "playing",
+          "listenedMs": 17500,
+          "submitted": false
+        },
+        {
+          "positionSec": 18,
+          "status": "playing",
+          "listenedMs": 18000,
+          "submitted": false
+        },
+        {
+          "positionSec": 18.5,
+          "status": "playing",
+          "listenedMs": 18500,
+          "submitted": false
+        },
+        {
+          "positionSec": 19,
+          "status": "playing",
+          "listenedMs": 19000,
+          "submitted": false
+        },
+        {
+          "positionSec": 19.5,
+          "status": "playing",
+          "listenedMs": 19500,
+          "submitted": false
+        },
+        {
+          "positionSec": 20,
+          "status": "playing",
+          "listenedMs": 20000,
+          "submitted": false
+        },
+        {
+          "positionSec": 20.5,
+          "status": "playing",
+          "listenedMs": 20500,
+          "submitted": false
+        },
+        {
+          "positionSec": 21,
+          "status": "playing",
+          "listenedMs": 21000,
+          "submitted": false
+        },
+        {
+          "positionSec": 21.5,
+          "status": "playing",
+          "listenedMs": 21500,
+          "submitted": false
+        },
+        {
+          "positionSec": 22,
+          "status": "playing",
+          "listenedMs": 22000,
+          "submitted": false
+        },
+        {
+          "positionSec": 22.5,
+          "status": "playing",
+          "listenedMs": 22500,
+          "submitted": false
+        },
+        {
+          "positionSec": 23,
+          "status": "playing",
+          "listenedMs": 23000,
+          "submitted": false
+        },
+        {
+          "positionSec": 23.5,
+          "status": "playing",
+          "listenedMs": 23500,
+          "submitted": false
+        },
+        {
+          "positionSec": 24,
+          "status": "playing",
+          "listenedMs": 24000,
+          "submitted": false
+        },
+        {
+          "positionSec": 24.5,
+          "status": "playing",
+          "listenedMs": 24500,
+          "submitted": false
+        },
+        {
+          "positionSec": 25,
+          "status": "playing",
+          "listenedMs": 25000,
+          "submitted": false
+        },
+        {
+          "positionSec": 25.5,
+          "status": "playing",
+          "listenedMs": 25500,
+          "submitted": false
+        },
+        {
+          "positionSec": 26,
+          "status": "playing",
+          "listenedMs": 26000,
+          "submitted": false
+        },
+        {
+          "positionSec": 26.5,
+          "status": "playing",
+          "listenedMs": 26500,
+          "submitted": false
+        },
+        {
+          "positionSec": 27,
+          "status": "playing",
+          "listenedMs": 27000,
+          "submitted": false
+        },
+        {
+          "positionSec": 27.5,
+          "status": "playing",
+          "listenedMs": 27500,
+          "submitted": false
+        },
+        {
+          "positionSec": 28,
+          "status": "playing",
+          "listenedMs": 28000,
+          "submitted": false
+        },
+        {
+          "positionSec": 28.5,
+          "status": "playing",
+          "listenedMs": 28500,
+          "submitted": false
+        },
+        {
+          "positionSec": 29,
+          "status": "playing",
+          "listenedMs": 29000,
+          "submitted": false
+        },
+        {
+          "positionSec": 29.5,
+          "status": "playing",
+          "listenedMs": 29500,
+          "submitted": false
+        },
+        {
+          "positionSec": 30,
+          "status": "playing",
+          "listenedMs": 30000,
+          "submitted": false
+        },
+        {
+          "positionSec": 30.5,
+          "status": "playing",
+          "listenedMs": 30500,
+          "submitted": false
+        },
+        {
+          "positionSec": 31,
+          "status": "playing",
+          "listenedMs": 31000,
+          "submitted": false
+        },
+        {
+          "positionSec": 31.5,
+          "status": "playing",
+          "listenedMs": 31500,
+          "submitted": false
+        },
+        {
+          "positionSec": 32,
+          "status": "playing",
+          "listenedMs": 32000,
+          "submitted": false
+        },
+        {
+          "positionSec": 32.5,
+          "status": "playing",
+          "listenedMs": 32500,
+          "submitted": false
+        },
+        {
+          "positionSec": 33,
+          "status": "playing",
+          "listenedMs": 33000,
+          "submitted": false
+        },
+        {
+          "positionSec": 33.5,
+          "status": "playing",
+          "listenedMs": 33500,
+          "submitted": false
+        },
+        {
+          "positionSec": 34,
+          "status": "playing",
+          "listenedMs": 34000,
+          "submitted": false
+        },
+        {
+          "positionSec": 34.5,
+          "status": "playing",
+          "listenedMs": 34500,
+          "submitted": false
+        },
+        {
+          "positionSec": 35,
+          "status": "playing",
+          "listenedMs": 35000,
+          "submitted": false
+        },
+        {
+          "positionSec": 35.5,
+          "status": "playing",
+          "listenedMs": 35500,
+          "submitted": false
+        },
+        {
+          "positionSec": 36,
+          "status": "playing",
+          "listenedMs": 36000,
+          "submitted": false
+        },
+        {
+          "positionSec": 36.5,
+          "status": "playing",
+          "listenedMs": 36500,
+          "submitted": false
+        },
+        {
+          "positionSec": 37,
+          "status": "playing",
+          "listenedMs": 37000,
+          "submitted": false
+        },
+        {
+          "positionSec": 37.5,
+          "status": "playing",
+          "listenedMs": 37500,
+          "submitted": false
+        },
+        {
+          "positionSec": 38,
+          "status": "playing",
+          "listenedMs": 38000,
+          "submitted": false
+        },
+        {
+          "positionSec": 38.5,
+          "status": "playing",
+          "listenedMs": 38500,
+          "submitted": false
+        },
+        {
+          "positionSec": 39,
+          "status": "playing",
+          "listenedMs": 39000,
+          "submitted": false
+        },
+        {
+          "positionSec": 39.5,
+          "status": "playing",
+          "listenedMs": 39500,
+          "submitted": false
+        },
+        {
+          "positionSec": 40,
+          "status": "playing",
+          "listenedMs": 40000,
+          "submitted": false
+        },
+        {
+          "positionSec": 40.5,
+          "status": "playing",
+          "listenedMs": 40500,
+          "submitted": false
+        },
+        {
+          "positionSec": 41,
+          "status": "playing",
+          "listenedMs": 41000,
+          "submitted": false
+        },
+        {
+          "positionSec": 41.5,
+          "status": "playing",
+          "listenedMs": 41500,
+          "submitted": false
+        },
+        {
+          "positionSec": 42,
+          "status": "playing",
+          "listenedMs": 42000,
+          "submitted": false
+        },
+        {
+          "positionSec": 42.5,
+          "status": "playing",
+          "listenedMs": 42500,
+          "submitted": false
+        },
+        {
+          "positionSec": 43,
+          "status": "playing",
+          "listenedMs": 43000,
+          "submitted": false
+        },
+        {
+          "positionSec": 43.5,
+          "status": "playing",
+          "listenedMs": 43500,
+          "submitted": false
+        },
+        {
+          "positionSec": 44,
+          "status": "playing",
+          "listenedMs": 44000,
+          "submitted": false
+        },
+        {
+          "positionSec": 44.5,
+          "status": "playing",
+          "listenedMs": 44500,
+          "submitted": false
+        },
+        {
+          "positionSec": 45,
+          "status": "playing",
+          "listenedMs": 45000,
+          "submitted": false
+        },
+        {
+          "positionSec": 45.5,
+          "status": "playing",
+          "listenedMs": 45500,
+          "submitted": false
+        },
+        {
+          "positionSec": 46,
+          "status": "playing",
+          "listenedMs": 46000,
+          "submitted": false
+        },
+        {
+          "positionSec": 46.5,
+          "status": "playing",
+          "listenedMs": 46500,
+          "submitted": false
+        },
+        {
+          "positionSec": 47,
+          "status": "playing",
+          "listenedMs": 47000,
+          "submitted": false
+        },
+        {
+          "positionSec": 47.5,
+          "status": "playing",
+          "listenedMs": 47500,
+          "submitted": false
+        },
+        {
+          "positionSec": 48,
+          "status": "playing",
+          "listenedMs": 48000,
+          "submitted": false
+        },
+        {
+          "positionSec": 48.5,
+          "status": "playing",
+          "listenedMs": 48500,
+          "submitted": false
+        },
+        {
+          "positionSec": 49,
+          "status": "playing",
+          "listenedMs": 49000,
+          "submitted": false
+        },
+        {
+          "positionSec": 49.5,
+          "status": "playing",
+          "listenedMs": 49500,
+          "submitted": false
+        },
+        {
+          "positionSec": 50,
+          "status": "playing",
+          "listenedMs": 50000,
+          "submitted": false
+        },
+        {
+          "positionSec": 50.5,
+          "status": "playing",
+          "listenedMs": 50500,
+          "submitted": false
+        },
+        {
+          "positionSec": 51,
+          "status": "playing",
+          "listenedMs": 51000,
+          "submitted": false
+        },
+        {
+          "positionSec": 51.5,
+          "status": "playing",
+          "listenedMs": 51500,
+          "submitted": false
+        },
+        {
+          "positionSec": 52,
+          "status": "playing",
+          "listenedMs": 52000,
+          "submitted": false
+        },
+        {
+          "positionSec": 52.5,
+          "status": "playing",
+          "listenedMs": 52500,
+          "submitted": false
+        },
+        {
+          "positionSec": 53,
+          "status": "playing",
+          "listenedMs": 53000,
+          "submitted": false
+        },
+        {
+          "positionSec": 53.5,
+          "status": "playing",
+          "listenedMs": 53500,
+          "submitted": false
+        },
+        {
+          "positionSec": 54,
+          "status": "playing",
+          "listenedMs": 54000,
+          "submitted": false
+        },
+        {
+          "positionSec": 54.5,
+          "status": "playing",
+          "listenedMs": 54500,
+          "submitted": false
+        },
+        {
+          "positionSec": 55,
+          "status": "playing",
+          "listenedMs": 55000,
+          "submitted": false
+        },
+        {
+          "positionSec": 55.5,
+          "status": "playing",
+          "listenedMs": 55500,
+          "submitted": false
+        },
+        {
+          "positionSec": 56,
+          "status": "playing",
+          "listenedMs": 56000,
+          "submitted": false
+        },
+        {
+          "positionSec": 56.5,
+          "status": "playing",
+          "listenedMs": 56500,
+          "submitted": false
+        },
+        {
+          "positionSec": 57,
+          "status": "playing",
+          "listenedMs": 57000,
+          "submitted": false
+        },
+        {
+          "positionSec": 57.5,
+          "status": "playing",
+          "listenedMs": 57500,
+          "submitted": false
+        },
+        {
+          "positionSec": 58,
+          "status": "playing",
+          "listenedMs": 58000,
+          "submitted": false
+        },
+        {
+          "positionSec": 58.5,
+          "status": "playing",
+          "listenedMs": 58500,
+          "submitted": false
+        },
+        {
+          "positionSec": 59,
+          "status": "playing",
+          "listenedMs": 59000,
+          "submitted": false
+        },
+        {
+          "positionSec": 59.5,
+          "status": "playing",
+          "listenedMs": 59500,
+          "submitted": false
+        },
+        {
+          "positionSec": 60,
+          "status": "playing",
+          "listenedMs": 60000,
+          "submitted": true
+        }
+      ],
+      "requests": [
+        {
+          "apiClientProps": {
+            "serverId": "fixture-server"
+          },
+          "query": {
+            "albumId": "fixture-album",
+            "id": "fixture-song",
+            "mediaType": "song",
+            "playbackRate": 0.5,
+            "position": 180000000,
+            "submission": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "speed-1",
+      "options": {
+        "speed": 1
+      },
+      "samples": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ],
+        [
+          10
+        ],
+        [
+          11
+        ],
+        [
+          12
+        ],
+        [
+          13
+        ],
+        [
+          14
+        ],
+        [
+          15
+        ],
+        [
+          16
+        ],
+        [
+          17
+        ],
+        [
+          18
+        ],
+        [
+          19
+        ],
+        [
+          20
+        ],
+        [
+          21
+        ],
+        [
+          22
+        ],
+        [
+          23
+        ],
+        [
+          24
+        ],
+        [
+          25
+        ],
+        [
+          26
+        ],
+        [
+          27
+        ],
+        [
+          28
+        ],
+        [
+          29
+        ],
+        [
+          30
+        ],
+        [
+          31
+        ],
+        [
+          32
+        ],
+        [
+          33
+        ],
+        [
+          34
+        ],
+        [
+          35
+        ],
+        [
+          36
+        ],
+        [
+          37
+        ],
+        [
+          38
+        ],
+        [
+          39
+        ],
+        [
+          40
+        ],
+        [
+          41
+        ],
+        [
+          42
+        ],
+        [
+          43
+        ],
+        [
+          44
+        ],
+        [
+          45
+        ],
+        [
+          46
+        ],
+        [
+          47
+        ],
+        [
+          48
+        ],
+        [
+          49
+        ],
+        [
+          50
+        ],
+        [
+          51
+        ],
+        [
+          52
+        ],
+        [
+          53
+        ],
+        [
+          54
+        ],
+        [
+          55
+        ],
+        [
+          56
+        ],
+        [
+          57
+        ],
+        [
+          58
+        ],
+        [
+          59
+        ],
+        [
+          60
+        ],
+        [
+          61
+        ],
+        [
+          62
+        ],
+        [
+          63
+        ],
+        [
+          64
+        ],
+        [
+          65
+        ],
+        [
+          66
+        ],
+        [
+          67
+        ],
+        [
+          68
+        ],
+        [
+          69
+        ],
+        [
+          70
+        ],
+        [
+          71
+        ],
+        [
+          72
+        ],
+        [
+          73
+        ],
+        [
+          74
+        ],
+        [
+          75
+        ],
+        [
+          76
+        ],
+        [
+          77
+        ],
+        [
+          78
+        ],
+        [
+          79
+        ],
+        [
+          80
+        ],
+        [
+          81
+        ],
+        [
+          82
+        ],
+        [
+          83
+        ],
+        [
+          84
+        ],
+        [
+          85
+        ],
+        [
+          86
+        ],
+        [
+          87
+        ],
+        [
+          88
+        ],
+        [
+          89
+        ],
+        [
+          90
+        ],
+        [
+          91
+        ],
+        [
+          92
+        ],
+        [
+          93
+        ],
+        [
+          94
+        ],
+        [
+          95
+        ],
+        [
+          96
+        ],
+        [
+          97
+        ],
+        [
+          98
+        ],
+        [
+          99
+        ],
+        [
+          100
+        ],
+        [
+          101
+        ],
+        [
+          102
+        ],
+        [
+          103
+        ],
+        [
+          104
+        ],
+        [
+          105
+        ],
+        [
+          106
+        ],
+        [
+          107
+        ],
+        [
+          108
+        ],
+        [
+          109
+        ],
+        [
+          110
+        ],
+        [
+          111
+        ],
+        [
+          112
+        ],
+        [
+          113
+        ],
+        [
+          114
+        ],
+        [
+          115
+        ],
+        [
+          116
+        ],
+        [
+          117
+        ],
+        [
+          118
+        ],
+        [
+          119
+        ],
+        [
+          120
+        ]
+      ],
+      "states": [
+        {
+          "positionSec": 0,
+          "status": "playing",
+          "listenedMs": 0,
+          "submitted": false
+        },
+        {
+          "positionSec": 1,
+          "status": "playing",
+          "listenedMs": 1000,
+          "submitted": false
+        },
+        {
+          "positionSec": 2,
+          "status": "playing",
+          "listenedMs": 2000,
+          "submitted": false
+        },
+        {
+          "positionSec": 3,
+          "status": "playing",
+          "listenedMs": 3000,
+          "submitted": false
+        },
+        {
+          "positionSec": 4,
+          "status": "playing",
+          "listenedMs": 4000,
+          "submitted": false
+        },
+        {
+          "positionSec": 5,
+          "status": "playing",
+          "listenedMs": 5000,
+          "submitted": false
+        },
+        {
+          "positionSec": 6,
+          "status": "playing",
+          "listenedMs": 6000,
+          "submitted": false
+        },
+        {
+          "positionSec": 7,
+          "status": "playing",
+          "listenedMs": 7000,
+          "submitted": false
+        },
+        {
+          "positionSec": 8,
+          "status": "playing",
+          "listenedMs": 8000,
+          "submitted": false
+        },
+        {
+          "positionSec": 9,
+          "status": "playing",
+          "listenedMs": 9000,
+          "submitted": false
+        },
+        {
+          "positionSec": 10,
+          "status": "playing",
+          "listenedMs": 10000,
+          "submitted": false
+        },
+        {
+          "positionSec": 11,
+          "status": "playing",
+          "listenedMs": 11000,
+          "submitted": false
+        },
+        {
+          "positionSec": 12,
+          "status": "playing",
+          "listenedMs": 12000,
+          "submitted": false
+        },
+        {
+          "positionSec": 13,
+          "status": "playing",
+          "listenedMs": 13000,
+          "submitted": false
+        },
+        {
+          "positionSec": 14,
+          "status": "playing",
+          "listenedMs": 14000,
+          "submitted": false
+        },
+        {
+          "positionSec": 15,
+          "status": "playing",
+          "listenedMs": 15000,
+          "submitted": false
+        },
+        {
+          "positionSec": 16,
+          "status": "playing",
+          "listenedMs": 16000,
+          "submitted": false
+        },
+        {
+          "positionSec": 17,
+          "status": "playing",
+          "listenedMs": 17000,
+          "submitted": false
+        },
+        {
+          "positionSec": 18,
+          "status": "playing",
+          "listenedMs": 18000,
+          "submitted": false
+        },
+        {
+          "positionSec": 19,
+          "status": "playing",
+          "listenedMs": 19000,
+          "submitted": false
+        },
+        {
+          "positionSec": 20,
+          "status": "playing",
+          "listenedMs": 20000,
+          "submitted": false
+        },
+        {
+          "positionSec": 21,
+          "status": "playing",
+          "listenedMs": 21000,
+          "submitted": false
+        },
+        {
+          "positionSec": 22,
+          "status": "playing",
+          "listenedMs": 22000,
+          "submitted": false
+        },
+        {
+          "positionSec": 23,
+          "status": "playing",
+          "listenedMs": 23000,
+          "submitted": false
+        },
+        {
+          "positionSec": 24,
+          "status": "playing",
+          "listenedMs": 24000,
+          "submitted": false
+        },
+        {
+          "positionSec": 25,
+          "status": "playing",
+          "listenedMs": 25000,
+          "submitted": false
+        },
+        {
+          "positionSec": 26,
+          "status": "playing",
+          "listenedMs": 26000,
+          "submitted": false
+        },
+        {
+          "positionSec": 27,
+          "status": "playing",
+          "listenedMs": 27000,
+          "submitted": false
+        },
+        {
+          "positionSec": 28,
+          "status": "playing",
+          "listenedMs": 28000,
+          "submitted": false
+        },
+        {
+          "positionSec": 29,
+          "status": "playing",
+          "listenedMs": 29000,
+          "submitted": false
+        },
+        {
+          "positionSec": 30,
+          "status": "playing",
+          "listenedMs": 30000,
+          "submitted": false
+        },
+        {
+          "positionSec": 31,
+          "status": "playing",
+          "listenedMs": 31000,
+          "submitted": false
+        },
+        {
+          "positionSec": 32,
+          "status": "playing",
+          "listenedMs": 32000,
+          "submitted": false
+        },
+        {
+          "positionSec": 33,
+          "status": "playing",
+          "listenedMs": 33000,
+          "submitted": false
+        },
+        {
+          "positionSec": 34,
+          "status": "playing",
+          "listenedMs": 34000,
+          "submitted": false
+        },
+        {
+          "positionSec": 35,
+          "status": "playing",
+          "listenedMs": 35000,
+          "submitted": false
+        },
+        {
+          "positionSec": 36,
+          "status": "playing",
+          "listenedMs": 36000,
+          "submitted": false
+        },
+        {
+          "positionSec": 37,
+          "status": "playing",
+          "listenedMs": 37000,
+          "submitted": false
+        },
+        {
+          "positionSec": 38,
+          "status": "playing",
+          "listenedMs": 38000,
+          "submitted": false
+        },
+        {
+          "positionSec": 39,
+          "status": "playing",
+          "listenedMs": 39000,
+          "submitted": false
+        },
+        {
+          "positionSec": 40,
+          "status": "playing",
+          "listenedMs": 40000,
+          "submitted": false
+        },
+        {
+          "positionSec": 41,
+          "status": "playing",
+          "listenedMs": 41000,
+          "submitted": false
+        },
+        {
+          "positionSec": 42,
+          "status": "playing",
+          "listenedMs": 42000,
+          "submitted": false
+        },
+        {
+          "positionSec": 43,
+          "status": "playing",
+          "listenedMs": 43000,
+          "submitted": false
+        },
+        {
+          "positionSec": 44,
+          "status": "playing",
+          "listenedMs": 44000,
+          "submitted": false
+        },
+        {
+          "positionSec": 45,
+          "status": "playing",
+          "listenedMs": 45000,
+          "submitted": false
+        },
+        {
+          "positionSec": 46,
+          "status": "playing",
+          "listenedMs": 46000,
+          "submitted": false
+        },
+        {
+          "positionSec": 47,
+          "status": "playing",
+          "listenedMs": 47000,
+          "submitted": false
+        },
+        {
+          "positionSec": 48,
+          "status": "playing",
+          "listenedMs": 48000,
+          "submitted": false
+        },
+        {
+          "positionSec": 49,
+          "status": "playing",
+          "listenedMs": 49000,
+          "submitted": false
+        },
+        {
+          "positionSec": 50,
+          "status": "playing",
+          "listenedMs": 50000,
+          "submitted": false
+        },
+        {
+          "positionSec": 51,
+          "status": "playing",
+          "listenedMs": 51000,
+          "submitted": false
+        },
+        {
+          "positionSec": 52,
+          "status": "playing",
+          "listenedMs": 52000,
+          "submitted": false
+        },
+        {
+          "positionSec": 53,
+          "status": "playing",
+          "listenedMs": 53000,
+          "submitted": false
+        },
+        {
+          "positionSec": 54,
+          "status": "playing",
+          "listenedMs": 54000,
+          "submitted": false
+        },
+        {
+          "positionSec": 55,
+          "status": "playing",
+          "listenedMs": 55000,
+          "submitted": false
+        },
+        {
+          "positionSec": 56,
+          "status": "playing",
+          "listenedMs": 56000,
+          "submitted": false
+        },
+        {
+          "positionSec": 57,
+          "status": "playing",
+          "listenedMs": 57000,
+          "submitted": false
+        },
+        {
+          "positionSec": 58,
+          "status": "playing",
+          "listenedMs": 58000,
+          "submitted": false
+        },
+        {
+          "positionSec": 59,
+          "status": "playing",
+          "listenedMs": 59000,
+          "submitted": false
+        },
+        {
+          "positionSec": 60,
+          "status": "playing",
+          "listenedMs": 60000,
+          "submitted": true
+        },
+        {
+          "positionSec": 61,
+          "status": "playing",
+          "listenedMs": 61000,
+          "submitted": true
+        },
+        {
+          "positionSec": 62,
+          "status": "playing",
+          "listenedMs": 62000,
+          "submitted": true
+        },
+        {
+          "positionSec": 63,
+          "status": "playing",
+          "listenedMs": 63000,
+          "submitted": true
+        },
+        {
+          "positionSec": 64,
+          "status": "playing",
+          "listenedMs": 64000,
+          "submitted": true
+        },
+        {
+          "positionSec": 65,
+          "status": "playing",
+          "listenedMs": 65000,
+          "submitted": true
+        },
+        {
+          "positionSec": 66,
+          "status": "playing",
+          "listenedMs": 66000,
+          "submitted": true
+        },
+        {
+          "positionSec": 67,
+          "status": "playing",
+          "listenedMs": 67000,
+          "submitted": true
+        },
+        {
+          "positionSec": 68,
+          "status": "playing",
+          "listenedMs": 68000,
+          "submitted": true
+        },
+        {
+          "positionSec": 69,
+          "status": "playing",
+          "listenedMs": 69000,
+          "submitted": true
+        },
+        {
+          "positionSec": 70,
+          "status": "playing",
+          "listenedMs": 70000,
+          "submitted": true
+        },
+        {
+          "positionSec": 71,
+          "status": "playing",
+          "listenedMs": 71000,
+          "submitted": true
+        },
+        {
+          "positionSec": 72,
+          "status": "playing",
+          "listenedMs": 72000,
+          "submitted": true
+        },
+        {
+          "positionSec": 73,
+          "status": "playing",
+          "listenedMs": 73000,
+          "submitted": true
+        },
+        {
+          "positionSec": 74,
+          "status": "playing",
+          "listenedMs": 74000,
+          "submitted": true
+        },
+        {
+          "positionSec": 75,
+          "status": "playing",
+          "listenedMs": 75000,
+          "submitted": true
+        },
+        {
+          "positionSec": 76,
+          "status": "playing",
+          "listenedMs": 76000,
+          "submitted": true
+        },
+        {
+          "positionSec": 77,
+          "status": "playing",
+          "listenedMs": 77000,
+          "submitted": true
+        },
+        {
+          "positionSec": 78,
+          "status": "playing",
+          "listenedMs": 78000,
+          "submitted": true
+        },
+        {
+          "positionSec": 79,
+          "status": "playing",
+          "listenedMs": 79000,
+          "submitted": true
+        },
+        {
+          "positionSec": 80,
+          "status": "playing",
+          "listenedMs": 80000,
+          "submitted": true
+        },
+        {
+          "positionSec": 81,
+          "status": "playing",
+          "listenedMs": 81000,
+          "submitted": true
+        },
+        {
+          "positionSec": 82,
+          "status": "playing",
+          "listenedMs": 82000,
+          "submitted": true
+        },
+        {
+          "positionSec": 83,
+          "status": "playing",
+          "listenedMs": 83000,
+          "submitted": true
+        },
+        {
+          "positionSec": 84,
+          "status": "playing",
+          "listenedMs": 84000,
+          "submitted": true
+        },
+        {
+          "positionSec": 85,
+          "status": "playing",
+          "listenedMs": 85000,
+          "submitted": true
+        },
+        {
+          "positionSec": 86,
+          "status": "playing",
+          "listenedMs": 86000,
+          "submitted": true
+        },
+        {
+          "positionSec": 87,
+          "status": "playing",
+          "listenedMs": 87000,
+          "submitted": true
+        },
+        {
+          "positionSec": 88,
+          "status": "playing",
+          "listenedMs": 88000,
+          "submitted": true
+        },
+        {
+          "positionSec": 89,
+          "status": "playing",
+          "listenedMs": 89000,
+          "submitted": true
+        },
+        {
+          "positionSec": 90,
+          "status": "playing",
+          "listenedMs": 90000,
+          "submitted": true
+        },
+        {
+          "positionSec": 91,
+          "status": "playing",
+          "listenedMs": 91000,
+          "submitted": true
+        },
+        {
+          "positionSec": 92,
+          "status": "playing",
+          "listenedMs": 92000,
+          "submitted": true
+        },
+        {
+          "positionSec": 93,
+          "status": "playing",
+          "listenedMs": 93000,
+          "submitted": true
+        },
+        {
+          "positionSec": 94,
+          "status": "playing",
+          "listenedMs": 94000,
+          "submitted": true
+        },
+        {
+          "positionSec": 95,
+          "status": "playing",
+          "listenedMs": 95000,
+          "submitted": true
+        },
+        {
+          "positionSec": 96,
+          "status": "playing",
+          "listenedMs": 96000,
+          "submitted": true
+        },
+        {
+          "positionSec": 97,
+          "status": "playing",
+          "listenedMs": 97000,
+          "submitted": true
+        },
+        {
+          "positionSec": 98,
+          "status": "playing",
+          "listenedMs": 98000,
+          "submitted": true
+        },
+        {
+          "positionSec": 99,
+          "status": "playing",
+          "listenedMs": 99000,
+          "submitted": true
+        },
+        {
+          "positionSec": 100,
+          "status": "playing",
+          "listenedMs": 100000,
+          "submitted": true
+        },
+        {
+          "positionSec": 101,
+          "status": "playing",
+          "listenedMs": 101000,
+          "submitted": true
+        },
+        {
+          "positionSec": 102,
+          "status": "playing",
+          "listenedMs": 102000,
+          "submitted": true
+        },
+        {
+          "positionSec": 103,
+          "status": "playing",
+          "listenedMs": 103000,
+          "submitted": true
+        },
+        {
+          "positionSec": 104,
+          "status": "playing",
+          "listenedMs": 104000,
+          "submitted": true
+        },
+        {
+          "positionSec": 105,
+          "status": "playing",
+          "listenedMs": 105000,
+          "submitted": true
+        },
+        {
+          "positionSec": 106,
+          "status": "playing",
+          "listenedMs": 106000,
+          "submitted": true
+        },
+        {
+          "positionSec": 107,
+          "status": "playing",
+          "listenedMs": 107000,
+          "submitted": true
+        },
+        {
+          "positionSec": 108,
+          "status": "playing",
+          "listenedMs": 108000,
+          "submitted": true
+        },
+        {
+          "positionSec": 109,
+          "status": "playing",
+          "listenedMs": 109000,
+          "submitted": true
+        },
+        {
+          "positionSec": 110,
+          "status": "playing",
+          "listenedMs": 110000,
+          "submitted": true
+        },
+        {
+          "positionSec": 111,
+          "status": "playing",
+          "listenedMs": 111000,
+          "submitted": true
+        },
+        {
+          "positionSec": 112,
+          "status": "playing",
+          "listenedMs": 112000,
+          "submitted": true
+        },
+        {
+          "positionSec": 113,
+          "status": "playing",
+          "listenedMs": 113000,
+          "submitted": true
+        },
+        {
+          "positionSec": 114,
+          "status": "playing",
+          "listenedMs": 114000,
+          "submitted": true
+        },
+        {
+          "positionSec": 115,
+          "status": "playing",
+          "listenedMs": 115000,
+          "submitted": true
+        },
+        {
+          "positionSec": 116,
+          "status": "playing",
+          "listenedMs": 116000,
+          "submitted": true
+        },
+        {
+          "positionSec": 117,
+          "status": "playing",
+          "listenedMs": 117000,
+          "submitted": true
+        },
+        {
+          "positionSec": 118,
+          "status": "playing",
+          "listenedMs": 118000,
+          "submitted": true
+        },
+        {
+          "positionSec": 119,
+          "status": "playing",
+          "listenedMs": 119000,
+          "submitted": true
+        },
+        {
+          "positionSec": 120,
+          "status": "playing",
+          "listenedMs": 120000,
+          "submitted": true
+        }
+      ],
+      "requests": [
+        {
+          "apiClientProps": {
+            "serverId": "fixture-server"
+          },
+          "query": {
+            "albumId": "fixture-album",
+            "id": "fixture-song",
+            "mediaType": "song",
+            "playbackRate": 1,
+            "position": 180000000,
+            "submission": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "speed-2",
+      "options": {
+        "speed": 2
+      },
+      "samples": [
+        [
+          0
+        ],
+        [
+          2
+        ],
+        [
+          4
+        ],
+        [
+          6
+        ],
+        [
+          8
+        ],
+        [
+          10
+        ],
+        [
+          12
+        ],
+        [
+          14
+        ],
+        [
+          16
+        ],
+        [
+          18
+        ],
+        [
+          20
+        ],
+        [
+          22
+        ],
+        [
+          24
+        ],
+        [
+          26
+        ],
+        [
+          28
+        ],
+        [
+          30
+        ],
+        [
+          32
+        ],
+        [
+          34
+        ],
+        [
+          36
+        ],
+        [
+          38
+        ],
+        [
+          40
+        ],
+        [
+          42
+        ],
+        [
+          44
+        ],
+        [
+          46
+        ],
+        [
+          48
+        ],
+        [
+          50
+        ],
+        [
+          52
+        ],
+        [
+          54
+        ],
+        [
+          56
+        ],
+        [
+          58
+        ],
+        [
+          60
+        ],
+        [
+          62
+        ],
+        [
+          64
+        ],
+        [
+          66
+        ],
+        [
+          68
+        ],
+        [
+          70
+        ],
+        [
+          72
+        ],
+        [
+          74
+        ],
+        [
+          76
+        ],
+        [
+          78
+        ],
+        [
+          80
+        ],
+        [
+          82
+        ],
+        [
+          84
+        ],
+        [
+          86
+        ],
+        [
+          88
+        ],
+        [
+          90
+        ],
+        [
+          92
+        ],
+        [
+          94
+        ],
+        [
+          96
+        ],
+        [
+          98
+        ],
+        [
+          100
+        ],
+        [
+          102
+        ],
+        [
+          104
+        ],
+        [
+          106
+        ],
+        [
+          108
+        ],
+        [
+          110
+        ],
+        [
+          112
+        ],
+        [
+          114
+        ],
+        [
+          116
+        ],
+        [
+          118
+        ],
+        [
+          120
+        ],
+        [
+          122
+        ],
+        [
+          124
+        ],
+        [
+          126
+        ],
+        [
+          128
+        ],
+        [
+          130
+        ],
+        [
+          132
+        ],
+        [
+          134
+        ],
+        [
+          136
+        ],
+        [
+          138
+        ],
+        [
+          140
+        ],
+        [
+          142
+        ],
+        [
+          144
+        ],
+        [
+          146
+        ],
+        [
+          148
+        ],
+        [
+          150
+        ],
+        [
+          152
+        ],
+        [
+          154
+        ],
+        [
+          156
+        ],
+        [
+          158
+        ],
+        [
+          160
+        ],
+        [
+          162
+        ],
+        [
+          164
+        ],
+        [
+          166
+        ],
+        [
+          168
+        ],
+        [
+          170
+        ],
+        [
+          172
+        ],
+        [
+          174
+        ],
+        [
+          176
+        ],
+        [
+          178
+        ],
+        [
+          180
+        ]
+      ],
+      "states": [
+        {
+          "positionSec": 0,
+          "status": "playing",
+          "listenedMs": 0,
+          "submitted": false
+        },
+        {
+          "positionSec": 2,
+          "status": "playing",
+          "listenedMs": 2000,
+          "submitted": false
+        },
+        {
+          "positionSec": 4,
+          "status": "playing",
+          "listenedMs": 4000,
+          "submitted": false
+        },
+        {
+          "positionSec": 6,
+          "status": "playing",
+          "listenedMs": 6000,
+          "submitted": false
+        },
+        {
+          "positionSec": 8,
+          "status": "playing",
+          "listenedMs": 8000,
+          "submitted": false
+        },
+        {
+          "positionSec": 10,
+          "status": "playing",
+          "listenedMs": 10000,
+          "submitted": false
+        },
+        {
+          "positionSec": 12,
+          "status": "playing",
+          "listenedMs": 12000,
+          "submitted": false
+        },
+        {
+          "positionSec": 14,
+          "status": "playing",
+          "listenedMs": 14000,
+          "submitted": false
+        },
+        {
+          "positionSec": 16,
+          "status": "playing",
+          "listenedMs": 16000,
+          "submitted": false
+        },
+        {
+          "positionSec": 18,
+          "status": "playing",
+          "listenedMs": 18000,
+          "submitted": false
+        },
+        {
+          "positionSec": 20,
+          "status": "playing",
+          "listenedMs": 20000,
+          "submitted": false
+        },
+        {
+          "positionSec": 22,
+          "status": "playing",
+          "listenedMs": 22000,
+          "submitted": false
+        },
+        {
+          "positionSec": 24,
+          "status": "playing",
+          "listenedMs": 24000,
+          "submitted": false
+        },
+        {
+          "positionSec": 26,
+          "status": "playing",
+          "listenedMs": 26000,
+          "submitted": false
+        },
+        {
+          "positionSec": 28,
+          "status": "playing",
+          "listenedMs": 28000,
+          "submitted": false
+        },
+        {
+          "positionSec": 30,
+          "status": "playing",
+          "listenedMs": 30000,
+          "submitted": false
+        },
+        {
+          "positionSec": 32,
+          "status": "playing",
+          "listenedMs": 32000,
+          "submitted": false
+        },
+        {
+          "positionSec": 34,
+          "status": "playing",
+          "listenedMs": 34000,
+          "submitted": false
+        },
+        {
+          "positionSec": 36,
+          "status": "playing",
+          "listenedMs": 36000,
+          "submitted": false
+        },
+        {
+          "positionSec": 38,
+          "status": "playing",
+          "listenedMs": 38000,
+          "submitted": false
+        },
+        {
+          "positionSec": 40,
+          "status": "playing",
+          "listenedMs": 40000,
+          "submitted": false
+        },
+        {
+          "positionSec": 42,
+          "status": "playing",
+          "listenedMs": 42000,
+          "submitted": false
+        },
+        {
+          "positionSec": 44,
+          "status": "playing",
+          "listenedMs": 44000,
+          "submitted": false
+        },
+        {
+          "positionSec": 46,
+          "status": "playing",
+          "listenedMs": 46000,
+          "submitted": false
+        },
+        {
+          "positionSec": 48,
+          "status": "playing",
+          "listenedMs": 48000,
+          "submitted": false
+        },
+        {
+          "positionSec": 50,
+          "status": "playing",
+          "listenedMs": 50000,
+          "submitted": false
+        },
+        {
+          "positionSec": 52,
+          "status": "playing",
+          "listenedMs": 52000,
+          "submitted": false
+        },
+        {
+          "positionSec": 54,
+          "status": "playing",
+          "listenedMs": 54000,
+          "submitted": false
+        },
+        {
+          "positionSec": 56,
+          "status": "playing",
+          "listenedMs": 56000,
+          "submitted": false
+        },
+        {
+          "positionSec": 58,
+          "status": "playing",
+          "listenedMs": 58000,
+          "submitted": false
+        },
+        {
+          "positionSec": 60,
+          "status": "playing",
+          "listenedMs": 60000,
+          "submitted": true
+        },
+        {
+          "positionSec": 62,
+          "status": "playing",
+          "listenedMs": 62000,
+          "submitted": true
+        },
+        {
+          "positionSec": 64,
+          "status": "playing",
+          "listenedMs": 64000,
+          "submitted": true
+        },
+        {
+          "positionSec": 66,
+          "status": "playing",
+          "listenedMs": 66000,
+          "submitted": true
+        },
+        {
+          "positionSec": 68,
+          "status": "playing",
+          "listenedMs": 68000,
+          "submitted": true
+        },
+        {
+          "positionSec": 70,
+          "status": "playing",
+          "listenedMs": 70000,
+          "submitted": true
+        },
+        {
+          "positionSec": 72,
+          "status": "playing",
+          "listenedMs": 72000,
+          "submitted": true
+        },
+        {
+          "positionSec": 74,
+          "status": "playing",
+          "listenedMs": 74000,
+          "submitted": true
+        },
+        {
+          "positionSec": 76,
+          "status": "playing",
+          "listenedMs": 76000,
+          "submitted": true
+        },
+        {
+          "positionSec": 78,
+          "status": "playing",
+          "listenedMs": 78000,
+          "submitted": true
+        },
+        {
+          "positionSec": 80,
+          "status": "playing",
+          "listenedMs": 80000,
+          "submitted": true
+        },
+        {
+          "positionSec": 82,
+          "status": "playing",
+          "listenedMs": 82000,
+          "submitted": true
+        },
+        {
+          "positionSec": 84,
+          "status": "playing",
+          "listenedMs": 84000,
+          "submitted": true
+        },
+        {
+          "positionSec": 86,
+          "status": "playing",
+          "listenedMs": 86000,
+          "submitted": true
+        },
+        {
+          "positionSec": 88,
+          "status": "playing",
+          "listenedMs": 88000,
+          "submitted": true
+        },
+        {
+          "positionSec": 90,
+          "status": "playing",
+          "listenedMs": 90000,
+          "submitted": true
+        },
+        {
+          "positionSec": 92,
+          "status": "playing",
+          "listenedMs": 92000,
+          "submitted": true
+        },
+        {
+          "positionSec": 94,
+          "status": "playing",
+          "listenedMs": 94000,
+          "submitted": true
+        },
+        {
+          "positionSec": 96,
+          "status": "playing",
+          "listenedMs": 96000,
+          "submitted": true
+        },
+        {
+          "positionSec": 98,
+          "status": "playing",
+          "listenedMs": 98000,
+          "submitted": true
+        },
+        {
+          "positionSec": 100,
+          "status": "playing",
+          "listenedMs": 100000,
+          "submitted": true
+        },
+        {
+          "positionSec": 102,
+          "status": "playing",
+          "listenedMs": 102000,
+          "submitted": true
+        },
+        {
+          "positionSec": 104,
+          "status": "playing",
+          "listenedMs": 104000,
+          "submitted": true
+        },
+        {
+          "positionSec": 106,
+          "status": "playing",
+          "listenedMs": 106000,
+          "submitted": true
+        },
+        {
+          "positionSec": 108,
+          "status": "playing",
+          "listenedMs": 108000,
+          "submitted": true
+        },
+        {
+          "positionSec": 110,
+          "status": "playing",
+          "listenedMs": 110000,
+          "submitted": true
+        },
+        {
+          "positionSec": 112,
+          "status": "playing",
+          "listenedMs": 112000,
+          "submitted": true
+        },
+        {
+          "positionSec": 114,
+          "status": "playing",
+          "listenedMs": 114000,
+          "submitted": true
+        },
+        {
+          "positionSec": 116,
+          "status": "playing",
+          "listenedMs": 116000,
+          "submitted": true
+        },
+        {
+          "positionSec": 118,
+          "status": "playing",
+          "listenedMs": 118000,
+          "submitted": true
+        },
+        {
+          "positionSec": 120,
+          "status": "playing",
+          "listenedMs": 120000,
+          "submitted": true
+        },
+        {
+          "positionSec": 122,
+          "status": "playing",
+          "listenedMs": 122000,
+          "submitted": true
+        },
+        {
+          "positionSec": 124,
+          "status": "playing",
+          "listenedMs": 124000,
+          "submitted": true
+        },
+        {
+          "positionSec": 126,
+          "status": "playing",
+          "listenedMs": 126000,
+          "submitted": true
+        },
+        {
+          "positionSec": 128,
+          "status": "playing",
+          "listenedMs": 128000,
+          "submitted": true
+        },
+        {
+          "positionSec": 130,
+          "status": "playing",
+          "listenedMs": 130000,
+          "submitted": true
+        },
+        {
+          "positionSec": 132,
+          "status": "playing",
+          "listenedMs": 132000,
+          "submitted": true
+        },
+        {
+          "positionSec": 134,
+          "status": "playing",
+          "listenedMs": 134000,
+          "submitted": true
+        },
+        {
+          "positionSec": 136,
+          "status": "playing",
+          "listenedMs": 136000,
+          "submitted": true
+        },
+        {
+          "positionSec": 138,
+          "status": "playing",
+          "listenedMs": 138000,
+          "submitted": true
+        },
+        {
+          "positionSec": 140,
+          "status": "playing",
+          "listenedMs": 140000,
+          "submitted": true
+        },
+        {
+          "positionSec": 142,
+          "status": "playing",
+          "listenedMs": 142000,
+          "submitted": true
+        },
+        {
+          "positionSec": 144,
+          "status": "playing",
+          "listenedMs": 144000,
+          "submitted": true
+        },
+        {
+          "positionSec": 146,
+          "status": "playing",
+          "listenedMs": 146000,
+          "submitted": true
+        },
+        {
+          "positionSec": 148,
+          "status": "playing",
+          "listenedMs": 148000,
+          "submitted": true
+        },
+        {
+          "positionSec": 150,
+          "status": "playing",
+          "listenedMs": 150000,
+          "submitted": true
+        },
+        {
+          "positionSec": 152,
+          "status": "playing",
+          "listenedMs": 152000,
+          "submitted": true
+        },
+        {
+          "positionSec": 154,
+          "status": "playing",
+          "listenedMs": 154000,
+          "submitted": true
+        },
+        {
+          "positionSec": 156,
+          "status": "playing",
+          "listenedMs": 156000,
+          "submitted": true
+        },
+        {
+          "positionSec": 158,
+          "status": "playing",
+          "listenedMs": 158000,
+          "submitted": true
+        },
+        {
+          "positionSec": 160,
+          "status": "playing",
+          "listenedMs": 160000,
+          "submitted": true
+        },
+        {
+          "positionSec": 162,
+          "status": "playing",
+          "listenedMs": 162000,
+          "submitted": true
+        },
+        {
+          "positionSec": 164,
+          "status": "playing",
+          "listenedMs": 164000,
+          "submitted": true
+        },
+        {
+          "positionSec": 166,
+          "status": "playing",
+          "listenedMs": 166000,
+          "submitted": true
+        },
+        {
+          "positionSec": 168,
+          "status": "playing",
+          "listenedMs": 168000,
+          "submitted": true
+        },
+        {
+          "positionSec": 170,
+          "status": "playing",
+          "listenedMs": 170000,
+          "submitted": true
+        },
+        {
+          "positionSec": 172,
+          "status": "playing",
+          "listenedMs": 172000,
+          "submitted": true
+        },
+        {
+          "positionSec": 174,
+          "status": "playing",
+          "listenedMs": 174000,
+          "submitted": true
+        },
+        {
+          "positionSec": 176,
+          "status": "playing",
+          "listenedMs": 176000,
+          "submitted": true
+        },
+        {
+          "positionSec": 178,
+          "status": "playing",
+          "listenedMs": 178000,
+          "submitted": true
+        },
+        {
+          "positionSec": 180,
+          "status": "playing",
+          "listenedMs": 180000,
+          "submitted": true
+        }
+      ],
+      "requests": [
+        {
+          "apiClientProps": {
+            "serverId": "fixture-server"
+          },
+          "query": {
+            "albumId": "fixture-album",
+            "id": "fixture-song",
+            "mediaType": "song",
+            "playbackRate": 2,
+            "position": 180000000,
+            "submission": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "jump-rebaseline-and-restart",
+      "options": {},
+      "samples": [
+        [
+          0
+        ],
+        [
+          2
+        ],
+        [
+          4
+        ],
+        [
+          120
+        ],
+        [
+          122
+        ],
+        [
+          124
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "states": [
+        {
+          "positionSec": 0,
+          "status": "playing",
+          "listenedMs": 0,
+          "submitted": false
+        },
+        {
+          "positionSec": 2,
+          "status": "playing",
+          "listenedMs": 2000,
+          "submitted": false
+        },
+        {
+          "positionSec": 4,
+          "status": "playing",
+          "listenedMs": 4000,
+          "submitted": false
+        },
+        {
+          "positionSec": 120,
+          "status": "playing",
+          "listenedMs": 4000,
+          "submitted": false
+        },
+        {
+          "positionSec": 122,
+          "status": "playing",
+          "listenedMs": 6000,
+          "submitted": false
+        },
+        {
+          "positionSec": 124,
+          "status": "playing",
+          "listenedMs": 8000,
+          "submitted": false
+        },
+        {
+          "positionSec": 1,
+          "status": "playing",
+          "listenedMs": 0,
+          "submitted": false
+        },
+        {
+          "positionSec": 2,
+          "status": "playing",
+          "listenedMs": 1000,
+          "submitted": false
+        }
+      ],
+      "requests": []
+    },
+    {
+      "id": "pause-not-credited",
+      "options": {},
+      "samples": [
+        [
+          0
+        ],
+        [
+          2
+        ],
+        [
+          4,
+          "paused"
+        ],
+        [
+          6,
+          "paused"
+        ],
+        [
+          8
+        ],
+        [
+          10
+        ]
+      ],
+      "states": [
+        {
+          "positionSec": 0,
+          "status": "playing",
+          "listenedMs": 0,
+          "submitted": false
+        },
+        {
+          "positionSec": 2,
+          "status": "playing",
+          "listenedMs": 2000,
+          "submitted": false
+        },
+        {
+          "positionSec": 4,
+          "status": "paused",
+          "listenedMs": 2000,
+          "submitted": false
+        },
+        {
+          "positionSec": 6,
+          "status": "paused",
+          "listenedMs": 2000,
+          "submitted": false
+        },
+        {
+          "positionSec": 8,
+          "status": "playing",
+          "listenedMs": 4000,
+          "submitted": false
+        },
+        {
+          "positionSec": 10,
+          "status": "playing",
+          "listenedMs": 6000,
+          "submitted": false
+        }
+      ],
+      "requests": []
+    },
+    {
+      "id": "private-mode",
+      "options": {
+        "privateMode": true
+      },
+      "samples": [
+        [
+          0
+        ],
+        [
+          2
+        ],
+        [
+          4
+        ],
+        [
+          60
+        ],
+        [
+          62
+        ]
+      ],
+      "states": [
+        {
+          "positionSec": 0,
+          "status": "playing",
+          "listenedMs": 0,
+          "submitted": false
+        },
+        {
+          "positionSec": 2,
+          "status": "playing",
+          "listenedMs": 0,
+          "submitted": false
+        },
+        {
+          "positionSec": 4,
+          "status": "playing",
+          "listenedMs": 0,
+          "submitted": false
+        },
+        {
+          "positionSec": 60,
+          "status": "playing",
+          "listenedMs": 0,
+          "submitted": false
+        },
+        {
+          "positionSec": 62,
+          "status": "playing",
+          "listenedMs": 0,
+          "submitted": false
+        }
+      ],
+      "requests": []
+    },
+    {
+      "id": "jellyfin-progress-and-submission-units",
+      "options": {
+        "serverType": "jellyfin",
+        "resumable": true
+      },
+      "samples": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ],
+        [
+          10
+        ],
+        [
+          11
+        ],
+        [
+          12
+        ],
+        [
+          13
+        ],
+        [
+          14
+        ],
+        [
+          15
+        ],
+        [
+          16
+        ],
+        [
+          17
+        ],
+        [
+          18
+        ],
+        [
+          19
+        ],
+        [
+          20
+        ],
+        [
+          21
+        ],
+        [
+          22
+        ],
+        [
+          23
+        ],
+        [
+          24
+        ],
+        [
+          25
+        ],
+        [
+          26
+        ],
+        [
+          27
+        ],
+        [
+          28
+        ],
+        [
+          29
+        ],
+        [
+          30
+        ],
+        [
+          31
+        ],
+        [
+          32
+        ],
+        [
+          33
+        ],
+        [
+          34
+        ],
+        [
+          35
+        ],
+        [
+          36
+        ],
+        [
+          37
+        ],
+        [
+          38
+        ],
+        [
+          39
+        ],
+        [
+          40
+        ],
+        [
+          41
+        ],
+        [
+          42
+        ],
+        [
+          43
+        ],
+        [
+          44
+        ],
+        [
+          45
+        ],
+        [
+          46
+        ],
+        [
+          47
+        ],
+        [
+          48
+        ],
+        [
+          49
+        ],
+        [
+          50
+        ],
+        [
+          51
+        ],
+        [
+          52
+        ],
+        [
+          53
+        ],
+        [
+          54
+        ],
+        [
+          55
+        ],
+        [
+          56
+        ],
+        [
+          57
+        ],
+        [
+          58
+        ],
+        [
+          59
+        ],
+        [
+          60
+        ],
+        [
+          61
+        ],
+        [
+          62
+        ],
+        [
+          63
+        ],
+        [
+          64
+        ],
+        [
+          65
+        ],
+        [
+          66
+        ],
+        [
+          67
+        ],
+        [
+          68
+        ],
+        [
+          69
+        ],
+        [
+          70
+        ]
+      ],
+      "states": [
+        {
+          "positionSec": 0,
+          "status": "playing",
+          "listenedMs": 0,
+          "submitted": false
+        },
+        {
+          "positionSec": 1,
+          "status": "playing",
+          "listenedMs": 1000,
+          "submitted": false
+        },
+        {
+          "positionSec": 2,
+          "status": "playing",
+          "listenedMs": 2000,
+          "submitted": false
+        },
+        {
+          "positionSec": 3,
+          "status": "playing",
+          "listenedMs": 3000,
+          "submitted": false
+        },
+        {
+          "positionSec": 4,
+          "status": "playing",
+          "listenedMs": 4000,
+          "submitted": false
+        },
+        {
+          "positionSec": 5,
+          "status": "playing",
+          "listenedMs": 5000,
+          "submitted": false
+        },
+        {
+          "positionSec": 6,
+          "status": "playing",
+          "listenedMs": 6000,
+          "submitted": false
+        },
+        {
+          "positionSec": 7,
+          "status": "playing",
+          "listenedMs": 7000,
+          "submitted": false
+        },
+        {
+          "positionSec": 8,
+          "status": "playing",
+          "listenedMs": 8000,
+          "submitted": false
+        },
+        {
+          "positionSec": 9,
+          "status": "playing",
+          "listenedMs": 9000,
+          "submitted": false
+        },
+        {
+          "positionSec": 10,
+          "status": "playing",
+          "listenedMs": 10000,
+          "submitted": false
+        },
+        {
+          "positionSec": 11,
+          "status": "playing",
+          "listenedMs": 11000,
+          "submitted": false
+        },
+        {
+          "positionSec": 12,
+          "status": "playing",
+          "listenedMs": 12000,
+          "submitted": false
+        },
+        {
+          "positionSec": 13,
+          "status": "playing",
+          "listenedMs": 13000,
+          "submitted": false
+        },
+        {
+          "positionSec": 14,
+          "status": "playing",
+          "listenedMs": 14000,
+          "submitted": false
+        },
+        {
+          "positionSec": 15,
+          "status": "playing",
+          "listenedMs": 15000,
+          "submitted": false
+        },
+        {
+          "positionSec": 16,
+          "status": "playing",
+          "listenedMs": 16000,
+          "submitted": false
+        },
+        {
+          "positionSec": 17,
+          "status": "playing",
+          "listenedMs": 17000,
+          "submitted": false
+        },
+        {
+          "positionSec": 18,
+          "status": "playing",
+          "listenedMs": 18000,
+          "submitted": false
+        },
+        {
+          "positionSec": 19,
+          "status": "playing",
+          "listenedMs": 19000,
+          "submitted": false
+        },
+        {
+          "positionSec": 20,
+          "status": "playing",
+          "listenedMs": 20000,
+          "submitted": false
+        },
+        {
+          "positionSec": 21,
+          "status": "playing",
+          "listenedMs": 21000,
+          "submitted": false
+        },
+        {
+          "positionSec": 22,
+          "status": "playing",
+          "listenedMs": 22000,
+          "submitted": false
+        },
+        {
+          "positionSec": 23,
+          "status": "playing",
+          "listenedMs": 23000,
+          "submitted": false
+        },
+        {
+          "positionSec": 24,
+          "status": "playing",
+          "listenedMs": 24000,
+          "submitted": false
+        },
+        {
+          "positionSec": 25,
+          "status": "playing",
+          "listenedMs": 25000,
+          "submitted": false
+        },
+        {
+          "positionSec": 26,
+          "status": "playing",
+          "listenedMs": 26000,
+          "submitted": false
+        },
+        {
+          "positionSec": 27,
+          "status": "playing",
+          "listenedMs": 27000,
+          "submitted": false
+        },
+        {
+          "positionSec": 28,
+          "status": "playing",
+          "listenedMs": 28000,
+          "submitted": false
+        },
+        {
+          "positionSec": 29,
+          "status": "playing",
+          "listenedMs": 29000,
+          "submitted": false
+        },
+        {
+          "positionSec": 30,
+          "status": "playing",
+          "listenedMs": 30000,
+          "submitted": false
+        },
+        {
+          "positionSec": 31,
+          "status": "playing",
+          "listenedMs": 31000,
+          "submitted": false
+        },
+        {
+          "positionSec": 32,
+          "status": "playing",
+          "listenedMs": 32000,
+          "submitted": false
+        },
+        {
+          "positionSec": 33,
+          "status": "playing",
+          "listenedMs": 33000,
+          "submitted": false
+        },
+        {
+          "positionSec": 34,
+          "status": "playing",
+          "listenedMs": 34000,
+          "submitted": false
+        },
+        {
+          "positionSec": 35,
+          "status": "playing",
+          "listenedMs": 35000,
+          "submitted": false
+        },
+        {
+          "positionSec": 36,
+          "status": "playing",
+          "listenedMs": 36000,
+          "submitted": false
+        },
+        {
+          "positionSec": 37,
+          "status": "playing",
+          "listenedMs": 37000,
+          "submitted": false
+        },
+        {
+          "positionSec": 38,
+          "status": "playing",
+          "listenedMs": 38000,
+          "submitted": false
+        },
+        {
+          "positionSec": 39,
+          "status": "playing",
+          "listenedMs": 39000,
+          "submitted": false
+        },
+        {
+          "positionSec": 40,
+          "status": "playing",
+          "listenedMs": 40000,
+          "submitted": false
+        },
+        {
+          "positionSec": 41,
+          "status": "playing",
+          "listenedMs": 41000,
+          "submitted": false
+        },
+        {
+          "positionSec": 42,
+          "status": "playing",
+          "listenedMs": 42000,
+          "submitted": false
+        },
+        {
+          "positionSec": 43,
+          "status": "playing",
+          "listenedMs": 43000,
+          "submitted": false
+        },
+        {
+          "positionSec": 44,
+          "status": "playing",
+          "listenedMs": 44000,
+          "submitted": false
+        },
+        {
+          "positionSec": 45,
+          "status": "playing",
+          "listenedMs": 45000,
+          "submitted": false
+        },
+        {
+          "positionSec": 46,
+          "status": "playing",
+          "listenedMs": 46000,
+          "submitted": false
+        },
+        {
+          "positionSec": 47,
+          "status": "playing",
+          "listenedMs": 47000,
+          "submitted": false
+        },
+        {
+          "positionSec": 48,
+          "status": "playing",
+          "listenedMs": 48000,
+          "submitted": false
+        },
+        {
+          "positionSec": 49,
+          "status": "playing",
+          "listenedMs": 49000,
+          "submitted": false
+        },
+        {
+          "positionSec": 50,
+          "status": "playing",
+          "listenedMs": 50000,
+          "submitted": false
+        },
+        {
+          "positionSec": 51,
+          "status": "playing",
+          "listenedMs": 51000,
+          "submitted": false
+        },
+        {
+          "positionSec": 52,
+          "status": "playing",
+          "listenedMs": 52000,
+          "submitted": false
+        },
+        {
+          "positionSec": 53,
+          "status": "playing",
+          "listenedMs": 53000,
+          "submitted": false
+        },
+        {
+          "positionSec": 54,
+          "status": "playing",
+          "listenedMs": 54000,
+          "submitted": false
+        },
+        {
+          "positionSec": 55,
+          "status": "playing",
+          "listenedMs": 55000,
+          "submitted": false
+        },
+        {
+          "positionSec": 56,
+          "status": "playing",
+          "listenedMs": 56000,
+          "submitted": false
+        },
+        {
+          "positionSec": 57,
+          "status": "playing",
+          "listenedMs": 57000,
+          "submitted": false
+        },
+        {
+          "positionSec": 58,
+          "status": "playing",
+          "listenedMs": 58000,
+          "submitted": false
+        },
+        {
+          "positionSec": 59,
+          "status": "playing",
+          "listenedMs": 59000,
+          "submitted": false
+        },
+        {
+          "positionSec": 60,
+          "status": "playing",
+          "listenedMs": 60000,
+          "submitted": true
+        },
+        {
+          "positionSec": 61,
+          "status": "playing",
+          "listenedMs": 61000,
+          "submitted": true
+        },
+        {
+          "positionSec": 62,
+          "status": "playing",
+          "listenedMs": 62000,
+          "submitted": true
+        },
+        {
+          "positionSec": 63,
+          "status": "playing",
+          "listenedMs": 63000,
+          "submitted": true
+        },
+        {
+          "positionSec": 64,
+          "status": "playing",
+          "listenedMs": 64000,
+          "submitted": true
+        },
+        {
+          "positionSec": 65,
+          "status": "playing",
+          "listenedMs": 65000,
+          "submitted": true
+        },
+        {
+          "positionSec": 66,
+          "status": "playing",
+          "listenedMs": 66000,
+          "submitted": true
+        },
+        {
+          "positionSec": 67,
+          "status": "playing",
+          "listenedMs": 67000,
+          "submitted": true
+        },
+        {
+          "positionSec": 68,
+          "status": "playing",
+          "listenedMs": 68000,
+          "submitted": true
+        },
+        {
+          "positionSec": 69,
+          "status": "playing",
+          "listenedMs": 69000,
+          "submitted": true
+        },
+        {
+          "positionSec": 70,
+          "status": "playing",
+          "listenedMs": 70000,
+          "submitted": true
+        }
+      ],
+      "requests": [
+        {
+          "apiClientProps": {
+            "serverId": "fixture-server"
+          },
+          "query": {
+            "albumId": "fixture-album",
+            "event": "timeupdate",
+            "id": "fixture-song",
+            "mediaType": "song",
+            "playbackRate": 1,
+            "position": 100000000,
+            "submission": false
+          }
+        },
+        {
+          "apiClientProps": {
+            "serverId": "fixture-server"
+          },
+          "query": {
+            "albumId": "fixture-album",
+            "event": "timeupdate",
+            "id": "fixture-song",
+            "mediaType": "song",
+            "playbackRate": 1,
+            "position": 200000000,
+            "submission": false
+          }
+        },
+        {
+          "apiClientProps": {
+            "serverId": "fixture-server"
+          },
+          "query": {
+            "albumId": "fixture-album",
+            "event": "timeupdate",
+            "id": "fixture-song",
+            "mediaType": "song",
+            "playbackRate": 1,
+            "position": 300000000,
+            "submission": false
+          }
+        },
+        {
+          "apiClientProps": {
+            "serverId": "fixture-server"
+          },
+          "query": {
+            "albumId": "fixture-album",
+            "event": "timeupdate",
+            "id": "fixture-song",
+            "mediaType": "song",
+            "playbackRate": 1,
+            "position": 400000000,
+            "submission": false
+          }
+        },
+        {
+          "apiClientProps": {
+            "serverId": "fixture-server"
+          },
+          "query": {
+            "albumId": "fixture-album",
+            "event": "timeupdate",
+            "id": "fixture-song",
+            "mediaType": "song",
+            "playbackRate": 1,
+            "position": 500000000,
+            "submission": false
+          }
+        },
+        {
+          "apiClientProps": {
+            "serverId": "fixture-server"
+          },
+          "query": {
+            "albumId": "fixture-album",
+            "event": "timeupdate",
+            "id": "fixture-song",
+            "mediaType": "song",
+            "playbackRate": 1,
+            "position": 600000000,
+            "submission": false
+          }
+        },
+        {
+          "apiClientProps": {
+            "serverId": "fixture-server"
+          },
+          "query": {
+            "albumId": "fixture-album",
+            "id": "fixture-song",
+            "mediaType": "song",
+            "playbackRate": 1,
+            "position": 1800000000000,
+            "submission": true
+          }
+        },
+        {
+          "apiClientProps": {
+            "serverId": "fixture-server"
+          },
+          "query": {
+            "albumId": "fixture-album",
+            "event": "timeupdate",
+            "id": "fixture-song",
+            "mediaType": "song",
+            "playbackRate": 1,
+            "position": 700000000,
+            "submission": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "seek-to-start-allows-resubmission",
+      "options": {
+        "durationThresholdMs": 2000
+      },
+      "samples": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          11
+        ],
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "states": [
+        {
+          "positionSec": 0,
+          "status": "playing",
+          "listenedMs": 0,
+          "submitted": false
+        },
+        {
+          "positionSec": 1,
+          "status": "playing",
+          "listenedMs": 1000,
+          "submitted": false
+        },
+        {
+          "positionSec": 2,
+          "status": "playing",
+          "listenedMs": 2000,
+          "submitted": true
+        },
+        {
+          "positionSec": 3,
+          "status": "playing",
+          "listenedMs": 3000,
+          "submitted": true
+        },
+        {
+          "positionSec": 11,
+          "status": "playing",
+          "listenedMs": 3000,
+          "submitted": true
+        },
+        {
+          "positionSec": 0,
+          "status": "playing",
+          "listenedMs": 0,
+          "submitted": false
+        },
+        {
+          "positionSec": 1,
+          "status": "playing",
+          "listenedMs": 1000,
+          "submitted": false
+        },
+        {
+          "positionSec": 2,
+          "status": "playing",
+          "listenedMs": 2000,
+          "submitted": true
+        }
+      ],
+      "requests": [
+        {
+          "apiClientProps": {
+            "serverId": "fixture-server"
+          },
+          "query": {
+            "albumId": "fixture-album",
+            "id": "fixture-song",
+            "mediaType": "song",
+            "playbackRate": 1,
+            "position": 180000000,
+            "submission": true
+          }
+        },
+        {
+          "apiClientProps": {
+            "serverId": "fixture-server"
+          },
+          "query": {
+            "albumId": "fixture-album",
+            "id": "fixture-song",
+            "mediaType": "song",
+            "playbackRate": 1,
+            "position": 180000000,
+            "submission": true
+          }
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Media-position samples are synthetic, not measured audio clocks.",
+    "No mounted React hook, song-change debounce, timers, backend transport or network completion tested.",
+    "Request recorder never calls success; submission is marked before completion and is not retried within a play-through."
+  ]
+}

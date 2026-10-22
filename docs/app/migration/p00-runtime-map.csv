@@ -1,0 +1,19 @@
+upstream_id,feature_id,task_id,disposition,rust_symbol,test_or_evidence,reason,status
+src/renderer/store/player.store.ts:506:35,F17,P00.06,unmapped,,tests/fixtures/p00/state-traces.json,Captured original code with explicit boundaries,characterized-headless
+src/renderer/store/player.store.ts:937:32,F17,P00.06,unmapped,,tests/fixtures/p00/state-traces.json,Captured original code with explicit boundaries,characterized-headless
+src/renderer/store/player.store.ts:1904:32,F17,P00.06,unmapped,,tests/fixtures/p00/state-traces.json,Captured original code with explicit boundaries,characterized-headless
+src/renderer/store/player.store.ts:1255:28,F19,P00.06,unmapped,,tests/fixtures/p00/state-traces.json,Captured original code with explicit boundaries,characterized-headless
+src/renderer/store/player.store.ts:1134:32,F19,P00.06,unmapped,,tests/fixtures/p00/state-traces.json,Captured original code with explicit boundaries,characterized-headless
+src/renderer/store/player.store.ts:1446:32,F19,P00.06,unmapped,,tests/fixtures/p00/state-traces.json,Captured original code with explicit boundaries,characterized-headless
+src/renderer/store/player.store.ts:1577:33,F18,P00.06,unmapped,,tests/fixtures/p00/state-traces.json,Captured original code with explicit boundaries,characterized-headless
+src/renderer/store/utils.ts:32:1,F26,P00.06,unmapped,,tests/fixtures/p00/state-traces.json,Captured original code with explicit boundaries,characterized-headless
+src/renderer/store/utils.ts:156:39,F41,P00.06,unmapped,,tests/fixtures/p00/state-traces.json,Captured original code with explicit boundaries,characterized-headless
+src/renderer/api/subsonic/subsonic-controller.ts:316:19,F01,P00.04,unmapped,,tests/fixtures/p00/live-responses.json,Captured service HTTP contract; Feishin adapter not executed,captured-service-contract
+src/renderer/api/subsonic/subsonic-controller.ts:1432:20,F03,P00.04,unmapped,,tests/fixtures/p00/live-responses.json,Captured service HTTP contract; Feishin adapter not executed,captured-service-contract
+src/renderer/api/navidrome/navidrome-controller.ts:143:19,F01,P00.04,unmapped,,tests/fixtures/p00/live-responses.json,Captured service HTTP contract; Feishin adapter not executed,captured-service-contract
+src/renderer/api/navidrome/navidrome-controller.ts:785:20,F03,P00.04,unmapped,,tests/fixtures/p00/live-responses.json,Captured service HTTP contract; Feishin adapter not executed,captured-service-contract
+src/renderer/api/jellyfin/jellyfin-controller.ts:284:19,F01,P00.04,unmapped,,tests/fixtures/p00/live-responses.json,Captured service HTTP contract; Feishin adapter not executed,captured-service-contract
+src/renderer/api/jellyfin/jellyfin-controller.ts:1350:20,F03,P00.04,unmapped,,tests/fixtures/p00/live-responses.json,Captured service HTTP contract; Feishin adapter not executed,captured-service-contract
+src/renderer/store/utils.ts:195:14,F41,P00.06,unmapped,,tests/fixtures/p00/state-traces.json,Original code execution with explicit synthetic boundaries; no Rust port,characterized-headless
+src/renderer/store/utils.ts:297:14,F41,P00.06,unmapped,,tests/fixtures/p00/state-traces.json,Original code execution with explicit synthetic boundaries; no Rust port,characterized-headless
+src/renderer/features/player/hooks/use-scrobble.ts:248:9,F27,P00.06,unmapped,,tests/fixtures/p00/scrobble-traces.json,Original code execution with explicit synthetic boundaries; no Rust port,characterized-headless
