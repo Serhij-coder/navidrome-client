@@ -15,6 +15,8 @@ The [loader](../../../tools/app/p00-reference-runtime.cjs) verifies source/packa
 
 The progress harness extracts exact declarations with TypeScript 6.0.3 and checks the source hash first. It supplies refs, a player snapshot, settings, `useCallback` identity and a request recorder. Its samples are controlled inputs, not measured playback clocks. Song-change debounce, React re-render/unmount, notification timers, actual network failure/retry and audio device speed remain separate cases.
 
+The later [adapter replay](adapter-characterization.md) feeds saved callback requests through the original controllers/clients to an offline Axios boundary. It confirms that Jellyfin retains the oversized submission ticks in its request body and returns before a held acknowledgement; Subsonic/Navidrome omit submission position and wait. This extends payload evidence without establishing live server/plugin or engine consequences.
+
 One additional ambiguity is now recorded: after last-item stop with repeat none, the store resets index to zero before emitting `PLAYER_STOP`, so the captured stop event names the first occurrence. Engine/reporting consequences and desired compatibility remain unverified. Preserve the trace and investigate consumers before choosing a difference; the immutable original was not patched.
 
 Run from the repository root with the optional frozen reference environment:

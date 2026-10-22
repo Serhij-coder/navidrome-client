@@ -1,0 +1,3449 @@
+{
+  "schema": 1,
+  "tasks": [
+    "P00.04",
+    "P00.06"
+  ],
+  "evidenceKind": "pinned-adapters-with-offline-transport",
+  "provenance": {
+    "commit": "7d6ad318c79802e226996cfc39acba6b05bb22e8",
+    "compilerVersion": "0.25.12",
+    "axiosVersion": "1.17.0",
+    "sourceFiles": [
+      "src/renderer/api/jellyfin/jellyfin-api.ts",
+      "src/renderer/api/jellyfin/jellyfin-controller.ts",
+      "src/renderer/api/navidrome/navidrome-api.ts",
+      "src/renderer/api/navidrome/navidrome-controller.ts",
+      "src/renderer/api/response-validation.ts",
+      "src/renderer/api/subsonic/subsonic-api.ts",
+      "src/renderer/api/subsonic/subsonic-controller.ts",
+      "src/renderer/api/subsonic/subsonic-structured-lyrics.ts",
+      "src/renderer/utils/normalize-server-url.ts",
+      "src/renderer/utils/utf8-byte-slice.ts",
+      "src/shared/api/jellyfin/jellyfin-normalize.ts",
+      "src/shared/api/jellyfin/jellyfin-types.ts",
+      "src/shared/api/navidrome/navidrome-normalize.ts",
+      "src/shared/api/navidrome/navidrome-types.ts",
+      "src/shared/api/partial-iso-date.ts",
+      "src/shared/api/subsonic/subsonic-normalize.ts",
+      "src/shared/api/subsonic/subsonic-types.ts",
+      "src/shared/api/utils.ts",
+      "src/shared/types/domain-types.ts",
+      "src/shared/types/features-types.ts",
+      "src/shared/types/types.ts"
+    ],
+    "boundaries": [
+      "idb-keyval",
+      "/@/i18n/i18n",
+      "/@/renderer/store",
+      "/@/renderer/api/utils",
+      "/@/renderer/utils/logger",
+      "/@/shared/components/toast/toast",
+      "/@/renderer/utils",
+      "/@/renderer/features/player/components/audio-players",
+      "/@/renderer/features/radio/store/radio-store",
+      "/@/renderer/store/player.store"
+    ],
+    "responseValidation": "enabled, diagnostic only as in original source",
+    "transport": "Actual frozen Axios with an offline adapter; no sockets, server state or request success implied"
+  },
+  "liveCaptureSha256": "0a865bf3ca5a4ed33c5bda45757416ac17d4f3440b40b686e218c96ca5903cd8",
+  "scrobbleCaptureSha256": "7cf22568e893547f1be606f1785b8eb55cd24f84aba206fe39b8c363beeab5a8",
+  "cases": [
+    {
+      "id": "navidrome-0.61.0-capabilities",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 0
+          },
+          "path": "/rest/ping.view",
+          "status": 200
+        },
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 0
+          },
+          "path": "/rest/ping.view",
+          "status": 200
+        },
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 1
+          },
+          "path": "/rest/getOpenSubsonicExtensions.view",
+          "status": 200
+        },
+        {
+          "source": {
+            "kind": "synthetic"
+          },
+          "path": "/rest/jukeboxControl.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "features": {
+          "osTranscodeDecision": [
+            1
+          ],
+          "lyricsMultipleStructured": [
+            1
+          ],
+          "osFormPost": [
+            1
+          ],
+          "serverPlayQueue": [
+            2,
+            1
+          ],
+          "artistImageUpload": [
+            1
+          ],
+          "internetRadioImageUpload": [
+            1
+          ],
+          "playlistImageUpload": [
+            1
+          ],
+          "trackYesNoRatingFilter": [
+            1
+          ],
+          "trackAlbumArtistSearch": [
+            1
+          ],
+          "bfr": [
+            1
+          ],
+          "tags": [
+            1
+          ],
+          "sharingAlbumSong": [
+            1
+          ],
+          "playlistsSmart": [
+            1
+          ],
+          "publicPlaylist": [
+            1
+          ],
+          "albumYesNoRatingFilter": [
+            1
+          ],
+          "jukebox": [
+            1
+          ],
+          "musicFolderMultiselect": [
+            1
+          ]
+        },
+        "id": "navidrome-0.61.0",
+        "version": "0.61.0 (c5bb920b)"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/ping.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        },
+        {
+          "method": "GET",
+          "path": "/rest/ping.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        },
+        {
+          "method": "GET",
+          "path": "/rest/getOpenSubsonicExtensions.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        },
+        {
+          "method": "GET",
+          "path": "/rest/jukeboxControl.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "action": [
+              "status"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Jukebox endpoint returned an error payload:",
+          "detail": {
+            "code": 70,
+            "message": "Synthetic unsupported jukebox"
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 1,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "navidrome-0.61.0-search-offset-0",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 4
+          },
+          "path": "/rest/search3.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "startIndex": 0,
+        "totalRecordCount": null,
+        "songs": [
+          {
+            "id": "LxuW6lJwQ0it4Aeykz0hHz",
+            "serverId": "navidrome-0.61.0",
+            "durationMs": 3000,
+            "name": "P00 Tone A",
+            "itemType": "song"
+          },
+          {
+            "id": "bpIGMScYSHhPZhAKH7KZlm",
+            "serverId": "navidrome-0.61.0",
+            "durationMs": 4000,
+            "name": "P00 Tone B",
+            "itemType": "song"
+          }
+        ]
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/search3.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "albumCount": [
+              "0"
+            ],
+            "albumOffset": [
+              "0"
+            ],
+            "artistCount": [
+              "0"
+            ],
+            "artistOffset": [
+              "0"
+            ],
+            "musicFolderId": [
+              "first-library"
+            ],
+            "query": [
+              "P00"
+            ],
+            "songCount": [
+              "20"
+            ],
+            "songOffset": [
+              "0"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "navidrome-0.61.0-search-offset-2",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 5
+          },
+          "path": "/rest/search3.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "startIndex": 2,
+        "totalRecordCount": null,
+        "songs": []
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/search3.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "albumCount": [
+              "0"
+            ],
+            "albumOffset": [
+              "0"
+            ],
+            "artistCount": [
+              "0"
+            ],
+            "artistOffset": [
+              "0"
+            ],
+            "musicFolderId": [
+              "first-library"
+            ],
+            "query": [
+              "P00"
+            ],
+            "songCount": [
+              "20"
+            ],
+            "songOffset": [
+              "2"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "navidrome-0.61.0-playlist-duplicates",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 7
+          },
+          "path": "/rest/getPlaylist.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "items": [
+          {
+            "id": "LxuW6lJwQ0it4Aeykz0hHz",
+            "playlistItemId": "0"
+          },
+          {
+            "id": "LxuW6lJwQ0it4Aeykz0hHz",
+            "playlistItemId": "1"
+          }
+        ],
+        "totalRecordCount": 2
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/getPlaylist.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "id": [
+              "fJHzqUsEAYBYvnVYAtltWc"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Invalid Subsonic API response",
+          "detail": {
+            "endpoint": "GET getPlaylist.view (getPlaylist.view)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "object",
+                "received": "undefined",
+                "path": "playlist"
+              }
+            ],
+            "status": 200
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "navidrome-0.61.0-playlist-after-removal",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 9
+          },
+          "path": "/rest/getPlaylist.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "items": [
+          {
+            "id": "LxuW6lJwQ0it4Aeykz0hHz",
+            "playlistItemId": "0"
+          }
+        ],
+        "totalRecordCount": 1
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/getPlaylist.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "id": [
+              "fJHzqUsEAYBYvnVYAtltWc"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Invalid Subsonic API response",
+          "detail": {
+            "endpoint": "GET getPlaylist.view (getPlaylist.view)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "object",
+                "received": "undefined",
+                "path": "playlist"
+              }
+            ],
+            "status": 200
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "navidrome-0.61.0-invalid-auth-envelope",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 2
+          },
+          "path": "/rest/ping.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "clientStatus": 40,
+        "protocolCode": 40
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/ping.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 1,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "navidrome-0.61.0-reader-scan",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 13
+          },
+          "path": "/rest/startScan.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "clientStatus": 50,
+        "protocolStatus": "failed"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/startScan.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 1,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "navidrome-0.61.0-native-songs-missing-count-header",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 15
+          },
+          "path": "/api/song",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "startIndex": 0,
+        "totalRecordCount": 0,
+        "songs": [
+          {
+            "id": "LxuW6lJwQ0it4Aeykz0hHz",
+            "serverId": "navidrome-0.61.0",
+            "durationMs": 3000,
+            "name": "P00 Tone A",
+            "itemType": "song"
+          },
+          {
+            "id": "bpIGMScYSHhPZhAKH7KZlm",
+            "serverId": "navidrome-0.61.0",
+            "durationMs": 4050,
+            "name": "P00 Tone B",
+            "itemType": "song"
+          }
+        ]
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/song",
+          "query": {
+            "_end": "20",
+            "_order": "ASC",
+            "_sort": "title",
+            "_start": "0",
+            "title": "P00"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Invalid Navidrome API response",
+          "detail": {
+            "endpoint": "GET song (song)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "array",
+                "received": "undefined",
+                "path": "data.0.genres"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "number",
+                "received": "null",
+                "path": "data.0.rgTrackGain"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "number",
+                "received": "null",
+                "path": "data.0.rgTrackPeak"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "array",
+                "received": "undefined",
+                "path": "data.1.genres"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "number",
+                "received": "null",
+                "path": "data.1.rgTrackGain"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "number",
+                "received": "null",
+                "path": "data.1.rgTrackPeak"
+              }
+            ],
+            "status": 200
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "navidrome-0.47.5-capabilities",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 18
+          },
+          "path": "/rest/ping.view",
+          "status": 200
+        },
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 18
+          },
+          "path": "/rest/ping.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "features": {
+          "publicPlaylist": [
+            1
+          ],
+          "albumYesNoRatingFilter": [
+            1
+          ],
+          "jukebox": [
+            1
+          ],
+          "musicFolderMultiselect": [
+            1
+          ]
+        },
+        "id": "navidrome-0.47.5",
+        "version": "0.47.5 (86fe1e3b)"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/ping.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        },
+        {
+          "method": "GET",
+          "path": "/rest/ping.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "navidrome-0.47.5-search-offset-0",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 22
+          },
+          "path": "/rest/search3.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "startIndex": 0,
+        "totalRecordCount": null,
+        "songs": [
+          {
+            "id": "e61a03cf37b6cf55beeefddb21a7b0bf",
+            "serverId": "navidrome-0.47.5",
+            "durationMs": 3000,
+            "name": "P00 Tone A",
+            "itemType": "song"
+          },
+          {
+            "id": "88f0eb79eb2cd6c88b5da22c1309f314",
+            "serverId": "navidrome-0.47.5",
+            "durationMs": 4000,
+            "name": "P00 Tone B",
+            "itemType": "song"
+          }
+        ]
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/search3.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "albumCount": [
+              "0"
+            ],
+            "albumOffset": [
+              "0"
+            ],
+            "artistCount": [
+              "0"
+            ],
+            "artistOffset": [
+              "0"
+            ],
+            "musicFolderId": [
+              "first-library"
+            ],
+            "query": [
+              "P00"
+            ],
+            "songCount": [
+              "20"
+            ],
+            "songOffset": [
+              "0"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "navidrome-0.47.5-search-offset-2",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 23
+          },
+          "path": "/rest/search3.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "startIndex": 2,
+        "totalRecordCount": null,
+        "songs": []
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/search3.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "albumCount": [
+              "0"
+            ],
+            "albumOffset": [
+              "0"
+            ],
+            "artistCount": [
+              "0"
+            ],
+            "artistOffset": [
+              "0"
+            ],
+            "musicFolderId": [
+              "first-library"
+            ],
+            "query": [
+              "P00"
+            ],
+            "songCount": [
+              "20"
+            ],
+            "songOffset": [
+              "2"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "navidrome-0.47.5-playlist-duplicates",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 25
+          },
+          "path": "/rest/getPlaylist.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "items": [
+          {
+            "id": "e61a03cf37b6cf55beeefddb21a7b0bf",
+            "playlistItemId": "0"
+          },
+          {
+            "id": "e61a03cf37b6cf55beeefddb21a7b0bf",
+            "playlistItemId": "1"
+          }
+        ],
+        "totalRecordCount": 2
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/getPlaylist.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "id": [
+              "2a73e017-929a-4ab5-84bc-dc8ed927b75e"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Invalid Subsonic API response",
+          "detail": {
+            "endpoint": "GET getPlaylist.view (getPlaylist.view)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "object",
+                "received": "undefined",
+                "path": "playlist"
+              }
+            ],
+            "status": 200
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "navidrome-0.47.5-playlist-after-removal",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 27
+          },
+          "path": "/rest/getPlaylist.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "items": [
+          {
+            "id": "e61a03cf37b6cf55beeefddb21a7b0bf",
+            "playlistItemId": "0"
+          }
+        ],
+        "totalRecordCount": 1
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/getPlaylist.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "id": [
+              "2a73e017-929a-4ab5-84bc-dc8ed927b75e"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Invalid Subsonic API response",
+          "detail": {
+            "endpoint": "GET getPlaylist.view (getPlaylist.view)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "object",
+                "received": "undefined",
+                "path": "playlist"
+              }
+            ],
+            "status": 200
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "navidrome-0.47.5-invalid-auth-envelope",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 20
+          },
+          "path": "/rest/ping.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "clientStatus": 40,
+        "protocolCode": 40
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/ping.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 1,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "navidrome-0.47.5-reader-scan",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 31
+          },
+          "path": "/rest/startScan.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "clientStatus": 50,
+        "protocolStatus": "failed"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/startScan.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 1,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "navidrome-0.47.5-native-songs-missing-count-header",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 33
+          },
+          "path": "/api/song",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "startIndex": 0,
+        "totalRecordCount": 0,
+        "songs": [
+          {
+            "id": "88f0eb79eb2cd6c88b5da22c1309f314",
+            "serverId": "navidrome-0.47.5",
+            "durationMs": 4050,
+            "name": "P00 Tone B",
+            "itemType": "song"
+          },
+          {
+            "id": "e61a03cf37b6cf55beeefddb21a7b0bf",
+            "serverId": "navidrome-0.47.5",
+            "durationMs": 3000,
+            "name": "P00 Tone A",
+            "itemType": "song"
+          }
+        ]
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/song",
+          "query": {
+            "_end": "20",
+            "_order": "ASC",
+            "_sort": "title",
+            "_start": "0",
+            "title": "P00"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Invalid Navidrome API response",
+          "detail": {
+            "endpoint": "GET song (song)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "number",
+                "received": "undefined",
+                "path": "data.0.sampleRate"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "number",
+                "received": "undefined",
+                "path": "data.1.sampleRate"
+              }
+            ],
+            "status": 200
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "gonic-0.16.4-capabilities",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 36
+          },
+          "path": "/rest/ping.view",
+          "status": 200
+        },
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 37
+          },
+          "path": "/rest/getOpenSubsonicExtensions.view",
+          "status": 200
+        },
+        {
+          "source": {
+            "kind": "synthetic"
+          },
+          "path": "/rest/jukeboxControl.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "features": {
+          "osFormPost": [
+            1
+          ]
+        },
+        "id": "gonic-0.16.4",
+        "version": "0.16.4"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/ping.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        },
+        {
+          "method": "GET",
+          "path": "/rest/getOpenSubsonicExtensions.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        },
+        {
+          "method": "GET",
+          "path": "/rest/jukeboxControl.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "action": [
+              "status"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Jukebox endpoint returned an error payload:",
+          "detail": {
+            "code": 70,
+            "message": "Synthetic unsupported jukebox"
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 1,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "gonic-0.16.4-search-offset-0",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 40
+          },
+          "path": "/rest/search3.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "startIndex": 0,
+        "totalRecordCount": null,
+        "songs": [
+          {
+            "id": "tr-1",
+            "serverId": "gonic-0.16.4",
+            "durationMs": 3000,
+            "name": "P00 Tone A",
+            "itemType": "song"
+          },
+          {
+            "id": "tr-2",
+            "serverId": "gonic-0.16.4",
+            "durationMs": 4000,
+            "name": "P00 Tone B",
+            "itemType": "song"
+          }
+        ]
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/search3.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "albumCount": [
+              "0"
+            ],
+            "albumOffset": [
+              "0"
+            ],
+            "artistCount": [
+              "0"
+            ],
+            "artistOffset": [
+              "0"
+            ],
+            "musicFolderId": [
+              "first-library"
+            ],
+            "query": [
+              "P00"
+            ],
+            "songCount": [
+              "20"
+            ],
+            "songOffset": [
+              "0"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "gonic-0.16.4-search-offset-2",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 41
+          },
+          "path": "/rest/search3.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "startIndex": 2,
+        "totalRecordCount": null,
+        "songs": []
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/search3.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "albumCount": [
+              "0"
+            ],
+            "albumOffset": [
+              "0"
+            ],
+            "artistCount": [
+              "0"
+            ],
+            "artistOffset": [
+              "0"
+            ],
+            "musicFolderId": [
+              "first-library"
+            ],
+            "query": [
+              "P00"
+            ],
+            "songCount": [
+              "20"
+            ],
+            "songOffset": [
+              "2"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "gonic-0.16.4-playlist-duplicates",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 43
+          },
+          "path": "/rest/getPlaylist.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "items": [
+          {
+            "id": "tr-1",
+            "playlistItemId": "0"
+          },
+          {
+            "id": "tr-1",
+            "playlistItemId": "1"
+          }
+        ],
+        "totalRecordCount": 2
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/getPlaylist.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "id": [
+              "MS8xNzkyNjQ1Mjk3Njk2LTE3OTI2NDUyOTc2OTYubTN1"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Invalid Subsonic API response",
+          "detail": {
+            "endpoint": "GET getPlaylist.view (getPlaylist.view)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "object",
+                "received": "undefined",
+                "path": "playlist"
+              }
+            ],
+            "status": 200
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "gonic-0.16.4-playlist-after-removal",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 45
+          },
+          "path": "/rest/getPlaylist.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "items": [
+          {
+            "id": "tr-1",
+            "playlistItemId": "0"
+          }
+        ],
+        "totalRecordCount": 1
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/getPlaylist.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "id": [
+              "MS8xNzkyNjQ1Mjk3Njk2LTE3OTI2NDUyOTc2OTYubTN1"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Invalid Subsonic API response",
+          "detail": {
+            "endpoint": "GET getPlaylist.view (getPlaylist.view)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "object",
+                "received": "undefined",
+                "path": "playlist"
+              }
+            ],
+            "status": 200
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "gonic-0.16.4-invalid-auth-envelope",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 38
+          },
+          "path": "/rest/ping.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "clientStatus": 40,
+        "protocolCode": 40
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/ping.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 1,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "gonic-0.16.4-reader-scan",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 49
+          },
+          "path": "/rest/startScan.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "clientStatus": 200,
+        "protocolStatus": "ok"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/startScan.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Invalid Subsonic API response",
+          "detail": {
+            "endpoint": "GET startScan.view (startScan.view)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "object",
+                "received": "undefined",
+                "path": "scanStatus"
+              }
+            ],
+            "status": 200
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "gonic-0.15.2-capabilities",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 50
+          },
+          "path": "/rest/ping.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "features": {},
+        "version": "1.15.0"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/ping.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "gonic-0.15.2-search-offset-0",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 54
+          },
+          "path": "/rest/search3.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "startIndex": 0,
+        "totalRecordCount": null,
+        "songs": [
+          {
+            "id": "tr-1",
+            "serverId": "gonic-0.15.2",
+            "durationMs": 3000,
+            "name": "P00 Tone A",
+            "itemType": "song"
+          },
+          {
+            "id": "tr-2",
+            "serverId": "gonic-0.15.2",
+            "durationMs": 4000,
+            "name": "P00 Tone B",
+            "itemType": "song"
+          }
+        ]
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/search3.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "albumCount": [
+              "0"
+            ],
+            "albumOffset": [
+              "0"
+            ],
+            "artistCount": [
+              "0"
+            ],
+            "artistOffset": [
+              "0"
+            ],
+            "musicFolderId": [
+              "first-library"
+            ],
+            "query": [
+              "P00"
+            ],
+            "songCount": [
+              "20"
+            ],
+            "songOffset": [
+              "0"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "gonic-0.15.2-search-offset-2",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 55
+          },
+          "path": "/rest/search3.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "startIndex": 2,
+        "totalRecordCount": null,
+        "songs": []
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/search3.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "albumCount": [
+              "0"
+            ],
+            "albumOffset": [
+              "0"
+            ],
+            "artistCount": [
+              "0"
+            ],
+            "artistOffset": [
+              "0"
+            ],
+            "musicFolderId": [
+              "first-library"
+            ],
+            "query": [
+              "P00"
+            ],
+            "songCount": [
+              "20"
+            ],
+            "songOffset": [
+              "2"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "gonic-0.15.2-playlist-duplicates",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 57
+          },
+          "path": "/rest/getPlaylist.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "items": [
+          {
+            "id": "tr-1",
+            "playlistItemId": "0"
+          },
+          {
+            "id": "tr-1",
+            "playlistItemId": "1"
+          }
+        ],
+        "totalRecordCount": 2
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/getPlaylist.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "id": [
+              "4"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Invalid Subsonic API response",
+          "detail": {
+            "endpoint": "GET getPlaylist.view (getPlaylist.view)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "object",
+                "received": "undefined",
+                "path": "playlist"
+              }
+            ],
+            "status": 200
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "gonic-0.15.2-playlist-after-removal",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 59
+          },
+          "path": "/rest/getPlaylist.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "items": [
+          {
+            "id": "tr-1",
+            "playlistItemId": "0"
+          }
+        ],
+        "totalRecordCount": 1
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/getPlaylist.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "id": [
+              "4"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Invalid Subsonic API response",
+          "detail": {
+            "endpoint": "GET getPlaylist.view (getPlaylist.view)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "object",
+                "received": "undefined",
+                "path": "playlist"
+              }
+            ],
+            "status": 200
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "gonic-0.15.2-invalid-auth-envelope",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 52
+          },
+          "path": "/rest/ping.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "clientStatus": 40,
+        "protocolCode": 40
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/ping.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 1,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "gonic-0.15.2-reader-scan",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 63
+          },
+          "path": "/rest/startScan.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "clientStatus": 200,
+        "protocolStatus": "ok"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/startScan.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Invalid Subsonic API response",
+          "detail": {
+            "endpoint": "GET startScan.view (startScan.view)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "object",
+                "received": "undefined",
+                "path": "scanStatus"
+              }
+            ],
+            "status": 200
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "jellyfin-10.10.7-capabilities",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 68
+          },
+          "path": "/system/info",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "features": {
+          "reportPlayback": [
+            1
+          ],
+          "lyricsSingleStructured": [
+            1
+          ],
+          "publicPlaylist": [
+            1
+          ],
+          "artistImageUpload": [
+            1
+          ],
+          "playlistImageUpload": [
+            1
+          ],
+          "tags": [
+            1
+          ]
+        },
+        "id": "jellyfin-10.10.7",
+        "version": "10.10.7"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/system/info",
+          "query": {},
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "jellyfin-10.10.7-songs-offset-0",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 66
+          },
+          "path": "/users/8b93b19f89714ded9e0e2716a321f144/items",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "startIndex": 0,
+        "totalRecordCount": 2,
+        "songs": [
+          {
+            "id": "cc9ffe97f1422ea53618c082b3b2e059",
+            "serverId": "jellyfin-10.10.7",
+            "durationMs": 3000,
+            "name": "P00 Tone A",
+            "itemType": "song"
+          },
+          {
+            "id": "b256bfeae941534adef594cf3d3d8949",
+            "serverId": "jellyfin-10.10.7",
+            "durationMs": 4048.98,
+            "name": "P00 Tone B",
+            "itemType": "song"
+          }
+        ]
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/users/8b93b19f89714ded9e0e2716a321f144/items",
+          "query": {
+            "Fields": [
+              "Genres",
+              "DateCreated",
+              "MediaSources",
+              "ParentId",
+              "Tags",
+              "SortName",
+              "ProviderIds"
+            ],
+            "IncludeItemTypes": "Audio",
+            "Limit": "20",
+            "Recursive": "true",
+            "SearchTerm": "P00",
+            "SortBy": "Name",
+            "SortOrder": "Ascending",
+            "StartIndex": "0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Invalid Jellyfin API response",
+          "detail": {
+            "endpoint": "GET users/:userId/items (users/8b93b19f89714ded9e0e2716a321f144/items)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "string",
+                "received": "undefined",
+                "path": "Items.0.AlbumPrimaryImageTag"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "array",
+                "received": "undefined",
+                "path": "Items.0.ExternalUrls"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "string",
+                "received": "undefined",
+                "path": "Items.0.MediaSources.0.MediaStreams.0.CodecTimeBase"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "number",
+                "received": "undefined",
+                "path": "Items.0.ParentIndexNumber"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "number",
+                "received": "undefined",
+                "path": "Items.0.ProductionYear"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "string",
+                "received": "undefined",
+                "path": "Items.1.AlbumPrimaryImageTag"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "array",
+                "received": "undefined",
+                "path": "Items.1.ExternalUrls"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "string",
+                "received": "undefined",
+                "path": "Items.1.MediaSources.0.MediaStreams.0.CodecTimeBase"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "number",
+                "received": "undefined",
+                "path": "Items.1.ParentIndexNumber"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "number",
+                "received": "undefined",
+                "path": "Items.1.ProductionYear"
+              }
+            ],
+            "status": 200
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "jellyfin-10.10.7-songs-offset-2",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 67
+          },
+          "path": "/users/8b93b19f89714ded9e0e2716a321f144/items",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "startIndex": 2,
+        "totalRecordCount": 2,
+        "songs": []
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/users/8b93b19f89714ded9e0e2716a321f144/items",
+          "query": {
+            "Fields": [
+              "Genres",
+              "DateCreated",
+              "MediaSources",
+              "ParentId",
+              "Tags",
+              "SortName",
+              "ProviderIds"
+            ],
+            "IncludeItemTypes": "Audio",
+            "Limit": "20",
+            "Recursive": "true",
+            "SearchTerm": "P00",
+            "SortBy": "Name",
+            "SortOrder": "Ascending",
+            "StartIndex": "2"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "jellyfin-10.10.7-http-401",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 77
+          },
+          "path": "/system/info",
+          "status": 401
+        }
+      ],
+      "observed": {
+        "clientStatus": 401
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/system/info",
+          "query": {},
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 1,
+      "toasts": 0,
+      "credentialClearRequests": 1
+    },
+    {
+      "id": "jellyfin-10.8.13-capabilities",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 82
+          },
+          "path": "/system/info",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "features": {
+          "reportPlayback": [
+            1
+          ],
+          "artistImageUpload": [
+            1
+          ],
+          "playlistImageUpload": [
+            1
+          ],
+          "tags": [
+            1
+          ]
+        },
+        "id": "jellyfin-10.8.13",
+        "version": "10.8.13"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/system/info",
+          "query": {},
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "jellyfin-10.8.13-songs-offset-0",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 80
+          },
+          "path": "/users/2473845e9718461792189f4d14b6f40f/items",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "startIndex": 0,
+        "totalRecordCount": 2,
+        "songs": [
+          {
+            "id": "cc9ffe97f1422ea53618c082b3b2e059",
+            "serverId": "jellyfin-10.8.13",
+            "durationMs": 3000,
+            "name": "P00 Tone A",
+            "itemType": "song"
+          },
+          {
+            "id": "b256bfeae941534adef594cf3d3d8949",
+            "serverId": "jellyfin-10.8.13",
+            "durationMs": 4048.98,
+            "name": "P00 Tone B",
+            "itemType": "song"
+          }
+        ]
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/users/2473845e9718461792189f4d14b6f40f/items",
+          "query": {
+            "Fields": [
+              "Genres",
+              "DateCreated",
+              "MediaSources",
+              "ParentId",
+              "Tags",
+              "SortName",
+              "ProviderIds"
+            ],
+            "IncludeItemTypes": "Audio",
+            "Limit": "20",
+            "Recursive": "true",
+            "SearchTerm": "P00",
+            "SortBy": "Name",
+            "SortOrder": "Ascending",
+            "StartIndex": "0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Invalid Jellyfin API response",
+          "detail": {
+            "endpoint": "GET users/:userId/items (users/2473845e9718461792189f4d14b6f40f/items)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "string",
+                "received": "undefined",
+                "path": "Items.0.AlbumPrimaryImageTag"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "array",
+                "received": "undefined",
+                "path": "Items.0.ExternalUrls"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "string",
+                "received": "undefined",
+                "path": "Items.0.MediaSources.0.MediaStreams.0.CodecTimeBase"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "number",
+                "received": "undefined",
+                "path": "Items.0.ParentIndexNumber"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "number",
+                "received": "undefined",
+                "path": "Items.0.ProductionYear"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "string",
+                "received": "undefined",
+                "path": "Items.1.AlbumPrimaryImageTag"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "array",
+                "received": "undefined",
+                "path": "Items.1.ExternalUrls"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "string",
+                "received": "undefined",
+                "path": "Items.1.MediaSources.0.MediaStreams.0.CodecTimeBase"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "number",
+                "received": "undefined",
+                "path": "Items.1.ParentIndexNumber"
+              },
+              {
+                "code": "invalid_type",
+                "expected": "number",
+                "received": "undefined",
+                "path": "Items.1.ProductionYear"
+              }
+            ],
+            "status": 200
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "jellyfin-10.8.13-songs-offset-2",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 81
+          },
+          "path": "/users/2473845e9718461792189f4d14b6f40f/items",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "startIndex": 2,
+        "totalRecordCount": 2,
+        "songs": []
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/users/2473845e9718461792189f4d14b6f40f/items",
+          "query": {
+            "Fields": [
+              "Genres",
+              "DateCreated",
+              "MediaSources",
+              "ParentId",
+              "Tags",
+              "SortName",
+              "ProviderIds"
+            ],
+            "IncludeItemTypes": "Audio",
+            "Limit": "20",
+            "Recursive": "true",
+            "SearchTerm": "P00",
+            "SortBy": "Name",
+            "SortOrder": "Ascending",
+            "StartIndex": "2"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "jellyfin-10.8.13-http-401",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 91
+          },
+          "path": "/system/info",
+          "status": 401
+        }
+      ],
+      "observed": {
+        "clientStatus": 401
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/system/info",
+          "query": {},
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 1,
+      "toasts": 0,
+      "credentialClearRequests": 1
+    },
+    {
+      "id": "old-gonic-missing-extension-envelope",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 51
+          },
+          "path": "/rest/getOpenSubsonicExtensions.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "clientStatus": 70,
+        "protocolCode": 70
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/getOpenSubsonicExtensions.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 1,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "silent-subsonic-error-rewrites-code",
+      "inputs": [
+        {
+          "source": {
+            "kind": "saved-live-response",
+            "record": 13
+          },
+          "path": "/rest/startScan.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "clientStatus": 200,
+        "protocolStatus": "failed",
+        "protocolCode": 0
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/startScan.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Invalid Subsonic API response",
+          "detail": {
+            "endpoint": "GET startScan.view (startScan.view)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "object",
+                "received": "undefined",
+                "path": "scanStatus"
+              }
+            ],
+            "status": 200
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "subsonic-network",
+      "inputs": [
+        {
+          "source": {
+            "kind": "synthetic"
+          },
+          "path": "/rest/ping.view",
+          "status": 200,
+          "error": "ERR_NETWORK"
+        }
+      ],
+      "observed": {
+        "error": "error.networkError"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/ping.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "subsonic-cancellation",
+      "inputs": [
+        {
+          "source": {
+            "kind": "synthetic"
+          },
+          "path": "/rest/ping.view",
+          "status": 200,
+          "error": "ERR_CANCELED"
+        }
+      ],
+      "observed": {
+        "clientStatus": null,
+        "body": null
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/ping.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "malformed-subsonic-envelope",
+      "inputs": [
+        {
+          "source": {
+            "kind": "synthetic"
+          },
+          "path": "/rest/ping.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "errorClass": "TypeError",
+        "validationReached": false
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/ping.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0"
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "subsonic-pre-aborted-request",
+      "inputs": [],
+      "observed": {
+        "clientStatus": null,
+        "transportCalls": 0
+      },
+      "requests": [],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "subsonic-report-start-form-post-false",
+      "inputs": [
+        {
+          "source": {
+            "kind": "synthetic"
+          },
+          "path": "/rest/scrobble.view",
+          "status": 200
+        },
+        {
+          "source": {
+            "kind": "synthetic"
+          },
+          "path": "/rest/reportPlayback.view",
+          "status": 200
+        },
+        {
+          "source": {
+            "kind": "synthetic"
+          },
+          "path": "/rest/reportPlayback.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "states": [
+          [
+            "starting"
+          ],
+          [
+            "playing"
+          ]
+        ],
+        "positionMs": [
+          "1235"
+        ]
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/scrobble.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "id": [
+              "fixture-song"
+            ],
+            "submission": [
+              "false"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        },
+        {
+          "method": "GET",
+          "path": "/rest/reportPlayback.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "ignoreScrobble": [
+              "true"
+            ],
+            "mediaId": [
+              "fixture-song"
+            ],
+            "mediaType": [
+              "song"
+            ],
+            "playbackRate": [
+              "2"
+            ],
+            "positionMs": [
+              "1235"
+            ],
+            "state": [
+              "starting"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        },
+        {
+          "method": "GET",
+          "path": "/rest/reportPlayback.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "ignoreScrobble": [
+              "true"
+            ],
+            "mediaId": [
+              "fixture-song"
+            ],
+            "mediaType": [
+              "song"
+            ],
+            "playbackRate": [
+              "2"
+            ],
+            "positionMs": [
+              "1235"
+            ],
+            "state": [
+              "playing"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Invalid Subsonic API response",
+          "detail": {
+            "endpoint": "GET scrobble.view (scrobble.view)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "null",
+                "received": "object",
+                "path": ""
+              }
+            ],
+            "status": 200
+          }
+        },
+        {
+          "message": "Invalid Subsonic API response",
+          "detail": {
+            "endpoint": "GET reportPlayback.view (reportPlayback.view)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "null",
+                "received": "object",
+                "path": ""
+              }
+            ],
+            "status": 200
+          }
+        },
+        {
+          "message": "Invalid Subsonic API response",
+          "detail": {
+            "endpoint": "GET reportPlayback.view (reportPlayback.view)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "null",
+                "received": "object",
+                "path": ""
+              }
+            ],
+            "status": 200
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "subsonic-report-start-form-post-true",
+      "inputs": [
+        {
+          "source": {
+            "kind": "synthetic"
+          },
+          "path": "/rest/scrobble.view",
+          "status": 200
+        },
+        {
+          "source": {
+            "kind": "synthetic"
+          },
+          "path": "/rest/reportPlayback.view",
+          "status": 200
+        },
+        {
+          "source": {
+            "kind": "synthetic"
+          },
+          "path": "/rest/reportPlayback.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "states": [
+          "starting",
+          "playing"
+        ],
+        "positionMs": "1235"
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/rest/scrobble.view",
+          "query": {},
+          "body": "c=Feishin&f=json&v=1.13.0&id=fixture-song&submission=false",
+          "authenticationPresent": true,
+          "signalPresent": false
+        },
+        {
+          "method": "POST",
+          "path": "/rest/reportPlayback.view",
+          "query": {},
+          "body": "c=Feishin&f=json&v=1.13.0&ignoreScrobble=true&mediaId=fixture-song&mediaType=song&playbackRate=2&positionMs=1235&state=starting",
+          "authenticationPresent": true,
+          "signalPresent": false
+        },
+        {
+          "method": "POST",
+          "path": "/rest/reportPlayback.view",
+          "query": {},
+          "body": "c=Feishin&f=json&v=1.13.0&ignoreScrobble=true&mediaId=fixture-song&mediaType=song&playbackRate=2&positionMs=1235&state=playing",
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Invalid Subsonic API response",
+          "detail": {
+            "endpoint": "GET scrobble.view (scrobble.view)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "null",
+                "received": "object",
+                "path": ""
+              }
+            ],
+            "status": 200
+          }
+        },
+        {
+          "message": "Invalid Subsonic API response",
+          "detail": {
+            "endpoint": "GET reportPlayback.view (reportPlayback.view)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "null",
+                "received": "object",
+                "path": ""
+              }
+            ],
+            "status": 200
+          }
+        },
+        {
+          "message": "Invalid Subsonic API response",
+          "detail": {
+            "endpoint": "GET reportPlayback.view (reportPlayback.view)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "null",
+                "received": "object",
+                "path": ""
+              }
+            ],
+            "status": 200
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "subsonic-submission-transport-boundary",
+      "inputs": [
+        {
+          "source": {
+            "kind": "synthetic"
+          },
+          "path": "/rest/scrobble.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "callbackCase": "speed-1",
+        "callbackSubmissionPosition": 180000000,
+        "resolvedBeforeTransport": false,
+        "outgoingSubmissionPosition": null
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/scrobble.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "id": [
+              "fixture-song"
+            ],
+            "submission": [
+              "true"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Invalid Subsonic API response",
+          "detail": {
+            "endpoint": "GET scrobble.view (scrobble.view)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "null",
+                "received": "object",
+                "path": ""
+              }
+            ],
+            "status": 200
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "navidrome-submission-transport-boundary",
+      "inputs": [
+        {
+          "source": {
+            "kind": "synthetic"
+          },
+          "path": "/rest/scrobble.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "callbackCase": "speed-1",
+        "callbackSubmissionPosition": 180000000,
+        "resolvedBeforeTransport": false,
+        "outgoingSubmissionPosition": null
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/scrobble.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "id": [
+              "fixture-song"
+            ],
+            "submission": [
+              "true"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [
+        {
+          "message": "Invalid Subsonic API response",
+          "detail": {
+            "endpoint": "GET scrobble.view (scrobble.view)",
+            "issues": [
+              {
+                "code": "invalid_type",
+                "expected": "null",
+                "received": "object",
+                "path": ""
+              }
+            ],
+            "status": 200
+          }
+        }
+      ],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "jellyfin-submission-transport-boundary",
+      "inputs": [
+        {
+          "source": {
+            "kind": "synthetic"
+          },
+          "path": "/sessions/playing/stopped",
+          "status": 204
+        }
+      ],
+      "observed": {
+        "callbackCase": "jellyfin-progress-and-submission-units",
+        "callbackSubmissionPosition": 1800000000000,
+        "resolvedBeforeTransport": true,
+        "outgoingSubmissionPosition": 1800000000000
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/sessions/playing/stopped",
+          "query": {},
+          "body": {
+            "IsPaused": true,
+            "ItemId": "fixture-song",
+            "PositionTicks": 1800000000000
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "subsonic-rejected-submission",
+      "inputs": [
+        {
+          "source": {
+            "kind": "synthetic"
+          },
+          "path": "/rest/scrobble.view",
+          "status": 200
+        }
+      ],
+      "observed": {
+        "error": "Failed to scrobble"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/scrobble.view",
+          "query": {
+            "c": "Feishin",
+            "f": "json",
+            "v": "1.13.0",
+            "id": [
+              "fixture-song"
+            ],
+            "submission": [
+              "true"
+            ]
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 1,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "jellyfin-queue-window-start",
+      "inputs": [
+        {
+          "source": {
+            "kind": "synthetic"
+          },
+          "path": "/sessions/playing",
+          "status": 204
+        }
+      ],
+      "observed": {
+        "reportedQueue": [
+          {
+            "Id": "song-13"
+          },
+          {
+            "Id": "song-12"
+          },
+          {
+            "Id": "song-12"
+          },
+          {
+            "Id": "song-11"
+          },
+          {
+            "Id": "song-11"
+          },
+          {
+            "Id": "song-10"
+          },
+          {
+            "Id": "song-10"
+          },
+          {
+            "Id": "song-9"
+          },
+          {
+            "Id": "song-9"
+          },
+          {
+            "Id": "song-8"
+          },
+          {
+            "Id": "song-8"
+          },
+          {
+            "Id": "song-7"
+          },
+          {
+            "Id": "song-7"
+          },
+          {
+            "Id": "song-6"
+          },
+          {
+            "Id": "song-6"
+          },
+          {
+            "Id": "song-5"
+          },
+          {
+            "Id": "song-5"
+          },
+          {
+            "Id": "song-4"
+          },
+          {
+            "Id": "song-4"
+          },
+          {
+            "Id": "song-3"
+          }
+        ],
+        "positionTicks": 100000000
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/sessions/playing",
+          "query": {},
+          "body": {
+            "ItemId": "fixture-song",
+            "NowPlayingQueue": [
+              {
+                "Id": "song-13"
+              },
+              {
+                "Id": "song-12"
+              },
+              {
+                "Id": "song-12"
+              },
+              {
+                "Id": "song-11"
+              },
+              {
+                "Id": "song-11"
+              },
+              {
+                "Id": "song-10"
+              },
+              {
+                "Id": "song-10"
+              },
+              {
+                "Id": "song-9"
+              },
+              {
+                "Id": "song-9"
+              },
+              {
+                "Id": "song-8"
+              },
+              {
+                "Id": "song-8"
+              },
+              {
+                "Id": "song-7"
+              },
+              {
+                "Id": "song-7"
+              },
+              {
+                "Id": "song-6"
+              },
+              {
+                "Id": "song-6"
+              },
+              {
+                "Id": "song-5"
+              },
+              {
+                "Id": "song-5"
+              },
+              {
+                "Id": "song-4"
+              },
+              {
+                "Id": "song-4"
+              },
+              {
+                "Id": "song-3"
+              }
+            ],
+            "PositionTicks": 100000000
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "jellyfin-queue-window-unpause",
+      "inputs": [
+        {
+          "source": {
+            "kind": "synthetic"
+          },
+          "path": "/sessions/playing/progress",
+          "status": 204
+        }
+      ],
+      "observed": {
+        "reportedQueue": [
+          {
+            "Id": "song-13"
+          },
+          {
+            "Id": "song-12"
+          },
+          {
+            "Id": "song-12"
+          },
+          {
+            "Id": "song-11"
+          },
+          {
+            "Id": "song-11"
+          },
+          {
+            "Id": "song-10"
+          },
+          {
+            "Id": "song-10"
+          },
+          {
+            "Id": "song-9"
+          },
+          {
+            "Id": "song-9"
+          },
+          {
+            "Id": "song-8"
+          },
+          {
+            "Id": "song-8"
+          },
+          {
+            "Id": "song-7"
+          },
+          {
+            "Id": "song-7"
+          },
+          {
+            "Id": "song-6"
+          },
+          {
+            "Id": "song-6"
+          },
+          {
+            "Id": "song-5"
+          },
+          {
+            "Id": "song-5"
+          },
+          {
+            "Id": "song-4"
+          },
+          {
+            "Id": "song-4"
+          },
+          {
+            "Id": "song-3"
+          }
+        ],
+        "positionTicks": 100000000
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/sessions/playing/progress",
+          "query": {},
+          "body": {
+            "EventName": "unpause",
+            "IsPaused": false,
+            "ItemId": "fixture-song",
+            "NowPlayingQueue": [
+              {
+                "Id": "song-13"
+              },
+              {
+                "Id": "song-12"
+              },
+              {
+                "Id": "song-12"
+              },
+              {
+                "Id": "song-11"
+              },
+              {
+                "Id": "song-11"
+              },
+              {
+                "Id": "song-10"
+              },
+              {
+                "Id": "song-10"
+              },
+              {
+                "Id": "song-9"
+              },
+              {
+                "Id": "song-9"
+              },
+              {
+                "Id": "song-8"
+              },
+              {
+                "Id": "song-8"
+              },
+              {
+                "Id": "song-7"
+              },
+              {
+                "Id": "song-7"
+              },
+              {
+                "Id": "song-6"
+              },
+              {
+                "Id": "song-6"
+              },
+              {
+                "Id": "song-5"
+              },
+              {
+                "Id": "song-5"
+              },
+              {
+                "Id": "song-4"
+              },
+              {
+                "Id": "song-4"
+              },
+              {
+                "Id": "song-3"
+              }
+            ],
+            "PositionTicks": 100000000
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "jellyfin-queue-window-timeupdate",
+      "inputs": [
+        {
+          "source": {
+            "kind": "synthetic"
+          },
+          "path": "/sessions/playing/progress",
+          "status": 204
+        }
+      ],
+      "observed": {
+        "reportedQueue": null,
+        "positionTicks": 100000000
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/sessions/playing/progress",
+          "query": {},
+          "body": {
+            "EventName": "timeupdate",
+            "ItemId": "fixture-song",
+            "PositionTicks": 100000000
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    },
+    {
+      "id": "jellyfin-queue-window-stop",
+      "inputs": [
+        {
+          "source": {
+            "kind": "synthetic"
+          },
+          "path": "/sessions/playing/stopped",
+          "status": 204
+        }
+      ],
+      "observed": {
+        "reportedQueue": null,
+        "positionTicks": 100000000
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/sessions/playing/stopped",
+          "query": {},
+          "body": {
+            "ItemId": "fixture-song",
+            "PositionTicks": 100000000
+          },
+          "authenticationPresent": true,
+          "signalPresent": false
+        }
+      ],
+      "validationWarnings": [],
+      "authFailures": 0,
+      "toasts": 0,
+      "credentialClearRequests": 0
+    }
+  ],
+  "limitations": [
+    "Redacted saved HTTP bodies/statuses replayed at Axios adapter boundary; no new live request or authentication verified.",
+    "Saved capture has no headers. Missing-count-header cases deliberately replay none; native total-count observations are not server results.",
+    "Jukebox replies, scrobble acknowledgements, malformed bodies and transport failures are synthetic.",
+    "Auth UI/store side effects are counters; no logout, credential refresh, engine, React effects or physical storage.",
+    "Request paths use pinned contract spelling; query/body records are Axios configurations before socket serialization.",
+    "Jellyfin held acknowledgement succeeds after release. Failed detached requests and server/plugin interpretation remain untested."
+  ]
+}

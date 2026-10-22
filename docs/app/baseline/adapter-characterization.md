@@ -1,0 +1,35 @@
+# P00.04/P00.06 pinned adapter characterization
+
+Date: 2026-10-22. [54 recorded cases](../../../tests/fixtures/p00/adapter-traces.json) execute the pinned Subsonic, Navidrome and Jellyfin controllers, ts-rest clients, Axios response interceptors, diagnostic response validation and normalizers. This extends the earlier direct [live service capture](live-servers.md) through original adapter code. It is an offline replay, not a new live Feishin-to-server run or a Rust implementation.
+
+The [loader](../../../tools/app/p00-adapter-runtime.cjs) checks all 1,005 source/package/lock hashes in the tracked source audit before evaluation. It uses the frozen reference dependencies (esbuild 0.25.12, Axios 1.17.0) and enables the original diagnostic response validator. Axios receives an offline adapter inherited by its created instances; unexpected origins and requests fail. The adapter supplies saved body/status pairs or explicitly synthetic responses. No sockets are opened. Request records describe Axios method/path/query/body configurations before socket serialization, with authentication values omitted. Only authentication presence is retained.
+
+Auth store, auth-failure actions, toast, translation, logs, player/radio snapshots, persistence and unused transcoding-profile helpers have explicit boundaries listed in the report. Auth effects are counted, not executed. The application facade, profile lookup, refresh/logout, mounted React, engine callbacks and physical storage are outside the harness. Normalized song assertions cover selected identity/name/type/duration fields; they do not establish full model parity.
+
+Feature maps are supplied per scenario: search/list cases use empty maps rather than inheriting discovery results; form POST/reporting cases set their tested capabilities explicitly. The cases do not form one continuous authenticated application session.
+
+| Cases | Observed original-code behavior |
+| --- | --- |
+| Six old/current capability paths | Old non-OpenSubsonic pings skip extension discovery. Current Navidrome combines native and extension queue versions as `[2,1]`. Old Gonic reports the Subsonic protocol version rather than a server version. Jukebox fallback responses are synthetic: Navidrome still advertises jukebox after a failed probe because its native controller adds that feature unconditionally. This does not establish actual jukebox support. |
+| Four search paths, first/end pages | Saved two-tone responses normalize to 3000/4000 ms. Subsonic search preserves unknown total as null and uses only the first selected library ID. Both native Navidrome responses retain their own more precise MP3 duration (4050 ms); Jellyfin retains 4048.98 ms. These differences originate in the captured DTOs. |
+| Four duplicate playlists before/after removal | The Subsonic controller preserves both copies of one song with distinct positional playlist entry IDs. Replayed post-removal responses normalize to one entry. No new remote mutation is performed. |
+| Native Navidrome count header absent | The old capture did not retain HTTP headers. Deliberately replaying no `x-total-count` produces total zero alongside two normalized items. This is a missing-header boundary observation, not a captured server count defect. |
+| Protocol failures and auth effects | HTTP-200 Subsonic errors become client statuses 40/50/70. Code 40 calls the auth-failure boundary. Silent mode changes a permission error to code zero and retains HTTP 200 with `status=failed`; no toast is emitted. Jellyfin HTTP 401 requests a credential clear and auth failure. These are original adapter effects with fixture credentials, not authentication tests. |
+| Malformed body, network and cancellation | Missing Subsonic envelope throws TypeError in the interceptor before diagnostic validation. Injected `ERR_NETWORK` throws the translation key from the translation stub. Injected/pre-aborted cancellation returns a client result with undefined status/body; the pre-aborted request never reaches transport. No cancellation propagation guarantee is inferred. |
+| Callback submission into each controller | The saved 180000 ms song callback argument becomes 180000000 for Subsonic/Navidrome, but their scrobble controller omits position from the outgoing query and waits for the response. Jellyfin places 1800000000000 directly into `PositionTicks` and resolves before a held synthetic response is released. Server/plugin interpretation and failed detached request handling remain untested. |
+| Subsonic report start and failed submission | Playback reporting sends `starting` then `playing`, rounds 1234.5 ms to 1235, and uses GET or form POST according to the explicit capability. A synthetic permission failure rejects an awaited scrobble submission. |
+| Jellyfin queue reports | Synthetic shuffled 30-occurrence snapshots report at most 20 upcoming items, preserving repeated song IDs, on start/unpause. Tested timeupdate/stop bodies omit the queue. This is payload formation, not server session behavior. |
+
+The saved replay also retains diagnostic warnings: selected real responses fail the original schemas while their tested fields still normalize. Examples include missing/native-null optional metadata and Jellyfin fields not requested by the old collector. The original validator logs diagnostics and does not reject or replace the data. Subsonic playlist/scan envelope-schema mismatches and synthetic scrobble acknowledgement warnings are retained separately in each case. Do not label these as schema-conformance passes or assume all warnings indicate malformed service responses.
+
+Each input points either to a record index in the immutable saved live capture or to `synthetic`. Capture and callback-fixture SHA-256 hashes bind the replay to its inputs. Source-to-evidence links are in the [runtime migration map](../migration/p00-runtime-map.csv); every Rust symbol remains empty and every disposition remains `unmapped`.
+
+Run from the repository root with the existing frozen reference environment:
+
+```sh
+node tests/reference/p00-adapter-traces.cjs /tmp/feishin-p00-reference /tmp/feishin-p00-reference/node_modules/.pnpm/node_modules/esbuild/lib/main.js tests/fixtures/p00/adapter-traces.json
+```
+
+The optional tooling test repeats this exact comparison. Default artifact checks need tracked inputs, Python 3.11+, Node 22.22.2+ and Git, without the reference checkout/dependencies. Tests also reject modified source before dependency loading and reject nonfixture origins. Hash-bound fixture JSON uses LF in Git attributes; a temporary-index checkout with `core.autocrlf=true` verifies unchanged input bytes. This increment starts no fixture services and modifies no profile or original source.
+
+Remaining P00 work includes actual authenticated Feishin adapter traffic, live large-library runs, React song-change/Auto DJ races, real profile export/import, engine/reporting consequences, UI workflows and hardware/audio performance calibration. See the [evidence matrix](README.md). No later phase or full P00 exit is claimed.

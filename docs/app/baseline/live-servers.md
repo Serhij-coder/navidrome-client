@@ -2,6 +2,8 @@
 
 Date: 2026-10-22, Linux amd64, rootless Podman. [92 redacted HTTP responses](../../../tests/fixtures/p00/live-responses.json) cover these actual servers. The capture is direct service API evidence; it does not execute Feishin's adapters, authenticate a browser or prove audio playback. All six servers were stopped after capture. Their temporary profiles contain generated credentials and must stay outside Git.
 
+A subsequent [offline adapter replay](adapter-characterization.md) now executes selected original controller/client/interceptor/normalizer paths against these saved bodies/statuses. Its synthetic boundaries and request differences are explicit; it does not turn the direct capture into authenticated live Feishin traffic.
+
 | Fixture / host loopback port | Image digest observed with `podman image inspect` |
 | --- | --- |
 | `docker.io/deluan/navidrome:0.61.0` / 14533 | `sha256:3b26699da946f88cd35be637c6119e72d05651fe04245f7c6c6acff856f8768b` |

@@ -9,15 +9,15 @@ The upstream baseline is jeffvli/feishin development commit `7d6ad318c79802e2269
 | P00.01 | Verified existing baseline | Archive/inventory checks; [source audit](source-audit.json) records inspected source hashes. No immutable baseline was changed. |
 | P00.02 | Static characterization complete | [Routes and composition](routes.md), all 52 [journeys](journeys.csv), stable [migration anchors](../migration/p00-map.csv). Target expectations/UI mappings are ADR-linked proposals, separate from uncaptured original outcomes; execution belongs to P00.03. |
 | P00.03 | Partial, blocked | Pinned production web and remote builds pass; [run record](reference-run.md). Browser tool has no available browser; no UI screenshots, keyboard/drag captures, live serialized profiles or request/event traces. Desktop launch also unverified. |
-| P00.04 | Expanded, partial | [Six old/current live server instances](live-servers.md), non-admin accounts and 92 redacted API responses; synthetic fixtures, 12 scenarios and bounded 10k/100k generator remain. Live large-library and pinned adapter execution remain unverified. |
+| P00.04 | Expanded, partial | [Six old/current live server instances](live-servers.md), non-admin accounts and 92 redacted API responses; [54 pinned adapter replay cases](adapter-characterization.md) now cover selected controllers/clients/interceptors/normalizers. Live large-library and authenticated Feishin-to-server execution remain unverified. |
 | P00.05 | Recorded, feasibility pending | [ADR-001](../adr/001-egui-desktop.md), [ADR-002](../adr/002-target-matrix.md), [ADR-003](../adr/003-playback-boundaries.md). Platforms/engines remain candidates until measured. |
-| P00.06 | Expanded, partial | [Headless source execution](headless-characterization.md): 25 queue/persistence cases, 1,000 seeded commands and 8 progress-callback traces. Full React/engine effects, Auto DJ races and actual export/import UI remain open. |
+| P00.06 | Expanded, partial | [Headless source execution](headless-characterization.md): 25 queue/persistence cases, 1,000 seeded commands and 8 progress-callback traces; [adapter replay](adapter-characterization.md) follows submission arguments into request configurations. Full React/engine effects, Auto DJ races and actual export/import UI remain open. |
 | P00.07 | Expanded, partial | [Actual 10k/100k headless queue samples](queue-measurements.json) complement [candidate budgets/protocol](performance.md). Packaged desktop startup/frame/audio/idle measurements and calibration remain unavailable. |
 | P00.08 | Expanded, partial | [Notices](../../../THIRD_PARTY_NOTICES.md), [font metadata/full publisher licenses](font-license-evidence.json), asset dispositions and ADR-010. Exact-version copyright reconciliation, Symbola terms, final branding and future distributed dependency/native-binary notices remain release gates. |
 
 P00 exits only with the original running in an isolated profile, representative server captures, full behavior traces, actual measurements and calibrated budgets. Static checks, successful bundling and synthetic data do not satisfy those gates. Keep P01-P14 unopened until those gaps are resolved.
 
-Run tracked checks from a clean checkout with Python 3.11+ and Node 22.22.2+:
+Run tracked checks from a clean checkout with Python 3.11+, Node 22.22.2+ and Git:
 
 ```sh
 python3 tools/app/check-p00.py
@@ -26,4 +26,4 @@ node --check tools/app/p00-source-audit.cjs
 node --check tools/app/p00-wire-check.cjs
 ```
 
-The parser regression test additionally needs TypeScript 6.0.3 at `P00_TYPESCRIPT`; without it that optional reference test is explicitly skipped. Set `P00_REFERENCE_ROOT` and `P00_ESBUILD` as well to rerun the optional saved state/scrobble traces. Reference reproduction and the optional source/archive comparison are in the [run record](reference-run.md); check outcomes are in the [initial verification](verification.md) and [2026-10-22 increment](verification-2026-10-22.md). Default tracked checks read only tracked inputs. No check claims audio/device/end-to-end parity.
+The parser regression test additionally needs TypeScript 6.0.3 at `P00_TYPESCRIPT`; without it that optional reference test is explicitly skipped. Set `P00_REFERENCE_ROOT` and `P00_ESBUILD` as well to rerun the optional saved state/scrobble/adapter traces. Reference reproduction and the optional source/archive comparison are in the [run record](reference-run.md); check outcomes are in the [initial verification](verification.md), [2026-10-22 increment](verification-2026-10-22.md) and [adapter verification](verification-adapters-2026-10-22.md). Default tracked checks read only tracked inputs. No check claims audio/device/end-to-end parity.

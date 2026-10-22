@@ -1,3 +1,6 @@
 # Keep maintained evidence CSVs stable in Windows and Unix checkouts.
 /docs/app/baseline/*.csv text eol=lf
 /docs/app/migration/*.csv text eol=lf
+
+# Fixture provenance hashes bind exact bytes across platform checkouts.
+/tests/fixtures/p00/*.json text eol=lf
