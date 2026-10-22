@@ -27,3 +27,7 @@ path = "../../tests/performance/headless.rs"
 
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
 image = { version = "=0.25.10", default-features = false, features = ["png"] }
+
+[target.'cfg(unix)'.dev-dependencies]
+feishin-native-spike = { path = "../native-spike" }
+tempfile.workspace = true

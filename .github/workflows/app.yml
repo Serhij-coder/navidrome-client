@@ -33,10 +33,13 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
       - uses: dtolnay/rust-toolchain@1.92.0
         with:
           components: clippy
-      - run: cargo test --workspace --locked
+      - run: python tools/app/test-native.py
       - run: cargo clippy -p feishin-desktop --no-default-features --features wgpu --all-targets --locked -- -D warnings
       - run: cargo build -p feishin-desktop --release --locked
   wasm:

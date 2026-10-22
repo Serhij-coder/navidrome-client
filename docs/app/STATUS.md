@@ -1,13 +1,15 @@
 # Project scratchpad
 
-- Stage: P01 workspace/feasibility started at maintainer request; P00 and P01 exit gates remain open. No P02+ implementation.
-- Implemented: pinned Rust 1.92 / egui 0.33.3 workspace, native Glow/wgpu candidates, separate web/remote WASM roots.
-- Table: 100k native virtual rows, synthetic selection/group/sort/filter/drag and bounded artwork probes; bounded latest-only worker; browser capped at 1k.
-- Media: Unix local-file mpv IPC/lifecycle and explicit bounded Linux monitor analysis; no native fallback or Windows IPC yet.
-- Browser: disposable token-gated WAV, WebAudio analysis, wrong-token/CORS/codec cases on Chromium/Firefox/WebKit lab engines.
-- Packaging: Ubuntu x86_64 AppImage starts in a separate runtime without checkout/Rust; external mpv null-output probe; no physical audio/arm64/release certification.
-- Verification and open subphases: [P01 runbook](p01/README.md), [verification](p01/verification.md), [migration map](migration/p01-map.csv).
-- Last checks: 17 default Rust + four native runtime tests; 45 Python with reference; Clippy/format/WASM/browser/AppImage passed; both reviews satisfied.
-- Required gaps: P00 calibration, real concurrent performance, screen readers/IME/RTL/DPI/touch, native fallback, OS/capture/target matrix.
-- Licensing: dependency/font inventory and exact-revision texts added; [native runtime and exact-notice release gates](licenses/README.md) remain open.
-- Next: finish only P01 validation/remediation; do not start bulk screens or P02.
+- Stage: P01.01 complete; P01.02-.08 have prototypes/evidence but open exit gates. No P02+ implementation.
+- Native UI: pinned Rust 1.92 / egui 0.33.3; Glow/wgpu candidates, separate web/remote WASM roots; keyboard Tab/arrows/Home/End and named controls.
+- Table: 100k virtual rows, bounded worker/artwork; 6000 CPU-only concurrent scrolling/sort/filter/group/playback/monitor samples, not presented frames.
+- Media: Unix mpv; explicit ffplay/SDL and offline FFmpeg filter/waveform candidates, not a selected production fallback.
+- Capture: one-slot off-UI supervisor with generation isolation, suspend/re-enable/retry and real owned-monitor checks; no default host capture.
+- Browser: real disposable Navidrome FLAC/MP3 on three lab engines; six session callbacks, cancellable/deadlined play, lifecycle/reload checks; Firefox/WebKit seeks remain open.
+- Packaging/accessibility: rebuilt Ubuntu x86_64 AppImage runs without checkout/Rust; Linux AT-SPI names audited after fixing unnamed filter; no screen-reader/device certification.
+- Hosted initial CI: Linux/Windows/WASM and both AppImage CPUs passed; macOS tests failed, detailed logs unavailable. New native annotations expose failed test names.
+- Checks: 23 default Rust + five explicit native runtime; 47 Python with reference; format/Clippy/WASM, six cross checks, browser and copied-input checks passed.
+- Records: [continuation](p01/continuation.md), [matrix](p01/README.md), [migration map](migration/p01-map.csv), [license gaps](licenses/README.md).
+- Review: both independent reviewers accepted final source/tests/evidence after socket/privacy and retry-regression fixes.
+- Open: calibrated physical budgets, renderer/input/IME/RTL/touch/screen-reader/OS matrix, Windows IPC, full native fallback and release licensing; no P01 exit.
+- Next: inspect current hosted results and remaining P01 gates; P02 authorized only after verified P01 exit.

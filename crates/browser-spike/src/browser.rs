@@ -1,6 +1,7 @@
 use feishin_spike_ui::SpikeApp;
+use futures_util::future::{AbortHandle, Abortable, Either, join, select};
 use std::{
-    cell::RefCell,
+    cell::{Cell, RefCell},
     rc::{Rc, Weak},
 };
 use wasm_bindgen::{JsCast, prelude::*};
@@ -63,7 +64,7 @@ impl eframe::App for BrowserApp {
         }
     }
 }
-type SessionHandlers = Vec<(&'static str, Closure<dyn FnMut()>)>;
+type SessionHandlers = Vec<(&'static str, Closure<dyn FnMut(JsValue)>)>;
 
 struct Media {
     audio: HtmlAudioElement,
@@ -75,6 +76,10 @@ struct Media {
     interval: RefCell<Option<i32>>,
     tick: RefCell<Option<Closure<dyn FnMut()>>>,
     session_handlers: RefCell<SessionHandlers>,
+    generation: Cell<u64>,
+    pending_play: RefCell<Option<AbortHandle>>,
+    expected_seek: Cell<Option<f64>>,
+    needs_reload: Cell<bool>,
 }
 impl Media {
     fn refresh(&self) {
@@ -104,29 +109,103 @@ impl Media {
             self.app.borrow_mut().analysis = None;
         }
     }
-    fn play(&self) {
-        // Both calls happen synchronously in the user gesture before awaiting promises.
+    fn cancel_pending(&self) {
+        self.generation.set(self.generation.get().wrapping_add(1));
+        if let Some(task) = self.pending_play.borrow_mut().take() {
+            task.abort();
+        }
+    }
+    fn pause(&self, stop: bool) {
+        self.cancel_pending();
+        let _ = self.audio.pause();
+        if stop {
+            self.seek(0.0);
+        }
+        self.refresh();
+    }
+    fn seek(&self, seconds: f64) {
+        let duration = self.audio.duration();
+        if seconds.is_finite() && duration.is_finite() && duration > 0.0 {
+            let target = seconds.clamp(0.0, duration);
+            self.expected_seek.set(Some(target));
+            self.audio.set_current_time(target);
+            self.update_session();
+        }
+    }
+    fn update_session(&self) {
+        let Ok(session) = media_session() else {
+            return;
+        };
+        let _ = js_sys::Reflect::set(
+            &session,
+            &"playbackState".into(),
+            &if self.audio.paused() {
+                "paused"
+            } else {
+                "playing"
+            }
+            .into(),
+        );
+        let duration = self.audio.duration();
+        let position = self.audio.current_time();
+        if duration.is_finite() && duration > 0.0 && position.is_finite() {
+            let state = js_sys::Object::new();
+            let _ = js_sys::Reflect::set(&state, &"duration".into(), &duration.into());
+            let _ = js_sys::Reflect::set(
+                &state,
+                &"position".into(),
+                &position.clamp(0.0, duration).into(),
+            );
+            let _ = js_sys::Reflect::set(
+                &state,
+                &"playbackRate".into(),
+                &self.audio.playback_rate().into(),
+            );
+            if let Ok(method) = js_sys::Reflect::get(&session, &"setPositionState".into())
+                .and_then(|method| method.dyn_into::<js_sys::Function>())
+            {
+                let _ = method.call1(&session, &state);
+            }
+        }
+    }
+    fn play(self: &Rc<Self>) {
+        self.cancel_pending();
+        let generation = self.generation.get();
+        // Both calls stay within the original user gesture.
         let play = self.audio.play();
         let resume = self.context.resume();
+        let weak = Rc::downgrade(self);
+        let (abort, registration) = AbortHandle::new_pair();
+        *self.pending_play.borrow_mut() = Some(abort);
         wasm_bindgen_futures::spawn_local(async move {
-            let resumed = match resume {
-                Ok(promise) => wasm_bindgen_futures::JsFuture::from(promise).await.is_ok(),
-                Err(_) => false,
-            };
-            let played = match play {
-                Ok(promise) => wasm_bindgen_futures::JsFuture::from(promise).await.is_ok(),
-                Err(_) => false,
-            };
-            status(if resumed && played {
-                "Playing browser stream; inspect actual audio and media controls."
-            } else {
-                "Playback rejected: check autoplay permission, CORS, codec and server credentials. Details are not logged."
-            });
+            let _ = Abortable::new(async move {
+                let result = async move {
+                    let (resumed, played) = join(promise_succeeded(resume), promise_succeeded(play)).await;
+                    resumed && played
+                };
+                let success = if let Ok(mut deadline) = BrowserDeadline::new() {
+                    matches!(select(Box::pin(result), Box::pin(deadline.wait())).await, Either::Left((true, _)))
+                } else { false };
+                if let Some(media) = weak.upgrade()
+                    && generation == media.generation.get()
+                {
+                    media.pending_play.borrow_mut().take();
+                    if !success { media.needs_reload.set(true); let _ = media.audio.pause(); }
+                    status(if success && !media.audio.paused() {
+                        "Playing browser stream; inspect actual audio and media controls."
+                    } else {
+                        "Playback rejected or timed out: check autoplay permission, CORS, codec and server credentials. Details are not logged."
+                    });
+                    media.refresh();
+                    media.update_session();
+                }
+            }, registration).await;
         });
     }
 }
 impl Drop for Media {
     fn drop(&mut self) {
+        self.cancel_pending();
         if let Some(window) = web_sys::window() {
             if let Some(id) = self.interval.borrow_mut().take() {
                 window.clear_interval_with_handle(id);
@@ -141,6 +220,10 @@ impl Drop for Media {
         let _ = self.source.disconnect();
         let _ = self.analyser.disconnect();
         let _ = self.context.close();
+        if let Ok(session) = media_session() {
+            let _ = js_sys::Reflect::set(&session, &"metadata".into(), &JsValue::NULL);
+            let _ = js_sys::Reflect::set(&session, &"playbackState".into(), &"none".into());
+        }
     }
 }
 
@@ -206,6 +289,10 @@ pub async fn start(remote: bool) -> Result<(), JsValue> {
             interval: RefCell::new(None),
             tick: RefCell::new(None),
             session_handlers: RefCell::new(Vec::new()),
+            generation: Cell::new(0),
+            pending_play: RefCell::new(None),
+            expected_seek: Cell::new(None),
+            needs_reload: Cell::new(false),
         });
         let weak: Weak<Media> = Rc::downgrade(&media);
         *media.tick.borrow_mut() = Some(Closure::wrap(Box::new(move || {
@@ -242,45 +329,104 @@ pub async fn start(remote: bool) -> Result<(), JsValue> {
                 status("Only HTTP(S) URLs without embedded username/password are accepted.");
                 return;
             }
-            if media.audio.src() != url.href() {
+            let reload = media.needs_reload.replace(false);
+            if media.audio.src() != url.href() || reload || media.audio.error().is_some() {
+                media.cancel_pending();
+                media.expected_seek.set(None);
                 media.audio.set_src(&url.href());
                 media.audio.load();
             }
             media.play();
         })?);
-        for event in ["play", "pause", "ended"] {
+        for event in [
+            "play",
+            "pause",
+            "ended",
+            "loadedmetadata",
+            "timeupdate",
+            "ratechange",
+            "seeked",
+        ] {
             let weak = Rc::downgrade(&media);
             events.push(bind(media.audio.as_ref(), event, move |_| {
                 if let Some(media) = weak.upgrade() {
+                    if event == "pause" && media.audio.paused() {
+                        media.cancel_pending();
+                    }
+                    if event == "seeked" && !media.audio.seeking()
+                        && let Some(expected) = media.expected_seek.take()
+                    {
+                        if (media.audio.current_time() - expected).abs() > 0.25 {
+                            media.needs_reload.set(true);
+                            status("Seek did not reach the requested position. Reload and check stream, codec and range support.");
+                        } else {
+                            status("Seek completed in browser stream.");
+                        }
+                    }
                     media.refresh();
+                    media.update_session();
                 }
             })?);
         }
-        events.push(bind(media.audio.as_ref(), "error", |_| status("Media error: stream, credentials, CORS or codec failed. No URL or server error is logged."))?);
+        let weak = Rc::downgrade(&media);
+        events.push(bind(media.audio.as_ref(), "error", move |_| {
+            if let Some(media) = weak.upgrade() && media.audio.error().is_some() {
+                media.cancel_pending();
+                media.expected_seek.set(None);
+                media.needs_reload.set(true);
+                media.refresh();
+                status("Media error: stream, credentials, CORS or codec failed. No URL or server error is logged.");
+            }
+        })?);
         let weak = Rc::downgrade(&media);
         events.push(bind(document.as_ref(), "visibilitychange", move |_| {
             if let Some(media) = weak.upgrade() {
                 media.refresh();
             }
         })?);
-        for action in ["play", "pause", "stop"] {
+        // No next/previous registration: this shell has no playback queue.
+        for action in [
+            "play",
+            "pause",
+            "stop",
+            "seekto",
+            "seekbackward",
+            "seekforward",
+        ] {
             let weak = Rc::downgrade(&media);
-            let callback = Closure::wrap(Box::new(move || {
+            let callback = Closure::wrap(Box::new(move |details: JsValue| {
                 if let Some(media) = weak.upgrade() {
-                    if action == "play" {
-                        media.play();
-                    } else {
-                        let _ = media.audio.pause();
-                        if action == "stop" {
-                            media.audio.set_current_time(0.0);
+                    match action {
+                        "play" => media.play(),
+                        "pause" => media.pause(false),
+                        "stop" => media.pause(true),
+                        "seekto" => {
+                            if let Some(seconds) = detail_number(&details, "seekTime") {
+                                media.seek(seconds);
+                            }
                         }
+                        "seekbackward" | "seekforward" => {
+                            let offset = detail_number(&details, "seekOffset").unwrap_or(5.0);
+                            if offset.is_finite() && offset >= 0.0 {
+                                media.seek(
+                                    media.audio.current_time()
+                                        + if action == "seekbackward" {
+                                            -offset
+                                        } else {
+                                            offset
+                                        },
+                                );
+                            }
+                        }
+                        _ => {}
                     }
                 }
-            }) as Box<dyn FnMut()>);
+            }) as Box<dyn FnMut(JsValue)>);
             if set_media_handler(action, Some(callback.as_ref().unchecked_ref())).is_ok() {
                 media.session_handlers.borrow_mut().push((action, callback));
             }
         }
+        set_fixture_metadata();
         status(
             "Paste a disposable authenticated HTTP(S) stream URL, then Play. URL stays only in this tab. Cookies use anonymous CORS; token query URLs require server CORS permission.",
         );
@@ -300,8 +446,7 @@ pub async fn start(remote: bool) -> Result<(), JsValue> {
 // Catch optional-browser API failures instead of allowing an imported JS exception
 // to abort the WASM shell. Keep this compatibility binding in the browser crate.
 fn set_media_handler(action: &str, callback: Option<&js_sys::Function>) -> Result<(), JsValue> {
-    let navigator = web_sys::window().ok_or(JsValue::NULL)?.navigator();
-    let session = js_sys::Reflect::get(navigator.as_ref(), &JsValue::from_str("mediaSession"))?;
+    let session = media_session()?;
     let method = js_sys::Reflect::get(&session, &JsValue::from_str("setActionHandler"))?
         .dyn_into::<js_sys::Function>()?;
     method.call2(
@@ -342,4 +487,90 @@ pub fn analysis_peak() -> f32 {
             })
             .unwrap_or(0.0)
     })
+}
+
+fn media_session() -> Result<JsValue, JsValue> {
+    let navigator = web_sys::window().ok_or(JsValue::NULL)?.navigator();
+    js_sys::Reflect::get(navigator.as_ref(), &"mediaSession".into())
+}
+fn detail_number(details: &JsValue, key: &str) -> Option<f64> {
+    js_sys::Reflect::get(details, &key.into()).ok()?.as_f64()
+}
+fn set_fixture_metadata() {
+    let _ = (|| -> Result<(), JsValue> {
+        let window = web_sys::window().ok_or(JsValue::NULL)?;
+        let constructor = js_sys::Reflect::get(window.as_ref(), &"MediaMetadata".into())?
+            .dyn_into::<js_sys::Function>()?;
+        let data = js_sys::Object::new();
+        js_sys::Reflect::set(&data, &"title".into(), &"P01 disposable stream".into())?;
+        let args = js_sys::Array::new();
+        args.push(&data);
+        let metadata = js_sys::Reflect::construct(&constructor, &args)?;
+        js_sys::Reflect::set(&media_session()?, &"metadata".into(), &metadata)?;
+        Ok(())
+    })();
+}
+async fn promise_succeeded(promise: Result<js_sys::Promise, JsValue>) -> bool {
+    match promise {
+        Ok(promise) => wasm_bindgen_futures::JsFuture::from(promise).await.is_ok(),
+        Err(_) => false,
+    }
+}
+
+// The timeout is owned by the current, abortable play operation; cancellation clears it.
+struct BrowserDeadline {
+    handle: i32,
+    _callback: Closure<dyn FnMut()>,
+    receiver: futures_channel::oneshot::Receiver<()>,
+}
+impl BrowserDeadline {
+    fn new() -> Result<Self, JsValue> {
+        let (sender, receiver) = futures_channel::oneshot::channel();
+        let mut sender = Some(sender);
+        let callback = Closure::wrap(Box::new(move || {
+            if let Some(sender) = sender.take() {
+                let _ = sender.send(());
+            }
+        }) as Box<dyn FnMut()>);
+        let handle = web_sys::window()
+            .ok_or(JsValue::NULL)?
+            .set_timeout_with_callback_and_timeout_and_arguments_0(
+                callback.as_ref().unchecked_ref(),
+                8_000,
+            )?;
+        Ok(Self {
+            handle,
+            _callback: callback,
+            receiver,
+        })
+    }
+    async fn wait(&mut self) {
+        let _ = (&mut self.receiver).await;
+    }
+}
+impl Drop for BrowserDeadline {
+    fn drop(&mut self) {
+        if let Some(window) = web_sys::window() {
+            window.clear_timeout_with_handle(self.handle);
+        }
+    }
+}
+
+#[wasm_bindgen]
+pub fn analysis_running() -> bool {
+    ROOT.with(|root| {
+        root.borrow()
+            .as_ref()
+            .and_then(|root| root._media.as_ref())
+            .is_some_and(|media| media.interval.borrow().is_some())
+    })
+}
+
+#[wasm_bindgen]
+pub fn shutdown() {
+    ROOT.with(|root| {
+        if let Some(root) = root.borrow_mut().take() {
+            root._runner.destroy();
+        }
+    });
 }

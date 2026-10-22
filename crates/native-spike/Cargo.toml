@@ -17,3 +17,7 @@ workspace = true
 [[test]]
 name = "native"
 path = "../../tests/native-spike/native.rs"
+
+[[test]]
+name = "analysis_session"
+path = "../../tests/native-spike/analysis_session.rs"

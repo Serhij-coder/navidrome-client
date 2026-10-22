@@ -18,18 +18,7 @@ pub struct Capture {
 }
 impl Capture {
     pub fn start_monitor(ffmpeg: &Path, source: &str) -> Result<Self, Error> {
-        if !cfg!(target_os = "linux") {
-            return Err(Error::Unsupported);
-        }
-        if source.is_empty()
-            || source.len() > 256
-            || source.starts_with('-')
-            || !source
-                .bytes()
-                .all(|c| c.is_ascii_alphanumeric() || b"._-".contains(&c))
-        {
-            return Err(Error::InvalidInput);
-        }
+        validate_monitor(source)?;
         Self::spawn(ffmpeg, &["-f", "pulse", "-i", source])
     }
     /// Deterministic owned tone source for lifecycle tests. It is not OS capture evidence.
@@ -97,6 +86,22 @@ impl Capture {
         }
         Ok(())
     }
+}
+
+pub(super) fn validate_monitor(source: &str) -> Result<(), Error> {
+    if !cfg!(target_os = "linux") {
+        return Err(Error::Unsupported);
+    }
+    if source.is_empty()
+        || source.len() > 256
+        || source.starts_with('-')
+        || !source
+            .bytes()
+            .all(|byte| byte.is_ascii_alphanumeric() || b"._-".contains(&byte))
+    {
+        return Err(Error::InvalidInput);
+    }
+    Ok(())
 }
 impl Drop for Capture {
     fn drop(&mut self) {

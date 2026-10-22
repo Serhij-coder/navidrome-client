@@ -12,7 +12,9 @@ feishin-spike-ui = { path = "../spike-ui" }
 wasm-bindgen.workspace = true
 wasm-bindgen-futures.workspace = true
 js-sys.workspace = true
-web-sys = { workspace = true, features = ["Window", "Document", "Element", "HtmlElement", "HtmlCanvasElement", "HtmlAudioElement", "HtmlMediaElement", "AudioContext", "AudioContextState", "AudioDestinationNode", "AudioNode", "MediaElementAudioSourceNode", "AnalyserNode", "Navigator", "MediaSession", "MediaSessionAction", "VisibilityState", "Event", "EventTarget", "HtmlInputElement", "Url"] }
+futures-util = { version = "=0.3.34", default-features = false, features = ["std", "async-await"] }
+futures-channel = "=0.3.34"
+web-sys = { workspace = true, features = ["Window", "Document", "Element", "HtmlElement", "HtmlCanvasElement", "HtmlAudioElement", "HtmlMediaElement", "AudioContext", "AudioContextState", "AudioDestinationNode", "AudioNode", "MediaElementAudioSourceNode", "AnalyserNode", "Navigator", "MediaSession", "MediaSessionAction", "VisibilityState", "Event", "EventTarget", "HtmlInputElement", "Url", "MediaError"] }
 
 [lints]
 workspace = true

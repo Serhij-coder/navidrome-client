@@ -40,6 +40,15 @@ fn ipc_correlation_generation_queue_and_bounded_stalled_quit() {
     let executable = fake(directory.path(), "stalled-quit");
     let mut mpv = Mpv::start(&executable, 9, AudioOutput::Null).unwrap();
     let socket_directory = mpv.socket_directory().to_owned();
+    use std::os::unix::fs::PermissionsExt;
+    assert_eq!(
+        std::fs::metadata(&socket_directory)
+            .unwrap()
+            .permissions()
+            .mode()
+            & 0o777,
+        0o700
+    );
     mpv.load_local(&tone, false).unwrap();
     mpv.load_local(&tone, true).unwrap();
     assert_eq!(mpv.playlist_count().unwrap(), 2);
@@ -79,6 +88,54 @@ fn capture_rejects_external_source_option_injection() {
     ] {
         assert!(Capture::start_monitor(Path::new("unused"), source).is_err());
     }
+}
+
+#[cfg(unix)]
+#[test]
+fn alternative_engine_owns_child_and_rejects_invalid_seek() {
+    let directory = tempfile::tempdir().unwrap();
+    let tone = directory.path().join("tone.wav");
+    write_tone(&tone, 1, 440).unwrap();
+    let executable = fake(directory.path(), "ffplay-stall");
+    for seconds in [f64::NAN, f64::INFINITY, -1.0, 86_401.0] {
+        assert!(matches!(
+            FfplayProbe::start_local(&executable, &tone, seconds, 4, FfplayOutput::Dummy),
+            Err(Error::InvalidInput)
+        ));
+    }
+    let mut probe =
+        FfplayProbe::start_local(&executable, &tone, 0.1, 4, FfplayOutput::Dummy).unwrap();
+    assert!(probe.accepts_generation(4));
+    assert!(!probe.accepts_generation(3));
+    let start = Instant::now();
+    probe.shutdown().unwrap();
+    assert!(start.elapsed() < Duration::from_secs(2));
+    assert!(!probe.accepts_generation(4));
+    assert_eq!(probe.poll().unwrap(), Some(false));
+}
+
+#[test]
+#[ignore = "requires external ffplay with SDL dummy driver; decode/lifecycle only, no physical audio"]
+fn real_alternative_engine_after_mpv_startup_failure_and_initial_seek() {
+    let directory = tempfile::tempdir().unwrap();
+    let tone = directory.path().join("tone.wav");
+    write_tone(&tone, 2, 750).unwrap();
+    #[cfg(unix)]
+    assert!(Mpv::start(&directory.path().join("missing-mpv"), 1, AudioOutput::Null).is_err());
+    let mut alternative =
+        FfplayProbe::start_local(Path::new("ffplay"), &tone, 1.0, 2, FfplayOutput::Dummy).unwrap();
+    assert!(!alternative.accepts_generation(1));
+    let deadline = Instant::now() + Duration::from_secs(5);
+    loop {
+        if let Some(success) = alternative.poll().unwrap() {
+            assert!(success);
+            break;
+        }
+        assert!(Instant::now() < deadline, "ffplay decode did not complete");
+        std::thread::sleep(Duration::from_millis(20));
+    }
+    assert!(!alternative.accepts_generation(2));
+    alternative.shutdown().unwrap();
 }
 
 #[cfg(unix)]
@@ -135,7 +192,7 @@ fn owned_mpv_monitor_capture_and_teardown() {
     );
     let directory = tempfile::tempdir().unwrap();
     let tone = directory.path().join("owned.wav");
-    write_tone(&tone, 5, 750).unwrap();
+    write_tone(&tone, 30, 750).unwrap();
     let binary = std::env::var_os("P01_MPV").unwrap_or_else(|| "mpv".into());
     let mut capture = Capture::start_monitor(Path::new("ffmpeg"), "p01_owned.monitor").unwrap();
     let mut mpv = Mpv::start(Path::new(&binary), 7, AudioOutput::Pulse).unwrap();
@@ -157,6 +214,38 @@ fn owned_mpv_monitor_capture_and_teardown() {
     capture.shutdown().unwrap();
     assert!(!capture.is_running().unwrap());
     assert!(mpv.accepts_generation(7));
+    let mut supervised = AnalysisSession::new(
+        "ffmpeg".into(),
+        AnalysisSource::Monitor("p01_owned.monitor".into()),
+        || {},
+    )
+    .unwrap();
+    for _ in 0..2 {
+        supervised.set_active(true);
+        let deadline = Instant::now() + Duration::from_secs(5);
+        loop {
+            if supervised
+                .latest()
+                .is_some_and(|frame| frame.bands.iter().any(|band| *band > 0.02))
+            {
+                break;
+            }
+            assert!(
+                Instant::now() < deadline,
+                "supervised monitor did not resume"
+            );
+            std::thread::sleep(Duration::from_millis(10));
+        }
+        supervised.set_active(false);
+        assert!(supervised.latest().is_none());
+        let deadline = Instant::now() + Duration::from_secs(2);
+        while supervised.status() != AnalysisStatus::Suspended {
+            assert!(Instant::now() < deadline, "monitor did not suspend");
+            std::thread::sleep(Duration::from_millis(10));
+        }
+        assert!(mpv.position().unwrap() > 0.0);
+    }
+    supervised.shutdown().unwrap();
     mpv.shutdown().unwrap();
     assert!(!mpv.accepts_generation(7));
 }
@@ -213,4 +302,48 @@ fn non_unicode_local_file_is_a_controlled_input_error() {
         mpv.load_local(&path, false),
         Err(Error::InvalidInput)
     ));
+}
+
+#[cfg(unix)]
+#[test]
+fn long_temp_root_keeps_ipc_path_short_and_private() {
+    use std::{
+        os::unix::{ffi::OsStrExt, fs::PermissionsExt},
+        process::Command,
+    };
+    if std::env::var_os("P01_LONG_TMP_CHILD").is_some() {
+        let directory = tempfile::tempdir().unwrap();
+        let executable = fake(directory.path(), "normal");
+        let mut mpv = Mpv::start(&executable, 1, AudioOutput::Null).unwrap();
+        let socket_dir = mpv.socket_directory().to_owned();
+        assert!(socket_dir.join("ipc").as_os_str().as_bytes().len() <= 100);
+        assert_eq!(
+            std::fs::metadata(&socket_dir).unwrap().permissions().mode() & 0o777,
+            0o700
+        );
+        assert_eq!(mpv.playlist_count().unwrap(), 0);
+        mpv.shutdown().unwrap();
+        drop(mpv);
+        assert!(!socket_dir.exists());
+        return;
+    }
+    let directory = tempfile::tempdir().unwrap();
+    let long_root = directory.path().join("owned-long-temp-root-".repeat(6));
+    std::fs::create_dir(&long_root).unwrap();
+    let result = Command::new(std::env::current_exe().unwrap())
+        .args([
+            "--exact",
+            "long_temp_root_keeps_ipc_path_short_and_private",
+            "--nocapture",
+        ])
+        .env("TMPDIR", &long_root)
+        .env("P01_LONG_TMP_CHILD", "1")
+        .output()
+        .unwrap();
+    assert!(
+        result.status.success(),
+        "long-root subprocess: {} {}",
+        String::from_utf8_lossy(&result.stdout),
+        String::from_utf8_lossy(&result.stderr)
+    );
 }

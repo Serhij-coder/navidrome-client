@@ -1,4 +1,6 @@
-use feishin_native_spike::{Capture, LogEvent, log_event, write_tone};
+use feishin_native_spike::{
+    AnalysisSession, AnalysisSource, AnalysisStatus, LogEvent, log_event, write_tone,
+};
 use feishin_spike_ui::SpikeApp;
 use std::{
     path::Path,
@@ -15,6 +17,39 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .collect::<Result<Vec<_>, _>>()?;
     if args.first().is_some_and(|arg| arg == "--tone") && args.len() == 2 {
         write_tone(Path::new(&args[1]), 5, 750)?;
+        return Ok(());
+    }
+    if args
+        .first()
+        .is_some_and(|arg| ["--ffplay-probe", "--ffplay-probe-null"].contains(&arg.as_str()))
+        && args.len() == 3
+    {
+        let mut probe = feishin_native_spike::FfplayProbe::start_local(
+            Path::new(&args[1]),
+            Path::new(&args[2]),
+            0.0,
+            1,
+            if args[0] == "--ffplay-probe-null" {
+                feishin_native_spike::FfplayOutput::Dummy
+            } else {
+                feishin_native_spike::FfplayOutput::System
+            },
+        )?;
+        let deadline = Instant::now() + Duration::from_secs(30);
+        loop {
+            if let Some(success) = probe.poll()? {
+                if !success {
+                    return Err("alternative decoder failed".into());
+                }
+                break;
+            }
+            if Instant::now() >= deadline {
+                probe.shutdown()?;
+                return Err("alternative decoder probe deadline".into());
+            }
+            std::thread::sleep(Duration::from_millis(20));
+        }
+        println!("{}", log_event(LogEvent::Stopped, 1));
         return Ok(());
     }
     if args
@@ -54,13 +89,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     while index < args.len() {
         match args[index].as_str() {
             "--capture-monitor" if index + 1 < args.len() => {
-                capture = Some(Capture::start_monitor(Path::new("ffmpeg"), &args[index + 1])?); index += 2;
+                capture = Some(AnalysisSource::Monitor(args[index + 1].clone())); index += 2;
             }
-            "--analysis-test-tone" => { capture = Some(Capture::start_test_tone(Path::new("ffmpeg"))?); index += 1; }
+            "--analysis-test-tone" => { capture = Some(AnalysisSource::TestTone); index += 1; }
             "--smoke" => { smoke = true; index += 1; }
             "--hidden-smoke" => { smoke = true; hidden_smoke = true; index += 1; }
             "--wgpu" => { renderer_wgpu = true; index += 1; }
-            _ => return Err("usage: feishin-desktop [--smoke|--hidden-smoke] [--wgpu] [--analysis-test-tone|--capture-monitor SOURCE] | --tone NEW.wav | --mpv-probe[-null] MPV FILE.wav".into()),
+            _ => return Err("usage: feishin-desktop [--smoke|--hidden-smoke] [--wgpu] [--analysis-test-tone|--capture-monitor SOURCE] | --tone NEW.wav | --mpv-probe[-null] MPV FILE.wav | --ffplay-probe[-null] FFPLAY FILE.wav".into()),
         }
     }
     let renderer = if renderer_wgpu {
@@ -98,6 +133,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             if capture.is_some() {
                 ui.enable_analysis();
             }
+            let capture = capture
+                .map(|source| {
+                    let ctx = cc.egui_ctx.clone();
+                    AnalysisSession::new("ffmpeg".into(), source, move || ctx.request_repaint())
+                })
+                .transpose()?;
             Ok(Box::new(DesktopProbe {
                 ui,
                 capture,
@@ -115,7 +156,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 struct DesktopProbe {
     ui: SpikeApp,
-    capture: Option<Capture>,
+    capture: Option<AnalysisSession>,
     started: Instant,
     smoke: bool,
     hidden_smoke: bool,
@@ -129,25 +170,24 @@ impl eframe::App for DesktopProbe {
             .get_or_insert(self.started.elapsed().as_millis());
         let hidden =
             self.hidden_smoke || ctx.input(|input| input.viewport().minimized.unwrap_or(false));
-        if hidden {
-            self.capture = None;
-            self.ui.analysis = None;
-        }
-        if let Some(capture) = &mut self.capture {
+        if let Some(capture) = &self.capture {
+            capture.set_active(!hidden && self.ui.wants_analysis());
             if let Some(frame) = capture.latest() {
                 self.ui.analysis = Some(frame);
             }
-            if !matches!(capture.is_running(), Ok(true)) {
-                self.capture = None;
+            if capture.status() == AnalysisStatus::Failed {
                 self.ui.notice = Some(
-                    "Analysis source exited or access was denied. Check the selected source and permission; restart explicitly to retry.",
+                    "Analysis source failed. Check permission/source, then toggle Analysis preset off/on to retry.",
                 );
+            } else {
+                self.ui.notice = None;
             }
-            ctx.request_repaint_after(Duration::from_millis(33));
         }
         self.ui.show(ctx);
-        if !self.ui.wants_analysis() {
-            self.capture = None;
+        if let Some(capture) = &self.capture {
+            capture.set_active(!hidden && self.ui.wants_analysis());
+        }
+        if hidden || !self.ui.wants_analysis() {
             self.ui.analysis = None;
         }
         if self.smoke {

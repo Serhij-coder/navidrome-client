@@ -1,0 +1,58 @@
+{
+  "recorded_utc": "2026-10-22T20:40:43.422383+00:00",
+  "head_sha": "8b987c642fa0705776b638669c99b7bcbaa5c1da",
+  "run_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39845308787",
+  "conclusion": "failure",
+  "jobs": [
+    {
+      "id": 120056904321,
+      "name": "linux-appimage-smoke (ubuntu-24.04-arm, aarch64)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39845308787/job/120056904321"
+    },
+    {
+      "id": 120056904647,
+      "name": "linux-appimage-smoke (ubuntu-24.04, x86_64)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39845308787/job/120056904647"
+    },
+    {
+      "id": 120056904877,
+      "name": "portable-and-tooling",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39845308787/job/120056904877"
+    },
+    {
+      "id": 120056904881,
+      "name": "native (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39845308787/job/120056904881"
+    },
+    {
+      "id": 120056904995,
+      "name": "native (macos-14)",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39845308787/job/120056904995"
+    },
+    {
+      "id": 120056905039,
+      "name": "native (ubuntu-24.04)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39845308787/job/120056905039"
+    },
+    {
+      "id": 120056905291,
+      "name": "wasm",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39845308787/job/120056905291"
+    }
+  ],
+  "limits": "Initial workspace commit only; macOS cargo test failed with exit 101. Detailed logs require authentication (API HTTP 403), so cause is not inferred. AppImage jobs are hosted runner smoke results, not physical audio/device/accessibility certification."
+}

@@ -41,7 +41,6 @@ pub struct SpikeApp {
     pub rows_drawn: usize,
     pub max_row_height: f32,
     pub frames: u64,
-    table_focus: bool,
     #[cfg(test)]
     test_keyboard: Option<egui::Response>,
     #[cfg(test)]
@@ -88,7 +87,6 @@ impl SpikeApp {
             rows_drawn: 0,
             max_row_height: 0.0,
             frames: 0,
-            table_focus: false,
             #[cfg(test)]
             test_keyboard: None,
             #[cfg(test)]
@@ -146,7 +144,8 @@ impl SpikeApp {
             ui.label("Synthetic records only. No server login, saved profile or production playback.");
             let mut changed = false;
             ui.horizontal_wrapped(|ui| {
-                let filter = ui.add(egui::TextEdit::singleline(&mut self.query.text).char_limit(256)).on_hover_text("Filter track title");
+                let filter_label = ui.label("Filter tracks");
+                let filter = ui.add(egui::TextEdit::singleline(&mut self.query.text).char_limit(256)).labelled_by(filter_label.id).on_hover_text("Filter track title");
                 #[cfg(test)]
                 { self.test_filter = Some(filter.clone()); }
                 changed |= filter.changed();
@@ -162,7 +161,7 @@ impl SpikeApp {
             ui.horizontal(|ui| {
                 ui.label("Scale");
                 let mut scale = ctx.zoom_factor();
-                if ui.add(egui::Slider::new(&mut scale, 0.75..=2.0)).changed() { ctx.set_zoom_factor(scale); }
+                if ui.add(egui::Slider::new(&mut scale, 0.75..=2.0).text("Interface scale")).changed() { ctx.set_zoom_factor(scale); }
                 ui.label(format!("{} rows, {} selected", self.rows.len(), self.selection.selected.len()));
                 if self.pending { ui.label("Building latest view..."); }
             });
@@ -170,7 +169,8 @@ impl SpikeApp {
                 for (index, width) in self.widths.iter_mut().enumerate() {
                     ui.add(egui::Slider::new(width, 70.0..=500.0).text(format!("Column {}", index + 1)));
                 }
-                ui.add(egui::TextEdit::multiline(&mut self.css).char_limit(65_536));
+                let css_label = ui.label("Custom CSS (inert)");
+                ui.add(egui::TextEdit::multiline(&mut self.css).char_limit(65_536)).labelled_by(css_label.id);
                 ui.label(css_report(&self.css));
                 ui.label("IME / RTL probe: type your own text above. Fonts here are egui defaults; full script coverage is unverified.");
             });
@@ -191,16 +191,13 @@ impl SpikeApp {
                     );
                 }
             }
-            let keyboard_button = ui.button("Focus table (Up/Down, Shift for range)");
+            let keyboard_button = ui.button("Focus table (arrows, Home/End, Shift for range)");
             #[cfg(test)]
             {
                 self.test_keyboard = Some(keyboard_button.clone());
             }
-            if keyboard_button.clicked() {
-                self.table_focus = true;
-                if !keyboard_button.has_focus() {
-                    keyboard_button.request_focus();
-                }
+            if keyboard_button.clicked() && !keyboard_button.has_focus() {
+                keyboard_button.request_focus();
             }
             if keyboard_button.has_focus() {
                 ctx.memory_mut(|memory| {
@@ -213,7 +210,22 @@ impl SpikeApp {
                     )
                 });
             }
-            if self.table_focus && keyboard_button.has_focus() {
+            if keyboard_button.has_focus() {
+                let boundary = ctx.input(|input| {
+                    if input.key_pressed(egui::Key::Home) {
+                        self.rows.iter().find_map(|row| match row {
+                            ViewRow::Track(id) => Some(*id),
+                            _ => None,
+                        })
+                    } else if input.key_pressed(egui::Key::End) {
+                        self.rows.iter().rev().find_map(|row| match row {
+                            ViewRow::Track(id) => Some(*id),
+                            _ => None,
+                        })
+                    } else {
+                        None
+                    }
+                });
                 let direction = ctx.input(|input| {
                     if input.key_pressed(egui::Key::ArrowDown) {
                         Some(true)
@@ -223,14 +235,15 @@ impl SpikeApp {
                         None
                     }
                 });
-                if let Some(forward) = direction {
+                if boundary.is_some() || direction.is_some() {
                     // The first key can arrive before egui has installed the focus filter.
                     ctx.memory_mut(|memory| memory.move_focus(egui::FocusDirection::None));
-                    self.selection.navigate(
-                        &self.rows,
-                        forward,
-                        ctx.input(|input| input.modifiers.shift),
-                    );
+                    let extend = ctx.input(|input| input.modifiers.shift);
+                    if let Some(id) = boundary {
+                        self.selection.select(&self.rows, id, extend, false);
+                    } else if let Some(forward) = direction {
+                        self.selection.navigate(&self.rows, forward, extend);
+                    }
                     self.scroll_to = self
                         .selection
                         .focus
@@ -371,7 +384,6 @@ impl SpikeApp {
             #[cfg(not(target_arch = "wasm32"))]
             self.artwork.request(&missing_art);
             if let Some(id) = clicked {
-                self.table_focus = true;
                 if !keyboard_button.has_focus() {
                     keyboard_button.request_focus();
                 }
@@ -439,3 +451,7 @@ pub fn analysis_from_pcm(pcm: &[f32]) -> Option<Analysis> {
 #[cfg(test)]
 #[path = "../../../tests/spike-ui/keyboard.rs"]
 mod keyboard_tests;
+
+#[cfg(all(test, unix))]
+#[path = "../../../tests/performance/concurrent.rs"]
+mod concurrent_probe;

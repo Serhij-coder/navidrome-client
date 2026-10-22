@@ -7,6 +7,9 @@ import sys
 import time
 
 mode = Path(sys.argv[0]).name
+if mode == "ffplay-stall":
+    time.sleep(60)
+    sys.exit(0)
 path = next(arg.split("=", 1)[1] for arg in sys.argv[1:] if arg.startswith("--input-ipc-server="))
 listener = socket.socket(socket.AF_UNIX)
 listener.bind(path)

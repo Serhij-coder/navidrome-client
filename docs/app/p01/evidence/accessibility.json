@@ -1,0 +1,395 @@
+{
+  "scope": "P01 Linux AT-SPI tree names on isolated Ubuntu/Xvfb/D-Bus; no Orca speech, physical keyboard, OS accessibility certification or other target implied",
+  "checks": {
+    "table_focus": true,
+    "analysis_control": true,
+    "filter_label": true
+  },
+  "nodes": [
+    {
+      "role": "application",
+      "name": "feishin-desktop"
+    },
+    {
+      "role": "frame",
+      "name": ""
+    },
+    {
+      "role": "label",
+      "name": "Feishin Rust - P01 feasibility"
+    },
+    {
+      "role": "label",
+      "name": "Synthetic records only. No server login, saved profile or production playback."
+    },
+    {
+      "role": "label",
+      "name": "Filter tracks"
+    },
+    {
+      "role": "entry",
+      "name": "Filter tracks"
+    },
+    {
+      "role": "check box",
+      "name": "Descending"
+    },
+    {
+      "role": "check box",
+      "name": "Album groups"
+    },
+    {
+      "role": "push button",
+      "name": "Reset order"
+    },
+    {
+      "role": "push button",
+      "name": "RTL layout"
+    },
+    {
+      "role": "push button",
+      "name": "Analysis preset"
+    },
+    {
+      "role": "check box",
+      "name": "Owned artwork churn"
+    },
+    {
+      "role": "push button",
+      "name": "\ud83d\udcbb System"
+    },
+    {
+      "role": "push button",
+      "name": "\ud83c\udf19 Dark"
+    },
+    {
+      "role": "push button",
+      "name": "\u2600 Light"
+    },
+    {
+      "role": "label",
+      "name": "Scale"
+    },
+    {
+      "role": "slider",
+      "name": "Interface scale"
+    },
+    {
+      "role": "spin button",
+      "name": "Interface scale"
+    },
+    {
+      "role": "label",
+      "name": "Interface scale"
+    },
+    {
+      "role": "label",
+      "name": "100000 rows, 0 selected"
+    },
+    {
+      "role": "push button",
+      "name": "Column widths / CSS replacement report / text input"
+    },
+    {
+      "role": "push button",
+      "name": "Focus table (arrows, Home/End, Shift for range)"
+    },
+    {
+      "role": "label",
+      "name": "Title"
+    },
+    {
+      "role": "label",
+      "name": "Album"
+    },
+    {
+      "role": "label",
+      "name": "Record ID"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000000"
+    },
+    {
+      "role": "push button",
+      "name": "Album 0"
+    },
+    {
+      "role": "push button",
+      "name": "0"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000001"
+    },
+    {
+      "role": "push button",
+      "name": "Album 0"
+    },
+    {
+      "role": "push button",
+      "name": "1"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000002"
+    },
+    {
+      "role": "push button",
+      "name": "Album 0"
+    },
+    {
+      "role": "push button",
+      "name": "2"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000003"
+    },
+    {
+      "role": "push button",
+      "name": "Album 0"
+    },
+    {
+      "role": "push button",
+      "name": "3"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000004"
+    },
+    {
+      "role": "push button",
+      "name": "Album 0"
+    },
+    {
+      "role": "push button",
+      "name": "4"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000005"
+    },
+    {
+      "role": "push button",
+      "name": "Album 0"
+    },
+    {
+      "role": "push button",
+      "name": "5"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000006"
+    },
+    {
+      "role": "push button",
+      "name": "Album 0"
+    },
+    {
+      "role": "push button",
+      "name": "6"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000007"
+    },
+    {
+      "role": "push button",
+      "name": "Album 0"
+    },
+    {
+      "role": "push button",
+      "name": "7"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000008"
+    },
+    {
+      "role": "push button",
+      "name": "Album 0"
+    },
+    {
+      "role": "push button",
+      "name": "8"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000009"
+    },
+    {
+      "role": "push button",
+      "name": "Album 0"
+    },
+    {
+      "role": "push button",
+      "name": "9"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000010"
+    },
+    {
+      "role": "push button",
+      "name": "Album 1"
+    },
+    {
+      "role": "push button",
+      "name": "10"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000011"
+    },
+    {
+      "role": "push button",
+      "name": "Album 1"
+    },
+    {
+      "role": "push button",
+      "name": "11"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000012"
+    },
+    {
+      "role": "push button",
+      "name": "Album 1"
+    },
+    {
+      "role": "push button",
+      "name": "12"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000013"
+    },
+    {
+      "role": "push button",
+      "name": "Album 1"
+    },
+    {
+      "role": "push button",
+      "name": "13"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000014"
+    },
+    {
+      "role": "push button",
+      "name": "Album 1"
+    },
+    {
+      "role": "push button",
+      "name": "14"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000015"
+    },
+    {
+      "role": "push button",
+      "name": "Album 1"
+    },
+    {
+      "role": "push button",
+      "name": "15"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000016"
+    },
+    {
+      "role": "push button",
+      "name": "Album 1"
+    },
+    {
+      "role": "push button",
+      "name": "16"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000017"
+    },
+    {
+      "role": "push button",
+      "name": "Album 1"
+    },
+    {
+      "role": "push button",
+      "name": "17"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000018"
+    },
+    {
+      "role": "push button",
+      "name": "Album 1"
+    },
+    {
+      "role": "push button",
+      "name": "18"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000019"
+    },
+    {
+      "role": "push button",
+      "name": "Album 1"
+    },
+    {
+      "role": "push button",
+      "name": "19"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000020"
+    },
+    {
+      "role": "push button",
+      "name": "Album 2"
+    },
+    {
+      "role": "push button",
+      "name": "20"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000021"
+    },
+    {
+      "role": "push button",
+      "name": "Album 2"
+    },
+    {
+      "role": "push button",
+      "name": "21"
+    },
+    {
+      "role": "push button",
+      "name": "Track 000022"
+    },
+    {
+      "role": "push button",
+      "name": "Album 2"
+    },
+    {
+      "role": "push button",
+      "name": "22"
+    },
+    {
+      "role": "unknown",
+      "name": ""
+    },
+    {
+      "role": "unknown",
+      "name": ""
+    }
+  ],
+  "node_cap": 512
+}

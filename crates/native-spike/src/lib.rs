@@ -13,6 +13,10 @@ mod mpv;
 pub use mpv::{AudioOutput, Mpv};
 mod capture;
 pub use capture::Capture;
+mod analysis_session;
+pub use analysis_session::{AnalysisSession, AnalysisSource, AnalysisStatus};
+mod ffplay;
+pub use ffplay::{FfplayOutput, FfplayProbe};
 
 #[derive(Debug)]
 pub enum Error {

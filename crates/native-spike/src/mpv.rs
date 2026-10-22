@@ -25,9 +25,7 @@ pub struct Mpv {
 
 impl Mpv {
     pub fn start(binary: &Path, generation: u64, output: AudioOutput) -> Result<Self, Error> {
-        let directory = tempfile::Builder::new()
-            .prefix("feishin-p01-mpv-")
-            .tempdir()?;
+        let directory = ipc_directory()?;
         let path = directory.path().join("ipc");
         let mut command = child_command(binary);
         command.args([
@@ -229,4 +227,32 @@ fn deadline_error(error: io::Error) -> Error {
         io::ErrorKind::TimedOut | io::ErrorKind::WouldBlock => Error::Deadline,
         _ => error.into(),
     }
+}
+
+fn ipc_directory() -> Result<tempfile::TempDir, Error> {
+    // macOS/BSD Unix sockets have a smaller pathname limit than Linux. Leave room
+    // for the terminating NUL and reject paths that command-line Unicode cannot
+    // represent exactly. TempDir creates an unpredictable, mode-0700 directory.
+    fn fits(directory: &tempfile::TempDir) -> bool {
+        use std::os::unix::ffi::OsStrExt;
+        let path = directory.path().join("ipc");
+        path.to_str().is_some() && path.as_os_str().as_bytes().len() <= 100
+    }
+    use std::os::unix::fs::PermissionsExt;
+    let mut builder = tempfile::Builder::new();
+    builder
+        .prefix("feishin-p01-mpv-")
+        .permissions(std::fs::Permissions::from_mode(0o700));
+    if let Ok(directory) = builder.tempdir()
+        && fits(&directory)
+    {
+        return Ok(directory);
+    }
+    // Respect a usable configured temp root first. A long/non-Unicode/unusable
+    // TMPDIR falls back to a fresh private directory, never a shared socket name.
+    let directory = builder.tempdir_in("/tmp")?;
+    if !fits(&directory) {
+        return Err(Error::InvalidInput);
+    }
+    Ok(directory)
 }
