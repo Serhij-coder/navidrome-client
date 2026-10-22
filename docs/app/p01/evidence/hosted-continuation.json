@@ -1,0 +1,64 @@
+{
+  "recorded_utc": "2026-10-22T21:12:57.447355+00:00",
+  "head_sha": "d23308dd72c50ea70e09905813bbd74cc2677f98",
+  "run_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39854528249",
+  "conclusion": "failure",
+  "jobs": [
+    {
+      "id": 120089142023,
+      "name": "linux-appimage-smoke (ubuntu-24.04-arm, aarch64)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39854528249/job/120089142023"
+    },
+    {
+      "id": 120089142246,
+      "name": "wasm",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39854528249/job/120089142246"
+    },
+    {
+      "id": 120089142324,
+      "name": "linux-appimage-smoke (ubuntu-24.04, x86_64)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39854528249/job/120089142324"
+    },
+    {
+      "id": 120089142389,
+      "name": "native (ubuntu-24.04)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39854528249/job/120089142389"
+    },
+    {
+      "id": 120089142414,
+      "name": "portable-and-tooling",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39854528249/job/120089142414"
+    },
+    {
+      "id": 120089142463,
+      "name": "native (macos-14)",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39854528249/job/120089142463"
+    },
+    {
+      "id": 120089142879,
+      "name": "native (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39854528249/job/120089142879"
+    }
+  ],
+  "failure_annotations": [
+    {
+      "title": "Native Rust regression",
+      "message": "non_unicode_local_file_is_a_controlled_input_error failed; inspect the authenticated job log for assertion details"
+    }
+  ],
+  "limits": "This is the d23308d snapshot, not a result for the follow-up fix. Detailed assertion logs require authentication; public annotation identifies the failed test, not the exact failing assertion. No physical audio/device certification."
+}

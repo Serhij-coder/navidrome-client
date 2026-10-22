@@ -7,9 +7,9 @@
 - Capture: one-slot off-UI supervisor with generation isolation, suspend/re-enable/retry and real owned-monitor checks; no default host capture.
 - Browser: real disposable Navidrome FLAC/MP3 on three lab engines; six session callbacks, cancellable/deadlined play, lifecycle/reload checks; Firefox/WebKit seeks remain open.
 - Packaging/accessibility: rebuilt Ubuntu x86_64 AppImage runs without checkout/Rust; Linux AT-SPI names audited after fixing unnamed filter; no screen-reader/device certification.
-- Hosted initial CI: Linux/Windows/WASM and both AppImage CPUs passed; macOS tests failed, detailed logs unavailable. New native annotations expose failed test names.
+- Hosted d233: six jobs including Windows/both AppImage CPUs passed; macOS Unicode-path test failed. Early input validation/portable fixture follow-up awaits CI.
 - Checks: 23 default Rust + five explicit native runtime; 47 Python with reference; format/Clippy/WASM, six cross checks, browser and copied-input checks passed.
 - Records: [continuation](p01/continuation.md), [matrix](p01/README.md), [migration map](migration/p01-map.csv), [license gaps](licenses/README.md).
-- Review: both independent reviewers accepted final source/tests/evidence after socket/privacy and retry-regression fixes.
+- Active: native input/fixture follow-up passed affected local checks; both independent reviews satisfied; commit/push and hosted confirmation next.
 - Open: calibrated physical budgets, renderer/input/IME/RTL/touch/screen-reader/OS matrix, Windows IPC, full native fallback and release licensing; no P01 exit.
-- Next: inspect current hosted results and remaining P01 gates; P02 authorized only after verified P01 exit.
+- Next: review/push native follow-up and inspect hosted result; P02 authorized only after verified P01 exit.

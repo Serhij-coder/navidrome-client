@@ -24,10 +24,17 @@ fn tone_bounds_no_overwrite_and_logs_exclude_inputs() {
 
 #[cfg(unix)]
 fn fake(directory: &Path, mode: &str) -> std::path::PathBuf {
-    use std::os::unix::fs::PermissionsExt;
     let executable = directory.join(mode);
-    std::fs::write(&executable, include_str!("fake_mpv.py")).unwrap();
-    std::fs::set_permissions(&executable, std::fs::Permissions::from_mode(0o700)).unwrap();
+    // Never execute a just-written file: another parallel fork can transiently
+    // inherit its write descriptor and make exec fail with ETXTBSY.
+    std::os::unix::fs::symlink(
+        concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/../../tests/native-spike/fake_mpv.py"
+        ),
+        &executable,
+    )
+    .unwrap();
     executable
 }
 
@@ -295,6 +302,9 @@ fn non_unicode_local_file_is_a_controlled_input_error() {
     let path = directory
         .path()
         .join(OsString::from_vec(b"private-\xff.wav".to_vec()));
+    // Linux also exercises a real existing byte filename. Other Unix filesystems
+    // need not support creating that name to verify rejection at the IPC boundary.
+    #[cfg(target_os = "linux")]
     std::fs::write(&path, b"owned fixture").unwrap();
     let executable = fake(directory.path(), "normal");
     let mut mpv = Mpv::start(&executable, 0, AudioOutput::Null).unwrap();
@@ -302,6 +312,13 @@ fn non_unicode_local_file_is_a_controlled_input_error() {
         mpv.load_local(&path, false),
         Err(Error::InvalidInput)
     ));
+    // The same wire-contract error applies before any filesystem lookup.
+    assert!(matches!(
+        mpv.load_local(&path.with_extension("missing"), false),
+        Err(Error::InvalidInput)
+    ));
+    assert!(mpv.accepts_generation(0));
+    assert_eq!(mpv.playlist_count().unwrap(), 0);
 }
 
 #[cfg(unix)]

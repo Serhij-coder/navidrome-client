@@ -36,20 +36,16 @@ fn startup_failure_latches_until_retry_and_shutdown_is_idempotent() {
 #[cfg(unix)]
 #[test]
 fn failed_source_is_not_relaunched_without_explicit_retry() {
-    use std::os::unix::fs::PermissionsExt;
     let directory = tempfile::tempdir().unwrap();
     let binary = directory.path().join("failed-source.py");
-    std::fs::write(
+    std::os::unix::fs::symlink(
+        concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/../../tests/native-spike/fake_capture.py"
+        ),
         &binary,
-        r#"#!/usr/bin/env python3
-import pathlib, sys
-with pathlib.Path(__file__).with_suffix('.starts').open('a') as out:
-    out.write('started\n')
-sys.exit(1)
-"#,
     )
     .unwrap();
-    std::fs::set_permissions(&binary, std::fs::Permissions::from_mode(0o700)).unwrap();
     let attempts = || {
         std::fs::read_to_string(binary.with_extension("starts"))
             .map(|text| text.lines().count())
@@ -74,24 +70,16 @@ sys.exit(1)
 #[cfg(unix)]
 #[test]
 fn consumer_suspend_reenable_and_rapid_switch_discard_frames_and_reap_sources() {
-    use std::os::unix::fs::PermissionsExt;
     let directory = tempfile::tempdir().unwrap();
     let binary = directory.path().join("owned-source.py");
-    std::fs::write(
+    std::os::unix::fs::symlink(
+        concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/../../tests/native-spike/fake_capture.py"
+        ),
         &binary,
-        r#"#!/usr/bin/env python3
-import math, os, pathlib, struct, sys, time
-with pathlib.Path(__file__).with_suffix('.starts').open('a') as out:
-    out.write(str(os.getpid()) + '\n')
-samples = b''.join(struct.pack('<f', math.sin(i * math.tau * 4 / 256)) for i in range(256))
-while True:
-    sys.stdout.buffer.write(samples)
-    sys.stdout.buffer.flush()
-    time.sleep(0.032)
-"#,
     )
     .unwrap();
-    std::fs::set_permissions(&binary, std::fs::Permissions::from_mode(0o700)).unwrap();
     let mut session =
         AnalysisSession::new(binary.clone(), AnalysisSource::TestTone, || {}).unwrap();
     for _ in 0..3 {

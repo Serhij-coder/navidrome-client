@@ -144,6 +144,11 @@ impl Mpv {
     }
 
     pub fn load_local(&mut self, path: &Path, append: bool) -> Result<(), Error> {
+        // JSON IPC requires Unicode regardless of whether the host filesystem can
+        // create or canonicalize an arbitrary Unix filename. Validate at entry.
+        if path.to_str().is_none() {
+            return Err(Error::InvalidInput);
+        }
         let path = path.canonicalize()?;
         if !path.is_file() {
             return Err(Error::InvalidInput);
