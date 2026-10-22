@@ -1,0 +1,25 @@
+[package]
+name = "feishin-desktop"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[features]
+default = ["glow"]
+glow = ["eframe/glow", "eframe/x11", "eframe/wayland"]
+wgpu = ["dep:wgpu", "eframe/wgpu", "eframe/x11", "eframe/wayland"]
+
+[dependencies]
+wgpu = { version = "=27.0.1", default-features = false, features = ["vulkan", "gles", "dx12", "metal", "wgsl"], optional = true }
+eframe.workspace = true
+feishin-spike-ui = { path = "../../crates/spike-ui" }
+feishin-native-spike = { path = "../../crates/native-spike" }
+
+[lints]
+workspace = true
+
+[[test]]
+name = "cli_input"
+path = "../../tests/desktop/cli_input.rs"

@@ -1,0 +1,136 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-22T19:59:59.710541+00:00",
+  "scope": "P01 initial workspace/prototype increment; not phase exit or parity certification",
+  "toolchain": "rustc 1.92.0 (ded5c06cf 2025-12-08)",
+  "source_sha256": {
+    ".cargo/config.toml": "abbc78dd5f5cf9f8438f73eb96b87dadbd47ef74d66b0b35e545e1cd219597ab",
+    ".github/workflows/app.yml": "22a32a39fedd040d4f25f8a359420159cdb50eb2f6980403a223c3938f17aa96",
+    "Cargo.lock": "9ed3726f5962663c20fb8023bc60131db2f11b58146cbd2d6e031519a6ee891b",
+    "Cargo.toml": "4010ca47f982722ea3ec25dbe84566d3d30a4a8721aa9c727cf0a189d1299c7b",
+    "apps/desktop/Cargo.toml": "31afcb19d84a916c98ad7514ec362357e8c1859382b0eff56eea82be15ba2e48",
+    "apps/desktop/src/main.rs": "da3fafaed480bc16e3e748c45e347a9a2dd906a12530e7793a6b9c789fcc3c6c",
+    "apps/remote/Cargo.toml": "023454a62ef011832222e18da83ccaac18b1db884b32966533711fb1e3432cc7",
+    "apps/remote/src/lib.rs": "173bbfcb419481a9792a34a8867bc28d585294e06ec695de0631e62305d1e0c2",
+    "apps/web/Cargo.toml": "e83002294f0ca0a8d6702c65050878052c702244f9a47b4f7fa25b3060d8a3ea",
+    "apps/web/src/lib.rs": "8b2a15f0216927b818e1899be3d384483b9aceaf91be57932ffc7aa4ab08f063",
+    "crates/browser-spike/Cargo.toml": "adc75f7bfcfc5932e75314a16a670bba72317ac8b9f6ce865526f73e277723c4",
+    "crates/browser-spike/src/browser.rs": "14bf290eecb5c4328d1f7e5bdf4c280afd4684d519bb1ac8c1a706c6e5eb6b68",
+    "crates/browser-spike/src/lib.rs": "f2e8495d9274910d520b5a93a1da3c720393fd911d6a194fbec43be5782722ab",
+    "crates/native-spike/Cargo.toml": "e8402e9e9df33f259b6109826607dc3b137a366bff41fa9ce14036f96d2018cb",
+    "crates/native-spike/src/capture.rs": "8828eaaecac39859f7fa15987b4db9a6d106fb60f1f7048436863dae19ce53c5",
+    "crates/native-spike/src/lib.rs": "fbdd4f446882a7cf47783c80e748b5541ab6f5ae9d5e866bc78e00f70e17bfef",
+    "crates/native-spike/src/mpv.rs": "f13e657437877f36939890e92bfcd377972ef90d04010235c03084741a86d734",
+    "crates/spike-model/Cargo.toml": "373dd6fadb4fc45607cf146cca58fecf6756a2330b859421556e71583d4d9f82",
+    "crates/spike-model/src/lib.rs": "34ef76c2171209ad29006f4247c10d59d1a2993af026ce764f33d45195fa12ef",
+    "crates/spike-ui/Cargo.toml": "a93e78f1a4827127b1ec2efc09d69ecb53c49d247a26fa8f4142feb0a4528ff6",
+    "crates/spike-ui/src/artwork.rs": "d7d0829ed7d80608b7033bbfe59b83d1576be48a5d717b335e69fff696cbcbd8",
+    "crates/spike-ui/src/lib.rs": "92777a0ceb8560410da8bb13bf7210acc345cf534ea48d54a585d48c53aea4eb",
+    "crates/spike-ui/src/worker.rs": "b74f74281861b74f4483480d30b1c97e9c5278353f462a020c863b5cce08da41",
+    "rust-toolchain.toml": "060751f06f70853677293dd84de1c855fa72295c5dbc17ce811a3a57b75861c0",
+    "rustfmt.toml": "f32d2f03b3f4b1e295c79ed49d543f1205c7dac7c3dc74f05a5a27af4fea0584",
+    "tests/browser/p01-browser.cjs": "f73ee1b91b9dd6c2ee1c1473d97f015fe98b3e1b2a954278f46c70a1dde3162a",
+    "tests/desktop/cli_input.rs": "c7e77daf287b9f979f01ed901eb57dd31855282557467a43c47e7445d624763a",
+    "tests/native-spike/fake_mpv.py": "0a097e668df1e5748c4ee9b21456dc41b8b5152978e0edd19ce381fbed989381",
+    "tests/native-spike/native.rs": "f56c0e769202db0f7b7bc58214fb4745ee70d23e0a880f267212c9826d3a474e",
+    "tests/performance/headless.rs": "9079f0c9f720469b14c4b02efacf55dfd94ba5ea6b86c2410f5d6821803f549f",
+    "tests/spike-ui/artwork.rs": "83aec2374c4fd2fe5226decd7b1c09c4ca54cf52e25aca93938347f11e886686",
+    "tests/spike-ui/keyboard.rs": "70089fbcceb0dcd01598d460e073f5c1900d3113f632d510f9332956459b3902",
+    "tests/spike-ui/virtual_table.rs": "ce86db28ec6a976cfdee4d77b0fb54edf2f424d02887f0570db88cee5134daaa",
+    "tests/spike-ui/worker.rs": "bc54e0a0c449b267bf1be31c0d4776632bb8f547abbf600c22d47d84922f3617",
+    "tests/tooling/test_p00_adapter_evidence.py": "b9ddab6cd0cc70e3450ab87eb74198a72f103a9a225d9b5c7364c6ac65a85e00",
+    "tests/tooling/test_p00_browser_evidence.py": "a6efa414bec868a69369a68e385374a2f257c8cf1c63d2481d410d915e5bf5fb",
+    "tests/tooling/test_p00_evidence.py": "7d2e241fbf53ae831cad58632313b8303243ba01888945d853fdf5b32e426eb5",
+    "tests/tooling/test_p00_library.py": "93096ae889808a214906cf77f554b5911d6792212a06246fa37ebd098ca607e9",
+    "tests/tooling/test_p00_runtime_evidence.py": "f6fa16e07f30729e58c87627dd50bd534f030dd03850c5f3e753e82901731ac6",
+    "tests/tooling/test_p00_source_audit.py": "8a19148e2fbbc84e9a552838ecfb2c54d584a492fecc0534a1bcf49a57238cda",
+    "tests/tooling/test_p01_browser_harness.py": "fd98726de42a7a9c51dad370109908fd36e35002465154a027edbaca96361343",
+    "tests/tooling/test_p01_packaging.py": "21d33a4ea3e5e6f6718d30c495cf2d72506538898d202985a0048f77df81c9e9",
+    "tools/app/assets/feishin-p01.svg": "95fafe60628567ebd63be39f4839e0ad49b535f3193d2d8c4abaa774a048c49b",
+    "tools/app/assets/p01-thumbnail.png": "ce14197b9c53e63693e10a206c7b71d309f47440794a284a49fe0d90c281134d",
+    "tools/app/browser-shell.html": "cf69fe675e2dbb65a689f18e1755198f56ef5a6deac32670d2fba19946af48fd",
+    "tools/app/build-web.py": "0e39147010241851d4120f1339df7c1f41e9b22f6858c4917d40487a7b23bd4c",
+    "tools/app/check-p00.py": "c65c4850329196f5e9325f276dd8330ae848610af8646fac1b70ef747f441322",
+    "tools/app/notices.py": "d51f2f521f22ef3726aafbb9548baba9a7803047092115a19886a5d613e643e2",
+    "tools/app/p00-adapter-runtime.cjs": "475ba267c2f470de79dbfa04706f4d148c4d48f45d59131fa959f3ffdd0ee66e",
+    "tools/app/p00-browser-evidence.cjs": "b3a86419b2e695261fa5dd4026b75c99dadde8761a4cd0efbf2b1bf73bd30538",
+    "tools/app/p00-library.py": "868a0dc4b9687e70d0032a7e54c28e52740879b2246946a9150e4072a48dfcf4",
+    "tools/app/p00-reference-runtime.cjs": "178ca05db62b998f2e88cc29c257b00bea9e49ace312b2e27bde0baf551edc0a",
+    "tools/app/p00-source-audit.cjs": "887bc004bec72d77667850bec6f397df4d2e620ad9e0c6f912cd30e290e11830",
+    "tools/app/p00-wire-check.cjs": "837a8ccf8d86bbc7f1e42c42fe4893394dfb98d9c63de8eadb8dec43d94cdeb3",
+    "tools/app/package-appimage.py": "c4356865a75626e0f52bb242d7ca5e04afc5565ae49566c92e306ab56e99c893"
+  },
+  "checks": {
+    "rust_default": {
+      "passed": 17,
+      "ignored_external_native": 4,
+      "ignored_release_benchmark": 1
+    },
+    "external_native": {
+      "passed": 4,
+      "audio": "owned PulseAudio null sink and explicit p01_owned.monitor; null output in separate IPC test"
+    },
+    "python_default": {
+      "total": 45,
+      "passed": 38,
+      "skipped_optional_reference": 7
+    },
+    "python_with_frozen_reference": {
+      "passed": 45,
+      "skipped": 0,
+      "esbuild": "0.25.12",
+      "typescript": "6.0.3"
+    },
+    "local_reference_regressions": {
+      "passed": 7,
+      "untracked_inputs": "inventory/archive and checker remain local; Cargo target output excluded by local regression"
+    },
+    "format": "passed",
+    "clippy_native_default": "passed",
+    "clippy_wgpu_only": "passed",
+    "clippy_wasm_roots": "passed",
+    "portable_wasm": "passed",
+    "web_release_bundles": "passed",
+    "browser_lab": "passed Chromium 141.0.7390.37, Firefox 142.0.1, WebKit 26.0; pinned lab engines, not supported product matrix",
+    "native_software_renderers": "Glow and explicit software Vulkan passed; default wgpu driver path failed",
+    "cross_compile_only": [
+      "x86_64-pc-windows-gnu",
+      "x86_64-pc-windows-msvc",
+      "aarch64-pc-windows-msvc",
+      "x86_64-apple-darwin",
+      "aarch64-apple-darwin",
+      "aarch64-unknown-linux-gnu"
+    ],
+    "clean_source_copy": "offline workspace build and default evidence/Python checks passed without ignored inputs"
+  },
+  "appimage": {
+    "architecture": "x86_64",
+    "build_os": "Ubuntu 24.04",
+    "runtime_os": "separate Ubuntu 24.04 container, glibc 2.39-0ubuntu8.9, no checkout/Rust",
+    "sha256": "58ee262b0a8bc3d74e603385cb209fb0c3718769c905b260ffbcafb9d371e736",
+    "checks": [
+      "shell/font startup",
+      "owned tone generation",
+      "external mpv 0.37.0 null-output probe",
+      "GPL SHA-256 and default-font/std notices extracted",
+      "explicit bundled libxkbcommon-x11"
+    ],
+    "project_license_sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "limits": "No physical audio/device, aarch64 runtime, OS accessibility, complete native-license audit or release certification",
+    "artifact_local_path": "target/p01-ubuntu-build/appimage-review-fixed/Feishin-Rust-P01-x86_64.AppImage",
+    "review_fixed_sources": true
+  },
+  "open_gates": [
+    "P00 calibrated budgets",
+    "physical renderer/input/accessibility/IME/RTL/DPI/touch matrix",
+    "native engine replacement/fallback, gapless/crossfade",
+    "Windows IPC and OS/capture APIs",
+    "real server/browser codec/autoplay matrix",
+    "arm64 AppImage runtime and full distribution notices",
+    "hosted CI execution"
+  ],
+  "evidence_sha256": {
+    "docs/app/p01/evidence/headless.json": "7a78884ab284233e5ab325daba610c977128642012ce753b3b833f1e0e2b4c7b",
+    "tests/fixtures/p01/browser/2026-10-22/browser-results.json": "adcbad20be81e3dc49f3c0918c1b9240fe8f2a25f20f45e7f489c046aab3d339"
+  }
+}

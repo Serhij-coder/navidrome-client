@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Feishin Rust P01</title>
+<style>
+html,body{margin:0;height:100%;background:#202124;color:#eee;font:14px sans-serif}
+main{padding:8px;box-sizing:border-box}label,input,button{font:inherit}input{width:min(65vw,800px)}
+#status{min-height:2em}canvas{display:block;width:100%;height:calc(100% - 160px);touch-action:none}
+</style>
+<main>
+<div id="media-controls">
+<label for="stream">Disposable stream URL</label>
+<input id="stream" type="password" autocomplete="off" spellcheck="false">
+<button id="play" type="button">Load / Play</button>
+<audio id="audio" controls preload="none" crossorigin="anonymous"></audio>
+</div>
+<p id="status" role="status">Loading WASM feasibility shell...</p>
+</main>
+<canvas id="canvas" aria-label="P01 feasibility table"></canvas>
+<script type="module">
+import init from './app.js';
+init().catch(() => { document.getElementById('status').textContent = 'WASM startup failed. Check browser support and served asset paths.'; });
+</script>
+</html>

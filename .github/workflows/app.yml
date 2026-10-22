@@ -1,0 +1,92 @@
+name: Application checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: app-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  portable-and-tooling:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.22.2
+      - uses: dtolnay/rust-toolchain@1.92.0
+        with:
+          components: rustfmt, clippy
+          targets: wasm32-unknown-unknown
+      - run: cargo fmt --all -- --check
+      - run: cargo clippy --workspace --all-targets --locked -- -D warnings
+      - run: cargo test --workspace --locked
+      - run: cargo check -p feishin-spike-model --target wasm32-unknown-unknown --locked
+      - run: python3 tools/app/check-p00.py
+      - run: python3 -m unittest discover -s tests/tooling -p 'test_*.py'
+  native:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-latest, macos-14]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@1.92.0
+        with:
+          components: clippy
+      - run: cargo test --workspace --locked
+      - run: cargo clippy -p feishin-desktop --no-default-features --features wgpu --all-targets --locked -- -D warnings
+      - run: cargo build -p feishin-desktop --release --locked
+  wasm:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@1.92.0
+        with:
+          components: clippy
+          targets: wasm32-unknown-unknown
+      - run: cargo clippy -p feishin-web -p feishin-remote --target wasm32-unknown-unknown --locked -- -D warnings
+      - run: cargo install wasm-bindgen-cli --version 0.2.106 --locked
+      - run: python3 tools/app/build-web.py
+      - run: python3 -c "from pathlib import Path; assert all((Path('target/p01-web') / root / 'app_bg.wasm').is_file() for root in ('web', 'remote'))"
+  linux-appimage-smoke:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-24.04
+            arch: x86_64
+          - runner: ubuntu-24.04-arm
+            arch: aarch64
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@1.92.0
+      - run: sudo apt-get update && sudo apt-get install -y libx11-dev libxkbcommon-dev libxkbcommon-x11-0 libwayland-dev libwayland-egl1 libxcursor1 libxi6 libxrandr2 libxfixes3 libxrender1 libegl1-mesa-dev libgl1-mesa-dev libdbus-1-dev xvfb xauth mpv ffmpeg pulseaudio file libfuse2t64
+      - run: cargo build -p feishin-desktop --release --locked
+      - name: Exercise owned audio and explicit monitor capture
+        shell: bash
+        run: |
+          pulseaudio -n --daemonize=yes --exit-idle-time=-1 --load="module-null-sink sink_name=p01_owned" --load="module-native-protocol-unix socket=/tmp/p01-owned-pulse.sock auth-anonymous=1"
+          export PULSE_SERVER=unix:/tmp/p01-owned-pulse.sock
+          export P01_CAPTURE_MONITOR=p01_owned.monitor
+          cargo test -p feishin-native-spike --test native --locked -- --ignored
+          pactl exit
+      - run: curl --fail --location 'https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-${{ matrix.arch }}.AppImage' --output /tmp/linuxdeploy.AppImage
+      - run: chmod +x /tmp/linuxdeploy.AppImage && python3 tools/app/package-appimage.py --linuxdeploy /tmp/linuxdeploy.AppImage
+      - name: Run artifact away from checkout and development profile
+        shell: bash
+        run: |
+          artifact="$RUNNER_TEMP/Feishin-P01.AppImage"
+          cp "target/appimage/Feishin-Rust-P01-${{ matrix.arch }}.AppImage" "$artifact"
+          chmod +x "$artifact"
+          cd "$RUNNER_TEMP"
+          export XDG_CONFIG_HOME="$RUNNER_TEMP/p01-config"
+          export XDG_DATA_HOME="$RUNNER_TEMP/p01-data"
+          export APPIMAGE_EXTRACT_AND_RUN=1
+          xvfb-run -a "$artifact" --smoke
+          "$artifact" --tone "$RUNNER_TEMP/owned-tone.wav"
+          "$artifact" --mpv-probe-null /usr/bin/mpv "$RUNNER_TEMP/owned-tone.wav"
+      # No upload, deployment or release publication. Hardware/audio acceptance is separate.

@@ -1,0 +1,18 @@
+[package]
+name = "feishin-browser-spike"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+eframe = { workspace = true, features = ["glow"] }
+feishin-spike-ui = { path = "../spike-ui" }
+wasm-bindgen.workspace = true
+wasm-bindgen-futures.workspace = true
+js-sys.workspace = true
+web-sys = { workspace = true, features = ["Window", "Document", "Element", "HtmlElement", "HtmlCanvasElement", "HtmlAudioElement", "HtmlMediaElement", "AudioContext", "AudioContextState", "AudioDestinationNode", "AudioNode", "MediaElementAudioSourceNode", "AnalyserNode", "Navigator", "MediaSession", "MediaSessionAction", "VisibilityState", "Event", "EventTarget", "HtmlInputElement", "Url"] }
+
+[lints]
+workspace = true

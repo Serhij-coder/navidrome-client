@@ -1,0 +1,32 @@
+[workspace]
+members = ["crates/spike-model", "crates/spike-ui", "crates/native-spike", "crates/browser-spike", "apps/desktop", "apps/web", "apps/remote"]
+resolver = "3"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.92"
+license = "GPL-3.0-only"
+publish = false
+repository = "https://github.com/Serhij-coder/navidrome-client"
+
+[workspace.dependencies]
+eframe = { version = "=0.33.3", default-features = false, features = ["accesskit", "default_fonts"] }
+egui = { version = "=0.33.3", default-features = false, features = ["accesskit", "default_fonts"] }
+serde_json = "=1.0.149"
+tempfile = "=3.24.0"
+wasm-bindgen = "=0.2.106"
+wasm-bindgen-futures = "=0.4.56"
+web-sys = "=0.3.83"
+js-sys = "=0.3.83"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+dbg_macro = "deny"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = "debuginfo"

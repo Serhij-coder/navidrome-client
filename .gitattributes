@@ -7,3 +7,8 @@
 /docs/app/baseline/source-audit.json text eol=lf
 /tests/fixtures/p00/browser/**/*.json text eol=lf
 /tests/fixtures/p00/browser/**/*.txt text eol=lf
+
+# P01 saved measurements/probe results and executable fixture use stable text bytes.
+/docs/app/p01/evidence/*.json text eol=lf
+/tests/fixtures/p01/**/*.json text eol=lf
+/tests/native-spike/fake_mpv.py text eol=lf

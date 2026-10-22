@@ -1,6 +1,6 @@
 # P00 baseline and characterization
 
-P00 is open. This evidence package completes the static route/journey work and records bounded P01 criteria. It does not authorize starting P01. No Rust workspace or application has been created.
+P00 is open. This evidence package completes the static route/journey work and records bounded P01 criteria. The maintainer subsequently authorized starting [P01 workspace/prototypes](../p01/README.md) on 2026-10-22 while these P00 gates remain open; this evidence package does not establish either phase exit.
 
 The upstream baseline is jeffvli/feishin development commit `7d6ad318c79802e226996cfc39acba6b05bb22e8`, package 1.17.0. The immutable local archive has SHA-256 `a3986aa97191bf31695473ffbfd7982eb9c106ed4390b59cd52b1070213d6bcb`. Inventory verification covers 1,415 files, 1,014 parsed files, 10,243 functions and 1,039 callable declarations. The archive/inventory remain ignored and are optional inputs to reference checks, never application build dependencies.
 
@@ -15,7 +15,7 @@ The upstream baseline is jeffvli/feishin development commit `7d6ad318c79802e2269
 | P00.07 | Expanded, partial | [Actual 10k/100k headless queue samples](queue-measurements.json) complement [candidate budgets/protocol](performance.md). Packaged desktop startup/frame/audio/idle measurements and calibration remain unavailable. |
 | P00.08 | Expanded, partial | [Notices](../../../THIRD_PARTY_NOTICES.md), [font metadata/full publisher licenses](font-license-evidence.json), asset dispositions and ADR-010. Exact-version copyright reconciliation, Symbola terms, final branding and future distributed dependency/native-binary notices remain release gates. |
 
-P00 exits only with the original running in an isolated profile, representative server captures, full behavior traces, actual measurements and calibrated budgets. Static checks, successful bundling and synthetic data do not satisfy those gates. Keep P01-P14 unopened until those gaps are resolved.
+P00 exits only with the original running in an isolated profile, representative server captures, full behavior traces, actual measurements and calibrated budgets. Static checks, successful bundling and synthetic data do not satisfy those gates. P00 calibration remains required for P01 performance acceptance. The authorized initial P01 prototypes do not waive those gates; P02-P14 remain unopened.
 
 Run tracked checks from a clean checkout with Python 3.11+, Node 22.22.2+ and Git:
 

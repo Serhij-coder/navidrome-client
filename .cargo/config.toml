@@ -1,0 +1,6 @@
+[resolver]
+incompatible-rust-versions = "fallback"
+
+[build]
+# Limit peak memory on the development host; override with CARGO_BUILD_JOBS.
+jobs = 4

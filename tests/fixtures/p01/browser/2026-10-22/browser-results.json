@@ -1,0 +1,62 @@
+{
+  "playwright": "1.56.1",
+  "results": [
+    {
+      "browser": "chromium",
+      "version": "141.0.7390.37",
+      "shell": "passed",
+      "authenticatedWav": {
+        "position": 0.314667,
+        "paused": false,
+        "readyState": 4
+      },
+      "authError": 4,
+      "codecError": 4,
+      "corsError": 4,
+      "autoplay": "allowed",
+      "analysisPeak": 0.19686682522296906,
+      "pageErrors": [],
+      "limits": "Synthetic HTTP token fixture, software GPU and browser-provided media clock; no server adapter, audio device, OS media keys, mobile, previous stable or Safari product certification"
+    },
+    {
+      "browser": "firefox",
+      "version": "142.0.1",
+      "shell": "passed",
+      "authenticatedWav": {
+        "position": 0.301859,
+        "paused": false,
+        "readyState": 4
+      },
+      "authError": 4,
+      "codecError": 4,
+      "corsError": 4,
+      "autoplay": "allowed",
+      "analysisPeak": 0.19504937529563904,
+      "pageErrors": [],
+      "limits": "Synthetic HTTP token fixture, software GPU and browser-provided media clock; no server adapter, audio device, OS media keys, mobile, previous stable or Safari product certification"
+    },
+    {
+      "browser": "webkit",
+      "version": "26.0",
+      "shell": "passed",
+      "authenticatedWav": {
+        "position": 1.108571429,
+        "paused": false,
+        "readyState": 4
+      },
+      "authError": 4,
+      "codecError": 4,
+      "corsError": 4,
+      "autoplay": "allowed",
+      "analysisPeak": 0.19358599185943604,
+      "pageErrors": [],
+      "limits": "Synthetic HTTP token fixture, software GPU and browser-provided media clock; no server adapter, audio device, OS media keys, mobile, previous stable or Safari product certification"
+    }
+  ],
+  "fixtureRequests": {
+    "authenticated": 13,
+    "rejected": 3,
+    "cors": 3,
+    "codec": 4
+  }
+}
