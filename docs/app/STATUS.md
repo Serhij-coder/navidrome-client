@@ -7,10 +7,11 @@
 - Capture: one-slot off-UI supervisor with generation isolation, suspend/re-enable/retry and real owned-monitor checks; no default host capture.
 - Browser: real disposable Navidrome FLAC/MP3 on three lab engines; six session callbacks, cancellable/deadlined play, lifecycle/reload checks; default interior seeks pass in the lab; Firefox/WebKit boundary/loop limits remain open.
 - Packaging/accessibility: rebuilt Ubuntu x86_64 AppImage runs without checkout/Rust; nine-step Orca/eSpeak NG selection journey passed; no physical/device certification.
-- Hosted 202efc6: all seven jobs passed, including both AppImage CPUs; uncommitted seek-lifecycle changes passed local checks only.
-- Latest checks: 33 default Rust; 58 Python with reference; five external native probes via wrapper passed on Ubuntu x86_64; format/default-WASM-wgpu Clippy and release web builds passed; older runtime manifests stay historical.
-- Records: [matrix](p01/README.md), [Orca/CI](p01/screen-reader.md), [Windows IPC](p01/windows-ipc.md), [migration](migration/p01-map.csv), [licenses](licenses/README.md).
-- Delivered P01.04: callback seek deadlines/recovery; nine lifecycle cases passed on each of three lab engines; native Play review finding fixed; both reviews satisfied.
+- Hosted d75adcf: all seven jobs passed, including both AppImage CPUs; native transition continuation passed local checks and awaits post-push CI.
+- Latest checks: 37 default Rust; 59 Python with reference; five external native probes via wrapper passed on Ubuntu x86_64; format/default-WASM-wgpu Clippy and release web builds passed; older runtime manifests stay historical.
+- Records: [matrix](p01/README.md), [Orca/CI](p01/screen-reader.md), [Windows IPC](p01/windows-ipc.md), [native transition](p01/native-transitions.md), [migration](migration/p01-map.csv), [licenses](licenses/README.md).
+- Delivered P01.05: 19 owned transition captures and five external probes passed; scripts-disabled launch restored; new AppImage runtime passed; both reviews satisfied.
+- Delivered P01.04 d75adcf: nine callback-seek lifecycle cases passed per lab engine; native Play review finding fixed; both reviews satisfied and pushed.
 - Open: calibrated physical budgets, renderer/input/IME/RTL/touch/screen-reader/OS matrix, Windows runtime/OS controls/capture, full native fallback and release licensing; no P01 exit.
 - Delivered: 202efc6 browser seek-fixture correction reviewed by both agents and pushed; existing boundary/loop results remain historical.
-- Next: continue P01.05 live native transition/filter feasibility and remaining platform gates; P02 only after verified P01 exit.
+- Next: native fallback/live crossfade, native control seek handling and remaining performance/input/capture/platform P01 gates; P02 only after verified P01 exit.

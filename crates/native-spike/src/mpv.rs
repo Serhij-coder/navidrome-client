@@ -31,6 +31,7 @@ impl Mpv {
         let mut command = child_command(binary);
         command.args([
             "--no-config",
+            "--load-scripts=no",
             "--idle=yes",
             "--no-terminal",
             "--really-quiet",
@@ -273,3 +274,7 @@ fn ipc_directory() -> Result<tempfile::TempDir, Error> {
         .prefix("feishin-p01-mpv-")
         .tempdir()?)
 }
+
+#[cfg(all(test, target_os = "linux"))]
+#[path = "../../../tests/native-spike/transitions.rs"]
+mod transition_tests;

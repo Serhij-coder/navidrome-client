@@ -1,0 +1,351 @@
+{
+  "cases": [
+    {
+      "active_windows_ms": 3955,
+      "audio_span_ms": 3955,
+      "captured_frames": 237975,
+      "default_prefetch_playlist": false,
+      "format": "wav",
+      "gapless_option": "weak",
+      "load_scripts": false,
+      "longest_quiet_run_ms": 0,
+      "mpv_version": "mpv 0.37.0",
+      "pause_control": false,
+      "playlist_occurrences_seen": [
+        true,
+        true
+      ],
+      "prefetch_playlist": false,
+      "trial": 0
+    },
+    {
+      "active_windows_ms": 3995,
+      "audio_span_ms": 3995,
+      "captured_frames": 237469,
+      "default_prefetch_playlist": false,
+      "format": "wav",
+      "gapless_option": "weak",
+      "load_scripts": false,
+      "longest_quiet_run_ms": 0,
+      "mpv_version": "mpv 0.37.0",
+      "pause_control": false,
+      "playlist_occurrences_seen": [
+        true,
+        true
+      ],
+      "prefetch_playlist": false,
+      "trial": 1
+    },
+    {
+      "active_windows_ms": 4000,
+      "audio_span_ms": 4000,
+      "captured_frames": 237710,
+      "default_prefetch_playlist": false,
+      "format": "wav",
+      "gapless_option": "weak",
+      "load_scripts": false,
+      "longest_quiet_run_ms": 0,
+      "mpv_version": "mpv 0.37.0",
+      "pause_control": false,
+      "playlist_occurrences_seen": [
+        true,
+        true
+      ],
+      "prefetch_playlist": false,
+      "trial": 2
+    },
+    {
+      "active_windows_ms": 3998,
+      "audio_span_ms": 3998,
+      "captured_frames": 237613,
+      "default_prefetch_playlist": false,
+      "format": "wav",
+      "gapless_option": "weak",
+      "load_scripts": false,
+      "longest_quiet_run_ms": 0,
+      "mpv_version": "mpv 0.37.0",
+      "pause_control": false,
+      "playlist_occurrences_seen": [
+        true,
+        true
+      ],
+      "prefetch_playlist": true,
+      "trial": 0
+    },
+    {
+      "active_windows_ms": 3991,
+      "audio_span_ms": 3991,
+      "captured_frames": 237329,
+      "default_prefetch_playlist": false,
+      "format": "wav",
+      "gapless_option": "weak",
+      "load_scripts": false,
+      "longest_quiet_run_ms": 0,
+      "mpv_version": "mpv 0.37.0",
+      "pause_control": false,
+      "playlist_occurrences_seen": [
+        true,
+        true
+      ],
+      "prefetch_playlist": true,
+      "trial": 1
+    },
+    {
+      "active_windows_ms": 3996,
+      "audio_span_ms": 3996,
+      "captured_frames": 237516,
+      "default_prefetch_playlist": false,
+      "format": "wav",
+      "gapless_option": "weak",
+      "load_scripts": false,
+      "longest_quiet_run_ms": 0,
+      "mpv_version": "mpv 0.37.0",
+      "pause_control": false,
+      "playlist_occurrences_seen": [
+        true,
+        true
+      ],
+      "prefetch_playlist": true,
+      "trial": 2
+    },
+    {
+      "active_windows_ms": 3998,
+      "audio_span_ms": 3998,
+      "captured_frames": 237626,
+      "default_prefetch_playlist": false,
+      "format": "flac",
+      "gapless_option": "weak",
+      "load_scripts": false,
+      "longest_quiet_run_ms": 0,
+      "mpv_version": "mpv 0.37.0",
+      "pause_control": false,
+      "playlist_occurrences_seen": [
+        true,
+        true
+      ],
+      "prefetch_playlist": false,
+      "trial": 0
+    },
+    {
+      "active_windows_ms": 3992,
+      "audio_span_ms": 3992,
+      "captured_frames": 237310,
+      "default_prefetch_playlist": false,
+      "format": "flac",
+      "gapless_option": "weak",
+      "load_scripts": false,
+      "longest_quiet_run_ms": 0,
+      "mpv_version": "mpv 0.37.0",
+      "pause_control": false,
+      "playlist_occurrences_seen": [
+        true,
+        true
+      ],
+      "prefetch_playlist": false,
+      "trial": 1
+    },
+    {
+      "active_windows_ms": 3984,
+      "audio_span_ms": 3984,
+      "captured_frames": 236905,
+      "default_prefetch_playlist": false,
+      "format": "flac",
+      "gapless_option": "weak",
+      "load_scripts": false,
+      "longest_quiet_run_ms": 0,
+      "mpv_version": "mpv 0.37.0",
+      "pause_control": false,
+      "playlist_occurrences_seen": [
+        true,
+        true
+      ],
+      "prefetch_playlist": false,
+      "trial": 2
+    },
+    {
+      "active_windows_ms": 3996,
+      "audio_span_ms": 3996,
+      "captured_frames": 237520,
+      "default_prefetch_playlist": false,
+      "format": "flac",
+      "gapless_option": "weak",
+      "load_scripts": false,
+      "longest_quiet_run_ms": 0,
+      "mpv_version": "mpv 0.37.0",
+      "pause_control": false,
+      "playlist_occurrences_seen": [
+        true,
+        true
+      ],
+      "prefetch_playlist": true,
+      "trial": 0
+    },
+    {
+      "active_windows_ms": 3991,
+      "audio_span_ms": 3991,
+      "captured_frames": 237288,
+      "default_prefetch_playlist": false,
+      "format": "flac",
+      "gapless_option": "weak",
+      "load_scripts": false,
+      "longest_quiet_run_ms": 0,
+      "mpv_version": "mpv 0.37.0",
+      "pause_control": false,
+      "playlist_occurrences_seen": [
+        true,
+        true
+      ],
+      "prefetch_playlist": true,
+      "trial": 1
+    },
+    {
+      "active_windows_ms": 3998,
+      "audio_span_ms": 3998,
+      "captured_frames": 237663,
+      "default_prefetch_playlist": false,
+      "format": "flac",
+      "gapless_option": "weak",
+      "load_scripts": false,
+      "longest_quiet_run_ms": 0,
+      "mpv_version": "mpv 0.37.0",
+      "pause_control": false,
+      "playlist_occurrences_seen": [
+        true,
+        true
+      ],
+      "prefetch_playlist": true,
+      "trial": 2
+    },
+    {
+      "active_windows_ms": 3994,
+      "audio_span_ms": 3994,
+      "captured_frames": 237430,
+      "default_prefetch_playlist": false,
+      "format": "mp3",
+      "gapless_option": "weak",
+      "load_scripts": false,
+      "longest_quiet_run_ms": 0,
+      "mpv_version": "mpv 0.37.0",
+      "pause_control": false,
+      "playlist_occurrences_seen": [
+        true,
+        true
+      ],
+      "prefetch_playlist": false,
+      "trial": 0
+    },
+    {
+      "active_windows_ms": 3995,
+      "audio_span_ms": 3995,
+      "captured_frames": 237491,
+      "default_prefetch_playlist": false,
+      "format": "mp3",
+      "gapless_option": "weak",
+      "load_scripts": false,
+      "longest_quiet_run_ms": 0,
+      "mpv_version": "mpv 0.37.0",
+      "pause_control": false,
+      "playlist_occurrences_seen": [
+        true,
+        true
+      ],
+      "prefetch_playlist": false,
+      "trial": 1
+    },
+    {
+      "active_windows_ms": 3952,
+      "audio_span_ms": 3952,
+      "captured_frames": 237839,
+      "default_prefetch_playlist": false,
+      "format": "mp3",
+      "gapless_option": "weak",
+      "load_scripts": false,
+      "longest_quiet_run_ms": 0,
+      "mpv_version": "mpv 0.37.0",
+      "pause_control": false,
+      "playlist_occurrences_seen": [
+        true,
+        true
+      ],
+      "prefetch_playlist": false,
+      "trial": 2
+    },
+    {
+      "active_windows_ms": 3989,
+      "audio_span_ms": 3989,
+      "captured_frames": 237169,
+      "default_prefetch_playlist": false,
+      "format": "mp3",
+      "gapless_option": "weak",
+      "load_scripts": false,
+      "longest_quiet_run_ms": 0,
+      "mpv_version": "mpv 0.37.0",
+      "pause_control": false,
+      "playlist_occurrences_seen": [
+        true,
+        true
+      ],
+      "prefetch_playlist": true,
+      "trial": 0
+    },
+    {
+      "active_windows_ms": 3995,
+      "audio_span_ms": 3995,
+      "captured_frames": 237480,
+      "default_prefetch_playlist": false,
+      "format": "mp3",
+      "gapless_option": "weak",
+      "load_scripts": false,
+      "longest_quiet_run_ms": 0,
+      "mpv_version": "mpv 0.37.0",
+      "pause_control": false,
+      "playlist_occurrences_seen": [
+        true,
+        true
+      ],
+      "prefetch_playlist": true,
+      "trial": 1
+    },
+    {
+      "active_windows_ms": 3992,
+      "audio_span_ms": 3992,
+      "captured_frames": 237323,
+      "default_prefetch_playlist": false,
+      "format": "mp3",
+      "gapless_option": "weak",
+      "load_scripts": false,
+      "longest_quiet_run_ms": 0,
+      "mpv_version": "mpv 0.37.0",
+      "pause_control": false,
+      "playlist_occurrences_seen": [
+        true,
+        true
+      ],
+      "prefetch_playlist": true,
+      "trial": 2
+    },
+    {
+      "active_windows_ms": 3998,
+      "audio_span_ms": 4149,
+      "captured_frames": 243383,
+      "default_prefetch_playlist": false,
+      "format": "wav",
+      "gapless_option": "weak",
+      "load_scripts": false,
+      "longest_quiet_run_ms": 151,
+      "mpv_version": "mpv 0.37.0",
+      "pause_control": true,
+      "playlist_occurrences_seen": [
+        true,
+        true
+      ],
+      "prefetch_playlist": true,
+      "trial": 0
+    }
+  ],
+  "quiet_rms_threshold": 0.019999999552965164,
+  "sample_rate_hz": 48000,
+  "scope": "Live owned PulseAudio monitor energy, 1 ms windows; not sample-exact gapless, physical/device output or crossfade certification",
+  "tone_seconds_each": 2,
+  "window_ms": 1
+}

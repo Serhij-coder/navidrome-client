@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-23T07:32:26.639679+00:00",
+  "source_base": "d75adcf167ba858dfb01f180184dfcfad5758dc5",
+  "source_overrides": {
+    "crates/native-spike/src/mpv.rs": "c7398c4dff735091a0ec904a37488531c95fc800d6327bb30190a22b2b00b456",
+    "tests/native-spike/transitions.rs": "7a9ff359c1bd980a9d06e06a285cabc0957fd6f5f408a44f4a30e01836412060"
+  },
+  "evidence_sha256": {
+    "docs/app/p01/evidence/live-native-transitions.json": "f8fba62d45b2cecedfa0bb17ca23e56de1492e7bd8ae8efce411e16831794fa2"
+  },
+  "environment": {
+    "distribution": "Ubuntu 24.04 x86_64 disposable builder",
+    "mpv": "0.37.0",
+    "ffmpeg": "6.1.1-3ubuntu5",
+    "audio": "private PulseAudio null sink p01_transition, 48000 Hz mono, explicit monitor only, no default device script",
+    "fixtures": "owned two-second 750/1500 Hz PCM; FFmpeg FLAC/libmp3lame encodes; no network/profile inputs"
+  },
+  "checks": {
+    "default_rust_passed": 37,
+    "ignored_external_native": 6,
+    "ignored_performance": 2,
+    "explicit_existing_native_passed": 5,
+    "explicit_transition_captures": 19,
+    "capture_unit_tests_passed": 4,
+    "python_tests": "59 passed with frozen optional reference inputs",
+    "format_default_windows_clippy": "passed; Windows x64 MSVC all-target native Clippy compile-only",
+    "scope": "18 captured pairs with prefetch off/on, 3 trials per format; 1 real 150 ms pause control; no sample-exact/device gapless or crossfade claim",
+    "local_reference": "inventory, 7 reference regressions and node syntax passed; tracked documentation/whitespace passed",
+    "source_base_hosted_ci": {
+      "head_sha": "d75adcf167ba858dfb01f180184dfcfad5758dc5",
+      "run_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39913027844",
+      "conclusion": "success",
+      "jobs_passed": 7,
+      "scope": "committed browser/source base only; native continuation checked locally before task push"
+    }
+  },
+  "appimage": {
+    "path": "target/p01-ubuntu-build/appimage-native-transition-final/Feishin-Rust-P01-x86_64.AppImage",
+    "sha256": "60b3dec98a2797cb37f04d97bd09fef62a86f9ac92a33f5873e6dc03540c5d25",
+    "release_binary_sha256": "e31fe376d430ae7612b0c245870f6fb3ebeb7145a44dd062081501be2326aa60",
+    "packaged_binary_sha256": "78268b5c4f3f70b065be1cda16ca9137185a96c46efa404534a22eb0da899845",
+    "matching_elf_build_id": "8561bd4bcb361ed43f6125f9e2e071e2d8356910",
+    "script_flag_in_packaged_binary": true,
+    "license_sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "runtime": "separate Ubuntu runtime has no Rust or checkout; final artifact copied to /tmp; shell startup, generated five-second tone and null-output external mpv passed",
+    "scope": "x86_64 initial artifact only; release licensing/device/architecture certification remains open",
+    "cache_fix": "stale shared-target release caught by missing flag; native release clean/rebuild before final packaging; dev native cache cleaned before external probes"
+  },
+  "limits": "Captured 1 ms low-energy windows only. No timestamp/sample conservation or audible/device latency proof; short discontinuities can escape this detector. Tiny owned local files do not establish authenticated/remote prefetch or production settings/fallback. No P01 exit or P02.",
+  "reviews": {
+    "correctness_architecture": "satisfied; no actionable findings; independently passed 4 default probe regressions and evidence test, verified source/evidence/AppImage hashes; live capture not rerun during review",
+    "tests_edges_operations": "satisfied; no actionable findings; independently passed 4 default probe regressions, evidence test and whitespace; verified source/evidence/AppImage hashes; live probe remained opt-in"
+  }
+}
