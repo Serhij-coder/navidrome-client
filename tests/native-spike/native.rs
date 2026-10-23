@@ -154,12 +154,15 @@ fn real_mpv_current_next_pause_seek_filter_and_process_death() {
     write_tone(&tone, 5, 750).unwrap();
     let binary = std::env::var_os("P01_MPV").unwrap_or_else(|| "mpv".into());
     let mut mpv = Mpv::start(Path::new(&binary), 5, AudioOutput::Null).unwrap();
+    assert_eq!(mpv.probe_position(Duration::from_secs(1)).unwrap(), None);
+    assert!(mpv.accepts_generation(5));
+    mpv.pause(true).unwrap();
     mpv.load_local(&tone, false).unwrap();
     mpv.load_local(&tone, true).unwrap();
     assert_eq!(mpv.playlist_count().unwrap(), 2);
-    std::thread::sleep(Duration::from_millis(250));
-    mpv.pause(true).unwrap();
+    position::wait_for_position(&mut mpv, 0.0, Duration::from_secs(3)).unwrap();
     mpv.seek(1.0).unwrap();
+    position::wait_for_position(&mut mpv, 1.0, Duration::from_secs(3)).unwrap();
     mpv.low_pass_probe().unwrap();
     mpv.pause(false).unwrap();
     assert!(mpv.position().unwrap() >= 0.9);
@@ -167,6 +170,10 @@ fn real_mpv_current_next_pause_seek_filter_and_process_death() {
     assert!(!mpv.accepts_generation(5));
     assert!(mpv.position().is_err());
 }
+
+#[cfg(unix)]
+#[path = "position.rs"]
+mod position;
 
 #[test]
 #[ignore = "requires external FFmpeg; generated source is not OS capture"]

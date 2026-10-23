@@ -25,6 +25,7 @@ pub enum Error {
     ProcessExited,
     Protocol,
     Rejected,
+    PropertyUnavailable,
     Unsupported,
     InvalidInput,
 }

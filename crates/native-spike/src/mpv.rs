@@ -91,6 +91,9 @@ impl Mpv {
         result
     }
     fn exchange(&mut self, command: Value) -> Result<Value, Error> {
+        self.exchange_until(command, Instant::now() + DEADLINE)
+    }
+    fn exchange_until(&mut self, command: Value, deadline: Instant) -> Result<Value, Error> {
         if !self.active {
             return Err(Error::ProcessExited);
         }
@@ -99,7 +102,6 @@ impl Mpv {
         let message = json!({"command": command, "request_id": request});
         let mut bytes = serde_json::to_vec(&message).map_err(|_| Error::Protocol)?;
         bytes.push(b'\n');
-        let deadline = Instant::now() + DEADLINE;
         let mut pending = bytes.as_slice();
         while !pending.is_empty() {
             let remaining = remaining_time(deadline)?;
@@ -141,8 +143,10 @@ impl Mpv {
             if reply.get("request_id").and_then(Value::as_u64) != Some(request) {
                 continue;
             }
-            if reply.get("error").and_then(Value::as_str) != Some("success") {
-                return Err(Error::Rejected);
+            match reply.get("error").and_then(Value::as_str) {
+                Some("success") => {}
+                Some("property unavailable") => return Err(Error::PropertyUnavailable),
+                _ => return Err(Error::Rejected),
             }
             return Ok(reply.get("data").cloned().unwrap_or(Value::Null));
         }
@@ -170,6 +174,7 @@ impl Mpv {
         self.command(json!(["set_property", "pause", paused]))?;
         Ok(())
     }
+    /// Waits for command acknowledgement, not arrival at the requested position.
     pub fn seek(&mut self, seconds: f64) -> Result<(), Error> {
         if !seconds.is_finite() || seconds < 0.0 {
             return Err(Error::InvalidInput);
@@ -177,10 +182,39 @@ impl Mpv {
         self.command(json!(["seek", seconds, "absolute+exact"]))?;
         Ok(())
     }
+    /// Observe a current media position, independently of seek acknowledgement.
+    /// `None` means exactly mpv's `property unavailable`, normally while idle or
+    /// loading. Other errors and invalid successful values invalidate IPC.
+    /// Blocking worker API: the caller's budget is capped at three seconds.
+    pub fn probe_position(&mut self, timeout: Duration) -> Result<Option<f64>, Error> {
+        if timeout.is_zero() {
+            return Err(Error::Deadline);
+        }
+        let result = self.exchange_until(
+            json!(["get_property", "time-pos"]),
+            Instant::now() + timeout.min(DEADLINE),
+        );
+        match result {
+            Ok(value) => match value
+                .as_f64()
+                .filter(|value| value.is_finite() && *value >= 0.0)
+            {
+                Some(position) => Ok(Some(position)),
+                None => {
+                    self.active = false;
+                    Err(Error::Protocol)
+                }
+            },
+            Err(Error::PropertyUnavailable) => Ok(None),
+            Err(error) => {
+                self.active = false;
+                Err(error)
+            }
+        }
+    }
     pub fn position(&mut self) -> Result<f64, Error> {
-        self.command(json!(["get_property", "time-pos"]))?
-            .as_f64()
-            .ok_or(Error::Protocol)
+        self.probe_position(DEADLINE)?
+            .ok_or(Error::PropertyUnavailable)
     }
     pub fn playlist_count(&mut self) -> Result<u64, Error> {
         self.command(json!(["get_property", "playlist-count"]))?

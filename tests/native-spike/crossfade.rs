@@ -159,23 +159,16 @@ impl Pair {
 fn ready_position(player: &mut Mpv) -> Result<f64, Error> {
     let deadline = Instant::now() + Duration::from_secs(4);
     loop {
-        // Property-unavailable is normal during load. Retry it explicitly here,
-        // without treating a rejected readiness query as transport failure.
+        let remaining = deadline
+            .checked_duration_since(Instant::now())
+            .filter(|value| !value.is_zero())
+            .ok_or(Error::Deadline)?;
+        let reply = player.probe_position(remaining)?;
         if Instant::now() >= deadline {
             return Err(Error::Deadline);
         }
-        let reply = player.exchange(json!(["get_property", "time-pos"]));
-        if Instant::now() >= deadline {
-            return Err(Error::Deadline);
-        }
-        match reply {
-            Ok(value) => {
-                if let Some(position) = value.as_f64().filter(|value| value.is_finite()) {
-                    return Ok(position);
-                }
-            }
-            Err(Error::Rejected) => {}
-            Err(error) => return Err(error),
+        if let Some(position) = reply {
+            return Ok(position);
         }
         if Instant::now() >= deadline {
             return Err(Error::Deadline);

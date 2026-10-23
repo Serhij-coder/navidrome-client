@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-23T15:12:59.247230+00:00",
+  "source_base": "677d4341f6a8fab8f470eb8e96ae009b14f8bdbd",
+  "source_overrides": {
+    "crates/native-spike/src/lib.rs": "267769dde01311253a8eb0ed65fb9875afd22e5fc249a2e177d53c3e153aaa4e",
+    "crates/native-spike/src/mpv.rs": "84811c590b198e2969bc68b45ad612acf2a3b6bc6174419f16fb91fb1889d389",
+    "tests/native-spike/native.rs": "e390776c1542186848dcd71ea1db905880cac206bfc45310dbd63a487367dcc7",
+    "tests/native-spike/position.rs": "28e8c8a1036e138fc6143b37819c75b608b3388ac57e293f8b6700092ed70474",
+    "tests/native-spike/fake_mpv.py": "53e45a3811122d3eb8ef882bbf0b08ac57a17e80f175b01cdba615fc0c144ff9",
+    "tests/native-spike/crossfade.rs": "f0f1cfd58704f9073890e8cebf5ae157eb7eca1bfebe70a114d47e59ece5710b",
+    "tests/native-spike/windows_peer.rs": "8073eb07bdd2b56bde568c0cf87897d29366d46bee5210c9a16a5a717dd140b3",
+    "tests/native-spike/windows_pipe.rs": "f23afffe3acebb0cdaeaae1b4e761adfd55fc98d707d8cb3d3d2c32335810730"
+  },
+  "evidence_sha256": {
+    "docs/app/p01/evidence/native-position-gain.json": "a32948294e9061cc045dccee8d363fd1ee1e02ac286759a8073242f3041ca65d",
+    "docs/app/p01/evidence/native-position-crossfade.json": "994b9cc042515ce594b071dbdeaf77589b9e94629ae5c9fba198e021d4046a28",
+    "docs/app/p01/evidence/native-position-transitions.json": "54f94e3ede295a814e9225e3bdd14263c691beb223f34ef9994042dd97286f17"
+  },
+  "environment": {
+    "native": "Ubuntu24.04 x86_64 owned builder; mpv0.37.0; FFmpeg6.1.1",
+    "audio": "private p01_owned external-probe sink and private p01_transition live-capture sink; mono48000Hz; no host capture/output/profile",
+    "build": "tracked HEAD archive plus listed source overlays, fresh /target/position-native-build Cargo cache; no ignored reference build dependency"
+  },
+  "checks": {
+    "default_rust_passed": 49,
+    "ignored_native": 8,
+    "ignored_performance": 2,
+    "native_external": "five existing real native probes passed, including real idle unavailable and paused load/seek observation",
+    "volume_calibration": "five fixed plateaus passed in11.42s",
+    "crossfade": "three live curves passed in28.14s with remaining-budget readiness helper",
+    "transition_regression": "19 owned transition/prefetch/pause captures passed in131.76s",
+    "compile": "format/default all-target and Windows x64MSVC native all-target Clippy passed; WASM roots Clippy passed; new Windows runtime fixture assertions not locally executed",
+    "tooling": "64 app tooling tests with frozen optional reference inputs, seven local reference tests, inventory verification, JavaScript syntax, tracked documentation and whitespace checks passed"
+  },
+  "behavior": "Only exact correlated property unavailable becomes None; normal absence preserves engine. Other errors/invalid success values and in-flight query timeouts invalidate IPC. Zero budget is a preflight deadline with no IPC. Per-query budget min(caller remaining,3s). Strict position reports typed absence without invalidation. Paused wait helper and latest-target tests are not production seek/device coordination.",
+  "hosted_baseline": {
+    "sha": "677d4341f6a8fab8f470eb8e96ae009b14f8bdbd",
+    "url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39973374786",
+    "jobs_passed": 7,
+    "scope": "all seven jobs passed on unmodified native source base, including both AppImage CPUs; earlier55651db failure is unexplained, not proven fixed by this task"
+  },
+  "limits": "P01 feasibility only. No native fallback/OS-media routing, authenticated streams, physical/device seek timing, real Windows/macOS mpv or full gapless/DSP/platform certification. No new local AppImage claim. Earlier artifacts/manifests remain historical. No P01 exit/P02.",
+  "reviews": {
+    "correctness_architecture": "satisfied, no actionable findings; independently passed all five position regressions and Windows x64 MSVC native all-target Clippy; source/evidence hashes verified; Windows runtime and live captures not independently rerun",
+    "tests_edges_operations": "satisfied, no actionable findings; independently passed all five position regressions, Python fixture syntax and whitespace; all eight source and three evidence hashes and 5/3/19 result counts verified; Windows runtime and live captures not independently rerun"
+  }
+}

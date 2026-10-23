@@ -28,19 +28,27 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .enable_time()
         .build()?;
     runtime.block_on(async {
-        if mode == "missing-pipe" { tokio::time::sleep(Duration::from_secs(30)).await; }
-        let server = ServerOptions::new().first_pipe_instance(true).create(path)?;
+        if mode == "missing-pipe" {
+            tokio::time::sleep(Duration::from_secs(30)).await;
+        }
+        let server = ServerOptions::new()
+            .first_pipe_instance(true)
+            .create(path)?;
         server.connect().await?;
         let mut server = BufReader::new(server);
         let mut count = 0;
         loop {
             let mut line = String::new();
-            if server.read_line(&mut line).await? == 0 { break; }
+            if server.read_line(&mut line).await? == 0 {
+                break;
+            }
             let message: Value = serde_json::from_str(&line)?;
             let command = message["command"][0].as_str().unwrap_or("");
             let property = message["command"][1].as_str().unwrap_or("");
             if command == "quit" {
-                if mode == "stall-quit" { continue; }
+                if mode == "stall-quit" {
+                    continue;
+                }
                 break;
             }
             if mode == "slow-startup" || (property == "playlist-count" && mode == "slow-command") {
@@ -50,20 +58,50 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 }
             }
             if property == "playlist-count" {
-                if mode == "die" { std::process::exit(1); }
-                if mode == "malformed" { server.get_mut().write_all(b"invalid\n").await?; continue; }
+                if mode == "die" {
+                    std::process::exit(1);
+                }
+                if mode == "malformed" {
+                    server.get_mut().write_all(b"invalid\n").await?;
+                    continue;
+                }
                 if mode == "oversized" {
                     server.get_mut().write_all(&vec![b' '; 65_537]).await?;
                     continue;
                 }
             }
             if command == "loadfile" {
-                if message["command"][2] == "append" { count += 1; } else { count = 1; }
+                if message["command"][2] == "append" {
+                    count += 1;
+                } else {
+                    count = 1;
+                }
+            }
+            let mut error = "success";
+            let mut data = if property == "playlist-count" {
+                json!(count)
+            } else if property == "mpv-version" {
+                json!("fixture")
+            } else {
+                Value::Null
+            };
+            if property == "time-pos" {
+                match mode.as_str() {
+                    "unavailable-position" => error = "property unavailable",
+                    "rejected-position" => error = "property not found",
+                    "negative-position" => data = json!(-1),
+                    "normal" => data = json!(0),
+                    _ => {}
+                }
             }
             // Events and unrelated responses must not complete the current request.
             let event = json!({"event":"property-change", "data": "fixture-only"});
             let stale = json!({"request_id":0, "error":"success", "data":999});
-            for reply in [event, stale, json!({"request_id":message["request_id"], "error":"success", "data":if property == "playlist-count" { json!(count) } else if property == "mpv-version" { json!("fixture") } else { Value::Null }})] {
+            for reply in [
+                event,
+                stale,
+                json!({"request_id":message["request_id"], "error":error, "data":data}),
+            ] {
                 let mut bytes = serde_json::to_vec(&reply)?;
                 bytes.push(b'\n');
                 server.get_mut().write_all(&bytes).await?;

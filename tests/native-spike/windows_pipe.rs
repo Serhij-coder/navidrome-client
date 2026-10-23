@@ -26,6 +26,10 @@ fn windows_pipe_correlates_replies_and_preserves_input_and_generation_contracts(
     let ipc_directory = mpv.socket_directory().to_owned();
     assert!(mpv.accepts_generation(17));
     assert!(!mpv.accepts_generation(16));
+    assert_eq!(
+        mpv.probe_position(Duration::from_secs(1)).unwrap(),
+        Some(0.0)
+    );
     mpv.load_local(&tone, false).unwrap();
     mpv.load_local(&tone, true).unwrap();
     assert_eq!(mpv.playlist_count().unwrap(), 2);
@@ -87,4 +91,27 @@ fn windows_pipe_partial_reply_deadlines_and_stalled_quit_are_bounded() {
     mpv.shutdown().unwrap();
     drop(mpv);
     assert!(start.elapsed() < Duration::from_secs(2));
+}
+
+#[test]
+fn windows_position_queries_distinguish_unavailable_invalid_and_rejected() {
+    let (_directory, binary) = peer("unavailable-position");
+    let mut player = Mpv::start(&binary, 32, AudioOutput::Null).unwrap();
+    assert_eq!(player.probe_position(Duration::from_secs(1)).unwrap(), None);
+    assert!(matches!(player.position(), Err(Error::PropertyUnavailable)));
+    assert!(player.accepts_generation(32));
+    player.pause(true).unwrap();
+    player.shutdown().unwrap();
+    for mode in ["rejected-position", "negative-position", "null-position"] {
+        let (_directory, binary) = peer(mode);
+        let mut player = Mpv::start(&binary, 33, AudioOutput::Null).unwrap();
+        let result = player.probe_position(Duration::from_secs(1));
+        if mode == "rejected-position" {
+            assert!(matches!(result, Err(Error::Rejected)));
+        } else {
+            assert!(matches!(result, Err(Error::Protocol)));
+        }
+        assert!(!player.accepts_generation(33));
+        player.shutdown().unwrap();
+    }
 }
