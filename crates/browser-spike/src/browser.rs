@@ -159,16 +159,9 @@ impl Media {
             status("Seek completed in browser stream.");
             return;
         }
-        let Ok(mut deadline) = BrowserDeadline::new() else {
-            self.fail_seek("Seek deadline unavailable. Reload the stream.");
+        if !self.watch_seek(target) {
             return;
-        };
-        let generation = self.seek_generation.get();
-        let weak = Rc::downgrade(self);
-        let (abort, registration) = AbortHandle::new_pair();
-        *self.pending_seek.borrow_mut() = Some(abort);
-        self.expected_seek.set(Some(target));
-        status("Seeking browser stream.");
+        }
         // Catch browser DOM exceptions without exposing their payload or URL.
         if !matches!(
             js_sys::Reflect::set(self.audio.as_ref(), &"currentTime".into(), &target.into()),
@@ -178,6 +171,44 @@ impl Media {
             return;
         }
         self.update_session();
+    }
+    fn observe_element_seek(self: &Rc<Self>) {
+        if self.block_failed_resume() {
+            return;
+        }
+        let target = self.audio.current_time();
+        let duration = self.audio.duration();
+        if !target.is_finite() || !duration.is_finite() || !(0.0..=duration).contains(&target) {
+            self.fail_seek("Seek unavailable. Reload and check stream support.");
+            return;
+        }
+        // A callback setter queues this event too. Keep its existing deadline
+        // when the observed target agrees; another target replaces the request.
+        if self
+            .expected_seek
+            .get()
+            .is_some_and(|expected| (expected - target).abs() < 1e-6)
+        {
+            return;
+        }
+        self.watch_seek(target);
+    }
+    fn watch_seek(self: &Rc<Self>, target: f64) -> bool {
+        self.cancel_seek();
+        if self.audio.error().is_some() {
+            self.fail_seek("Seek unavailable after a media error. Reload the stream.");
+            return false;
+        }
+        let Ok(mut deadline) = BrowserDeadline::new() else {
+            self.fail_seek("Seek deadline unavailable. Reload the stream.");
+            return false;
+        };
+        let generation = self.seek_generation.get();
+        let weak = Rc::downgrade(self);
+        let (abort, registration) = AbortHandle::new_pair();
+        *self.pending_seek.borrow_mut() = Some(abort);
+        self.expected_seek.set(Some(target));
+        status("Seeking browser stream.");
         wasm_bindgen_futures::spawn_local(async move {
             let _ = Abortable::new(
                 async move {
@@ -195,6 +226,7 @@ impl Media {
             )
             .await;
         });
+        true
     }
     fn update_session(&self) {
         let Ok(session) = media_session() else {
@@ -250,6 +282,7 @@ impl Media {
         }
         self.cancel_pending();
         let generation = self.generation.get();
+        status("Starting browser stream.");
         // Both calls stay within the original user gesture.
         let play = self.audio.play();
         let resume = self.context.resume();
@@ -428,6 +461,7 @@ pub async fn start(remote: bool) -> Result<(), JsValue> {
             "loadedmetadata",
             "timeupdate",
             "ratechange",
+            "seeking",
             "seeked",
         ] {
             let weak = Rc::downgrade(&media);
@@ -439,10 +473,14 @@ pub async fn start(remote: bool) -> Result<(), JsValue> {
                     if event == "pause" && media.audio.paused() {
                         media.cancel_pending();
                     }
+                    if event == "seeking" {
+                        media.observe_element_seek();
+                    }
                     if event == "seeked" && !media.audio.seeking()
                         && let Some(expected) = media.expected_seek.take()
                     {
-                        if (media.audio.current_time() - expected).abs() > 0.25 {
+                        let position = media.audio.current_time();
+                        if !position.is_finite() || (position - expected).abs() > 0.25 {
                             media.fail_seek("Seek did not reach the requested position. Reload and check stream, codec and range support.");
                         } else {
                             media.cancel_seek();

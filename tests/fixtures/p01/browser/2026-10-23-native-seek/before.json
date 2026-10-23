@@ -1,0 +1,34 @@
+{
+  "playwright": "1.56.1",
+  "results": [
+    {
+      "browser": "chromium",
+      "result": "failed-or-unavailable",
+      "failureType": "NativeSeekReplacementFailure",
+      "stage": "native-seek-lifecycle",
+      "playStartStatus": "stale-status"
+    },
+    {
+      "browser": "firefox",
+      "result": "failed-or-unavailable",
+      "failureType": "NativeSeekReplacementFailure",
+      "stage": "native-seek-lifecycle",
+      "playStartStatus": "stale-status"
+    },
+    {
+      "browser": "webkit",
+      "result": "failed-or-unavailable",
+      "failureType": "NativeSeekReplacementFailure",
+      "stage": "native-seek-lifecycle",
+      "playStartStatus": "stale-status"
+    }
+  ],
+  "fixtureRequests": {
+    "authenticated": 31,
+    "rejected": 3,
+    "cors": 3,
+    "codec": 4,
+    "preflight": 0,
+    "ranges": 16
+  }
+}

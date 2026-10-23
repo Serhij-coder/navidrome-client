@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-23T14:38:52.288953+00:00",
+  "source_base": "55651dbe0fb2d2238a87be3186904e3b30b93eb5",
+  "source_overrides": {
+    "crates/browser-spike/src/browser.rs": "f785ae4d292f41b67b65835d4cf4f1a5b4bcbdf826435e0a31acbab4f1bdd343",
+    "tests/browser/p01-browser.cjs": "286db088f38a8b6a7f84a47d84aaf053e24f5d71973d73b52765c354d464b723",
+    "tests/browser/native-seek-lifecycle.cjs": "414c924e8a6b014c99e06322c8eeb8069359394fe8c918598d0faa38b1c3665c"
+  },
+  "artifacts_sha256": {
+    "before": {
+      "web/app.js": "4f099dcb367b3e2c71e2ae398272873737c81f5f0278f03a662c07bf7a38afd2",
+      "web/app_bg.wasm": "a32fa780a9859e38d3f89a5c55a755e9de467b05da2754d84fd209a8f191a0e5",
+      "web/index.html": "cf69fe675e2dbb65a689f18e1755198f56ef5a6deac32670d2fba19946af48fd",
+      "remote/app.js": "b393d48f49fafb3f4af43cc362c5572272a523d23f855a5c9140cb65aab34c21",
+      "remote/app_bg.wasm": "b1d4f6e896b36d7458c5ad1041d05b9f8b6a5e95c9636c0063c866f794e42f76",
+      "remote/index.html": "cf69fe675e2dbb65a689f18e1755198f56ef5a6deac32670d2fba19946af48fd"
+    },
+    "fixed": {
+      "web/app.js": "9d9994826c97ea4abb4fa98bcffe414b3f33b91654438d9c63c414752e0a66c4",
+      "web/app_bg.wasm": "e3a723e17eb82b3be70daa8ae46c5dcad99a30b66f1ec48b7c89108fc351d666",
+      "web/index.html": "cf69fe675e2dbb65a689f18e1755198f56ef5a6deac32670d2fba19946af48fd",
+      "remote/app.js": "225b08cc6b0c226a3f06361c8f013a02dd5b3a2e2bf7d4567656482e0ee15c98",
+      "remote/app_bg.wasm": "d32b4384ffd91ff8161ab9942e4053787e8bb9f9cc10063ea59d0cbfc3a13cf5",
+      "remote/index.html": "cf69fe675e2dbb65a689f18e1755198f56ef5a6deac32670d2fba19946af48fd"
+    }
+  },
+  "evidence_sha256": {
+    "tests/fixtures/p01/browser/2026-10-23-native-seek/before.json": "040d0edfb54e9bcbc33be533cc85c6f4456de4f5eab1cd544a83fb4caac49a53",
+    "tests/fixtures/p01/browser/2026-10-23-native-seek/fixed.json": "2c546b95262a802fa5fe2255bd54bc5612e36a9edb5e309ec3f94d28c35dd39c"
+  },
+  "environment": {
+    "playwright": "1.56.1",
+    "platform": "isolated Linux browser lab, Xvfb/software rendering, headed Firefox",
+    "audio": "private PulseAudio null sink/socket for each run, no host capture or output",
+    "servers": "generated token-gated WAV only; disposable Navidrome fixtures omitted"
+  },
+  "checks": {
+    "before": "baseline replacement regression reproduces failure on all three engines and stale pending-play status; baseline harness hashes recorded separately. The later timeout precondition added during review is not reached by the baseline failure.",
+    "fixed": "final v4 passed all nine observed-element and nine existing callback lifecycle cases on each lab engine, plus held-play starting status; first timeout case now requires a real withheld seeked event before accepting the timer",
+    "default": "format/default and WASM Clippy, release web/remote builds, 44 default Rust tests and all 64 Python app tooling tests with frozen optional reference inputs passed; seven local reference tests, inventory, JavaScript syntax and tracked docs/whitespace passed",
+    "browser_limits": "Chromium boundary/loop gate passed; Firefox/WebKit boundary and looping limits remain open in saved results; no browser codec repair claimed",
+    "source_base_hosted_ci": {
+      "sha": "55651dbe0fb2d2238a87be3186904e3b30b93eb5",
+      "url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39967517505",
+      "jobs_passed": 6,
+      "failed_job": "x86_64 AppImage: real_mpv_current_next_pause_seek_filter_and_process_death failed before packaging; detailed assertion log requires authentication",
+      "scope": "Committed crossfade source base, not this browser-only change. Existing native probe passed before this task, in 12 subsequent consecutive Ubuntu24/mpv0.37/null-output runs and a fresh complete five-probe isolated wrapper run. Hosted assertion/root cause remains unavailable/unresolved. No new AppImage claim."
+    }
+  },
+  "limits": "Latest observed element target policy, not correlated physical input or production queue coordination. Finite-duration fixture streams and browser-clock deadlines; no hard wall-clock, browser codec repair, OS keys, device/physical scrubber/mobile/Safari/previous stable or full P01 exit claim. Native engines/dependencies unchanged; no new native capture or AppImage runtime claim.",
+  "reviews": {
+    "correctness_architecture": "satisfied, no actionable findings; independently passed five tooling tests and verified source/evidence hashes; focused final test/evidence re-review satisfied after timeout precondition fix; live journey not independently rerun",
+    "tests_edges_operations": "satisfied after one P2 missing real-withheld-event timeout precondition fixed; full affected three-engine suite passed after fix; independently passed five tooling tests, helper syntax, whitespace and source/evidence hashes; focused re-review satisfied, no remaining actionable findings"
+  },
+  "baseline_harness_sha256": {
+    "tests/browser/p01-browser.cjs": "286db088f38a8b6a7f84a47d84aaf053e24f5d71973d73b52765c354d464b723",
+    "tests/browser/seek-lifecycle.cjs": "066479d71950f61d897699521a9b0f8d0bfc76321a92f914576d9c311565a15c",
+    "tests/browser/native-seek-lifecycle.cjs": "1134ef790379208d7ec64a958665f10e54e44b140885fa1943567557e004194d"
+  }
+}

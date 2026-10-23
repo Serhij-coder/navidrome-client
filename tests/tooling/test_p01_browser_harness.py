@@ -94,3 +94,28 @@ class BrowserFailureTests(unittest.TestCase):
         self.assertEqual([b["browser"] for b in native_before["results"]], ["chromium", "firefox", "webkit"])
         self.assertTrue(all(b["stage"] == "seek-lifecycle" and b["failureType"] == "NativeResumeFailure" for b in native_before["results"]))
         self.assertNotIn("private-disposable-seek-error", (evidence / "fixed.json").read_text())
+
+    def test_saved_element_seek_lifecycle_and_pending_play_status(self):
+        manifest = json.loads((ROOT / "docs/app/p01/evidence/native-control-seeking.json").read_text())
+        for name, digest in manifest["evidence_sha256"].items():
+            self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(), digest)
+        evidence = ROOT / "tests/fixtures/p01/browser/2026-10-23-native-seek"
+        before = json.loads((evidence / "before.json").read_text())
+        after = json.loads((evidence / "fixed.json").read_text())
+        self.assertEqual([b["browser"] for b in before["results"]], ["chromium", "firefox", "webkit"])
+        for browser in before["results"]:
+            self.assertEqual(browser["stage"], "native-seek-lifecycle")
+            self.assertEqual(browser["failureType"], "NativeSeekReplacementFailure")
+            self.assertEqual(browser["playStartStatus"], "stale-status")
+        cases = {"elementSeek", "replacesCallback", "missingCompletion", "visibleRecovery", "cancelledDeadline", "callbackReplacesElement", "sourceChange", "mismatch", "shutdown"}
+        self.assertEqual([b["browser"] for b in after["results"]], ["chromium", "firefox", "webkit"])
+        for browser in after["results"]:
+            self.assertEqual(browser["shell"], "passed")
+            self.assertEqual(browser["playStartStatus"], "passed")
+            self.assertEqual(set(browser["nativeSeekChecks"]), cases)
+            self.assertTrue(all(value == "passed" for value in browser["nativeSeekChecks"].values()))
+            self.assertEqual(len(browser["seekLifecycleChecks"]), 9)
+            self.assertTrue(all(value == "passed" for value in browser["seekLifecycleChecks"].values()))
+            self.assertEqual(browser["pageErrors"], [])
+            self.assertEqual(browser["serverStreams"], [])
+        self.assertEqual([b["seekingGate"] for b in after["results"]], ["passed", "open", "open"])

@@ -6,6 +6,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const assert = require('node:assert/strict');
 const { seekLifecycle, pendingShutdownSeek } = require('./seek-lifecycle.cjs');
+const { nativeSeekLifecycle, pendingNativeShutdownSeek } = require('./native-seek-lifecycle.cjs');
 const root = path.resolve(process.argv[2]);
 const output = path.resolve(process.argv[3]);
 // Optional real-server fixtures stay private; only the pinned loopback lab is allowed.
@@ -132,6 +133,7 @@ async function seekLoopComparison(browser, source) {
     const audio = `http://127.0.0.1:${await listen(audioServer)}`;
     for (const [name, type] of [['chromium', chromium], ['firefox', firefox], ['webkit', webkit]]) {
       let browser;
+      let playStartStatus;
       let stage = "launch";
       try {
         browser = await type.launch({headless:name !== 'firefox', firefoxUserPrefs:{'webgl.force-enabled':true}, args:name === 'chromium' ? ['--use-gl=angle', '--use-angle=swiftshader-webgl', '--enable-unsafe-swiftshader'] : []});
@@ -236,6 +238,7 @@ async function seekLoopComparison(browser, source) {
           };
         });
         await page.locator('#play').click();
+        playStartStatus = await page.locator('#status').textContent() === 'Starting browser stream.' ? 'passed' : 'stale-status';
         await page.locator('#play').click();
         await page.waitForFunction(() => document.querySelector('#status').textContent.startsWith('Playing browser'));
         await page.evaluate(() => window.p01RejectOldPlay(new DOMException('private-disposable-failure', 'NotAllowedError')));
@@ -293,6 +296,10 @@ async function seekLoopComparison(browser, source) {
           await optional.waitForFunction(() => document.querySelector('audio').currentTime > 0.3, null, {timeout:15000});
           assert.equal(await optional.locator('audio').evaluate(audio => audio.paused), false);
         } finally { await optional.close(); }
+        stage = 'native-seek-lifecycle';
+        const nativeSeekChecks = await nativeSeekLifecycle(page, audio + '/tone?token=public-disposable-fixture', observeSeek);
+        stage = 'pending-play-status';
+        assert.equal(playStartStatus, 'passed');
         stage = 'loop-seek-comparison';
         const loopSeekComparison = await seekLoopComparison(browser, audio + '/short-tone?token=public-disposable-fixture');
         stage = 'shutdown-seek';
@@ -305,6 +312,22 @@ async function seekLoopComparison(browser, source) {
         await page.waitForTimeout(8500);
         assert.equal(await page.locator('#status').textContent(), 'Seeking browser stream.');
         seekLifecycleChecks.shutdown = 'passed';
+        stage = 'shutdown-native-seek';
+        await page.reload();
+        await page.waitForFunction(() => document.querySelector('#status').textContent.includes('Paste a disposable'), null, {timeout:30000});
+        await page.evaluate(async () => { window.p01Module = await import('./app.js'); window.p01Module.set_analysis_visible(true); });
+        await page.locator('#stream').fill(audio + '/tone?token=public-disposable-fixture');
+        await page.locator('#play').click();
+        await page.waitForFunction(() => !document.querySelector('audio').paused && document.querySelector('#status').textContent.startsWith('Playing browser'), null, {timeout:12000});
+        await page.waitForFunction(() => window.p01Module.analysis_peak() > 0.01);
+        await pendingNativeShutdownSeek(page);
+        await page.evaluate(() => window.p01Module.shutdown());
+        await page.waitForTimeout(8500);
+        assert.equal(await page.locator('#status').textContent(), 'Seeking browser stream.');
+        assert.equal(await page.evaluate(() => window.p01Module.analysis_running()), false);
+        assert.equal(await page.locator('audio').evaluate(audio => audio.paused), true);
+        assert.equal(await page.evaluate(() => window.p01Handlers.size), 0);
+        nativeSeekChecks.shutdown = 'passed';
         stage = 'remote-shell';
         await page.goto(origin + '/remote/');
         await page.waitForFunction(() => document.querySelector('#status').textContent.includes('Remote presentation experiment'), null, {timeout:30000});
@@ -313,12 +336,12 @@ async function seekLoopComparison(browser, source) {
         assert.deepEqual(errors, []);
         const seekingGate = sessionSeek.result === 'passed' && sessionSeek.edges.length === 3 && sessionSeek.edges.every(edge => edge.result === 'passed') ? 'passed' : 'open';
         results.push({browser:name, version:browser.version(), shell:'passed', seekingGate, authenticatedWav:played, authError, codecError, corsError, autoplay, analysisPeak, pageErrors:errors,
-          mediaSessionCallbacks:sessionActions, sessionPlay, sessionSeek, loopSeekComparison, seekLifecycleChecks, lifecycle:'disable/re-enable/synthetic-visibility/pause/shutdown passed', playCancellation:'stale failure and eight-second deadline passed', optionalApiFailure:'visible playback passed', serverStreams,
+          mediaSessionCallbacks:sessionActions, sessionPlay, sessionSeek, loopSeekComparison, seekLifecycleChecks, nativeSeekChecks, playStartStatus, lifecycle:'disable/re-enable/synthetic-visibility/pause/shutdown passed', playCancellation:'stale failure and eight-second deadline passed', optionalApiFailure:'visible playback passed', serverStreams,
 
           limits:'Synthetic HTTP token fixture, software GPU and browser-provided media clock; no server adapter, audio device, OS media keys, mobile, previous stable or Safari product certification'});
       } catch (error) {
         // Tooling failures must be distinct from a successful browser check.
-        results.push({browser:name, result:'failed-or-unavailable', failureType:error.name, stage});
+        results.push({browser:name, result:'failed-or-unavailable', failureType:error.name, stage, ...(playStartStatus ? {playStartStatus} : {})});
         process.exitCode = 1;
       } finally { if (browser) await browser.close(); }
     }

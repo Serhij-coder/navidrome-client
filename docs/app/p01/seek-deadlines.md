@@ -1,5 +1,7 @@
 # P01.04 bounded browser seek lifecycle
 
+This is the historical callback-only remediation record. The [element-seek continuation](native-control-seeking.md) adds observed browser-control events and shared cancellation; the results and limitations below describe the earlier revision.
+
 The browser feasibility adapter now owns one cancellable deadline and generation for Media Session callback seeks, independently of its play operation. Native audio-control seeking remains browser-managed; its deadlines and concurrent interaction with callback seeks remain open verification work. A new seek replaces the previous request. Source reload/replacement, media error, completion and shutdown cancel pending seek work. An unchanged, settled position completes immediately without waiting for a browser event. Non-finite positions remain ignored and finite requests stay clamped to duration.
 
 The adapter catches a rejected `currentTime` setter and reports a generic failure. Missing completion reaches the eight-second browser timer deadline; mismatched completion, setter rejection and timeout pause playback, invalidate pending play/seek work and require the visible Load/Play action to reload. Media Session Play and the audio element's native play/playing events enforce that requirement while the failure latch is set, pausing any bypass attempt and stopping analysis. The visible action already clears the latch and loads the source before retrying. No browser exception, URL or credential enters the status message.
