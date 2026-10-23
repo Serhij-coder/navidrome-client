@@ -17,6 +17,25 @@ spec.loader.exec_module(orca)
 
 
 class OrcaTests(unittest.TestCase):
+    def test_track_action_mode_requires_consent_before_starting_services(self):
+        private = {"P01_OWNED_INPUT_DISPLAY": "1", "DISPLAY": ":71",
+                   "DBUS_SESSION_BUS_ADDRESS": "unix:path=/owned/disposable"}
+        invalid = [{**private, name: ""} for name in private]
+        invalid.extend([{**private, "DISPLAY": "remote:1"},
+                        {**private, "DBUS_SESSION_BUS_ADDRESS": "tcp:host=private"}])
+        for environment in invalid:
+            with self.subTest(environment=environment), \
+                 mock.patch.dict(orca.os.environ, environment, clear=True), \
+                 mock.patch.object(orca, "child_reaper") as reaper:
+                with self.assertRaises(RuntimeError):
+                    orca.run(Path("/private-binary"), track_actions=True)
+            reaper.assert_not_called()
+        with mock.patch.dict(orca.os.environ, private, clear=True), \
+             mock.patch.object(orca, "child_reaper"), \
+             mock.patch.object(orca, "run_owned", return_value={"owned": True}) as run:
+            self.assertEqual(orca.run(Path("/synthetic-binary"), track_actions=True), {"owned": True})
+        run.assert_called_once_with(Path("/synthetic-binary"), True)
+
     def test_saved_before_after_evidence_and_artifacts_match_the_manifest(self):
         evidence = Path(__file__).resolve().parents[2] / "docs/app/p01/evidence"
         manifest = json.loads((evidence / "orca-manifest.json").read_text())

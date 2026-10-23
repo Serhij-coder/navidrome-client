@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-23T16:23:43.084484+00:00",
+  "source_base": "daca83186b1062ad35dc02debcc9be7dd1583ad1",
+  "source_overrides": {
+    "crates/spike-ui/src/lib.rs": "71db16a7d4b46ee06ba301f252c5017d6fc0ba2816a8882b7d8e8c9ab14e5ed8",
+    "crates/spike-ui/src/track_actions.rs": "7abe61b56295faca15ea629606ec07ef1025ffc11ccda7eaec759b5d551667c1",
+    "tests/spike-ui/track_actions.rs": "8f2b4167f73f2bbea0ac6aaf07da90fc252698c93aca652c26a07e4547238944",
+    "tests/desktop/track_actions.py": "b95ca28d8e7df62369bb5a4c4bd605edd052f51fa2669b13bf65422c5e5d25a0",
+    "tests/desktop/orca.py": "369b77969e1b53c9b1d282934f0017738bf32e6e86c607ed5d731c05bf06d664"
+  },
+  "evidence_sha256": {
+    "docs/app/p01/evidence/track-actions-before.json": "fed8a28bf5deed838293385678152e42ea01073c142e98a8bc85ce08b821b724",
+    "docs/app/p01/evidence/track-actions-fixed.json": "3f922eab8c0a9999e8ee494e82ffe42571643e9326c14f57fc877b0c47e9dc92",
+    "docs/app/p01/evidence/track-actions-orca-before.json": "d4acb99616d92b5ba5baad6676c9e1577913482c4538f03766ddf2b272dfa3f3",
+    "docs/app/p01/evidence/track-actions-orca-fixed.json": "62d20b6d9a51bd9f7242e41084c3f7dc96342bdfda303a2b78662f4198da0285"
+  },
+  "artifacts": {
+    "before": "5fbec34cc6a52e6323d3e2f28bcb24bb484d5f44e10084356e92c55b56cc2ebe",
+    "intermediate_reused_id": "1b0daa9591c3784294155c83f024b3defbf7bacb1ea9e0760d4ea1fb160ae476",
+    "fixed": "2eade0d15fb2f87f00a431e21bc574ce779d0d1ec0fb8d40ce42fe744e7a77c6"
+  },
+  "build": "Ubuntu 24.04 x86_64 release binaries. Before from tracked HEAD; fixed from same checkout plus listed source overlays. Fresh target directory; UI/desktop packages explicitly cleaned before rebuilding earlier candidates. No new AppImage or off-checkout/runtime independence claim.",
+  "environment": {
+    "display": "separate disposable D-Bus/Xvfb sessions, explicit local display consent and private profiles",
+    "clipboard": "X11 clipboard on the owned display only, xclip 0.13; no raw clipboard data retained",
+    "accessibility": "AT-SPI 2.52, pyatspi 2.46.1, Orca 46.1; real packaged speech generation with bounded allowlisted debug output",
+    "speech": "private PulseAudio null sink and Speech Dispatcher/eSpeak NG, no host capture or physical output"
+  },
+  "checks": {
+    "rust_passed": 54,
+    "ignored_native": 8,
+    "ignored_performance": 2,
+    "native_clipboard": "all 15 checks passed on fixed binary; before entered table/selected track but failed keyboard menu",
+    "orca": "all 19 checks passed after fresh menu-item ID fix; original nine preserved, ten action/repeated-cycle checks added",
+    "repeat_unit": "64 openings: unique menu-item IDs, returned focus, no per-opening widget-data growth beyond fixed bound; stable popup Area ID",
+    "compile": "format/default all-target, WASM, Windows x64 MSVC shared UI all-target and desktop wgpu Clippy passed",
+    "tooling": "68 Python tooling tests with frozen optional reference inputs passed; inventory, 7 analysis-tool tests, reference Node syntax, tracked Markdown links, P01 migration anchors and ignore exceptions passed"
+  },
+  "intermediate_regression": "Candidate with stable/reused menu-item ID passed AT-SPI clipboard interaction but Orca first open/cancel passed and reopen/copy-return announcements failed. Diagnostic AT-SPI state showed copy focus true without a second speech request. Final keeps Area ID stable and varies only the stateless item ID per opening. Earlier candidate harness had first 13 speech checks, before the final additional six cycles.",
+  "limits": "Synthetic action/record IDs only, no production action catalog or queue/profile migration. No physical keyboard, human speech usability, complete memory/performance budget, Wayland, other OS, browser/mobile clipboard, touch, IME or RTL certification. P01.06/P01 exit open; no P02.",
+  "reviews": {
+    "correctness_architecture": "Satisfied: actual tracked/untracked changes inspected; no actionable findings. Independently passed 11 focused tooling tests and git diff --check. Rust/native reruns rely on parent builder validation.",
+    "tests_edges_operations": "Satisfied: actual tracked/untracked changes inspected; no actionable findings. Independently passed 11 focused tooling tests, evidence/current source digest verification and git diff --check. Rust/native reruns rely on parent builder validation."
+  },
+  "final_validation": {
+    "recorded_utc": "2026-10-23T18:35:00.405244+00:00",
+    "source_sha256": {
+      "tests/desktop/orca.py": "627936973c6ad54abe7ae58696940341e0a6676aa1f81d76c52b678ce8bab981",
+      "tests/tooling/test_p01_orca.py": "2dabf91f504280b96e1c2b4b48f1be5ba46600a160c327b5b0d3bc1d08457860"
+    },
+    "historical_source_note": "source_overrides identifies the original evidence run. The current Orca entry guard additionally requires local X11 and Unix D-Bus endpoints; no application Rust source changed during final validation.",
+    "rust": "54 passed, 10 explicitly ignored external native/performance probes; five focused track-action tests included",
+    "lint": "cargo fmt; workspace all-target Clippy; WASM web/remote Clippy; Windows x64 MSVC UI all-target Clippy; desktop wgpu all-target Clippy passed with locked dependencies and warnings denied",
+    "tooling": "68 tests passed with frozen TypeScript/reference/esbuild inputs; 7 analysis-tool tests; inventory; Node syntax; tracked evidence/Markdown; 17 P01 migration anchors; reference ignores/app exceptions; git diff --check passed",
+    "native_rerun": {
+      "binary_sha256": "2eade0d15fb2f87f00a431e21bc574ce779d0d1ec0fb8d40ce42fe744e7a77c6",
+      "clipboard_checks": 15,
+      "orca_checks": 19,
+      "evidence": "Reruns with the current harness in fresh private D-Bus/Xvfb sessions produced byte-identical track-actions-fixed.json and track-actions-orca-fixed.json; saved historical records retained."
+    },
+    "environment_remediation": "Initial shared builder-cache reuse reported missing FadeCurve despite correct snapshot source; cleaning all seven workspace package artifacts and rerunning full workspace tests passed. Initial raw-binary GUI launch lacked libxkbcommon-x11; installed libxkbcommon-x11-0/libxcb-xkb1 plus xclip in the disposable Ubuntu runtime and reran both journeys successfully. No app source changes required.",
+    "unrun": "No new physical/device, Wayland, macOS/Windows runtime, browser clipboard, AppImage packaging or full parity certification. External audio/performance probes remain explicitly ignored for this UI task."
+  }
+}

@@ -7,10 +7,10 @@
 - Capture: one-slot off-UI supervisor with generation isolation, suspend/re-enable/retry and real owned-monitor checks; no default host capture.
 - Browser: real disposable Navidrome FLAC/MP3 on three lab engines; six session callbacks, cancellable/deadlined play, lifecycle/reload checks; default interior seeks pass in the lab; Firefox/WebKit boundary/loop limits remain open.
 - Packaging/accessibility: rebuilt Ubuntu x86_64 AppImage runs without checkout/Rust; nine-step Orca/eSpeak NG selection journey passed; no physical/device certification.
-- Hosted 677d434: all seven jobs passed, including both AppImage CPUs; earlier 55651db native failure remains unexplained, not a current CI failure. No P01 exit implied.
-- Latest checks: 49 default Rust; 64 Python with reference; five external native probes via wrapper passed on Ubuntu x86_64; format/default-WASM-wgpu Clippy and release web builds passed; older runtime manifests stay historical.
+- Hosted daca831: all seven jobs passed, including Windows position assertions and both AppImage CPUs; earlier 55651db native failure remains unexplained, not a current CI failure. No P01 exit implied.
+- Latest checks: 54 default Rust; 68 Python with reference; five external native probes via wrapper passed on Ubuntu x86_64; format/default-WASM-wgpu Clippy and release web builds passed; older runtime manifests stay historical.
 - Records: [matrix](p01/README.md), [Orca/CI](p01/screen-reader.md), [Windows IPC](p01/windows-ipc.md), [native transition](p01/native-transitions.md), [migration](migration/p01-map.csv), [licenses](licenses/README.md).
-- Delivered P01.05: 198-point source slider/gain replay and dual-mpv crossfade probe passed; cubic calibration, three live overlaps and 19 transition regressions passed; both reviews satisfied; 55651db pushed.
+- Delivered P01.06 slice: Shift+F10 copy/focus and fresh menu-item IDs; local-display/session guard fixed; 15 clipboard/19 Orca checks rerun; 54 Rust/68 tooling and target Clippy/reference/link checks passed; both reviews satisfied. See [record](p01/track-actions.md).
 - Open: calibrated physical budgets, renderer/input/IME/RTL/touch/screen-reader/OS matrix, Windows runtime/OS controls/capture, full native fallback and release licensing; no P01 exit.
 - P01.04: shared element/callback seek deadlines and fresh play status; all 54 lifecycle checks passed after review assertion fix; both reviews satisfied; native hosted failure stays open.
 - Delivered P01.05: bounded optional position query and paused readiness/seek probes implemented; 49 Rust/64 tooling tests, five real native probes and calibration/3-curve/19-transition capture regressions passed; both reviews satisfied; see [record](p01/native-position.md).

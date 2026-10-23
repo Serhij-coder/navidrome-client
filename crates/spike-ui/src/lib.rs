@@ -6,6 +6,8 @@ use feishin_spike_model::{
 };
 use std::{sync::Arc, time::Duration};
 
+mod track_actions;
+
 pub const ROW_HEIGHT: f32 = 24.0;
 
 #[derive(Clone, Copy, PartialEq, Eq)]
@@ -53,6 +55,8 @@ pub struct SpikeApp {
     test_rows: Vec<(ViewRow, egui::Response)>,
     reorder_notice: Option<&'static str>,
     scroll_to: Option<usize>,
+    track_actions: Option<track_actions::TrackActions>,
+    track_action_serial: u64,
     #[cfg(not(target_arch = "wasm32"))]
     worker: worker::Worker,
     #[cfg(not(target_arch = "wasm32"))]
@@ -102,6 +106,8 @@ impl SpikeApp {
             test_rows: Vec::new(),
             reorder_notice: None,
             scroll_to: None,
+            track_actions: None,
+            track_action_serial: 0,
         }
     }
 
@@ -296,6 +302,8 @@ impl SpikeApp {
                         .and_then(|id| self.rows.iter().position(|row| *row == ViewRow::Track(id)));
                 }
             }
+            self.show_track_actions(ui, &keyboard_button);
+            ui.small("Shift+F10 opens actions for the focused track.");
             let selection_status = self
                 .selection
                 .focus
@@ -555,6 +563,10 @@ mod drag_tests;
 #[cfg(test)]
 #[path = "../../../tests/spike-ui/accessibility.rs"]
 mod accessibility_tests;
+
+#[cfg(test)]
+#[path = "../../../tests/spike-ui/track_actions.rs"]
+mod track_action_tests;
 
 #[cfg(all(test, unix))]
 #[path = "../../../tests/performance/concurrent.rs"]

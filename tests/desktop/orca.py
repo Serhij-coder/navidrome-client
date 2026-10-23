@@ -17,7 +17,8 @@ TABLE = "Focus table (arrows, Home/End, Shift for range) push button."
 FIRST = "Table focus: Track 000000, Album 0. 1 selected."
 RANGE = "Table focus: Track 000001, Album 0. 2 selected."
 END = "Table focus: Track 099999, Album 9999. 1 selected."
-PHRASES = {TABLE, FIRST, RANGE, END, "Filter tracks entry.", "Interface scale slider 1.", "Title label."}
+COPY_ACTION = "Copy synthetic title push button."
+PHRASES = {TABLE, FIRST, RANGE, END, COPY_ACTION, "Filter tracks entry.", "Interface scale slider 1.", "Title label."}
 SPEECH = re.compile(r"^\d{2}:\d{2}:\d{2}\.\d+ - SPEECH OUTPUT: '([^']*)'(?: |$)")
 LOG_LIMIT = 8 * 1024 * 1024
 # Orca 46's CLI opens a buffered debug file. Configure that same logging channel
@@ -116,12 +117,16 @@ def private_environment(root, inherited):
     return env
 
 
-def run(binary):
+def run(binary, track_actions=False):
+    if track_actions and not (os.environ.get("P01_OWNED_INPUT_DISPLAY") == "1"
+                              and os.environ.get("DISPLAY", "").startswith(":")
+                              and os.environ.get("DBUS_SESSION_BUS_ADDRESS", "").startswith("unix:")):
+        raise RuntimeError("explicit owned display/session required for track actions")
     with child_reaper():
-        return run_owned(binary)
+        return run_owned(binary, track_actions)
 
 
-def run_owned(binary):
+def run_owned(binary, track_actions=False):
     from gi.repository import Gio, GLib
     children = []
     with tempfile.TemporaryDirectory(prefix="p01-orca-owned-") as temporary:
@@ -213,6 +218,15 @@ def run_owned(binary):
                                            ("end", "End", END), ("home", "Home", FIRST),
                                            ("exit", "Tab", "Title label."), ("return", "shift+Tab", TABLE)]:
                 checks[name] = step(value, expected)
+            if track_actions:
+                for name, value, expected in [("actions_open", "shift+F10", COPY_ACTION),
+                                               ("actions_cancel", "Escape", TABLE),
+                                               ("actions_reopen", "shift+F10", COPY_ACTION),
+                                               ("actions_copy_return", "Return", TABLE)]:
+                    checks[name] = step(value, expected)
+                for index in range(3):
+                    checks[f"actions_cycle_{index}_open"] = step("shift+F10", COPY_ACTION)
+                    checks[f"actions_cycle_{index}_cancel"] = step("Escape", TABLE)
             return {"checks": checks, "conclusion": "success" if all(checks.values()) else "failure",
                     "utterances": sorted(set(utterances(read_log(log)))),
                     "orca_version": subprocess.check_output(["orca", "--version"], text=True, timeout=3).strip(),
@@ -226,11 +240,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("binary", type=Path)
     parser.add_argument("output", type=Path)
+    parser.add_argument("--track-actions", action="store_true", help="Also test the keyboard action menu on an explicitly owned display")
     args = parser.parse_args()
     if args.output.exists():
         raise SystemExit("refusing to overwrite evidence")
     try:
-        result = run(args.binary)
+        result = run(args.binary, args.track_actions)
         with args.output.open("x") as output:
             json.dump(result, output, indent=2)
             output.write("\n")
