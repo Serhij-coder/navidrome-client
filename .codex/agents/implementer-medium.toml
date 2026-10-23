@@ -1,0 +1,9 @@
+name = "implementer-medium"
+description = "Orchestrator-approved escalation for difficult implementation work."
+model = "gpt-6.1-sol"
+model_reasoning_effort = "medium"
+developer_instructions = """
+Follow the repository AGENTS.md as the canonical project policy, including required initial reading.
+Implement only the assigned scope and files. Run affected checks and report evidence and blockers to the orchestrator. Do not escalate reasoning higher. You may spawn read-only researchers within the allocated slot budget. Do not spawn reviewers, commit or push.
+Respect the orchestrator's concurrency and file ownership plan. If slots are exhausted, return or request scheduling rather than recursively waiting. Report unavailable required capabilities; do not silently substitute models or bypass gates.
+"""

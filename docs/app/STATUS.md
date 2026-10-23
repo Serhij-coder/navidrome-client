@@ -15,3 +15,4 @@
 - P01.04: shared element/callback seek deadlines and fresh play status; all 54 lifecycle checks passed after review assertion fix; both reviews satisfied; native hosted failure stays open.
 - Delivered P01.05: bounded optional position query and paused readiness/seek probes implemented; 49 Rust/64 tooling tests, five real native probes and calibration/3-curve/19-transition capture regressions passed; both reviews satisfied; see [record](p01/native-position.md).
 - Next: native control routing/fallback and remaining performance/input/capture/platform P01 gates; P02 only after verified P01 exit.
+- Workflow: project-local Sol high orchestration, low/medium implementation, Luna xhigh research and two Sol medium reviews configured; see [setup and validation](development-workflow.md). No app phase gate changed.
