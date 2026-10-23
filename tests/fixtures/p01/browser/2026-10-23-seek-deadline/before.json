@@ -1,0 +1,31 @@
+{
+  "playwright": "1.56.1",
+  "results": [
+    {
+      "browser": "chromium",
+      "result": "failed-or-unavailable",
+      "failureType": "Error",
+      "stage": "seek-lifecycle"
+    },
+    {
+      "browser": "firefox",
+      "result": "failed-or-unavailable",
+      "failureType": "Error",
+      "stage": "seek-lifecycle"
+    },
+    {
+      "browser": "webkit",
+      "result": "failed-or-unavailable",
+      "failureType": "Error",
+      "stage": "seek-lifecycle"
+    }
+  ],
+  "fixtureRequests": {
+    "authenticated": 9,
+    "rejected": 3,
+    "cors": 0,
+    "codec": 0,
+    "preflight": 0,
+    "ranges": 5
+  }
+}

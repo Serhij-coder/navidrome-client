@@ -1,0 +1,365 @@
+{
+  "playwright": "1.56.1",
+  "results": [
+    {
+      "browser": "chromium",
+      "version": "141.0.7390.37",
+      "shell": "passed",
+      "seekingGate": "passed",
+      "authenticatedWav": {
+        "position": 0.314667,
+        "paused": false,
+        "readyState": 4
+      },
+      "authError": 4,
+      "codecError": 4,
+      "corsError": 4,
+      "autoplay": "allowed",
+      "analysisPeak": 0.2094476968050003,
+      "pageErrors": [],
+      "mediaSessionCallbacks": [
+        "play",
+        "pause",
+        "stop",
+        "seekto",
+        "seekbackward",
+        "seekforward"
+      ],
+      "sessionPlay": "allowed",
+      "sessionSeek": {
+        "requested": 2,
+        "observed": 2,
+        "result": "passed",
+        "completion": "seeked",
+        "mediaError": 0,
+        "loop": false,
+        "edges": [
+          {
+            "action": "seekto",
+            "expected": 0,
+            "observed": 0,
+            "result": "passed",
+            "mediaError": 0,
+            "completion": "seeked"
+          },
+          {
+            "action": "seekforward",
+            "expected": 30,
+            "observed": 30,
+            "result": "passed",
+            "mediaError": 0,
+            "completion": "seeked"
+          },
+          {
+            "action": "seekbackward",
+            "expected": 0,
+            "observed": 0,
+            "result": "passed",
+            "mediaError": 0,
+            "completion": "seeked"
+          }
+        ]
+      },
+      "loopSeekComparison": [
+        {
+          "loop": false,
+          "seeks": [
+            {
+              "target": 2,
+              "before": 0.314667,
+              "observed": 2,
+              "mediaError": 0,
+              "completion": "seeked",
+              "result": "passed"
+            },
+            {
+              "target": 5,
+              "before": 2,
+              "observed": 5,
+              "mediaError": 0,
+              "completion": "seeked",
+              "result": "passed"
+            }
+          ]
+        },
+        {
+          "loop": true,
+          "seeks": [
+            {
+              "target": 2,
+              "before": 0.304,
+              "observed": 2,
+              "mediaError": 0,
+              "completion": "seeked",
+              "result": "passed"
+            },
+            {
+              "target": 5,
+              "before": 2,
+              "observed": 5,
+              "mediaError": 0,
+              "completion": "seeked",
+              "result": "passed"
+            }
+          ]
+        }
+      ],
+      "seekLifecycleChecks": {
+        "setterRejection": "passed",
+        "samePosition": "passed",
+        "timeout": "passed",
+        "replacement": "passed",
+        "sourceChange": "passed",
+        "recovery": "passed",
+        "failedResume": "passed",
+        "nativeResume": "passed",
+        "shutdown": "passed"
+      },
+      "lifecycle": "disable/re-enable/synthetic-visibility/pause/shutdown passed",
+      "playCancellation": "stale failure and eight-second deadline passed",
+      "optionalApiFailure": "visible playback passed",
+      "serverStreams": [],
+      "limits": "Synthetic HTTP token fixture, software GPU and browser-provided media clock; no server adapter, audio device, OS media keys, mobile, previous stable or Safari product certification"
+    },
+    {
+      "browser": "firefox",
+      "version": "142.0.1",
+      "shell": "passed",
+      "seekingGate": "open",
+      "authenticatedWav": {
+        "position": 0.301859,
+        "paused": false,
+        "readyState": 4
+      },
+      "authError": 4,
+      "codecError": 4,
+      "corsError": 4,
+      "autoplay": "allowed",
+      "analysisPeak": 0.19487494230270386,
+      "pageErrors": [],
+      "mediaSessionCallbacks": [
+        "play",
+        "pause",
+        "stop",
+        "seekto",
+        "seekbackward",
+        "seekforward"
+      ],
+      "sessionPlay": "visible-reload-required",
+      "sessionSeek": {
+        "requested": 2,
+        "observed": 2,
+        "result": "passed",
+        "completion": "seeked",
+        "mediaError": 0,
+        "loop": false,
+        "edges": [
+          {
+            "action": "seekto",
+            "expected": 0,
+            "observed": 0,
+            "result": "passed",
+            "mediaError": 0,
+            "completion": "seeked"
+          },
+          {
+            "action": "seekforward",
+            "expected": 30,
+            "observed": 30,
+            "result": "lab-seek-failed",
+            "mediaError": 3,
+            "completion": "error"
+          }
+        ]
+      },
+      "loopSeekComparison": [
+        {
+          "loop": false,
+          "seeks": [
+            {
+              "target": 2,
+              "before": 0.313469,
+              "observed": 2,
+              "mediaError": 0,
+              "completion": "seeked",
+              "result": "passed"
+            },
+            {
+              "target": 5,
+              "before": 2,
+              "observed": 5,
+              "mediaError": 3,
+              "completion": "error",
+              "result": "lab-seek-failed"
+            }
+          ]
+        },
+        {
+          "loop": true,
+          "seeks": [
+            {
+              "target": 2,
+              "before": 0.301859,
+              "observed": 2,
+              "mediaError": 0,
+              "completion": "seeked",
+              "result": "passed"
+            },
+            {
+              "target": 5,
+              "before": 2,
+              "observed": 5,
+              "mediaError": 3,
+              "completion": "error",
+              "result": "lab-seek-failed"
+            }
+          ]
+        }
+      ],
+      "seekLifecycleChecks": {
+        "setterRejection": "passed",
+        "samePosition": "passed",
+        "timeout": "passed",
+        "replacement": "passed",
+        "sourceChange": "passed",
+        "recovery": "passed",
+        "failedResume": "passed",
+        "nativeResume": "passed",
+        "shutdown": "passed"
+      },
+      "lifecycle": "disable/re-enable/synthetic-visibility/pause/shutdown passed",
+      "playCancellation": "stale failure and eight-second deadline passed",
+      "optionalApiFailure": "visible playback passed",
+      "serverStreams": [],
+      "limits": "Synthetic HTTP token fixture, software GPU and browser-provided media clock; no server adapter, audio device, OS media keys, mobile, previous stable or Safari product certification"
+    },
+    {
+      "browser": "webkit",
+      "version": "26.0",
+      "shell": "passed",
+      "seekingGate": "open",
+      "authenticatedWav": {
+        "position": 1.065918367,
+        "paused": false,
+        "readyState": 4
+      },
+      "authError": 4,
+      "codecError": 4,
+      "corsError": 4,
+      "autoplay": "allowed",
+      "analysisPeak": 0.20403088629245758,
+      "pageErrors": [],
+      "mediaSessionCallbacks": [
+        "play",
+        "pause",
+        "stop",
+        "seekto",
+        "seekbackward",
+        "seekforward"
+      ],
+      "sessionPlay": "visible-reload-required",
+      "sessionSeek": {
+        "requested": 2,
+        "observed": 2,
+        "result": "passed",
+        "completion": "seeked",
+        "mediaError": 0,
+        "loop": false,
+        "edges": [
+          {
+            "action": "seekto",
+            "expected": 0,
+            "observed": 0,
+            "result": "passed",
+            "mediaError": 0,
+            "completion": "seeked"
+          },
+          {
+            "action": "seekforward",
+            "expected": 30,
+            "observed": 30,
+            "result": "passed",
+            "mediaError": 0,
+            "completion": "seeked"
+          },
+          {
+            "action": "seekbackward",
+            "expected": 0,
+            "observed": 0,
+            "result": "lab-seek-failed",
+            "mediaError": 0,
+            "completion": "timeout"
+          }
+        ]
+      },
+      "loopSeekComparison": [
+        {
+          "loop": false,
+          "seeks": [
+            {
+              "target": 2,
+              "before": 1.065918367,
+              "observed": 2,
+              "mediaError": 0,
+              "completion": "seeked",
+              "result": "passed"
+            },
+            {
+              "target": 5,
+              "before": 2,
+              "observed": 5,
+              "mediaError": 0,
+              "completion": "seeked",
+              "result": "passed"
+            }
+          ]
+        },
+        {
+          "loop": true,
+          "seeks": [
+            {
+              "target": 2,
+              "before": 1.065918367,
+              "observed": 0,
+              "mediaError": 0,
+              "completion": "seeked",
+              "result": "lab-seek-failed"
+            },
+            {
+              "target": 5,
+              "before": 0,
+              "observed": 0,
+              "mediaError": 0,
+              "completion": "seeked",
+              "result": "lab-seek-failed"
+            }
+          ]
+        }
+      ],
+      "seekLifecycleChecks": {
+        "setterRejection": "passed",
+        "samePosition": "passed",
+        "timeout": "passed",
+        "replacement": "passed",
+        "sourceChange": "passed",
+        "recovery": "passed",
+        "failedResume": "passed",
+        "nativeResume": "passed",
+        "shutdown": "passed"
+      },
+      "lifecycle": "disable/re-enable/synthetic-visibility/pause/shutdown passed",
+      "playCancellation": "stale failure and eight-second deadline passed",
+      "optionalApiFailure": "visible playback passed",
+      "serverStreams": [],
+      "limits": "Synthetic HTTP token fixture, software GPU and browser-provided media clock; no server adapter, audio device, OS media keys, mobile, previous stable or Safari product certification"
+    }
+  ],
+  "fixtureRequests": {
+    "authenticated": 38,
+    "rejected": 3,
+    "cors": 3,
+    "codec": 4,
+    "preflight": 0,
+    "ranges": 21
+  }
+}

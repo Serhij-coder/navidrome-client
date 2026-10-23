@@ -79,6 +79,8 @@ struct Media {
     generation: Cell<u64>,
     pending_play: RefCell<Option<AbortHandle>>,
     expected_seek: Cell<Option<f64>>,
+    seek_generation: Cell<u64>,
+    pending_seek: RefCell<Option<AbortHandle>>,
     needs_reload: Cell<bool>,
 }
 impl Media {
@@ -115,7 +117,7 @@ impl Media {
             task.abort();
         }
     }
-    fn pause(&self, stop: bool) {
+    fn pause(self: &Rc<Self>, stop: bool) {
         self.cancel_pending();
         let _ = self.audio.pause();
         if stop {
@@ -123,14 +125,76 @@ impl Media {
         }
         self.refresh();
     }
-    fn seek(&self, seconds: f64) {
-        let duration = self.audio.duration();
-        if seconds.is_finite() && duration.is_finite() && duration > 0.0 {
-            let target = seconds.clamp(0.0, duration);
-            self.expected_seek.set(Some(target));
-            self.audio.set_current_time(target);
-            self.update_session();
+    fn cancel_seek(&self) {
+        self.seek_generation
+            .set(self.seek_generation.get().wrapping_add(1));
+        self.expected_seek.set(None);
+        if let Some(task) = self.pending_seek.borrow_mut().take() {
+            task.abort();
         }
+    }
+    fn fail_seek(&self, message: &str) {
+        self.cancel_seek();
+        self.cancel_pending();
+        self.needs_reload.set(true);
+        let _ = self.audio.pause();
+        self.refresh();
+        self.update_session();
+        status(message);
+    }
+    fn seek(self: &Rc<Self>, seconds: f64) {
+        let duration = self.audio.duration();
+        if !seconds.is_finite() || !duration.is_finite() || duration <= 0.0 {
+            return;
+        }
+        let target = seconds.clamp(0.0, duration);
+        self.cancel_seek();
+        if self.audio.error().is_some() {
+            self.fail_seek("Seek unavailable after a media error. Reload the stream.");
+            return;
+        }
+        // An unchanged, settled position needs no browser seek event.
+        if !self.audio.seeking() && self.audio.current_time() == target {
+            self.update_session();
+            status("Seek completed in browser stream.");
+            return;
+        }
+        let Ok(mut deadline) = BrowserDeadline::new() else {
+            self.fail_seek("Seek deadline unavailable. Reload the stream.");
+            return;
+        };
+        let generation = self.seek_generation.get();
+        let weak = Rc::downgrade(self);
+        let (abort, registration) = AbortHandle::new_pair();
+        *self.pending_seek.borrow_mut() = Some(abort);
+        self.expected_seek.set(Some(target));
+        status("Seeking browser stream.");
+        // Catch browser DOM exceptions without exposing their payload or URL.
+        if !matches!(
+            js_sys::Reflect::set(self.audio.as_ref(), &"currentTime".into(), &target.into()),
+            Ok(true)
+        ) {
+            self.fail_seek("Seek rejected by the browser. Reload and check stream support.");
+            return;
+        }
+        self.update_session();
+        wasm_bindgen_futures::spawn_local(async move {
+            let _ = Abortable::new(
+                async move {
+                    deadline.wait().await;
+                    if let Some(media) = weak.upgrade()
+                        && generation == media.seek_generation.get()
+                        && media.expected_seek.get().is_some()
+                    {
+                        media.fail_seek(
+                            "Seek timed out. Reload and check stream, codec and range support.",
+                        );
+                    }
+                },
+                registration,
+            )
+            .await;
+        });
     }
     fn update_session(&self) {
         let Ok(session) = media_session() else {
@@ -168,7 +232,22 @@ impl Media {
             }
         }
     }
+    fn block_failed_resume(&self) -> bool {
+        if !self.needs_reload.get() {
+            return false;
+        }
+        self.cancel_pending();
+        self.cancel_seek();
+        let _ = self.audio.pause();
+        self.refresh();
+        self.update_session();
+        status("Playback requires a visible reload after a failed operation.");
+        true
+    }
     fn play(self: &Rc<Self>) {
+        if self.block_failed_resume() {
+            return;
+        }
         self.cancel_pending();
         let generation = self.generation.get();
         // Both calls stay within the original user gesture.
@@ -206,6 +285,7 @@ impl Media {
 impl Drop for Media {
     fn drop(&mut self) {
         self.cancel_pending();
+        self.cancel_seek();
         if let Some(window) = web_sys::window() {
             if let Some(id) = self.interval.borrow_mut().take() {
                 window.clear_interval_with_handle(id);
@@ -292,6 +372,8 @@ pub async fn start(remote: bool) -> Result<(), JsValue> {
             generation: Cell::new(0),
             pending_play: RefCell::new(None),
             expected_seek: Cell::new(None),
+            seek_generation: Cell::new(0),
+            pending_seek: RefCell::new(None),
             needs_reload: Cell::new(false),
         });
         let weak: Weak<Media> = Rc::downgrade(&media);
@@ -332,7 +414,7 @@ pub async fn start(remote: bool) -> Result<(), JsValue> {
             let reload = media.needs_reload.replace(false);
             if media.audio.src() != url.href() || reload || media.audio.error().is_some() {
                 media.cancel_pending();
-                media.expected_seek.set(None);
+                media.cancel_seek();
                 media.audio.set_src(&url.href());
                 media.audio.load();
             }
@@ -340,6 +422,7 @@ pub async fn start(remote: bool) -> Result<(), JsValue> {
         })?);
         for event in [
             "play",
+            "playing",
             "pause",
             "ended",
             "loadedmetadata",
@@ -350,6 +433,9 @@ pub async fn start(remote: bool) -> Result<(), JsValue> {
             let weak = Rc::downgrade(&media);
             events.push(bind(media.audio.as_ref(), event, move |_| {
                 if let Some(media) = weak.upgrade() {
+                    if matches!(event, "play" | "playing") && media.block_failed_resume() {
+                        return;
+                    }
                     if event == "pause" && media.audio.paused() {
                         media.cancel_pending();
                     }
@@ -357,9 +443,9 @@ pub async fn start(remote: bool) -> Result<(), JsValue> {
                         && let Some(expected) = media.expected_seek.take()
                     {
                         if (media.audio.current_time() - expected).abs() > 0.25 {
-                            media.needs_reload.set(true);
-                            status("Seek did not reach the requested position. Reload and check stream, codec and range support.");
+                            media.fail_seek("Seek did not reach the requested position. Reload and check stream, codec and range support.");
                         } else {
+                            media.cancel_seek();
                             status("Seek completed in browser stream.");
                         }
                     }
@@ -372,7 +458,7 @@ pub async fn start(remote: bool) -> Result<(), JsValue> {
         events.push(bind(media.audio.as_ref(), "error", move |_| {
             if let Some(media) = weak.upgrade() && media.audio.error().is_some() {
                 media.cancel_pending();
-                media.expected_seek.set(None);
+                media.cancel_seek();
                 media.needs_reload.set(true);
                 media.refresh();
                 status("Media error: stream, credentials, CORS or codec failed. No URL or server error is logged.");
@@ -517,7 +603,7 @@ async fn promise_succeeded(promise: Result<js_sys::Promise, JsValue>) -> bool {
     }
 }
 
-// The timeout is owned by the current, abortable play operation; cancellation clears it.
+// The timeout is owned by the current, abortable media operation; cancellation clears it.
 struct BrowserDeadline {
     handle: i32,
     _callback: Closure<dyn FnMut()>,

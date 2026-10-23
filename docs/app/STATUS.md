@@ -7,10 +7,10 @@
 - Capture: one-slot off-UI supervisor with generation isolation, suspend/re-enable/retry and real owned-monitor checks; no default host capture.
 - Browser: real disposable Navidrome FLAC/MP3 on three lab engines; six session callbacks, cancellable/deadlined play, lifecycle/reload checks; default interior seeks pass in the lab; Firefox/WebKit boundary/loop limits remain open.
 - Packaging/accessibility: rebuilt Ubuntu x86_64 AppImage runs without checkout/Rust; nine-step Orca/eSpeak NG selection journey passed; no physical/device certification.
-- Hosted 91f4d38: all seven jobs passed, including both AppImage CPUs; tracked 58814c1 evidence established P01.07; uncommitted browser changes are local only.
-- Latest checks: 33 default Rust previously; 57 Python with reference; five external native probes via wrapper passed on Ubuntu x86_64; format/default-WASM-wgpu Clippy and release web builds passed; older runtime manifests stay historical.
+- Hosted 202efc6: all seven jobs passed, including both AppImage CPUs; uncommitted seek-lifecycle changes passed local checks only.
+- Latest checks: 33 default Rust; 58 Python with reference; five external native probes via wrapper passed on Ubuntu x86_64; format/default-WASM-wgpu Clippy and release web builds passed; older runtime manifests stay historical.
 - Records: [matrix](p01/README.md), [Orca/CI](p01/screen-reader.md), [Windows IPC](p01/windows-ipc.md), [migration](migration/p01-map.csv), [licenses](licenses/README.md).
-- Delivered: browser seek-fixture correction; three-engine experiment and 57 Python tests passed; both independent reviews satisfied; Firefox/WebKit gates remain open.
+- Delivered P01.04: callback seek deadlines/recovery; nine lifecycle cases passed on each of three lab engines; native Play review finding fixed; both reviews satisfied.
 - Open: calibrated physical budgets, renderer/input/IME/RTL/touch/screen-reader/OS matrix, Windows runtime/OS controls/capture, full native fallback and release licensing; no P01 exit.
-- Review blocker cleared: both browser reviewers resumed, checked actual artifacts/diff and found no actionable findings.
-- Next: bound application seek completion/cancellation and verify recovery on all three lab engines; P02 only after verified P01 exit.
+- Delivered: 202efc6 browser seek-fixture correction reviewed by both agents and pushed; existing boundary/loop results remain historical.
+- Next: continue P01.05 live native transition/filter feasibility and remaining platform gates; P02 only after verified P01 exit.

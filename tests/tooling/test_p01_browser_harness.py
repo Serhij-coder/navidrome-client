@@ -1,4 +1,4 @@
-"""Regression for failure recording only; real browser media runs are separate."""
+"""Regression for failure recording and saved evidence; real browser media runs are separate."""
 import json
 import hashlib
 import os
@@ -68,3 +68,29 @@ class BrowserFailureTests(unittest.TestCase):
         self.assertEqual(webkit["sessionSeek"]["edges"][-1]["observed"], 0)
         self.assertTrue(all(seek["result"] == "passed" for seek in webkit["loopSeekComparison"][0]["seeks"]))
         self.assertTrue(all(seek["observed"] == 0 and seek["result"] == "lab-seek-failed" for seek in webkit["loopSeekComparison"][1]["seeks"]))
+
+    def test_saved_seek_deadlines_cover_failure_recovery_and_cancellation(self):
+        manifest = json.loads((ROOT / "docs/app/p01/evidence/seek-deadlines.json").read_text())
+        for name, digest in manifest["evidence_sha256"].items():
+            self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(), digest)
+        evidence = ROOT / "tests/fixtures/p01/browser/2026-10-23-seek-deadline"
+        before = json.loads((evidence / "before.json").read_text())
+        after = json.loads((evidence / "fixed.json").read_text())
+        self.assertEqual([b["browser"] for b in before["results"]], ["chromium", "firefox", "webkit"])
+        self.assertTrue(all(b["stage"] == "seek-lifecycle" and b["result"] == "failed-or-unavailable" for b in before["results"]))
+        self.assertEqual([b["browser"] for b in after["results"]], ["chromium", "firefox", "webkit"])
+        cases = {"setterRejection", "samePosition", "timeout", "replacement", "sourceChange", "recovery", "failedResume", "nativeResume", "shutdown"}
+        for browser in after["results"]:
+            self.assertEqual(browser["shell"], "passed")
+            self.assertEqual(set(browser["seekLifecycleChecks"]), cases)
+            self.assertTrue(all(result == "passed" for result in browser["seekLifecycleChecks"].values()))
+            self.assertEqual(browser["pageErrors"], [])
+            self.assertEqual(browser["serverStreams"], [])
+            self.assertGreater(browser["analysisPeak"], 0.01)
+        for browser in after["results"][1:]:
+            self.assertEqual(browser["seekingGate"], "open")
+            self.assertEqual(browser["sessionPlay"], "visible-reload-required")
+        native_before = json.loads((evidence / "native-resume-before.json").read_text())
+        self.assertEqual([b["browser"] for b in native_before["results"]], ["chromium", "firefox", "webkit"])
+        self.assertTrue(all(b["stage"] == "seek-lifecycle" and b["failureType"] == "NativeResumeFailure" for b in native_before["results"]))
+        self.assertNotIn("private-disposable-seek-error", (evidence / "fixed.json").read_text())

@@ -5,6 +5,7 @@ const http = require('node:http');
 const fs = require('node:fs');
 const path = require('node:path');
 const assert = require('node:assert/strict');
+const { seekLifecycle, pendingShutdownSeek } = require('./seek-lifecycle.cjs');
 const root = path.resolve(process.argv[2]);
 const output = path.resolve(process.argv[3]);
 // Optional real-server fixtures stay private; only the pinned loopback lab is allowed.
@@ -79,13 +80,15 @@ const files = http.createServer((req, res) => {
 async function observeSeek(page, request) {
   return page.locator('audio').evaluate((audio, {target, action, details}) => new Promise(resolve => {
     let timer;
+    const before = audio.currentTime;
+    const settledBefore = !audio.seeking;
     const finish = completion => {
       clearTimeout(timer);
       audio.removeEventListener('seeked', seeked);
       audio.removeEventListener('error', error);
       const mediaError = audio.error?.code || 0;
-      resolve({target, observed:audio.currentTime, mediaError, completion,
-        result:completion === 'seeked' && !mediaError && Math.abs(audio.currentTime-target)<0.25 ? 'passed' : 'lab-seek-failed'});
+      resolve({target, before, observed:audio.currentTime, mediaError, completion,
+        result:['seeked','already-at-target'].includes(completion) && !mediaError && Math.abs(audio.currentTime-target)<0.25 ? 'passed' : 'lab-seek-failed'});
     };
     const seeked = () => finish('seeked');
     const error = () => finish('error');
@@ -95,6 +98,7 @@ async function observeSeek(page, request) {
     try {
       if (action) window.p01Handlers.get(action)(details);
       else audio.currentTime = target;
+      if (settledBefore && before === target && !audio.seeking) finish('already-at-target');
     } catch { finish('rejected'); }
   }), request);
 }
@@ -211,7 +215,7 @@ async function seekLoopComparison(browser, source) {
           }
           stage = 'media-session-resume';
           await page.evaluate(() => window.p01Handlers.get('play')({}));
-          await page.waitForFunction(() => document.querySelector('#status').textContent.startsWith('Playing browser') || document.querySelector('#status').textContent.includes('timed out') || document.querySelector('#status').textContent.startsWith('Media error'), null, {timeout:12000});
+          await page.waitForFunction(() => ['Playing browser', 'Playback requires', 'Playback rejected', 'Media error', 'Seek did not', 'Seek timed out', 'Seek rejected', 'Seek unavailable', 'Seek deadline unavailable'].some(prefix => document.querySelector('#status').textContent.startsWith(prefix)), null, {timeout:12000});
           sessionPlay = await page.locator('audio').evaluate(audio => audio.paused || audio.error ? 'visible-reload-required' : 'allowed');
           if (sessionPlay === 'visible-reload-required') {
             await page.locator('#play').click();
@@ -245,6 +249,8 @@ async function seekLoopComparison(browser, source) {
         await page.locator('audio').evaluate(audio => { audio.play = window.p01OriginalPlay; });
         await page.locator('#play').click();
         await page.waitForFunction(() => window.p01Module.analysis_peak() > 0.01 && document.querySelector('#status').textContent.startsWith('Playing browser'));
+        stage = 'seek-lifecycle';
+        const seekLifecycleChecks = await seekLifecycle(page, audio + '/tone?token=public-disposable-fixture', observeSeek);
         await page.screenshot({path:path.join(output, name + '-web.png')});
         await page.locator('audio').evaluate(audio => audio.pause());
         stage = 'codec';
@@ -289,11 +295,16 @@ async function seekLoopComparison(browser, source) {
         } finally { await optional.close(); }
         stage = 'loop-seek-comparison';
         const loopSeekComparison = await seekLoopComparison(browser, audio + '/short-tone?token=public-disposable-fixture');
+        stage = 'shutdown-seek';
+        await pendingShutdownSeek(page, audio + '/tone?token=public-disposable-fixture', observeSeek);
         stage = 'shutdown';
         await page.evaluate(() => window.p01Module.shutdown());
         assert.equal(await page.evaluate(() => window.p01Module.analysis_running()), false);
         assert.equal(await page.locator('audio').evaluate(audio => audio.paused), true);
         assert.equal(await page.evaluate(() => window.p01Handlers.size), 0);
+        await page.waitForTimeout(8500);
+        assert.equal(await page.locator('#status').textContent(), 'Seeking browser stream.');
+        seekLifecycleChecks.shutdown = 'passed';
         stage = 'remote-shell';
         await page.goto(origin + '/remote/');
         await page.waitForFunction(() => document.querySelector('#status').textContent.includes('Remote presentation experiment'), null, {timeout:30000});
@@ -302,7 +313,7 @@ async function seekLoopComparison(browser, source) {
         assert.deepEqual(errors, []);
         const seekingGate = sessionSeek.result === 'passed' && sessionSeek.edges.length === 3 && sessionSeek.edges.every(edge => edge.result === 'passed') ? 'passed' : 'open';
         results.push({browser:name, version:browser.version(), shell:'passed', seekingGate, authenticatedWav:played, authError, codecError, corsError, autoplay, analysisPeak, pageErrors:errors,
-          mediaSessionCallbacks:sessionActions, sessionPlay, sessionSeek, loopSeekComparison, lifecycle:'disable/re-enable/synthetic-visibility/pause/shutdown passed', playCancellation:'stale failure and eight-second deadline passed', optionalApiFailure:'visible playback passed', serverStreams,
+          mediaSessionCallbacks:sessionActions, sessionPlay, sessionSeek, loopSeekComparison, seekLifecycleChecks, lifecycle:'disable/re-enable/synthetic-visibility/pause/shutdown passed', playCancellation:'stale failure and eight-second deadline passed', optionalApiFailure:'visible playback passed', serverStreams,
 
           limits:'Synthetic HTTP token fixture, software GPU and browser-provided media clock; no server adapter, audio device, OS media keys, mobile, previous stable or Safari product certification'});
       } catch (error) {

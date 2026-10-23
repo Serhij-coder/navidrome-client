@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-23T06:37:28.176862+00:00",
+  "source_base": "202efc6de92eb51c2e3069232c0a356ac1c3b2f7",
+  "source_overrides": {
+    "crates/browser-spike/src/browser.rs": "249c9c00de1b98fa49d7f67cd1518a6d71511db09ee7597a4a69eb39fdcef739",
+    "tests/browser/p01-browser.cjs": "3c24ef384002a364b68d5cf29bfffea409432c8dc173a618aac4ef9c782b1e67",
+    "tests/browser/seek-lifecycle.cjs": "066479d71950f61d897699521a9b0f8d0bfc76321a92f914576d9c311565a15c"
+  },
+  "artifacts_sha256": {
+    "before": {
+      "remote/app.js": "9ba1da3a311f62270b432193c3d5fbf2ef1acc595b171e97ce6f38b90800d697",
+      "remote/app_bg.wasm": "a7d23fb8cb8efb971b2de7e9192747c0c501e6530d98808586c01d4d9d04a11a",
+      "remote/index.html": "cf69fe675e2dbb65a689f18e1755198f56ef5a6deac32670d2fba19946af48fd",
+      "web/app.js": "d1d057ea50b83ccafaf358af1deef937532358a174534b2cf15bb3062924ea06",
+      "web/app_bg.wasm": "9b5305139f5365744d85d318f9d575ae6cde18974eb67ee880720b992e6dcfb5",
+      "web/index.html": "cf69fe675e2dbb65a689f18e1755198f56ef5a6deac32670d2fba19946af48fd"
+    },
+    "fixed": {
+      "remote/app.js": "13afc6ab76727327cd6283717d7c0dfaa4b8c4b1fde09c16ca0c3d5e8f6a5516",
+      "remote/app_bg.wasm": "96cc3b250dec40cadb49b0705d577892646d600a458e1e51b0b6de18cd46e7fe",
+      "remote/index.html": "cf69fe675e2dbb65a689f18e1755198f56ef5a6deac32670d2fba19946af48fd",
+      "web/app.js": "9d9994826c97ea4abb4fa98bcffe414b3f33b91654438d9c63c414752e0a66c4",
+      "web/app_bg.wasm": "ec8304dee7be2a7f76baad56911d6abe70bc9987748a787129d543bd263c7747",
+      "web/index.html": "cf69fe675e2dbb65a689f18e1755198f56ef5a6deac32670d2fba19946af48fd"
+    }
+  },
+  "evidence_sha256": {
+    "tests/fixtures/p01/browser/2026-10-23-seek-deadline/before.json": "cbd0d4fb903c1782b114281128b2cdac67f8c2a284e94cc007094b7354e03eb2",
+    "tests/fixtures/p01/browser/2026-10-23-seek-deadline/fixed.json": "ba897446b8652d35b61d3405a2b82106483e49e1f05346b01430db1c38639185",
+    "tests/fixtures/p01/browser/2026-10-23-seek-deadline/native-resume-before.json": "9be5faedb7f0513f7f49d2551bd0a77165021b5721cc8dbfd63835b750bd6860"
+  },
+  "environment": {
+    "playwright": "1.56.1",
+    "platform": "isolated Linux browser lab with Xvfb/software rendering and headed Firefox",
+    "audio": "explicitly owned PulseAudio null sink and private socket, no default device script or host capture/output"
+  },
+  "checks": {
+    "before": "same final harness fails at new seek-lifecycle stage on all three engines, initially uncaught setter rejection",
+    "fixed": "all nine lifecycle cases passed on each of Chromium, Firefox and Linux WebKit after native play/playing guard fix; all main shell/analysis/lifecycle assertions completed",
+    "browser_limits": "Firefox exact-end WAV media error 3; WebKit end-return completion/looping positions remain open; visible reload recovery passed",
+    "build": "release web/remote rebuilt; default and WASM Clippy, formatting and 33 default Rust tests passed; five external native and two performance probes ignored",
+    "scope": "synthetic streams, explicit setter faults and direct native-controls-equivalent audio.play; private Navidrome fixtures omitted. Seek deadlines cover Media Session callbacks; native control seeking remains browser-managed/open.",
+    "default_tooling": "4 focused browser-tooling and all 58 Python tests passed with frozen optional reference inputs; local inventory, 7 reference regressions, JS syntax, documentation/whitespace passed",
+    "source_base_hosted_ci": {
+      "head_sha": "202efc6de92eb51c2e3069232c0a356ac1c3b2f7",
+      "run_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39909790202",
+      "conclusion": "success",
+      "jobs_passed": 7,
+      "scope": "committed source base; uncommitted seek adapter changes tested locally"
+    }
+  },
+  "limits": "Browser-clock/event-loop deadlines and synthetic callback dispatch, not physical/device latency, browser codec repair, OS media keys, mobile/Safari/current/previous support or full P01 exit. No native engine/dependency changes. Earlier fixtures/manifests remain historical.",
+  "reviews": {
+    "correctness_architecture": "satisfied; native resume bypass fixed and callback-only seek scope clarified; independently passed 4 tooling tests and verified final source/evidence/artifact hashes",
+    "tests_edges_operations": "satisfied; same bypass fixed; independently passed 4 tooling tests, JS syntax/whitespace and verified 3 source, 3 evidence and 18 bundle hashes"
+  },
+  "review_regression": {
+    "scope": "intermediate uncommitted candidate after initial seek fix, before native resume guard; not a released/committed implementation",
+    "source_override_sha256": "f482af17842be1f208c6445350268b11fa810bdb2960747ba456f917ba44fa0a",
+    "artifacts_sha256": {
+      "remote/app.js": "8aedcfaa8b3acf79c9c9ebf23613662a99b96b35e5da5128e1f22a63d9cc0143",
+      "remote/app_bg.wasm": "5eb2a38d0e79b6206964ba2367195c6fe285da8b8b22ebf519d308106f3953e6",
+      "remote/index.html": "cf69fe675e2dbb65a689f18e1755198f56ef5a6deac32670d2fba19946af48fd",
+      "web/app.js": "9169a5249272ebd1001699463a30e1ecc435a289c6c01c5e815268adc998bd6e",
+      "web/app_bg.wasm": "a6f26158881959e5fe0adb71114790f192dc9cfe6cb81542f005cee7fea7fb58",
+      "web/index.html": "cf69fe675e2dbb65a689f18e1755198f56ef5a6deac32670d2fba19946af48fd"
+    },
+    "result": "same final harness reproduced NativeResumeFailure on all three engines before native play/playing guard"
+  }
+}
