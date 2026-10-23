@@ -1,0 +1,23 @@
+{
+  "checks": {
+    "filter_name": true,
+    "scale_name": true,
+    "table_entry": true,
+    "first": false,
+    "range": false,
+    "end": false,
+    "home": false,
+    "exit": true,
+    "return": true
+  },
+  "conclusion": "failure",
+  "utterances": [
+    "Filter tracks entry.",
+    "Focus table (arrows, Home/End, Shift for range) push button.",
+    "Interface scale slider 1.",
+    "Title label."
+  ],
+  "orca_version": "46.1",
+  "binary_sha256": "fc00849e26c4a006472b1899312e0d56cdb1a979e45561fe19dca3404a2d5769",
+  "scope": "Orca requested announcements with Speech Dispatcher/eSpeak NG on an isolated null sink and synthetic X11 keys; not physical keyboard, human voice evaluation or platform certification"
+}

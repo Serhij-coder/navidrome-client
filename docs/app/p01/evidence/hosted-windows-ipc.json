@@ -1,0 +1,59 @@
+{
+  "recorded_utc": "2026-10-23T00:12:18.048393+00:00",
+  "head_sha": "58814c1b8e2b0c1c163f7edbae39f6018db82bd7",
+  "run_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39875902844",
+  "status": "completed",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "id": 120161422674,
+      "name": "portable-and-tooling",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39875902844/job/120161422674"
+    },
+    {
+      "id": 120161422885,
+      "name": "linux-appimage-smoke (ubuntu-24.04, x86_64)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39875902844/job/120161422885"
+    },
+    {
+      "id": 120161422886,
+      "name": "wasm",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39875902844/job/120161422886"
+    },
+    {
+      "id": 120161422975,
+      "name": "native (ubuntu-24.04)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39875902844/job/120161422975"
+    },
+    {
+      "id": 120161422979,
+      "name": "native (macos-14)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39875902844/job/120161422979"
+    },
+    {
+      "id": 120161422996,
+      "name": "linux-appimage-smoke (ubuntu-24.04-arm, aarch64)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39875902844/job/120161422996"
+    },
+    {
+      "id": 120161423022,
+      "name": "native (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39875902844/job/120161423022"
+    }
+  ],
+  "scope": "P01.07 tracked-input CI establishment: portable/tooling, native Linux/Windows/macOS, WASM and both AppImage architecture smoke jobs passed. Windows includes the three pipe integration tests and private server-PID mismatch test. Native UI/device/audio/permission certification and physical P01 budgets are separate open gates. Not full P01 exit."
+}

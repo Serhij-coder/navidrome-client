@@ -40,7 +40,7 @@ pub(super) fn click(app: &mut SpikeApp, ctx: &egui::Context, time: &mut f64, pos
         );
     }
 }
-fn key(
+pub(super) fn key(
     app: &mut SpikeApp,
     ctx: &egui::Context,
     time: &mut f64,

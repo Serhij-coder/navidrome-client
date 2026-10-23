@@ -296,6 +296,30 @@ impl SpikeApp {
                         .and_then(|id| self.rows.iter().position(|row| *row == ViewRow::Track(id)));
                 }
             }
+            let selection_status = self
+                .selection
+                .focus
+                .and_then(|id| self.data.get(id))
+                .map(|record| {
+                    format!(
+                        "Table focus: {}, Album {}. {} selected.",
+                        record.title,
+                        record.album,
+                        self.selection.selected.len()
+                    )
+                })
+                .unwrap_or_else(|| {
+                    format!(
+                        "No track focused. {} selected.",
+                        self.selection.selected.len()
+                    )
+                });
+            let status = ui.label(&selection_status);
+            ctx.accesskit_node_builder(status.id, |node| {
+                node.set_role(egui::accesskit::Role::Status);
+                node.set_label(selection_status);
+                node.set_live(egui::accesskit::Live::Polite);
+            });
             let layout = if self.rtl {
                 egui::Layout::right_to_left(egui::Align::Center)
             } else {
@@ -464,6 +488,7 @@ impl SpikeApp {
                 let modifiers = ctx.input(|input| input.modifiers);
                 self.selection
                     .select(&rows, id, modifiers.shift, modifiers.command);
+                ctx.request_repaint(); // Publish the status rendered before this click.
             }
             if let Some((source, before)) = moved {
                 self.reorder(ctx, &source, before);
@@ -526,6 +551,10 @@ mod keyboard_tests;
 #[cfg(test)]
 #[path = "../../../tests/spike-ui/drag.rs"]
 mod drag_tests;
+
+#[cfg(test)]
+#[path = "../../../tests/spike-ui/accessibility.rs"]
+mod accessibility_tests;
 
 #[cfg(all(test, unix))]
 #[path = "../../../tests/performance/concurrent.rs"]

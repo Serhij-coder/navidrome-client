@@ -1,0 +1,38 @@
+{
+  "recorded_utc": "2026-10-23T00:42:03.515532+00:00",
+  "source_base": "58814c1b8e2b0c1c163f7edbae39f6018db82bd7",
+  "source_overrides": {
+    "crates/spike-ui/src/lib.rs": "f827a20b410aed088dd97cf9036e066190ebe827b7947f573a46ee11e5709e86"
+  },
+  "harness_sha256": "a477c6e76542df6331761729d3e2f3cb7caee9dc0e5da4d53616aa73a0bd10a2",
+  "artifacts": {
+    "before": {
+      "name": "Feishin-Rust-P01-x86_64.AppImage",
+      "sha256": "fc00849e26c4a006472b1899312e0d56cdb1a979e45561fe19dca3404a2d5769"
+    },
+    "status": {
+      "name": "Feishin-Rust-P01-x86_64.AppImage",
+      "sha256": "affcf3b03cea2b500853d35cf57a37ca30e1527e6770bd0384e05572a155592f"
+    }
+  },
+  "evidence_sha256": {
+    "orca-before.json": "fc7f6544189b4a1b3d446841c1a6c0612ba3c3407d61601e5f1cc3e72d43d4d4",
+    "orca-status.json": "f60612202bfe434bc19ba48b9ff9baa9248b691eb1734f7a54d3481ed73237ce"
+  },
+  "environment": {
+    "distribution": "Ubuntu 24.04 x86_64 disposable builder and separate runtime",
+    "display": "Xvfb, software rendering, isolated D-Bus session",
+    "orca": "46.1-1ubuntu1",
+    "at-spi2-core": "2.52.0-1build1",
+    "speech-dispatcher": "0.12.0~rc2-2build3",
+    "espeak-ng": "1.51+dfsg-12build1",
+    "pulseaudio": "1:16.1+dfsg1-2ubuntu10.1"
+  },
+  "checks": [
+    "pre-fix four silent selection steps reproduced while control entry/exit passed",
+    "fixed nine-step Orca announcement journey passed",
+    "fixed AppImage shell, new owned tone and external null-mpv passed in separate runtime without Rust/checkout",
+    "owned service groups force-stopped and adopted descendants reaped; real TERM-ignoring descendant regression passed"
+  ],
+  "limits": "Speech requests/AT-SPI event integration on synthetic X11 keys and owned null-sink output. No human voice evaluation, hardware/device latency, other screen readers/OS/browser certification or full P01 exit. Earlier artifact/evidence manifests stay historical."
+}
