@@ -1,5 +1,6 @@
 """Regression for failure recording only; real browser media runs are separate."""
 import json
+import hashlib
 import os
 from pathlib import Path
 import subprocess
@@ -34,3 +35,36 @@ class BrowserFailureTests(unittest.TestCase):
             self.assertEqual(1, result.returncode)
             self.assertNotIn("private-payload-to-hide", result.stdout + result.stderr)
             self.assertIn("no contents logged", result.stderr)
+
+    def test_saved_seek_comparison_preserves_failures_and_manifest_integrity(self):
+        manifest = json.loads((ROOT / "docs/app/p01/evidence/browser-seeking.json").read_text())
+        for name, digest in manifest["evidence_sha256"].items():
+            self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(), digest)
+        data = json.loads((ROOT / "tests/fixtures/p01/browser/2026-10-23-seeking/browser-results.json").read_text())
+        self.assertEqual(data["playwright"], "1.56.1")
+        browsers = {item["browser"]: item for item in data["results"]}
+        self.assertEqual(set(browsers), {"chromium", "firefox", "webkit"})
+        for item in browsers.values():
+            self.assertEqual(item["shell"], "passed")
+            self.assertGreater(item["analysisPeak"], 0.01)
+            self.assertFalse(item["sessionSeek"]["loop"])
+            self.assertEqual(item["sessionSeek"]["completion"], "seeked")
+            self.assertEqual(item["sessionSeek"]["observed"], 2)
+            self.assertEqual(item["serverStreams"], [])
+            self.assertEqual([case["loop"] for case in item["loopSeekComparison"]], [False, True])
+            self.assertTrue(all([seek["target"] for seek in case["seeks"]] == [2, 5] for case in item["loopSeekComparison"]))
+        self.assertEqual(browsers["chromium"]["seekingGate"], "passed")
+        self.assertTrue(all(edge["result"] == "passed" for edge in browsers["chromium"]["sessionSeek"]["edges"]))
+        firefox = browsers["firefox"]
+        self.assertEqual(firefox["seekingGate"], "open")
+        self.assertEqual(firefox["sessionSeek"]["edges"][-1]["mediaError"], 3)
+        for case in firefox["loopSeekComparison"]:
+            self.assertEqual(case["seeks"][0]["result"], "passed")
+            self.assertEqual(case["seeks"][1]["mediaError"], 3)
+            self.assertEqual(case["seeks"][1]["completion"], "error")
+        webkit = browsers["webkit"]
+        self.assertEqual(webkit["seekingGate"], "open")
+        self.assertEqual(webkit["sessionSeek"]["edges"][-1]["completion"], "timeout")
+        self.assertEqual(webkit["sessionSeek"]["edges"][-1]["observed"], 0)
+        self.assertTrue(all(seek["result"] == "passed" for seek in webkit["loopSeekComparison"][0]["seeks"]))
+        self.assertTrue(all(seek["observed"] == 0 and seek["result"] == "lab-seek-failed" for seek in webkit["loopSeekComparison"][1]["seeks"]))

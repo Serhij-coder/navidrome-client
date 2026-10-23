@@ -23,12 +23,19 @@ for (const fixture of serverFixtures) {
   console.error('Invalid private disposable server fixture; no contents logged.');
   process.exit(1);
 }
-const tone = Buffer.alloc(44 + 48000 * 2 * 5);
-tone.write('RIFF', 0); tone.writeUInt32LE(tone.length - 8, 4); tone.write('WAVEfmt ', 8);
-tone.writeUInt32LE(16, 16); tone.writeUInt16LE(1, 20); tone.writeUInt16LE(1, 22);
-tone.writeUInt32LE(48000, 24); tone.writeUInt32LE(96000, 28); tone.writeUInt16LE(2, 32); tone.writeUInt16LE(16, 34);
-tone.write('data', 36); tone.writeUInt32LE(tone.length - 44, 40);
-for (let i = 0; i < 48000 * 5; i++) tone.writeInt16LE(Math.round(Math.sin(i * Math.PI * 2 * 750 / 48000) * 8192), 44 + i * 2);
+function makeTone(seconds) {
+  const tone = Buffer.alloc(44 + 48000 * 2 * seconds);
+  tone.write('RIFF', 0); tone.writeUInt32LE(tone.length - 8, 4); tone.write('WAVEfmt ', 8);
+  tone.writeUInt32LE(16, 16); tone.writeUInt16LE(1, 20); tone.writeUInt16LE(1, 22);
+  tone.writeUInt32LE(48000, 24); tone.writeUInt32LE(96000, 28); tone.writeUInt16LE(2, 32); tone.writeUInt16LE(16, 34);
+  tone.write('data', 36); tone.writeUInt32LE(tone.length - 44, 40);
+  for (let i = 0; i < 48000 * seconds; i++) tone.writeInt16LE(Math.round(Math.sin(i * Math.PI * 2 * 750 / 48000) * 8192), 44 + i * 2);
+  return tone;
+}
+// Leave enough uninterrupted audio for lifecycle checks without enabling loop.
+const journeyDuration = 30;
+const journeyTone = makeTone(journeyDuration);
+const shortTone = makeTone(5); // Preserve the original seek reproduction fixture.
 const listen = server => new Promise(resolve => server.listen(0, '127.0.0.1', () => resolve(server.address().port)));
 const close = server => new Promise(resolve => server.close(resolve));
 let origin;
@@ -47,6 +54,7 @@ const audioServer = http.createServer((req, res) => {
   if (url.pathname === '/cors-denied') counts.cors++;
   if (url.pathname === '/bad-codec') { counts.codec++; res.writeHead(200, {'Content-Type':'audio/ogg'}).end('invalid-owned-codec-fixture'); return; }
   // Real browser seeks require byte ranges; a media clock alone did not exercise this.
+  const tone = url.pathname === '/short-tone' ? shortTone : journeyTone;
   res.setHeader('Accept-Ranges', 'bytes');
   const range = req.headers.range?.match(/^bytes=(\d+)-(\d*)$/);
   if (range) {
@@ -66,6 +74,53 @@ const files = http.createServer((req, res) => {
     res.writeHead(200, {'Content-Type':type}); fs.createReadStream(file).on('error', () => res.destroy()).pipe(res);
   } catch { res.writeHead(404).end(); }
 });
+// Observe the completion for THIS request; WebKit can report seeking=false
+// before its queued seeked event. Polling that flag can read an old position.
+async function observeSeek(page, request) {
+  return page.locator('audio').evaluate((audio, {target, action, details}) => new Promise(resolve => {
+    let timer;
+    const finish = completion => {
+      clearTimeout(timer);
+      audio.removeEventListener('seeked', seeked);
+      audio.removeEventListener('error', error);
+      const mediaError = audio.error?.code || 0;
+      resolve({target, observed:audio.currentTime, mediaError, completion,
+        result:completion === 'seeked' && !mediaError && Math.abs(audio.currentTime-target)<0.25 ? 'passed' : 'lab-seek-failed'});
+    };
+    const seeked = () => finish('seeked');
+    const error = () => finish('error');
+    audio.addEventListener('seeked', seeked);
+    audio.addEventListener('error', error);
+    timer = setTimeout(() => finish('timeout'), 3000);
+    try {
+      if (action) window.p01Handlers.get(action)(details);
+      else audio.currentTime = target;
+    } catch { finish('rejected'); }
+  }), request);
+}
+// Compare direct media-element seeks independently of Media Session callbacks.
+// Looping is a separate compatibility probe, with fresh pages for each mode.
+async function seekLoopComparison(browser, source) {
+  const results = [];
+  for (const loop of [false, true]) {
+    const page = await browser.newPage({ viewport:{width:1100,height:900} });
+    try {
+      await page.goto(origin + '/web/');
+      await page.waitForFunction(() => document.querySelector('#status').textContent.includes('Paste a disposable'), null, {timeout:30000});
+      assert.equal(await page.locator('audio').evaluate(audio => audio.loop), false);
+      await page.locator('#stream').fill(source);
+      await page.locator('#play').click();
+      await page.waitForFunction(() => document.querySelector('audio').currentTime > 0.3, null, {timeout:15000});
+      await page.locator('audio').evaluate((audio, loop) => { audio.pause(); audio.loop = loop; }, loop);
+      const seeks = [];
+      for (const target of [2, 5]) {
+        seeks.push(await observeSeek(page, {target}));
+      }
+      results.push({loop, seeks});
+    } finally { await page.close(); }
+  }
+  return results;
+}
 (async () => {
   const results = [];
   try {
@@ -101,7 +156,7 @@ const files = http.createServer((req, res) => {
         await page.waitForFunction(() => document.querySelector('audio').error !== null);
         const authError = await page.locator('audio').evaluate(audio => audio.error.code);
         stage = 'authenticated-playback';
-        await page.locator('audio').evaluate(audio => { audio.loop = true; });
+        assert.equal(await page.locator('audio').evaluate(audio => audio.loop), false);
         await page.locator('#stream').fill(audio + '/tone?token=public-disposable-fixture'); await page.locator('#play').click();
         await page.waitForFunction(() => document.querySelector('audio').currentTime > 0.3, null, {timeout:15000});
         const played = await page.locator('audio').evaluate(audio => ({position:audio.currentTime, paused:audio.paused, readyState:audio.readyState}));
@@ -137,19 +192,17 @@ const files = http.createServer((req, res) => {
           assert.equal(await page.locator('audio').evaluate(audio => audio.paused), true);
           assert.equal(await page.evaluate(() => window.p01Module.analysis_running()), false);
           stage = 'media-session-seek';
-          await page.evaluate(() => window.p01Handlers.get('seekto')({seekTime:2}));
-          await page.waitForFunction(() => document.querySelector('#status').textContent.startsWith('Seek ') && !document.querySelector('audio').seeking);
-          const actualSeek = await page.locator('audio').evaluate(audio => audio.currentTime);
-          sessionSeek = {requested:2, observed:actualSeek, result:Math.abs(actualSeek-2)<0.25 ? 'passed' : 'lab-seek-failed'};
+          const initialSeek = await observeSeek(page, {target:2, action:'seekto', details:{seekTime:2}});
+          sessionSeek = {requested:2, observed:initialSeek.observed, result:initialSeek.result,
+            completion:initialSeek.completion, mediaError:initialSeek.mediaError, loop:false};
           sessionSeek.edges = [];
           if (sessionSeek.result === 'passed') {
-            for (const [action, details, expected] of [['seekto',{seekTime:0},0], ['seekforward',{seekOffset:100},5], ['seekbackward',{seekOffset:100},0]]) {
-              await page.evaluate(({action,details}) => window.p01Handlers.get(action)(details), {action,details});
-              await page.waitForFunction(() => !document.querySelector('audio').seeking || document.querySelector('audio').error !== null);
-              const edge = await page.locator('audio').evaluate(audio => ({position:audio.currentTime,error:audio.error?.code || 0}));
-              sessionSeek.edges.push({action, expected, observed:edge.position, result:edge.error ? 'lab-decode-error' : 'passed', mediaError:edge.error});
-              if (edge.error) break;
-              assert.equal(edge.position, expected);
+            for (const [action, details, expected] of [['seekto',{seekTime:0},0], ['seekforward',{seekOffset:100},journeyDuration], ['seekbackward',{seekOffset:100},0]]) {
+              const edge = await observeSeek(page, {target:expected, action, details});
+              sessionSeek.edges.push({action, expected, observed:edge.observed, result:edge.result,
+                mediaError:edge.mediaError, completion:edge.completion});
+              if (edge.result !== 'passed') break;
+              assert.equal(edge.observed, expected);
             }
             if (sessionSeek.edges.every(edge => edge.result === 'passed')) {
               await page.evaluate(() => window.p01Handlers.get('seekto')({seekTime:NaN}));
@@ -234,6 +287,8 @@ const files = http.createServer((req, res) => {
           await optional.waitForFunction(() => document.querySelector('audio').currentTime > 0.3, null, {timeout:15000});
           assert.equal(await optional.locator('audio').evaluate(audio => audio.paused), false);
         } finally { await optional.close(); }
+        stage = 'loop-seek-comparison';
+        const loopSeekComparison = await seekLoopComparison(browser, audio + '/short-tone?token=public-disposable-fixture');
         stage = 'shutdown';
         await page.evaluate(() => window.p01Module.shutdown());
         assert.equal(await page.evaluate(() => window.p01Module.analysis_running()), false);
@@ -245,8 +300,9 @@ const files = http.createServer((req, res) => {
         assert.equal(await page.locator('#media-controls').isVisible(), false);
         await page.screenshot({path:path.join(output, name + '-remote.png')});
         assert.deepEqual(errors, []);
-        results.push({browser:name, version:browser.version(), shell:'passed', authenticatedWav:played, authError, codecError, corsError, autoplay, analysisPeak, pageErrors:errors,
-          mediaSessionCallbacks:sessionActions, sessionPlay, sessionSeek, lifecycle:'disable/re-enable/synthetic-visibility/pause/shutdown passed', playCancellation:'stale failure and eight-second deadline passed', optionalApiFailure:'visible playback passed', serverStreams,
+        const seekingGate = sessionSeek.result === 'passed' && sessionSeek.edges.length === 3 && sessionSeek.edges.every(edge => edge.result === 'passed') ? 'passed' : 'open';
+        results.push({browser:name, version:browser.version(), shell:'passed', seekingGate, authenticatedWav:played, authError, codecError, corsError, autoplay, analysisPeak, pageErrors:errors,
+          mediaSessionCallbacks:sessionActions, sessionPlay, sessionSeek, loopSeekComparison, lifecycle:'disable/re-enable/synthetic-visibility/pause/shutdown passed', playCancellation:'stale failure and eight-second deadline passed', optionalApiFailure:'visible playback passed', serverStreams,
 
           limits:'Synthetic HTTP token fixture, software GPU and browser-provided media clock; no server adapter, audio device, OS media keys, mobile, previous stable or Safari product certification'});
       } catch (error) {
@@ -257,6 +313,6 @@ const files = http.createServer((req, res) => {
     }
     if (results.every(result => result.shell === 'passed')) { assert.ok(counts.rejected >= 3 && counts.cors >= 3 && counts.codec >= 3); }
     fs.writeFileSync(path.join(output, 'browser-results.json'), JSON.stringify({playwright:'1.56.1', results, fixtureRequests:counts}, null, 2) + '\n');
-    console.log(JSON.stringify(results.map(result => ({browser:result.browser, shell:result.shell, result:result.result}))));
+    console.log(JSON.stringify(results.map(result => ({browser:result.browser, shell:result.shell, seekingGate:result.seekingGate, result:result.result}))));
   } finally { await close(audioServer); await close(files); }
 })().catch(() => { console.error('Browser harness failed; no URLs or error payloads logged.'); process.exitCode = 1; });

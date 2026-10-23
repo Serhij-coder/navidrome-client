@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-23T00:57:09.790806+00:00",
+  "source_base": "91f4d38ddb09562ff664f9cb91df13cb19820f66",
+  "source_overrides": {
+    "tests/browser/p01-browser.cjs": "1673477550f098875a458908e243c2acbd4c78f698b87d2e5aea16b15689b801"
+  },
+  "artifacts_sha256": {
+    "remote/app.js": "9ba1da3a311f62270b432193c3d5fbf2ef1acc595b171e97ce6f38b90800d697",
+    "remote/app_bg.wasm": "a7d23fb8cb8efb971b2de7e9192747c0c501e6530d98808586c01d4d9d04a11a",
+    "remote/index.html": "cf69fe675e2dbb65a689f18e1755198f56ef5a6deac32670d2fba19946af48fd",
+    "web/app.js": "d1d057ea50b83ccafaf358af1deef937532358a174534b2cf15bb3062924ea06",
+    "web/app_bg.wasm": "9b5305139f5365744d85d318f9d575ae6cde18974eb67ee880720b992e6dcfb5",
+    "web/index.html": "cf69fe675e2dbb65a689f18e1755198f56ef5a6deac32670d2fba19946af48fd"
+  },
+  "evidence_sha256": {
+    "tests/fixtures/p01/browser/2026-10-23-seeking/browser-results.json": "0c7881ab7d39f2051edf435c8dca8635401c1abc63d5315253946ae1261f3e7a"
+  },
+  "environment": {
+    "playwright": "1.56.1",
+    "container": "existing isolated Linux browser lab; software rendering, headed Firefox/Xvfb",
+    "audio": "owned PulseAudio null sink, private Unix socket; default device script disabled; no host output/capture",
+    "source": "release WASM bundles built from tracked 91f4d38 app sources, no media implementation override"
+  },
+  "checks": {
+    "browser_experiment": "completed with all three shells/lifecycle/analysis checks; not all seeking gates passed",
+    "seeking_gate": {
+      "chromium": "passed for fixture",
+      "firefox": "open: exact WAV end media error 3",
+      "webkit": "open: end-return completion timeout and looping position mismatch"
+    },
+    "real_server_streams": "not rerun; optional private fixtures omitted",
+    "default_tooling": "3 focused browser-tooling tests and all 57 Python tooling tests passed with frozen reference inputs; node syntax, documentation, inventory and 7 local reference regressions passed",
+    "source_base_hosted_ci": {
+      "head_sha": "91f4d38ddb09562ff664f9cb91df13cb19820f66",
+      "run_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/39879839417",
+      "conclusion": "success",
+      "jobs_passed": 7,
+      "scope": "committed Orca/source base only; uncommitted browser harness changes were checked locally"
+    }
+  },
+  "limits": "Synthetic token WAVs, browser media clocks/WebAudio samples and synthetic callback dispatch. No physical output/latency, OS keys, real-server codec matrix, mobile/Safari/current/previous certification or P01 exit. Earlier manifests remain historical.",
+  "reviews": {
+    "correctness_architecture": "satisfied; no actionable findings; independently passed 3 tooling tests and syntax, verified source/bundle/evidence hashes",
+    "tests_edges_operations": "satisfied; no actionable findings; independently passed 3 tooling tests, syntax/whitespace, verified six bundle/result/harness hashes",
+    "delivery": "both required reviews completed after temporary usage-limit interruption"
+  }
+}
