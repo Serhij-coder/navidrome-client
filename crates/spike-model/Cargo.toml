@@ -16,3 +16,10 @@ path = "../../tests/spike-model/model.rs"
 [[test]]
 name = "reorder"
 path = "../../tests/spike-model/reorder.rs"
+
+[dev-dependencies]
+serde_json.workspace = true
+
+[[test]]
+name = "fade"
+path = "../../tests/spike-model/fade.rs"

@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-23T09:28:58.760843+00:00",
+  "source_base": "95cfe3861a7bc080d5fb5b989baf68825db52c36",
+  "source_overrides": {
+    "Cargo.lock": "d34f8eef5d5882ae3f99233a79630227c9290245e68878e252804093222ae88a",
+    "crates/spike-model/Cargo.toml": "fd83d449676b990ba42e61ff9ac1e298513c14a8d6c52385386dab4c3527b7c6",
+    "crates/spike-model/src/lib.rs": "a999c77364d7533ff53b0ababb829cee3a704b474d72b0bd0356b8edb7432561",
+    "crates/spike-model/src/fade.rs": "362d1fe154702dd5a4e7f4098d555d9237609ad2e3712a37b1cb548fbe26887e",
+    "crates/native-spike/src/mpv.rs": "6c31afb5d77c1e0da1430573c99b11ccc74a093dbbe23717afa464c2d173abe0",
+    "tests/native-spike/native.rs": "44570eed6e4a7092d0d8ad1dec4e3d20c14bc6fd0b0ea4e7427288c97553dcac",
+    "tests/native-spike/transitions.rs": "fb36a0b801ec821f7914373584ff6915dfb17774bd7897f94fc3fa1fffb3eeef",
+    "tests/native-spike/crossfade.rs": "498667344ffc2f8492568641166ae99baa2188f35bf4e851b67ceae0ec70ba3c",
+    "tests/reference/p01-crossfade.cjs": "340b512887166adf54a3407338dd931d0934cae5db48939fe363c967034a9101",
+    "tests/spike-model/fade.rs": "eeadaf2a7ebf016b8002c8a4eea856ac1e19f6063b74fa9b684bce0daab5fd9a"
+  },
+  "evidence_sha256": {
+    "tests/fixtures/p01/crossfade/upstream-gains.json": "32d124e884ab79917007169366e38896dec5a1f7ce01a8c5c76c742b53a91eb7",
+    "docs/app/p01/evidence/native-volume-calibration.json": "09a2b819337eb5332a1602a887dd58398430e46b36a1d94eaf76c2e2fd21d620",
+    "docs/app/p01/evidence/live-native-crossfade.json": "64021453fee907f3bb6b389bde248cc087438828a6290f63233a083ead5bb3c0",
+    "docs/app/p01/evidence/crossfade-transition-regression.json": "d96ccac56a3aafa27441eadaafbd28c66d9ee0c5378cacd984377aeeae7b150b"
+  },
+  "environment": {
+    "native": "Ubuntu 24.04 x86_64 disposable builder, mpv 0.37.0, FFmpeg 6.1.1-3ubuntu5",
+    "audio": "private p01_transition null sink, 48000 Hz mono; explicit monitor; no host capture/output/profile",
+    "reference": "exact pinned Feishin functions with TypeScript 6.0.3, mocked transition/setter connection only"
+  },
+  "checks": {
+    "source_replay_points": 198,
+    "default_rust_passed": 44,
+    "ignored_native": 8,
+    "ignored_performance": 2,
+    "live_calibration": "five fixed percentage plateaus confirm cubic law and restored baseline",
+    "live_crossfade": "linear/equal-power/S-curve, three-media-second fade at speed 1; overlap, endpoint suppression and headroom passed",
+    "shared_capture_regression": "19 existing transition/prefetch/pause captures passed with generalized bounded recorder",
+    "existing_external_native": "five existing real mpv/fallback/FFmpeg/monitor probes passed in the isolated Ubuntu sink",
+    "compile": "format/default all-target, Windows x64 MSVC native all-target and WASM Clippy passed",
+    "python": "63 app tooling tests passed with frozen reference replay; seven local reference tests, inventory verification, both JavaScript syntax checks, tracked documentation and whitespace checks passed"
+  },
+  "scope": "Prototype only: one test owner, two native children and sequential percentage updates. Portable source coefficients/assigned scalars; compatibility exponential quirk characterized but not enabled. Not production owner, mixer, fallback, synchronized waveform/device timing, acoustic parity or all-target certification. No P01 exit/P02.",
+  "reviews": {
+    "correctness_architecture": "satisfied, no actionable findings; independently passed three model, seven native library and percentage-validation tests; tooling passed with optional source replay skipped; live captures not repeated by reviewer",
+    "tests_edges_operations": "satisfied, no actionable findings; independently passed three model, seven native library and three tooling tests (one optional replay skipped), JavaScript/whitespace checks and all source/evidence digests; live captures not repeated by reviewer"
+  }
+}

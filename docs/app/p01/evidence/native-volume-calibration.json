@@ -1,0 +1,33 @@
+{
+  "cases": [
+    {
+      "amplitude": 0.35352594896756034,
+      "frame_after_command": 61440,
+      "percent": 100.0
+    },
+    {
+      "amplitude": 0.04418996832129849,
+      "frame_after_command": 123904,
+      "percent": 50.0
+    },
+    {
+      "amplitude": 0.005517822957470243,
+      "frame_after_command": 186368,
+      "percent": 25.0
+    },
+    {
+      "amplitude": 0.0,
+      "frame_after_command": 248832,
+      "percent": 0.0
+    },
+    {
+      "amplitude": 0.35352594896756034,
+      "frame_after_command": 311296,
+      "percent": 100.0
+    }
+  ],
+  "mpv_version": "mpv 0.37.0",
+  "rate_hz": 48000,
+  "scope": "Owned monitor amplitude calibration at fixed mpv percentage plateaus; no device/human output or crossfade claim",
+  "window_ms": 100
+}

@@ -1,4 +1,7 @@
 //! Disposable P01 feasibility data, not the application's domain or queue model.
+mod fade;
+pub use fade::FadeCurve;
+
 use std::{collections::BTreeSet, sync::Arc};
 
 pub const MAX_RECORDS: usize = 100_000;

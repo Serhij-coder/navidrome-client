@@ -1,0 +1,1848 @@
+{
+  "baseline": "7d6ad318c79802e226996cfc39acba6b05bb22e8",
+  "file": "src/renderer/features/player/audio-player/web-player.tsx",
+  "file_sha256": "fcb4863a9efae3a2bd858cd491d5ae82722256c1c298916b5ddf36b92706340d",
+  "extra_sources": {
+    "src/renderer/features/player/audio-player/engine/web-player-engine.tsx": "09a9ca7751ff791ce3c74a193b794bf4a3d17dc6cdf03d8002abdb002386bf77",
+    "src/renderer/features/player/audio-player/utils/player-utils.ts": "42092ef332b3e3b3902d10ab60f3a2d408114eaaed5448e850d479f41038c889",
+    "src/shared/types/types.ts": "6b52103372fca31dc540458766a318835c418a993a37d62db3a4ea554c57af82"
+  },
+  "parser": "6.0.3",
+  "functions": [
+    {
+      "id": "src/renderer/features/player/audio-player/web-player.tsx:626:1",
+      "name": "crossfadeHandler",
+      "sha256": "754ddf56dee755b22e7d97f6bb57ede12fb3ee1154521763b5e5637fcd4c59fa"
+    },
+    {
+      "id": "src/renderer/features/player/audio-player/web-player.tsx:723:1",
+      "name": "equalPowerEaseIn",
+      "sha256": "85333deff84dbd59b485641e84469c9200fa39d2fcaa6f4bfd9ad214efed6fc3"
+    },
+    {
+      "id": "src/renderer/features/player/audio-player/web-player.tsx:728:1",
+      "name": "equalPowerEaseOut",
+      "sha256": "7f2b27ed44605410a0564014beacae2d0f839d2e341e05970edd1b6cee061e8a"
+    },
+    {
+      "id": "src/renderer/features/player/audio-player/web-player.tsx:738:1",
+      "name": "exponentialEaseIn",
+      "sha256": "10919e508f6fe92a18005de8b4c80c2507bcf6a8c442555aea0f7cf685277234"
+    },
+    {
+      "id": "src/renderer/features/player/audio-player/web-player.tsx:744:1",
+      "name": "exponentialEaseOut",
+      "sha256": "eb807292f5de9b0716e860da341cc42351d084e6428b63e235a30d47a14368f1"
+    },
+    {
+      "id": "src/renderer/features/player/audio-player/web-player.tsx:822:1",
+      "name": "getCrossfadeEasing",
+      "sha256": "0dd6c7e00c02a2395e0451b20332a505baa517b355b41a351ac889adee60da78"
+    },
+    {
+      "id": "src/renderer/features/player/audio-player/web-player.tsx:872:1",
+      "name": "linearEase",
+      "sha256": "90987e44ec78c2444a330c08dc4a9d0d965a24a5a18a4af59db0548284e9a64c"
+    },
+    {
+      "id": "src/renderer/features/player/audio-player/web-player.tsx:880:1",
+      "name": "sCurveEase",
+      "sha256": "0ddbc922f346a5b1d8d4c663e4fb8a59d28603facd1d61b4705b918bac3a0e40"
+    },
+    {
+      "id": "src/renderer/features/player/audio-player/engine/web-player-engine.tsx:49:25",
+      "name": "normalizeVolume",
+      "sha256": "66e5a8a7004efe8bd4d907c1f15b04d73f43a5ba6c6f68a3f9c0f65613d5a519"
+    },
+    {
+      "id": "src/renderer/features/player/audio-player/utils/player-utils.ts:3:35",
+      "name": "convertToLogVolume",
+      "sha256": "eb7136ba346132df86832c30e6bbbf079c14340c444cfb505c9de25ca6fc359f"
+    }
+  ],
+  "samples": [
+    {
+      "style": "constantPower",
+      "progress": -1,
+      "master_fraction": 1,
+      "outgoing": 1,
+      "web_outgoing_gain": 1,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "constantPower",
+      "progress": -1,
+      "master_fraction": 0.5,
+      "outgoing": 1,
+      "web_outgoing_gain": 0.25,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "constantPower",
+      "progress": 0,
+      "master_fraction": 1,
+      "outgoing": 1,
+      "web_outgoing_gain": 1,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "constantPower",
+      "progress": 0,
+      "master_fraction": 0.5,
+      "outgoing": 1,
+      "web_outgoing_gain": 0.25,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "constantPower",
+      "progress": 0.01,
+      "master_fraction": 1,
+      "outgoing": 0.9998766324816606,
+      "web_outgoing_gain": 0.9997532801828658,
+      "incoming": 0.01570731731181978,
+      "web_incoming_gain": 0.0002467198171341934
+    },
+    {
+      "style": "constantPower",
+      "progress": 0.01,
+      "master_fraction": 0.5,
+      "outgoing": 0.9998766324816606,
+      "web_outgoing_gain": 0.24993832004571645,
+      "incoming": 0.01570731731181978,
+      "web_incoming_gain": 0.00006167995428354834
+    },
+    {
+      "style": "constantPower",
+      "progress": 0.1,
+      "master_fraction": 1,
+      "outgoing": 0.9876883405951378,
+      "web_outgoing_gain": 0.9755282581475768,
+      "incoming": 0.15643446504023087,
+      "web_incoming_gain": 0.024471741852423214
+    },
+    {
+      "style": "constantPower",
+      "progress": 0.1,
+      "master_fraction": 0.5,
+      "outgoing": 0.9876883405951378,
+      "web_outgoing_gain": 0.2438820645368942,
+      "incoming": 0.15643446504023087,
+      "web_incoming_gain": 0.006117935463105803
+    },
+    {
+      "style": "constantPower",
+      "progress": 0.25,
+      "master_fraction": 1,
+      "outgoing": 0.9238795325112867,
+      "web_outgoing_gain": 0.8535533905932737,
+      "incoming": 0.3826834323650898,
+      "web_incoming_gain": 0.14644660940672624
+    },
+    {
+      "style": "constantPower",
+      "progress": 0.25,
+      "master_fraction": 0.5,
+      "outgoing": 0.9238795325112867,
+      "web_outgoing_gain": 0.21338834764831843,
+      "incoming": 0.3826834323650898,
+      "web_incoming_gain": 0.03661165235168156
+    },
+    {
+      "style": "constantPower",
+      "progress": 0.5,
+      "master_fraction": 1,
+      "outgoing": 0.7071067811865476,
+      "web_outgoing_gain": 0.5000000000000001,
+      "incoming": 0.7071067811865475,
+      "web_incoming_gain": 0.4999999999999999
+    },
+    {
+      "style": "constantPower",
+      "progress": 0.5,
+      "master_fraction": 0.5,
+      "outgoing": 0.7071067811865476,
+      "web_outgoing_gain": 0.12500000000000003,
+      "incoming": 0.7071067811865475,
+      "web_incoming_gain": 0.12499999999999997
+    },
+    {
+      "style": "constantPower",
+      "progress": 0.75,
+      "master_fraction": 1,
+      "outgoing": 0.38268343236508984,
+      "web_outgoing_gain": 0.1464466094067263,
+      "incoming": 0.9238795325112867,
+      "web_incoming_gain": 0.8535533905932737
+    },
+    {
+      "style": "constantPower",
+      "progress": 0.75,
+      "master_fraction": 0.5,
+      "outgoing": 0.38268343236508984,
+      "web_outgoing_gain": 0.036611652351681574,
+      "incoming": 0.9238795325112867,
+      "web_incoming_gain": 0.21338834764831843
+    },
+    {
+      "style": "constantPower",
+      "progress": 0.9,
+      "master_fraction": 1,
+      "outgoing": 0.15643446504023095,
+      "web_outgoing_gain": 0.02447174185242324,
+      "incoming": 0.9876883405951378,
+      "web_incoming_gain": 0.9755282581475768
+    },
+    {
+      "style": "constantPower",
+      "progress": 0.9,
+      "master_fraction": 0.5,
+      "outgoing": 0.15643446504023095,
+      "web_outgoing_gain": 0.00611793546310581,
+      "incoming": 0.9876883405951378,
+      "web_incoming_gain": 0.2438820645368942
+    },
+    {
+      "style": "constantPower",
+      "progress": 0.99,
+      "master_fraction": 1,
+      "outgoing": 0.015707317311819957,
+      "web_outgoing_gain": 0.0002467198171341989,
+      "incoming": 0.9998766324816606,
+      "web_incoming_gain": 0.9997532801828658
+    },
+    {
+      "style": "constantPower",
+      "progress": 0.99,
+      "master_fraction": 0.5,
+      "outgoing": 0.015707317311819957,
+      "web_outgoing_gain": 0.00006167995428354973,
+      "incoming": 0.9998766324816606,
+      "web_incoming_gain": 0.24993832004571645
+    },
+    {
+      "style": "constantPower",
+      "progress": 1,
+      "master_fraction": 1,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 1.232595164407831e-32,
+      "incoming": 1,
+      "web_incoming_gain": 1
+    },
+    {
+      "style": "constantPower",
+      "progress": 1,
+      "master_fraction": 0.5,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 3.0814879110195774e-33,
+      "incoming": 1,
+      "web_incoming_gain": 0.25
+    },
+    {
+      "style": "constantPower",
+      "progress": 2,
+      "master_fraction": 1,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 1.232595164407831e-32,
+      "incoming": 1,
+      "web_incoming_gain": 1
+    },
+    {
+      "style": "constantPower",
+      "progress": 2,
+      "master_fraction": 0.5,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 3.0814879110195774e-33,
+      "incoming": 1,
+      "web_incoming_gain": 0.25
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": -1,
+      "master_fraction": 1,
+      "outgoing": 1,
+      "web_outgoing_gain": 1,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": -1,
+      "master_fraction": 0.5,
+      "outgoing": 1,
+      "web_outgoing_gain": 0.25,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": 0,
+      "master_fraction": 1,
+      "outgoing": 1,
+      "web_outgoing_gain": 1,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": 0,
+      "master_fraction": 0.5,
+      "outgoing": 1,
+      "web_outgoing_gain": 0.25,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": 0.01,
+      "master_fraction": 1,
+      "outgoing": 0.9998766324816606,
+      "web_outgoing_gain": 0.9997532801828658,
+      "incoming": 0.01570731731181978,
+      "web_incoming_gain": 0.0002467198171341934
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": 0.01,
+      "master_fraction": 0.5,
+      "outgoing": 0.9998766324816606,
+      "web_outgoing_gain": 0.24993832004571645,
+      "incoming": 0.01570731731181978,
+      "web_incoming_gain": 0.00006167995428354834
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": 0.1,
+      "master_fraction": 1,
+      "outgoing": 0.9876883405951378,
+      "web_outgoing_gain": 0.9755282581475768,
+      "incoming": 0.15643446504023087,
+      "web_incoming_gain": 0.024471741852423214
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": 0.1,
+      "master_fraction": 0.5,
+      "outgoing": 0.9876883405951378,
+      "web_outgoing_gain": 0.2438820645368942,
+      "incoming": 0.15643446504023087,
+      "web_incoming_gain": 0.006117935463105803
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": 0.25,
+      "master_fraction": 1,
+      "outgoing": 0.9238795325112867,
+      "web_outgoing_gain": 0.8535533905932737,
+      "incoming": 0.3826834323650898,
+      "web_incoming_gain": 0.14644660940672624
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": 0.25,
+      "master_fraction": 0.5,
+      "outgoing": 0.9238795325112867,
+      "web_outgoing_gain": 0.21338834764831843,
+      "incoming": 0.3826834323650898,
+      "web_incoming_gain": 0.03661165235168156
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": 0.5,
+      "master_fraction": 1,
+      "outgoing": 0.7071067811865476,
+      "web_outgoing_gain": 0.5000000000000001,
+      "incoming": 0.7071067811865475,
+      "web_incoming_gain": 0.4999999999999999
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": 0.5,
+      "master_fraction": 0.5,
+      "outgoing": 0.7071067811865476,
+      "web_outgoing_gain": 0.12500000000000003,
+      "incoming": 0.7071067811865475,
+      "web_incoming_gain": 0.12499999999999997
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": 0.75,
+      "master_fraction": 1,
+      "outgoing": 0.38268343236508984,
+      "web_outgoing_gain": 0.1464466094067263,
+      "incoming": 0.9238795325112867,
+      "web_incoming_gain": 0.8535533905932737
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": 0.75,
+      "master_fraction": 0.5,
+      "outgoing": 0.38268343236508984,
+      "web_outgoing_gain": 0.036611652351681574,
+      "incoming": 0.9238795325112867,
+      "web_incoming_gain": 0.21338834764831843
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": 0.9,
+      "master_fraction": 1,
+      "outgoing": 0.15643446504023095,
+      "web_outgoing_gain": 0.02447174185242324,
+      "incoming": 0.9876883405951378,
+      "web_incoming_gain": 0.9755282581475768
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": 0.9,
+      "master_fraction": 0.5,
+      "outgoing": 0.15643446504023095,
+      "web_outgoing_gain": 0.00611793546310581,
+      "incoming": 0.9876883405951378,
+      "web_incoming_gain": 0.2438820645368942
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": 0.99,
+      "master_fraction": 1,
+      "outgoing": 0.015707317311819957,
+      "web_outgoing_gain": 0.0002467198171341989,
+      "incoming": 0.9998766324816606,
+      "web_incoming_gain": 0.9997532801828658
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": 0.99,
+      "master_fraction": 0.5,
+      "outgoing": 0.015707317311819957,
+      "web_outgoing_gain": 0.00006167995428354973,
+      "incoming": 0.9998766324816606,
+      "web_incoming_gain": 0.24993832004571645
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": 1,
+      "master_fraction": 1,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 1.232595164407831e-32,
+      "incoming": 1,
+      "web_incoming_gain": 1
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": 1,
+      "master_fraction": 0.5,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 3.0814879110195774e-33,
+      "incoming": 1,
+      "web_incoming_gain": 0.25
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": 2,
+      "master_fraction": 1,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 1.232595164407831e-32,
+      "incoming": 1,
+      "web_incoming_gain": 1
+    },
+    {
+      "style": "constantPowerSlowCut",
+      "progress": 2,
+      "master_fraction": 0.5,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 3.0814879110195774e-33,
+      "incoming": 1,
+      "web_incoming_gain": 0.25
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": -1,
+      "master_fraction": 1,
+      "outgoing": 1,
+      "web_outgoing_gain": 1,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": -1,
+      "master_fraction": 0.5,
+      "outgoing": 1,
+      "web_outgoing_gain": 0.25,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": 0,
+      "master_fraction": 1,
+      "outgoing": 1,
+      "web_outgoing_gain": 1,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": 0,
+      "master_fraction": 0.5,
+      "outgoing": 1,
+      "web_outgoing_gain": 0.25,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": 0.01,
+      "master_fraction": 1,
+      "outgoing": 0.9998766324816606,
+      "web_outgoing_gain": 0.9997532801828658,
+      "incoming": 0.01570731731181978,
+      "web_incoming_gain": 0.0002467198171341934
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": 0.01,
+      "master_fraction": 0.5,
+      "outgoing": 0.9998766324816606,
+      "web_outgoing_gain": 0.24993832004571645,
+      "incoming": 0.01570731731181978,
+      "web_incoming_gain": 0.00006167995428354834
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": 0.1,
+      "master_fraction": 1,
+      "outgoing": 0.9876883405951378,
+      "web_outgoing_gain": 0.9755282581475768,
+      "incoming": 0.15643446504023087,
+      "web_incoming_gain": 0.024471741852423214
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": 0.1,
+      "master_fraction": 0.5,
+      "outgoing": 0.9876883405951378,
+      "web_outgoing_gain": 0.2438820645368942,
+      "incoming": 0.15643446504023087,
+      "web_incoming_gain": 0.006117935463105803
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": 0.25,
+      "master_fraction": 1,
+      "outgoing": 0.9238795325112867,
+      "web_outgoing_gain": 0.8535533905932737,
+      "incoming": 0.3826834323650898,
+      "web_incoming_gain": 0.14644660940672624
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": 0.25,
+      "master_fraction": 0.5,
+      "outgoing": 0.9238795325112867,
+      "web_outgoing_gain": 0.21338834764831843,
+      "incoming": 0.3826834323650898,
+      "web_incoming_gain": 0.03661165235168156
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": 0.5,
+      "master_fraction": 1,
+      "outgoing": 0.7071067811865476,
+      "web_outgoing_gain": 0.5000000000000001,
+      "incoming": 0.7071067811865475,
+      "web_incoming_gain": 0.4999999999999999
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": 0.5,
+      "master_fraction": 0.5,
+      "outgoing": 0.7071067811865476,
+      "web_outgoing_gain": 0.12500000000000003,
+      "incoming": 0.7071067811865475,
+      "web_incoming_gain": 0.12499999999999997
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": 0.75,
+      "master_fraction": 1,
+      "outgoing": 0.38268343236508984,
+      "web_outgoing_gain": 0.1464466094067263,
+      "incoming": 0.9238795325112867,
+      "web_incoming_gain": 0.8535533905932737
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": 0.75,
+      "master_fraction": 0.5,
+      "outgoing": 0.38268343236508984,
+      "web_outgoing_gain": 0.036611652351681574,
+      "incoming": 0.9238795325112867,
+      "web_incoming_gain": 0.21338834764831843
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": 0.9,
+      "master_fraction": 1,
+      "outgoing": 0.15643446504023095,
+      "web_outgoing_gain": 0.02447174185242324,
+      "incoming": 0.9876883405951378,
+      "web_incoming_gain": 0.9755282581475768
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": 0.9,
+      "master_fraction": 0.5,
+      "outgoing": 0.15643446504023095,
+      "web_outgoing_gain": 0.00611793546310581,
+      "incoming": 0.9876883405951378,
+      "web_incoming_gain": 0.2438820645368942
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": 0.99,
+      "master_fraction": 1,
+      "outgoing": 0.015707317311819957,
+      "web_outgoing_gain": 0.0002467198171341989,
+      "incoming": 0.9998766324816606,
+      "web_incoming_gain": 0.9997532801828658
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": 0.99,
+      "master_fraction": 0.5,
+      "outgoing": 0.015707317311819957,
+      "web_outgoing_gain": 0.00006167995428354973,
+      "incoming": 0.9998766324816606,
+      "web_incoming_gain": 0.24993832004571645
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": 1,
+      "master_fraction": 1,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 1.232595164407831e-32,
+      "incoming": 1,
+      "web_incoming_gain": 1
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": 1,
+      "master_fraction": 0.5,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 3.0814879110195774e-33,
+      "incoming": 1,
+      "web_incoming_gain": 0.25
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": 2,
+      "master_fraction": 1,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 1.232595164407831e-32,
+      "incoming": 1,
+      "web_incoming_gain": 1
+    },
+    {
+      "style": "constantPowerSlowFade",
+      "progress": 2,
+      "master_fraction": 0.5,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 3.0814879110195774e-33,
+      "incoming": 1,
+      "web_incoming_gain": 0.25
+    },
+    {
+      "style": "dipped",
+      "progress": -1,
+      "master_fraction": 1,
+      "outgoing": 1,
+      "web_outgoing_gain": 1,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "dipped",
+      "progress": -1,
+      "master_fraction": 0.5,
+      "outgoing": 1,
+      "web_outgoing_gain": 0.25,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "dipped",
+      "progress": 0,
+      "master_fraction": 1,
+      "outgoing": 1,
+      "web_outgoing_gain": 1,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "dipped",
+      "progress": 0,
+      "master_fraction": 0.5,
+      "outgoing": 1,
+      "web_outgoing_gain": 0.25,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "dipped",
+      "progress": 0.01,
+      "master_fraction": 1,
+      "outgoing": 0.9998766324816606,
+      "web_outgoing_gain": 0.9997532801828658,
+      "incoming": 0.01570731731181978,
+      "web_incoming_gain": 0.0002467198171341934
+    },
+    {
+      "style": "dipped",
+      "progress": 0.01,
+      "master_fraction": 0.5,
+      "outgoing": 0.9998766324816606,
+      "web_outgoing_gain": 0.24993832004571645,
+      "incoming": 0.01570731731181978,
+      "web_incoming_gain": 0.00006167995428354834
+    },
+    {
+      "style": "dipped",
+      "progress": 0.1,
+      "master_fraction": 1,
+      "outgoing": 0.9876883405951378,
+      "web_outgoing_gain": 0.9755282581475768,
+      "incoming": 0.15643446504023087,
+      "web_incoming_gain": 0.024471741852423214
+    },
+    {
+      "style": "dipped",
+      "progress": 0.1,
+      "master_fraction": 0.5,
+      "outgoing": 0.9876883405951378,
+      "web_outgoing_gain": 0.2438820645368942,
+      "incoming": 0.15643446504023087,
+      "web_incoming_gain": 0.006117935463105803
+    },
+    {
+      "style": "dipped",
+      "progress": 0.25,
+      "master_fraction": 1,
+      "outgoing": 0.9238795325112867,
+      "web_outgoing_gain": 0.8535533905932737,
+      "incoming": 0.3826834323650898,
+      "web_incoming_gain": 0.14644660940672624
+    },
+    {
+      "style": "dipped",
+      "progress": 0.25,
+      "master_fraction": 0.5,
+      "outgoing": 0.9238795325112867,
+      "web_outgoing_gain": 0.21338834764831843,
+      "incoming": 0.3826834323650898,
+      "web_incoming_gain": 0.03661165235168156
+    },
+    {
+      "style": "dipped",
+      "progress": 0.5,
+      "master_fraction": 1,
+      "outgoing": 0.7071067811865476,
+      "web_outgoing_gain": 0.5000000000000001,
+      "incoming": 0.7071067811865475,
+      "web_incoming_gain": 0.4999999999999999
+    },
+    {
+      "style": "dipped",
+      "progress": 0.5,
+      "master_fraction": 0.5,
+      "outgoing": 0.7071067811865476,
+      "web_outgoing_gain": 0.12500000000000003,
+      "incoming": 0.7071067811865475,
+      "web_incoming_gain": 0.12499999999999997
+    },
+    {
+      "style": "dipped",
+      "progress": 0.75,
+      "master_fraction": 1,
+      "outgoing": 0.38268343236508984,
+      "web_outgoing_gain": 0.1464466094067263,
+      "incoming": 0.9238795325112867,
+      "web_incoming_gain": 0.8535533905932737
+    },
+    {
+      "style": "dipped",
+      "progress": 0.75,
+      "master_fraction": 0.5,
+      "outgoing": 0.38268343236508984,
+      "web_outgoing_gain": 0.036611652351681574,
+      "incoming": 0.9238795325112867,
+      "web_incoming_gain": 0.21338834764831843
+    },
+    {
+      "style": "dipped",
+      "progress": 0.9,
+      "master_fraction": 1,
+      "outgoing": 0.15643446504023095,
+      "web_outgoing_gain": 0.02447174185242324,
+      "incoming": 0.9876883405951378,
+      "web_incoming_gain": 0.9755282581475768
+    },
+    {
+      "style": "dipped",
+      "progress": 0.9,
+      "master_fraction": 0.5,
+      "outgoing": 0.15643446504023095,
+      "web_outgoing_gain": 0.00611793546310581,
+      "incoming": 0.9876883405951378,
+      "web_incoming_gain": 0.2438820645368942
+    },
+    {
+      "style": "dipped",
+      "progress": 0.99,
+      "master_fraction": 1,
+      "outgoing": 0.015707317311819957,
+      "web_outgoing_gain": 0.0002467198171341989,
+      "incoming": 0.9998766324816606,
+      "web_incoming_gain": 0.9997532801828658
+    },
+    {
+      "style": "dipped",
+      "progress": 0.99,
+      "master_fraction": 0.5,
+      "outgoing": 0.015707317311819957,
+      "web_outgoing_gain": 0.00006167995428354973,
+      "incoming": 0.9998766324816606,
+      "web_incoming_gain": 0.24993832004571645
+    },
+    {
+      "style": "dipped",
+      "progress": 1,
+      "master_fraction": 1,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 1.232595164407831e-32,
+      "incoming": 1,
+      "web_incoming_gain": 1
+    },
+    {
+      "style": "dipped",
+      "progress": 1,
+      "master_fraction": 0.5,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 3.0814879110195774e-33,
+      "incoming": 1,
+      "web_incoming_gain": 0.25
+    },
+    {
+      "style": "dipped",
+      "progress": 2,
+      "master_fraction": 1,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 1.232595164407831e-32,
+      "incoming": 1,
+      "web_incoming_gain": 1
+    },
+    {
+      "style": "dipped",
+      "progress": 2,
+      "master_fraction": 0.5,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 3.0814879110195774e-33,
+      "incoming": 1,
+      "web_incoming_gain": 0.25
+    },
+    {
+      "style": "equalPower",
+      "progress": -1,
+      "master_fraction": 1,
+      "outgoing": 1,
+      "web_outgoing_gain": 1,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "equalPower",
+      "progress": -1,
+      "master_fraction": 0.5,
+      "outgoing": 1,
+      "web_outgoing_gain": 0.25,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "equalPower",
+      "progress": 0,
+      "master_fraction": 1,
+      "outgoing": 1,
+      "web_outgoing_gain": 1,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "equalPower",
+      "progress": 0,
+      "master_fraction": 0.5,
+      "outgoing": 1,
+      "web_outgoing_gain": 0.25,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "equalPower",
+      "progress": 0.01,
+      "master_fraction": 1,
+      "outgoing": 0.9998766324816606,
+      "web_outgoing_gain": 0.9997532801828658,
+      "incoming": 0.01570731731181978,
+      "web_incoming_gain": 0.0002467198171341934
+    },
+    {
+      "style": "equalPower",
+      "progress": 0.01,
+      "master_fraction": 0.5,
+      "outgoing": 0.9998766324816606,
+      "web_outgoing_gain": 0.24993832004571645,
+      "incoming": 0.01570731731181978,
+      "web_incoming_gain": 0.00006167995428354834
+    },
+    {
+      "style": "equalPower",
+      "progress": 0.1,
+      "master_fraction": 1,
+      "outgoing": 0.9876883405951378,
+      "web_outgoing_gain": 0.9755282581475768,
+      "incoming": 0.15643446504023087,
+      "web_incoming_gain": 0.024471741852423214
+    },
+    {
+      "style": "equalPower",
+      "progress": 0.1,
+      "master_fraction": 0.5,
+      "outgoing": 0.9876883405951378,
+      "web_outgoing_gain": 0.2438820645368942,
+      "incoming": 0.15643446504023087,
+      "web_incoming_gain": 0.006117935463105803
+    },
+    {
+      "style": "equalPower",
+      "progress": 0.25,
+      "master_fraction": 1,
+      "outgoing": 0.9238795325112867,
+      "web_outgoing_gain": 0.8535533905932737,
+      "incoming": 0.3826834323650898,
+      "web_incoming_gain": 0.14644660940672624
+    },
+    {
+      "style": "equalPower",
+      "progress": 0.25,
+      "master_fraction": 0.5,
+      "outgoing": 0.9238795325112867,
+      "web_outgoing_gain": 0.21338834764831843,
+      "incoming": 0.3826834323650898,
+      "web_incoming_gain": 0.03661165235168156
+    },
+    {
+      "style": "equalPower",
+      "progress": 0.5,
+      "master_fraction": 1,
+      "outgoing": 0.7071067811865476,
+      "web_outgoing_gain": 0.5000000000000001,
+      "incoming": 0.7071067811865475,
+      "web_incoming_gain": 0.4999999999999999
+    },
+    {
+      "style": "equalPower",
+      "progress": 0.5,
+      "master_fraction": 0.5,
+      "outgoing": 0.7071067811865476,
+      "web_outgoing_gain": 0.12500000000000003,
+      "incoming": 0.7071067811865475,
+      "web_incoming_gain": 0.12499999999999997
+    },
+    {
+      "style": "equalPower",
+      "progress": 0.75,
+      "master_fraction": 1,
+      "outgoing": 0.38268343236508984,
+      "web_outgoing_gain": 0.1464466094067263,
+      "incoming": 0.9238795325112867,
+      "web_incoming_gain": 0.8535533905932737
+    },
+    {
+      "style": "equalPower",
+      "progress": 0.75,
+      "master_fraction": 0.5,
+      "outgoing": 0.38268343236508984,
+      "web_outgoing_gain": 0.036611652351681574,
+      "incoming": 0.9238795325112867,
+      "web_incoming_gain": 0.21338834764831843
+    },
+    {
+      "style": "equalPower",
+      "progress": 0.9,
+      "master_fraction": 1,
+      "outgoing": 0.15643446504023095,
+      "web_outgoing_gain": 0.02447174185242324,
+      "incoming": 0.9876883405951378,
+      "web_incoming_gain": 0.9755282581475768
+    },
+    {
+      "style": "equalPower",
+      "progress": 0.9,
+      "master_fraction": 0.5,
+      "outgoing": 0.15643446504023095,
+      "web_outgoing_gain": 0.00611793546310581,
+      "incoming": 0.9876883405951378,
+      "web_incoming_gain": 0.2438820645368942
+    },
+    {
+      "style": "equalPower",
+      "progress": 0.99,
+      "master_fraction": 1,
+      "outgoing": 0.015707317311819957,
+      "web_outgoing_gain": 0.0002467198171341989,
+      "incoming": 0.9998766324816606,
+      "web_incoming_gain": 0.9997532801828658
+    },
+    {
+      "style": "equalPower",
+      "progress": 0.99,
+      "master_fraction": 0.5,
+      "outgoing": 0.015707317311819957,
+      "web_outgoing_gain": 0.00006167995428354973,
+      "incoming": 0.9998766324816606,
+      "web_incoming_gain": 0.24993832004571645
+    },
+    {
+      "style": "equalPower",
+      "progress": 1,
+      "master_fraction": 1,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 1.232595164407831e-32,
+      "incoming": 1,
+      "web_incoming_gain": 1
+    },
+    {
+      "style": "equalPower",
+      "progress": 1,
+      "master_fraction": 0.5,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 3.0814879110195774e-33,
+      "incoming": 1,
+      "web_incoming_gain": 0.25
+    },
+    {
+      "style": "equalPower",
+      "progress": 2,
+      "master_fraction": 1,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 1.232595164407831e-32,
+      "incoming": 1,
+      "web_incoming_gain": 1
+    },
+    {
+      "style": "equalPower",
+      "progress": 2,
+      "master_fraction": 0.5,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 3.0814879110195774e-33,
+      "incoming": 1,
+      "web_incoming_gain": 0.25
+    },
+    {
+      "style": "exponential",
+      "progress": -1,
+      "master_fraction": 1,
+      "outgoing": 0,
+      "web_outgoing_gain": 0,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "exponential",
+      "progress": -1,
+      "master_fraction": 0.5,
+      "outgoing": 0,
+      "web_outgoing_gain": 0,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "exponential",
+      "progress": 0,
+      "master_fraction": 1,
+      "outgoing": 0,
+      "web_outgoing_gain": 0,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "exponential",
+      "progress": 0,
+      "master_fraction": 0.5,
+      "outgoing": 0,
+      "web_outgoing_gain": 0,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "exponential",
+      "progress": 0.01,
+      "master_fraction": 1,
+      "outgoing": 0.04910141825305237,
+      "web_outgoing_gain": 0.0024109492744611846,
+      "incoming": 0.04877057549928332,
+      "web_incoming_gain": 0.0023785690345312946
+    },
+    {
+      "style": "exponential",
+      "progress": 0.01,
+      "master_fraction": 0.5,
+      "outgoing": 0.04910141825305237,
+      "web_outgoing_gain": 0.0006027373186152961,
+      "incoming": 0.04877057549928332,
+      "web_incoming_gain": 0.0005946422586328236
+    },
+    {
+      "style": "exponential",
+      "progress": 0.1,
+      "master_fraction": 1,
+      "outgoing": 0.3961385005080873,
+      "web_outgoing_gain": 0.15692571158479587,
+      "incoming": 0.3934693402873666,
+      "web_incoming_gain": 0.15481812174617549
+    },
+    {
+      "style": "exponential",
+      "progress": 0.1,
+      "master_fraction": 0.5,
+      "outgoing": 0.3961385005080873,
+      "web_outgoing_gain": 0.03923142789619897,
+      "incoming": 0.3934693402873666,
+      "web_incoming_gain": 0.03870453043654387
+    },
+    {
+      "style": "exponential",
+      "progress": 0.25,
+      "master_fraction": 1,
+      "outgoing": 0.7183353083752138,
+      "web_outgoing_gain": 0.5160056152585134,
+      "incoming": 0.7134952031398099,
+      "web_incoming_gain": 0.5090754049035185
+    },
+    {
+      "style": "exponential",
+      "progress": 0.25,
+      "master_fraction": 0.5,
+      "outgoing": 0.7183353083752138,
+      "web_outgoing_gain": 0.12900140381462835,
+      "incoming": 0.7134952031398099,
+      "web_incoming_gain": 0.12726885122587964
+    },
+    {
+      "style": "exponential",
+      "progress": 0.5,
+      "master_fraction": 1,
+      "outgoing": 0.9241418199787564,
+      "web_outgoing_gain": 0.8540381034336483,
+      "incoming": 0.9179150013761012,
+      "web_incoming_gain": 0.8425679497512878
+    },
+    {
+      "style": "exponential",
+      "progress": 0.5,
+      "master_fraction": 0.5,
+      "outgoing": 0.9241418199787564,
+      "web_outgoing_gain": 0.21350952585841207,
+      "incoming": 0.9179150013761012,
+      "web_incoming_gain": 0.21064198743782195
+    },
+    {
+      "style": "exponential",
+      "progress": 0.75,
+      "master_fraction": 1,
+      "outgoing": 0.9831063727782338,
+      "web_outgoing_gain": 0.9664981401971755,
+      "incoming": 0.9764822541439909,
+      "web_incoming_gain": 0.9535175926581296
+    },
+    {
+      "style": "exponential",
+      "progress": 0.75,
+      "master_fraction": 0.5,
+      "outgoing": 0.9831063727782338,
+      "web_outgoing_gain": 0.24162453504929388,
+      "incoming": 0.9764822541439909,
+      "web_incoming_gain": 0.2383793981645324
+    },
+    {
+      "style": "exponential",
+      "progress": 0.9,
+      "master_fraction": 1,
+      "outgoing": 0.9955992987691912,
+      "web_outgoing_gain": 0.9912179637097052,
+      "incoming": 0.9888910034617578,
+      "web_incoming_gain": 0.9779054167276023
+    },
+    {
+      "style": "exponential",
+      "progress": 0.9,
+      "master_fraction": 0.5,
+      "outgoing": 0.9955992987691912,
+      "web_outgoing_gain": 0.2478044909274263,
+      "incoming": 0.9888910034617578,
+      "web_incoming_gain": 0.24447635418190058
+    },
+    {
+      "style": "exponential",
+      "progress": 0.99,
+      "master_fraction": 1,
+      "outgoing": 0.9996521945755172,
+      "web_outgoing_gain": 0.9993045101196478,
+      "incoming": 0.9929165910709479,
+      "web_incoming_gain": 0.9858833568239519
+    },
+    {
+      "style": "exponential",
+      "progress": 0.99,
+      "master_fraction": 0.5,
+      "outgoing": 0.9996521945755172,
+      "web_outgoing_gain": 0.24982612752991196,
+      "incoming": 0.9929165910709479,
+      "web_incoming_gain": 0.24647083920598797
+    },
+    {
+      "style": "exponential",
+      "progress": 1,
+      "master_fraction": 1,
+      "outgoing": 1,
+      "web_outgoing_gain": 1,
+      "incoming": 0.9932620530009146,
+      "web_incoming_gain": 0.9865695059315918
+    },
+    {
+      "style": "exponential",
+      "progress": 1,
+      "master_fraction": 0.5,
+      "outgoing": 1,
+      "web_outgoing_gain": 0.25,
+      "incoming": 0.9932620530009146,
+      "web_incoming_gain": 0.24664237648289794
+    },
+    {
+      "style": "exponential",
+      "progress": 2,
+      "master_fraction": 1,
+      "outgoing": 1,
+      "web_outgoing_gain": 1,
+      "incoming": 0.9932620530009146,
+      "web_incoming_gain": 0.9865695059315918
+    },
+    {
+      "style": "exponential",
+      "progress": 2,
+      "master_fraction": 0.5,
+      "outgoing": 1,
+      "web_outgoing_gain": 0.25,
+      "incoming": 0.9932620530009146,
+      "web_incoming_gain": 0.24664237648289794
+    },
+    {
+      "style": "linear",
+      "progress": -1,
+      "master_fraction": 1,
+      "outgoing": 1,
+      "web_outgoing_gain": 1,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "linear",
+      "progress": -1,
+      "master_fraction": 0.5,
+      "outgoing": 1,
+      "web_outgoing_gain": 0.25,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "linear",
+      "progress": 0,
+      "master_fraction": 1,
+      "outgoing": 1,
+      "web_outgoing_gain": 1,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "linear",
+      "progress": 0,
+      "master_fraction": 0.5,
+      "outgoing": 1,
+      "web_outgoing_gain": 0.25,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "linear",
+      "progress": 0.01,
+      "master_fraction": 1,
+      "outgoing": 0.9900000000000005,
+      "web_outgoing_gain": 0.9801000000000011,
+      "incoming": 0.009999999999999431,
+      "web_incoming_gain": 0.00009999999999998862
+    },
+    {
+      "style": "linear",
+      "progress": 0.01,
+      "master_fraction": 0.5,
+      "outgoing": 0.9900000000000005,
+      "web_outgoing_gain": 0.24502500000000027,
+      "incoming": 0.009999999999999431,
+      "web_incoming_gain": 0.000024999999999997155
+    },
+    {
+      "style": "linear",
+      "progress": 0.1,
+      "master_fraction": 1,
+      "outgoing": 0.9,
+      "web_outgoing_gain": 0.81,
+      "incoming": 0.1,
+      "web_incoming_gain": 0.010000000000000002
+    },
+    {
+      "style": "linear",
+      "progress": 0.1,
+      "master_fraction": 0.5,
+      "outgoing": 0.9,
+      "web_outgoing_gain": 0.2025,
+      "incoming": 0.1,
+      "web_incoming_gain": 0.0025000000000000005
+    },
+    {
+      "style": "linear",
+      "progress": 0.25,
+      "master_fraction": 1,
+      "outgoing": 0.75,
+      "web_outgoing_gain": 0.5625,
+      "incoming": 0.25,
+      "web_incoming_gain": 0.0625
+    },
+    {
+      "style": "linear",
+      "progress": 0.25,
+      "master_fraction": 0.5,
+      "outgoing": 0.75,
+      "web_outgoing_gain": 0.140625,
+      "incoming": 0.25,
+      "web_incoming_gain": 0.015625
+    },
+    {
+      "style": "linear",
+      "progress": 0.5,
+      "master_fraction": 1,
+      "outgoing": 0.5,
+      "web_outgoing_gain": 0.25,
+      "incoming": 0.5,
+      "web_incoming_gain": 0.25
+    },
+    {
+      "style": "linear",
+      "progress": 0.5,
+      "master_fraction": 0.5,
+      "outgoing": 0.5,
+      "web_outgoing_gain": 0.0625,
+      "incoming": 0.5,
+      "web_incoming_gain": 0.0625
+    },
+    {
+      "style": "linear",
+      "progress": 0.75,
+      "master_fraction": 1,
+      "outgoing": 0.25,
+      "web_outgoing_gain": 0.0625,
+      "incoming": 0.75,
+      "web_incoming_gain": 0.5625
+    },
+    {
+      "style": "linear",
+      "progress": 0.75,
+      "master_fraction": 0.5,
+      "outgoing": 0.25,
+      "web_outgoing_gain": 0.015625,
+      "incoming": 0.75,
+      "web_incoming_gain": 0.140625
+    },
+    {
+      "style": "linear",
+      "progress": 0.9,
+      "master_fraction": 1,
+      "outgoing": 0.09999999999999998,
+      "web_outgoing_gain": 0.009999999999999995,
+      "incoming": 0.9,
+      "web_incoming_gain": 0.81
+    },
+    {
+      "style": "linear",
+      "progress": 0.9,
+      "master_fraction": 0.5,
+      "outgoing": 0.09999999999999998,
+      "web_outgoing_gain": 0.0024999999999999988,
+      "incoming": 0.9,
+      "web_incoming_gain": 0.2025
+    },
+    {
+      "style": "linear",
+      "progress": 0.99,
+      "master_fraction": 1,
+      "outgoing": 0.009999999999999454,
+      "web_outgoing_gain": 0.00009999999999998908,
+      "incoming": 0.9900000000000005,
+      "web_incoming_gain": 0.9801000000000011
+    },
+    {
+      "style": "linear",
+      "progress": 0.99,
+      "master_fraction": 0.5,
+      "outgoing": 0.009999999999999454,
+      "web_outgoing_gain": 0.00002499999999999727,
+      "incoming": 0.9900000000000005,
+      "web_incoming_gain": 0.24502500000000027
+    },
+    {
+      "style": "linear",
+      "progress": 1,
+      "master_fraction": 1,
+      "outgoing": 0,
+      "web_outgoing_gain": 0,
+      "incoming": 1,
+      "web_incoming_gain": 1
+    },
+    {
+      "style": "linear",
+      "progress": 1,
+      "master_fraction": 0.5,
+      "outgoing": 0,
+      "web_outgoing_gain": 0,
+      "incoming": 1,
+      "web_incoming_gain": 0.25
+    },
+    {
+      "style": "linear",
+      "progress": 2,
+      "master_fraction": 1,
+      "outgoing": 0,
+      "web_outgoing_gain": 0,
+      "incoming": 1,
+      "web_incoming_gain": 1
+    },
+    {
+      "style": "linear",
+      "progress": 2,
+      "master_fraction": 0.5,
+      "outgoing": 0,
+      "web_outgoing_gain": 0,
+      "incoming": 1,
+      "web_incoming_gain": 0.25
+    },
+    {
+      "style": "sCurve",
+      "progress": -1,
+      "master_fraction": 1,
+      "outgoing": 1,
+      "web_outgoing_gain": 1,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "sCurve",
+      "progress": -1,
+      "master_fraction": 0.5,
+      "outgoing": 1,
+      "web_outgoing_gain": 0.25,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "sCurve",
+      "progress": 0,
+      "master_fraction": 1,
+      "outgoing": 1,
+      "web_outgoing_gain": 1,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "sCurve",
+      "progress": 0,
+      "master_fraction": 0.5,
+      "outgoing": 1,
+      "web_outgoing_gain": 0.25,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "sCurve",
+      "progress": 0.01,
+      "master_fraction": 1,
+      "outgoing": 0.9997019999999999,
+      "web_outgoing_gain": 0.9994040888039998,
+      "incoming": 0.0002979999999999662,
+      "web_incoming_gain": 8.880399999997986e-8
+    },
+    {
+      "style": "sCurve",
+      "progress": 0.01,
+      "master_fraction": 0.5,
+      "outgoing": 0.9997019999999999,
+      "web_outgoing_gain": 0.24985102220099994,
+      "incoming": 0.0002979999999999662,
+      "web_incoming_gain": 2.2200999999994966e-8
+    },
+    {
+      "style": "sCurve",
+      "progress": 0.1,
+      "master_fraction": 1,
+      "outgoing": 0.972,
+      "web_outgoing_gain": 0.944784,
+      "incoming": 0.028000000000000004,
+      "web_incoming_gain": 0.0007840000000000002
+    },
+    {
+      "style": "sCurve",
+      "progress": 0.1,
+      "master_fraction": 0.5,
+      "outgoing": 0.972,
+      "web_outgoing_gain": 0.236196,
+      "incoming": 0.028000000000000004,
+      "web_incoming_gain": 0.00019600000000000005
+    },
+    {
+      "style": "sCurve",
+      "progress": 0.25,
+      "master_fraction": 1,
+      "outgoing": 0.84375,
+      "web_outgoing_gain": 0.7119140625,
+      "incoming": 0.15625,
+      "web_incoming_gain": 0.0244140625
+    },
+    {
+      "style": "sCurve",
+      "progress": 0.25,
+      "master_fraction": 0.5,
+      "outgoing": 0.84375,
+      "web_outgoing_gain": 0.177978515625,
+      "incoming": 0.15625,
+      "web_incoming_gain": 0.006103515625
+    },
+    {
+      "style": "sCurve",
+      "progress": 0.5,
+      "master_fraction": 1,
+      "outgoing": 0.5,
+      "web_outgoing_gain": 0.25,
+      "incoming": 0.5,
+      "web_incoming_gain": 0.25
+    },
+    {
+      "style": "sCurve",
+      "progress": 0.5,
+      "master_fraction": 0.5,
+      "outgoing": 0.5,
+      "web_outgoing_gain": 0.0625,
+      "incoming": 0.5,
+      "web_incoming_gain": 0.0625
+    },
+    {
+      "style": "sCurve",
+      "progress": 0.75,
+      "master_fraction": 1,
+      "outgoing": 0.15625,
+      "web_outgoing_gain": 0.0244140625,
+      "incoming": 0.84375,
+      "web_incoming_gain": 0.7119140625
+    },
+    {
+      "style": "sCurve",
+      "progress": 0.75,
+      "master_fraction": 0.5,
+      "outgoing": 0.15625,
+      "web_outgoing_gain": 0.006103515625,
+      "incoming": 0.84375,
+      "web_incoming_gain": 0.177978515625
+    },
+    {
+      "style": "sCurve",
+      "progress": 0.9,
+      "master_fraction": 1,
+      "outgoing": 0.028000000000000025,
+      "web_outgoing_gain": 0.0007840000000000014,
+      "incoming": 0.972,
+      "web_incoming_gain": 0.944784
+    },
+    {
+      "style": "sCurve",
+      "progress": 0.9,
+      "master_fraction": 0.5,
+      "outgoing": 0.028000000000000025,
+      "web_outgoing_gain": 0.00019600000000000035,
+      "incoming": 0.972,
+      "web_incoming_gain": 0.236196
+    },
+    {
+      "style": "sCurve",
+      "progress": 0.99,
+      "master_fraction": 1,
+      "outgoing": 0.00029800000000002047,
+      "web_outgoing_gain": 8.88040000000122e-8,
+      "incoming": 0.9997019999999999,
+      "web_incoming_gain": 0.9994040888039998
+    },
+    {
+      "style": "sCurve",
+      "progress": 0.99,
+      "master_fraction": 0.5,
+      "outgoing": 0.00029800000000002047,
+      "web_outgoing_gain": 2.220100000000305e-8,
+      "incoming": 0.9997019999999999,
+      "web_incoming_gain": 0.24985102220099994
+    },
+    {
+      "style": "sCurve",
+      "progress": 1,
+      "master_fraction": 1,
+      "outgoing": 0,
+      "web_outgoing_gain": 0,
+      "incoming": 1,
+      "web_incoming_gain": 1
+    },
+    {
+      "style": "sCurve",
+      "progress": 1,
+      "master_fraction": 0.5,
+      "outgoing": 0,
+      "web_outgoing_gain": 0,
+      "incoming": 1,
+      "web_incoming_gain": 0.25
+    },
+    {
+      "style": "sCurve",
+      "progress": 2,
+      "master_fraction": 1,
+      "outgoing": 0,
+      "web_outgoing_gain": 0,
+      "incoming": 1,
+      "web_incoming_gain": 1
+    },
+    {
+      "style": "sCurve",
+      "progress": 2,
+      "master_fraction": 0.5,
+      "outgoing": 0,
+      "web_outgoing_gain": 0,
+      "incoming": 1,
+      "web_incoming_gain": 0.25
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": -1,
+      "master_fraction": 1,
+      "outgoing": 1,
+      "web_outgoing_gain": 1,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": -1,
+      "master_fraction": 0.5,
+      "outgoing": 1,
+      "web_outgoing_gain": 0.25,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": 0,
+      "master_fraction": 1,
+      "outgoing": 1,
+      "web_outgoing_gain": 1,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": 0,
+      "master_fraction": 0.5,
+      "outgoing": 1,
+      "web_outgoing_gain": 0.25,
+      "incoming": 0,
+      "web_incoming_gain": 0
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": 0.01,
+      "master_fraction": 1,
+      "outgoing": 0.9998766324816606,
+      "web_outgoing_gain": 0.9997532801828658,
+      "incoming": 0.01570731731181978,
+      "web_incoming_gain": 0.0002467198171341934
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": 0.01,
+      "master_fraction": 0.5,
+      "outgoing": 0.9998766324816606,
+      "web_outgoing_gain": 0.24993832004571645,
+      "incoming": 0.01570731731181978,
+      "web_incoming_gain": 0.00006167995428354834
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": 0.1,
+      "master_fraction": 1,
+      "outgoing": 0.9876883405951378,
+      "web_outgoing_gain": 0.9755282581475768,
+      "incoming": 0.15643446504023087,
+      "web_incoming_gain": 0.024471741852423214
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": 0.1,
+      "master_fraction": 0.5,
+      "outgoing": 0.9876883405951378,
+      "web_outgoing_gain": 0.2438820645368942,
+      "incoming": 0.15643446504023087,
+      "web_incoming_gain": 0.006117935463105803
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": 0.25,
+      "master_fraction": 1,
+      "outgoing": 0.9238795325112867,
+      "web_outgoing_gain": 0.8535533905932737,
+      "incoming": 0.3826834323650898,
+      "web_incoming_gain": 0.14644660940672624
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": 0.25,
+      "master_fraction": 0.5,
+      "outgoing": 0.9238795325112867,
+      "web_outgoing_gain": 0.21338834764831843,
+      "incoming": 0.3826834323650898,
+      "web_incoming_gain": 0.03661165235168156
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": 0.5,
+      "master_fraction": 1,
+      "outgoing": 0.7071067811865476,
+      "web_outgoing_gain": 0.5000000000000001,
+      "incoming": 0.7071067811865475,
+      "web_incoming_gain": 0.4999999999999999
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": 0.5,
+      "master_fraction": 0.5,
+      "outgoing": 0.7071067811865476,
+      "web_outgoing_gain": 0.12500000000000003,
+      "incoming": 0.7071067811865475,
+      "web_incoming_gain": 0.12499999999999997
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": 0.75,
+      "master_fraction": 1,
+      "outgoing": 0.38268343236508984,
+      "web_outgoing_gain": 0.1464466094067263,
+      "incoming": 0.9238795325112867,
+      "web_incoming_gain": 0.8535533905932737
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": 0.75,
+      "master_fraction": 0.5,
+      "outgoing": 0.38268343236508984,
+      "web_outgoing_gain": 0.036611652351681574,
+      "incoming": 0.9238795325112867,
+      "web_incoming_gain": 0.21338834764831843
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": 0.9,
+      "master_fraction": 1,
+      "outgoing": 0.15643446504023095,
+      "web_outgoing_gain": 0.02447174185242324,
+      "incoming": 0.9876883405951378,
+      "web_incoming_gain": 0.9755282581475768
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": 0.9,
+      "master_fraction": 0.5,
+      "outgoing": 0.15643446504023095,
+      "web_outgoing_gain": 0.00611793546310581,
+      "incoming": 0.9876883405951378,
+      "web_incoming_gain": 0.2438820645368942
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": 0.99,
+      "master_fraction": 1,
+      "outgoing": 0.015707317311819957,
+      "web_outgoing_gain": 0.0002467198171341989,
+      "incoming": 0.9998766324816606,
+      "web_incoming_gain": 0.9997532801828658
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": 0.99,
+      "master_fraction": 0.5,
+      "outgoing": 0.015707317311819957,
+      "web_outgoing_gain": 0.00006167995428354973,
+      "incoming": 0.9998766324816606,
+      "web_incoming_gain": 0.24993832004571645
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": 1,
+      "master_fraction": 1,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 1.232595164407831e-32,
+      "incoming": 1,
+      "web_incoming_gain": 1
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": 1,
+      "master_fraction": 0.5,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 3.0814879110195774e-33,
+      "incoming": 1,
+      "web_incoming_gain": 0.25
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": 2,
+      "master_fraction": 1,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 1.232595164407831e-32,
+      "incoming": 1,
+      "web_incoming_gain": 1
+    },
+    {
+      "style": "unknown-saved-style",
+      "progress": 2,
+      "master_fraction": 0.5,
+      "outgoing": 1.1102230246251565e-16,
+      "web_outgoing_gain": 3.0814879110195774e-33,
+      "incoming": 1,
+      "web_incoming_gain": 0.25
+    }
+  ],
+  "scope": "Exact pinned active web-player slider coefficient and assigned media gain replay with mocked PLAYING/transition state; not browser audio or full transition lifecycle"
+}

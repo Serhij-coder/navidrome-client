@@ -187,6 +187,14 @@ impl Mpv {
             .as_u64()
             .ok_or(Error::Protocol)
     }
+    /// mpv's percentage property, not an assumed linear amplitude gain law.
+    pub fn set_volume_percent(&mut self, percent: f64) -> Result<(), Error> {
+        if !percent.is_finite() || !(0.0..=100.0).contains(&percent) {
+            return Err(Error::InvalidInput);
+        }
+        self.command(json!(["set_property", "volume", percent]))?;
+        Ok(())
+    }
     pub fn low_pass_probe(&mut self) -> Result<(), Error> {
         self.command(json!(["af", "set", "lavfi=[lowpass=f=2000]"]))?;
         Ok(())

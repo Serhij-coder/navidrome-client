@@ -1054,6 +1054,9 @@ dependencies = [
 [[package]]
 name = "feishin-spike-model"
 version = "0.1.0"
+dependencies = [
+ "serde_json",
+]
 
 [[package]]
 name = "feishin-spike-ui"

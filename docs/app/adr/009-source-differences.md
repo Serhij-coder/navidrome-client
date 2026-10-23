@@ -18,3 +18,5 @@ Preserve observed domain behavior unless a defect or isolation requirement justi
 Alternatives include copying suspected defects or making undocumented fixes. Neither gives a usable compatibility contract. These decisions do not turn partial source characterization into a passed runtime gate, and do not claim any feature has been ported.
 
 The new last-item stop trace emits the first occurrence's ID after index reset. It is recorded as an unresolved event-consumer ambiguity, not an accepted behavior change; investigate engine/reporting consumers before adding a compatibility decision.
+
+P01 crossfade boundary: finite curve inputs are replayed against pinned source, including its exponential outgoing inversion. The native feasibility helper explicitly rejects non-finite progress/master values and out-of-range master fractions before any IPC; it does not claim parity for invalid values. This validation is covered by portable boundary regressions. The source exponential behavior is retained in a named compatibility probe; a production correction is deferred, with no current player behavior changed. See the [characterization](../p01/crossfade.md).

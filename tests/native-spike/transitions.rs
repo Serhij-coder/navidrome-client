@@ -65,6 +65,12 @@ struct Monitor {
 }
 impl Monitor {
     fn start() -> Result<Self, Error> {
+        Self::start_with_cap(CAP)
+    }
+    fn start_with_cap(cap: usize) -> Result<Self, Error> {
+        if !(RATE..=RATE * 24).contains(&cap) {
+            return Err(Error::InvalidInput);
+        }
         let mut child = ManagedChild(
             child_command(Path::new("ffmpeg"))
                 .args([
@@ -92,7 +98,8 @@ impl Monitor {
         let output = frames.clone();
         let stopped = Arc::new(AtomicBool::new(false));
         let stop = stopped.clone();
-        let worker = std::thread::spawn(move || read_pcm(BufReader::new(stdout), &output, &stop));
+        let worker =
+            std::thread::spawn(move || read_pcm(BufReader::new(stdout), &output, &stop, cap));
         Ok(Self {
             child,
             frames,
@@ -137,10 +144,11 @@ fn read_pcm(
     mut reader: impl Read,
     frames: &AtomicUsize,
     stopped: &AtomicBool,
+    cap: usize,
 ) -> Result<Vec<f32>, Error> {
-    let mut pcm = Vec::with_capacity(CAP);
+    let mut pcm = Vec::with_capacity(cap);
     let mut bytes = [0; 4];
-    while pcm.len() < CAP {
+    while pcm.len() < cap {
         match reader.read_exact(&mut bytes) {
             Ok(()) => pcm.push(f32::from_le_bytes(bytes)),
             Err(_) if stopped.load(Ordering::Acquire) => return Ok(pcm),
@@ -159,12 +167,12 @@ fn premature_capture_eof_is_an_error_even_with_valid_pcm() {
     let stopped = AtomicBool::new(false);
     let bytes = [0.25_f32.to_le_bytes(); 100].concat();
     assert!(matches!(
-        read_pcm(std::io::Cursor::new(&bytes), &frames, &stopped),
+        read_pcm(std::io::Cursor::new(&bytes), &frames, &stopped, CAP),
         Err(Error::ProcessExited)
     ));
     stopped.store(true, Ordering::Release);
     assert_eq!(
-        read_pcm(std::io::Cursor::new(&bytes), &frames, &stopped)
+        read_pcm(std::io::Cursor::new(&bytes), &frames, &stopped, CAP)
             .unwrap()
             .len(),
         100
@@ -405,3 +413,6 @@ fn live_current_next_monitor_energy_measurements() {
         "tone_seconds_each": 2, "cases": cases, "scope": "Live owned PulseAudio monitor energy, 1 ms windows; not sample-exact gapless, physical/device output or crossfade certification"})).unwrap();
     output.write_all(b"\n").unwrap();
 }
+
+#[path = "crossfade.rs"]
+mod crossfade;

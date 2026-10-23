@@ -364,3 +364,22 @@ fn long_temp_root_keeps_ipc_path_short_and_private() {
         String::from_utf8_lossy(&result.stderr)
     );
 }
+
+#[cfg(unix)]
+#[test]
+fn volume_percentage_validation_leaves_the_engine_usable() {
+    let directory = tempfile::tempdir().unwrap();
+    let executable = fake(directory.path(), "normal");
+    let mut mpv = Mpv::start(&executable, 11, AudioOutput::Null).unwrap();
+    for invalid in [f64::NAN, f64::INFINITY, f64::NEG_INFINITY, -0.1, 100.1] {
+        assert!(matches!(
+            mpv.set_volume_percent(invalid),
+            Err(Error::InvalidInput)
+        ));
+        assert!(mpv.accepts_generation(11));
+    }
+    for valid in [0.0, 0.5, 50.0, 100.0] {
+        mpv.set_volume_percent(valid).unwrap();
+    }
+    assert_eq!(mpv.playlist_count().unwrap(), 0);
+}

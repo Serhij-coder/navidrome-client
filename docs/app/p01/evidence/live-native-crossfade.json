@@ -1,0 +1,4072 @@
+{
+  "cases": [
+    {
+      "capture_head_frame": 106496,
+      "capture_tail_frame": 249856,
+      "captured_frames": 318102,
+      "commands": [
+        {
+          "capture_frame_after_commands": 108544,
+          "elapsed_ms": 1,
+          "incoming_gain_scalar": 0.00027734461344444607,
+          "media_progress": 0.016653666666666716,
+          "outgoing_gain_scalar": 0.9669700112801111
+        },
+        {
+          "capture_frame_after_commands": 108544,
+          "elapsed_ms": 21,
+          "incoming_gain_scalar": 0.0002839225000000011,
+          "media_progress": 0.01685000000000003,
+          "outgoing_gain_scalar": 0.9665839224999999
+        },
+        {
+          "capture_frame_after_commands": 108544,
+          "elapsed_ms": 41,
+          "incoming_gain_scalar": 0.000565504253444446,
+          "media_progress": 0.023780333333333365,
+          "outgoing_gain_scalar": 0.9530048375867777
+        },
+        {
+          "capture_frame_after_commands": 111616,
+          "elapsed_ms": 62,
+          "incoming_gain_scalar": 0.001125088125444445,
+          "media_progress": 0.03354233333333334,
+          "outgoing_gain_scalar": 0.9340404214587777
+        },
+        {
+          "capture_frame_after_commands": 111616,
+          "elapsed_ms": 82,
+          "incoming_gain_scalar": 0.0013955205444444473,
+          "media_progress": 0.037356666666666705,
+          "outgoing_gain_scalar": 0.9266821872111111
+        },
+        {
+          "capture_frame_after_commands": 113664,
+          "elapsed_ms": 103,
+          "incoming_gain_scalar": 0.0025214123201111123,
+          "media_progress": 0.05021366666666668,
+          "outgoing_gain_scalar": 0.9020940789867777
+        },
+        {
+          "capture_frame_after_commands": 113664,
+          "elapsed_ms": 123,
+          "incoming_gain_scalar": 0.0025993682559999993,
+          "media_progress": 0.050983999999999995,
+          "outgoing_gain_scalar": 0.900631368256
+        },
+        {
+          "capture_frame_after_commands": 113664,
+          "elapsed_ms": 144,
+          "incoming_gain_scalar": 0.0033438848267777843,
+          "media_progress": 0.05782633333333339,
+          "outgoing_gain_scalar": 0.887691218160111
+        },
+        {
+          "capture_frame_after_commands": 115712,
+          "elapsed_ms": 164,
+          "incoming_gain_scalar": 0.004486900912111118,
+          "media_progress": 0.06698433333333338,
+          "outgoing_gain_scalar": 0.8705182342454443
+        },
+        {
+          "capture_frame_after_commands": 115712,
+          "elapsed_ms": 185,
+          "incoming_gain_scalar": 0.005112107001000007,
+          "media_progress": 0.07149900000000005,
+          "outgoing_gain_scalar": 0.8621141070009999
+        },
+        {
+          "capture_frame_after_commands": 115712,
+          "elapsed_ms": 206,
+          "incoming_gain_scalar": 0.007001951898777782,
+          "media_progress": 0.08367766666666669,
+          "outgoing_gain_scalar": 0.8396466185654444
+        },
+        {
+          "capture_frame_after_commands": 115712,
+          "elapsed_ms": 226,
+          "incoming_gain_scalar": 0.007264834756000005,
+          "media_progress": 0.08523400000000003,
+          "outgoing_gain_scalar": 0.836796834756
+        },
+        {
+          "capture_frame_after_commands": 115712,
+          "elapsed_ms": 247,
+          "incoming_gain_scalar": 0.008482103002777788,
+          "media_progress": 0.0920983333333334,
+          "outgoing_gain_scalar": 0.824285436336111
+        },
+        {
+          "capture_frame_after_commands": 120832,
+          "elapsed_ms": 267,
+          "incoming_gain_scalar": 0.01004632018177778,
+          "media_progress": 0.10023133333333334,
+          "outgoing_gain_scalar": 0.8095836535151111
+        },
+        {
+          "capture_frame_after_commands": 120832,
+          "elapsed_ms": 288,
+          "incoming_gain_scalar": 0.011194133738777777,
+          "media_progress": 0.10580233333333333,
+          "outgoing_gain_scalar": 0.7995894670721111
+        },
+        {
+          "capture_frame_after_commands": 122880,
+          "elapsed_ms": 309,
+          "incoming_gain_scalar": 0.013704058138777786,
+          "media_progress": 0.11706433333333337,
+          "outgoing_gain_scalar": 0.7795753914721111
+        },
+        {
+          "capture_frame_after_commands": 122880,
+          "elapsed_ms": 330,
+          "incoming_gain_scalar": 0.015008128392111115,
+          "media_progress": 0.12250766666666668,
+          "outgoing_gain_scalar": 0.7699927950587777
+        },
+        {
+          "capture_frame_after_commands": 125952,
+          "elapsed_ms": 351,
+          "incoming_gain_scalar": 0.016044951115111113,
+          "media_progress": 0.12666866666666668,
+          "outgoing_gain_scalar": 0.7627076177817778
+        },
+        {
+          "capture_frame_after_commands": 125952,
+          "elapsed_ms": 372,
+          "incoming_gain_scalar": 0.017848870933444453,
+          "media_progress": 0.1335996666666667,
+          "outgoing_gain_scalar": 0.7506495376001111
+        },
+        {
+          "capture_frame_after_commands": 125952,
+          "elapsed_ms": 393,
+          "incoming_gain_scalar": 0.01978054721111112,
+          "media_progress": 0.14064333333333337,
+          "outgoing_gain_scalar": 0.7384938805444444
+        },
+        {
+          "capture_frame_after_commands": 128000,
+          "elapsed_ms": 413,
+          "incoming_gain_scalar": 0.022550228000444466,
+          "media_progress": 0.1501673333333334,
+          "outgoing_gain_scalar": 0.7222155613337776
+        },
+        {
+          "capture_frame_after_commands": 128000,
+          "elapsed_ms": 434,
+          "incoming_gain_scalar": 0.02475388266677779,
+          "media_progress": 0.1573336666666667,
+          "outgoing_gain_scalar": 0.7100865493334444
+        },
+        {
+          "capture_frame_after_commands": 130048,
+          "elapsed_ms": 455,
+          "incoming_gain_scalar": 0.02787486245877777,
+          "media_progress": 0.16695766666666664,
+          "outgoing_gain_scalar": 0.6939595291254445
+        },
+        {
+          "capture_frame_after_commands": 130048,
+          "elapsed_ms": 477,
+          "incoming_gain_scalar": 0.028391913001000014,
+          "media_progress": 0.16849900000000004,
+          "outgoing_gain_scalar": 0.6913939130009998
+        },
+        {
+          "capture_frame_after_commands": 130048,
+          "elapsed_ms": 498,
+          "incoming_gain_scalar": 0.030826112426777803,
+          "media_progress": 0.17557366666666674,
+          "outgoing_gain_scalar": 0.6796787790934443
+        },
+        {
+          "capture_frame_after_commands": 130048,
+          "elapsed_ms": 518,
+          "incoming_gain_scalar": 0.033812957689000035,
+          "media_progress": 0.1838830000000001,
+          "outgoing_gain_scalar": 0.6660469576889998
+        },
+        {
+          "capture_frame_after_commands": 130048,
+          "elapsed_ms": 540,
+          "incoming_gain_scalar": 0.03589307072177776,
+          "media_progress": 0.18945466666666663,
+          "outgoing_gain_scalar": 0.6569837373884444
+        },
+        {
+          "capture_frame_after_commands": 135168,
+          "elapsed_ms": 561,
+          "incoming_gain_scalar": 0.04011822055511112,
+          "media_progress": 0.20029533333333335,
+          "outgoing_gain_scalar": 0.6395275538884444
+        },
+        {
+          "capture_frame_after_commands": 135168,
+          "elapsed_ms": 582,
+          "incoming_gain_scalar": 0.041543815329,
+          "media_progress": 0.203823,
+          "outgoing_gain_scalar": 0.633897815329
+        },
+        {
+          "capture_frame_after_commands": 137216,
+          "elapsed_ms": 603,
+          "incoming_gain_scalar": 0.04707916318044445,
+          "media_progress": 0.21697733333333336,
+          "outgoing_gain_scalar": 0.6131244965137778
+        },
+        {
+          "capture_frame_after_commands": 137216,
+          "elapsed_ms": 624,
+          "incoming_gain_scalar": 0.047370506805444454,
+          "media_progress": 0.21764766666666668,
+          "outgoing_gain_scalar": 0.612075173472111
+        },
+        {
+          "capture_frame_after_commands": 137216,
+          "elapsed_ms": 645,
+          "incoming_gain_scalar": 0.050426894187111146,
+          "media_progress": 0.22455933333333342,
+          "outgoing_gain_scalar": 0.6013082275204443
+        },
+        {
+          "capture_frame_after_commands": 140288,
+          "elapsed_ms": 666,
+          "incoming_gain_scalar": 0.05456101788900001,
+          "media_progress": 0.233583,
+          "outgoing_gain_scalar": 0.5873950178890001
+        },
+        {
+          "capture_frame_after_commands": 140288,
+          "elapsed_ms": 686,
+          "incoming_gain_scalar": 0.056890677312111095,
+          "media_progress": 0.23851766666666663,
+          "outgoing_gain_scalar": 0.5798553439787778
+        },
+        {
+          "capture_frame_after_commands": 142336,
+          "elapsed_ms": 708,
+          "incoming_gain_scalar": 0.06266076992177781,
+          "media_progress": 0.2503213333333334,
+          "outgoing_gain_scalar": 0.562018103255111
+        },
+        {
+          "capture_frame_after_commands": 142336,
+          "elapsed_ms": 729,
+          "incoming_gain_scalar": 0.0638288223067778,
+          "media_progress": 0.2526436666666667,
+          "outgoing_gain_scalar": 0.5585414889734444
+        },
+        {
+          "capture_frame_after_commands": 142336,
+          "elapsed_ms": 750,
+          "incoming_gain_scalar": 0.06738973708844448,
+          "media_progress": 0.2595953333333334,
+          "outgoing_gain_scalar": 0.5481990704217777
+        },
+        {
+          "capture_frame_after_commands": 142336,
+          "elapsed_ms": 770,
+          "incoming_gain_scalar": 0.07129843431211111,
+          "media_progress": 0.26701766666666665,
+          "outgoing_gain_scalar": 0.5372631009787778
+        },
+        {
+          "capture_frame_after_commands": 142336,
+          "elapsed_ms": 791,
+          "incoming_gain_scalar": 0.07481191397877775,
+          "media_progress": 0.2735176666666666,
+          "outgoing_gain_scalar": 0.5277765806454446
+        },
+        {
+          "capture_frame_after_commands": 147456,
+          "elapsed_ms": 812,
+          "incoming_gain_scalar": 0.08040249284444444,
+          "media_progress": 0.2835533333333333,
+          "outgoing_gain_scalar": 0.5132958261777778
+        },
+        {
+          "capture_frame_after_commands": 147456,
+          "elapsed_ms": 833,
+          "incoming_gain_scalar": 0.08262309499211112,
+          "media_progress": 0.28744233333333336,
+          "outgoing_gain_scalar": 0.5077384283254445
+        },
+        {
+          "capture_frame_after_commands": 149504,
+          "elapsed_ms": 854,
+          "incoming_gain_scalar": 0.0902129257884444,
+          "media_progress": 0.3003546666666666,
+          "outgoing_gain_scalar": 0.48950359245511127
+        },
+        {
+          "capture_frame_after_commands": 149504,
+          "elapsed_ms": 875,
+          "incoming_gain_scalar": 0.09080137600044447,
+          "media_progress": 0.3013326666666667,
+          "outgoing_gain_scalar": 0.4881360426671111
+        },
+        {
+          "capture_frame_after_commands": 149504,
+          "elapsed_ms": 896,
+          "incoming_gain_scalar": 0.09505258963599998,
+          "media_progress": 0.30830599999999997,
+          "outgoing_gain_scalar": 0.47844058963600006
+        },
+        {
+          "capture_frame_after_commands": 151552,
+          "elapsed_ms": 917,
+          "incoming_gain_scalar": 0.10045371043211118,
+          "media_progress": 0.31694433333333344,
+          "outgoing_gain_scalar": 0.4665650437654442
+        },
+        {
+          "capture_frame_after_commands": 151552,
+          "elapsed_ms": 938,
+          "incoming_gain_scalar": 0.10389834800044451,
+          "media_progress": 0.32233266666666677,
+          "outgoing_gain_scalar": 0.4592330146671109
+        },
+        {
+          "capture_frame_after_commands": 154624,
+          "elapsed_ms": 959,
+          "incoming_gain_scalar": 0.11143312185599996,
+          "media_progress": 0.33381599999999995,
+          "outgoing_gain_scalar": 0.4438011218560001
+        },
+        {
+          "capture_frame_after_commands": 154624,
+          "elapsed_ms": 979,
+          "incoming_gain_scalar": 0.11310576134400008,
+          "media_progress": 0.3363120000000001,
+          "outgoing_gain_scalar": 0.4404817613439998
+        },
+        {
+          "capture_frame_after_commands": 154624,
+          "elapsed_ms": 1000,
+          "incoming_gain_scalar": 0.11979997738844445,
+          "media_progress": 0.34612133333333334,
+          "outgoing_gain_scalar": 0.42755731072177783
+        },
+        {
+          "capture_frame_after_commands": 156672,
+          "elapsed_ms": 1021,
+          "incoming_gain_scalar": 0.12267319450711113,
+          "media_progress": 0.35024733333333335,
+          "outgoing_gain_scalar": 0.4221785278404444
+        },
+        {
+          "capture_frame_after_commands": 156672,
+          "elapsed_ms": 1043,
+          "incoming_gain_scalar": 0.1275035078267778,
+          "media_progress": 0.3570763333333334,
+          "outgoing_gain_scalar": 0.4133508411601111
+        },
+        {
+          "capture_frame_after_commands": 158720,
+          "elapsed_ms": 1064,
+          "incoming_gain_scalar": 0.13468630868011117,
+          "media_progress": 0.3669963333333334,
+          "outgoing_gain_scalar": 0.40069364201344426
+        },
+        {
+          "capture_frame_after_commands": 158720,
+          "elapsed_ms": 1086,
+          "incoming_gain_scalar": 0.1379770835737778,
+          "media_progress": 0.3714526666666667,
+          "outgoing_gain_scalar": 0.39507175024044444
+        },
+        {
+          "capture_frame_after_commands": 161792,
+          "elapsed_ms": 1107,
+          "incoming_gain_scalar": 0.1473421020027778,
+          "media_progress": 0.3838516666666667,
+          "outgoing_gain_scalar": 0.3796387686694444
+        },
+        {
+          "capture_frame_after_commands": 161792,
+          "elapsed_ms": 1127,
+          "incoming_gain_scalar": 0.148661911489,
+          "media_progress": 0.385567,
+          "outgoing_gain_scalar": 0.377527911489
+        },
+        {
+          "capture_frame_after_commands": 161792,
+          "elapsed_ms": 1148,
+          "incoming_gain_scalar": 0.15405494166944445,
+          "media_progress": 0.39249833333333334,
+          "outgoing_gain_scalar": 0.3690582750027777
+        },
+        {
+          "capture_frame_after_commands": 163840,
+          "elapsed_ms": 1169,
+          "incoming_gain_scalar": 0.160189656169,
+          "media_progress": 0.400237,
+          "outgoing_gain_scalar": 0.35971565616900003
+        },
+        {
+          "capture_frame_after_commands": 163840,
+          "elapsed_ms": 1190,
+          "incoming_gain_scalar": 0.16523683004444442,
+          "media_progress": 0.4064933333333333,
+          "outgoing_gain_scalar": 0.3522501633777777
+        },
+        {
+          "capture_frame_after_commands": 165888,
+          "elapsed_ms": 1211,
+          "incoming_gain_scalar": 0.17405500560100007,
+          "media_progress": 0.4171990000000001,
+          "outgoing_gain_scalar": 0.3396570056009999
+        },
+        {
+          "capture_frame_after_commands": 165888,
+          "elapsed_ms": 1232,
+          "incoming_gain_scalar": 0.1790875190937778,
+          "media_progress": 0.42318733333333336,
+          "outgoing_gain_scalar": 0.33271285242711107
+        },
+        {
+          "capture_frame_after_commands": 168960,
+          "elapsed_ms": 1253,
+          "incoming_gain_scalar": 0.1880500097071111,
+          "media_progress": 0.43364733333333333,
+          "outgoing_gain_scalar": 0.3207553430404445
+        },
+        {
+          "capture_frame_after_commands": 168960,
+          "elapsed_ms": 1274,
+          "incoming_gain_scalar": 0.19349206838044442,
+          "media_progress": 0.4398773333333333,
+          "outgoing_gain_scalar": 0.3137374017137779
+        },
+        {
+          "capture_frame_after_commands": 168960,
+          "elapsed_ms": 1295,
+          "incoming_gain_scalar": 0.19475686976044446,
+          "media_progress": 0.4413126666666667,
+          "outgoing_gain_scalar": 0.3121315364271111
+        },
+        {
+          "capture_frame_after_commands": 171008,
+          "elapsed_ms": 1315,
+          "incoming_gain_scalar": 0.2027748932284445,
+          "media_progress": 0.4503053333333334,
+          "outgoing_gain_scalar": 0.30216422656177777
+        },
+        {
+          "capture_frame_after_commands": 171008,
+          "elapsed_ms": 1336,
+          "incoming_gain_scalar": 0.20718397717511117,
+          "media_progress": 0.4551746666666667,
+          "outgoing_gain_scalar": 0.2968346438417777
+        },
+        {
+          "capture_frame_after_commands": 171008,
+          "elapsed_ms": 1357,
+          "incoming_gain_scalar": 0.21796448444444452,
+          "media_progress": 0.46686666666666676,
+          "outgoing_gain_scalar": 0.284231151111111
+        },
+        {
+          "capture_frame_after_commands": 171008,
+          "elapsed_ms": 1378,
+          "incoming_gain_scalar": 0.2200582500801111,
+          "media_progress": 0.46910366666666664,
+          "outgoing_gain_scalar": 0.28185091674677787
+        },
+        {
+          "capture_frame_after_commands": 171008,
+          "elapsed_ms": 1399,
+          "incoming_gain_scalar": 0.22660265678400007,
+          "media_progress": 0.47602800000000006,
+          "outgoing_gain_scalar": 0.27454665678399987
+        },
+        {
+          "capture_frame_after_commands": 176128,
+          "elapsed_ms": 1420,
+          "incoming_gain_scalar": 0.23387024960177782,
+          "media_progress": 0.4836013333333334,
+          "outgoing_gain_scalar": 0.2666675829351111
+        },
+        {
+          "capture_frame_after_commands": 176128,
+          "elapsed_ms": 1441,
+          "incoming_gain_scalar": 0.24005034923377785,
+          "media_progress": 0.4899493333333334,
+          "outgoing_gain_scalar": 0.2601516825671111
+        },
+        {
+          "capture_frame_after_commands": 178176,
+          "elapsed_ms": 1462,
+          "incoming_gain_scalar": 0.25027707672900007,
+          "media_progress": 0.5002770000000001,
+          "outgoing_gain_scalar": 0.2497230767289999
+        },
+        {
+          "capture_frame_after_commands": 178176,
+          "elapsed_ms": 1483,
+          "incoming_gain_scalar": 0.2542152870721112,
+          "media_progress": 0.5041976666666668,
+          "outgoing_gain_scalar": 0.24581995373877769
+        },
+        {
+          "capture_frame_after_commands": 181248,
+          "elapsed_ms": 1504,
+          "incoming_gain_scalar": 0.2673734500027779,
+          "media_progress": 0.5170816666666668,
+          "outgoing_gain_scalar": 0.23321011666944433
+        },
+        {
+          "capture_frame_after_commands": 181248,
+          "elapsed_ms": 1525,
+          "incoming_gain_scalar": 0.26847182302044453,
+          "media_progress": 0.5181426666666668,
+          "outgoing_gain_scalar": 0.23218648968711103
+        },
+        {
+          "capture_frame_after_commands": 181248,
+          "elapsed_ms": 1546,
+          "incoming_gain_scalar": 0.2757310602009999,
+          "media_progress": 0.5251009999999999,
+          "outgoing_gain_scalar": 0.22552906020100008
+        },
+        {
+          "capture_frame_after_commands": 181248,
+          "elapsed_ms": 1567,
+          "incoming_gain_scalar": 0.28497945133511127,
+          "media_progress": 0.5338346666666668,
+          "outgoing_gain_scalar": 0.21731011800177766
+        },
+        {
+          "capture_frame_after_commands": 181248,
+          "elapsed_ms": 1589,
+          "incoming_gain_scalar": 0.290582449249,
+          "media_progress": 0.539057,
+          "outgoing_gain_scalar": 0.212468449249
+        },
+        {
+          "capture_frame_after_commands": 185344,
+          "elapsed_ms": 1610,
+          "incoming_gain_scalar": 0.302881820409,
+          "media_progress": 0.550347,
+          "outgoing_gain_scalar": 0.20218782040899996
+        },
+        {
+          "capture_frame_after_commands": 185344,
+          "elapsed_ms": 1631,
+          "incoming_gain_scalar": 0.3060652770027778,
+          "media_progress": 0.5532316666666667,
+          "outgoing_gain_scalar": 0.19960194366944445
+        },
+        {
+          "capture_frame_after_commands": 185344,
+          "elapsed_ms": 1651,
+          "incoming_gain_scalar": 0.321355201924,
+          "media_progress": 0.566882,
+          "outgoing_gain_scalar": 0.187591201924
+        },
+        {
+          "capture_frame_after_commands": 185344,
+          "elapsed_ms": 1673,
+          "incoming_gain_scalar": 0.3217438224751112,
+          "media_progress": 0.5672246666666667,
+          "outgoing_gain_scalar": 0.18729448914177774
+        },
+        {
+          "capture_frame_after_commands": 185344,
+          "elapsed_ms": 1694,
+          "incoming_gain_scalar": 0.32977071921111123,
+          "media_progress": 0.5742566666666667,
+          "outgoing_gain_scalar": 0.1812573858777777
+        },
+        {
+          "capture_frame_after_commands": 190464,
+          "elapsed_ms": 1715,
+          "incoming_gain_scalar": 0.340855133584,
+          "media_progress": 0.583828,
+          "outgoing_gain_scalar": 0.173199133584
+        },
+        {
+          "capture_frame_after_commands": 190464,
+          "elapsed_ms": 1736,
+          "incoming_gain_scalar": 0.346173373225,
+          "media_progress": 0.588365,
+          "outgoing_gain_scalar": 0.16944337322499997
+        },
+        {
+          "capture_frame_after_commands": 192512,
+          "elapsed_ms": 1757,
+          "incoming_gain_scalar": 0.3605482085444444,
+          "media_progress": 0.6004566666666666,
+          "outgoing_gain_scalar": 0.15963487521111114
+        },
+        {
+          "capture_frame_after_commands": 192512,
+          "elapsed_ms": 1778,
+          "incoming_gain_scalar": 0.3628427900721112,
+          "media_progress": 0.6023643333333334,
+          "outgoing_gain_scalar": 0.1581141234054444
+        },
+        {
+          "capture_frame_after_commands": 192512,
+          "elapsed_ms": 1799,
+          "incoming_gain_scalar": 0.3746019382404445,
+          "media_progress": 0.6120473333333334,
+          "outgoing_gain_scalar": 0.15050727157377775
+        },
+        {
+          "capture_frame_after_commands": 195584,
+          "elapsed_ms": 1820,
+          "incoming_gain_scalar": 0.38065773930844443,
+          "media_progress": 0.6169746666666667,
+          "outgoing_gain_scalar": 0.14670840597511112
+        },
+        {
+          "capture_frame_after_commands": 195584,
+          "elapsed_ms": 1841,
+          "incoming_gain_scalar": 0.3886022088134444,
+          "media_progress": 0.6233796666666667,
+          "outgoing_gain_scalar": 0.14184287548011112
+        },
+        {
+          "capture_frame_after_commands": 197632,
+          "elapsed_ms": 1862,
+          "incoming_gain_scalar": 0.4015342893337778,
+          "media_progress": 0.6336673333333334,
+          "outgoing_gain_scalar": 0.13419962266711108
+        },
+        {
+          "capture_frame_after_commands": 197632,
+          "elapsed_ms": 1883,
+          "incoming_gain_scalar": 0.40635142684900005,
+          "media_progress": 0.637457,
+          "outgoing_gain_scalar": 0.13143742684899995
+        },
+        {
+          "capture_frame_after_commands": 199680,
+          "elapsed_ms": 1904,
+          "incoming_gain_scalar": 0.42284543724544454,
+          "media_progress": 0.6502656666666667,
+          "outgoing_gain_scalar": 0.12231410391211106
+        },
+        {
+          "capture_frame_after_commands": 199680,
+          "elapsed_ms": 1925,
+          "incoming_gain_scalar": 0.42425682249999996,
+          "media_progress": 0.65135,
+          "outgoing_gain_scalar": 0.12155682250000001
+        },
+        {
+          "capture_frame_after_commands": 199680,
+          "elapsed_ms": 1945,
+          "incoming_gain_scalar": 0.4333378246560001,
+          "media_progress": 0.6582840000000001,
+          "outgoing_gain_scalar": 0.11676982465599994
+        },
+        {
+          "capture_frame_after_commands": 202752,
+          "elapsed_ms": 1967,
+          "incoming_gain_scalar": 0.44485965248399995,
+          "media_progress": 0.666978,
+          "outgoing_gain_scalar": 0.11090365248400003
+        },
+        {
+          "capture_frame_after_commands": 202752,
+          "elapsed_ms": 1987,
+          "incoming_gain_scalar": 0.45186807666177786,
+          "media_progress": 0.6722113333333334,
+          "outgoing_gain_scalar": 0.10744540999511108
+        },
+        {
+          "capture_frame_after_commands": 204800,
+          "elapsed_ms": 2008,
+          "incoming_gain_scalar": 0.46745161541877783,
+          "media_progress": 0.6837043333333334,
+          "outgoing_gain_scalar": 0.1000429487521111
+        },
+        {
+          "capture_frame_after_commands": 204800,
+          "elapsed_ms": 2028,
+          "incoming_gain_scalar": 0.47068701373344446,
+          "media_progress": 0.6860663333333333,
+          "outgoing_gain_scalar": 0.09855434706677778
+        },
+        {
+          "capture_frame_after_commands": 204800,
+          "elapsed_ms": 2049,
+          "incoming_gain_scalar": 0.48006421777777786,
+          "media_progress": 0.6928666666666667,
+          "outgoing_gain_scalar": 0.0943308844444444
+        },
+        {
+          "capture_frame_after_commands": 204800,
+          "elapsed_ms": 2070,
+          "incoming_gain_scalar": 0.49048451971600004,
+          "media_progress": 0.700346,
+          "outgoing_gain_scalar": 0.08979251971599998
+        },
+        {
+          "capture_frame_after_commands": 204800,
+          "elapsed_ms": 2092,
+          "incoming_gain_scalar": 0.49958084730677776,
+          "media_progress": 0.7068103333333333,
+          "outgoing_gain_scalar": 0.08596018064011111
+        },
+        {
+          "capture_frame_after_commands": 209920,
+          "elapsed_ms": 2112,
+          "incoming_gain_scalar": 0.5139675951684446,
+          "media_progress": 0.7169153333333335,
+          "outgoing_gain_scalar": 0.08013692850177771
+        },
+        {
+          "capture_frame_after_commands": 209920,
+          "elapsed_ms": 2133,
+          "incoming_gain_scalar": 0.5195939666884445,
+          "media_progress": 0.7208286666666667,
+          "outgoing_gain_scalar": 0.07793663335511111
+        },
+        {
+          "capture_frame_after_commands": 211968,
+          "elapsed_ms": 2154,
+          "incoming_gain_scalar": 0.5380848438204444,
+          "media_progress": 0.7335426666666667,
+          "outgoing_gain_scalar": 0.0709995104871111
+        },
+        {
+          "capture_frame_after_commands": 211968,
+          "elapsed_ms": 2174,
+          "incoming_gain_scalar": 0.5396190400187777,
+          "media_progress": 0.7345876666666666,
+          "outgoing_gain_scalar": 0.07044370668544446
+        },
+        {
+          "capture_frame_after_commands": 211968,
+          "elapsed_ms": 2195,
+          "incoming_gain_scalar": 0.5498548764840002,
+          "media_progress": 0.7415220000000001,
+          "outgoing_gain_scalar": 0.06681087648399993
+        },
+        {
+          "capture_frame_after_commands": 214016,
+          "elapsed_ms": 2216,
+          "incoming_gain_scalar": 0.562992107584,
+          "media_progress": 0.750328,
+          "outgoing_gain_scalar": 0.062336107584
+        },
+        {
+          "capture_frame_after_commands": 214016,
+          "elapsed_ms": 2238,
+          "incoming_gain_scalar": 0.5707092352090001,
+          "media_progress": 0.755453,
+          "outgoing_gain_scalar": 0.05980323520899998
+        },
+        {
+          "capture_frame_after_commands": 217088,
+          "elapsed_ms": 2260,
+          "incoming_gain_scalar": 0.5883820663471112,
+          "media_progress": 0.7670606666666667,
+          "outgoing_gain_scalar": 0.05426073301377775
+        },
+        {
+          "capture_frame_after_commands": 217088,
+          "elapsed_ms": 2280,
+          "incoming_gain_scalar": 0.5927578151921111,
+          "media_progress": 0.7699076666666667,
+          "outgoing_gain_scalar": 0.052942481858777785
+        },
+        {
+          "capture_frame_after_commands": 219136,
+          "elapsed_ms": 2301,
+          "incoming_gain_scalar": 0.613994482084,
+          "media_progress": 0.783578,
+          "outgoing_gain_scalar": 0.046838482084
+        },
+        {
+          "capture_frame_after_commands": 219136,
+          "elapsed_ms": 2322,
+          "incoming_gain_scalar": 0.6143440076009999,
+          "media_progress": 0.783801,
+          "outgoing_gain_scalar": 0.046742007601000016
+        },
+        {
+          "capture_frame_after_commands": 219136,
+          "elapsed_ms": 2343,
+          "incoming_gain_scalar": 0.6338224461467779,
+          "media_progress": 0.7961296666666667,
+          "outgoing_gain_scalar": 0.041563112813444415
+        },
+        {
+          "capture_frame_after_commands": 221184,
+          "elapsed_ms": 2364,
+          "incoming_gain_scalar": 0.640442743211111,
+          "media_progress": 0.8002766666666666,
+          "outgoing_gain_scalar": 0.03988940987777779
+        },
+        {
+          "capture_frame_after_commands": 221184,
+          "elapsed_ms": 2385,
+          "incoming_gain_scalar": 0.6476708484000001,
+          "media_progress": 0.80478,
+          "outgoing_gain_scalar": 0.03811084839999998
+        },
+        {
+          "capture_frame_after_commands": 224256,
+          "elapsed_ms": 2406,
+          "incoming_gain_scalar": 0.6676801916890002,
+          "media_progress": 0.8171170000000001,
+          "outgoing_gain_scalar": 0.03344619168899997
+        },
+        {
+          "capture_frame_after_commands": 224256,
+          "elapsed_ms": 2427,
+          "incoming_gain_scalar": 0.670402325961,
+          "media_progress": 0.818781,
+          "outgoing_gain_scalar": 0.032840325961000005
+        },
+        {
+          "capture_frame_after_commands": 224256,
+          "elapsed_ms": 2448,
+          "incoming_gain_scalar": 0.6818729715360001,
+          "media_progress": 0.825756,
+          "outgoing_gain_scalar": 0.030360971535999984
+        },
+        {
+          "capture_frame_after_commands": 224256,
+          "elapsed_ms": 2469,
+          "incoming_gain_scalar": 0.6950668060444444,
+          "media_progress": 0.8337066666666666,
+          "outgoing_gain_scalar": 0.027653472711111134
+        },
+        {
+          "capture_frame_after_commands": 224256,
+          "elapsed_ms": 2490,
+          "incoming_gain_scalar": 0.7051940584027777,
+          "media_progress": 0.8397583333333333,
+          "outgoing_gain_scalar": 0.02567739173611113
+        },
+        {
+          "capture_frame_after_commands": 228352,
+          "elapsed_ms": 2511,
+          "incoming_gain_scalar": 0.7230010201617779,
+          "media_progress": 0.8502946666666668,
+          "outgoing_gain_scalar": 0.022411686828444417
+        },
+        {
+          "capture_frame_after_commands": 228352,
+          "elapsed_ms": 2532,
+          "incoming_gain_scalar": 0.7288435298777779,
+          "media_progress": 0.8537233333333334,
+          "outgoing_gain_scalar": 0.021396863211111096
+        },
+        {
+          "capture_frame_after_commands": 231424,
+          "elapsed_ms": 2552,
+          "incoming_gain_scalar": 0.7518745494489999,
+          "media_progress": 0.867107,
+          "outgoing_gain_scalar": 0.017660549449000012
+        },
+        {
+          "capture_frame_after_commands": 231424,
+          "elapsed_ms": 2574,
+          "incoming_gain_scalar": 0.7527257112054443,
+          "media_progress": 0.8675976666666666,
+          "outgoing_gain_scalar": 0.01753037787211113
+        },
+        {
+          "capture_frame_after_commands": 231424,
+          "elapsed_ms": 2594,
+          "incoming_gain_scalar": 0.7699249371467778,
+          "media_progress": 0.8774536666666667,
+          "outgoing_gain_scalar": 0.01501760381344444
+        },
+        {
+          "capture_frame_after_commands": 231424,
+          "elapsed_ms": 2615,
+          "incoming_gain_scalar": 0.7808237732587777,
+          "media_progress": 0.8836423333333333,
+          "outgoing_gain_scalar": 0.013539106592111117
+        },
+        {
+          "capture_frame_after_commands": 231424,
+          "elapsed_ms": 2636,
+          "incoming_gain_scalar": 0.7995399889,
+          "media_progress": 0.89417,
+          "outgoing_gain_scalar": 0.011199988899999996
+        },
+        {
+          "capture_frame_after_commands": 235520,
+          "elapsed_ms": 2657,
+          "incoming_gain_scalar": 0.810561097136111,
+          "media_progress": 0.9003116666666666,
+          "outgoing_gain_scalar": 0.009937763802777787
+        },
+        {
+          "capture_frame_after_commands": 235520,
+          "elapsed_ms": 2678,
+          "incoming_gain_scalar": 0.814455109136111,
+          "media_progress": 0.9024716666666666,
+          "outgoing_gain_scalar": 0.0095117758027778
+        },
+        {
+          "capture_frame_after_commands": 235520,
+          "elapsed_ms": 2699,
+          "incoming_gain_scalar": 0.8270313982937776,
+          "media_progress": 0.9094126666666665,
+          "outgoing_gain_scalar": 0.008206064960444468
+        },
+        {
+          "capture_frame_after_commands": 235520,
+          "elapsed_ms": 2720,
+          "incoming_gain_scalar": 0.8407428976801113,
+          "media_progress": 0.9169203333333334,
+          "outgoing_gain_scalar": 0.006902231013444425
+        },
+        {
+          "capture_frame_after_commands": 235520,
+          "elapsed_ms": 2741,
+          "incoming_gain_scalar": 0.852819004324,
+          "media_progress": 0.923482,
+          "outgoing_gain_scalar": 0.0058550043239999966
+        },
+        {
+          "capture_frame_after_commands": 240640,
+          "elapsed_ms": 2762,
+          "incoming_gain_scalar": 0.8716699562671109,
+          "media_progress": 0.9336326666666666,
+          "outgoing_gain_scalar": 0.0044046229337777925
+        },
+        {
+          "capture_frame_after_commands": 240640,
+          "elapsed_ms": 2784,
+          "incoming_gain_scalar": 0.8789356252454444,
+          "media_progress": 0.9375156666666666,
+          "outgoing_gain_scalar": 0.0039042919121111148
+        },
+        {
+          "capture_frame_after_commands": 242688,
+          "elapsed_ms": 2805,
+          "incoming_gain_scalar": 0.9031321773337778,
+          "media_progress": 0.9503326666666667,
+          "outgoing_gain_scalar": 0.0024668440004444398
+        },
+        {
+          "capture_frame_after_commands": 242688,
+          "elapsed_ms": 2826,
+          "incoming_gain_scalar": 0.9056580244804445,
+          "media_progress": 0.9516606666666667,
+          "outgoing_gain_scalar": 0.002336691147111107
+        },
+        {
+          "capture_frame_after_commands": 242688,
+          "elapsed_ms": 2847,
+          "incoming_gain_scalar": 0.9190833204694445,
+          "media_progress": 0.9586883333333334,
+          "outgoing_gain_scalar": 0.0017066538027777753
+        },
+        {
+          "capture_frame_after_commands": 242688,
+          "elapsed_ms": 2868,
+          "incoming_gain_scalar": 0.935308199511111,
+          "media_progress": 0.9671133333333333,
+          "outgoing_gain_scalar": 0.0010815328444444487
+        },
+        {
+          "capture_frame_after_commands": 242688,
+          "elapsed_ms": 2888,
+          "incoming_gain_scalar": 0.9461206484271114,
+          "media_progress": 0.9726873333333335,
+          "outgoing_gain_scalar": 0.0007459817604444376
+        },
+        {
+          "capture_frame_after_commands": 247808,
+          "elapsed_ms": 2909,
+          "incoming_gain_scalar": 0.9678099713777781,
+          "media_progress": 0.9837733333333335,
+          "outgoing_gain_scalar": 0.0002633047111111057
+        },
+        {
+          "capture_frame_after_commands": 247808,
+          "elapsed_ms": 2930,
+          "incoming_gain_scalar": 0.9731658084027778,
+          "media_progress": 0.9864916666666667,
+          "outgoing_gain_scalar": 0.00018247506944444475
+        },
+        {
+          "capture_frame_after_commands": 249856,
+          "elapsed_ms": 2951,
+          "incoming_gain_scalar": 1.0,
+          "media_progress": 1.0,
+          "outgoing_gain_scalar": 0.0
+        }
+      ],
+      "curve": "Linear",
+      "fade_media_seconds": 3,
+      "incoming_baseline": 0.35352895085906033,
+      "incoming_head_relative": 3.1583415061563754e-16,
+      "incoming_mid_relative": 0.25967672704910794,
+      "master_fraction": 1,
+      "outgoing_baseline": 0.3535259489675577,
+      "outgoing_mid_relative": 0.24150415678159226,
+      "outgoing_tail_relative": 1.5342217803063822e-16,
+      "peak": 0.3535533845424652,
+      "spectral_windows": [
+        {
+          "capture_ms": 0,
+          "incoming_relative": 0.0,
+          "outgoing_relative": 0.0
+        },
+        {
+          "capture_ms": 100,
+          "incoming_relative": 0.0,
+          "outgoing_relative": 0.0
+        },
+        {
+          "capture_ms": 200,
+          "incoming_relative": 0.0,
+          "outgoing_relative": 0.0
+        },
+        {
+          "capture_ms": 300,
+          "incoming_relative": 0.0,
+          "outgoing_relative": 0.0
+        },
+        {
+          "capture_ms": 400,
+          "incoming_relative": 0.0,
+          "outgoing_relative": 0.0
+        },
+        {
+          "capture_ms": 500,
+          "incoming_relative": 0.0,
+          "outgoing_relative": 0.0
+        },
+        {
+          "capture_ms": 600,
+          "incoming_relative": 0.0048520406917860835,
+          "outgoing_relative": 0.5000000000000018
+        },
+        {
+          "capture_ms": 700,
+          "incoming_relative": 3.1583415061563754e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 800,
+          "incoming_relative": 3.1583415061563754e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 900,
+          "incoming_relative": 3.1583415061563754e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1000,
+          "incoming_relative": 3.1583415061563754e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1100,
+          "incoming_relative": 3.1583415061563754e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1200,
+          "incoming_relative": 3.1583415061563754e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1300,
+          "incoming_relative": 3.1583415061563754e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1400,
+          "incoming_relative": 3.1583415061563754e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1500,
+          "incoming_relative": 3.1583415061563754e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1600,
+          "incoming_relative": 3.1583415061563754e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1700,
+          "incoming_relative": 3.1583415061563754e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1800,
+          "incoming_relative": 3.1583415061563754e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1900,
+          "incoming_relative": 3.1583415061563754e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 2000,
+          "incoming_relative": 3.1583415061563754e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 2100,
+          "incoming_relative": 3.1583415061563754e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 2200,
+          "incoming_relative": 3.1583415061563754e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 2300,
+          "incoming_relative": 0.00017146804818993265,
+          "outgoing_relative": 0.9890160003252993
+        },
+        {
+          "capture_ms": 2400,
+          "incoming_relative": 0.0008135069661656231,
+          "outgoing_relative": 0.9238920880797369
+        },
+        {
+          "capture_ms": 2500,
+          "incoming_relative": 0.004723401370203197,
+          "outgoing_relative": 0.8603644171608459
+        },
+        {
+          "capture_ms": 2600,
+          "incoming_relative": 0.011476671954857352,
+          "outgoing_relative": 0.7996916803231491
+        },
+        {
+          "capture_ms": 2700,
+          "incoming_relative": 0.019279435417104526,
+          "outgoing_relative": 0.7401742855393516
+        },
+        {
+          "capture_ms": 2800,
+          "incoming_relative": 0.02993956586763983,
+          "outgoing_relative": 0.6825236283012738
+        },
+        {
+          "capture_ms": 2900,
+          "incoming_relative": 0.042557746726841664,
+          "outgoing_relative": 0.6317448160555543
+        },
+        {
+          "capture_ms": 3000,
+          "incoming_relative": 0.05818519888986631,
+          "outgoing_relative": 0.5770678576940115
+        },
+        {
+          "capture_ms": 3100,
+          "incoming_relative": 0.07385218220810374,
+          "outgoing_relative": 0.5279936676029174
+        },
+        {
+          "capture_ms": 3200,
+          "incoming_relative": 0.09319300216061839,
+          "outgoing_relative": 0.48125331910918145
+        },
+        {
+          "capture_ms": 3300,
+          "incoming_relative": 0.11858163607990789,
+          "outgoing_relative": 0.43241391017660785
+        },
+        {
+          "capture_ms": 3400,
+          "incoming_relative": 0.13810964204035076,
+          "outgoing_relative": 0.3933488243134446
+        },
+        {
+          "capture_ms": 3500,
+          "incoming_relative": 0.16441302102209243,
+          "outgoing_relative": 0.3511807192618977
+        },
+        {
+          "capture_ms": 3600,
+          "incoming_relative": 0.19370378852512926,
+          "outgoing_relative": 0.31407687438561255
+        },
+        {
+          "capture_ms": 3700,
+          "incoming_relative": 0.22388889588710592,
+          "outgoing_relative": 0.27696060106313286
+        },
+        {
+          "capture_ms": 3800,
+          "incoming_relative": 0.2549885865347044,
+          "outgoing_relative": 0.24572497105380878
+        },
+        {
+          "capture_ms": 3900,
+          "incoming_relative": 0.28942668569243746,
+          "outgoing_relative": 0.2123998166521718
+        },
+        {
+          "capture_ms": 4000,
+          "incoming_relative": 0.32619513119719146,
+          "outgoing_relative": 0.18220783217272477
+        },
+        {
+          "capture_ms": 4100,
+          "incoming_relative": 0.3702414097186184,
+          "outgoing_relative": 0.1538050355593578
+        },
+        {
+          "capture_ms": 4200,
+          "incoming_relative": 0.40717929881990667,
+          "outgoing_relative": 0.13129009931230057
+        },
+        {
+          "capture_ms": 4300,
+          "incoming_relative": 0.4540286196887327,
+          "outgoing_relative": 0.10786395787436606
+        },
+        {
+          "capture_ms": 4400,
+          "incoming_relative": 0.49915430785347614,
+          "outgoing_relative": 0.08624251931917634
+        },
+        {
+          "capture_ms": 4500,
+          "incoming_relative": 0.546740327370179,
+          "outgoing_relative": 0.06776579786391147
+        },
+        {
+          "capture_ms": 4600,
+          "incoming_relative": 0.5963028432519473,
+          "outgoing_relative": 0.05306253265864777
+        },
+        {
+          "capture_ms": 4700,
+          "incoming_relative": 0.6522321087731923,
+          "outgoing_relative": 0.03833845192239362
+        },
+        {
+          "capture_ms": 4800,
+          "incoming_relative": 0.7060243516041828,
+          "outgoing_relative": 0.02661974152065439
+        },
+        {
+          "capture_ms": 4900,
+          "incoming_relative": 0.7660705599399344,
+          "outgoing_relative": 0.015843500423536154
+        },
+        {
+          "capture_ms": 5000,
+          "incoming_relative": 0.826045314168141,
+          "outgoing_relative": 0.008011896761103424
+        },
+        {
+          "capture_ms": 5100,
+          "incoming_relative": 0.8804299258851174,
+          "outgoing_relative": 0.0030979339170145934
+        },
+        {
+          "capture_ms": 5200,
+          "incoming_relative": 0.94417099946253,
+          "outgoing_relative": 0.00008659414380626178
+        },
+        {
+          "capture_ms": 5300,
+          "incoming_relative": 0.9925896208661763,
+          "outgoing_relative": 0.00010170015059218342
+        },
+        {
+          "capture_ms": 5400,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063822e-16
+        },
+        {
+          "capture_ms": 5500,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063822e-16
+        },
+        {
+          "capture_ms": 5600,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063822e-16
+        },
+        {
+          "capture_ms": 5700,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063822e-16
+        },
+        {
+          "capture_ms": 5800,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063822e-16
+        },
+        {
+          "capture_ms": 5900,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063822e-16
+        },
+        {
+          "capture_ms": 6000,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063822e-16
+        },
+        {
+          "capture_ms": 6100,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063822e-16
+        },
+        {
+          "capture_ms": 6200,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063822e-16
+        },
+        {
+          "capture_ms": 6300,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063822e-16
+        },
+        {
+          "capture_ms": 6400,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063822e-16
+        },
+        {
+          "capture_ms": 6500,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063822e-16
+        }
+      ],
+      "speed": 1
+    },
+    {
+      "capture_head_frame": 108544,
+      "capture_tail_frame": 254976,
+      "captured_frames": 322941,
+      "commands": [
+        {
+          "capture_frame_after_commands": 111616,
+          "elapsed_ms": 0,
+          "incoming_gain_scalar": 1.4629221052188348e-8,
+          "media_progress": 0.00007700000000003075,
+          "outgoing_gain_scalar": 0.9999999853707788
+        },
+        {
+          "capture_frame_after_commands": 111616,
+          "elapsed_ms": 21,
+          "incoming_gain_scalar": 1.4629221052188348e-8,
+          "media_progress": 0.00007700000000003075,
+          "outgoing_gain_scalar": 0.9999999853707788
+        },
+        {
+          "capture_frame_after_commands": 111616,
+          "elapsed_ms": 43,
+          "incoming_gain_scalar": 1.4629221052188348e-8,
+          "media_progress": 0.00007700000000003075,
+          "outgoing_gain_scalar": 0.9999999853707788
+        },
+        {
+          "capture_frame_after_commands": 113664,
+          "elapsed_ms": 63,
+          "incoming_gain_scalar": 0.000723682833775411,
+          "media_progress": 0.017128000000000032,
+          "outgoing_gain_scalar": 0.9992763171662247
+        },
+        {
+          "capture_frame_after_commands": 113664,
+          "elapsed_ms": 84,
+          "incoming_gain_scalar": 0.0011322907807179703,
+          "media_progress": 0.021426000000000018,
+          "outgoing_gain_scalar": 0.9988677092192819
+        },
+        {
+          "capture_frame_after_commands": 115712,
+          "elapsed_ms": 105,
+          "incoming_gain_scalar": 0.0028534019219177043,
+          "media_progress": 0.03402266666666668,
+          "outgoing_gain_scalar": 0.9971465980780824
+        },
+        {
+          "capture_frame_after_commands": 115712,
+          "elapsed_ms": 127,
+          "incoming_gain_scalar": 0.003067746559225984,
+          "media_progress": 0.03527866666666668,
+          "outgoing_gain_scalar": 0.996932253440774
+        },
+        {
+          "capture_frame_after_commands": 115712,
+          "elapsed_ms": 148,
+          "incoming_gain_scalar": 0.004433274304841066,
+          "media_progress": 0.042419333333333364,
+          "outgoing_gain_scalar": 0.995566725695159
+        },
+        {
+          "capture_frame_after_commands": 115712,
+          "elapsed_ms": 169,
+          "incoming_gain_scalar": 0.006321726433453769,
+          "media_progress": 0.050670666666666676,
+          "outgoing_gain_scalar": 0.9936782735665463
+        },
+        {
+          "capture_frame_after_commands": 115712,
+          "elapsed_ms": 190,
+          "incoming_gain_scalar": 0.00788236600276404,
+          "media_progress": 0.05659533333333333,
+          "outgoing_gain_scalar": 0.9921176339972358
+        },
+        {
+          "capture_frame_after_commands": 118784,
+          "elapsed_ms": 211,
+          "incoming_gain_scalar": 0.011084284816268218,
+          "media_progress": 0.06714899999999997,
+          "outgoing_gain_scalar": 0.9889157151837318
+        },
+        {
+          "capture_frame_after_commands": 118784,
+          "elapsed_ms": 231,
+          "incoming_gain_scalar": 0.012221142876210952,
+          "media_progress": 0.07052199999999997,
+          "outgoing_gain_scalar": 0.9877788571237891
+        },
+        {
+          "capture_frame_after_commands": 122880,
+          "elapsed_ms": 252,
+          "incoming_gain_scalar": 0.017220790285912814,
+          "media_progress": 0.08378400000000001,
+          "outgoing_gain_scalar": 0.9827792097140872
+        },
+        {
+          "capture_frame_after_commands": 122880,
+          "elapsed_ms": 273,
+          "incoming_gain_scalar": 0.017398066988062923,
+          "media_progress": 0.08421666666666668,
+          "outgoing_gain_scalar": 0.9826019330119371
+        },
+        {
+          "capture_frame_after_commands": 122880,
+          "elapsed_ms": 294,
+          "incoming_gain_scalar": 0.020343850462382754,
+          "media_progress": 0.091113,
+          "outgoing_gain_scalar": 0.9796561495376173
+        },
+        {
+          "capture_frame_after_commands": 125952,
+          "elapsed_ms": 315,
+          "incoming_gain_scalar": 0.02473064015504017,
+          "media_progress": 0.100532,
+          "outgoing_gain_scalar": 0.9752693598449599
+        },
+        {
+          "capture_frame_after_commands": 125952,
+          "elapsed_ms": 336,
+          "incoming_gain_scalar": 0.027034543537769438,
+          "media_progress": 0.10515166666666668,
+          "outgoing_gain_scalar": 0.9729654564622304
+        },
+        {
+          "capture_frame_after_commands": 128000,
+          "elapsed_ms": 357,
+          "incoming_gain_scalar": 0.03345848373119741,
+          "media_progress": 0.11710766666666668,
+          "outgoing_gain_scalar": 0.9665415162688026
+        },
+        {
+          "capture_frame_after_commands": 128000,
+          "elapsed_ms": 378,
+          "incoming_gain_scalar": 0.03459242668375052,
+          "media_progress": 0.11909866666666669,
+          "outgoing_gain_scalar": 0.9654075733162495
+        },
+        {
+          "capture_frame_after_commands": 128000,
+          "elapsed_ms": 398,
+          "incoming_gain_scalar": 0.038727250924812905,
+          "media_progress": 0.126105,
+          "outgoing_gain_scalar": 0.961272749075187
+        },
+        {
+          "capture_frame_after_commands": 130048,
+          "elapsed_ms": 419,
+          "incoming_gain_scalar": 0.04355647511317152,
+          "media_progress": 0.13384766666666673,
+          "outgoing_gain_scalar": 0.9564435248868286
+        },
+        {
+          "capture_frame_after_commands": 130048,
+          "elapsed_ms": 440,
+          "incoming_gain_scalar": 0.04770492352597017,
+          "media_progress": 0.140177,
+          "outgoing_gain_scalar": 0.9522950764740299
+        },
+        {
+          "capture_frame_after_commands": 133120,
+          "elapsed_ms": 461,
+          "incoming_gain_scalar": 0.05486386565072722,
+          "media_progress": 0.15051399999999995,
+          "outgoing_gain_scalar": 0.9451361343492728
+        },
+        {
+          "capture_frame_after_commands": 133120,
+          "elapsed_ms": 482,
+          "incoming_gain_scalar": 0.05738166528525364,
+          "media_progress": 0.15399633333333332,
+          "outgoing_gain_scalar": 0.9426183347147464
+        },
+        {
+          "capture_frame_after_commands": 135168,
+          "elapsed_ms": 503,
+          "incoming_gain_scalar": 0.0673674062618251,
+          "media_progress": 0.16715000000000005,
+          "outgoing_gain_scalar": 0.9326325937381749
+        },
+        {
+          "capture_frame_after_commands": 135168,
+          "elapsed_ms": 523,
+          "incoming_gain_scalar": 0.06786672537781231,
+          "media_progress": 0.16778300000000002,
+          "outgoing_gain_scalar": 0.9321332746221876
+        },
+        {
+          "capture_frame_after_commands": 135168,
+          "elapsed_ms": 544,
+          "incoming_gain_scalar": 0.0734079375859201,
+          "media_progress": 0.1746683333333333,
+          "outgoing_gain_scalar": 0.92659206241408
+        },
+        {
+          "capture_frame_after_commands": 137216,
+          "elapsed_ms": 565,
+          "incoming_gain_scalar": 0.08113787764083297,
+          "media_progress": 0.1838856666666667,
+          "outgoing_gain_scalar": 0.9188621223591671
+        },
+        {
+          "capture_frame_after_commands": 137216,
+          "elapsed_ms": 585,
+          "incoming_gain_scalar": 0.08515454533897643,
+          "media_progress": 0.18851666666666667,
+          "outgoing_gain_scalar": 0.9148454546610235
+        },
+        {
+          "capture_frame_after_commands": 140288,
+          "elapsed_ms": 606,
+          "incoming_gain_scalar": 0.09596721841198409,
+          "media_progress": 0.2005146666666667,
+          "outgoing_gain_scalar": 0.9040327815880159
+        },
+        {
+          "capture_frame_after_commands": 140288,
+          "elapsed_ms": 627,
+          "incoming_gain_scalar": 0.09761970769787637,
+          "media_progress": 0.20229366666666668,
+          "outgoing_gain_scalar": 0.9023802923021237
+        },
+        {
+          "capture_frame_after_commands": 140288,
+          "elapsed_ms": 648,
+          "incoming_gain_scalar": 0.10419064926867176,
+          "media_progress": 0.20923866666666666,
+          "outgoing_gain_scalar": 0.8958093507313282
+        },
+        {
+          "capture_frame_after_commands": 140288,
+          "elapsed_ms": 669,
+          "incoming_gain_scalar": 0.11191714346969357,
+          "media_progress": 0.21716200000000008,
+          "outgoing_gain_scalar": 0.8880828565303064
+        },
+        {
+          "capture_frame_after_commands": 140288,
+          "elapsed_ms": 689,
+          "incoming_gain_scalar": 0.11792866687973567,
+          "media_progress": 0.22316233333333338,
+          "outgoing_gain_scalar": 0.8820713331202643
+        },
+        {
+          "capture_frame_after_commands": 144384,
+          "elapsed_ms": 710,
+          "incoming_gain_scalar": 0.12906239864423338,
+          "media_progress": 0.23393666666666668,
+          "outgoing_gain_scalar": 0.8709376013557667
+        },
+        {
+          "capture_frame_after_commands": 144384,
+          "elapsed_ms": 732,
+          "incoming_gain_scalar": 0.13233942398629597,
+          "media_progress": 0.23703133333333337,
+          "outgoing_gain_scalar": 0.867660576013704
+        },
+        {
+          "capture_frame_after_commands": 147456,
+          "elapsed_ms": 752,
+          "incoming_gain_scalar": 0.14698794398589904,
+          "media_progress": 0.25048699999999996,
+          "outgoing_gain_scalar": 0.853012056014101
+        },
+        {
+          "capture_frame_after_commands": 147456,
+          "elapsed_ms": 773,
+          "incoming_gain_scalar": 0.1476601085489603,
+          "media_progress": 0.25109066666666663,
+          "outgoing_gain_scalar": 0.8523398914510396
+        },
+        {
+          "capture_frame_after_commands": 147456,
+          "elapsed_ms": 794,
+          "incoming_gain_scalar": 0.155375563699077,
+          "media_progress": 0.25794066666666665,
+          "outgoing_gain_scalar": 0.8446244363009231
+        },
+        {
+          "capture_frame_after_commands": 149504,
+          "elapsed_ms": 815,
+          "incoming_gain_scalar": 0.16606085928527592,
+          "media_progress": 0.26720266666666664,
+          "outgoing_gain_scalar": 0.833939140714724
+        },
+        {
+          "capture_frame_after_commands": 149504,
+          "elapsed_ms": 836,
+          "incoming_gain_scalar": 0.17170159320741107,
+          "media_progress": 0.27199533333333337,
+          "outgoing_gain_scalar": 0.8282984067925889
+        },
+        {
+          "capture_frame_after_commands": 149504,
+          "elapsed_ms": 857,
+          "incoming_gain_scalar": 0.18596563656838394,
+          "media_progress": 0.28384566666666666,
+          "outgoing_gain_scalar": 0.814034363431616
+        },
+        {
+          "capture_frame_after_commands": 149504,
+          "elapsed_ms": 877,
+          "incoming_gain_scalar": 0.18843244509567575,
+          "media_progress": 0.28585866666666665,
+          "outgoing_gain_scalar": 0.8115675549043243
+        },
+        {
+          "capture_frame_after_commands": 149504,
+          "elapsed_ms": 898,
+          "incoming_gain_scalar": 0.20414956654873806,
+          "media_progress": 0.29845666666666676,
+          "outgoing_gain_scalar": 0.7958504334512618
+        },
+        {
+          "capture_frame_after_commands": 154624,
+          "elapsed_ms": 920,
+          "incoming_gain_scalar": 0.20677324734851144,
+          "media_progress": 0.3005236666666667,
+          "outgoing_gain_scalar": 0.7932267526514886
+        },
+        {
+          "capture_frame_after_commands": 154624,
+          "elapsed_ms": 940,
+          "incoming_gain_scalar": 0.21497523287209638,
+          "media_progress": 0.306924,
+          "outgoing_gain_scalar": 0.7850247671279035
+        },
+        {
+          "capture_frame_after_commands": 156672,
+          "elapsed_ms": 962,
+          "incoming_gain_scalar": 0.2282999480266905,
+          "media_progress": 0.3171366666666667,
+          "outgoing_gain_scalar": 0.7717000519733095
+        },
+        {
+          "capture_frame_after_commands": 156672,
+          "elapsed_ms": 983,
+          "incoming_gain_scalar": 0.23295321814222536,
+          "media_progress": 0.3206530000000001,
+          "outgoing_gain_scalar": 0.7670467818577746
+        },
+        {
+          "capture_frame_after_commands": 158720,
+          "elapsed_ms": 1003,
+          "incoming_gain_scalar": 0.2507585509593792,
+          "media_progress": 0.3338906666666667,
+          "outgoing_gain_scalar": 0.7492414490406208
+        },
+        {
+          "capture_frame_after_commands": 158720,
+          "elapsed_ms": 1024,
+          "incoming_gain_scalar": 0.2519596363127634,
+          "media_progress": 0.33477200000000007,
+          "outgoing_gain_scalar": 0.7480403636872366
+        },
+        {
+          "capture_frame_after_commands": 158720,
+          "elapsed_ms": 1045,
+          "incoming_gain_scalar": 0.26145697234414456,
+          "media_progress": 0.34169299999999997,
+          "outgoing_gain_scalar": 0.7385430276558554
+        },
+        {
+          "capture_frame_after_commands": 161792,
+          "elapsed_ms": 1066,
+          "incoming_gain_scalar": 0.27376832584186084,
+          "media_progress": 0.35054533333333326,
+          "outgoing_gain_scalar": 0.7262316741581392
+        },
+        {
+          "capture_frame_after_commands": 161792,
+          "elapsed_ms": 1087,
+          "incoming_gain_scalar": 0.2808719993834172,
+          "media_progress": 0.35559633333333335,
+          "outgoing_gain_scalar": 0.7191280006165828
+        },
+        {
+          "capture_frame_after_commands": 163840,
+          "elapsed_ms": 1108,
+          "incoming_gain_scalar": 0.29748298223112635,
+          "media_progress": 0.3672596666666667,
+          "outgoing_gain_scalar": 0.7025170177688738
+        },
+        {
+          "capture_frame_after_commands": 163840,
+          "elapsed_ms": 1129,
+          "incoming_gain_scalar": 0.3007131805177084,
+          "media_progress": 0.3695053333333333,
+          "outgoing_gain_scalar": 0.6992868194822917
+        },
+        {
+          "capture_frame_after_commands": 163840,
+          "elapsed_ms": 1150,
+          "incoming_gain_scalar": 0.3108527500461922,
+          "media_progress": 0.3765106666666667,
+          "outgoing_gain_scalar": 0.6891472499538078
+        },
+        {
+          "capture_frame_after_commands": 163840,
+          "elapsed_ms": 1170,
+          "incoming_gain_scalar": 0.32146584241251197,
+          "media_progress": 0.38377633333333333,
+          "outgoing_gain_scalar": 0.678534157587488
+        },
+        {
+          "capture_frame_after_commands": 163840,
+          "elapsed_ms": 1191,
+          "incoming_gain_scalar": 0.3312686765420376,
+          "media_progress": 0.39043133333333335,
+          "outgoing_gain_scalar": 0.6687313234579624
+        },
+        {
+          "capture_frame_after_commands": 168960,
+          "elapsed_ms": 1212,
+          "incoming_gain_scalar": 0.346176374285062,
+          "media_progress": 0.40045833333333336,
+          "outgoing_gain_scalar": 0.653823625714938
+        },
+        {
+          "capture_frame_after_commands": 168960,
+          "elapsed_ms": 1233,
+          "incoming_gain_scalar": 0.35202126782914694,
+          "media_progress": 0.4043613333333333,
+          "outgoing_gain_scalar": 0.6479787321708531
+        },
+        {
+          "capture_frame_after_commands": 171008,
+          "elapsed_ms": 1254,
+          "incoming_gain_scalar": 0.3713148675373122,
+          "media_progress": 0.41714399999999996,
+          "outgoing_gain_scalar": 0.6286851324626879
+        },
+        {
+          "capture_frame_after_commands": 171008,
+          "elapsed_ms": 1275,
+          "incoming_gain_scalar": 0.3730394894173104,
+          "media_progress": 0.41827966666666666,
+          "outgoing_gain_scalar": 0.6269605105826894
+        },
+        {
+          "capture_frame_after_commands": 171008,
+          "elapsed_ms": 1296,
+          "incoming_gain_scalar": 0.3835385194643691,
+          "media_progress": 0.425171,
+          "outgoing_gain_scalar": 0.6164614805356309
+        },
+        {
+          "capture_frame_after_commands": 174080,
+          "elapsed_ms": 1317,
+          "incoming_gain_scalar": 0.3969605851545708,
+          "media_progress": 0.4339296666666666,
+          "outgoing_gain_scalar": 0.6030394148454292
+        },
+        {
+          "capture_frame_after_commands": 174080,
+          "elapsed_ms": 1338,
+          "incoming_gain_scalar": 0.4051133032662672,
+          "media_progress": 0.43922466666666676,
+          "outgoing_gain_scalar": 0.5948866967337327
+        },
+        {
+          "capture_frame_after_commands": 174080,
+          "elapsed_ms": 1359,
+          "incoming_gain_scalar": 0.4226992956827628,
+          "media_progress": 0.45059066666666664,
+          "outgoing_gain_scalar": 0.5773007043172371
+        },
+        {
+          "capture_frame_after_commands": 174080,
+          "elapsed_ms": 1380,
+          "incoming_gain_scalar": 0.4266166352152699,
+          "media_progress": 0.4531133333333333,
+          "outgoing_gain_scalar": 0.5733833647847302
+        },
+        {
+          "capture_frame_after_commands": 175104,
+          "elapsed_ms": 1401,
+          "incoming_gain_scalar": 0.4376191021197724,
+          "media_progress": 0.46018333333333333,
+          "outgoing_gain_scalar": 0.5623808978802275
+        },
+        {
+          "capture_frame_after_commands": 178176,
+          "elapsed_ms": 1422,
+          "incoming_gain_scalar": 0.448548698060761,
+          "media_progress": 0.467187,
+          "outgoing_gain_scalar": 0.551451301939239
+        },
+        {
+          "capture_frame_after_commands": 178176,
+          "elapsed_ms": 1443,
+          "incoming_gain_scalar": 0.45954756130438185,
+          "media_progress": 0.474219,
+          "outgoing_gain_scalar": 0.540452438695618
+        },
+        {
+          "capture_frame_after_commands": 181248,
+          "elapsed_ms": 1463,
+          "incoming_gain_scalar": 0.47470997941195486,
+          "media_progress": 0.48389299999999996,
+          "outgoing_gain_scalar": 0.5252900205880452
+        },
+        {
+          "capture_frame_after_commands": 181248,
+          "elapsed_ms": 1484,
+          "incoming_gain_scalar": 0.48588408203686456,
+          "media_progress": 0.4910123333333334,
+          "outgoing_gain_scalar": 0.5141159179631355
+        },
+        {
+          "capture_frame_after_commands": 181248,
+          "elapsed_ms": 1505,
+          "incoming_gain_scalar": 0.5009204861275525,
+          "media_progress": 0.5005860000000001,
+          "outgoing_gain_scalar": 0.49907951387244753
+        },
+        {
+          "capture_frame_after_commands": 181248,
+          "elapsed_ms": 1526,
+          "incoming_gain_scalar": 0.5032578085305637,
+          "media_progress": 0.502074,
+          "outgoing_gain_scalar": 0.49674219146943627
+        },
+        {
+          "capture_frame_after_commands": 181248,
+          "elapsed_ms": 1547,
+          "incoming_gain_scalar": 0.5142839253750152,
+          "media_progress": 0.5090946666666666,
+          "outgoing_gain_scalar": 0.48571607462498484
+        },
+        {
+          "capture_frame_after_commands": 185344,
+          "elapsed_ms": 1568,
+          "incoming_gain_scalar": 0.5270390579373291,
+          "media_progress": 0.517222,
+          "outgoing_gain_scalar": 0.4729609420626711
+        },
+        {
+          "capture_frame_after_commands": 185344,
+          "elapsed_ms": 1589,
+          "incoming_gain_scalar": 0.5361945427280889,
+          "media_progress": 0.5230623333333333,
+          "outgoing_gain_scalar": 0.46380545727191114
+        },
+        {
+          "capture_frame_after_commands": 188416,
+          "elapsed_ms": 1610,
+          "incoming_gain_scalar": 0.5530088172934933,
+          "media_progress": 0.53381,
+          "outgoing_gain_scalar": 0.44699118270650673
+        },
+        {
+          "capture_frame_after_commands": 188416,
+          "elapsed_ms": 1631,
+          "incoming_gain_scalar": 0.5580458792199225,
+          "media_progress": 0.5370366666666667,
+          "outgoing_gain_scalar": 0.4419541207800775
+        },
+        {
+          "capture_frame_after_commands": 190464,
+          "elapsed_ms": 1652,
+          "incoming_gain_scalar": 0.5791433143668566,
+          "media_progress": 0.5505970000000001,
+          "outgoing_gain_scalar": 0.4208566856331433
+        },
+        {
+          "capture_frame_after_commands": 190464,
+          "elapsed_ms": 1673,
+          "incoming_gain_scalar": 0.5795806634521468,
+          "media_progress": 0.550879,
+          "outgoing_gain_scalar": 0.42041933654785313
+        },
+        {
+          "capture_frame_after_commands": 190464,
+          "elapsed_ms": 1694,
+          "incoming_gain_scalar": 0.5903387093006409,
+          "media_progress": 0.557829,
+          "outgoing_gain_scalar": 0.4096612906993591
+        },
+        {
+          "capture_frame_after_commands": 190464,
+          "elapsed_ms": 1715,
+          "incoming_gain_scalar": 0.6048744708707178,
+          "media_progress": 0.5672646666666666,
+          "outgoing_gain_scalar": 0.39512552912928217
+        },
+        {
+          "capture_frame_after_commands": 190464,
+          "elapsed_ms": 1735,
+          "incoming_gain_scalar": 0.6119358589991065,
+          "media_progress": 0.5718696666666667,
+          "outgoing_gain_scalar": 0.3880641410008935
+        },
+        {
+          "capture_frame_after_commands": 195584,
+          "elapsed_ms": 1756,
+          "incoming_gain_scalar": 0.630350491066002,
+          "media_progress": 0.5839536666666666,
+          "outgoing_gain_scalar": 0.36964950893399795
+        },
+        {
+          "capture_frame_after_commands": 195584,
+          "elapsed_ms": 1777,
+          "incoming_gain_scalar": 0.6330351508899997,
+          "media_progress": 0.5857253333333333,
+          "outgoing_gain_scalar": 0.36696484911000027
+        },
+        {
+          "capture_frame_after_commands": 195584,
+          "elapsed_ms": 1797,
+          "incoming_gain_scalar": 0.6434273093252945,
+          "media_progress": 0.5926096666666667,
+          "outgoing_gain_scalar": 0.35657269067470543
+        },
+        {
+          "capture_frame_after_commands": 197632,
+          "elapsed_ms": 1817,
+          "incoming_gain_scalar": 0.6553632649395259,
+          "media_progress": 0.6005723333333334,
+          "outgoing_gain_scalar": 0.3446367350604741
+        },
+        {
+          "capture_frame_after_commands": 197632,
+          "elapsed_ms": 1838,
+          "incoming_gain_scalar": 0.6637641348012492,
+          "media_progress": 0.6062156666666666,
+          "outgoing_gain_scalar": 0.33623586519875087
+        },
+        {
+          "capture_frame_after_commands": 197632,
+          "elapsed_ms": 1858,
+          "incoming_gain_scalar": 0.679869597792742,
+          "media_progress": 0.6171343333333333,
+          "outgoing_gain_scalar": 0.3201304022072579
+        },
+        {
+          "capture_frame_after_commands": 197632,
+          "elapsed_ms": 1879,
+          "incoming_gain_scalar": 0.6838714235462003,
+          "media_progress": 0.6198693333333334,
+          "outgoing_gain_scalar": 0.3161285764537997
+        },
+        {
+          "capture_frame_after_commands": 197632,
+          "elapsed_ms": 1900,
+          "incoming_gain_scalar": 0.6938905239546436,
+          "media_progress": 0.6267583333333334,
+          "outgoing_gain_scalar": 0.30610947604535643
+        },
+        {
+          "capture_frame_after_commands": 202752,
+          "elapsed_ms": 1920,
+          "incoming_gain_scalar": 0.7041419692611648,
+          "media_progress": 0.6338726666666666,
+          "outgoing_gain_scalar": 0.2958580307388351
+        },
+        {
+          "capture_frame_after_commands": 202752,
+          "elapsed_ms": 1940,
+          "incoming_gain_scalar": 0.7134802507207382,
+          "media_progress": 0.6404156666666667,
+          "outgoing_gain_scalar": 0.2865197492792619
+        },
+        {
+          "capture_frame_after_commands": 204800,
+          "elapsed_ms": 1961,
+          "incoming_gain_scalar": 0.7278555733674075,
+          "media_progress": 0.650615,
+          "outgoing_gain_scalar": 0.2721444266325926
+        },
+        {
+          "capture_frame_after_commands": 204800,
+          "elapsed_ms": 1982,
+          "incoming_gain_scalar": 0.7326589659919958,
+          "media_progress": 0.65406,
+          "outgoing_gain_scalar": 0.26734103400800413
+        },
+        {
+          "capture_frame_after_commands": 206848,
+          "elapsed_ms": 2002,
+          "incoming_gain_scalar": 0.7510893000644505,
+          "media_progress": 0.667468,
+          "outgoing_gain_scalar": 0.24891069993554937
+        },
+        {
+          "capture_frame_after_commands": 206848,
+          "elapsed_ms": 2023,
+          "incoming_gain_scalar": 0.7514813123242045,
+          "media_progress": 0.6677566666666667,
+          "outgoing_gain_scalar": 0.24851868767579555
+        },
+        {
+          "capture_frame_after_commands": 206848,
+          "elapsed_ms": 2045,
+          "incoming_gain_scalar": 0.760772319710009,
+          "media_progress": 0.6746439999999999,
+          "outgoing_gain_scalar": 0.23922768028999095
+        },
+        {
+          "capture_frame_after_commands": 206848,
+          "elapsed_ms": 2066,
+          "incoming_gain_scalar": 0.7730015597964955,
+          "media_progress": 0.6838513333333333,
+          "outgoing_gain_scalar": 0.22699844020350451
+        },
+        {
+          "capture_frame_after_commands": 206848,
+          "elapsed_ms": 2087,
+          "incoming_gain_scalar": 0.7797341853185767,
+          "media_progress": 0.6889946666666668,
+          "outgoing_gain_scalar": 0.2202658146814232
+        },
+        {
+          "capture_frame_after_commands": 211968,
+          "elapsed_ms": 2108,
+          "incoming_gain_scalar": 0.794680387724329,
+          "media_progress": 0.7006203333333333,
+          "outgoing_gain_scalar": 0.20531961227567092
+        },
+        {
+          "capture_frame_after_commands": 211968,
+          "elapsed_ms": 2129,
+          "incoming_gain_scalar": 0.7976060941515334,
+          "media_progress": 0.702932,
+          "outgoing_gain_scalar": 0.2023939058484667
+        },
+        {
+          "capture_frame_after_commands": 211968,
+          "elapsed_ms": 2150,
+          "incoming_gain_scalar": 0.8063997398413029,
+          "media_progress": 0.7099566666666667,
+          "outgoing_gain_scalar": 0.19360026015869716
+        },
+        {
+          "capture_frame_after_commands": 214016,
+          "elapsed_ms": 2171,
+          "incoming_gain_scalar": 0.8153364138111738,
+          "media_progress": 0.717221,
+          "outgoing_gain_scalar": 0.18466358618882617
+        },
+        {
+          "capture_frame_after_commands": 214016,
+          "elapsed_ms": 2192,
+          "incoming_gain_scalar": 0.823404207410105,
+          "media_progress": 0.7238966666666666,
+          "outgoing_gain_scalar": 0.17659579258989494
+        },
+        {
+          "capture_frame_after_commands": 217088,
+          "elapsed_ms": 2213,
+          "incoming_gain_scalar": 0.8353101634639422,
+          "media_progress": 0.7339720000000001,
+          "outgoing_gain_scalar": 0.16468983653605782
+        },
+        {
+          "capture_frame_after_commands": 217088,
+          "elapsed_ms": 2234,
+          "incoming_gain_scalar": 0.842963791333254,
+          "media_progress": 0.7406033333333334,
+          "outgoing_gain_scalar": 0.15703620866674584
+        },
+        {
+          "capture_frame_after_commands": 219136,
+          "elapsed_ms": 2254,
+          "incoming_gain_scalar": 0.8542269548318303,
+          "media_progress": 0.750607,
+          "outgoing_gain_scalar": 0.1457730451681696
+        },
+        {
+          "capture_frame_after_commands": 219136,
+          "elapsed_ms": 2275,
+          "incoming_gain_scalar": 0.8616005165075893,
+          "media_progress": 0.7573300000000001,
+          "outgoing_gain_scalar": 0.13839948349241057
+        },
+        {
+          "capture_frame_after_commands": 219136,
+          "elapsed_ms": 2296,
+          "incoming_gain_scalar": 0.8630160846205837,
+          "media_progress": 0.7586376666666667,
+          "outgoing_gain_scalar": 0.13698391537941634
+        },
+        {
+          "capture_frame_after_commands": 219136,
+          "elapsed_ms": 2317,
+          "incoming_gain_scalar": 0.8721359574695318,
+          "media_progress": 0.7672033333333333,
+          "outgoing_gain_scalar": 0.12786404253046826
+        },
+        {
+          "capture_frame_after_commands": 219136,
+          "elapsed_ms": 2337,
+          "incoming_gain_scalar": 0.8777458957705425,
+          "media_progress": 0.772602,
+          "outgoing_gain_scalar": 0.1222541042294575
+        },
+        {
+          "capture_frame_after_commands": 224256,
+          "elapsed_ms": 2358,
+          "incoming_gain_scalar": 0.8891249718473386,
+          "media_progress": 0.7838923333333333,
+          "outgoing_gain_scalar": 0.11087502815266134
+        },
+        {
+          "capture_frame_after_commands": 224256,
+          "elapsed_ms": 2378,
+          "incoming_gain_scalar": 0.8913658921594565,
+          "media_progress": 0.7861743333333333,
+          "outgoing_gain_scalar": 0.10863410784054361
+        },
+        {
+          "capture_frame_after_commands": 224256,
+          "elapsed_ms": 2400,
+          "incoming_gain_scalar": 0.898041036758042,
+          "media_progress": 0.7930976666666667,
+          "outgoing_gain_scalar": 0.10195896324195802
+        },
+        {
+          "capture_frame_after_commands": 224256,
+          "elapsed_ms": 2421,
+          "incoming_gain_scalar": 0.9050215366106676,
+          "media_progress": 0.8005563333333333,
+          "outgoing_gain_scalar": 0.09497846338933243
+        },
+        {
+          "capture_frame_after_commands": 224256,
+          "elapsed_ms": 2441,
+          "incoming_gain_scalar": 0.9111111636875935,
+          "media_progress": 0.8072659999999999,
+          "outgoing_gain_scalar": 0.08888883631240646
+        },
+        {
+          "capture_frame_after_commands": 228352,
+          "elapsed_ms": 2462,
+          "incoming_gain_scalar": 0.9199919521779728,
+          "media_progress": 0.8174356666666668,
+          "outgoing_gain_scalar": 0.0800080478220271
+        },
+        {
+          "capture_frame_after_commands": 228352,
+          "elapsed_ms": 2484,
+          "incoming_gain_scalar": 0.923126062885774,
+          "media_progress": 0.8211463333333334,
+          "outgoing_gain_scalar": 0.07687393711422603
+        },
+        {
+          "capture_frame_after_commands": 231424,
+          "elapsed_ms": 2505,
+          "incoming_gain_scalar": 0.9336125410905115,
+          "media_progress": 0.8340986666666668,
+          "outgoing_gain_scalar": 0.06638745890948851
+        },
+        {
+          "capture_frame_after_commands": 231424,
+          "elapsed_ms": 2526,
+          "incoming_gain_scalar": 0.9344746931339174,
+          "media_progress": 0.8352043333333334,
+          "outgoing_gain_scalar": 0.06552530686608253
+        },
+        {
+          "capture_frame_after_commands": 231424,
+          "elapsed_ms": 2547,
+          "incoming_gain_scalar": 0.9398099245407313,
+          "media_progress": 0.8422029999999999,
+          "outgoing_gain_scalar": 0.06019007545926874
+        },
+        {
+          "capture_frame_after_commands": 233472,
+          "elapsed_ms": 2568,
+          "incoming_gain_scalar": 0.9461068847449837,
+          "media_progress": 0.8508486666666668,
+          "outgoing_gain_scalar": 0.053893115255016284
+        },
+        {
+          "capture_frame_after_commands": 233472,
+          "elapsed_ms": 2589,
+          "incoming_gain_scalar": 0.9498375751764495,
+          "media_progress": 0.8561966666666668,
+          "outgoing_gain_scalar": 0.05016242482355047
+        },
+        {
+          "capture_frame_after_commands": 233472,
+          "elapsed_ms": 2610,
+          "incoming_gain_scalar": 0.9571412600110827,
+          "media_progress": 0.8672446666666668,
+          "outgoing_gain_scalar": 0.04285873998891717
+        },
+        {
+          "capture_frame_after_commands": 233472,
+          "elapsed_ms": 2631,
+          "incoming_gain_scalar": 0.9590059350931409,
+          "media_progress": 0.8702063333333333,
+          "outgoing_gain_scalar": 0.040994064906859064
+        },
+        {
+          "capture_frame_after_commands": 238592,
+          "elapsed_ms": 2651,
+          "incoming_gain_scalar": 0.9670813760205251,
+          "media_progress": 0.8838516666666667,
+          "outgoing_gain_scalar": 0.03291862397947477
+        },
+        {
+          "capture_frame_after_commands": 238592,
+          "elapsed_ms": 2672,
+          "incoming_gain_scalar": 0.967190965652077,
+          "media_progress": 0.8840473333333335,
+          "outgoing_gain_scalar": 0.0328090343479231
+        },
+        {
+          "capture_frame_after_commands": 238592,
+          "elapsed_ms": 2693,
+          "incoming_gain_scalar": 0.970987729192056,
+          "media_progress": 0.8910333333333332,
+          "outgoing_gain_scalar": 0.029012270807944114
+        },
+        {
+          "capture_frame_after_commands": 240640,
+          "elapsed_ms": 2714,
+          "incoming_gain_scalar": 0.9757669912645467,
+          "media_progress": 0.900493,
+          "outgoing_gain_scalar": 0.02423300873545343
+        },
+        {
+          "capture_frame_after_commands": 240640,
+          "elapsed_ms": 2735,
+          "incoming_gain_scalar": 0.9779174409974555,
+          "media_progress": 0.9050453333333334,
+          "outgoing_gain_scalar": 0.022082559002544633
+        },
+        {
+          "capture_frame_after_commands": 242688,
+          "elapsed_ms": 2756,
+          "incoming_gain_scalar": 0.9832946828723782,
+          "media_progress": 0.9174866666666667,
+          "outgoing_gain_scalar": 0.01670531712762187
+        },
+        {
+          "capture_frame_after_commands": 242688,
+          "elapsed_ms": 2777,
+          "incoming_gain_scalar": 0.9838905089909857,
+          "media_progress": 0.9189796666666666,
+          "outgoing_gain_scalar": 0.01610949100901425
+        },
+        {
+          "capture_frame_after_commands": 242688,
+          "elapsed_ms": 2798,
+          "incoming_gain_scalar": 0.9865432232430288,
+          "media_progress": 0.9259833333333333,
+          "outgoing_gain_scalar": 0.013456776756971147
+        },
+        {
+          "capture_frame_after_commands": 245760,
+          "elapsed_ms": 2818,
+          "incoming_gain_scalar": 0.9892623008513632,
+          "media_progress": 0.9339130000000001,
+          "outgoing_gain_scalar": 0.010737699148636785
+        },
+        {
+          "capture_frame_after_commands": 245760,
+          "elapsed_ms": 2839,
+          "incoming_gain_scalar": 0.9911014854866537,
+          "media_progress": 0.9398569999999999,
+          "outgoing_gain_scalar": 0.008898514513346273
+        },
+        {
+          "capture_frame_after_commands": 247808,
+          "elapsed_ms": 2860,
+          "incoming_gain_scalar": 0.9939869243984603,
+          "media_progress": 0.9505843333333335,
+          "outgoing_gain_scalar": 0.006013075601539796
+        },
+        {
+          "capture_frame_after_commands": 247808,
+          "elapsed_ms": 2881,
+          "incoming_gain_scalar": 0.9947101814733866,
+          "media_progress": 0.9536570000000001,
+          "outgoing_gain_scalar": 0.005289818526613355
+        },
+        {
+          "capture_frame_after_commands": 250880,
+          "elapsed_ms": 2902,
+          "incoming_gain_scalar": 0.997365133342008,
+          "media_progress": 0.9673073333333333,
+          "outgoing_gain_scalar": 0.0026348666579918867
+        },
+        {
+          "capture_frame_after_commands": 250880,
+          "elapsed_ms": 2923,
+          "incoming_gain_scalar": 0.997408437466134,
+          "media_progress": 0.9675773333333334,
+          "outgoing_gain_scalar": 0.0025915625338659154
+        },
+        {
+          "capture_frame_after_commands": 250880,
+          "elapsed_ms": 2944,
+          "incoming_gain_scalar": 0.9984053428212495,
+          "media_progress": 0.9745710000000001,
+          "outgoing_gain_scalar": 0.0015946571787504582
+        },
+        {
+          "capture_frame_after_commands": 250880,
+          "elapsed_ms": 2964,
+          "incoming_gain_scalar": 0.9993580174516741,
+          "media_progress": 0.9838679999999999,
+          "outgoing_gain_scalar": 0.0006419825483260355
+        },
+        {
+          "capture_frame_after_commands": 250880,
+          "elapsed_ms": 2985,
+          "incoming_gain_scalar": 0.9996731351417854,
+          "media_progress": 0.9884896666666666,
+          "outgoing_gain_scalar": 0.0003268648582145379
+        },
+        {
+          "capture_frame_after_commands": 254976,
+          "elapsed_ms": 3006,
+          "incoming_gain_scalar": 1.0,
+          "media_progress": 1.0,
+          "outgoing_gain_scalar": 3.749399456654644e-33
+        }
+      ],
+      "curve": "EqualPower",
+      "fade_media_seconds": 3,
+      "incoming_baseline": 0.3535289508590538,
+      "incoming_head_relative": 2.468180798860497e-16,
+      "incoming_mid_relative": 0.4989802040380542,
+      "master_fraction": 1,
+      "outgoing_baseline": 0.3535259489675548,
+      "outgoing_mid_relative": 0.5002996542179698,
+      "outgoing_tail_relative": 3.693405710917848e-17,
+      "peak": 0.3535533845424652,
+      "spectral_windows": [
+        {
+          "capture_ms": 0,
+          "incoming_relative": 0.0,
+          "outgoing_relative": 0.0
+        },
+        {
+          "capture_ms": 100,
+          "incoming_relative": 0.0,
+          "outgoing_relative": 0.0
+        },
+        {
+          "capture_ms": 200,
+          "incoming_relative": 0.0,
+          "outgoing_relative": 0.0
+        },
+        {
+          "capture_ms": 300,
+          "incoming_relative": 0.0,
+          "outgoing_relative": 0.0
+        },
+        {
+          "capture_ms": 400,
+          "incoming_relative": 0.0,
+          "outgoing_relative": 0.0
+        },
+        {
+          "capture_ms": 500,
+          "incoming_relative": 0.0,
+          "outgoing_relative": 0.0
+        },
+        {
+          "capture_ms": 600,
+          "incoming_relative": 0.0,
+          "outgoing_relative": 0.0
+        },
+        {
+          "capture_ms": 700,
+          "incoming_relative": 2.468180798860497e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 800,
+          "incoming_relative": 2.468180798860497e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 900,
+          "incoming_relative": 2.468180798860497e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1000,
+          "incoming_relative": 2.468180798860497e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1100,
+          "incoming_relative": 2.468180798860497e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1200,
+          "incoming_relative": 2.468180798860497e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1300,
+          "incoming_relative": 2.468180798860497e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1400,
+          "incoming_relative": 2.468180798860497e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1500,
+          "incoming_relative": 2.468180798860497e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1600,
+          "incoming_relative": 2.468180798860497e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1700,
+          "incoming_relative": 2.468180798860497e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1800,
+          "incoming_relative": 2.468180798860497e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1900,
+          "incoming_relative": 2.468180798860497e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 2000,
+          "incoming_relative": 2.468180798860497e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 2100,
+          "incoming_relative": 2.468180798860497e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 2200,
+          "incoming_relative": 2.468180798860497e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 2300,
+          "incoming_relative": 2.468180798860497e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 2400,
+          "incoming_relative": 2.468180798860497e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 2500,
+          "incoming_relative": 0.0036912683925782613,
+          "outgoing_relative": 0.9962091633580329
+        },
+        {
+          "capture_ms": 2600,
+          "incoming_relative": 0.012370709203520135,
+          "outgoing_relative": 0.9874743739035131
+        },
+        {
+          "capture_ms": 2700,
+          "incoming_relative": 0.027769195827130114,
+          "outgoing_relative": 0.9719765386873906
+        },
+        {
+          "capture_ms": 2800,
+          "incoming_relative": 0.04730615630837669,
+          "outgoing_relative": 0.9524432728390022
+        },
+        {
+          "capture_ms": 2900,
+          "incoming_relative": 0.07246447651640318,
+          "outgoing_relative": 0.9271747210986101
+        },
+        {
+          "capture_ms": 3000,
+          "incoming_relative": 0.10259606444519857,
+          "outgoing_relative": 0.896972893728145
+        },
+        {
+          "capture_ms": 3100,
+          "incoming_relative": 0.13365009243813944,
+          "outgoing_relative": 0.8658220200728739
+        },
+        {
+          "capture_ms": 3200,
+          "incoming_relative": 0.1744716279286888,
+          "outgoing_relative": 0.8249098874719991
+        },
+        {
+          "capture_ms": 3300,
+          "incoming_relative": 0.21590780422559053,
+          "outgoing_relative": 0.7836830624522285
+        },
+        {
+          "capture_ms": 3400,
+          "incoming_relative": 0.2584416167756761,
+          "outgoing_relative": 0.7409428365792545
+        },
+        {
+          "capture_ms": 3500,
+          "incoming_relative": 0.30810531899433885,
+          "outgoing_relative": 0.6912102501825206
+        },
+        {
+          "capture_ms": 3600,
+          "incoming_relative": 0.3530570194239433,
+          "outgoing_relative": 0.6462625292937421
+        },
+        {
+          "capture_ms": 3700,
+          "incoming_relative": 0.4040444407501643,
+          "outgoing_relative": 0.5953800559167362
+        },
+        {
+          "capture_ms": 3800,
+          "incoming_relative": 0.45631550794632975,
+          "outgoing_relative": 0.5429018619050501
+        },
+        {
+          "capture_ms": 3900,
+          "incoming_relative": 0.5112348642182413,
+          "outgoing_relative": 0.48809564376431425
+        },
+        {
+          "capture_ms": 4000,
+          "incoming_relative": 0.558994741006612,
+          "outgoing_relative": 0.4402751751668426
+        },
+        {
+          "capture_ms": 4100,
+          "incoming_relative": 0.613676220511873,
+          "outgoing_relative": 0.38559851047973387
+        },
+        {
+          "capture_ms": 4200,
+          "incoming_relative": 0.6655577065377154,
+          "outgoing_relative": 0.33376907422571384
+        },
+        {
+          "capture_ms": 4300,
+          "incoming_relative": 0.713725488452045,
+          "outgoing_relative": 0.285756159872356
+        },
+        {
+          "capture_ms": 4400,
+          "incoming_relative": 0.7584361207224959,
+          "outgoing_relative": 0.2409492801133605
+        },
+        {
+          "capture_ms": 4500,
+          "incoming_relative": 0.8024953043904384,
+          "outgoing_relative": 0.19694389516311256
+        },
+        {
+          "capture_ms": 4600,
+          "incoming_relative": 0.8426514387917069,
+          "outgoing_relative": 0.15684496142443421
+        },
+        {
+          "capture_ms": 4700,
+          "incoming_relative": 0.878893033107354,
+          "outgoing_relative": 0.1206505716827106
+        },
+        {
+          "capture_ms": 4800,
+          "incoming_relative": 0.9094801768237785,
+          "outgoing_relative": 0.09020429556973587
+        },
+        {
+          "capture_ms": 4900,
+          "incoming_relative": 0.937684016046763,
+          "outgoing_relative": 0.061954701099705294
+        },
+        {
+          "capture_ms": 5000,
+          "incoming_relative": 0.9602724081777323,
+          "outgoing_relative": 0.03941503775350281
+        },
+        {
+          "capture_ms": 5100,
+          "incoming_relative": 0.9780836792519463,
+          "outgoing_relative": 0.021709864179561545
+        },
+        {
+          "capture_ms": 5200,
+          "incoming_relative": 0.9919621513532279,
+          "outgoing_relative": 0.007933939513407757
+        },
+        {
+          "capture_ms": 5300,
+          "incoming_relative": 0.9989019656231606,
+          "outgoing_relative": 0.0010455589167894497
+        },
+        {
+          "capture_ms": 5400,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 3.6934057109178475e-17
+        },
+        {
+          "capture_ms": 5500,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 3.6934057109178475e-17
+        },
+        {
+          "capture_ms": 5600,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 3.6934057109178475e-17
+        },
+        {
+          "capture_ms": 5700,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 3.6934057109178475e-17
+        },
+        {
+          "capture_ms": 5800,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 3.6934057109178475e-17
+        },
+        {
+          "capture_ms": 5900,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 3.6934057109178475e-17
+        },
+        {
+          "capture_ms": 6000,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 3.6934057109178475e-17
+        },
+        {
+          "capture_ms": 6100,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 3.6934057109178475e-17
+        },
+        {
+          "capture_ms": 6200,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 3.6934057109178475e-17
+        },
+        {
+          "capture_ms": 6300,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 3.6934057109178475e-17
+        },
+        {
+          "capture_ms": 6400,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 3.6934057109178475e-17
+        },
+        {
+          "capture_ms": 6500,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 3.6934057109178475e-17
+        },
+        {
+          "capture_ms": 6600,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 3.6934057109178475e-17
+        }
+      ],
+      "speed": 1
+    },
+    {
+      "capture_head_frame": 108544,
+      "capture_tail_frame": 252928,
+      "captured_frames": 320726,
+      "commands": [
+        {
+          "capture_frame_after_commands": 111616,
+          "elapsed_ms": 0,
+          "incoming_gain_scalar": 6.639908985176151e-7,
+          "media_progress": 0.016572666666666718,
+          "outgoing_gain_scalar": 0.9983709512572947
+        },
+        {
+          "capture_frame_after_commands": 111616,
+          "elapsed_ms": 21,
+          "incoming_gain_scalar": 6.912799410057761e-7,
+          "media_progress": 0.016741333333333348,
+          "outgoing_gain_scalar": 0.998337826353369
+        },
+        {
+          "capture_frame_after_commands": 111616,
+          "elapsed_ms": 42,
+          "incoming_gain_scalar": 2.773847867417276e-6,
+          "media_progress": 0.023750666666666698,
+          "outgoing_gain_scalar": 0.9966717992953273
+        },
+        {
+          "capture_frame_after_commands": 113664,
+          "elapsed_ms": 63,
+          "incoming_gain_scalar": 0.00001084715670779795,
+          "media_progress": 0.033510000000000005,
+          "outgoing_gain_scalar": 0.9934238427669119
+        },
+        {
+          "capture_frame_after_commands": 113664,
+          "elapsed_ms": 84,
+          "incoming_gain_scalar": 0.00001705428745991382,
+          "media_progress": 0.037575666666666674,
+          "outgoing_gain_scalar": 0.9917576868879762
+        },
+        {
+          "capture_frame_after_commands": 115712,
+          "elapsed_ms": 105,
+          "incoming_gain_scalar": 0.00005327685886293754,
+          "media_progress": 0.05017200000000003,
+          "outgoing_gain_scalar": 0.9854550771256166
+        },
+        {
+          "capture_frame_after_commands": 115712,
+          "elapsed_ms": 126,
+          "incoming_gain_scalar": 0.000059537213254918264,
+          "media_progress": 0.051610666666666694,
+          "outgoing_gain_scalar": 0.9846274649927244
+        },
+        {
+          "capture_frame_after_commands": 115712,
+          "elapsed_ms": 147,
+          "incoming_gain_scalar": 0.0000976603570039819,
+          "media_progress": 0.05854833333333335,
+          "outgoing_gain_scalar": 0.980333009385739
+        },
+        {
+          "capture_frame_after_commands": 118784,
+          "elapsed_ms": 168,
+          "incoming_gain_scalar": 0.0001639336799352572,
+          "media_progress": 0.06683500000000005,
+          "outgoing_gain_scalar": 0.9745566159808667
+        },
+        {
+          "capture_frame_after_commands": 118784,
+          "elapsed_ms": 189,
+          "incoming_gain_scalar": 0.000229526926916408,
+          "media_progress": 0.07285500000000004,
+          "outgoing_gain_scalar": 0.9699292347226218
+        },
+        {
+          "capture_frame_after_commands": 120832,
+          "elapsed_ms": 210,
+          "incoming_gain_scalar": 0.0003898000643686744,
+          "media_progress": 0.08348033333333338,
+          "outgoing_gain_scalar": 0.9609030901802229
+        },
+        {
+          "capture_frame_after_commands": 120832,
+          "elapsed_ms": 231,
+          "incoming_gain_scalar": 0.0004520175513028092,
+          "media_progress": 0.08672833333333337,
+          "outgoing_gain_scalar": 0.9579306087645371
+        },
+        {
+          "capture_frame_after_commands": 122880,
+          "elapsed_ms": 251,
+          "incoming_gain_scalar": 0.0007899941038784971,
+          "media_progress": 0.1001976666666667,
+          "outgoing_gain_scalar": 0.9445763265886382
+        },
+        {
+          "capture_frame_after_commands": 122880,
+          "elapsed_ms": 272,
+          "incoming_gain_scalar": 0.0007993494885476535,
+          "media_progress": 0.100504,
+          "outgoing_gain_scalar": 0.9442538107238438
+        },
+        {
+          "capture_frame_after_commands": 122880,
+          "elapsed_ms": 293,
+          "incoming_gain_scalar": 0.0010326491273816732,
+          "media_progress": 0.10741433333333335,
+          "outgoing_gain_scalar": 0.9367629322342236
+        },
+        {
+          "capture_frame_after_commands": 122880,
+          "elapsed_ms": 315,
+          "incoming_gain_scalar": 0.0014286490899364484,
+          "media_progress": 0.11689299999999998,
+          "outgoing_gain_scalar": 0.9258336997894323
+        },
+        {
+          "capture_frame_after_commands": 122880,
+          "elapsed_ms": 336,
+          "incoming_gain_scalar": 0.0016597203501017479,
+          "media_progress": 0.12156266666666671,
+          "outgoing_gain_scalar": 0.9201803892261474
+        },
+        {
+          "capture_frame_after_commands": 128000,
+          "elapsed_ms": 357,
+          "incoming_gain_scalar": 0.0023776774398198467,
+          "media_progress": 0.13357666666666668,
+          "outgoing_gain_scalar": 0.9048548095611557
+        },
+        {
+          "capture_frame_after_commands": 128000,
+          "elapsed_ms": 377,
+          "incoming_gain_scalar": 0.0025157391217430695,
+          "media_progress": 0.135574,
+          "outgoing_gain_scalar": 0.9022014505733399
+        },
+        {
+          "capture_frame_after_commands": 128000,
+          "elapsed_ms": 398,
+          "incoming_gain_scalar": 0.0034946996888487415,
+          "media_progress": 0.14785133333333333,
+          "outgoing_gain_scalar": 0.8852627295817963
+        },
+        {
+          "capture_frame_after_commands": 131072,
+          "elapsed_ms": 419,
+          "incoming_gain_scalar": 0.0037087503317387678,
+          "media_progress": 0.15019533333333332,
+          "outgoing_gain_scalar": 0.881909730110084
+        },
+        {
+          "capture_frame_after_commands": 131072,
+          "elapsed_ms": 440,
+          "incoming_gain_scalar": 0.004325904217941332,
+          "media_progress": 0.15645066666666674,
+          "outgoing_gain_scalar": 0.8727826912734289
+        },
+        {
+          "capture_frame_after_commands": 133120,
+          "elapsed_ms": 461,
+          "incoming_gain_scalar": 0.0055080260163266805,
+          "media_progress": 0.16683699999999999,
+          "outgoing_gain_scalar": 0.8570758729452796
+        },
+        {
+          "capture_frame_after_commands": 133120,
+          "elapsed_ms": 482,
+          "incoming_gain_scalar": 0.00595363653153435,
+          "media_progress": 0.17033733333333334,
+          "outgoing_gain_scalar": 0.8516340132617201
+        },
+        {
+          "capture_frame_after_commands": 135168,
+          "elapsed_ms": 503,
+          "incoming_gain_scalar": 0.00786520747470908,
+          "media_progress": 0.18353000000000005,
+          "outgoing_gain_scalar": 0.8304931975666169
+        },
+        {
+          "capture_frame_after_commands": 135168,
+          "elapsed_ms": 524,
+          "incoming_gain_scalar": 0.007979547767024992,
+          "media_progress": 0.18424333333333331,
+          "outgoing_gain_scalar": 0.829322918816124
+        },
+        {
+          "capture_frame_after_commands": 135168,
+          "elapsed_ms": 545,
+          "incoming_gain_scalar": 0.009174517676426084,
+          "media_progress": 0.19129800000000005,
+          "outgoing_gain_scalar": 0.8176071125530483
+        },
+        {
+          "capture_frame_after_commands": 138240,
+          "elapsed_ms": 566,
+          "incoming_gain_scalar": 0.010893135966304243,
+          "media_progress": 0.20038533333333333,
+          "outgoing_gain_scalar": 0.8021527616607642
+        },
+        {
+          "capture_frame_after_commands": 138240,
+          "elapsed_ms": 587,
+          "incoming_gain_scalar": 0.011902473560736664,
+          "media_progress": 0.20525933333333338,
+          "outgoing_gain_scalar": 0.7937055573521279
+        },
+        {
+          "capture_frame_after_commands": 140288,
+          "elapsed_ms": 608,
+          "incoming_gain_scalar": 0.014613287214101399,
+          "media_progress": 0.21705400000000008,
+          "outgoing_gain_scalar": 0.7728424269839951
+        },
+        {
+          "capture_frame_after_commands": 140288,
+          "elapsed_ms": 629,
+          "incoming_gain_scalar": 0.015175673254812014,
+          "media_progress": 0.21930533333333338,
+          "outgoing_gain_scalar": 0.7687965081063604
+        },
+        {
+          "capture_frame_after_commands": 140288,
+          "elapsed_ms": 650,
+          "incoming_gain_scalar": 0.017018208990042815,
+          "media_progress": 0.22629733333333343,
+          "outgoing_gain_scalar": 0.7561104935806067
+        },
+        {
+          "capture_frame_after_commands": 140288,
+          "elapsed_ms": 671,
+          "incoming_gain_scalar": 0.019080566249829425,
+          "media_progress": 0.23352566666666666,
+          "outgoing_gain_scalar": 0.7428157204961257
+        },
+        {
+          "capture_frame_after_commands": 140288,
+          "elapsed_ms": 692,
+          "incoming_gain_scalar": 0.02115245613652723,
+          "media_progress": 0.24026199999999998,
+          "outgoing_gain_scalar": 0.7302747764391861
+        },
+        {
+          "capture_frame_after_commands": 145408,
+          "elapsed_ms": 713,
+          "incoming_gain_scalar": 0.02448103941227643,
+          "media_progress": 0.2501903333333333,
+          "outgoing_gain_scalar": 0.7115526807595239
+        },
+        {
+          "capture_frame_after_commands": 145408,
+          "elapsed_ms": 734,
+          "incoming_gain_scalar": 0.025923009638713156,
+          "media_progress": 0.2542043333333333,
+          "outgoing_gain_scalar": 0.7039105276526066
+        },
+        {
+          "capture_frame_after_commands": 145408,
+          "elapsed_ms": 755,
+          "incoming_gain_scalar": 0.030824872846120673,
+          "media_progress": 0.2668053333333334,
+          "outgoing_gain_scalar": 0.6796845997578822
+        },
+        {
+          "capture_frame_after_commands": 145408,
+          "elapsed_ms": 775,
+          "incoming_gain_scalar": 0.031493832444080494,
+          "media_progress": 0.2684166666666667,
+          "outgoing_gain_scalar": 0.676563797400099
+        },
+        {
+          "capture_frame_after_commands": 145408,
+          "elapsed_ms": 796,
+          "incoming_gain_scalar": 0.034486306759664846,
+          "media_progress": 0.27535399999999993,
+          "outgoing_gain_scalar": 0.6630765235839124
+        },
+        {
+          "capture_frame_after_commands": 149504,
+          "elapsed_ms": 817,
+          "incoming_gain_scalar": 0.03827482842636734,
+          "media_progress": 0.283577,
+          "outgoing_gain_scalar": 0.6469957544836514
+        },
+        {
+          "capture_frame_after_commands": 149504,
+          "elapsed_ms": 838,
+          "incoming_gain_scalar": 0.040895777040809655,
+          "media_progress": 0.28895066666666674,
+          "outgoing_gain_scalar": 0.6364416904460038
+        },
+        {
+          "capture_frame_after_commands": 152576,
+          "elapsed_ms": 858,
+          "incoming_gain_scalar": 0.046818576297174896,
+          "media_progress": 0.3002983333333334,
+          "outgoing_gain_scalar": 0.6140665627967181
+        },
+        {
+          "capture_frame_after_commands": 152576,
+          "elapsed_ms": 879,
+          "incoming_gain_scalar": 0.04819072205896478,
+          "media_progress": 0.3027893333333333,
+          "outgoing_gain_scalar": 0.6091430159541964
+        },
+        {
+          "capture_frame_after_commands": 152576,
+          "elapsed_ms": 899,
+          "incoming_gain_scalar": 0.05210066289855556,
+          "media_progress": 0.3096396666666667,
+          "outgoing_gain_scalar": 0.5955892702759592
+        },
+        {
+          "capture_frame_after_commands": 152576,
+          "elapsed_ms": 920,
+          "incoming_gain_scalar": 0.056483090807917066,
+          "media_progress": 0.31692666666666663,
+          "outgoing_gain_scalar": 0.5811596606767397
+        },
+        {
+          "capture_frame_after_commands": 152576,
+          "elapsed_ms": 941,
+          "incoming_gain_scalar": 0.060490776906692544,
+          "media_progress": 0.3232730000000001,
+          "outgoing_gain_scalar": 0.5685933204924819
+        },
+        {
+          "capture_frame_after_commands": 156672,
+          "elapsed_ms": 962,
+          "incoming_gain_scalar": 0.06741882129496587,
+          "media_progress": 0.33362733333333344,
+          "outgoing_gain_scalar": 0.5481161300060958
+        },
+        {
+          "capture_frame_after_commands": 156672,
+          "elapsed_ms": 983,
+          "incoming_gain_scalar": 0.06994029824188082,
+          "media_progress": 0.33722433333333335,
+          "outgoing_gain_scalar": 0.5410157355984702
+        },
+        {
+          "capture_frame_after_commands": 159744,
+          "elapsed_ms": 1003,
+          "incoming_gain_scalar": 0.07973738585059861,
+          "media_progress": 0.35046,
+          "outgoing_gain_scalar": 0.5149812053599426
+        },
+        {
+          "capture_frame_after_commands": 159744,
+          "elapsed_ms": 1024,
+          "incoming_gain_scalar": 0.0802581017288208,
+          "media_progress": 0.3511336666666667,
+          "outgoing_gain_scalar": 0.513660884196575
+        },
+        {
+          "capture_frame_after_commands": 159744,
+          "elapsed_ms": 1044,
+          "incoming_gain_scalar": 0.08564391329271442,
+          "media_progress": 0.35794433333333336,
+          "outgoing_gain_scalar": 0.5003442864597071
+        },
+        {
+          "capture_frame_after_commands": 161792,
+          "elapsed_ms": 1065,
+          "incoming_gain_scalar": 0.09305924823245962,
+          "media_progress": 0.36689299999999997,
+          "outgoing_gain_scalar": 0.48294696927895536
+        },
+        {
+          "capture_frame_after_commands": 161792,
+          "elapsed_ms": 1086,
+          "incoming_gain_scalar": 0.09723702195416029,
+          "media_progress": 0.371739,
+          "outgoing_gain_scalar": 0.473579994561186
+        },
+        {
+          "capture_frame_after_commands": 163840,
+          "elapsed_ms": 1106,
+          "incoming_gain_scalar": 0.10798018170465463,
+          "media_progress": 0.38363466666666673,
+          "outgoing_gain_scalar": 0.45077342061753783
+        },
+        {
+          "capture_frame_after_commands": 163840,
+          "elapsed_ms": 1127,
+          "incoming_gain_scalar": 0.10979460645192131,
+          "media_progress": 0.38557066666666673,
+          "outgoing_gain_scalar": 0.44708922258388206
+        },
+        {
+          "capture_frame_after_commands": 163840,
+          "elapsed_ms": 1147,
+          "incoming_gain_scalar": 0.11637271334262558,
+          "media_progress": 0.39243000000000006,
+          "outgoing_gain_scalar": 0.4341038122702534
+        },
+        {
+          "capture_frame_after_commands": 166912,
+          "elapsed_ms": 1168,
+          "incoming_gain_scalar": 0.1241941395302659,
+          "media_progress": 0.4002860000000001,
+          "outgoing_gain_scalar": 0.4193703614686404
+        },
+        {
+          "capture_frame_after_commands": 166912,
+          "elapsed_ms": 1189,
+          "incoming_gain_scalar": 0.13021011803367857,
+          "media_progress": 0.406128,
+          "outgoing_gain_scalar": 0.4085173356569152
+        },
+        {
+          "capture_frame_after_commands": 166912,
+          "elapsed_ms": 1210,
+          "incoming_gain_scalar": 0.14186550959697128,
+          "media_progress": 0.4170046666666667,
+          "outgoing_gain_scalar": 0.3885647473592811
+        },
+        {
+          "capture_frame_after_commands": 166912,
+          "elapsed_ms": 1230,
+          "incoming_gain_scalar": 0.14518597152221493,
+          "media_progress": 0.42000600000000005,
+          "outgoing_gain_scalar": 0.3831204322876555
+        },
+        {
+          "capture_frame_after_commands": 168960,
+          "elapsed_ms": 1251,
+          "incoming_gain_scalar": 0.15636808753497503,
+          "media_progress": 0.4298286666666667,
+          "outgoing_gain_scalar": 0.3654999884565636
+        },
+        {
+          "capture_frame_after_commands": 171008,
+          "elapsed_ms": 1272,
+          "incoming_gain_scalar": 0.16087644760560713,
+          "media_progress": 0.4336736666666667,
+          "outgoing_gain_scalar": 0.35868832102778964
+        },
+        {
+          "capture_frame_after_commands": 171008,
+          "elapsed_ms": 1292,
+          "incoming_gain_scalar": 0.16918102585072983,
+          "media_progress": 0.44059800000000005,
+          "outgoing_gain_scalar": 0.3465486028312384
+        },
+        {
+          "capture_frame_after_commands": 174080,
+          "elapsed_ms": 1313,
+          "incoming_gain_scalar": 0.18102959420165624,
+          "media_progress": 0.45015199999999994,
+          "outgoing_gain_scalar": 0.33007814035330374
+        },
+        {
+          "capture_frame_after_commands": 174080,
+          "elapsed_ms": 1335,
+          "incoming_gain_scalar": 0.18649667673334908,
+          "media_progress": 0.45444233333333334,
+          "outgoing_gain_scalar": 0.3227914568038894
+        },
+        {
+          "capture_frame_after_commands": 176128,
+          "elapsed_ms": 1356,
+          "incoming_gain_scalar": 0.2028719345485021,
+          "media_progress": 0.4668936666666667,
+          "outgoing_gain_scalar": 0.30204579250220887
+        },
+        {
+          "capture_frame_after_commands": 176128,
+          "elapsed_ms": 1377,
+          "incoming_gain_scalar": 0.20520247332702152,
+          "media_progress": 0.46862066666666663,
+          "outgoing_gain_scalar": 0.2992168811082015
+        },
+        {
+          "capture_frame_after_commands": 176128,
+          "elapsed_ms": 1397,
+          "incoming_gain_scalar": 0.21473828682193974,
+          "media_progress": 0.4755796666666667,
+          "outgoing_gain_scalar": 0.28794103429700973
+        },
+        {
+          "capture_frame_after_commands": 178176,
+          "elapsed_ms": 1418,
+          "incoming_gain_scalar": 0.22603254423902747,
+          "media_progress": 0.4836133333333333,
+          "outgoing_gain_scalar": 0.2751749434616503
+        },
+        {
+          "capture_frame_after_commands": 178176,
+          "elapsed_ms": 1439,
+          "incoming_gain_scalar": 0.23434059997580212,
+          "media_progress": 0.48939000000000005,
+          "outgoing_gain_scalar": 0.26616582241587805
+        },
+        {
+          "capture_frame_after_commands": 181248,
+          "elapsed_ms": 1460,
+          "incoming_gain_scalar": 0.2505923503409064,
+          "media_progress": 0.5003946666666667,
+          "outgoing_gain_scalar": 0.2494083505868025
+        },
+        {
+          "capture_frame_after_commands": 181248,
+          "elapsed_ms": 1481,
+          "incoming_gain_scalar": 0.2549941224806534,
+          "media_progress": 0.503313,
+          "outgoing_gain_scalar": 0.24505526793419447
+        },
+        {
+          "capture_frame_after_commands": 183296,
+          "elapsed_ms": 1502,
+          "incoming_gain_scalar": 0.2760716922327293,
+          "media_progress": 0.5169566666666667,
+          "outgoing_gain_scalar": 0.22522119433547028
+        },
+        {
+          "capture_frame_after_commands": 183296,
+          "elapsed_ms": 1522,
+          "incoming_gain_scalar": 0.27655420323855423,
+          "media_progress": 0.5172629999999999,
+          "outgoing_gain_scalar": 0.22478578150579615
+        },
+        {
+          "capture_frame_after_commands": 183296,
+          "elapsed_ms": 1543,
+          "incoming_gain_scalar": 0.28751934476003993,
+          "media_progress": 0.5241576666666666,
+          "outgoing_gain_scalar": 0.2151027377270456
+        },
+        {
+          "capture_frame_after_commands": 185344,
+          "elapsed_ms": 1564,
+          "incoming_gain_scalar": 0.3029086990539238,
+          "media_progress": 0.5336316666666666,
+          "outgoing_gain_scalar": 0.20216586068717102
+        },
+        {
+          "capture_frame_after_commands": 185344,
+          "elapsed_ms": 1585,
+          "incoming_gain_scalar": 0.31014281394792004,
+          "media_progress": 0.5380096666666666,
+          "outgoing_gain_scalar": 0.19633346949453462
+        },
+        {
+          "capture_frame_after_commands": 185344,
+          "elapsed_ms": 1606,
+          "incoming_gain_scalar": 0.3306340688949027,
+          "media_progress": 0.5501736666666667,
+          "outgoing_gain_scalar": 0.18061829701192073
+        },
+        {
+          "capture_frame_after_commands": 185344,
+          "elapsed_ms": 1626,
+          "incoming_gain_scalar": 0.33367099183101007,
+          "media_progress": 0.5519486666666666,
+          "outgoing_gain_scalar": 0.1783857598107785
+        },
+        {
+          "capture_frame_after_commands": 185344,
+          "elapsed_ms": 1647,
+          "incoming_gain_scalar": 0.34557296843798063,
+          "media_progress": 0.5588413333333334,
+          "outgoing_gain_scalar": 0.16986387442198106
+        },
+        {
+          "capture_frame_after_commands": 190464,
+          "elapsed_ms": 1668,
+          "incoming_gain_scalar": 0.35984754502633476,
+          "media_progress": 0.5669826666666666,
+          "outgoing_gain_scalar": 0.16010166355587144
+        },
+        {
+          "capture_frame_after_commands": 190464,
+          "elapsed_ms": 1688,
+          "incoming_gain_scalar": 0.3751091794713089,
+          "media_progress": 0.5755493333333334,
+          "outgoing_gain_scalar": 0.1501860317247919
+        },
+        {
+          "capture_frame_after_commands": 192512,
+          "elapsed_ms": 1709,
+          "incoming_gain_scalar": 0.38986333308235327,
+          "media_progress": 0.5837089999999999,
+          "outgoing_gain_scalar": 0.14108259479023294
+        },
+        {
+          "capture_frame_after_commands": 192512,
+          "elapsed_ms": 1730,
+          "incoming_gain_scalar": 0.39483143371130486,
+          "media_progress": 0.5864316666666668,
+          "outgoing_gain_scalar": 0.1381191616119116
+        },
+        {
+          "capture_frame_after_commands": 192512,
+          "elapsed_ms": 1751,
+          "incoming_gain_scalar": 0.4201373002415614,
+          "media_progress": 0.6001250000000001,
+          "outgoing_gain_scalar": 0.1237773189993736
+        },
+        {
+          "capture_frame_after_commands": 192512,
+          "elapsed_ms": 1772,
+          "incoming_gain_scalar": 0.42036317340440454,
+          "media_progress": 0.600246,
+          "outgoing_gain_scalar": 0.12365476608315248
+        },
+        {
+          "capture_frame_after_commands": 192512,
+          "elapsed_ms": 1792,
+          "incoming_gain_scalar": 0.43880949327962077,
+          "media_progress": 0.6100623333333334,
+          "outgoing_gain_scalar": 0.11395554920937606
+        },
+        {
+          "capture_frame_after_commands": 197632,
+          "elapsed_ms": 1813,
+          "incoming_gain_scalar": 0.45175355787956506,
+          "media_progress": 0.6168796666666667,
+          "outgoing_gain_scalar": 0.10750126328667121
+        },
+        {
+          "capture_frame_after_commands": 197632,
+          "elapsed_ms": 1834,
+          "incoming_gain_scalar": 0.4596580796228929,
+          "media_progress": 0.621017,
+          "outgoing_gain_scalar": 0.10369631080654033
+        },
+        {
+          "capture_frame_after_commands": 199680,
+          "elapsed_ms": 1854,
+          "incoming_gain_scalar": 0.4838401394656516,
+          "media_progress": 0.633568,
+          "outgoing_gain_scalar": 0.0926677713305573
+        },
+        {
+          "capture_frame_after_commands": 199680,
+          "elapsed_ms": 1875,
+          "incoming_gain_scalar": 0.48631157540690334,
+          "media_progress": 0.6348426666666667,
+          "outgoing_gain_scalar": 0.091590706692445
+        },
+        {
+          "capture_frame_after_commands": 199680,
+          "elapsed_ms": 1896,
+          "incoming_gain_scalar": 0.4996492541245256,
+          "media_progress": 0.6416993333333334,
+          "outgoing_gain_scalar": 0.08593180834616129
+        },
+        {
+          "capture_frame_after_commands": 202752,
+          "elapsed_ms": 1917,
+          "incoming_gain_scalar": 0.5164295225471657,
+          "media_progress": 0.6502786666666668,
+          "outgoing_gain_scalar": 0.0791689024129248
+        },
+        {
+          "capture_frame_after_commands": 202752,
+          "elapsed_ms": 1938,
+          "incoming_gain_scalar": 0.527048443944324,
+          "media_progress": 0.6556853333333333,
+          "outgoing_gain_scalar": 0.075086400439985
+        },
+        {
+          "capture_frame_after_commands": 204800,
+          "elapsed_ms": 1959,
+          "incoming_gain_scalar": 0.5492525884837586,
+          "media_progress": 0.666948,
+          "outgoing_gain_scalar": 0.06702104316601223
+        },
+        {
+          "capture_frame_after_commands": 204800,
+          "elapsed_ms": 1979,
+          "incoming_gain_scalar": 0.5545126007987121,
+          "media_progress": 0.6696096666666667,
+          "outgoing_gain_scalar": 0.065200543775454
+        },
+        {
+          "capture_frame_after_commands": 204800,
+          "elapsed_ms": 2000,
+          "incoming_gain_scalar": 0.568271977876729,
+          "media_progress": 0.6765646666666667,
+          "outgoing_gain_scalar": 0.06059564938081606
+        },
+        {
+          "capture_frame_after_commands": 207872,
+          "elapsed_ms": 2021,
+          "incoming_gain_scalar": 0.5822482287527349,
+          "media_progress": 0.683623,
+          "outgoing_gain_scalar": 0.05614439381523643
+        },
+        {
+          "capture_frame_after_commands": 207872,
+          "elapsed_ms": 2043,
+          "incoming_gain_scalar": 0.595889513550586,
+          "media_progress": 0.690512,
+          "outgoing_gain_scalar": 0.052011910175777026
+        },
+        {
+          "capture_frame_after_commands": 207872,
+          "elapsed_ms": 2063,
+          "incoming_gain_scalar": 0.6153586460521547,
+          "media_progress": 0.7003556666666667,
+          "outgoing_gain_scalar": 0.046462669829187
+        },
+        {
+          "capture_frame_after_commands": 207872,
+          "elapsed_ms": 2085,
+          "incoming_gain_scalar": 0.6236104013744136,
+          "media_progress": 0.7045356666666667,
+          "outgoing_gain_scalar": 0.044230268063355886
+        },
+        {
+          "capture_frame_after_commands": 211968,
+          "elapsed_ms": 2105,
+          "incoming_gain_scalar": 0.6478231788662641,
+          "media_progress": 0.7168450000000001,
+          "outgoing_gain_scalar": 0.03807390787246852
+        },
+        {
+          "capture_frame_after_commands": 211968,
+          "elapsed_ms": 2126,
+          "incoming_gain_scalar": 0.6511084760234968,
+          "media_progress": 0.7185216666666667,
+          "outgoing_gain_scalar": 0.03728261673942053
+        },
+        {
+          "capture_frame_after_commands": 211968,
+          "elapsed_ms": 2147,
+          "incoming_gain_scalar": 0.6645702366059019,
+          "media_progress": 0.7254123333333333,
+          "outgoing_gain_scalar": 0.03414668843701962
+        },
+        {
+          "capture_frame_after_commands": 215040,
+          "elapsed_ms": 2168,
+          "incoming_gain_scalar": 0.6805739965994517,
+          "media_progress": 0.7336543333333334,
+          "outgoing_gain_scalar": 0.030635820061370982
+        },
+        {
+          "capture_frame_after_commands": 215040,
+          "elapsed_ms": 2189,
+          "incoming_gain_scalar": 0.6915968153774977,
+          "media_progress": 0.739369,
+          "outgoing_gain_scalar": 0.028350813876219242
+        },
+        {
+          "capture_frame_after_commands": 217088,
+          "elapsed_ms": 2210,
+          "incoming_gain_scalar": 0.712269026010717,
+          "media_progress": 0.750187,
+          "outgoing_gain_scalar": 0.024348380943873826
+        },
+        {
+          "capture_frame_after_commands": 217088,
+          "elapsed_ms": 2231,
+          "incoming_gain_scalar": 0.7183355875478501,
+          "media_progress": 0.7533903333333334,
+          "outgoing_gain_scalar": 0.023241976507031976
+        },
+        {
+          "capture_frame_after_commands": 219136,
+          "elapsed_ms": 2252,
+          "incoming_gain_scalar": 0.7435534782437958,
+          "media_progress": 0.766873,
+          "outgoing_gain_scalar": 0.018962537476918413
+        },
+        {
+          "capture_frame_after_commands": 219136,
+          "elapsed_ms": 2273,
+          "incoming_gain_scalar": 0.7444601684685641,
+          "media_progress": 0.7673633333333334,
+          "outgoing_gain_scalar": 0.018818063664020227
+        },
+        {
+          "capture_frame_after_commands": 219136,
+          "elapsed_ms": 2294,
+          "incoming_gain_scalar": 0.7572267144411374,
+          "media_progress": 0.774314,
+          "outgoing_gain_scalar": 0.016851221116622208
+        },
+        {
+          "capture_frame_after_commands": 222208,
+          "elapsed_ms": 2315,
+          "incoming_gain_scalar": 0.7741584679842813,
+          "media_progress": 0.7836806666666667,
+          "outgoing_gain_scalar": 0.014432957588661331
+        },
+        {
+          "capture_frame_after_commands": 222208,
+          "elapsed_ms": 2336,
+          "incoming_gain_scalar": 0.7826367942570903,
+          "media_progress": 0.7884426666666666,
+          "outgoing_gain_scalar": 0.013301558348315088
+        },
+        {
+          "capture_frame_after_commands": 224256,
+          "elapsed_ms": 2356,
+          "incoming_gain_scalar": 0.803672719762334,
+          "media_progress": 0.8004983333333334,
+          "outgoing_gain_scalar": 0.01071681426735055
+        },
+        {
+          "capture_frame_after_commands": 224256,
+          "elapsed_ms": 2377,
+          "incoming_gain_scalar": 0.806477742396705,
+          "media_progress": 0.8021346666666668,
+          "outgoing_gain_scalar": 0.010395625792116127
+        },
+        {
+          "capture_frame_after_commands": 224256,
+          "elapsed_ms": 2397,
+          "incoming_gain_scalar": 0.8180540085303348,
+          "media_progress": 0.8089683333333334,
+          "outgoing_gain_scalar": 0.00912724546850779
+        },
+        {
+          "capture_frame_after_commands": 226304,
+          "elapsed_ms": 2418,
+          "incoming_gain_scalar": 0.8313200582329641,
+          "media_progress": 0.8169749999999999,
+          "outgoing_gain_scalar": 0.007784965910401645
+        },
+        {
+          "capture_frame_after_commands": 226304,
+          "elapsed_ms": 2439,
+          "incoming_gain_scalar": 0.8408216581273633,
+          "media_progress": 0.8228396666666665,
+          "outgoing_gain_scalar": 0.006895096754347691
+        },
+        {
+          "capture_frame_after_commands": 229376,
+          "elapsed_ms": 2460,
+          "incoming_gain_scalar": 0.85787189666246,
+          "media_progress": 0.8336790000000001,
+          "outgoing_gain_scalar": 0.005444411806483243
+        },
+        {
+          "capture_frame_after_commands": 229376,
+          "elapsed_ms": 2481,
+          "incoming_gain_scalar": 0.8627865842689162,
+          "media_progress": 0.8368883333333335,
+          "outgoing_gain_scalar": 0.005060464229779541
+        },
+        {
+          "capture_frame_after_commands": 229376,
+          "elapsed_ms": 2502,
+          "incoming_gain_scalar": 0.8824744885560298,
+          "media_progress": 0.8501976666666667,
+          "outgoing_gain_scalar": 0.003672222689789367
+        },
+        {
+          "capture_frame_after_commands": 229376,
+          "elapsed_ms": 2523,
+          "incoming_gain_scalar": 0.883093137582776,
+          "media_progress": 0.850629,
+          "outgoing_gain_scalar": 0.0036324302704086983
+        },
+        {
+          "capture_frame_after_commands": 229376,
+          "elapsed_ms": 2544,
+          "incoming_gain_scalar": 0.8930521134419492,
+          "media_progress": 0.8576989999999999,
+          "outgoing_gain_scalar": 0.003023422186761714
+        },
+        {
+          "capture_frame_after_commands": 233472,
+          "elapsed_ms": 2565,
+          "incoming_gain_scalar": 0.9060710149786049,
+          "media_progress": 0.8673463333333334,
+          "outgoing_gain_scalar": 0.002315762874380347
+        },
+        {
+          "capture_frame_after_commands": 233472,
+          "elapsed_ms": 2587,
+          "incoming_gain_scalar": 0.9118741466329032,
+          "media_progress": 0.871819,
+          "outgoing_gain_scalar": 0.0020321148062882786
+        },
+        {
+          "capture_frame_after_commands": 236544,
+          "elapsed_ms": 2608,
+          "incoming_gain_scalar": 0.9269840880398047,
+          "media_progress": 0.8840753333333332,
+          "outgoing_gain_scalar": 0.0013838304164269413
+        },
+        {
+          "capture_frame_after_commands": 236544,
+          "elapsed_ms": 2628,
+          "incoming_gain_scalar": 0.9291213472583263,
+          "media_progress": 0.8858916666666667,
+          "outgoing_gain_scalar": 0.0013025308149072054
+        },
+        {
+          "capture_frame_after_commands": 236544,
+          "elapsed_ms": 2649,
+          "incoming_gain_scalar": 0.9370410543868564,
+          "media_progress": 0.8928356666666666,
+          "outgoing_gain_scalar": 0.0010234362987808412
+        },
+        {
+          "capture_frame_after_commands": 238592,
+          "elapsed_ms": 2670,
+          "incoming_gain_scalar": 0.9450304519617644,
+          "media_progress": 0.900235,
+          "outgoing_gain_scalar": 0.0007769170936758563
+        },
+        {
+          "capture_frame_after_commands": 238592,
+          "elapsed_ms": 2691,
+          "incoming_gain_scalar": 0.9516511159307394,
+          "media_progress": 0.9067323333333333,
+          "outgoing_gain_scalar": 0.0005989731823817907
+        },
+        {
+          "capture_frame_after_commands": 240640,
+          "elapsed_ms": 2712,
+          "incoming_gain_scalar": 0.9612202089268853,
+          "media_progress": 0.9168726666666668,
+          "outgoing_gain_scalar": 0.00038343966037105993
+        },
+        {
+          "capture_frame_after_commands": 240640,
+          "elapsed_ms": 2733,
+          "incoming_gain_scalar": 0.9645704171337427,
+          "media_progress": 0.9206853333333335,
+          "outgoing_gain_scalar": 0.0003194992174570357
+        },
+        {
+          "capture_frame_after_commands": 243712,
+          "elapsed_ms": 2753,
+          "incoming_gain_scalar": 0.9749198921742047,
+          "media_progress": 0.9336583333333334,
+          "outgoing_gain_scalar": 0.00015925637633190418
+        },
+        {
+          "capture_frame_after_commands": 243712,
+          "elapsed_ms": 2775,
+          "incoming_gain_scalar": 0.9755040553565792,
+          "media_progress": 0.9344586666666667,
+          "outgoing_gain_scalar": 0.00015187880012606343
+        },
+        {
+          "capture_frame_after_commands": 243712,
+          "elapsed_ms": 2796,
+          "incoming_gain_scalar": 0.9804461548198696,
+          "media_progress": 0.9416246666666668,
+          "outgoing_gain_scalar": 0.00009653435395843368
+        },
+        {
+          "capture_frame_after_commands": 245760,
+          "elapsed_ms": 2816,
+          "incoming_gain_scalar": 0.9858012698770439,
+          "media_progress": 0.9504413333333334,
+          "outgoing_gain_scalar": 0.000050762006486764006
+        },
+        {
+          "capture_frame_after_commands": 245760,
+          "elapsed_ms": 2837,
+          "incoming_gain_scalar": 0.9885180761213668,
+          "media_progress": 0.9555273333333334,
+          "outgoing_gain_scalar": 0.00003314922715792861
+        },
+        {
+          "capture_frame_after_commands": 247808,
+          "elapsed_ms": 2858,
+          "incoming_gain_scalar": 0.9936175391204978,
+          "media_progress": 0.9669936666666666,
+          "outgoing_gain_scalar": 0.000010216581279396426
+        },
+        {
+          "capture_frame_after_commands": 247808,
+          "elapsed_ms": 2879,
+          "incoming_gain_scalar": 0.994478434915706,
+          "media_progress": 0.969328,
+          "outgoing_gain_scalar": 7.64303560829843e-6
+        },
+        {
+          "capture_frame_after_commands": 248832,
+          "elapsed_ms": 2900,
+          "incoming_gain_scalar": 0.9967208793060265,
+          "media_progress": 0.9764266666666668,
+          "outgoing_gain_scalar": 2.692574582417426e-6
+        },
+        {
+          "capture_frame_after_commands": 250880,
+          "elapsed_ms": 2921,
+          "incoming_gain_scalar": 0.9984016181002265,
+          "media_progress": 0.983585,
+          "outgoing_gain_scalar": 6.392171330782867e-7
+        },
+        {
+          "capture_frame_after_commands": 250880,
+          "elapsed_ms": 2942,
+          "incoming_gain_scalar": 0.9994594023765574,
+          "media_progress": 0.9904769999999999,
+          "outgoing_gain_scalar": 7.308120271542832e-8
+        },
+        {
+          "capture_frame_after_commands": 252928,
+          "elapsed_ms": 2962,
+          "incoming_gain_scalar": 1.0,
+          "media_progress": 1.0,
+          "outgoing_gain_scalar": 0.0
+        }
+      ],
+      "curve": "SCurve",
+      "fade_media_seconds": 3,
+      "incoming_baseline": 0.35352895085906033,
+      "incoming_head_relative": 1.963819466614035e-16,
+      "incoming_mid_relative": 0.2683167570610831,
+      "master_fraction": 1,
+      "outgoing_baseline": 0.3535259489675703,
+      "outgoing_mid_relative": 0.23307094256278718,
+      "outgoing_tail_relative": 1.5342217803063275e-16,
+      "peak": 0.3535533845424652,
+      "spectral_windows": [
+        {
+          "capture_ms": 0,
+          "incoming_relative": 0.0,
+          "outgoing_relative": 0.0
+        },
+        {
+          "capture_ms": 100,
+          "incoming_relative": 0.0,
+          "outgoing_relative": 0.0
+        },
+        {
+          "capture_ms": 200,
+          "incoming_relative": 0.0,
+          "outgoing_relative": 0.0
+        },
+        {
+          "capture_ms": 300,
+          "incoming_relative": 0.0,
+          "outgoing_relative": 0.0
+        },
+        {
+          "capture_ms": 400,
+          "incoming_relative": 0.0,
+          "outgoing_relative": 0.0
+        },
+        {
+          "capture_ms": 500,
+          "incoming_relative": 0.0,
+          "outgoing_relative": 0.0
+        },
+        {
+          "capture_ms": 600,
+          "incoming_relative": 0.0,
+          "outgoing_relative": 0.0
+        },
+        {
+          "capture_ms": 700,
+          "incoming_relative": 1.963819466614035e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 800,
+          "incoming_relative": 1.963819466614035e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 900,
+          "incoming_relative": 1.963819466614035e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1000,
+          "incoming_relative": 1.963819466614035e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1100,
+          "incoming_relative": 1.963819466614035e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1200,
+          "incoming_relative": 1.963819466614035e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1300,
+          "incoming_relative": 1.963819466614035e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1400,
+          "incoming_relative": 1.963819466614035e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1500,
+          "incoming_relative": 1.963819466614035e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1600,
+          "incoming_relative": 1.963819466614035e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1700,
+          "incoming_relative": 1.963819466614035e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1800,
+          "incoming_relative": 1.963819466614035e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 1900,
+          "incoming_relative": 1.963819466614035e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 2000,
+          "incoming_relative": 1.963819466614035e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 2100,
+          "incoming_relative": 1.963819466614035e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 2200,
+          "incoming_relative": 1.963819466614035e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 2300,
+          "incoming_relative": 1.963819466614035e-16,
+          "outgoing_relative": 1.0
+        },
+        {
+          "capture_ms": 2400,
+          "incoming_relative": 0.000022068050547585448,
+          "outgoing_relative": 0.996559862934011
+        },
+        {
+          "capture_ms": 2500,
+          "incoming_relative": 0.00006645595509983306,
+          "outgoing_relative": 0.9818868890327718
+        },
+        {
+          "capture_ms": 2600,
+          "incoming_relative": 0.00008821432907660125,
+          "outgoing_relative": 0.9569593130388296
+        },
+        {
+          "capture_ms": 2700,
+          "incoming_relative": 0.0006595955147387692,
+          "outgoing_relative": 0.9200458081654445
+        },
+        {
+          "capture_ms": 2800,
+          "incoming_relative": 0.004596442544853857,
+          "outgoing_relative": 0.8722277993034864
+        },
+        {
+          "capture_ms": 2900,
+          "incoming_relative": 0.008484509806220522,
+          "outgoing_relative": 0.8228625544626347
+        },
+        {
+          "capture_ms": 3000,
+          "incoming_relative": 0.015053143784588534,
+          "outgoing_relative": 0.763522348468002
+        },
+        {
+          "capture_ms": 3100,
+          "incoming_relative": 0.026206326265945004,
+          "outgoing_relative": 0.7042041176278574
+        },
+        {
+          "capture_ms": 3200,
+          "incoming_relative": 0.03986938814841998,
+          "outgoing_relative": 0.6370464149424123
+        },
+        {
+          "capture_ms": 3300,
+          "incoming_relative": 0.05818361633148373,
+          "outgoing_relative": 0.571647292819194
+        },
+        {
+          "capture_ms": 3400,
+          "incoming_relative": 0.08304838325116899,
+          "outgoing_relative": 0.5069533060919776
+        },
+        {
+          "capture_ms": 3500,
+          "incoming_relative": 0.11308251061876813,
+          "outgoing_relative": 0.4412925747200735
+        },
+        {
+          "capture_ms": 3600,
+          "incoming_relative": 0.14377551054422677,
+          "outgoing_relative": 0.3846430353648566
+        },
+        {
+          "capture_ms": 3700,
+          "incoming_relative": 0.18619213449983293,
+          "outgoing_relative": 0.3248492833671951
+        },
+        {
+          "capture_ms": 3800,
+          "incoming_relative": 0.23170309630902064,
+          "outgoing_relative": 0.2692101532821525
+        },
+        {
+          "capture_ms": 3900,
+          "incoming_relative": 0.2814305982340715,
+          "outgoing_relative": 0.2208849868740147
+        },
+        {
+          "capture_ms": 4000,
+          "incoming_relative": 0.33823046057863076,
+          "outgoing_relative": 0.17280102276384435
+        },
+        {
+          "capture_ms": 4100,
+          "incoming_relative": 0.396118570807497,
+          "outgoing_relative": 0.13592719153071545
+        },
+        {
+          "capture_ms": 4200,
+          "incoming_relative": 0.4605684055833939,
+          "outgoing_relative": 0.10421375145657204
+        },
+        {
+          "capture_ms": 4300,
+          "incoming_relative": 0.5236268986839637,
+          "outgoing_relative": 0.07568930481334692
+        },
+        {
+          "capture_ms": 4400,
+          "incoming_relative": 0.5889877556116438,
+          "outgoing_relative": 0.0530231706109576
+        },
+        {
+          "capture_ms": 4500,
+          "incoming_relative": 0.6566250807680416,
+          "outgoing_relative": 0.03617952747200021
+        },
+        {
+          "capture_ms": 4600,
+          "incoming_relative": 0.7171645502005888,
+          "outgoing_relative": 0.0231998168744268
+        },
+        {
+          "capture_ms": 4700,
+          "incoming_relative": 0.7801995858222817,
+          "outgoing_relative": 0.012224226664446695
+        },
+        {
+          "capture_ms": 4800,
+          "incoming_relative": 0.8366619071303428,
+          "outgoing_relative": 0.007107086247433308
+        },
+        {
+          "capture_ms": 4900,
+          "incoming_relative": 0.8874604398496743,
+          "outgoing_relative": 0.003984785132189645
+        },
+        {
+          "capture_ms": 5000,
+          "incoming_relative": 0.9316574507270404,
+          "outgoing_relative": 0.001272649174454316
+        },
+        {
+          "capture_ms": 5100,
+          "incoming_relative": 0.9639760171531105,
+          "outgoing_relative": 0.000048457954423040905
+        },
+        {
+          "capture_ms": 5200,
+          "incoming_relative": 0.9872134263170972,
+          "outgoing_relative": 0.00002474225135390789
+        },
+        {
+          "capture_ms": 5300,
+          "incoming_relative": 0.9987529897358502,
+          "outgoing_relative": 0.000010424454653978686
+        },
+        {
+          "capture_ms": 5400,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063275e-16
+        },
+        {
+          "capture_ms": 5500,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063275e-16
+        },
+        {
+          "capture_ms": 5600,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063275e-16
+        },
+        {
+          "capture_ms": 5700,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063275e-16
+        },
+        {
+          "capture_ms": 5800,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063275e-16
+        },
+        {
+          "capture_ms": 5900,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063275e-16
+        },
+        {
+          "capture_ms": 6000,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063275e-16
+        },
+        {
+          "capture_ms": 6100,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063275e-16
+        },
+        {
+          "capture_ms": 6200,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063275e-16
+        },
+        {
+          "capture_ms": 6300,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063275e-16
+        },
+        {
+          "capture_ms": 6400,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063275e-16
+        },
+        {
+          "capture_ms": 6500,
+          "incoming_relative": 1.0,
+          "outgoing_relative": 1.5342217803063275e-16
+        }
+      ],
+      "speed": 1
+    }
+  ],
+  "rate_hz": 48000,
+  "scope": "Live two-owned-mpv slider-law conversion and captured two-tone overlap; no full waveform/timestamp, audible output, production state owner, speed/codec/platform or fallback certification",
+  "spectral_window_ms": 100
+}
