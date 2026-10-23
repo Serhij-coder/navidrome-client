@@ -11,6 +11,11 @@ serde_json.workspace = true
 tempfile.workspace = true
 feishin-spike-model = { path = "../spike-model" }
 
+[target.'cfg(windows)'.dependencies]
+tokio = { version = "=1.48.0", default-features = false, features = ["rt", "time", "net", "io-util"] }
+interprocess = { version = "=2.4.6", default-features = false }
+windows-sys = { version = "=0.61.2", features = ["Win32_Storage_FileSystem"] }
+
 [lints]
 workspace = true
 
@@ -21,3 +26,13 @@ path = "../../tests/native-spike/native.rs"
 [[test]]
 name = "analysis_session"
 path = "../../tests/native-spike/analysis_session.rs"
+
+[[bin]]
+name = "p01-pipe-peer"
+path = "../../tests/native-spike/windows_peer.rs"
+test = false
+bench = false
+
+[[test]]
+name = "windows_pipe"
+path = "../../tests/native-spike/windows_pipe.rs"

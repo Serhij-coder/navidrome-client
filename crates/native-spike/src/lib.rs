@@ -7,9 +7,9 @@ use std::{
     time::{Duration, Instant},
 };
 
-#[cfg(unix)]
+#[cfg(any(unix, windows))]
 mod mpv;
-#[cfg(unix)]
+#[cfg(any(unix, windows))]
 pub use mpv::{AudioOutput, Mpv};
 mod capture;
 pub use capture::Capture;

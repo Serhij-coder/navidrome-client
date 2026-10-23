@@ -57,7 +57,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .is_some_and(|arg| ["--mpv-probe", "--mpv-probe-null"].contains(&arg.as_str()))
         && args.len() == 3
     {
-        #[cfg(unix)]
+        #[cfg(any(unix, windows))]
         {
             let mut mpv = feishin_native_spike::Mpv::start(
                 Path::new(&args[1]),
@@ -78,7 +78,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             println!("{}", log_event(LogEvent::Stopped, 1));
             return Ok(());
         }
-        #[cfg(not(unix))]
+        #[cfg(not(any(unix, windows)))]
         return Err("mpv IPC probe not implemented on this platform".into());
     }
     let mut capture = None;

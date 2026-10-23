@@ -1,8 +1,8 @@
 use super::*;
-use std::{
-    io::{BufRead, BufReader, Write},
-    os::unix::net::UnixStream,
-};
+use std::io::{BufRead, BufReader, Write};
+
+mod transport;
+use transport::{Connector, Stream};
 
 const MAX_LINE: usize = 64 * 1024;
 const DEADLINE: Duration = Duration::from_secs(3);
@@ -16,7 +16,7 @@ pub enum AudioOutput {
 
 pub struct Mpv {
     child: ManagedChild,
-    socket: BufReader<UnixStream>,
+    socket: BufReader<Stream>,
     directory: tempfile::TempDir,
     request: u64,
     generation: u64,
@@ -26,7 +26,8 @@ pub struct Mpv {
 impl Mpv {
     pub fn start(binary: &Path, generation: u64, output: AudioOutput) -> Result<Self, Error> {
         let directory = ipc_directory()?;
-        let path = directory.path().join("ipc");
+        let path = transport::endpoint(&directory)?;
+        let connector = Connector::new()?;
         let mut command = child_command(binary);
         command.args([
             "--no-config",
@@ -50,7 +51,7 @@ impl Mpv {
         let mut child = ManagedChild(command.spawn()?);
         let deadline = Instant::now() + DEADLINE;
         loop {
-            match UnixStream::connect(&path) {
+            match connector.connect(&path, child.id()) {
                 Ok(socket) => {
                     socket.set_write_timeout(Some(DEADLINE))?;
                     let mut mpv = Self {
@@ -64,7 +65,10 @@ impl Mpv {
                     mpv.command(json!(["get_property", "mpv-version"]))?;
                     return Ok(mpv);
                 }
-                Err(_) => {
+                Err(error) => {
+                    if error.kind() == io::ErrorKind::PermissionDenied {
+                        return Err(error.into());
+                    }
                     if child.try_wait()?.is_some() {
                         return Err(Error::ProcessExited);
                     }
@@ -234,6 +238,7 @@ fn deadline_error(error: io::Error) -> Error {
     }
 }
 
+#[cfg(unix)]
 fn ipc_directory() -> Result<tempfile::TempDir, Error> {
     // macOS/BSD Unix sockets have a smaller pathname limit than Linux. Leave room
     // for the terminating NUL and reject paths that command-line Unicode cannot
@@ -260,4 +265,11 @@ fn ipc_directory() -> Result<tempfile::TempDir, Error> {
         return Err(Error::InvalidInput);
     }
     Ok(directory)
+}
+
+#[cfg(windows)]
+fn ipc_directory() -> Result<tempfile::TempDir, Error> {
+    Ok(tempfile::Builder::new()
+        .prefix("feishin-p01-mpv-")
+        .tempdir()?)
 }
