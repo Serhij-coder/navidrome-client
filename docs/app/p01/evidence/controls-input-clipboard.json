@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "table_entry": true,
+    "first_track": true,
+    "keyboard_menu": true,
+    "first_copy": true,
+    "copy_focus_return": true,
+    "range_copy": true,
+    "range_preserved": true,
+    "escape_focus_return": true,
+    "immediate_reopen": true,
+    "second_escape_return": true,
+    "boundary_copy": true,
+    "filter_entry": true,
+    "clipboard_paste": true,
+    "filtered_view": true,
+    "text_focus_preserved": true
+  },
+  "conclusion": "success",
+  "binary_sha256": "2fdfd50821bda1c58f7739068e0bfcf8023c5d2a530d3e2416d21259bf0b07b6",
+  "scope": "Native release binary, actual AT-SPI focus/entry state and X11 clipboard, synthetic Xvfb keys and private profile; no physical input, screen-reader speech, Wayland/other OS/browser certification or timing budget"
+}

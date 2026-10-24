@@ -40,6 +40,12 @@ jobs:
         with:
           components: clippy
       - run: python tools/app/test-native.py
+      - name: Check optional Linux media-control adapter on an owned bus
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update && sudo apt-get install -y dbus-daemon
+          cargo clippy -p feishin-native-spike --features mpris-probe --all-targets --locked -- -D warnings
+          cargo test -p feishin-native-spike --features mpris-probe --test mpris --locked
       - run: cargo clippy -p feishin-desktop --no-default-features --features wgpu --all-targets --locked -- -D warnings
       - run: cargo build -p feishin-desktop --release --locked
   wasm:
@@ -67,8 +73,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@1.92.0
-      - run: sudo apt-get update && sudo apt-get install -y libx11-dev libxkbcommon-dev libxkbcommon-x11-0 libwayland-dev libwayland-egl1 libxcursor1 libxi6 libxrandr2 libxfixes3 libxrender1 libegl1-mesa-dev libgl1-mesa-dev libdbus-1-dev xvfb xauth mpv ffmpeg pulseaudio file libfuse2t64
+      - run: sudo apt-get update && sudo apt-get install -y libx11-dev libxkbcommon-dev libxkbcommon-x11-0 libwayland-dev libwayland-egl1 libxcursor1 libxi6 libxrandr2 libxfixes3 libxrender1 libegl1-mesa-dev libgl1-mesa-dev libdbus-1-dev dbus-daemon xvfb xauth mpv ffmpeg pulseaudio file binutils libfuse2t64
       - run: cargo build -p feishin-desktop --release --locked
+      - name: Exercise native command routing and private-bus media controls
+        run: |
+          cargo test -p feishin-native-spike --test control_session real_mpv_control_routing --locked -- --ignored --exact
+          cargo test -p feishin-native-spike --features mpris-probe --test mpris real_private_bus_mpv --locked -- --ignored --exact
       - name: Exercise owned audio and explicit monitor capture
         shell: bash
         run: |

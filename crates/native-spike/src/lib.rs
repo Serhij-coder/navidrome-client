@@ -10,7 +10,7 @@ use std::{
 #[cfg(any(unix, windows))]
 mod mpv;
 #[cfg(any(unix, windows))]
-pub use mpv::{AudioOutput, Mpv};
+pub use mpv::{AudioOutput, Mpv, NativePlaybackStatus};
 mod capture;
 pub use capture::Capture;
 mod analysis_session;
@@ -134,3 +134,16 @@ pub(crate) fn child_command(binary: &Path) -> Command {
         .stderr(Stdio::null());
     command
 }
+
+#[cfg(any(unix, windows))]
+mod control_session;
+#[cfg(any(unix, windows))]
+pub use control_session::{
+    CONTROL_CAPACITY, ControlClient, ControlCommand, ControlFailure, ControlReply, ControlRequest,
+    ControlSession, ControlValue,
+};
+
+#[cfg(all(target_os = "linux", feature = "mpris-probe"))]
+mod mpris;
+#[cfg(all(target_os = "linux", feature = "mpris-probe"))]
+pub use mpris::{MPRIS_TRACK_PATH, MprisProbe, micros_to_seconds, seconds_to_micros};

@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-24T10:48:14.154927+00:00",
+  "source_base": "3b97c3fee77ee1e084809a21718ca71a8df8cfd9",
+  "task_ids": [
+    "P01.02",
+    "P01.05",
+    "P01.06",
+    "P01.07"
+  ],
+  "status": "checks-and-independent-reviews-complete",
+  "scope": "Bounded native control/MPRIS, composition and browser input, exact native AppDir provenance; no phase exit or production parity",
+  "source_sha256": {
+    ".github/workflows/app.yml": "baefe934a85a74f15bfae5ac47a31184632d376d9cf8a5c357566f510cf67643",
+    "Cargo.lock": "5d7ef1d710c4d51f0a8a9d944103408ab15ef6147dfa9a8ec6048d7364d7300c",
+    "crates/browser-spike/src/browser.rs": "b51ec7b89375ee8615c3ef3553a0d21abb681e03ee423c1c0645fc508a86333e",
+    "crates/native-spike/Cargo.toml": "693a79ea84f6a598ee97114cf2dcb53782d121529240ec018489bcac1eeef69b",
+    "crates/native-spike/src/control_session.rs": "0f32b775d1f6a6e0db73a0045f4a582972e21df0d6833085ab589eaa3bc1d7f5",
+    "crates/native-spike/src/lib.rs": "0ad30c7508d9982f86ba0362aa9101224034feb2ec3817e4c9443f8b023904b7",
+    "crates/native-spike/src/mpris.rs": "5ba5d9b667cd6a99b96c69a9356ea8583cc1a2921e84c125ec1be78df2b9420d",
+    "crates/native-spike/src/mpv.rs": "2e20563a83173ac50c013db68d9d8063632b77f7d07ad94b935eee04f8843e01",
+    "crates/spike-ui/src/lib.rs": "56a19eaf29f9c75906fa712c7aff62d301ea8c94cadb482ce708f838a9a3d4a7",
+    "crates/spike-ui/src/text_input.rs": "0addc564d0b2bef2e5b9e87968d08fecc9985b9860a9d4820ae8a31a8d15c779",
+    "tests/browser/input.cjs": "bdea6f3920bb42e699f3a1e3083e0e37c5f73a479c13f3e0dbfffd93007faeab",
+    "tests/native-spike/control_session.rs": "20cce6d71f8945ae46d225ae03874f0dbc6e1e687b943c141226d5caae7278e7",
+    "tests/native-spike/fake_mpv.py": "f19ce58b3ffd1406d75ab377c31944f5da5c1e7bbe73ffd2989ba5773c4944a8",
+    "tests/native-spike/mpris.rs": "b755d4fa252c1c9a0287f8cb548d0435b78db97791b1dc0a1072552a05f2afff",
+    "tests/spike-ui/text_input.rs": "2bfde6bd0f1fcc87a3528889cd5c81629ed1422aff6fa168a2f9a5661cc0e9da",
+    "tests/tooling/test_p01_input_harness.py": "26b96eca86b98cada1ad64ce7202ea0c12891338a23c35530b614b068c1cd38a",
+    "tests/tooling/test_p01_native_notices.py": "68633bc31b622109630d90edc5a7ee469f83c4b3ae5b3e900889a8d36e63bbc5",
+    "tests/tooling/test_p01_packaging.py": "3bcc799718b0b64a19d8bc97ade6f9237581f9d1e4958435c322072ba0ba3562",
+    "tools/app/native_notices.py": "6cbf80b3d9577fa5ad4e21eba944a88337682873f904817ef88487a30d5adb57",
+    "tools/app/package-appimage.py": "9529f685f29775046d1da410ac1749168661fbc73386676f66b9bf2145287ed2",
+    "tests/desktop/track_actions.py": "b95ca28d8e7df62369bb5a4c4bd605edd052f51fa2669b13bf65422c5e5d25a0",
+    "tests/desktop/orca.py": "627936973c6ad54abe7ae58696940341e0a6676aa1f81d76c52b678ce8bab981",
+    "rust-toolchain.toml": "060751f06f70853677293dd84de1c855fa72295c5dbc17ce811a3a57b75861c0",
+    "tools/app/build-web.py": "0e39147010241851d4120f1339df7c1f41e9b22f6858c4917d40487a7b23bd4c"
+  },
+  "evidence_sha256": {
+    "browser-input-before.json": "4ac87d3410ee958141d7a47bcfbd039902054a7d366f8a01949409c2fdcba6e5",
+    "browser-input-final.json": "c5f5acdac9f7269da0be2629df2aae094c540a9833b608c420de1607d6a65321",
+    "browser-input-lab-exhaustion.json": "f231abe23485efbf89196f8264a650d7ce8837dbe81dfe241f45c1bc384cf1e1",
+    "native-package-current.json": "f0b1a3989d0ac717885c4f1616586d87e906e195858d2f1716854fdbcd09ae76",
+    "native-package-stale-release.json": "742b6d03cad6f0ba4417ce94c725acfe19db0812046d7beb2880cb287b43b167",
+    "controls-input-stale-clipboard.json": "c5bbf35a23a598faed57be507f4af966fb6e42263274ec8dccd301d1b112a935",
+    "controls-input-clipboard.json": "dc43cd3bfcd3dc8ec2f60953fc500932d3a8142ab16623f87b7ba092ec68a854",
+    "controls-input-orca.json": "791677975973db54759e4a18f82d768c542c7e2bcfb00546e168566db1bd6922"
+  },
+  "checks": {
+    "default_rust": {
+      "passed": 70,
+      "explicitly_ignored": 11,
+      "command": "cargo test --workspace --locked"
+    },
+    "optional_linux_mpris": {
+      "native_package_passed": 40,
+      "native_package_ignored": 10,
+      "includes_mpris_fixture_passed": 7,
+      "command": "cargo test -p feishin-native-spike --features mpris-probe --locked"
+    },
+    "real_mpv": [
+      "corrected direct controller readiness/seek probe passed twice",
+      "corrected private-bus probe passed including natural EOF; 11 repeated passes after one unexplained seek deadline",
+      "existing current/next/pause/seek/filter/process-death null-output regression passed"
+    ],
+    "python": {
+      "passed_with_frozen_reference_inputs": 75,
+      "analysis_tool_tests_passed": 7
+    },
+    "lint": [
+      "cargo fmt --all -- --check",
+      "cargo clippy --workspace --all-targets --locked -- -D warnings",
+      "cargo clippy -p feishin-native-spike --features mpris-probe --all-targets --locked -- -D warnings",
+      "cargo clippy -p feishin-web -p feishin-remote --target wasm32-unknown-unknown --locked -- -D warnings",
+      "cargo clippy -p feishin-native-spike -p feishin-spike-ui --all-targets --target x86_64-pc-windows-msvc --locked -- -D warnings",
+      "cargo clippy -p feishin-desktop --no-default-features --features wgpu --all-targets --locked -- -D warnings"
+    ],
+    "other": [
+      "inventory verification and reference JavaScript syntax",
+      "tracked Markdown/evidence checks and git diff --check",
+      "26 P01 stable migration anchors/evidence paths",
+      "actual browser source digests match current inputs"
+    ],
+    "browser": {
+      "passed": 14,
+      "dpr2_diagnostic_limits": 4,
+      "failed": 0
+    },
+    "appimage": {
+      "sha256": "2fdfd50821bda1c58f7739068e0bfcf8023c5d2a530d3e2416d21259bf0b07b6",
+      "source_executable_sha256": "c46e0df1194003634e0098b70d7e6333e10f8f11e5df6f38108acb8ca0efcac6",
+      "elf_paths_verified": 21,
+      "exact_package_copyright_sets": 19,
+      "runtime": [
+        "isolated smoke",
+        "owned tone",
+        "external null-mpv"
+      ],
+      "clipboard_checks_passed": 15,
+      "orca_checks_passed": 19
+    }
+  },
+  "corrections": [
+    "RawInput Japanese preedit/Home-End retained prediction instead of committed text; editor-scoped ordered guard and seven regressions passed",
+    "Real probes treated load acknowledgements as readiness; pause-before-load and bounded observed readiness/arrival now used, with explicit assertion-unwind cleanup",
+    "Native release cache reused older UI code across copied roots; explicit release-package clean/rebuild restored Shift+F10; old artifact and failed GUI result remain separate",
+    "Browser zero-row regex matched 1000 rows and DPR1 coordinates were invalid under two DPR2 emulations; fixed matcher, exact metrics and separate limits recorded",
+    "Shared browser lab had 853/1024 process/thread entries; final run in fresh --init task container passed, no shared lab restart",
+    "Initial documentation link check failed before this manifest existed; affected link tests and inventory rerun passed"
+  ],
+  "reviews": {
+    "correctness_architecture": {
+      "outcome": "No actionable findings",
+      "scope": "Actual tracked/untracked implementation, tests, ADRs, docs and evidence inspected",
+      "independent_checks": "11 focused Python tests, browser syntax, manifest source/evidence digests and git diff --check passed; no independent Rust rerun"
+    },
+    "tests_edges_operations": {
+      "outcome": "No actionable findings",
+      "scope": "Actual tracked/untracked implementation, tests, CI, packaging provenance and evidence inspected",
+      "independent_checks": "Private-bus MPRIS target 7 passed/1 explicit real probe ignored; 4 native-notice and 3 browser-input tooling tests; manifest digests and git diff --check passed"
+    }
+  },
+  "limits": [
+    "One real MPRIS seek deadline remained unisolated despite subsequent passing repetitions; no measured runtime-budget certification",
+    "Partial single prepared source: no Stop/Next/Previous/URI, production metadata, queue, fallback or unsolicited EOF notification",
+    "No physical display/input/audio, OS IME/candidate-window/font/RTL or complete native/browser platform certification",
+    "No new authenticated stream/browser audio or external capture/calibration/crossfade run for this increment",
+    "Current AppImage is Ubuntu x86_64 development evidence; aarch64 and current hosted CI outcomes not yet verified",
+    "Exact native/runtime licensing and corresponding-source obligations remain open"
+  ]
+}

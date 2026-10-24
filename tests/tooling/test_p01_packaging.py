@@ -20,6 +20,7 @@ notices = load("p01_notices", "notices.py")
 # package-appimage imports the sibling notices module when run as a script.
 import sys
 sys.modules["notices"] = notices
+sys.modules["native_notices"] = load("p01_native_notices", "native_notices.py")
 packaging = load("p01_packaging", "package-appimage.py")
 
 

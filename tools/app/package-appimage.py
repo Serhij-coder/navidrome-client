@@ -10,6 +10,7 @@ import shutil
 import subprocess
 import tempfile
 from notices import ROOT, collect
+import native_notices
 
 # linuxdeploy build 07333c6, 2026-10-01. Mutable download aliases fail closed
 # when bytes change; an update requires explicit review of this manifest.
@@ -57,10 +58,14 @@ def main():
     parser.add_argument("--binary", type=Path, default=ROOT / "target/release/feishin-desktop")
     parser.add_argument("--out", type=Path, default=ROOT / "target/appimage")
     args = parser.parse_args()
+    distribution = platform.freedesktop_os_release()
+    if distribution.get("ID") != "ubuntu" or distribution.get("VERSION_ID") != "24.04":
+        raise SystemExit("native provenance packaging currently requires Ubuntu 24.04 with dpkg-query/readelf")
     architecture = platform.machine()
     tool = args.linuxdeploy.resolve()
     verify_tool(tool, architecture)
-    libraries = runtime_libraries(subprocess.check_output(["ldconfig", "-p"], text=True), architecture)
+    listing = subprocess.check_output(["ldconfig", "-p"], text=True)
+    libraries = runtime_libraries(listing, architecture)
     library_args = [argument for path in libraries for argument in ("--library", path)]
     args.out.mkdir(parents=True, exist_ok=True)
     output = args.out.resolve() / f"Feishin-Rust-P01-{architecture}.AppImage"
@@ -85,7 +90,12 @@ def main():
         env["ARCH"] = architecture
         subprocess.run([str(tool), "--appimage-extract-and-run", "--appdir", str(appdir),
                         "--executable", str(args.binary.resolve()), "--desktop-file", str(desktop),
-                        "--icon-file", str(icon), *library_args, "--output", "appimage"], cwd=temporary, env=env, check=True)
+                        "--icon-file", str(icon), *library_args], cwd=temporary, env=env, check=True)
+        native_manifest = native_notices.collect(
+            appdir, args.binary, notices / "native", listing, LINUXDEPLOY_SHA256[architecture])
+        subprocess.run([str(tool), "--appimage-extract-and-run", "--appdir", str(appdir),
+                        "--output", "appimage"], cwd=temporary, env=env, check=True)
+        native_notices.verify(appdir, native_manifest)
         artifacts = list(temporary.glob("*.AppImage"))
         if len(artifacts) != 1:
             raise SystemExit("expected exactly one generated AppImage")

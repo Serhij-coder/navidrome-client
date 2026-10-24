@@ -1034,12 +1034,14 @@ dependencies = [
 name = "feishin-native-spike"
 version = "0.1.0"
 dependencies = [
+ "async-io",
  "feishin-spike-model",
  "interprocess",
  "serde_json",
  "tempfile",
  "tokio",
  "windows-sys 0.61.2",
+ "zbus",
 ]
 
 [[package]]

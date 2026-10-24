@@ -1,0 +1,249 @@
+{
+  "artifact": "target/p01-ubuntu-build/appimage-controls-input-release-clean/Feishin-Rust-P01-x86_64.AppImage",
+  "artifact_sha256": "2fdfd50821bda1c58f7739068e0bfcf8023c5d2a530d3e2416d21259bf0b07b6",
+  "artifact_status": "release-clean artifact; source binary SHA256 checked; current keyboard/accessibility journeys are separate parent checks",
+  "build_environment": "Ubuntu 24.04 x86_64; feishin-p01-builder",
+  "date_utc": "2026-10-24",
+  "distribution_elf_paths": 19,
+  "exact_package_copyright_sets": 19,
+  "extracted_elf_paths_verified": 21,
+  "inventory_sha256": "e584e0eca05e9382370387c6d8398674b3f1c71791b88888d470a88265dd1197",
+  "limits": [
+    "Runtime container already contains display libraries and external mpv; not a minimal OS compatibility certification",
+    "No physical audio output, device, rendered frame timing or accessibility certification",
+    "No aarch64 actual runtime evidence for this inventory increment",
+    "No completed native/runtime license or corresponding-source obligation audit",
+    "Output runtime string is static/reported evidence; not independently verified corresponding source",
+    "GUI smoke checks startup only; current clipboard/menu and Orca journeys are verified separately by the parent"
+  ],
+  "linuxdeploy_sha256": "8aea8da0f7f7039d2a2cecb14657d752a222a5e1d3825caeef186c82f751cdd1",
+  "packages": [
+    {
+      "architecture": "amd64",
+      "binary_package": "libx11-6:amd64",
+      "binary_version": "2:1.8.7-1build1",
+      "source_package": "libx11",
+      "source_version": "2:1.8.7-1build1"
+    },
+    {
+      "architecture": "amd64",
+      "binary_package": "libxau6:amd64",
+      "binary_version": "1:1.0.9-1build6",
+      "source_package": "libxau",
+      "source_version": "1:1.0.9-1build6"
+    },
+    {
+      "architecture": "amd64",
+      "binary_package": "libxcursor1:amd64",
+      "binary_version": "1:1.2.1-1build1",
+      "source_package": "libxcursor",
+      "source_version": "1:1.2.1-1build1"
+    },
+    {
+      "architecture": "amd64",
+      "binary_package": "libxdmcp6:amd64",
+      "binary_version": "1:1.1.3-0ubuntu6",
+      "source_package": "libxdmcp",
+      "source_version": "1:1.1.3-0ubuntu6"
+    },
+    {
+      "architecture": "amd64",
+      "binary_package": "libxext6:amd64",
+      "binary_version": "2:1.3.4-1build2",
+      "source_package": "libxext",
+      "source_version": "2:1.3.4-1build2"
+    },
+    {
+      "architecture": "amd64",
+      "binary_package": "libxfixes3:amd64",
+      "binary_version": "1:6.0.0-2build1",
+      "source_package": "libxfixes",
+      "source_version": "1:6.0.0-2build1"
+    },
+    {
+      "architecture": "amd64",
+      "binary_package": "libxi6:amd64",
+      "binary_version": "2:1.8.1-1build1",
+      "source_package": "libxi",
+      "source_version": "2:1.8.1-1build1"
+    },
+    {
+      "architecture": "amd64",
+      "binary_package": "libxrandr2:amd64",
+      "binary_version": "2:1.5.2-2build1",
+      "source_package": "libxrandr",
+      "source_version": "2:1.5.2-2build1"
+    },
+    {
+      "architecture": "amd64",
+      "binary_package": "libxrender1:amd64",
+      "binary_version": "1:0.9.10-1.1build1",
+      "source_package": "libxrender",
+      "source_version": "1:0.9.10-1.1build1"
+    },
+    {
+      "architecture": "amd64",
+      "binary_package": "libbsd0:amd64",
+      "binary_version": "0.12.1-1build1.1",
+      "source_package": "libbsd",
+      "source_version": "0.12.1-1build1.1"
+    },
+    {
+      "architecture": "amd64",
+      "binary_package": "libffi8:amd64",
+      "binary_version": "3.4.6-1build1",
+      "source_package": "libffi",
+      "source_version": "3.4.6-1build1"
+    },
+    {
+      "architecture": "amd64",
+      "binary_package": "libmd0:amd64",
+      "binary_version": "1.1.0-2build1.1",
+      "source_package": "libmd",
+      "source_version": "1.1.0-2build1.1"
+    },
+    {
+      "architecture": "amd64",
+      "binary_package": "libwayland-client0:amd64",
+      "binary_version": "1.22.0-2.1build1",
+      "source_package": "wayland",
+      "source_version": "1.22.0-2.1build1"
+    },
+    {
+      "architecture": "amd64",
+      "binary_package": "libwayland-cursor0:amd64",
+      "binary_version": "1.22.0-2.1build1",
+      "source_package": "wayland",
+      "source_version": "1.22.0-2.1build1"
+    },
+    {
+      "architecture": "amd64",
+      "binary_package": "libwayland-egl1:amd64",
+      "binary_version": "1.22.0-2.1build1",
+      "source_package": "wayland",
+      "source_version": "1.22.0-2.1build1"
+    },
+    {
+      "architecture": "amd64",
+      "binary_package": "libxcb-xkb1:amd64",
+      "binary_version": "1.15-1ubuntu2",
+      "source_package": "libxcb",
+      "source_version": "1.15-1ubuntu2"
+    },
+    {
+      "architecture": "amd64",
+      "binary_package": "libxcb1:amd64",
+      "binary_version": "1.15-1ubuntu2",
+      "source_package": "libxcb",
+      "source_version": "1.15-1ubuntu2"
+    },
+    {
+      "architecture": "amd64",
+      "binary_package": "libxkbcommon-x11-0:amd64",
+      "binary_version": "1.6.0-1build1",
+      "source_package": "libxkbcommon",
+      "source_version": "1.6.0-1build1"
+    },
+    {
+      "architecture": "amd64",
+      "binary_package": "libxkbcommon0:amd64",
+      "binary_version": "1.6.0-1build1",
+      "source_package": "libxkbcommon",
+      "source_version": "1.6.0-1build1"
+    }
+  ],
+  "project_elf_paths": 2,
+  "reported_output_runtime": "https://github.com/AppImage/type2-runtime/commit/fedfad5",
+  "runtime_prefix_bytes": 944632,
+  "runtime_prefix_sha256": "b7a2e12d912c7dd82abfaa696ed0abc4b6f431481efdf281101c754a25424bac",
+  "runtime_probe": {
+    "artifact_hash_matches_builder": true,
+    "commands": [
+      {
+        "arguments": [
+          "--smoke"
+        ],
+        "deadline_seconds": 30,
+        "environment": "APPIMAGE_EXTRACT_AND_RUN=1; dbus-run-session; xvfb-run -a; LIBGL_ALWAYS_SOFTWARE=1",
+        "exit_code": 0,
+        "result": {
+          "first_update_ms": 1,
+          "hidden": false,
+          "probe": "shell-smoke",
+          "update_calls": 34,
+          "visible_rows": 21
+        }
+      },
+      {
+        "arguments": [
+          "--tone",
+          "owned-tone.wav"
+        ],
+        "exit_code": 0,
+        "generated_bytes": 480044,
+        "sha256": "cbf5a8f6431693c8933aca34f88c33498f57d69b2e5361fe77b4d42b014cf99d"
+      },
+      {
+        "arguments": [
+          "--mpv-probe-null",
+          "/usr/bin/mpv",
+          "owned-tone.wav"
+        ],
+        "deadline_seconds": 30,
+        "exit_code": 0,
+        "mpv_version": "0.37.0",
+        "result": {
+          "component": "p01-probe",
+          "event": "stopped",
+          "generation": 1
+        }
+      }
+    ],
+    "environment": "Existing Ubuntu 24.04.5 x86_64 runtime container; no cargo, rustc, git, /src or /target; historical /artifact mount not used",
+    "isolation": "Unique /tmp directory; private HOME/XDG config/data/cache/runtime; private D-Bus and Xvfb for GUI; software rendering; no host profile/display/audio"
+  },
+  "runtime_version_command": "--appimage-version",
+  "schema": 1,
+  "source_hashes": {
+    "/target/release/feishin-desktop": "c46e0df1194003634e0098b70d7e6333e10f8f11e5df6f38108acb8ca0efcac6",
+    "/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0": "c5b5d782bd9cab3420a62df88f5c991507edf3331a89f98464ddbc538c37b879",
+    "/usr/lib/x86_64-linux-gnu/libXau.so.6.0.0": "8040da3f8516c1acfe39f04ff022480cdb273705ba5e7a4ca70bbdb1527cd67a",
+    "/usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2": "09bd5941a53ee7fb06898fa066709cf098df8e33a45042e065d2f8461d92672c",
+    "/usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0": "667d97d6da16016400ab10de9f83ef4ab209ceb6adf68ff9650225ec13e723b0",
+    "/usr/lib/x86_64-linux-gnu/libXext.so.6.4.0": "2907e6a996465de5b32a0dd10534d4416b87f1dee5670aaa7b19301a1fc93f44",
+    "/usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0": "89e5897f438456013d2297850a7558cd28c9ad1f6978447197568949fb6a0fd9",
+    "/usr/lib/x86_64-linux-gnu/libXi.so.6.1.0": "a51348c921ce1a35123fa7c99dc59bfd3e815be6829874fe15ae55172901d3e4",
+    "/usr/lib/x86_64-linux-gnu/libXrandr.so.2.2.0": "bc6120a734d52e7f5e3611334e9f3cff0b3ce1b129bb20b6412ce8f0f62c049d",
+    "/usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0": "250977e0e004b6c0556144c3e683487063b4582dc83d205196ec3aa65d54e2c6",
+    "/usr/lib/x86_64-linux-gnu/libbsd.so.0.12.1": "e86cd4f0019f42c2ba5e60602e0edc8694d2948377d98c3654d0f6bddb5254bb",
+    "/usr/lib/x86_64-linux-gnu/libffi.so.8.1.4": "00f593fe192f2851b8ce23b25cec2488d769beb5a8f63e8c9e563071e1075153",
+    "/usr/lib/x86_64-linux-gnu/libmd.so.0.1.0": "423e18586b6ea740f4465afd64f7a9a4cb7264ed979c8e7256f9085af5345fef",
+    "/usr/lib/x86_64-linux-gnu/libwayland-client.so.0.22.0": "1c22abb422953442aa12822ea51ac76d1c8be92ed143e0159e0f830776cde2b2",
+    "/usr/lib/x86_64-linux-gnu/libwayland-cursor.so.0.22.0": "bcb52f21ed9a07af67795de01143fc5562939e584b5945ebbec60c054660e9f5",
+    "/usr/lib/x86_64-linux-gnu/libwayland-egl.so.1.22.0": "f62e5dae4e63cb43e0210f08ef74dd379f0cd87eafbe569998fe6e1c4a820a10",
+    "/usr/lib/x86_64-linux-gnu/libxcb-xkb.so.1.0.0": "f6b3ca63ff23f3e82d122af4622aaebed49c58614e2f840568a0bb4c9048436c",
+    "/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0": "7958a0136b121bdc4c708968569ad152a9ed208ab026e2537b1005dde64ca440",
+    "/usr/lib/x86_64-linux-gnu/libxkbcommon-x11.so.0.0.0": "109a5c2095ab6bcc36f751d3c0deb3b066ecbfb664a36904b6ca212f987a408a",
+    "/usr/lib/x86_64-linux-gnu/libxkbcommon.so.0.0.0": "3eb6c7315985803a7c72cb81aa3293b763e6cfc907b70b7b2f641c2827cd90f9"
+  },
+  "static_runtime_strings": [
+    "  --appimage-version              Print version of AppImage runtime",
+    "AppImage runtime version: %s",
+    "https://github.com/AppImage/type2-runtime/commit/fedfad5"
+  ],
+  "symlink_paths": 1,
+  "task_ids": [
+    "P01.06",
+    "P01.07"
+  ],
+  "verification": {
+    "dpkg_binary_source_package_versions": "passed",
+    "elf_machine_and_build_ids": "passed",
+    "exact_installed_copyright_bytes_and_hashes": "passed",
+    "extracted_executable_contains_shift_f10_hint": true,
+    "extracted_inventory_elf_set_hashes_and_symlinks": "passed",
+    "installed_source_file_hashes": "passed",
+    "original_icon_sha256": "95fafe60628567ebd63be39f4839e0ad49b535f3193d2d8c4abaa774a048c49b",
+    "project_license_sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+  }
+}

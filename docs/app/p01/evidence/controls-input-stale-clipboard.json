@@ -1,0 +1,10 @@
+{
+  "checks": {
+    "table_entry": true,
+    "first_track": true,
+    "keyboard_menu": false
+  },
+  "conclusion": "failure",
+  "binary_sha256": "039801e9e602b1a9a1fbecfdcdd136c140593573e14f77189791ae59a7b3bf63",
+  "scope": "Native release binary, actual AT-SPI focus/entry state and X11 clipboard, synthetic Xvfb keys and private profile; no physical input, screen-reader speech, Wayland/other OS/browser certification or timing budget"
+}

@@ -1,0 +1,599 @@
+{
+  "schema": 1,
+  "synthetic": true,
+  "results": [
+    {
+      "engine": "chromium",
+      "touch": false,
+      "dpr": 1,
+      "shell": "web",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "pointer-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "141.0.7390.37",
+      "geometry": {
+        "cssWidth": 1100,
+        "backingWidth": 1100,
+        "dpr": 1,
+        "contentBoxWidth": 1100,
+        "devicePixelContentBoxWidth": 1100
+      },
+      "selection": "1000 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "1000 rows, 1 selected. Table focus: Track 000999, Album 99.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 1,
+        "canvasWidth": 900
+      }
+    },
+    {
+      "engine": "chromium",
+      "touch": false,
+      "dpr": 1,
+      "shell": "remote",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "pointer-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "141.0.7390.37",
+      "geometry": {
+        "cssWidth": 1100,
+        "backingWidth": 1100,
+        "dpr": 1,
+        "contentBoxWidth": 1100,
+        "devicePixelContentBoxWidth": 1100
+      },
+      "selection": "100 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "100 rows, 1 selected. Table focus: Track 000099, Album 9.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 1,
+        "canvasWidth": 900
+      }
+    },
+    {
+      "engine": "chromium",
+      "touch": true,
+      "dpr": 1,
+      "shell": "web",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "touch-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "141.0.7390.37",
+      "geometry": {
+        "cssWidth": 1100,
+        "backingWidth": 1100,
+        "dpr": 1,
+        "contentBoxWidth": 1100,
+        "devicePixelContentBoxWidth": 1100
+      },
+      "selection": "1000 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "1000 rows, 1 selected. Table focus: Track 000999, Album 99.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 1,
+        "canvasWidth": 900
+      }
+    },
+    {
+      "engine": "chromium",
+      "touch": true,
+      "dpr": 1,
+      "shell": "remote",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "touch-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "141.0.7390.37",
+      "geometry": {
+        "cssWidth": 1100,
+        "backingWidth": 1100,
+        "dpr": 1,
+        "contentBoxWidth": 1100,
+        "devicePixelContentBoxWidth": 1100
+      },
+      "selection": "100 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "100 rows, 1 selected. Table focus: Track 000099, Album 9.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 1,
+        "canvasWidth": 900
+      }
+    },
+    {
+      "engine": "chromium",
+      "touch": true,
+      "dpr": 2,
+      "shell": "web",
+      "checks": [
+        "dpr-emulation-backing-size-mismatch"
+      ],
+      "result": "limited",
+      "stage": "startup",
+      "version": "141.0.7390.37",
+      "geometry": {
+        "cssWidth": 1100,
+        "backingWidth": 1100,
+        "dpr": 2,
+        "contentBoxWidth": 1100,
+        "devicePixelContentBoxWidth": 1100
+      },
+      "reason": "Emulated DPR differs from ResizeObserver device-pixel backing size; coordinate journey runs separately at DPR1"
+    },
+    {
+      "engine": "chromium",
+      "touch": true,
+      "dpr": 2,
+      "shell": "remote",
+      "checks": [
+        "dpr-emulation-backing-size-mismatch"
+      ],
+      "result": "limited",
+      "stage": "startup",
+      "version": "141.0.7390.37",
+      "geometry": {
+        "cssWidth": 1100,
+        "backingWidth": 1100,
+        "dpr": 2,
+        "contentBoxWidth": 1100,
+        "devicePixelContentBoxWidth": 1100
+      },
+      "reason": "Emulated DPR differs from ResizeObserver device-pixel backing size; coordinate journey runs separately at DPR1"
+    },
+    {
+      "engine": "webkit",
+      "touch": false,
+      "dpr": 1,
+      "shell": "web",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "pointer-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "26.0",
+      "geometry": {
+        "cssWidth": 1100,
+        "backingWidth": 1100,
+        "dpr": 1,
+        "contentBoxWidth": 1100,
+        "devicePixelContentBoxWidth": null
+      },
+      "selection": "1000 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "1000 rows, 1 selected. Table focus: Track 000999, Album 99.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 1,
+        "canvasWidth": 900
+      }
+    },
+    {
+      "engine": "webkit",
+      "touch": false,
+      "dpr": 1,
+      "shell": "remote",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "pointer-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "26.0",
+      "geometry": {
+        "cssWidth": 1100,
+        "backingWidth": 1100,
+        "dpr": 1,
+        "contentBoxWidth": 1100,
+        "devicePixelContentBoxWidth": null
+      },
+      "selection": "100 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "100 rows, 1 selected. Table focus: Track 000099, Album 9.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 1,
+        "canvasWidth": 900
+      }
+    },
+    {
+      "engine": "webkit",
+      "touch": true,
+      "dpr": 1,
+      "shell": "web",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "touch-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "26.0",
+      "geometry": {
+        "cssWidth": 1100,
+        "backingWidth": 1100,
+        "dpr": 1,
+        "contentBoxWidth": 1100,
+        "devicePixelContentBoxWidth": null
+      },
+      "selection": "1000 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "1000 rows, 1 selected. Table focus: Track 000999, Album 99.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 1,
+        "canvasWidth": 900
+      }
+    },
+    {
+      "engine": "webkit",
+      "touch": true,
+      "dpr": 1,
+      "shell": "remote",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "touch-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "26.0",
+      "geometry": {
+        "cssWidth": 1100,
+        "backingWidth": 1100,
+        "dpr": 1,
+        "contentBoxWidth": 1100,
+        "devicePixelContentBoxWidth": null
+      },
+      "selection": "100 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "100 rows, 1 selected. Table focus: Track 000099, Album 9.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 1,
+        "canvasWidth": 900
+      }
+    },
+    {
+      "engine": "webkit",
+      "touch": true,
+      "dpr": 2,
+      "shell": "web",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "touch-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "26.0",
+      "geometry": {
+        "cssWidth": 1100,
+        "backingWidth": 2200,
+        "dpr": 2,
+        "contentBoxWidth": 1100,
+        "devicePixelContentBoxWidth": null
+      },
+      "selection": "1000 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "1000 rows, 1 selected. Table focus: Track 000999, Album 99.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 2,
+        "canvasWidth": 1800
+      }
+    },
+    {
+      "engine": "webkit",
+      "touch": true,
+      "dpr": 2,
+      "shell": "remote",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "touch-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "26.0",
+      "geometry": {
+        "cssWidth": 1100,
+        "backingWidth": 2200,
+        "dpr": 2,
+        "contentBoxWidth": 1100,
+        "devicePixelContentBoxWidth": null
+      },
+      "selection": "100 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "100 rows, 1 selected. Table focus: Track 000099, Album 9.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 2,
+        "canvasWidth": 1800
+      }
+    },
+    {
+      "engine": "firefox",
+      "touch": false,
+      "dpr": 1,
+      "shell": "web",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "pointer-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "142.0.1",
+      "geometry": {
+        "cssWidth": 1100,
+        "backingWidth": 1100,
+        "dpr": 1,
+        "contentBoxWidth": 1100,
+        "devicePixelContentBoxWidth": 1100
+      },
+      "selection": "1000 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "1000 rows, 1 selected. Table focus: Track 000999, Album 99.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 1,
+        "canvasWidth": 900
+      }
+    },
+    {
+      "engine": "firefox",
+      "touch": false,
+      "dpr": 1,
+      "shell": "remote",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "pointer-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "142.0.1",
+      "geometry": {
+        "cssWidth": 1100,
+        "backingWidth": 1100,
+        "dpr": 1,
+        "contentBoxWidth": 1100,
+        "devicePixelContentBoxWidth": 1100
+      },
+      "selection": "100 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "100 rows, 1 selected. Table focus: Track 000099, Album 9.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 1,
+        "canvasWidth": 900
+      }
+    },
+    {
+      "engine": "firefox",
+      "touch": true,
+      "dpr": 1,
+      "shell": "web",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "touch-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "142.0.1",
+      "geometry": {
+        "cssWidth": 1100,
+        "backingWidth": 1100,
+        "dpr": 1,
+        "contentBoxWidth": 1100,
+        "devicePixelContentBoxWidth": 1100
+      },
+      "selection": "1000 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "1000 rows, 1 selected. Table focus: Track 000999, Album 99.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 1,
+        "canvasWidth": 900
+      }
+    },
+    {
+      "engine": "firefox",
+      "touch": true,
+      "dpr": 1,
+      "shell": "remote",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "touch-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "142.0.1",
+      "geometry": {
+        "cssWidth": 1100,
+        "backingWidth": 1100,
+        "dpr": 1,
+        "contentBoxWidth": 1100,
+        "devicePixelContentBoxWidth": 1100
+      },
+      "selection": "100 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "100 rows, 1 selected. Table focus: Track 000099, Album 9.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 1,
+        "canvasWidth": 900
+      }
+    },
+    {
+      "engine": "firefox",
+      "touch": true,
+      "dpr": 2,
+      "shell": "web",
+      "checks": [
+        "dpr-emulation-backing-size-mismatch"
+      ],
+      "result": "limited",
+      "stage": "startup",
+      "version": "142.0.1",
+      "geometry": {
+        "cssWidth": 1100,
+        "backingWidth": 1100,
+        "dpr": 2,
+        "contentBoxWidth": 1100,
+        "devicePixelContentBoxWidth": 1100
+      },
+      "reason": "Emulated DPR differs from ResizeObserver device-pixel backing size; coordinate journey runs separately at DPR1"
+    },
+    {
+      "engine": "firefox",
+      "touch": true,
+      "dpr": 2,
+      "shell": "remote",
+      "checks": [
+        "dpr-emulation-backing-size-mismatch"
+      ],
+      "result": "limited",
+      "stage": "startup",
+      "version": "142.0.1",
+      "geometry": {
+        "cssWidth": 1100,
+        "backingWidth": 1100,
+        "dpr": 2,
+        "contentBoxWidth": 1100,
+        "devicePixelContentBoxWidth": 1100
+      },
+      "reason": "Emulated DPR differs from ResizeObserver device-pixel backing size; coordinate journey runs separately at DPR1"
+    }
+  ],
+  "bundles": {
+    "web/index.html": "cf69fe675e2dbb65a689f18e1755198f56ef5a6deac32670d2fba19946af48fd",
+    "web/app.js": "c832eea9b8ae59cac113df157189e2cd14d452bf34d06d1b4c0ceb2762b75214",
+    "web/app_bg.wasm": "d45d7163dfd5489d84d274d73bb5396c7aa82543173345b8a1b963db8bcfd820",
+    "remote/index.html": "cf69fe675e2dbb65a689f18e1755198f56ef5a6deac32670d2fba19946af48fd",
+    "remote/app.js": "c15418c5512a262871d4c217555c6e85c6c72e9b558c3ebc943ed0cec48d2cd4",
+    "remote/app_bg.wasm": "46d47d2d028aaa56b9505511aae6b575f6b1670af73d4b9592b7657b34955909"
+  },
+  "sources": {
+    "tests/browser/input.cjs": "bdea6f3920bb42e699f3a1e3083e0e37c5f73a479c13f3e0dbfffd93007faeab",
+    "crates/browser-spike/src/browser.rs": "b51ec7b89375ee8615c3ef3553a0d21abb681e03ee423c1c0645fc508a86333e",
+    "crates/spike-ui/src/lib.rs": "56a19eaf29f9c75906fa712c7aff62d301ea8c94cadb482ce708f838a9a3d4a7",
+    "crates/spike-ui/src/text_input.rs": "0addc564d0b2bef2e5b9e87968d08fecc9985b9860a9d4820ae8a31a8d15c779",
+    "tools/app/browser-shell.html": "cf69fe675e2dbb65a689f18e1755198f56ef5a6deac32670d2fba19946af48fd",
+    "tools/app/build-web.py": "0e39147010241851d4120f1339df7c1f41e9b22f6858c4917d40487a7b23bd4c",
+    "Cargo.lock": "5d7ef1d710c4d51f0a8a9d944103408ab15ef6147dfa9a8ec6048d7364d7300c",
+    "Cargo.toml": "4010ca47f982722ea3ec25dbe84566d3d30a4a8721aa9c727cf0a189d1299c7b",
+    "rust-toolchain.toml": "060751f06f70853677293dd84de1c855fa72295c5dbc17ce811a3a57b75861c0",
+    "crates/spike-ui/Cargo.toml": "d7e53b383fdaf43ac7df1b2d42e47bb197c2c70a7b96a89543c9db0e23e0fa59",
+    "crates/browser-spike/Cargo.toml": "89b7ff6e1b163518dcddce97f4e76a4d903554e0f226ff92d38cfa85f67b69e3",
+    "apps/web/src/lib.rs": "8b2a15f0216927b818e1899be3d384483b9aceaf91be57932ffc7aa4ab08f063",
+    "apps/remote/src/lib.rs": "173bbfcb419481a9792a34a8867bc28d585294e06ec695de0631e62305d1e0c2"
+  },
+  "run": {
+    "date": "2026-10-23",
+    "container": "feishin-p01-input-validation",
+    "init_reaps_descendants": true,
+    "playwright": "1.56.1",
+    "renderer": "Linux software WebGL; Firefox headed via Xvfb, Chromium/WebKit headless",
+    "command": "P01_PLAYWRIGHT=/opt/browser-tools/node_modules/playwright P01_SOURCE_ROOT=/work/p01-input-source xvfb-run -a node /work/input.cjs /work/p01-input-final-web /work/final-results",
+    "build_command": "PATH=/tmp/feishin-p01-cargo/bin:/tmp/feishin-p01-bindgen/bin:$PATH CARGO_HOME=/tmp/feishin-p01-cargo RUSTUP_HOME=/tmp/feishin-p01-rustup python3 tools/app/build-web.py --out /tmp/agent-browser-work/p01-input-final-web"
+  },
+  "counts": {
+    "passed_journeys": 14,
+    "limited_dpr2_diagnostics": 4,
+    "failed": 0
+  }
+}

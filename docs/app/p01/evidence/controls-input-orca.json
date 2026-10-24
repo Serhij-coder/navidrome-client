@@ -1,0 +1,37 @@
+{
+  "checks": {
+    "filter_name": true,
+    "scale_name": true,
+    "table_entry": true,
+    "first": true,
+    "range": true,
+    "end": true,
+    "home": true,
+    "exit": true,
+    "return": true,
+    "actions_open": true,
+    "actions_cancel": true,
+    "actions_reopen": true,
+    "actions_copy_return": true,
+    "actions_cycle_0_open": true,
+    "actions_cycle_0_cancel": true,
+    "actions_cycle_1_open": true,
+    "actions_cycle_1_cancel": true,
+    "actions_cycle_2_open": true,
+    "actions_cycle_2_cancel": true
+  },
+  "conclusion": "success",
+  "utterances": [
+    "Copy synthetic title push button.",
+    "Filter tracks entry.",
+    "Focus table (arrows, Home/End, Shift for range) push button.",
+    "Interface scale slider 1.",
+    "Table focus: Track 000000, Album 0. 1 selected.",
+    "Table focus: Track 000001, Album 0. 2 selected.",
+    "Table focus: Track 099999, Album 9999. 1 selected.",
+    "Title label."
+  ],
+  "orca_version": "46.1",
+  "binary_sha256": "2fdfd50821bda1c58f7739068e0bfcf8023c5d2a530d3e2416d21259bf0b07b6",
+  "scope": "Orca requested announcements with Speech Dispatcher/eSpeak NG on an isolated null sink and synthetic X11 keys; not physical keyboard, human voice evaluation or platform certification"
+}

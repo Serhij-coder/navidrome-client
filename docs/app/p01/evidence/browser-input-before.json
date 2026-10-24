@@ -1,0 +1,301 @@
+{
+  "schema": 1,
+  "synthetic": true,
+  "results": [
+    {
+      "engine": "chromium",
+      "touch": false,
+      "shell": "web",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "pointer-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "141.0.7390.37",
+      "selection": "1000 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "1000 rows, 1 selected. Table focus: Track 000999, Album 99.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 1,
+        "canvasWidth": 900
+      }
+    },
+    {
+      "engine": "chromium",
+      "touch": false,
+      "shell": "remote",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "pointer-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "141.0.7390.37",
+      "selection": "100 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "100 rows, 1 selected. Table focus: Track 000099, Album 9.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 1,
+        "canvasWidth": 900
+      }
+    },
+    {
+      "engine": "chromium",
+      "touch": true,
+      "shell": "web",
+      "checks": [],
+      "result": "failed",
+      "stage": "unicode-filter",
+      "version": "141.0.7390.37",
+      "failureType": "AssertionError",
+      "observedSummary": "0 rows, 0 selected. No track focused."
+    },
+    {
+      "engine": "chromium",
+      "touch": true,
+      "shell": "remote",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear"
+      ],
+      "result": "failed",
+      "stage": "row-selection",
+      "version": "141.0.7390.37",
+      "failureType": "TimeoutError",
+      "observedSummary": "100 rows, 0 selected. No track focused."
+    },
+    {
+      "engine": "webkit",
+      "touch": false,
+      "shell": "web",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "pointer-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "26.0",
+      "selection": "1000 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "1000 rows, 1 selected. Table focus: Track 000999, Album 99.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 1,
+        "canvasWidth": 900
+      }
+    },
+    {
+      "engine": "webkit",
+      "touch": false,
+      "shell": "remote",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "pointer-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "26.0",
+      "selection": "100 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "100 rows, 1 selected. Table focus: Track 000099, Album 9.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 1,
+        "canvasWidth": 900
+      }
+    },
+    {
+      "engine": "webkit",
+      "touch": true,
+      "shell": "web",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "touch-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "26.0",
+      "selection": "1000 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "1000 rows, 1 selected. Table focus: Track 000999, Album 99.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 2,
+        "canvasWidth": 1800
+      }
+    },
+    {
+      "engine": "webkit",
+      "touch": true,
+      "shell": "remote",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "touch-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "26.0",
+      "selection": "100 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "100 rows, 1 selected. Table focus: Track 000099, Album 9.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 2,
+        "canvasWidth": 1800
+      }
+    },
+    {
+      "engine": "firefox",
+      "touch": false,
+      "shell": "web",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "pointer-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "142.0.1",
+      "selection": "1000 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "1000 rows, 1 selected. Table focus: Track 000999, Album 99.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 1,
+        "canvasWidth": 900
+      }
+    },
+    {
+      "engine": "firefox",
+      "touch": false,
+      "shell": "remote",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear",
+        "pointer-row-select",
+        "focus-control-and-keyboard-home-end",
+        "resize-retains-keyboard-table-input",
+        "no-media-loaded",
+        "no-page-errors"
+      ],
+      "result": "passed",
+      "stage": "viewport",
+      "version": "142.0.1",
+      "selection": "100 rows, 1 selected. Table focus: Track 000000, Album 0.",
+      "end": "100 rows, 1 selected. Table focus: Track 000099, Album 9.",
+      "viewport": {
+        "width": 900,
+        "height": 800,
+        "dpr": 1,
+        "canvasWidth": 900
+      }
+    },
+    {
+      "engine": "firefox",
+      "touch": true,
+      "shell": "web",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear"
+      ],
+      "result": "failed",
+      "stage": "row-selection",
+      "version": "142.0.1",
+      "failureType": "TimeoutError",
+      "observedSummary": "1000 rows, 0 selected. No track focused."
+    },
+    {
+      "engine": "firefox",
+      "touch": true,
+      "shell": "remote",
+      "checks": [
+        "unicode-filter-reaches-egui",
+        "text-arrow-does-not-select-table",
+        "exact-filter-and-clear"
+      ],
+      "result": "failed",
+      "stage": "row-selection",
+      "version": "142.0.1",
+      "failureType": "TimeoutError",
+      "observedSummary": "100 rows, 0 selected. No track focused."
+    }
+  ],
+  "bundles": {
+    "web/index.html": "cf69fe675e2dbb65a689f18e1755198f56ef5a6deac32670d2fba19946af48fd",
+    "web/app.js": "da698b9167f4617eb2ec2f27c7b5c4c7b931ba11bea464900a13ee63ff10932e",
+    "web/app_bg.wasm": "4932448b7a4194a6baa249872f83342b1fb9bf5b7912fd89958a90150bd36b87",
+    "remote/index.html": "cf69fe675e2dbb65a689f18e1755198f56ef5a6deac32670d2fba19946af48fd",
+    "remote/app.js": "241cb82126bcdc036032dedb64a1d22e234045a0c713fd4224f55f8b076ea851",
+    "remote/app_bg.wasm": "aa4e27e8bca72eae6c64b773da3beedec71f2971fb8d90704036061cf1b5f355"
+  },
+  "sources": {},
+  "interpretation": "Harness development snapshot, not application regression: DPR2 coordinates assumed DPR1 sizing; unanchored zero-row pattern could match 1000 rows before filter completion. Corrected count matcher and separate DPR1 touch journeys in final harness. Provisional bundle predates final IME guard.",
+  "coordinates_css_canvas_relative": {
+    "filter": [
+      180,
+      54
+    ],
+    "row": [
+      160,
+      225
+    ],
+    "focus_control": [
+      150,
+      142
+    ]
+  },
+  "local_screenshots_sha256": {
+    "p01-input-provisional-v4-results/firefox-true-remote-failure.png": "10bb0831043a8d22a104a904f4bbb19c5ab3639c20479e61c755c85145f3be5f",
+    "p01-input-provisional-v4-results/firefox-true-web-failure.png": "09e31c7af2249e60eb1bfc2a77a8d9fbfd91378a9bde2fbbe12bd982aa790223",
+    "p01-input-provisional-v4-results/chromium-true-remote-failure.png": "443aab1da52c5b45031d774d8e5b2cb6f9e8baf84b73ead5ffc0214c5ecb527e",
+    "p01-input-provisional-v4-results/chromium-true-web-failure.png": "afec9b9d2b5d13478739e3ebb3cd1d611cbfa2e872475aaff461c1ceeb07f329"
+  },
+  "harness_sha256": "ee20ae121b85af906b96078e32b707aa6a7082476cede762b74713d14b2cad08"
+}

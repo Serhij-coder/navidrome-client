@@ -6,6 +6,7 @@ use feishin_spike_model::{
 };
 use std::{sync::Arc, time::Duration};
 
+mod text_input;
 mod track_actions;
 
 pub const ROW_HEIGHT: f32 = 24.0;
@@ -40,6 +41,7 @@ pub struct SpikeApp {
     pending: bool,
     remote: bool,
     css: String,
+    composition: text_input::CompositionGuard,
     rtl: bool,
     visualizer: bool,
     pub analysis: Option<Analysis>,
@@ -51,6 +53,10 @@ pub struct SpikeApp {
     test_keyboard: Option<egui::Response>,
     #[cfg(test)]
     test_filter: Option<egui::Response>,
+    #[cfg(test)]
+    test_css: Option<egui::Response>,
+    #[cfg(test)]
+    test_text_section: Option<egui::Response>,
     #[cfg(test)]
     test_rows: Vec<(ViewRow, egui::Response)>,
     reorder_notice: Option<&'static str>,
@@ -91,6 +97,7 @@ impl SpikeApp {
             pending: false,
             remote,
             css: String::new(),
+            composition: text_input::CompositionGuard::default(),
             rtl: false,
             visualizer: false,
             analysis: None,
@@ -103,12 +110,32 @@ impl SpikeApp {
             #[cfg(test)]
             test_filter: None,
             #[cfg(test)]
+            test_css: None,
+            #[cfg(test)]
+            test_text_section: None,
+            #[cfg(test)]
             test_rows: Vec::new(),
             reorder_notice: None,
             scroll_to: None,
             track_actions: None,
             track_action_serial: 0,
         }
+    }
+
+    /// Bounded text alternative for browser integrations without an accessibility tree.
+    pub fn accessible_table_status(&self) -> String {
+        let focus = self
+            .selection
+            .focus
+            .and_then(|id| self.data.get(id))
+            .map(|record| format!("Table focus: {}, Album {}.", record.title, record.album))
+            .unwrap_or_else(|| "No track focused.".to_owned());
+        format!(
+            "{} rows, {} selected. {}",
+            self.rows.len(),
+            self.selection.selected.len(),
+            focus
+        )
     }
 
     pub fn set_artwork_visible(&mut self, visible: bool) {
@@ -195,7 +222,9 @@ impl SpikeApp {
             let mut changed = false;
             ui.horizontal_wrapped(|ui| {
                 let filter_label = ui.label("Filter tracks");
-                let filter = ui.add(egui::TextEdit::singleline(&mut self.query.text).char_limit(256)).labelled_by(filter_label.id).on_hover_text("Filter track title");
+                let filter_id = ui.make_persistent_id("track-filter");
+                self.composition.prepare(ctx, filter_id);
+                let filter = ui.add(egui::TextEdit::singleline(&mut self.query.text).id(filter_id).char_limit(256)).labelled_by(filter_label.id).on_hover_text("Filter track title");
                 #[cfg(test)]
                 { self.test_filter = Some(filter.clone()); }
                 changed |= filter.changed();
@@ -217,15 +246,23 @@ impl SpikeApp {
                 ui.label(format!("{} rows, {} selected", self.rows.len(), self.selection.selected.len()));
                 if self.pending { ui.label("Building latest view..."); }
             });
-            ui.collapsing("Column widths / CSS replacement report / text input", |ui| {
+            let text_section = ui.collapsing("Column widths / CSS replacement report / text input", |ui| {
                 for (index, width) in self.widths.iter_mut().enumerate() {
                     ui.add(egui::Slider::new(width, 70.0..=500.0).text(format!("Column {}", index + 1)));
                 }
                 let css_label = ui.label("Custom CSS (inert)");
-                ui.add(egui::TextEdit::multiline(&mut self.css).char_limit(65_536)).labelled_by(css_label.id);
+                let css_id = ui.make_persistent_id("inert-css");
+                self.composition.prepare(ctx, css_id);
+                let css = ui.add(egui::TextEdit::multiline(&mut self.css).id(css_id).char_limit(65_536)).labelled_by(css_label.id);
+                #[cfg(test)]
+                { self.test_css = Some(css.clone()); }
+                let _ = css;
                 ui.label(css_report(&self.css));
                 ui.label("IME / RTL probe: type your own text above. Fonts here are egui defaults; full script coverage is unverified.");
             });
+            #[cfg(test)]
+            { self.test_text_section = Some(text_section.header_response.clone()); }
+            let _ = text_section;
         });
         egui::CentralPanel::default().show(ctx, |ui| {
             if self.visualizer {
@@ -502,6 +539,7 @@ impl SpikeApp {
                 self.reorder(ctx, &source, before);
             }
         });
+        self.composition.finish(ctx);
         // No periodic repaint for a quiescent table. PCM producers request repaint.
         if self.pending {
             ctx.request_repaint_after(Duration::from_millis(50));
@@ -571,3 +609,7 @@ mod track_action_tests;
 #[cfg(all(test, unix))]
 #[path = "../../../tests/performance/concurrent.rs"]
 mod concurrent_probe;
+
+#[cfg(test)]
+#[path = "../../../tests/spike-ui/text_input.rs"]
+mod text_input_tests;

@@ -59,6 +59,17 @@ impl eframe::App for BrowserApp {
     fn update(&mut self, ctx: &eframe::egui::Context, _frame: &mut eframe::Frame) {
         *self.context.borrow_mut() = Some(ctx.clone());
         self.app.borrow_mut().show(ctx);
+        // Canvas widgets have no semantic DOM tree. Mirror the same synthetic
+        // table summary for browser assistive technology without exposing inputs.
+        if let Some(element) = web_sys::window()
+            .and_then(|window| window.document())
+            .and_then(|document| document.get_element_by_id("table-status"))
+        {
+            let summary = self.app.borrow().accessible_table_status();
+            if element.text_content().as_deref() != Some(summary.as_str()) {
+                element.set_text_content(Some(&summary));
+            }
+        }
         if let Some(media) = self.media.borrow().as_ref().and_then(Weak::upgrade) {
             media.refresh();
         }
@@ -345,6 +356,17 @@ pub async fn start(remote: bool) -> Result<(), JsValue> {
     let document = window
         .document()
         .ok_or_else(|| JsValue::from_str("document unavailable"))?;
+    if document.get_element_by_id("table-status").is_none() {
+        let summary = document.create_element("p")?;
+        summary.set_id("table-status");
+        summary.set_attribute("role", "status")?;
+        summary.set_attribute("aria-live", "polite")?;
+        summary.set_attribute("aria-atomic", "true")?;
+        document
+            .query_selector("main")?
+            .ok_or_else(|| JsValue::from_str("main unavailable"))?
+            .append_child(&summary)?;
+    }
     let canvas = document
         .get_element_by_id("canvas")
         .ok_or_else(|| JsValue::from_str("canvas unavailable"))?

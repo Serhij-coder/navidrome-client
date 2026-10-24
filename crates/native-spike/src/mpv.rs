@@ -14,6 +14,13 @@ pub enum AudioOutput {
     Pulse,
 }
 
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum NativePlaybackStatus {
+    Playing,
+    Paused,
+    Stopped,
+}
+
 pub struct Mpv {
     child: ManagedChild,
     socket: BufReader<Stream>,
@@ -90,6 +97,14 @@ impl Mpv {
         }
         result
     }
+    fn command_until(&mut self, command: Value, deadline: Instant) -> Result<Value, Error> {
+        remaining_time(deadline)?;
+        let result = self.exchange_until(command, deadline.min(Instant::now() + DEADLINE));
+        if result.is_err() {
+            self.active = false;
+        }
+        result
+    }
     fn exchange(&mut self, command: Value) -> Result<Value, Error> {
         self.exchange_until(command, Instant::now() + DEADLINE)
     }
@@ -153,6 +168,15 @@ impl Mpv {
     }
 
     pub fn load_local(&mut self, path: &Path, append: bool) -> Result<(), Error> {
+        self.load_local_until(path, append, Instant::now() + DEADLINE)
+    }
+    pub fn load_local_until(
+        &mut self,
+        path: &Path,
+        append: bool,
+        deadline: Instant,
+    ) -> Result<(), Error> {
+        remaining_time(deadline)?;
         // JSON IPC requires Unicode regardless of whether the host filesystem can
         // create or canonicalize an arbitrary Unix filename. Validate at entry.
         if path.to_str().is_none() {
@@ -163,23 +187,92 @@ impl Mpv {
             return Err(Error::InvalidInput);
         }
         let path = path.to_str().ok_or(Error::InvalidInput)?;
-        self.command(json!([
-            "loadfile",
-            path,
-            if append { "append" } else { "replace" }
-        ]))?;
+        self.command_until(
+            json!(["loadfile", path, if append { "append" } else { "replace" }]),
+            deadline,
+        )?;
         Ok(())
     }
     pub fn pause(&mut self, paused: bool) -> Result<(), Error> {
-        self.command(json!(["set_property", "pause", paused]))?;
+        self.pause_until(paused, Instant::now() + DEADLINE)
+    }
+    pub fn pause_until(&mut self, paused: bool, deadline: Instant) -> Result<(), Error> {
+        self.command_until(json!(["set_property", "pause", paused]), deadline)?;
         Ok(())
+    }
+    // A normally unavailable property while loading is not a corrupt transport.
+    // Invalid successful DTOs and other errors invalidate this owned IPC session.
+    fn read_property_until(&mut self, property: &str, deadline: Instant) -> Result<Value, Error> {
+        remaining_time(deadline)?;
+        match self.exchange_until(json!(["get_property", property]), deadline) {
+            Ok(value) => Ok(value),
+            Err(Error::PropertyUnavailable) => Err(Error::PropertyUnavailable),
+            Err(error) => {
+                self.active = false;
+                Err(error)
+            }
+        }
+    }
+    fn bool_property_until(&mut self, property: &str, deadline: Instant) -> Result<bool, Error> {
+        match self.read_property_until(property, deadline)?.as_bool() {
+            Some(value) => Ok(value),
+            None => {
+                self.active = false;
+                Err(Error::Protocol)
+            }
+        }
+    }
+    fn nonnegative_property_until(
+        &mut self,
+        property: &str,
+        deadline: Instant,
+    ) -> Result<f64, Error> {
+        match self
+            .read_property_until(property, deadline)?
+            .as_f64()
+            .filter(|v| v.is_finite() && *v >= 0.0)
+        {
+            Some(value) => Ok(value),
+            None => {
+                self.active = false;
+                Err(Error::Protocol)
+            }
+        }
+    }
+    /// Worker-only observed pause state, under the caller's remaining deadline.
+    pub fn paused_until(&mut self, deadline: Instant) -> Result<bool, Error> {
+        self.bool_property_until("pause", deadline)
+    }
+    /// Idle/EOF takes precedence over pause. Missing time-pos during loading is
+    /// explicitly unavailable, never inferred as Playing; all reads share budget.
+    pub fn playback_status_until(
+        &mut self,
+        deadline: Instant,
+    ) -> Result<NativePlaybackStatus, Error> {
+        if self.bool_property_until("idle-active", deadline)? {
+            return Ok(NativePlaybackStatus::Stopped);
+        }
+        self.probe_position(remaining_time(deadline)?)?
+            .ok_or(Error::PropertyUnavailable)?;
+        let paused = self.paused_until(deadline)?;
+        if self.bool_property_until("idle-active", deadline)? {
+            return Ok(NativePlaybackStatus::Stopped);
+        }
+        Ok(if paused {
+            NativePlaybackStatus::Paused
+        } else {
+            NativePlaybackStatus::Playing
+        })
     }
     /// Waits for command acknowledgement, not arrival at the requested position.
     pub fn seek(&mut self, seconds: f64) -> Result<(), Error> {
+        self.seek_until(seconds, Instant::now() + DEADLINE)
+    }
+    pub fn seek_until(&mut self, seconds: f64, deadline: Instant) -> Result<(), Error> {
         if !seconds.is_finite() || seconds < 0.0 {
             return Err(Error::InvalidInput);
         }
-        self.command(json!(["seek", seconds, "absolute+exact"]))?;
+        self.command_until(json!(["seek", seconds, "absolute+exact"]), deadline)?;
         Ok(())
     }
     /// Observe a current media position, independently of seek acknowledgement.
@@ -211,6 +304,60 @@ impl Mpv {
                 Err(error)
             }
         }
+    }
+    /// P01 single-source seek: ignore out-of-range absolute positions, reject
+    /// relative next-track transitions, then observe arrival under one deadline.
+    pub fn seek_observed_until(
+        &mut self,
+        seconds: f64,
+        relative: bool,
+        deadline: Instant,
+    ) -> Result<Option<f64>, Error> {
+        if !seconds.is_finite() {
+            return Err(Error::InvalidInput);
+        }
+        let duration = self.nonnegative_property_until("duration", deadline)?;
+        if duration == 0.0 {
+            return Err(Error::PropertyUnavailable);
+        }
+        let target = if relative {
+            let current = self
+                .probe_position(remaining_time(deadline)?)?
+                .ok_or(Error::PropertyUnavailable)?;
+            let target = current + seconds;
+            if !target.is_finite() || target > duration {
+                return Err(Error::Unsupported);
+            }
+            target.max(0.0)
+        } else {
+            if seconds < 0.0 || seconds > duration {
+                return Ok(None);
+            }
+            seconds
+        };
+        self.seek_until(target, deadline)?;
+        loop {
+            if let Some(position) = self.probe_position(remaining_time(deadline)?)?
+                && (position - target).abs() <= 0.1
+            {
+                return Ok(Some(position));
+            }
+            std::thread::sleep(remaining_time(deadline)?.min(Duration::from_millis(10)));
+        }
+    }
+    pub fn volume_percent_until(&mut self, deadline: Instant) -> Result<f64, Error> {
+        self.nonnegative_property_until("volume", deadline)
+    }
+    pub fn set_volume_percent_until(
+        &mut self,
+        percent: f64,
+        deadline: Instant,
+    ) -> Result<(), Error> {
+        if !percent.is_finite() || !(0.0..=100.0).contains(&percent) {
+            return Err(Error::InvalidInput);
+        }
+        self.command_until(json!(["set_property", "volume", percent]), deadline)?;
+        Ok(())
     }
     pub fn position(&mut self) -> Result<f64, Error> {
         self.probe_position(DEADLINE)?
