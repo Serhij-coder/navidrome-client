@@ -1,0 +1,198 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-27T07:41:10.235892+00:00",
+  "source_base": "96a8a6d4e21631a2f028c39b7aa2df4ce1aba28b",
+  "task_ids": [
+    "P01.05",
+    "P01.07"
+  ],
+  "status": "diagnostic-checks-and-two-reviews-complete-underlying-failure-unresolved",
+  "hosted": {
+    "run_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40467647446",
+    "conclusion": "failure",
+    "jobs": [
+      {
+        "id": 122066840092,
+        "name": "wasm",
+        "conclusion": "success",
+        "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40467647446/job/122066840092"
+      },
+      {
+        "id": 122066840398,
+        "name": "linux-appimage-smoke (ubuntu-24.04-arm, aarch64)",
+        "conclusion": "success",
+        "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40467647446/job/122066840398"
+      },
+      {
+        "id": 122066840416,
+        "name": "native (ubuntu-24.04)",
+        "conclusion": "success",
+        "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40467647446/job/122066840416"
+      },
+      {
+        "id": 122066840444,
+        "name": "portable-and-tooling",
+        "conclusion": "success",
+        "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40467647446/job/122066840444"
+      },
+      {
+        "id": 122066840502,
+        "name": "linux-appimage-smoke (ubuntu-24.04, x86_64)",
+        "conclusion": "failure",
+        "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40467647446/job/122066840502"
+      },
+      {
+        "id": 122066840503,
+        "name": "native (windows-latest)",
+        "conclusion": "success",
+        "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40467647446/job/122066840503"
+      },
+      {
+        "id": 122066840550,
+        "name": "native (macos-14)",
+        "conclusion": "success",
+        "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40467647446/job/122066840550"
+      }
+    ],
+    "failed_job_steps": [
+      {
+        "name": "Set up job",
+        "conclusion": "success",
+        "number": 1
+      },
+      {
+        "name": "Run actions/checkout@v4",
+        "conclusion": "success",
+        "number": 2
+      },
+      {
+        "name": "Run dtolnay/rust-toolchain@1.92.0",
+        "conclusion": "success",
+        "number": 3
+      },
+      {
+        "name": "Run sudo apt-get update && sudo apt-get install -y libx11-dev libxkbcommon-dev libxkbcommon-x11-0 libwayland-dev libwayland-egl1 libxcursor1 libxi6 libxrandr2 libxfixes3 libxrender1 libegl1-mesa-dev libgl1-mesa-dev libdbus-1-dev dbus-daemon xvfb xauth mpv ffmpeg pulseaudio file binutils libfuse2t64",
+        "conclusion": "success",
+        "number": 4
+      },
+      {
+        "name": "Run cargo build -p feishin-desktop --release --locked",
+        "conclusion": "success",
+        "number": 5
+      },
+      {
+        "name": "Exercise native command routing and private-bus media controls",
+        "conclusion": "failure",
+        "number": 6
+      },
+      {
+        "name": "Exercise owned audio and explicit monitor capture",
+        "conclusion": "skipped",
+        "number": 7
+      },
+      {
+        "name": "Run curl --fail --location 'https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage' --output /tmp/linuxdeploy.AppImage",
+        "conclusion": "skipped",
+        "number": 8
+      },
+      {
+        "name": "Run chmod +x /tmp/linuxdeploy.AppImage && python3 tools/app/package-appimage.py --linuxdeploy /tmp/linuxdeploy.AppImage",
+        "conclusion": "skipped",
+        "number": 9
+      },
+      {
+        "name": "Run artifact away from checkout and development profile",
+        "conclusion": "skipped",
+        "number": 10
+      },
+      {
+        "name": "Post Run actions/checkout@v4",
+        "conclusion": "success",
+        "number": 20
+      },
+      {
+        "name": "Complete job",
+        "conclusion": "success",
+        "number": 21
+      }
+    ],
+    "annotations": [
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/Serhij-coder/navidrome-client/blob/96a8a6d4e21631a2f028c39b7aa2df4ce1aba28b/.github",
+        "start_line": 2,
+        "start_column": null,
+        "end_line": 2,
+        "end_column": null,
+        "annotation_level": "warning",
+        "title": "",
+        "message": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+        "raw_details": ""
+      },
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/Serhij-coder/navidrome-client/blob/96a8a6d4e21631a2f028c39b7aa2df4ce1aba28b/.github",
+        "start_line": 142,
+        "start_column": null,
+        "end_line": 142,
+        "end_column": null,
+        "annotation_level": "failure",
+        "title": "",
+        "message": "Process completed with exit code 101.",
+        "raw_details": ""
+      }
+    ],
+    "detailed_log_access": "HTTP403; no browser available; user asked for failing identifier/assertion"
+  },
+  "source_sha256": {
+    ".github/workflows/app.yml": "8e67cda38914656ce4b8c33e4bae8b5d395d2df66f088e083f5192eaf443f012",
+    "tools/app/test-native.py": "a54710eee33b43f4485777ee3f4d4de4bb374718431ea0a049578ced913c2ec1",
+    "tests/tooling/test_p01_native_ci.py": "e28fde13bc163cd771e4e53c7d6fe79f36302e38daa487ec82df78a0f0e2b245"
+  },
+  "local_reproduction": {
+    "environment": "Task-owned Ubuntu24.04 x86_64 container; mpv0.37.0, Rust1.92.0; owned local tones/null output/private bus only",
+    "exact_original_probes": {
+      "cycles": 10,
+      "invocations": 30,
+      "failed": 0,
+      "probes": [
+        "control_session::real_mpv_control_routing",
+        "handoff::real_repeated_handoff_paused_readiness_seek_and_retired_controls",
+        "mpris::real_private_bus_mpv"
+      ]
+    },
+    "new_wrapper": {
+      "command": "python3 tools/app/test-native.py --native-controls",
+      "passed": 3,
+      "failed": 0
+    },
+    "hosted_cause_reproduced": false
+  },
+  "checks": {
+    "focused_python_passed": 5,
+    "tooling_ran": 77,
+    "tooling_passed": 69,
+    "tooling_optional_skipped": 8,
+    "python_syntax": "passed",
+    "whitespace": "passed",
+    "reference_checks": "Inventory verification, seven local analysis-tool tests and node --check tools/inventory-upstream.cjs passed",
+    "documentation_links": "python3 tools/app/check-p00.py and local inventory link validation passed"
+  },
+  "reviews": {
+    "correctness_architecture": {
+      "outcome": "No actionable findings",
+      "independent_checks": "Five focused CI-wrapper tests, tracked documentation/whitespace, source hashes, hosted job summary and scratchpad limit passed; no real mpv rerun"
+    },
+    "tests_edges_operations": {
+      "outcome": "No actionable findings",
+      "independent_checks": "Five focused CI-wrapper tests, Python syntax, documentation/whitespace, source hashes, scratchpad/evidence consistency passed; no real mpv or hosted rerun"
+    }
+  },
+  "limits": [
+    "No failing hosted test or assertion available; root cause unresolved",
+    "No Rust engine change, timeout relaxation or retry",
+    "No AppImage build/smoke completed in failed hosted x64 job",
+    "Local passing repetitions do not explain hosted failure or certify physical audio/platform behavior",
+    "New hosted diagnostic revision not yet observed; P01 remains open"
+  ]
+}

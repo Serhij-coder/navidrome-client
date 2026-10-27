@@ -18,14 +18,7 @@ def annotation(line):
     return f"::error title=Native Rust regression::{match[1]} failed; inspect the authenticated job log for assertion details" if match else None
 
 
-def main(argv=None):
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--external-audio", action="store_true",
-                        help="Run ignored native probes with an explicitly provisioned owned PulseAudio sink")
-    args = parser.parse_args(argv)
-    command = (["cargo", "test", "-p", "feishin-native-spike", "--test", "native",
-                "--locked", "--no-fail-fast", "--", "--ignored"] if args.external_audio else
-               ["cargo", "test", "--workspace", "--locked", "--no-fail-fast"])
+def run(command):
     process = subprocess.Popen(command,
                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     assert process.stdout is not None  # PIPE invariant, not external input.
@@ -34,6 +27,36 @@ def main(argv=None):
         if os.environ.get("GITHUB_ACTIONS") == "true" and (message := annotation(line)):
             print(message, flush=True)
     return process.wait()
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--external-audio", action="store_true",
+                      help="Run ignored native probes with an explicitly provisioned owned PulseAudio sink")
+    mode.add_argument("--native-controls", action="store_true",
+                      help="Run the three ignored mpv routing, handoff and owned-bus control probes")
+    args = parser.parse_args(argv)
+    if args.native_controls:
+        commands = [
+            ["cargo", "test", "-p", "feishin-native-spike", "--test", "control_session",
+             "real_mpv_control_routing", "--locked", "--", "--ignored", "--exact"],
+            ["cargo", "test", "-p", "feishin-native-spike", "--test", "handoff",
+             "real_repeated_handoff_paused_readiness_seek_and_retired_controls",
+             "--locked", "--", "--ignored", "--exact"],
+            ["cargo", "test", "-p", "feishin-native-spike", "--features", "mpris-probe",
+             "--test", "mpris", "real_private_bus_mpv", "--locked", "--", "--ignored", "--exact"],
+        ]
+    elif args.external_audio:
+        commands = [["cargo", "test", "-p", "feishin-native-spike", "--test", "native",
+                     "--locked", "--no-fail-fast", "--", "--ignored"]]
+    else:
+        commands = [["cargo", "test", "--workspace", "--locked", "--no-fail-fast"]]
+    for command in commands:
+        result = run(command)
+        if result:
+            return result
+    return 0
 
 
 if __name__ == "__main__":

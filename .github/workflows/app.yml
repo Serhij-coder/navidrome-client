@@ -76,10 +76,7 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install -y libx11-dev libxkbcommon-dev libxkbcommon-x11-0 libwayland-dev libwayland-egl1 libxcursor1 libxi6 libxrandr2 libxfixes3 libxrender1 libegl1-mesa-dev libgl1-mesa-dev libdbus-1-dev dbus-daemon xvfb xauth mpv ffmpeg pulseaudio file binutils libfuse2t64
       - run: cargo build -p feishin-desktop --release --locked
       - name: Exercise native command routing and private-bus media controls
-        run: |
-          cargo test -p feishin-native-spike --test control_session real_mpv_control_routing --locked -- --ignored --exact
-          cargo test -p feishin-native-spike --test handoff real_repeated_handoff_paused_readiness_seek_and_retired_controls --locked -- --ignored --exact
-          cargo test -p feishin-native-spike --features mpris-probe --test mpris real_private_bus_mpv --locked -- --ignored --exact
+        run: python3 tools/app/test-native.py --native-controls
       - name: Exercise owned audio and explicit monitor capture
         shell: bash
         run: |
