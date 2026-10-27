@@ -78,6 +78,7 @@ jobs:
       - name: Exercise native command routing and private-bus media controls
         run: |
           cargo test -p feishin-native-spike --test control_session real_mpv_control_routing --locked -- --ignored --exact
+          cargo test -p feishin-native-spike --test handoff real_repeated_handoff_paused_readiness_seek_and_retired_controls --locked -- --ignored --exact
           cargo test -p feishin-native-spike --features mpris-probe --test mpris real_private_bus_mpv --locked -- --ignored --exact
       - name: Exercise owned audio and explicit monitor capture
         shell: bash

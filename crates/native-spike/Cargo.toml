@@ -50,6 +50,10 @@ name = "control_session"
 path = "../../tests/native-spike/control_session.rs"
 
 [[test]]
+name = "handoff"
+path = "../../tests/native-spike/handoff.rs"
+
+[[test]]
 name = "mpris"
 path = "../../tests/native-spike/mpris.rs"
 required-features = ["mpris-probe"]

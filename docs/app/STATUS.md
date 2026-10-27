@@ -3,18 +3,19 @@
 - Stage: P01.01/P01.07 complete; P01.02-.06 and P01.08 have prototypes/evidence but open exit gates. No P02+ implementation.
 - Native UI: pinned Rust 1.92 / egui 0.33.3; Glow/wgpu candidates, separate web/remote WASM roots; keyboard Tab/arrows/Home/End and named controls.
 - Table: 100k virtual rows, bounded worker/artwork; multi-track/album-block moves with cancellation and stale-view rejection; 6000 CPU-only concurrent scrolling/sort/filter/group/playback/monitor samples, not presented frames.
-- Media: bounded native control owner and opt-in private-bus Linux MPRIS probe; Unix mpv and cross-checked Windows pipes; explicit ffplay/FFmpeg candidates remain unselected fallback prototypes.
+- Media: bounded native control owner, serialized same-mpv replacement and opt-in private-bus Linux MPRIS probe; Unix mpv/cross-checked Windows pipes; fallback candidate still unselected.
 - Capture: one-slot off-UI supervisor with generation isolation, suspend/re-enable/retry and real owned-monitor checks; no default host capture.
 - Browser: real disposable Navidrome FLAC/MP3 on three lab engines; six session callbacks, cancellable/deadlined play, lifecycle/reload checks; default interior seeks pass in the lab; Firefox/WebKit boundary/loop limits remain open.
 - Packaging/input: clean Ubuntu x86_64 AppImage 2fdfd508 passed 21 ELF/19 copyright checks, smoke/null-mpv, 15 clipboard/19 Orca; browser 14 pass/4 DPR2 limits; no physical/device certification.
-- Hosted daca831: all seven jobs passed, including Windows position assertions and both AppImage CPUs; earlier 55651db native failure remains unexplained, not a current CI failure. No P01 exit implied.
-- Latest checks: 70 default Rust; 40 optional-native; 75 Python with reference; real controller/private-bus/legacy mpv probes passed; format/default-WASM-Windows-wgpu Clippy passed; see increment evidence for limits.
+- Hosted 5e45529: all seven jobs passed, including both AppImage CPUs; see [saved result](p01/evidence/hosted-controls-input.json). This predates the handoff increment; no P01 exit.
+- Latest handoff checks: 78 default Rust/12 ignored; 8 handoff and 7 optional MPRIS fixtures; 67 Python pass/8 optional skips; real null-mpv handoff twice/controller pass; fmt/default/optional/Windows Clippy pass.
 - Records: [matrix](p01/README.md), [Orca/CI](p01/screen-reader.md), [Windows IPC](p01/windows-ipc.md), [native transition](p01/native-transitions.md), [migration](migration/p01-map.csv), [licenses](licenses/README.md).
 - Delivered P01.06 slice: Shift+F10 copy/focus and fresh menu-item IDs; local-display/session guard fixed; 15 clipboard/19 Orca checks rerun; 54 Rust/68 tooling and target Clippy/reference/link checks passed; both reviews satisfied. See [record](p01/track-actions.md).
 - Delivered continuation: native controls/MPRIS, IME/scaling, browser input and native package provenance; combined checks and both independent reviews passed. See [manifest](p01/evidence/controls-input-manifest.json).
 - Limits: one real MPRIS seek deadline remains unisolated after later passes; stale release-cache artifact is historical, replaced by verified clean release. See [controls](p01/native-controls.md), [input](p01/browser-input.md), [package](licenses/native-artifacts.md).
 - Open: calibrated physical budgets, renderer/input/IME/RTL/touch/screen-reader/OS matrix, Windows runtime/OS controls/capture, full native fallback and release licensing; no P01 exit.
-- P01.04: shared element/callback seek deadlines and fresh play status; all 54 lifecycle checks passed after review assertion fix; both reviews satisfied; native hosted failure stays open.
+- P01.04: shared element/callback seek deadlines and fresh play status; 54 lifecycle checks and both reviews passed; device/browser boundary gates remain open.
 - Delivered P01.05: bounded optional position query and paused readiness/seek probes implemented; 49 Rust/64 tooling tests, five real native probes and calibration/3-curve/19-transition capture regressions passed; both reviews satisfied; see [record](p01/native-position.md).
-- Next: native fallback/handoff and remaining calibrated performance, physical input/capture/platform and release-source obligations; P02 only after verified P01 exit.
+- Delivered: [serialized handoff](p01/native-handoff.md) checks and both reviews passed; operations independently reran real mpv. See [manifest](p01/evidence/native-handoff-manifest.json). No native fallback selected.
+- Next: evaluate one controllable fallback candidate with authenticated fixtures; calibrated performance, physical input/capture/platform and release-source obligations remain; P02 only after P01 exit.
 - Workflow: project-local Sol high orchestration, low/medium implementation, Luna xhigh research and two Sol medium reviews configured; see [setup and validation](development-workflow.md). No app phase gate changed.

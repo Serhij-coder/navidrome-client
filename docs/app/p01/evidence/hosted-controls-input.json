@@ -1,0 +1,59 @@
+{
+  "recorded_utc": "2026-10-27T07:28:35.827352+00:00",
+  "head_sha": "5e45529493580703fe2cf819c495dde1009340da",
+  "run_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40087611968",
+  "status": "completed",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "id": 120853636607,
+      "name": "linux-appimage-smoke (ubuntu-24.04-arm, aarch64)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40087611968/job/120853636607"
+    },
+    {
+      "id": 120853636609,
+      "name": "wasm",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40087611968/job/120853636609"
+    },
+    {
+      "id": 120853636647,
+      "name": "portable-and-tooling",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40087611968/job/120853636647"
+    },
+    {
+      "id": 120853636652,
+      "name": "native (ubuntu-24.04)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40087611968/job/120853636652"
+    },
+    {
+      "id": 120853636701,
+      "name": "native (macos-14)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40087611968/job/120853636701"
+    },
+    {
+      "id": 120853636880,
+      "name": "native (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40087611968/job/120853636880"
+    },
+    {
+      "id": 120853636907,
+      "name": "linux-appimage-smoke (ubuntu-24.04, x86_64)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40087611968/job/120853636907"
+    }
+  ],
+  "scope": "Previous 5e45529 controls/input/provenance increment only. All seven jobs passed, including both Linux AppImage architectures. This does not validate the new native handoff increment or close P01."
+}

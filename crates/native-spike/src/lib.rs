@@ -147,3 +147,8 @@ pub use control_session::{
 mod mpris;
 #[cfg(all(target_os = "linux", feature = "mpris-probe"))]
 pub use mpris::{MPRIS_TRACK_PATH, MprisProbe, micros_to_seconds, seconds_to_micros};
+
+#[cfg(any(unix, windows))]
+mod handoff;
+#[cfg(any(unix, windows))]
+pub use handoff::{HANDOFF_CAPACITY, HandoffFailure, HandoffReply, HandoffRequest, HandoffSession};

@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-27T07:29:31.659724+00:00",
+  "source_base": "5e45529493580703fe2cf819c495dde1009340da",
+  "task_ids": [
+    "P01.05"
+  ],
+  "status": "checks-and-two-independent-reviews-complete",
+  "scope": "Serialized same-mpv control endpoint replacement; no source restore, alternative engine selection, production handoff/fallback or P01 exit",
+  "source_sha256": {
+    ".github/workflows/app.yml": "a9fa9617cc49e793899e8d11e70878df724decc898e9b93385214491e79fb5be",
+    "crates/native-spike/Cargo.toml": "7ae1c62b7290917fb3cbdbdd86e08d3b03f7f324204a523d0d671279719cd66f",
+    "crates/native-spike/src/lib.rs": "d62ac3af8edca96d68068dc8dfb517b1e0473d0be9e084534e03cd31e22602af",
+    "crates/native-spike/src/handoff.rs": "33b890846b8f1e1cd60abb259bf74a9c50246d3a63a2c354934ce228e1d94652",
+    "tests/native-spike/handoff.rs": "653409f762c5666a1f4a596be7c6650d8155801b1b182917ac44797785541c6f",
+    "tests/native-spike/handoff_peer.py": "2fba98ead4b73baa311059f3576c4f44957c545d4f88bbe640a33ae83f16a50d"
+  },
+  "checks": {
+    "workspace": {
+      "command": "cargo test --workspace --locked",
+      "passed": 78,
+      "ignored": 12
+    },
+    "handoff": {
+      "passed": 8,
+      "ignored_real_probe": 1
+    },
+    "optional_linux_mpris": {
+      "passed": 7,
+      "ignored_real_probe": 1,
+      "command": "cargo test -p feishin-native-spike --features mpris-probe --test mpris --locked"
+    },
+    "lint": [
+      "cargo fmt --all -- --check",
+      "cargo clippy --workspace --all-targets --locked -- -D warnings",
+      "cargo clippy -p feishin-native-spike --features mpris-probe --all-targets --locked -- -D warnings",
+      "cargo clippy -p feishin-native-spike --all-targets --target x86_64-pc-windows-msvc --locked -- -D warnings"
+    ],
+    "tooling": {
+      "ran": 75,
+      "passed": 67,
+      "skipped_missing_optional_reference_inputs": 8
+    },
+    "reference": {
+      "inventory": "passed",
+      "analysis_tool_tests_passed": 7,
+      "node_inventory_syntax": "passed"
+    },
+    "real_mpv": {
+      "environment": "Fresh task-owned Ubuntu 24.04 x86_64 container; Rust 1.92.0, mpv 0.37.0, FFmpeg 6.1.1-3ubuntu5; no host session/audio access",
+      "handoff_probe": "passed twice; four replacement/load/readiness/seek cycles per invocation; second invocation uses final test source",
+      "existing_control_routing": "passed",
+      "output": "null, owned local tone only",
+      "device_or_gapless_certification": false
+    },
+    "documentation": "Tracked/local links, all 29 P01 migration anchors/evidence paths, source hashes and git diff --check passed"
+  },
+  "upstream_characterization": {
+    "baseline": "7d6ad318c79802e226996cfc39acba6b05bb22e8",
+    "fallback_signal": "src/main/features/core/player/index.ts:305:32",
+    "renderer_subscriber": "src/renderer/features/player/components/audio-players.tsx:203:50",
+    "restart": "src/main/features/core/player/index.ts:331:5",
+    "finding": "Inspected fallback subscriber logs notification; configured player type selects engine. No automatic type-changing consumer observed. Static source finding only."
+  },
+  "corrections": [
+    "Publish terminal stopped state before cleanup-error replies so subsequent admission cannot race observed terminal failure",
+    "Readiness/seek observation helper now caps query and wait by one shared remaining budget; 80ms stalled-query regression passed",
+    "Windows all-target Clippy found a Unix-only Path import; cfg-gated import and affected Windows/host checks passed"
+  ],
+  "reviews": {
+    "correctness_architecture": {
+      "outcome": "No actionable findings",
+      "inspected": "Actual implementation, tests, CI, docs, migration/evidence and archived upstream fallback source",
+      "independent_checks": "8 handoff tests passed/1 real probe ignored; native all-target Clippy, tracked docs/whitespace, source digests and migration anchors passed; no independent real mpv/device run"
+    },
+    "tests_edges_operations": {
+      "outcome": "No actionable findings",
+      "inspected": "Actual implementation/tests/CI/docs, bounds/cleanup/stale generations, explicit limitations",
+      "independent_checks": "8 handoff tests passed/1 ignored; real mpv four-replacement readiness/seek probe passed; Windows MSVC all-target Clippy, manifest hashes, fixture syntax/executable mode, docs/whitespace passed"
+    }
+  },
+  "limits": [
+    "Success installs endpoint only; async startup/source/device readiness is separate",
+    "Same-engine local-file replacement only; no authenticated source/position/queue/settings/capture/OS session restoration",
+    "Conservative cleanup failure latch also covers missing-binary startup errors; fresh supervisor required",
+    "Seven-second cleanup budget does not certify OS scheduling or kill/reap; unconfirmed worker may continue owning cleanup",
+    "Fixture lifecycle runs are Unix; Windows target checked by compilation only; no new Windows/macOS runtime evidence",
+    "No automatic fallback or alternative native engine adopted; GStreamer/libmpv are unimplemented candidates",
+    "No new AppImage build, physical audio/input/capture/performance calibration or P01 exit"
+  ]
+}
