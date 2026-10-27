@@ -1,0 +1,59 @@
+{
+  "recorded_utc": "2026-10-27T07:48:09.990937+00:00",
+  "head_sha": "b10c2acbf88c7339b0532a8361945f2469f84474",
+  "run_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40468735553",
+  "status": "completed",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "id": 122070393132,
+      "name": "portable-and-tooling",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40468735553/job/122070393132"
+    },
+    {
+      "id": 122070393343,
+      "name": "native (ubuntu-24.04)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40468735553/job/122070393343"
+    },
+    {
+      "id": 122070393421,
+      "name": "wasm",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40468735553/job/122070393421"
+    },
+    {
+      "id": 122070393426,
+      "name": "linux-appimage-smoke (ubuntu-24.04, x86_64)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40468735553/job/122070393426"
+    },
+    {
+      "id": 122070393439,
+      "name": "linux-appimage-smoke (ubuntu-24.04-arm, aarch64)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40468735553/job/122070393439"
+    },
+    {
+      "id": 122070393486,
+      "name": "native (macos-14)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40468735553/job/122070393486"
+    },
+    {
+      "id": 122070393499,
+      "name": "native (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40468735553/job/122070393499"
+    }
+  ],
+  "scope": "All seven jobs passed after native-control diagnostic wrapper change; includes x86_64 and aarch64 AppImage smoke. No engine, timeout or retry change. This passing run does not establish the cause or resolution of original 96a8a6d native-probe failure; P01 remains open."
+}

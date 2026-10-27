@@ -7,7 +7,7 @@
 - Capture: one-slot off-UI supervisor with generation isolation, suspend/re-enable/retry and real owned-monitor checks; no default host capture.
 - Browser: real disposable Navidrome FLAC/MP3 on three lab engines; six session callbacks, cancellable/deadlined play, lifecycle/reload checks; default interior seeks pass in the lab; Firefox/WebKit boundary/loop limits remain open.
 - Packaging/input: clean Ubuntu x86_64 AppImage 2fdfd508 passed 21 ELF/19 copyright checks, smoke/null-mpv, 15 clipboard/19 Orca; browser 14 pass/4 DPR2 limits; no physical/device certification.
-- Hosted 96a8a6d: six jobs passed; x64 native-control step failed before AppImage packaging. Assertion unavailable (logs403); see [diagnostic record](p01/native-probe-ci.md). Prior 5e45529 all green.
+- Hosted b10c2ac: all seven jobs passed, including both AppImage CPUs; see [result](p01/evidence/hosted-native-probe-diagnostics.json). Prior 96a8a6d x64 probe failed before packaging; cause remains unknown.
 - Latest handoff checks: 78 default Rust/12 ignored; 8 handoff and 7 optional MPRIS fixtures; 67 Python pass/8 optional skips; real null-mpv handoff twice/controller pass; fmt/default/optional/Windows Clippy pass.
 - Records: [matrix](p01/README.md), [Orca/CI](p01/screen-reader.md), [Windows IPC](p01/windows-ipc.md), [native transition](p01/native-transitions.md), [migration](migration/p01-map.csv), [licenses](licenses/README.md).
 - Delivered P01.06 slice: Shift+F10 copy/focus and fresh menu-item IDs; local-display/session guard fixed; 15 clipboard/19 Orca checks rerun; 54 Rust/68 tooling and target Clippy/reference/link checks passed; both reviews satisfied. See [record](p01/track-actions.md).
@@ -17,6 +17,6 @@
 - P01.04: shared element/callback seek deadlines and fresh play status; 54 lifecycle checks and both reviews passed; device/browser boundary gates remain open.
 - Delivered P01.05: bounded optional position query and paused readiness/seek probes implemented; 49 Rust/64 tooling tests, five real native probes and calibration/3-curve/19-transition capture regressions passed; both reviews satisfied; see [record](p01/native-position.md).
 - Delivered: [serialized handoff](p01/native-handoff.md) checks and both reviews passed; operations independently reran real mpv. See [manifest](p01/evidence/native-handoff-manifest.json). No native fallback selected.
-- Active: native-probe CI annotation mode implemented; 30 exact local probe invocations + wrapper3 pass; focused5/full69 Python pass/8 optional skips. Both independent reviews passed; failure cause unresolved.
-- Next: obtain failed assertion/annotated hosted result and reproduce/fix before continuing fallback selection. Physical/platform/licensing gates remain; P02 only after P01 exit.
+- Delivered: native-probe CI annotations and both reviews passed; 30 exact local invocations + wrapper 3 pass; focused 5/full 69 Python pass/8 optional skips. New hosted run all green; original failure cause unresolved.
+- Next: continue fallback candidate feasibility; if native-probe failure recurs, inspect annotated test/assertion and reproduce/fix it. Physical/platform/licensing gates remain; P02 only after P01 exit.
 - Workflow: project-local Sol high orchestration, low/medium implementation, Luna xhigh research and two Sol medium reviews configured; see [setup and validation](development-workflow.md). No app phase gate changed.
