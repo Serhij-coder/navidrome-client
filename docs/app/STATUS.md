@@ -13,4 +13,5 @@
 - Limits: prior96a8a6d CI failure and one real MPRIS seek deadline remain unexplained; passing repetitions do not resolve their cause. Source/record links retain historical evidence.
 - Records: [P01 matrix](p01/README.md), [migration](migration/p01-map.csv), [input/Orca](p01/screen-reader.md), [playback ADR](adr/003-playback-boundaries.md), [licenses](licenses/README.md).
 - Next: resolve sequencing decision. Prefer portable P02 foundations then a partial Navidrome vertical slice if authorized; no more independent P01 expansion without a concrete blocker.
-- Workflow: project-local Sol high orchestration, bounded low/medium implementers, read-only research and exactly two final role reviews; orchestrator owns commit/push. See [setup](development-workflow.md).
+- Workflow: Sol high orchestration, Terra medium implementation, Sol medium escalation, Luna high research and one combined Sol medium review; compact contexts/batched delivery. See [setup](development-workflow.md).
+- Workflow checks (2026-10-28): strict config/read, five TOMLs/role assertions, tracked links, inventory, seven local reference tests and Node syntax passed; app-task cost/quality pilot remains unmeasured.
