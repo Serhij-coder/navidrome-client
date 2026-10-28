@@ -46,6 +46,12 @@ jobs:
           sudo apt-get update && sudo apt-get install -y dbus-daemon
           cargo clippy -p feishin-native-spike --features mpris-probe --all-targets --locked -- -D warnings
           cargo test -p feishin-native-spike --features mpris-probe --test mpris --locked
+      - name: Check isolated optional GStreamer candidate
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update && sudo apt-get install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-libav
+          cargo clippy -p feishin-native-spike --features gst-probe --all-targets --locked -- -D warnings
+          python tools/app/test-native.py --gstreamer-probe
       - run: cargo clippy -p feishin-desktop --no-default-features --features wgpu --all-targets --locked -- -D warnings
       - run: cargo build -p feishin-desktop --release --locked
   wasm:
@@ -77,6 +83,11 @@ jobs:
       - run: cargo build -p feishin-desktop --release --locked
       - name: Exercise native command routing and private-bus media controls
         run: python3 tools/app/test-native.py --native-controls
+      - name: Compare isolated GStreamer and mpv codec fixtures
+        run: |
+          sudo apt-get update && sudo apt-get install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-libav
+          python3 tools/app/test-native.py --gstreamer-probe
+          python3 tools/app/test-native.py --gstreamer-codecs
       - name: Exercise owned audio and explicit monitor capture
         shell: bash
         run: |

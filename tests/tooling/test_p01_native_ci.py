@@ -34,6 +34,11 @@ class NativeCiTests(unittest.TestCase):
             ([], ["cargo", "test", "--workspace", "--locked", "--no-fail-fast"]),
             (["--external-audio"], ["cargo", "test", "-p", "feishin-native-spike", "--test", "native",
                                     "--locked", "--no-fail-fast", "--", "--ignored"]),
+            (["--gstreamer-probe"], ["cargo", "test", "-p", "feishin-native-spike", "--features", "gst-probe",
+                                      "--lib", "--test", "gst_probe", "--locked"]),
+            (["--gstreamer-codecs"], ["cargo", "test", "-p", "feishin-native-spike", "--features", "gst-probe",
+                                       "--test", "gst_probe", "real_gst_and_mpv_authenticated_codec_comparison",
+                                       "--locked", "--", "--ignored", "--exact"]),
         ]:
             with self.subTest(arguments=arguments):
                 process = mock.Mock()
@@ -107,6 +112,10 @@ class NativeCiTests(unittest.TestCase):
 
     def test_modes_are_mutually_exclusive_and_reject_options_before_running(self):
         for arguments in (["--native-controls", "--external-audio"],
+                          ["--gstreamer-probe", "--gstreamer-codecs"],
+                          ["--gstreamer-probe", "--external-audio"],
+                          ["--gstreamer-codecs", "--native-controls"],
+                          ["--gstreamer-probe", "--unrecognized"],
                           ["--native-controls", "--unrecognized"]):
             with self.subTest(arguments=arguments), \
                  mock.patch.object(ci.subprocess, "Popen") as popen, \

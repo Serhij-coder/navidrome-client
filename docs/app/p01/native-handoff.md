@@ -24,10 +24,10 @@ The upstream restart handler at main-player lines 331-359 requests quit without 
 | --- | --- | --- |
 | Managed mpv | Local-file IPC, current/next, observed seek, control ownership and this serialized replacement probe | Authenticated streams, full device/DSP/OS behavior and supported-platform runtime matrix |
 | ffplay/SDL | Existing initial-seek, dummy-output decode and process-lifetime probe | No command IPC in the current candidate; dynamic pause/seek/device/authenticated handoff remain unsupported |
-| GStreamer playbin | A possible controllable alternative; host runtime tools/libraries were found during read-only investigation | No Rust integration, development-library/build verification, measured playback matrix or plugin/license packaging audit |
+| GStreamer playbin | [Opt-in isolated Rust helper](gstreamer-candidate.md); local/query-authenticated loopback WAV/FLAC/MP3 controls and seek observations passed on Ubuntu x86_64 | No production fallback/source restoration, real device/DSP/capture/OS, calibrated performance, platform or complete plugin/license packaging gate |
 | Embedded libmpv | A possible existing engine boundary; no implementation in this workspace | Library availability, safe resource/FFI boundary, licensing/distribution and target evidence; embedding alone does not demonstrate an independent missing-mpv fallback |
 
-The next fallback experiment should compare one controllable alternative against managed mpv using owned WAV/FLAC/MP3 and loopback-authenticated HTTP fixtures. It must observe pause/resume, seek arrival, end/current-next behavior, failure cleanup, device/gain capability and resource cost, then verify native/plugin notices and clean packaging. These are planned checks, not current results. No dependency was added for an unmeasured candidate.
+The [candidate comparison](gstreamer-candidate.md) now demonstrates one controllable alternative against managed mpv using owned WAV/FLAC/MP3 and HTTP with loopback query authentication. Pause/resume, observed seek, single-source EOS, failure cleanup and basic volume have bounded lab evidence. Production fallback still needs current/next and cross-engine source restoration, device/gain coverage, resource cost, complete native/plugin notices and clean target packaging. The optional candidate dependency is not an engine selection.
 
 ## Reproduction and evidence
 

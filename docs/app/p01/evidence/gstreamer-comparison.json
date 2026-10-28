@@ -1,0 +1,151 @@
+{
+  "cases": [
+    {
+      "codec": "wav",
+      "engine": "gstreamer",
+      "load_ack_ms": 13,
+      "observations": {
+        "paused_position_seconds": 1.504549159,
+        "ready_ms": 0,
+        "seek_ms": 0,
+        "seek_position_seconds": 1.25
+      },
+      "source": "local"
+    },
+    {
+      "codec": "wav",
+      "engine": "gstreamer",
+      "load_ack_ms": 22,
+      "observations": {
+        "paused_position_seconds": 1.502763619,
+        "ready_ms": 0,
+        "seek_ms": 5,
+        "seek_position_seconds": 1.25
+      },
+      "source": "authenticated-loopback"
+    },
+    {
+      "codec": "flac",
+      "engine": "gstreamer",
+      "load_ack_ms": 14,
+      "observations": {
+        "paused_position_seconds": 1.504304086,
+        "ready_ms": 0,
+        "seek_ms": 5,
+        "seek_position_seconds": 1.25
+      },
+      "source": "local"
+    },
+    {
+      "codec": "flac",
+      "engine": "gstreamer",
+      "load_ack_ms": 28,
+      "observations": {
+        "paused_position_seconds": 1.500339394,
+        "ready_ms": 0,
+        "seek_ms": 5,
+        "seek_position_seconds": 1.25
+      },
+      "source": "authenticated-loopback"
+    },
+    {
+      "codec": "mp3",
+      "engine": "gstreamer",
+      "load_ack_ms": 14,
+      "observations": {
+        "paused_position_seconds": 1.501824227,
+        "ready_ms": 0,
+        "seek_ms": 5,
+        "seek_position_seconds": 1.25
+      },
+      "source": "local"
+    },
+    {
+      "codec": "mp3",
+      "engine": "gstreamer",
+      "load_ack_ms": 25,
+      "observations": {
+        "paused_position_seconds": 1.501588271,
+        "ready_ms": 0,
+        "seek_ms": 5,
+        "seek_position_seconds": 1.25
+      },
+      "source": "authenticated-loopback"
+    },
+    {
+      "codec": "wav",
+      "engine": "mpv",
+      "load_ack_ms": 0,
+      "observations": {
+        "paused_position_seconds": 1.500983,
+        "ready_ms": 10,
+        "seek_ms": 0,
+        "seek_position_seconds": 1.25
+      },
+      "source": "local"
+    },
+    {
+      "codec": "wav",
+      "engine": "mpv",
+      "load_ack_ms": 0,
+      "observations": {
+        "paused_position_seconds": 1.501472,
+        "ready_ms": 10,
+        "seek_ms": 0,
+        "seek_position_seconds": 1.249979
+      },
+      "source": "authenticated-loopback"
+    },
+    {
+      "codec": "flac",
+      "engine": "mpv",
+      "load_ack_ms": 0,
+      "observations": {
+        "paused_position_seconds": 1.55123,
+        "ready_ms": 5,
+        "seek_ms": 0,
+        "seek_position_seconds": 1.25
+      },
+      "source": "local"
+    },
+    {
+      "codec": "flac",
+      "engine": "mpv",
+      "load_ack_ms": 0,
+      "observations": {
+        "paused_position_seconds": 1.552221,
+        "ready_ms": 10,
+        "seek_ms": 0,
+        "seek_position_seconds": 1.25
+      },
+      "source": "authenticated-loopback"
+    },
+    {
+      "codec": "mp3",
+      "engine": "mpv",
+      "load_ack_ms": 0,
+      "observations": {
+        "paused_position_seconds": 1.501981,
+        "ready_ms": 15,
+        "seek_ms": 0,
+        "seek_position_seconds": 1.25
+      },
+      "source": "local"
+    },
+    {
+      "codec": "mp3",
+      "engine": "mpv",
+      "load_ack_ms": 0,
+      "observations": {
+        "paused_position_seconds": 1.50225,
+        "ready_ms": 10,
+        "seek_ms": 0,
+        "seek_position_seconds": 1.25
+      },
+      "source": "authenticated-loopback"
+    }
+  ],
+  "http_range_requests": 6,
+  "schema": 1,
+  "scope": "Owned WAV/FLAC/MP3, two engines, local/authenticated loopback, null output; no production fallback or device/audio certification"
+}

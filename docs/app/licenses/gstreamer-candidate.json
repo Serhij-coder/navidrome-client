@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-27T08:53:40.796726+00:00",
+  "scope": "External Ubuntu24.04 x86_64 candidate lab package inspection, not actual loaded-plugin closure or distribution approval",
+  "gstreamer_runtime": "1.24.2",
+  "packages": [
+    {
+      "binary_package": "libgstreamer1.0-0:amd64",
+      "binary_version": "1.24.2-1ubuntu0.1",
+      "source_package": "gstreamer1.0",
+      "source_version": "1.24.2-1ubuntu0.1",
+      "copyright_path": "/usr/share/doc/libgstreamer1.0-0/copyright",
+      "copyright_sha256": "de00f8e299a9ed1bd23e7a0c2fe31051c8f99546359be75f33b98e3f0328d68a",
+      "copyright_bytes": 22328
+    },
+    {
+      "binary_package": "gstreamer1.0-plugins-base:amd64",
+      "binary_version": "1.24.2-1ubuntu0.5",
+      "source_package": "gst-plugins-base1.0",
+      "source_version": "1.24.2-1ubuntu0.5",
+      "copyright_path": "/usr/share/doc/gstreamer1.0-plugins-base/copyright",
+      "copyright_sha256": "1562456a438eb6d92bd04548bc136c5459edc486eea33230470a2ca13c18a9ed",
+      "copyright_bytes": 36312
+    },
+    {
+      "binary_package": "libgstreamer-plugins-base1.0-0:amd64",
+      "binary_version": "1.24.2-1ubuntu0.5",
+      "source_package": "gst-plugins-base1.0",
+      "source_version": "1.24.2-1ubuntu0.5",
+      "copyright_path": "/usr/share/doc/libgstreamer-plugins-base1.0-0/copyright",
+      "copyright_sha256": "1562456a438eb6d92bd04548bc136c5459edc486eea33230470a2ca13c18a9ed",
+      "copyright_bytes": 36312
+    },
+    {
+      "binary_package": "gstreamer1.0-plugins-good:amd64",
+      "binary_version": "1.24.2-1ubuntu1.8",
+      "source_package": "gst-plugins-good1.0",
+      "source_version": "1.24.2-1ubuntu1.8",
+      "copyright_path": "/usr/share/doc/gstreamer1.0-plugins-good/copyright",
+      "copyright_sha256": "c1a226c041d0ae675a5f276a677b55c593b3d00cd24253f3530db388e68acb0f",
+      "copyright_bytes": 54479
+    },
+    {
+      "binary_package": "libgstreamer-plugins-good1.0-0:amd64",
+      "binary_version": "1.24.2-1ubuntu1.8",
+      "source_package": "gst-plugins-good1.0",
+      "source_version": "1.24.2-1ubuntu1.8",
+      "copyright_path": "/usr/share/doc/libgstreamer-plugins-good1.0-0/copyright",
+      "copyright_sha256": "c1a226c041d0ae675a5f276a677b55c593b3d00cd24253f3530db388e68acb0f",
+      "copyright_bytes": 54479
+    },
+    {
+      "binary_package": "gstreamer1.0-libav:amd64",
+      "binary_version": "1.24.1-1build1",
+      "source_package": "gst-libav1.0",
+      "source_version": "1.24.1-1build1",
+      "copyright_path": "/usr/share/doc/gstreamer1.0-libav/copyright",
+      "copyright_sha256": "2ed6eb3fc90895ca9947dc0d0aff64672f42e4f0dfb0ee1c252c01c72d8945c3",
+      "copyright_bytes": 1815
+    },
+    {
+      "binary_package": "libsoup-3.0-0:amd64",
+      "binary_version": "3.4.4-5ubuntu0.5",
+      "source_package": "libsoup3",
+      "source_version": "3.4.4-5ubuntu0.5",
+      "copyright_path": "/usr/share/doc/libsoup-3.0-0/copyright",
+      "copyright_sha256": "d567c723cb0876e3f78a034df36a218b458430a89de287d0974efd1032900bc4",
+      "copyright_bytes": 3968
+    }
+  ],
+  "source_evidence": {
+    "archive_url": "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.24.2.tar.xz",
+    "archive_published_sha256": "6e347c72d4b8b2886d890ffe9f6767a9edb02f201588e8c3a572dcd08d9852bd",
+    "source_file": "ext/soup/gstsouphttpsrc.c",
+    "source_sha256": "5a473dcabbda7b9de5062cf9241eecb70c7c7e77f7ffcb792287942a5c74b948",
+    "observed_semantics": "http_proxy initialization; empty proxy clears explicit resolver setting; automatic-redirect=false uses SOUP_MESSAGE_NO_REDIRECT; libsoup default session resolver may still use system configuration"
+  },
+  "rust_registry_notice_sets": 395,
+  "new_registry_packages": 24,
+  "preexisting_versions_changed": 0,
+  "registry_license_notes": [
+    "option-operations0.6.1 declares legacy MIT/Apache-2.0; inventory preserves published spelling and both texts",
+    "target-lexicon0.13.5 declares Apache-2.0 WITH LLVM-exception"
+  ],
+  "limits": [
+    "No helper or native GStreamer bundled in default AppImage",
+    "Inspected installed factories/packages do not identify actual selected decoders or complete native library closure",
+    "No comprehensive desktop/system proxy resolver bypass verified; only owned lab configuration used",
+    "Native/core/plugin/codec corresponding-source and exact target distribution review remain open",
+    "Exploratory all-features notice collection hit preexisting block0.1.6 missing standalone license; selected gst-probe graph collection succeeded"
+  ]
+}

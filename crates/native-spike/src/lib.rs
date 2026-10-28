@@ -152,3 +152,8 @@ pub use mpris::{MPRIS_TRACK_PATH, MprisProbe, micros_to_seconds, seconds_to_micr
 mod handoff;
 #[cfg(any(unix, windows))]
 pub use handoff::{HANDOFF_CAPACITY, HandoffFailure, HandoffReply, HandoffRequest, HandoffSession};
+
+#[cfg(all(target_os = "linux", feature = "gst-probe"))]
+mod probe_source;
+#[cfg(all(target_os = "linux", feature = "gst-probe"))]
+pub use probe_source::validate_loopback_probe_url;

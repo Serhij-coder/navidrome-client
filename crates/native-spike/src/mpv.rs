@@ -32,10 +32,39 @@ pub struct Mpv {
 
 impl Mpv {
     pub fn start(binary: &Path, generation: u64, output: AudioOutput) -> Result<Self, Error> {
+        Self::start_configured(binary, generation, output, false)
+    }
+
+    /// Isolated null-output fixture launch. Child proxy environment is cleared;
+    /// this does not change the caller's environment or the normal launch path.
+    #[cfg(all(target_os = "linux", feature = "gst-probe"))]
+    pub fn start_loopback_probe(binary: &Path, generation: u64) -> Result<Self, Error> {
+        Self::start_configured(binary, generation, AudioOutput::Null, true)
+    }
+
+    fn start_configured(
+        binary: &Path,
+        generation: u64,
+        output: AudioOutput,
+        fixture_proxy_policy: bool,
+    ) -> Result<Self, Error> {
         let directory = ipc_directory()?;
         let path = transport::endpoint(&directory)?;
         let connector = Connector::new()?;
         let mut command = child_command(binary);
+        if fixture_proxy_policy {
+            for variable in [
+                "http_proxy",
+                "HTTP_PROXY",
+                "https_proxy",
+                "HTTPS_PROXY",
+                "all_proxy",
+                "ALL_PROXY",
+            ] {
+                command.env_remove(variable);
+            }
+            command.env("no_proxy", "*").env("NO_PROXY", "*");
+        }
         command.args([
             "--no-config",
             "--load-scripts=no",
@@ -169,6 +198,19 @@ impl Mpv {
 
     pub fn load_local(&mut self, path: &Path, append: bool) -> Result<(), Error> {
         self.load_local_until(path, append, Instant::now() + DEADLINE)
+    }
+    /// Developer-only owned HTTP fixture input. Run outside UI/async executors.
+    /// The fixture must not redirect: mpv's redirect policy is not constrained
+    /// by validation of this initial URL. This is not a production source API.
+    #[cfg(all(target_os = "linux", feature = "gst-probe"))]
+    pub fn load_loopback_probe_url(&mut self, source: &str, append: bool) -> Result<(), Error> {
+        crate::validate_loopback_probe_url(source)?;
+        self.command(json!([
+            "loadfile",
+            source,
+            if append { "append" } else { "replace" }
+        ]))?;
+        Ok(())
     }
     pub fn load_local_until(
         &mut self,

@@ -78,10 +78,14 @@ def collect(metadata, output, root=ROOT):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("output", type=Path)
+    parser.add_argument("--features", help="Explicit Cargo feature selection for the notice inventory")
     args = parser.parse_args()
-    metadata = json.loads(subprocess.check_output(["cargo", "metadata", "--locked", "--format-version", "1"], cwd=ROOT))
+    command = ["cargo", "metadata", "--locked", "--format-version", "1"]
+    if args.features:
+        command.extend(["--features", args.features])
+    metadata = json.loads(subprocess.check_output(command, cwd=ROOT))
     inventory = collect(metadata, args.output)
-    print(f"Collected {len(inventory)} registry package notice sets (all lockfile targets, conservatively overinclusive)")
+    print(f"Collected {len(inventory)} registry package notice sets (selected features, all target platforms)")
 
 
 if __name__ == "__main__":

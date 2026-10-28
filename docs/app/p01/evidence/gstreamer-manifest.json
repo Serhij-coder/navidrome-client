@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-27T08:55:32.764220+00:00",
+  "source_base": "9a6e3f1866bd535dec84862e3f65579eb1c002d9",
+  "task_ids": [
+    "P01.05",
+    "P01.07"
+  ],
+  "status": "checks-and-two-independent-reviews-complete",
+  "scope": "Opt-in isolated Linux GStreamer candidate and owned-codec comparison; no automatic fallback/production engine or P01 exit",
+  "source_sha256": {
+    ".github/workflows/app.yml": "7496472628fd611aebcc4c74ba0b03451512630aaae0a7379cd7e7bc261d7ffa",
+    "Cargo.lock": "314609810dd2521a42a13e57f26fb2cfa1132419b2912e65b27a623c80342231",
+    "crates/native-spike/Cargo.toml": "ad827223ae28aa87d0e5b445c5f0062da48fd25485a0f4ac012a2453bf0d24e3",
+    "crates/native-spike/src/lib.rs": "31c968132b43aed767da6391212023463f0096ed04e8115741a64da5c9726588",
+    "crates/native-spike/src/mpv.rs": "63272de6d18df64f0a11a135c17b96c99a71256e710a3cfcbb6cbdb9d1efea79",
+    "crates/native-spike/src/probe_source.rs": "cbecae4662eec1129166f282c8a8367890c4c4e8e0527da25a0db6d65d2b3b0b",
+    "crates/native-spike/src/bin/p01-gst-peer.rs": "8bd5e37db4e8da7198bedea1d6a4add8df0b857b0601d70a8060dfe98a90ada5",
+    "tests/native-spike/gst_probe.rs": "40829840061ce20fc3ca1dc8e0cb1ce613e8b462091fac34e56726812cdd5f49",
+    "tests/native-spike/probe_source.rs": "87d290c4e59d3008cdfa623fd8b44d53f8560af60bad20f6008f8f7350a1124d",
+    "tools/app/test-native.py": "c4aeac498c84d2f8206bbb03993454803b45bf7f859ccd05ce100723182c4f14",
+    "tools/app/notices.py": "516b65422ae87a7312f8ecf7a2745c0fc38c9a62ef755d943f04f8e659e5e9c0",
+    "tests/tooling/test_p01_native_ci.py": "2acd4686423dffc0e3f301a765428167c5a8a2867f03132a61302d553da2694b",
+    "tests/tooling/test_p01_notice_features.py": "1374595683bdf0489180df2451335092aaec0752155d043dd9a05672d8803900"
+  },
+  "evidence_sha256": {
+    "docs/app/p01/evidence/gstreamer-comparison.json": "da502a5895a3a673bd483807be6986c843d890bb571ad239bfb571e8f407e889",
+    "docs/app/licenses/gstreamer-candidate.json": "01af5e9d143ac734e04b854f05c2509a16cffb5d3919bbd08852ab411010ccbe"
+  },
+  "checks": {
+    "workspace": {
+      "passed": 78,
+      "ignored": 12,
+      "command": "cargo test --workspace --locked"
+    },
+    "gstreamer": {
+      "library_passed": 9,
+      "library_ignored": 3,
+      "candidate_fixture_passed": 6,
+      "external_comparison_ignored_by_default": 1,
+      "comparison_cases_passed": 12,
+      "new_typed_owner_test_passed": true,
+      "comparison_output_refresh": "Final source: both wrapper modes rerun; library9/fixture6 and all12externalcases passed",
+      "cold_plugin_registry": "Fresh GST_REGISTRY path: library9+fixture6 passed/4expectedignores without deadline changes"
+    },
+    "mpris_regressions": {
+      "passed": 7,
+      "ignored_real_probe": 1
+    },
+    "tooling": {
+      "ran": 79,
+      "passed": 71,
+      "optional_skipped": 8,
+      "missing_inputs": "Optional parser/frozen reference reproduction inputs"
+    },
+    "notices": {
+      "feature_scope": "feishin-native-spike/gst-probe",
+      "registry_notice_sets": 395,
+      "default_graph_sets": 371,
+      "new_registry_packages": 24,
+      "existing_package_versions_changed": 0
+    },
+    "format_lint": [
+      "cargo fmt --all -- --check",
+      "cargo clippy --workspace --all-targets --locked -- -D warnings",
+      "cargo clippy -p feishin-native-spike --features gst-probe --all-targets --locked -- -D warnings",
+      "cargo clippy -p feishin-native-spike --features mpris-probe --all-targets --locked -- -D warnings",
+      "cargo clippy -p feishin-native-spike --all-targets --target x86_64-pc-windows-msvc --locked -- -D warnings",
+      "cargo clippy -p feishin-native-spike --features gst-probe --all-targets --target x86_64-pc-windows-msvc --locked -- -D warnings",
+      "cargo clippy -p feishin-web -p feishin-remote --target wasm32-unknown-unknown --locked -- -D warnings"
+    ],
+    "reference_and_documents": "Tracked/local Markdown links, inventory, seven local analysis-tool tests, node syntax, 31 P01 migration anchors/evidence paths, hashes, scratchpad line limit and whitespace passed"
+  },
+  "environment": {
+    "os": "Owned Ubuntu24.04 x86_64 container, no host audio/session/profile access",
+    "gstreamer": "1.24.2",
+    "rust_bindings": "gstreamer0.24.4, glib0.21.5, gstreamer-sys0.24.5",
+    "rust_toolchain": "1.92.0",
+    "mpv": "0.37.0",
+    "ffmpeg": "6.1.1-3ubuntu5"
+  },
+  "reviews": {
+    "correctness_architecture": {
+      "outcome": "No actionable findings",
+      "independent_checks": "GStreamer wrapper9library+6candidate passed/4ignored; optional GSTall-targetClippy;7focusedPython; documentation/whitespace, source/evidence hashes, dependencydelta, migrationanchors and12caseprivacy/coverage passed",
+      "limits": "No independent externalcodec/platform/device run"
+    },
+    "tests_edges_operations": {
+      "outcome": "No actionable findings",
+      "independent_checks": "GStreamer wrapper9library+6fixtures passed/4expectedignores; externalcodeccomparison all12cases passed; GSTall-targetClippy;7focusedPython; source/evidencehashes, whitespace and24addition/0removal lockdelta passed",
+      "scope": "Actual tracked/untracked code/tests/CI/docs/evidence inspected for resource ownership, deadlines, bounds, privacy and notices",
+      "review_interruption": "Earlier operations attempt hit usage limit before final verdict; completed independent operations review before commit"
+    }
+  },
+  "corrections_and_environment": [
+    "Added load_ack_ms alongside post-ACK readiness samples because GStreamer waits for preroll during load; metrics are not equivalent end-to-end latency",
+    "Initial all-features notice collection failed on pre-existing block0.1.6 standalone-license gap; exact gst-probe selected graph395sets succeeded without suppressing that gap",
+    "Container Windows cross-check could not find target std despite installed target files; identical checks passed on host toolchain, with and without gst-probe; no runtime platform result claimed",
+    "Initial documentation check found manifest link before record existed; final affected link/reference checks required after manifest creation"
+  ],
+  "limits": [
+    "Null-output decode/control only; no physical audio, calibrated CPU/RSS/GPU/startup/gapless/crossfade/device budgets",
+    "Single-source probe; append/filters explicitly rejected, no production queue/source/position restoration or automatic selection",
+    "Only query-token authenticated loopback HTTP and generated WAV/FLAC/MP3; no live server/TLS/cookie/header/redirected production auth matrix",
+    "Child proxy environment cleared; full system/default proxy resolver bypass not verified; trusted owned lab only",
+    "GStreamer is Linux-only optional; Windows gst-probe stub compile and default Windows transport check are not nativeGStreamer runtime support",
+    "No GStreamer helper/native libraries bundled in default AppImage; complete native/plugin/codec distribution/source obligations unresolved",
+    "New hosted feature checks and aarch64 probe must be observed separately; P01 remains open"
+  ],
+  "review_completed_utc": "2026-10-28T16:09:47.199569+00:00"
+}
