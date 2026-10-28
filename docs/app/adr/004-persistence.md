@@ -1,6 +1,6 @@
 # ADR-004: bounded development profile persistence
 
-Status: accepted for P02.04 non-secret development profiles only, 2026-10-28. Historical import/rollback and credential policy decisions remain open under P02.05/P02.06.
+Status: accepted for P02.04 non-secret development profiles and bounded P02.05 copied-input projection/journal, 2026-10-28. Full historical migration, shell adoption and credential policy remain open.
 
 ## Evidence and decision
 
@@ -18,8 +18,21 @@ The browser adapter replaces one origin-scoped localStorage value under `feishin
 
 SQLite/IndexedDB provide transactions and scale better for queue/cache data but add unnecessary machinery for this bounded profile schema. A shared key with the original app would violate isolation. Multiple split preference keys would need a transaction strategy; the source split-key writer ambiguity remains unmodified and will be characterized in P02.05.
 
-Reads are side-effect-free. Missing fields use documented defaults. Invalid profile records are rejected individually; duplicate IDs keep the first valid profile; an orphan selected ID is cleared. Invalid preference fields default independently with typed recovery diagnostics. Invalid JSON, invalid envelopes and unsupported schema versions fail explicitly and are protected from overwrite by repository saves. Unknown envelope/preferences fields are rejected rather than silently erased. A valid partial-recovery result may be explicitly saved by the caller; no automatic repair write occurs. Whole-document recovery currently requires manually preserving/quarantining the damaged value before starting a new profile; automated backup/rollback is P02.05.
+Reads are side-effect-free. Missing fields use documented defaults. Invalid profile records are rejected individually; duplicate IDs keep the first valid profile; an orphan selected ID is cleared. Invalid preference fields default independently with typed recovery diagnostics. Invalid JSON, invalid envelopes and unsupported schema versions fail explicitly and are protected from overwrite by repository saves. Unknown envelope/preferences fields are rejected rather than silently erased. A valid partial-recovery result may be explicitly saved by the caller; no automatic repair write occurs. Whole-document recovery currently requires manually preserving/quarantining the damaged value before starting a new profile; the bounded P02.05 import journal adds one-level target backup/rollback in a separate namespace, without automatically repairing a damaged profile.
 
 Endpoint validation rejects URL userinfo, queries and fragments while allowing intentional HTTP LAN servers and base paths. This is a structural non-secret policy, not a claim to detect arbitrary secrets placed in user text or URL paths. Credentials are excluded by schema and no credential-remembering implementation is selected. Native/browser adapters are not connected to a shell yet.
 
 See [P02 implementation and checks](../p02/README.md) and [migration evidence](../migration/p02-storage.csv). This ADR does not establish full P02 completion or credential/import compatibility.
+
+
+## Bounded P02.05 continuation
+
+Use explicit copied-input bytes and a read-only partial import preview. Accept only the documented source versions/shapes and project known non-secret preferences, column arrays, Auto DJ settings, server descriptors and queue identity/resume data. Keep column arrays whole, including empty arrays. Preserve duplicate song occurrences and resolve saved current identity through the source shuffle rules before attaching checked timestamps. Unknown categories and unsupported transformations are reported, never silently claimed migrated. Current source exports and synthetic historical fixtures have separate provenance; a real historical-profile corpus is still missing.
+
+Persist the same validated candidate that was previewed in a separate schema-v1 import workspace, alongside one previous target snapshot and a checked revision in one atomic value. Back up target projections rather than original credential-bearing source bytes. A prepared import or rollback is bound to its exact baseline and rejected after an intervening edit. Equivalent freshly prepared imports make no writes. The journal supports one serialized owner, not concurrent multi-process/tab transactions. Production adoption by the settings/queue state owner remains separate.
+
+Alternatives were overwriting the P02.04 profile store, copying full credential-bearing source exports into its non-secret backup, or writing separate current/backup keys without a transaction. The separate single-value journal preserves isolation and makes interruption behavior testable with the current atomic adapters. It also means imported queue/settings data is staged and durable rather than active in the P01 shells. Automatic full settings upgrades, complete queue metadata, runtime hydration/seek restoration and P08 UI mapping are not delivered here.
+
+See the [supported import matrix](../p02/imports.md), [apply/rollback contract](../p02/import-journal.md) and [migration map](../migration/p02-imports.csv). P02.05 remains bounded rather than complete; P02.06 secret remembering and P02.07 cache lifecycle remain explicit follow-ups.
+
+Corrupt-queue index safety: the pinned source filters missing song-map records in `player.store.ts:1101-1119` before `getCurrentSong` indexes the resulting order (`982-994`). Import projection also validates fields and deduplicates occurrence IDs, so its retained order can differ further. If recovery removes or deduplicates a default occurrence, the target rejects current selection and timestamp rather than reinterpreting the saved index. Valid occurrences and priority survive with fixed diagnostics. This is an explicit stricter corrupt-state rule, not a claim of source parity or an upstream bug. The missing-prefix regression covers disabled, album and empty-track shuffle; browser execution separately exercises the missing-prefix case.

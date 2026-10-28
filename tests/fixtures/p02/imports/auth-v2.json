@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "state": {
+    "serverList": {
+      "server-a": {
+        "id": "server-a",
+        "name": "Copied LAN",
+        "type": "navidrome",
+        "url": "http://192.168.1.2/music",
+        "credential": "SYNTHETIC-SECRET",
+        "ndCredential": "SYNTHETIC-TOKEN",
+        "savePassword": true,
+        "username": "private-user",
+        "remoteUrl": "https://invalid/?token=SYNTHETIC-SECRET"
+      }
+    },
+    "currentServer": {
+      "id": "server-a",
+      "credential": "SYNTHETIC-SECRET"
+    },
+    "deviceId": "private-device"
+  }
+}

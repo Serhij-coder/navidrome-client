@@ -1,0 +1,43 @@
+{
+  "version": 14,
+  "state": {
+    "general": {
+      "language": "uk",
+      "followSystemTheme": true
+    },
+    "autoDJ": {
+      "albumStrategy": "library_random",
+      "allowDuplicates": true,
+      "enabled": false,
+      "itemCount": 7.5,
+      "mode": "albums",
+      "onlySimilar": false,
+      "songStrategy": "similar",
+      "timing": 1.25
+    },
+    "lists": {
+      "song": {
+        "table": {
+          "columns": [
+            {
+              "id": "name",
+              "align": "start",
+              "autoSize": false,
+              "isEnabled": true,
+              "pinned": null,
+              "width": 100
+            }
+          ]
+        }
+      },
+      "album": {
+        "detail": {
+          "columns": []
+        }
+      }
+    },
+    "remote": {
+      "password": "SYNTHETIC-SECRET-NOT-A-CREDENTIAL"
+    }
+  }
+}

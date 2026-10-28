@@ -27,3 +27,5 @@ Maintained ADRs record [egui direction and P01 criteria](adr/001-egui-desktop.md
 Update app documentation, licenses/notices and relevant operational instructions in the same task as behavior or configuration changes. Keep required build/test instructions reproducible from tracked files. Local rewrite plans, inventory, reference archives and analysis tools outside `docs/app/` and `tools/app/` are ignored development references; application builds and CI must not depend on their presence.
 
 P02 decisions are recorded in [ADR-004](adr/004-persistence.md) and [ADR-005](adr/005-portable-contracts.md); separate [foundation](migration/p02-foundation.csv) and [storage](migration/p02-storage.csv) maps retain source evidence and unfinished imports/credentials/cache work.
+
+The bounded [P02.05 import continuation](p02/imports.md) adds copied-input preview and a separate durable [apply/backup/rollback journal](p02/import-journal.md). It preserves source copies and explicitly reports unported settings/transforms; shell adoption and full historical compatibility remain open.

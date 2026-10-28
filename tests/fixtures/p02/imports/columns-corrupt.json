@@ -1,0 +1,48 @@
+{
+  "song": {
+    "table": {
+      "columns": [
+        {
+          "id": "name",
+          "align": "start",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": null,
+          "width": 100
+        },
+        {
+          "id": "name",
+          "align": "start",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": null,
+          "width": 100
+        }
+      ]
+    }
+  },
+  "album": {
+    "detail": {
+      "columns": []
+    }
+  },
+  "artist": {
+    "table": {
+      "columns": "invalid"
+    }
+  },
+  "genre": {
+    "table": {
+      "columns": [
+        {
+          "id": "name",
+          "align": "start",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": null,
+          "width": -1
+        }
+      ]
+    }
+  }
+}

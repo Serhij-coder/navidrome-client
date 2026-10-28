@@ -9,10 +9,17 @@ use std::{
 /// filesystem worker, never an async executor/UI thread. Does not search profiles.
 pub struct NativeStore {
     directory: PathBuf,
+    filename: &'static str,
 }
 impl NativeStore {
     pub fn open(development_root: impl AsRef<Path>) -> Result<Self, Error> {
-        let root = development_root.as_ref();
+        Self::open_file(development_root.as_ref(), "profiles-v1.json")
+    }
+    /// Separate reviewed-import workspace; never opens the original profile.
+    pub fn open_imports(development_root: impl AsRef<Path>) -> Result<Self, Error> {
+        Self::open_file(development_root.as_ref(), "imports-v1.json")
+    }
+    fn open_file(root: &Path, filename: &'static str) -> Result<Self, Error> {
         if !root.is_absolute() || root.components().any(|c| matches!(c, Component::ParentDir)) {
             return Err(Error::UnsafePath);
         }
@@ -21,10 +28,13 @@ impl NativeStore {
         let directory = root.join("feishin-rust-dev-p02");
         check_path(&directory)?;
         fs::create_dir_all(&directory).map_err(|_| Error::Io)?;
-        Ok(Self { directory })
+        Ok(Self {
+            directory,
+            filename,
+        })
     }
     pub fn path(&self) -> PathBuf {
-        self.directory.join("profiles-v1.json")
+        self.directory.join(self.filename)
     }
 }
 fn check_path(path: &Path) -> Result<(), Error> {

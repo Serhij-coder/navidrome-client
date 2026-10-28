@@ -1,0 +1,10 @@
+{
+  "albumStrategy": "library_random",
+  "allowDuplicates": true,
+  "enabled": false,
+  "itemCount": 7.5,
+  "mode": "albums",
+  "onlySimilar": false,
+  "songStrategy": "similar",
+  "timing": 1.25
+}

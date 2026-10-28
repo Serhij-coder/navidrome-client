@@ -1,0 +1,41 @@
+{
+  "default": [
+    "first",
+    "second"
+  ],
+  "priority": [
+    "second"
+  ],
+  "shuffled": [
+    1,
+    0
+  ],
+  "songs": {
+    "first": {
+      "id": "same-song",
+      "_serverId": "server-a",
+      "_uniqueId": "first",
+      "name": "Same title",
+      "duration": 180000,
+      "imageUrl": "https://invalid/?token=SYNTHETIC-SECRET",
+      "streamUrl": "http://invalid/private",
+      "path": "/copied/private/path"
+    },
+    "second": {
+      "id": "same-song",
+      "_serverId": "server-a",
+      "_uniqueId": "second",
+      "name": "Same title",
+      "duration": 180000,
+      "imageUrl": "https://invalid/?token=SYNTHETIC-SECRET",
+      "streamUrl": "http://invalid/private",
+      "path": "/copied/private/path"
+    },
+    "orphan": {
+      "id": "orphan",
+      "_serverId": "server-a",
+      "name": "Orphan",
+      "duration": 9
+    }
+  }
+}

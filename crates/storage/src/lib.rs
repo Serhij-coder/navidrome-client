@@ -3,6 +3,9 @@
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
+pub mod imports;
+pub mod journal;
+
 #[cfg(target_arch = "wasm32")]
 mod browser;
 #[cfg(target_arch = "wasm32")]
@@ -51,6 +54,17 @@ pub struct Profile {
     pub backend: BackendKind,
 }
 impl Profile {
+    /// Convert the durable string DTO identity at the application boundary.
+    pub fn server_id(&self) -> feishin_domain::ServerId {
+        feishin_domain::ServerId::new(&self.id)
+    }
+    pub fn server_type(&self) -> feishin_domain::ServerType {
+        match self.backend {
+            BackendKind::Navidrome => feishin_domain::ServerType::Navidrome,
+            BackendKind::Subsonic => feishin_domain::ServerType::Subsonic,
+            BackendKind::Jellyfin => feishin_domain::ServerType::Jellyfin,
+        }
+    }
     fn valid(&self) -> bool {
         let Ok(url) = url::Url::parse(&self.endpoint) else {
             return false;

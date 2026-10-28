@@ -1,0 +1,10 @@
+{
+  "version": 4,
+  "state": {
+    "player": {
+      "index": 1,
+      "shuffle": "none",
+      "status": "playing"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # P02 foundations and bounded persistence
 
-The maintainer [authorized P02.01-P02.04 sequencing](../p01/exit-decision.md) on 2026-10-28 while P00/P01 remain open. This increment implements portable domain foundations and a bounded non-secret profile/preferences store. It does not make the P01 shells a music client or establish any phase exit.
+The maintainer [authorized P02.01-P02.04 sequencing](../p01/exit-decision.md) on 2026-10-28 while P00/P01 remain open. The maintained implementation includes portable domain foundations, bounded non-secret profile/preferences storage and a bounded P02.05 copied-input preview/apply/rollback continuation. It does not make the P01 shells a music client or establish any phase exit.
 
 ## Implemented behavior
 
@@ -10,7 +10,7 @@ The [storage crate](../../../crates/storage/src/lib.rs) provides schema-v1 stora
 
 Native storage requires an explicitly supplied canonical absolute development root and uses `feishin-rust-dev-p02/profiles-v1.json`. Operations are blocking worker APIs; application worker/executor wiring is not implemented. It syncs a same-directory temporary file before atomic replacement and syncs the directory on Unix. Browser storage uses the independent origin-scoped key `feishin-rust:dev:p02:profiles:v1` with single-value localStorage replacement. Both enforce a 256 KiB document bound. URL credentials/query/fragment, unsupported schemes, duplicate IDs and dangling selection are rejected on save. Plain HTTP LAN server base URLs remain allowed.
 
-No shell opens these stores yet. No original Feishin keys/data are read or modified, and no credential persistence is implemented. See [ADR-004](../adr/004-persistence.md) for recovery, trusted-root/concurrency and filesystem durability limits. To recover an entirely malformed document, preserve/quarantine the original value before explicitly starting a fresh profile. Automated backup/rollback belongs to P02.05.
+No shell opens these stores yet. No original Feishin keys/data are read or modified, and no credential persistence is implemented. See [ADR-004](../adr/004-persistence.md) for recovery, trusted-root/concurrency and filesystem durability limits. To recover an entirely malformed document, preserve/quarantine the original value before explicitly starting a fresh profile. The separate import workspace now provides bounded one-level target backup/rollback; it does not automatically repair the profile store.
 
 ## Reproduce checks
 
@@ -39,7 +39,7 @@ P02_PLAYWRIGHT=/absolute/playwright node tests/browser/p02-storage.cjs target/p0
 
 The harness serves the test-only WASM bundle on ephemeral loopback in fresh browser contexts. It exercises actual storage across reload, context isolation, unchanged original key, read-only partial recovery and future/malformed protection. Quota and security failures are explicitly injected at the real storage API boundary. It loads no user profile or media. Browser runtime remains an optional external check, not a dependency on ignored source or scripts.
 
-See [exact verification results and limitations](verification.md).
+See [foundation verification](verification.md) and [bounded import verification](import-verification.md) for exact results and limitations.
 
 ## Remaining bounded tasks
 
@@ -47,8 +47,8 @@ See [exact verification results and limitations](verification.md).
 | --- | --- |
 | P02.01-P02.03 | Foundation implemented and exercised; backend normalization/version discovery and concrete runtime scheduling remain their adapter/integration tasks |
 | P02.04 | Bounded native/browser non-secret subset implemented; full settings surface, production shell/worker composition, multi-process/tab coordination and OS/filesystem power-loss evidence remain unverified |
-| P02.05 | Historical copied-profile/settings/queue import, column replacement, timestamps, orphan cleanup and backup/rollback fixtures required |
+| P02.05 | Bounded copied-input projection and atomic target backup/rollback implemented; unsupported historical versions/transforms, full settings/queue metadata, real historical-profile corpus and production adoption remain open |
 | P02.06 | Explicit remember-credential policy and native/browser secret-store implementations required; only the portable secret boundary exists |
 | P02.07 | Server-scoped cache keys, lifecycle/invalidation/cancellation and bounded queue/query/diagnostic serialization required; existing profile byte limits and operation contexts do not complete this task |
 
-The [foundation migration map](../migration/p02-foundation.csv) and [storage migration map](../migration/p02-storage.csv) retain exact source anchors, actual stable inventory IDs where functions exist, verification and gaps. Local reference analysis remains immutable and ignored. No historical import, audio/device or end-to-end parity claim is made.
+The [foundation migration map](../migration/p02-foundation.csv) and [storage migration map](../migration/p02-storage.csv) retain exact source anchors, actual stable inventory IDs where functions exist, verification and gaps. Local reference analysis remains immutable and ignored. No full historical import, audio/device or end-to-end parity claim is made. See the [supported import matrix](imports.md) and [apply/rollback contract](import-journal.md).
