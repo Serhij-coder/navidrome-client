@@ -1,0 +1,40 @@
+use crate::{AtomicStore, Error, MAX_BYTES};
+
+/// Origin-scoped single-key localStorage replacement. Quota/security/disabled
+/// storage failures are explicit. No multi-key transaction or secret storage.
+pub struct BrowserStore {
+    storage: web_sys::Storage,
+}
+impl BrowserStore {
+    pub const KEY: &'static str = "feishin-rust:dev:p02:profiles:v1";
+    pub fn open() -> Result<Self, Error> {
+        let storage = web_sys::window()
+            .ok_or(Error::Unavailable)?
+            .local_storage()
+            .map_err(|_| Error::Unavailable)?
+            .ok_or(Error::Unavailable)?;
+        Ok(Self { storage })
+    }
+}
+impl AtomicStore for BrowserStore {
+    fn read(&mut self) -> Result<Option<Vec<u8>>, Error> {
+        let value = self
+            .storage
+            .get_item(Self::KEY)
+            .map_err(|_| Error::Unavailable)?;
+        match value {
+            Some(value) if value.len() > MAX_BYTES => Err(Error::TooLarge),
+            Some(value) => Ok(Some(value.into_bytes())),
+            None => Ok(None),
+        }
+    }
+    fn replace(&mut self, bytes: &[u8]) -> Result<(), Error> {
+        if bytes.len() > MAX_BYTES {
+            return Err(Error::TooLarge);
+        }
+        let text = std::str::from_utf8(bytes).map_err(|_| Error::InvalidDocument)?;
+        self.storage
+            .set_item(Self::KEY, text)
+            .map_err(|_| Error::Unavailable)
+    }
+}

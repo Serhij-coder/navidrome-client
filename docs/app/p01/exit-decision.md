@@ -1,6 +1,6 @@
 # P01 sequencing decision
 
-Status: proposal awaiting the maintainer's decision. P01 remains open; this document does not authorize P02 or waive evidence requirements.
+Status: accepted by the maintainer on 2026-10-28 for bounded P02.01-P02.04 implementation. P00/P01 remain open; this sequencing exception does not waive evidence requirements or authorize release/parity claims.
 
 P01 has expanded through repeated feasibility increments without an exit decision. The project has substantial prototype evidence but no production domain/persistence/backend/queue implementation and no usable music client. Adding more independent prototypes is not the shortest path to an application. The remaining evidence must be tracked separately from a decision about which work can proceed safely now.
 
@@ -21,14 +21,14 @@ Detailed evidence and limits remain in the [P01 matrix](README.md), [initial ver
 
 Real server/library artwork churn, full adapter/queue integration, production engine/session restoration, bulk screens and complete release operations belong to P03-P13. They must stay tracked there rather than continually extending a bounded P01 prototype. P01 still needs the feasibility decisions and evidence actually specified in its gate, including explicitly accepted remediation where allowed; its existing ADRs do not currently record those open cases as accepted exit remediation.
 
-## Recommended decision
+## Authorized sequencing decision
 
-Authorize starting bounded P02 portable foundation work while keeping P01 open. This is the same kind of explicit sequencing exception previously given for P01 ahead of P00, not a claim that P01 has passed. The local rewrite plan lists P02's dependency as P01; the maintained [P01 next-work rule](README.md#troubleshooting-and-next-work) currently says "Continue only P01". Those rules remain effective until this proposal is accepted.
+The maintainer authorized starting bounded P02 portable foundation work while keeping P01 open. This is the same kind of explicit sequencing exception previously given for P01 ahead of P00, not a claim that P01 has passed. The local rewrite plan lists P02's dependency as P01; the maintained [P01 next-work rule](README.md#troubleshooting-and-next-work) formerly said "Continue only P01". This recorded authorization supersedes that sequencing restriction only for the bounded work described here.
 
 The first P02 deliverable should be portable normalized models, distinct IDs/time units and typed command/event/effect and adapter contracts (P02.01-.03), checked on native and WASM. The next deliverable is isolated, versioned non-secret profile/preferences persistence with corruption/recovery fixtures and a secret-store boundary (bounded P02.04). Historical imports and full platform credential remembering retain P02.05/.06 characterization and validation requirements. These boundaries do not require choosing the final renderer, fallback engine, audio device or visualizer implementation.
 
 Then pursue the already-planned bounded development demonstration: one Navidrome login/list/queue/play-pause-seek path using managed mpv. It must be labeled a partial vertical slice, retain other backends/browser/remote requirements in the migration map and avoid implying that adapter, queue or P06 phase exits are complete. This is the intended route toward a usable client, rather than more standalone P01 probes.
 
-P01 work during that exception should resolve a concrete blocker encountered by the application or collect an agreed missing gate. Physical/platform checks, fallback adoption and release licensing stay named requirements; none becomes passed, removed or silently deferred. Bulk screen expansion and release/parity claims retain their existing gates. If the sequencing exception is declined, the next task is to agree bounded remediation/acceptance in the relevant ADRs and finish P01's actual exit evidence before P02.
+P01 work during this assignment resolves only a concrete blocker encountered by the authorized implementation. Physical/platform checks, fallback adoption and release licensing stay named requirements; none becomes passed, removed or silently deferred. Bulk screen expansion and release/parity claims retain their existing gates. P01 issues are addressed during this assignment only when they concretely block the authorized implementation. Its remaining evidence is retained separately.
 
-Decision options: start P02 under this explicit exception (recommended), or retain P01-first sequencing. No implementation date, delivery estimate or phase completion is promised by this proposal.
+Authorized now: coherent P02.01-P02.03 foundations followed by bounded P02.04 non-secret persistence. P02.05 historical imports/rollback, P02.06 credential remembering and P02.07 cache/cancellation remain tracked follow-up work. The later partial Navidrome vertical slice is the intended next direction, not a phase exit or permission to omit other deliverables.

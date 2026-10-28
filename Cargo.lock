@@ -1047,6 +1047,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "feishin-domain"
+version = "0.1.0"
+
+[[package]]
 name = "feishin-native-spike"
 version = "0.1.0"
 dependencies = [
@@ -1089,6 +1093,18 @@ dependencies = [
  "image",
  "serde_json",
  "tempfile",
+]
+
+[[package]]
+name = "feishin-storage"
+version = "0.1.0"
+dependencies = [
+ "serde",
+ "serde_json",
+ "tempfile",
+ "url",
+ "wasm-bindgen",
+ "web-sys",
 ]
 
 [[package]]

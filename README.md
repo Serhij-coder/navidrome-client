@@ -6,4 +6,4 @@ A desktop-focused Navidrome client written in Rust using egui. This project is h
 
 This is an independent project and is not officially affiliated with Feishin.
 
-P01 now provides a Rust/egui feasibility workspace with native, browser and remote shells. It is not a working music client; P00 and P01 acceptance gates remain open. Start with the [P01 build/run guide](docs/app/p01/README.md). See the [P00 evidence and open gates](docs/app/baseline/README.md), [application documentation](docs/app/README.md) and [third-party notices](THIRD_PARTY_NOTICES.md).
+P01 now provides a Rust/egui feasibility workspace with native, browser and remote shells. P02 now adds [portable domain contracts and bounded non-secret persistence](docs/app/p02/README.md) under an explicit sequencing exception. It is not a working music client; P00 and P01 acceptance gates remain open. Start with the [P01 build/run guide](docs/app/p01/README.md). See the [P00 evidence and open gates](docs/app/baseline/README.md), [application documentation](docs/app/README.md) and [third-party notices](THIRD_PARTY_NOTICES.md).

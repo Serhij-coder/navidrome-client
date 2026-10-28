@@ -1,0 +1,14 @@
+[package]
+name = "feishin-domain"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[[test]]
+name = "foundation"
+path = "../../tests/domain/foundation.rs"
