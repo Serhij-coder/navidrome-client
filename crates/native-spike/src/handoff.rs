@@ -1,5 +1,8 @@
-//! Bounded same-mpv replacement experiment. This does not select a fallback engine.
-use crate::{AudioOutput, ControlClient, ControlFailure, ControlSession, Error};
+//! Bounded managed-engine replacement experiment. This does not select a fallback engine.
+use crate::{
+    AudioOutput, ControlClient, ControlCommand, ControlFailure, ControlSession, ControlValue,
+    Error, NativePlaybackStatus,
+};
 use std::{
     path::PathBuf,
     sync::{
@@ -7,7 +10,7 @@ use std::{
         atomic::{AtomicBool, Ordering},
         mpsc::{self, Receiver, SyncSender, TryRecvError, TrySendError},
     },
-    time::Duration,
+    time::{Duration, Instant},
 };
 
 pub const HANDOFF_CAPACITY: usize = 1;
@@ -27,12 +30,23 @@ pub enum HandoffFailure {
 
 pub struct HandoffReply {
     pub generation: u64,
-    /// Success installs an endpoint, not an engine/source readiness guarantee.
-    /// Startup failure is reported by the endpoint's commands/worker cleanup.
+    /// `replace` installs only an endpoint; `replace_prepared` first verifies
+    /// local position and playback status. Neither certifies device output.
     pub result: Result<ControlClient, HandoffFailure>,
 }
 
+/// Local-only state restored before a prepared endpoint is published.
+#[derive(Debug)]
+pub struct LocalPreparation {
+    pub source: PathBuf,
+    pub position_seconds: f64,
+    pub paused: bool,
+    pub volume_percent: f64,
+}
+
 struct Replacement {
+    preparation: Option<LocalPreparation>,
+    deadline: Option<Instant>,
     binary: PathBuf,
     generation: u64,
     output: AudioOutput,
@@ -71,8 +85,9 @@ impl Drop for HandoffRequest {
 
 /// One supervisor serializes retiring and replacing managed control sessions.
 /// Construction, replacement admission and Drop do not wait for IPC or cleanup.
-/// Old endpoint clones are stopped before a new worker can start. No source,
-/// position, queue or settings are restored, and no automatic fallback is tried.
+/// Old endpoint clones are stopped before a new worker can start. No queue is
+/// restored and no automatic fallback is tried. `replace` installs only
+/// an endpoint; `replace_prepared` verifies local source/settings restoration.
 ///
 /// A successful admission consumes its generation, even if later cancelled or
 /// failed. Generations must strictly increase; queue-full/invalid submissions do
@@ -116,13 +131,53 @@ impl HandoffSession {
         generation: u64,
         output: AudioOutput,
     ) -> Result<HandoffRequest, HandoffFailure> {
+        self.admit(binary, generation, output, None, None)
+    }
+
+    /// Restore a local source and verify observed position/status before publishing.
+    /// The admission deadline includes queueing, retirement and startup; cleanup
+    /// retains its separate safety budget even after this deadline expires.
+    pub fn replace_prepared(
+        &self,
+        binary: PathBuf,
+        generation: u64,
+        output: AudioOutput,
+        preparation: LocalPreparation,
+        budget: Duration,
+    ) -> Result<HandoffRequest, HandoffFailure> {
+        if !valid_path(&preparation.source)
+            || !preparation.position_seconds.is_finite()
+            || preparation.position_seconds < 0.0
+            || !preparation.volume_percent.is_finite()
+            || !(0.0..=100.0).contains(&preparation.volume_percent)
+        {
+            return Err(HandoffFailure::Engine(Error::InvalidInput));
+        }
+        if budget.is_zero() {
+            return Err(HandoffFailure::Deadline);
+        }
+        let deadline = Instant::now() + budget.min(Duration::from_secs(15));
+        self.admit(
+            binary,
+            generation,
+            output,
+            Some(preparation),
+            Some(deadline),
+        )
+    }
+
+    fn admit(
+        &self,
+        binary: PathBuf,
+        generation: u64,
+        output: AudioOutput,
+        preparation: Option<LocalPreparation>,
+        deadline: Option<Instant>,
+    ) -> Result<HandoffRequest, HandoffFailure> {
         if self.stopped.load(Ordering::Acquire) {
             return Err(HandoffFailure::Stopped);
         }
-        if binary
-            .to_str()
-            .is_none_or(|path| path.is_empty() || path.len() > 4096 || path.contains('\0'))
-        {
+        if !valid_path(&binary) {
             return Err(HandoffFailure::Engine(Error::InvalidInput));
         }
         // Keep admission order and generation reservation atomic without waiting
@@ -141,6 +196,8 @@ impl HandoffSession {
         let (reply, receive) = mpsc::sync_channel(1);
         let cancelled = Arc::new(AtomicBool::new(false));
         let request = Replacement {
+            preparation,
+            deadline,
             binary,
             generation,
             output,
@@ -214,10 +271,32 @@ fn supervise(receive: &Receiver<Replacement>, stop: &AtomicBool) -> Result<(), H
             complete(request, Err(failure));
             continue;
         }
+        if request.preparation.is_some()
+            && let Err(failure) = prepare(&session.client(), &request, stop)
+        {
+            if let Err(error) = retire(session) {
+                stop.store(true, Ordering::Release);
+                complete(request, Err(error));
+                return Err(HandoffFailure::Stopped);
+            }
+            complete(request, Err(failure));
+            continue;
+        }
+        // Final pre-publication check; completion may win a concurrent cancellation.
+        if let Some(failure) = interrupted(&request, stop) {
+            if let Err(error) = retire(session) {
+                stop.store(true, Ordering::Release);
+                complete(request, Err(error));
+                return Err(HandoffFailure::Stopped);
+            }
+            complete(request, Err(failure));
+            continue;
+        }
         let client = session.client();
         if complete(request, Ok(client)) {
             active = Some(session);
         } else if let Err(error) = retire(session) {
+            stop.store(true, Ordering::Release);
             return Err(error);
         }
     }
@@ -231,6 +310,11 @@ fn interrupted(request: &Replacement, stop: &AtomicBool) -> Option<HandoffFailur
         Some(HandoffFailure::Stopped)
     } else if request.cancelled.load(Ordering::Acquire) {
         Some(HandoffFailure::Cancelled)
+    } else if request
+        .deadline
+        .is_some_and(|deadline| Instant::now() >= deadline)
+    {
+        Some(HandoffFailure::Deadline)
     } else {
         None
     }
@@ -258,5 +342,129 @@ fn wait_failure(error: mpsc::RecvTimeoutError) -> HandoffFailure {
     match error {
         mpsc::RecvTimeoutError::Timeout => HandoffFailure::Deadline,
         mpsc::RecvTimeoutError::Disconnected => HandoffFailure::Stopped,
+    }
+}
+
+fn valid_path(path: &std::path::Path) -> bool {
+    path.to_str()
+        .is_some_and(|path| !path.is_empty() && path.len() <= 4096 && !path.contains('\0'))
+}
+
+fn control_failure(failure: ControlFailure) -> HandoffFailure {
+    match failure {
+        ControlFailure::Engine(error) => HandoffFailure::Engine(error),
+        ControlFailure::Deadline => HandoffFailure::Deadline,
+        ControlFailure::Cancelled => HandoffFailure::Cancelled,
+        ControlFailure::Stopped => HandoffFailure::Stopped,
+        ControlFailure::QueueFull | ControlFailure::Stale => {
+            HandoffFailure::Engine(Error::Protocol)
+        }
+    }
+}
+
+fn prepare(
+    client: &ControlClient,
+    request: &Replacement,
+    stop: &AtomicBool,
+) -> Result<(), HandoffFailure> {
+    let preparation = request
+        .preparation
+        .as_ref()
+        .ok_or(HandoffFailure::Engine(Error::Protocol))?;
+    let mut request_id = 0;
+    let mut command = |command| {
+        request_id += 1;
+        prepared_command(client, request, stop, request_id, command)
+    };
+    acknowledged(command(ControlCommand::Pause(true))?)?;
+    acknowledged(command(ControlCommand::LoadLocal(
+        preparation.source.clone(),
+    ))?)?;
+    observe_position(&mut command, 0.0)?;
+    match command(ControlCommand::SeekObservedSeconds(
+        preparation.position_seconds,
+    ))? {
+        ControlValue::SeekObserved(Some(position))
+            if position.is_finite() && (position - preparation.position_seconds).abs() <= 0.1 => {}
+        ControlValue::SeekObserved(None) => return Err(HandoffFailure::Engine(Error::Unsupported)),
+        _ => return Err(HandoffFailure::Engine(Error::Protocol)),
+    }
+    observe_position(&mut command, preparation.position_seconds)?;
+    acknowledged(command(ControlCommand::SetVolumePercent(
+        preparation.volume_percent,
+    ))?)?;
+    match command(ControlCommand::VolumePercent)? {
+        ControlValue::VolumePercent(volume)
+            if volume.is_finite() && (volume - preparation.volume_percent).abs() <= 0.001 => {}
+        _ => return Err(HandoffFailure::Engine(Error::Protocol)),
+    }
+    acknowledged(command(ControlCommand::Pause(preparation.paused))?)?;
+    let expected = if preparation.paused {
+        NativePlaybackStatus::Paused
+    } else {
+        NativePlaybackStatus::Playing
+    };
+    match command(ControlCommand::PlaybackStatus)? {
+        ControlValue::PlaybackStatus(status) if status == expected => Ok(()),
+        _ => Err(HandoffFailure::Engine(Error::Protocol)),
+    }
+}
+
+fn acknowledged(value: ControlValue) -> Result<(), HandoffFailure> {
+    match value {
+        ControlValue::Acknowledged => Ok(()),
+        _ => Err(HandoffFailure::Engine(Error::Protocol)),
+    }
+}
+
+fn observe_position(
+    command: &mut impl FnMut(ControlCommand) -> Result<ControlValue, HandoffFailure>,
+    target: f64,
+) -> Result<(), HandoffFailure> {
+    loop {
+        match command(ControlCommand::Position)? {
+            ControlValue::Position(Some(position))
+                if position.is_finite() && (position - target).abs() <= 0.1 =>
+            {
+                return Ok(());
+            }
+            ControlValue::Position(_) => std::thread::sleep(Duration::from_millis(5)),
+            _ => return Err(HandoffFailure::Engine(Error::Protocol)),
+        }
+    }
+}
+
+fn prepared_command(
+    client: &ControlClient,
+    request: &Replacement,
+    stop: &AtomicBool,
+    request_id: u64,
+    command: ControlCommand,
+) -> Result<ControlValue, HandoffFailure> {
+    if let Some(failure) = interrupted(request, stop) {
+        return Err(failure);
+    }
+    let deadline = request
+        .deadline
+        .ok_or(HandoffFailure::Engine(Error::Protocol))?;
+    let pending = client
+        .submit(
+            request.generation,
+            request_id,
+            deadline.saturating_duration_since(Instant::now()),
+            command,
+        )
+        .map_err(control_failure)?;
+    loop {
+        if let Some(failure) = interrupted(request, stop) {
+            return Err(failure);
+        }
+        if let Some(reply) = pending.try_reply().map_err(control_failure)? {
+            if reply.generation != request.generation || reply.request_id != request_id {
+                return Err(HandoffFailure::Engine(Error::Protocol));
+            }
+            return reply.result.map_err(control_failure);
+        }
+        std::thread::sleep(Duration::from_millis(5));
     }
 }

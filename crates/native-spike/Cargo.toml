@@ -57,6 +57,10 @@ name = "handoff"
 path = "../../tests/native-spike/handoff.rs"
 
 [[test]]
+name = "prepared_handoff"
+path = "../../tests/native-spike/prepared_handoff.rs"
+
+[[test]]
 name = "mpris"
 path = "../../tests/native-spike/mpris.rs"
 required-features = ["mpris-probe"]

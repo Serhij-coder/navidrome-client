@@ -39,6 +39,11 @@ class NativeCiTests(unittest.TestCase):
             (["--gstreamer-codecs"], ["cargo", "test", "-p", "feishin-native-spike", "--features", "gst-probe",
                                        "--test", "gst_probe", "real_gst_and_mpv_authenticated_codec_comparison",
                                        "--locked", "--", "--ignored", "--exact"]),
+            (["--prepared-handoff"], ["cargo", "test", "-p", "feishin-native-spike", "--test", "prepared_handoff",
+                                       "real_mpv_prepared_replacement_restore", "--locked", "--", "--ignored", "--exact"]),
+            (["--gstreamer-handoff"], ["cargo", "test", "-p", "feishin-native-spike", "--features", "gst-probe",
+                                        "--test", "prepared_handoff", "real_mpv_gstreamer_prepared_replacement_restore",
+                                        "--locked", "--", "--ignored", "--exact"]),
         ]:
             with self.subTest(arguments=arguments):
                 process = mock.Mock()
@@ -115,6 +120,10 @@ class NativeCiTests(unittest.TestCase):
                           ["--gstreamer-probe", "--gstreamer-codecs"],
                           ["--gstreamer-probe", "--external-audio"],
                           ["--gstreamer-codecs", "--native-controls"],
+                          ["--prepared-handoff", "--native-controls"],
+                          ["--gstreamer-handoff", "--gstreamer-codecs"],
+                          ["--prepared-handoff", "--gstreamer-handoff"],
+                          ["--gstreamer-handoff", "--unrecognized"],
                           ["--gstreamer-probe", "--unrecognized"],
                           ["--native-controls", "--unrecognized"]):
             with self.subTest(arguments=arguments), \

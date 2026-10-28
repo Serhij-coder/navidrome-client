@@ -82,12 +82,15 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install -y libx11-dev libxkbcommon-dev libxkbcommon-x11-0 libwayland-dev libwayland-egl1 libxcursor1 libxi6 libxrandr2 libxfixes3 libxrender1 libegl1-mesa-dev libgl1-mesa-dev libdbus-1-dev dbus-daemon xvfb xauth mpv ffmpeg pulseaudio file binutils libfuse2t64
       - run: cargo build -p feishin-desktop --release --locked
       - name: Exercise native command routing and private-bus media controls
-        run: python3 tools/app/test-native.py --native-controls
+        run: |
+          python3 tools/app/test-native.py --native-controls
+          python3 tools/app/test-native.py --prepared-handoff
       - name: Compare isolated GStreamer and mpv codec fixtures
         run: |
           sudo apt-get update && sudo apt-get install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-libav
           python3 tools/app/test-native.py --gstreamer-probe
           python3 tools/app/test-native.py --gstreamer-codecs
+          python3 tools/app/test-native.py --gstreamer-handoff
       - name: Exercise owned audio and explicit monitor capture
         shell: bash
         run: |

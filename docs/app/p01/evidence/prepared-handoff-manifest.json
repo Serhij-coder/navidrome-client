@@ -1,0 +1,133 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-28T16:47:59.049921+00:00",
+  "source_base": "f8044a1c8c8724e171364a5e06ed9b9425792aee",
+  "task_ids": [
+    "P01.05",
+    "P01.07"
+  ],
+  "status": "checks-and-two-independent-reviews-complete",
+  "scope": "Explicit local source preparation before replacement-client publication; P01 sequencing audit is a proposal, not phase exit or P02 authorization",
+  "source_sha256": {
+    ".github/workflows/app.yml": "870f2950ef68ac3db901dc318ed58d076904dec8817fbe2100d8afd9bb1271c9",
+    "crates/native-spike/Cargo.toml": "ac57ea1a5adac20856ff8e4699eb56dc0171710d2e24854322d98c71ab4f4bfb",
+    "crates/native-spike/src/handoff.rs": "f5143824c10b2b8fd2e341d3637ad4fdf1aa882491f9a8f15b9d194f8dbf9a95",
+    "crates/native-spike/src/lib.rs": "5b232f84c2d136aa3fecf3673449c656bec57ea8c28ac2e0f694bf971d8c13fe",
+    "tests/native-spike/prepared_handoff.rs": "94943ba4d650136572689ac66ec7e49a49ba4e3143f68cb176cd92c19b64d296",
+    "tests/native-spike/prepared_handoff_peer.py": "221010b27a6273840c18e60e5233becd1c27f33b73278513dac8b84b7650d9fb",
+    "tools/app/test-native.py": "d56db61915afb5df357d6c30381c53e2015f37d1d5894210d72b42126489ed12",
+    "tests/tooling/test_p01_native_ci.py": "273e441fadcd90de39cd88a96d5e9fc916a9baffb886d2cb0ec1cdc47e9840e5"
+  },
+  "checks": {
+    "workspace": {
+      "passed": 86,
+      "ignored": 13,
+      "command": "cargo test --workspace --locked",
+      "note": "Final assertion/budget-only test tightening was followed by affected prepared target8pass and Clippy; application implementation unchanged since workspace run"
+    },
+    "prepared_target": {
+      "passed": 8,
+      "ignored_default": 1,
+      "command": "cargo test -p feishin-native-spike --test prepared_handoff --locked"
+    },
+    "legacy_handoff": {
+      "passed": 8,
+      "ignored": 1
+    },
+    "real_probes": {
+      "environment": "Owned Ubuntu24.04 x86_64 lab; mpv0.37.0/GStreamer1.24.2/Rust1.92; generated8second750HzWAV/nulloutput",
+      "mpv_prepared_replacements": 4,
+      "mixed_engine_sequence": [
+        "mpv",
+        "GStreamer",
+        "mpv"
+      ],
+      "outcome": "Both final-source wrapper invocations passed; physical device/audible output not certified",
+      "requested_mpv_paused_states": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "requested_mpv_positions_seconds": [
+        1.0,
+        1.25,
+        1.5,
+        1.75
+      ],
+      "requested_mpv_volume_percent": [
+        25.0,
+        35.0,
+        45.0,
+        55.0
+      ],
+      "requested_mixed_positions_seconds": [
+        1.0,
+        1.25,
+        1.5
+      ],
+      "requested_mixed_paused_states": [
+        true,
+        false,
+        true
+      ],
+      "requested_mixed_volume_percent": [
+        25.0,
+        35.0,
+        45.0
+      ]
+    },
+    "mpris": {
+      "passed": 7,
+      "ignored_real": 1
+    },
+    "tooling": {
+      "ran": 79,
+      "passed": 71,
+      "skipped_optional": 8
+    },
+    "lint": [
+      "cargo fmt --all -- --check",
+      "cargo clippy --workspace --all-targets --locked -- -D warnings",
+      "cargo clippy -p feishin-native-spike --features gst-probe --all-targets --locked -- -D warnings",
+      "cargo clippy -p feishin-native-spike --features mpris-probe --all-targets --locked -- -D warnings",
+      "cargo clippy -p feishin-native-spike --all-targets --target x86_64-pc-windows-msvc --locked -- -D warnings",
+      "cargo clippy -p feishin-native-spike --features gst-probe --all-targets --target x86_64-pc-windows-msvc --locked -- -D warnings"
+    ],
+    "documentation_reference": "Tracked/local links, inventory,7localreference tests, node syntax,33P01migrationanchors/sourcepaths, sourcehashes and whitespace passed"
+  },
+  "upstream_anchors": [
+    "src/main/features/core/player/index.ts:331:5",
+    "src/renderer/features/player/audio-player/engine/mpv-player-engine.tsx:100:31"
+  ],
+  "corrections": [
+    "Out-of-duration observed-seek no-op now fails preparation explicitly asUnsupported; volume is read back before publication",
+    "Initial protocol fixture lacked a real file for canonicalization; fixture file created and affected tests rerun",
+    "Fault-test300ms budgets were restricted to actual deadline case; other faults assert exacterror undernormalbudget",
+    "Playing-position assertions account for elapsed playback; paused assertions retain0.1second tolerance"
+  ],
+  "reviews": {
+    "correctness_architecture": {
+      "outcome": "No actionable findings",
+      "independent_checks": "Prepared fixtures8pass1ignored; legacyhandoff8pass1ignored; CItooling5pass; all8sourcehashes andwhitespace passed",
+      "scope": "Actual code/tests/peer/docs/manifest and dependent control/mpv boundaries; phaseproposal doesnotauthorizeP02/waivegates",
+      "limits": "No real engine/device/fullworkspace rerun"
+    },
+    "tests_edges_operations": {
+      "outcome": "No actionable findings",
+      "independent_checks": "Prepared fixtures8pass1ignored; realmpv4replacementprobe andrealmpv/GStreamer/mpvprobe passed; CItooling5pass; sourcehashes/whitespace passed",
+      "scope": "Deadline/cancellation/cleanup/pressure/CI modes and accuratephaseclaims",
+      "limits": "No physicaldevice/Windowsruntime/hosted result verified"
+    }
+  },
+  "limits": [
+    "Only caller-supplied local source/position/pause/engine-percentage intent, not old-engine snapshot or source/queue identity/authentication restore",
+    "No automatic fallback selection, unsupported engine/device/DSP/capture/OS handoff policy or physical continuity/gain calibration",
+    "Preparation admission budgetcapped15seconds; existingcommands3seconds; cleanupseparate7secondconfirmation and OS/native/filesystem latency not hardbounded",
+    "Missing-binary startup/cleanup-error distinction remains conservative; unconfirmedcleanup stopsadmission",
+    "DefaultWindows/GSTstub compile only; realpreparedruntime verifiedonly ownedLinuxnull-outputlab untilhostedresultobserved",
+    "P01 remains open. P02-start exception proposal requires maintainer decision under existing sequencing rule."
+  ],
+  "review_completed_utc": "2026-10-28T16:52:08.536551+00:00",
+  "sequencing_decision": "Reviewed proposal in exit-decision.md; maintainer decision pending, P01 remains open and P02 has not started"
+}

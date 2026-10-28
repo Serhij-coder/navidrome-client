@@ -151,7 +151,10 @@ pub use mpris::{MPRIS_TRACK_PATH, MprisProbe, micros_to_seconds, seconds_to_micr
 #[cfg(any(unix, windows))]
 mod handoff;
 #[cfg(any(unix, windows))]
-pub use handoff::{HANDOFF_CAPACITY, HandoffFailure, HandoffReply, HandoffRequest, HandoffSession};
+pub use handoff::{
+    HANDOFF_CAPACITY, HandoffFailure, HandoffReply, HandoffRequest, HandoffSession,
+    LocalPreparation,
+};
 
 #[cfg(all(target_os = "linux", feature = "gst-probe"))]
 mod probe_source;

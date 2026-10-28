@@ -40,6 +40,10 @@ def main(argv=None):
                       help="Run the opt-in Linux GStreamer candidate library/fixture tests")
     mode.add_argument("--gstreamer-codecs", action="store_true",
                       help="Run the ignored GStreamer/mpv codec comparison with external mpv and FFmpeg")
+    mode.add_argument("--prepared-handoff", action="store_true",
+                      help="Run the ignored real mpv prepared-source replacement probe")
+    mode.add_argument("--gstreamer-handoff", action="store_true",
+                      help="Run the ignored mpv/GStreamer prepared-source replacement probe")
     args = parser.parse_args(argv)
     if args.native_controls:
         commands = [
@@ -57,6 +61,13 @@ def main(argv=None):
     elif args.gstreamer_codecs:
         commands = [["cargo", "test", "-p", "feishin-native-spike", "--features", "gst-probe",
                      "--test", "gst_probe", "real_gst_and_mpv_authenticated_codec_comparison",
+                     "--locked", "--", "--ignored", "--exact"]]
+    elif args.prepared_handoff:
+        commands = [["cargo", "test", "-p", "feishin-native-spike", "--test", "prepared_handoff",
+                     "real_mpv_prepared_replacement_restore", "--locked", "--", "--ignored", "--exact"]]
+    elif args.gstreamer_handoff:
+        commands = [["cargo", "test", "-p", "feishin-native-spike", "--features", "gst-probe",
+                     "--test", "prepared_handoff", "real_mpv_gstreamer_prepared_replacement_restore",
                      "--locked", "--", "--ignored", "--exact"]]
     elif args.external_audio:
         commands = [["cargo", "test", "-p", "feishin-native-spike", "--test", "native",

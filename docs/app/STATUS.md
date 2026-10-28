@@ -1,23 +1,16 @@
 # Project scratchpad
 
-- Stage: P01.01/P01.07 complete; P01.02-.06 and P01.08 have prototypes/evidence but open exit gates. No P02+ implementation.
-- Native UI: pinned Rust 1.92 / egui 0.33.3; Glow/wgpu candidates, separate web/remote WASM roots; keyboard Tab/arrows/Home/End and named controls.
-- Table: 100k virtual rows, bounded worker/artwork; multi-track/album-block moves with cancellation and stale-view rejection; 6000 CPU-only concurrent scrolling/sort/filter/group/playback/monitor samples, not presented frames.
-- Media: bounded control owner, serialized mpv replacement, private-bus MPRIS and opt-in isolated GStreamer candidate; 12 local/authenticated-loopback codec cases passed; production fallback unselected.
-- Capture: one-slot off-UI supervisor with generation isolation, suspend/re-enable/retry and real owned-monitor checks; no default host capture.
-- Browser: real disposable Navidrome FLAC/MP3 on three lab engines; six session callbacks, cancellable/deadlined play, lifecycle/reload checks; default interior seeks pass in the lab; Firefox/WebKit boundary/loop limits remain open.
-- Packaging/input: clean Ubuntu x86_64 AppImage 2fdfd508 passed 21 ELF/19 copyright checks, smoke/null-mpv, 15 clipboard/19 Orca; browser 14 pass/4 DPR2 limits; no physical/device certification.
-- Hosted f4b76ac: all seven jobs passed, including optional GST and both AppImage CPU codec/smoke checks; see [result](p01/evidence/hosted-gstreamer-candidate.json). Prior 96a8a6d failure cause remains unknown.
-- Latest candidate checks: 78 default Rust pass/12 ignored; GST 9 library+6 fixture tests and 12 codec cases pass; MPRIS 7 pass; Python 71 pass/8 optional skips; fmt/default/GST/MPRIS/Windows/WASM Clippy pass.
-- Records: [matrix](p01/README.md), [Orca/CI](p01/screen-reader.md), [Windows IPC](p01/windows-ipc.md), [native transition](p01/native-transitions.md), [migration](migration/p01-map.csv), [licenses](licenses/README.md).
-- Delivered P01.06 slice: Shift+F10 copy/focus and fresh menu-item IDs; local-display/session guard fixed; 15 clipboard/19 Orca checks rerun; 54 Rust/68 tooling and target Clippy/reference/link checks passed; both reviews satisfied. See [record](p01/track-actions.md).
-- Delivered continuation: native controls/MPRIS, IME/scaling, browser input and native package provenance; combined checks and both independent reviews passed. See [manifest](p01/evidence/controls-input-manifest.json).
-- Limits: one real MPRIS seek deadline remains unisolated after later passes; stale release-cache artifact is historical, replaced by verified clean release. See [controls](p01/native-controls.md), [input](p01/browser-input.md), [package](licenses/native-artifacts.md).
-- Open: calibrated physical budgets, renderer/input/IME/RTL/touch/screen-reader/OS matrix, Windows runtime/OS controls/capture, full native fallback and release licensing; no P01 exit.
-- P01.04: shared element/callback seek deadlines and fresh play status; 54 lifecycle checks and both reviews passed; device/browser boundary gates remain open.
-- Delivered P01.05: bounded optional position query and paused readiness/seek probes implemented; 49 Rust/64 tooling tests, five real native probes and calibration/3-curve/19-transition capture regressions passed; both reviews satisfied; see [record](p01/native-position.md).
-- Delivered: [serialized handoff](p01/native-handoff.md) checks and both reviews passed; operations independently reran real mpv. See [manifest](p01/evidence/native-handoff-manifest.json). No native fallback selected.
-- Delivered: native-probe CI annotations and both reviews passed; 30 exact local invocations + wrapper 3 pass; focused 5/full 69 Python pass/8 optional skips. New hosted run all green; original failure cause unresolved.
-- Delivered: [GStreamer candidate](p01/gstreamer-candidate.md) checks and both reviews passed; operations independently reran all 12 codec cases. Registry notices 395 sets; native packaging/source and system-proxy policies remain open.
-- Next: production fallback/source handoff policy and device/DSP/capture/platform/performance evidence; inspect any recurring CI assertion. P02 only after P01 exit.
-- Workflow: project-local Sol high orchestration, low/medium implementation, Luna xhigh research and two Sol medium reviews configured; see [setup and validation](development-workflow.md). No app phase gate changed.
+- Stage: P01.01/P01.07 complete; remaining P01 tasks have prototypes/evidence but open gates. P02-P14 have not started; this is not a usable music client.
+- Delivered: [prepared local handoff](p01/prepared-handoff.md) checks and both reviews passed; 8 fixtures plus real mpv/cross-engine probes. New hosted result remains separate.
+- Sequencing: [P01 audit and P02-start proposal](p01/exit-decision.md) pending maintainer decision. Existing P01-first rule remains in force; no gate waived.
+- Native UI/table: Rust1.92/egui0.33.3, Glow/wgpu candidates; 100k virtual rows, keyboard/drag/grouping, bounded worker/artwork. Physical renderer and calibrated cost gates remain open.
+- Media: bounded command owner, serialized replacement, private-bus MPRIS subset and optional GStreamer candidate. Prepared path verifies explicit local position/pause/volume; production fallback/source/auth/consumer policy remains open.
+- Browser/remote: separate WASM roots; lab Navidrome codecs, Media Session and input/lifecycle checks. Device/browser/auth policy and Firefox/WebKit boundary limitations remain.
+- Capture/visualizer: bounded original spectrum/waveform and opt-in owned Linux monitor with disposal/retry. Actual preset, cost, OS permission and Windows/macOS evidence remain open.
+- Packaging/input: both AppImage CPUs have hosted smoke; local clean x64 artifact/clipboard/Orca and toolkit IME/scaling checks passed. Physical input/font/RTL/platform and native distribution licensing remain open.
+- Hosted f4b76ac: all seven jobs passed, including optional GST and both AppImage CPU codec/smoke checks; see [result](p01/evidence/hosted-gstreamer-candidate.json). Prepared increment not yet hosted.
+- Current checks: 86 workspace tests/13 ignored; final prepared target8 pass; real mpv4 and mixed-engine3 replacements pass; MPRIS7 pass; Python71 pass/8 optional skips; fmt/default/GST/MPRIS/Windows Clippy pass.
+- Limits: prior96a8a6d CI failure and one real MPRIS seek deadline remain unexplained; passing repetitions do not resolve their cause. Source/record links retain historical evidence.
+- Records: [P01 matrix](p01/README.md), [migration](migration/p01-map.csv), [input/Orca](p01/screen-reader.md), [playback ADR](adr/003-playback-boundaries.md), [licenses](licenses/README.md).
+- Next: resolve sequencing decision. Prefer portable P02 foundations then a partial Navidrome vertical slice if authorized; no more independent P01 expansion without a concrete blocker.
+- Workflow: project-local Sol high orchestration, bounded low/medium implementers, read-only research and exactly two final role reviews; orchestrator owns commit/push. See [setup](development-workflow.md).

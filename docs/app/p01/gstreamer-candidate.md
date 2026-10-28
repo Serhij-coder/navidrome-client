@@ -26,6 +26,8 @@ Timing fields measure distinct call boundaries. `load_ack_ms` includes the load 
 
 The missing-primary test explicitly starts the candidate after a failed executable launch. It does not implement an automatic fallback policy, migrate a live queue or restore a source/position between engines. The [serialized handoff](native-handoff.md) and this candidate remain separate experiments. Production fallback must still coordinate one owner, engine capabilities, generation/request identities, source/authentication lifetime, saved position/status, capture/OS consumers and failure recovery. Gapless/crossfade, speed/pitch, DSP/waveform, metadata/radio, real devices and Windows/macOS remain open.
 
+The subsequent [prepared local-source experiment](prepared-handoff.md) connects the managed handoff owner to mpv and this helper, verifying caller-supplied local position/pause/volume before client publication. It does not add automatic selection, old-engine state capture, authenticated source restoration or queue/capture/OS policy.
+
 ## Reproduction and CI
 
 On Ubuntu 24.04 install the optional build/runtime packages in a disposable environment:
