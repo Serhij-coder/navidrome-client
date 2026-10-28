@@ -427,8 +427,7 @@ fn every_boundary_accepts_non_send_futures_and_deterministic_state() {
     );
 }
 
-#[test]
-fn catalog_vocabulary_matches_pinned_source_fixture() {
+fn catalog_vocabulary() -> String {
     let mut actual = String::new();
     macro_rules! catalog { ($($t:ty),+) => { $(
         actual.push_str(stringify!($t)); actual.push('\t');
@@ -455,7 +454,21 @@ fn catalog_vocabulary_matches_pinned_source_fixture() {
         LyricSource,
         ServerFeature
     );
-    assert_eq!(actual, include_str!("../fixtures/p02/domain/catalog.tsv"));
+    actual
+}
+
+// Compare complete records without making Git checkout line endings part of the vocabulary.
+// lines() removes LF/CRLF terminators only; spelling, ordering and whitespace stay significant.
+fn catalog_records(text: &str) -> Vec<&str> {
+    text.lines().collect()
+}
+
+#[test]
+fn catalog_vocabulary_matches_pinned_source_fixture() {
+    assert_eq!(
+        catalog_records(&catalog_vocabulary()),
+        catalog_records(include_str!("../fixtures/p02/domain/catalog.tsv"))
+    );
     for feature in ServerFeature::ALL {
         let mut caps = Capabilities::default();
         assert!(!caps.has(*feature));
@@ -645,4 +658,30 @@ fn playback_capabilities_gate_dispatch_without_side_effects() {
         services.playback.borrow().as_slice(),
         &[PlaybackCommand::Pause]
     );
+}
+
+#[test]
+fn catalog_fixture_line_endings_do_not_hide_vocabulary_changes() {
+    let actual = catalog_vocabulary();
+    let fixture = include_str!("../fixtures/p02/domain/catalog.tsv");
+    let lf = fixture.lines().collect::<Vec<_>>().join("\n") + "\n";
+    let crlf = lf.replace("\n", "\r\n");
+    assert_ne!(
+        actual, crlf,
+        "the former raw comparison rejects a CRLF checkout"
+    );
+    for text in [&lf, &crlf] {
+        assert_eq!(catalog_records(&actual), catalog_records(text));
+        // The comparison must still reject renamed, missing, added and reordered values,
+        // and must not trim meaningful whitespace inside a record.
+        for altered in [
+            text.replacen("album,albumArtist", "renamed,albumArtist", 1),
+            text.replacen("album,albumArtist", "albumArtist", 1),
+            text.replacen("album,albumArtist", "album,extra,albumArtist", 1),
+            text.replacen("album,albumArtist", "albumArtist,album", 1),
+            text.replacen("album,albumArtist", "album, albumArtist", 1),
+        ] {
+            assert_ne!(catalog_records(&actual), catalog_records(&altered));
+        }
+    }
 }

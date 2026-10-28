@@ -206,3 +206,20 @@ fn recovery_field_shapes_and_unknown_keys_are_predictable() {
         Err(Error::TooLarge)
     );
 }
+
+#[cfg(windows)]
+#[test]
+fn windows_drive_and_verbatim_roots_reopen_the_same_isolated_value() {
+    let root = tempfile::tempdir().unwrap();
+    let verbatim = root.path().canonicalize().unwrap();
+    assert!(matches!(
+        verbatim.components().next(),
+        Some(std::path::Component::Prefix(_))
+    ));
+    let mut original = ProfileRepository::new(NativeStore::open(root.path()).unwrap());
+    original.save(&data()).unwrap();
+    let mut reopened = ProfileRepository::new(NativeStore::open(&verbatim).unwrap());
+    assert_eq!(reopened.load().unwrap().data, data());
+    reopened.save(&ProfileData::default()).unwrap();
+    assert_eq!(original.load().unwrap().data, ProfileData::default());
+}

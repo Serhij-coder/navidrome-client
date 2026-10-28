@@ -31,6 +31,12 @@ fn check_path(path: &Path) -> Result<(), Error> {
     let mut current = PathBuf::new();
     for component in path.components() {
         current.push(component);
+        // A Windows drive/device prefix is not a complete filesystem path.
+        // Check it only once RootDir has made it a rooted path, then check
+        // every subsequent component as usual (including symlink rejection).
+        if matches!(component, Component::Prefix(_)) {
+            continue;
+        }
         match fs::symlink_metadata(&current) {
             Ok(metadata) if metadata.file_type().is_symlink() => return Err(Error::UnsafePath),
             Ok(_) => (),
