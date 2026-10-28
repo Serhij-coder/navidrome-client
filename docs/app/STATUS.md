@@ -7,7 +7,7 @@
 - Capture: one-slot off-UI supervisor with generation isolation, suspend/re-enable/retry and real owned-monitor checks; no default host capture.
 - Browser: real disposable Navidrome FLAC/MP3 on three lab engines; six session callbacks, cancellable/deadlined play, lifecycle/reload checks; default interior seeks pass in the lab; Firefox/WebKit boundary/loop limits remain open.
 - Packaging/input: clean Ubuntu x86_64 AppImage 2fdfd508 passed 21 ELF/19 copyright checks, smoke/null-mpv, 15 clipboard/19 Orca; browser 14 pass/4 DPR2 limits; no physical/device certification.
-- Hosted b10c2ac: all seven jobs passed, including both AppImage CPUs; see [result](p01/evidence/hosted-native-probe-diagnostics.json). Prior 96a8a6d x64 probe failed before packaging; cause remains unknown.
+- Hosted f4b76ac: all seven jobs passed, including optional GST and both AppImage CPU codec/smoke checks; see [result](p01/evidence/hosted-gstreamer-candidate.json). Prior 96a8a6d failure cause remains unknown.
 - Latest candidate checks: 78 default Rust pass/12 ignored; GST 9 library+6 fixture tests and 12 codec cases pass; MPRIS 7 pass; Python 71 pass/8 optional skips; fmt/default/GST/MPRIS/Windows/WASM Clippy pass.
 - Records: [matrix](p01/README.md), [Orca/CI](p01/screen-reader.md), [Windows IPC](p01/windows-ipc.md), [native transition](p01/native-transitions.md), [migration](migration/p01-map.csv), [licenses](licenses/README.md).
 - Delivered P01.06 slice: Shift+F10 copy/focus and fresh menu-item IDs; local-display/session guard fixed; 15 clipboard/19 Orca checks rerun; 54 Rust/68 tooling and target Clippy/reference/link checks passed; both reviews satisfied. See [record](p01/track-actions.md).

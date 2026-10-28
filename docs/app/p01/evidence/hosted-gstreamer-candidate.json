@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-28T16:19:30.604286+00:00",
+  "head_sha": "f4b76acfe9506e205444f1006d5d23deecd3ddb7",
+  "run_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40723301849",
+  "status": "completed",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "id": 122939743305,
+      "name": "linux-appimage-smoke (ubuntu-24.04-arm, aarch64)",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40723301849/job/122939743305",
+      "observation": "GitHub REST jobs endpoint before rate limit"
+    },
+    {
+      "id": 122939743853,
+      "name": "linux-appimage-smoke (ubuntu-24.04, x86_64)",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40723301849/job/122939743853",
+      "observation": "GitHub REST jobs endpoint before rate limit"
+    },
+    {
+      "id": 122939743897,
+      "name": "wasm",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40723301849/job/122939743897",
+      "observation": "GitHub REST jobs endpoint before rate limit"
+    },
+    {
+      "id": 122939743905,
+      "name": "native (macos-14)",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40723301849/job/122939743905",
+      "observation": "GitHub REST jobs endpoint before rate limit"
+    },
+    {
+      "id": 122939743987,
+      "name": "native (windows-latest)",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40723301849/job/122939743987",
+      "observation": "GitHub REST jobs endpoint before rate limit"
+    },
+    {
+      "id": 122939744028,
+      "name": "portable-and-tooling",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40723301849/job/122939744028",
+      "observation": "GitHub REST jobs endpoint before rate limit"
+    },
+    {
+      "id": 122939744129,
+      "name": "native (ubuntu-24.04)",
+      "conclusion": "success",
+      "html_url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40723301849/job/122939744129",
+      "observation": "Public job page and successful completed workflow"
+    }
+  ],
+  "observation_sources": {
+    "final_run_page": {
+      "url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40723301849",
+      "sha256": "ff26fe7a978ca67e909f18abea0df2e196bcfe4ff547cbfc9607dde29133cf61",
+      "observed_status_text": "Success"
+    },
+    "final_native_linux_page": {
+      "url": "https://github.com/Serhij-coder/navidrome-client/actions/runs/40723301849/job/122939744129",
+      "sha256": "b643f02e8a0c1c88611ac58185b264737ff5f8bec040a280ec7f8dd3748fe93b",
+      "observed_success_label": "completed successfully"
+    },
+    "api_limit": "REST polling reached HTTP403 rate limit after six jobs had reported success; final workflow/native result read on normal public GitHub pages"
+  },
+  "scope": "All seven implementation jobs passed, including optional Linux GStreamer checks, 12-case codec comparisons in both Linux AppImage architecture jobs and default artifact smoke. The helper/native GStreamer are not bundled in the default AppImage. No production fallback, device/performance/license certification or P01 exit.",
+  "documentation_reviews": {
+    "correctness_architecture": "No actionable findings; scoped diff, JSON/job identities, hashed snapshots and fresh public run/native pages, links, STATUS and whitespace checked",
+    "tests_edges_operations": "No actionable findings; scoped diff/JSON against saved public pages, seven job identities, commit/page hashes, STATUS and whitespace checked; no runtime rerun needed"
+  }
+}
