@@ -1,0 +1,219 @@
+{
+  "commit": "7d6ad318c79802e226996cfc39acba6b05bb22e8",
+  "kind": "synthetic-source-replay-not-live-authentication",
+  "sources": {
+    "src/renderer/api/subsonic/subsonic-api.ts": "5c10deab6015915945d656578d0a6aa54cee7fdbcb846734698fc3d04dcbe54e",
+    "src/renderer/api/subsonic/subsonic-controller.ts": "c5afb4748f8b6eaa721d8388e656172326074e7f002cd90b0505e4c1ec348af0",
+    "src/renderer/utils/normalize-server-url.ts": "5d535bacac2c93027181f2f20355141b149a895f0fac09a4300cb9f9d729390c",
+    "src/renderer/utils/random-string.ts": "b4082a2460095fb9e83e0bd5740a52f4179c085cd41048e6e4f9a66581d36e90"
+  },
+  "functions": {
+    "src/renderer/api/subsonic/subsonic-controller.ts:316:19": "6af4a4bbcd7dbdf191a0d9aaa82411df37ecd91f2dc615b4af11c4ba841c8d0c",
+    "src/renderer/api/subsonic/subsonic-api.ts:389:41": "06985b08111350f7fb15737bb287f60e8ecfb9f30903d209e27992c4a42067e1",
+    "src/renderer/api/subsonic/subsonic-api.ts:438:19": "aa7d7cdbdbb16f0dcf6d1d1f802f75a744d0b0a1d97c3861a57cad0c9894874b",
+    "src/renderer/api/subsonic/subsonic-api.ts:489:14": "c7764d5c627c373601f56c96920e4a1646a660851715c99323da3afd4b05c5e9",
+    "src/renderer/utils/normalize-server-url.ts:3:35": "f2056dd7451f4ce5d1fe92969977e5648826ed07583be0982c3773c28007a3e2",
+    "src/renderer/utils/normalize-server-url.ts:9:29": "552db7d6d1945e17d031c9abb80372bf1ee6f72ab626067681c879e04201b787",
+    "src/renderer/utils/random-string.ts:1:29": "d79823a1f0700b85c2f2ae3ca274f938d9d6036b3a643cadd96f88b20413e7b0"
+  },
+  "typescript_sha256": "569177652966bd528c319171c7dd22860dbf72bde116cbc4f644f1d02bb12e39",
+  "dependencies": {
+    "charenc/charenc.js": "523cdb63f2a9a01bd627f1d45e20fdadbdaed2120ba773bc18d22341d52e6d6b",
+    "crypt/crypt.js": "bc139fc6c405670c74802b27f444b9f7c0516413e5305a6dca17fd17b8c3f679",
+    "is-buffer/index.js": "1586b3e7b873a07da02630b4d173d131c0798995d85fcc37199507ad3ef4e603",
+    "md5/md5.js": "a2ab30d3aaa366f73e575f9f799892a637069f1c461d51dde15d12bd78fe896e",
+    "qs/dist/qs.js": "b10c0fc92b60eeff184445729a0c33ccc43361d5009e3fce3e9bda8b7ea6ab5a"
+  },
+  "cases": [
+    {
+      "id": "special-salted",
+      "base": "https://example.test/music/",
+      "username": "a+b&c=d名",
+      "password": "päss+&=%!'()*?#/:雪",
+      "legacy": false,
+      "pairs": [
+        [
+          "id",
+          "a b"
+        ],
+        [
+          "id",
+          ""
+        ],
+        [
+          "id",
+          "a+b&=%雪"
+        ],
+        [
+          "query",
+          "null"
+        ],
+        [
+          "name",
+          "undefined"
+        ]
+      ],
+      "expected": {
+        "salt": "ABCDEFGHIJKL",
+        "token": "bb9009fbb51fd7beb3dcf8b7a8635bda",
+        "auth_base": "https://example.test/music/rest",
+        "wire_url": "https://example.test/music/rest/fixture.view?c=Feishin&f=json&v=1.13.0&u=a%2Bb%26c%3Dd%E5%90%8D&s=ABCDEFGHIJKL&t=bb9009fbb51fd7beb3dcf8b7a8635bda&id=a%20b&id=&id=a%2Bb%26%3D%25%E9%9B%AA&query=null&name=undefined",
+        "request_error": null
+      }
+    },
+    {
+      "id": "special-legacy",
+      "base": "http://192.168.1.2:4533/prefix/",
+      "username": "a+b&c=d名",
+      "password": "päss+&=%!'()*?#/:雪",
+      "legacy": true,
+      "pairs": [
+        [
+          "query",
+          "+ & = % !'()* ?#/:é😀"
+        ]
+      ],
+      "expected": {
+        "salt": null,
+        "token": null,
+        "auth_base": "http://192.168.1.2:4533/prefix/rest",
+        "wire_url": "http://192.168.1.2:4533/prefix/rest/fixture.view?c=Feishin&f=json&v=1.13.0&u=a%2Bb%26c%3Dd%E5%90%8D&p=p%C3%A4ss%2B%26%3D%25%21%27%28%29%2A%3F%23%2F%3A%E9%9B%AA&query=%2B%20%26%20%3D%20%25%20%21%27%28%29%2A%20%3F%23%2F%3A%C3%A9%F0%9F%98%80",
+        "request_error": null
+      }
+    },
+    {
+      "id": "unicode-salted",
+      "base": "https://example.test/音楽/%E2%98%83/",
+      "username": "名😀",
+      "password": "éé雪😀",
+      "legacy": false,
+      "pairs": [
+        [
+          "query",
+          "кирилиця 中文"
+        ],
+        [
+          "empty",
+          ""
+        ]
+      ],
+      "expected": {
+        "salt": "ABCDEFGHIJKL",
+        "token": "89c3b3efd5a0f0994ef67d669cc7826b",
+        "auth_base": "https://example.test/音楽/%E2%98%83/rest",
+        "wire_url": "https://example.test/%E9%9F%B3%E6%A5%BD/%E2%98%83/rest/fixture.view?c=Feishin&f=json&v=1.13.0&u=%E5%90%8D%F0%9F%98%80&s=ABCDEFGHIJKL&t=89c3b3efd5a0f0994ef67d669cc7826b&query=%D0%BA%D0%B8%D1%80%D0%B8%D0%BB%D0%B8%D1%86%D1%8F%20%E4%B8%AD%E6%96%87&empty=",
+        "request_error": null
+      }
+    },
+    {
+      "id": "empty-salted",
+      "base": "http://127.0.0.1:4533/",
+      "username": "",
+      "password": "",
+      "legacy": false,
+      "pairs": [],
+      "expected": {
+        "salt": "ABCDEFGHIJKL",
+        "token": "2b0dc568e588e46a5a7cd56dcec348af",
+        "auth_base": "http://127.0.0.1:4533/rest",
+        "wire_url": "http://127.0.0.1:4533/rest/fixture.view?c=Feishin&f=json&v=1.13.0&u=&s=ABCDEFGHIJKL&t=2b0dc568e588e46a5a7cd56dcec348af",
+        "request_error": null
+      }
+    },
+    {
+      "id": "empty-legacy",
+      "base": "http://[::1]:4533/",
+      "username": "",
+      "password": "",
+      "legacy": true,
+      "pairs": [],
+      "expected": {
+        "salt": null,
+        "token": null,
+        "auth_base": "http://[::1]:4533/rest",
+        "wire_url": "http://[::1]:4533/rest/fixture.view?c=Feishin&f=json&v=1.13.0&u=&p=",
+        "request_error": null
+      }
+    },
+    {
+      "id": "literal-percent-username",
+      "base": "https://example.test/prefix/",
+      "username": "percent%name",
+      "password": "synthetic",
+      "legacy": false,
+      "pairs": [],
+      "expected": {
+        "salt": "ABCDEFGHIJKL",
+        "token": "c23f8624f9a3e6ccb54d85888d58eab7",
+        "auth_base": "https://example.test/prefix/rest",
+        "wire_url": null,
+        "request_error": "URIError"
+      }
+    },
+    {
+      "id": "already-rest",
+      "base": "https://example.test/rest/",
+      "username": "user",
+      "password": "synthetic",
+      "legacy": false,
+      "pairs": [],
+      "expected": {
+        "salt": "ABCDEFGHIJKL",
+        "token": "c23f8624f9a3e6ccb54d85888d58eab7",
+        "auth_base": "https://example.test/rest/rest",
+        "wire_url": "https://example.test/rest/rest/fixture.view?c=Feishin&f=json&v=1.13.0&u=user&s=ABCDEFGHIJKL&t=c23f8624f9a3e6ccb54d85888d58eab7",
+        "request_error": null
+      }
+    },
+    {
+      "id": "double-trailing-slash",
+      "base": "https://example.test/music//",
+      "username": "user",
+      "password": "synthetic",
+      "legacy": false,
+      "pairs": [],
+      "expected": {
+        "salt": "ABCDEFGHIJKL",
+        "token": "c23f8624f9a3e6ccb54d85888d58eab7",
+        "auth_base": "https://example.test/music//rest",
+        "wire_url": "https://example.test/music//rest/fixture.view?c=Feishin&f=json&v=1.13.0&u=user&s=ABCDEFGHIJKL&t=c23f8624f9a3e6ccb54d85888d58eab7",
+        "request_error": null
+      }
+    }
+  ],
+  "observations": {
+    "route_string_normalization": {
+      "params": {
+        "query": [
+          "null"
+        ],
+        "name": [
+          "undefined"
+        ],
+        "id": [
+          "1",
+          "2"
+        ]
+      },
+      "path": "fixture.view"
+    },
+    "whitespace_and_slashes": [
+      {
+        "input": " https://example.test/music/ ",
+        "normalized": "https://example.test/music"
+      },
+      {
+        "input": "https://example.test/music//",
+        "normalized": "https://example.test/music/"
+      }
+    ],
+    "reserved_defaults_overridden_by_route": {
+      "u": [
+        "override"
+      ],
+      "c": [
+        "other"
+      ]
+    }
+  }
+}

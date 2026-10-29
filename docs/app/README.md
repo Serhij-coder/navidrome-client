@@ -41,3 +41,5 @@ The [storage worker continuation](p02/state-worker.md) adds typed local session 
 The [opt-in desktop preferences](p02/desktop-preferences.md) now consume the isolated worker for two preference fields. This native flow preserves imported durable data and keeps the synthetic table independent; full profiles/import/browser/playback integration remains open.
 
 The [credential library](p02/credentials.md) adds bounded session-only defaults, explicit retention operations and an optional Linux Secret Service adapter, tested on an owned GNOME provider. Browser remembering is explicitly unsupported; application authentication/consent and provider-prompt integration remain open. [ADR-006](adr/006-credentials.md) records deliberate differences from upstream retention.
+
+The [P03.01 Subsonic foundation](p03/README.md) implements portable URL/subpath/query construction, salted or explicit legacy parameters and redacted wire values under a bounded maintainer-authorized sequencing exception while P02 remains open. Exact pinned-source replay and [verification](p03/verification.md) cover construction only; no HTTP login, library operation or P02/P03 phase exit is claimed.
