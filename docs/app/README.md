@@ -53,3 +53,5 @@ The [P02.07 payload continuation](p02/payloads.md) adds bounded normalized song-
 The bounded [P03.03 song detail read](p03/song-reads.md) normalizes `getSong` through the existing local transport, with pinned-source replay and checked IDs/units. Other reads, production HTTP and phase exits remain open.
 
 The [P03.03 album detail continuation](p03/album-reads.md) adds album and album-artist reads, preserving optional albums and nested disc/song behavior under a bounded work budget. Other operations, real transport and phase exits remain open.
+
+The [P03.03 playlist snapshot reads](p03/playlist-reads.md) preserve metadata, ordered duplicate entries and song-ID projections. The maintainer requested continuous progression through the rewrite plan; required reviews, evidence gates and release/deployment authorization remain in force.

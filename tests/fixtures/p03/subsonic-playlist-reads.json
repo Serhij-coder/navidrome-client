@@ -1,0 +1,1211 @@
+{
+  "baseline": "7d6ad318c79802e226996cfc39acba6b05bb22e8",
+  "sources": {
+    "src/shared/api/subsonic/subsonic-normalize.ts": "73f6a36816a6d76f5b2d124ae7d810b3e3527d0f87234adf3262360b4a51316d",
+    "src/shared/api/partial-iso-date.ts": "f18ae8e82c5651ddaf4c5d3e48b48633d438ae9cd05c9808623cbfecc1215835",
+    "src/shared/types/domain-types.ts": "acd9d435728a90bab09773fbfa8e5cbe9bd4eec549aa764474c458dc013a834a",
+    "src/renderer/api/subsonic/subsonic-controller.ts": "c5afb4748f8b6eaa721d8388e656172326074e7f002cd90b0505e4c1ec348af0"
+  },
+  "typescript_sha256": "569177652966bd528c319171c7dd22860dbf72bde116cbc4f644f1d02bb12e39",
+  "functions": {
+    "src/shared/api/subsonic/subsonic-normalize.ts:21:23": "6067ba3228a3da2b1f352684daf204ba9b580d53997373ba2231b1a3aa7e1064",
+    "src/shared/api/subsonic/subsonic-normalize.ts:65:25": "fe0eaf12b2aff2ead6efaf2339133883d8fe3b4123f04e8f4f6b33904a74120e",
+    "src/shared/api/subsonic/subsonic-normalize.ts:101:19": "86be6686207cd64e59556bf6d99ea77da33a012f40a7f5d825633446c84e874d",
+    "src/shared/api/subsonic/subsonic-normalize.ts:137:14": "a9c3629f49a357729581480d06d90b98b008ac172b58dafbae86b369c5e35edc",
+    "src/shared/api/subsonic/subsonic-normalize.ts:139:31": "7c45c3374771f54e64ed5919f34011380c799c876ee81725c1ef9b427c92463e",
+    "src/shared/api/subsonic/subsonic-normalize.ts:162:32": "35ddb3acfd1fc74b017b1f47c3e934ce3d52666acdb3ab0ed514d94b731e47a3",
+    "src/shared/api/subsonic/subsonic-normalize.ts:173:23": "7e3e7bd6fcf78f8cb8f86531818d5e758d32622a24bc638801521ea49bde0a81",
+    "src/shared/api/subsonic/subsonic-normalize.ts:407:27": "4c65412d677ad9285464efa2bf54bbd71cdc8f68825efff0ba670e29c47d6d27",
+    "src/shared/api/partial-iso-date.ts:3:27": "d5048f7b2801423653ba99b5ecd19d044465fb1eaf1120d0e9fdb0eaec1c3db1",
+    "src/shared/api/partial-iso-date.ts:12:36": "e6c42a1c5da53b8885675e3c7f62da886545c9ad5501bb3c9a8a0506c80ad5a7",
+    "src/renderer/api/subsonic/subsonic-controller.ts:1212:24": "0fcd04a49f5c09e2ad1667b60dfbe78c938e74e0d278b501b19613db30db9c12",
+    "src/renderer/api/subsonic/subsonic-controller.ts:1297:25": "804a79d9cca04f66d4fdb1a5f9d43b9520dfeb584f8da3af293fcf8d991df17f",
+    "src/renderer/api/subsonic/subsonic-controller.ts:1302:26": "6edded9e5e9e212bcb31de6d5c2eee9745a5525f9c2c4f394964fb02bcb66c0c"
+  },
+  "cases": [
+    {
+      "name": "minimal",
+      "operation": "getPlaylistDetail",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "name": "Synthetic playlist",
+        "duration": 0,
+        "songCount": 0
+      },
+      "expected": {
+        "_itemType": "playlist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "blurHash": null,
+        "description": null,
+        "dominantColor": null,
+        "duration": 0,
+        "evaluatedAt": null,
+        "genres": [],
+        "id": "playlist-1",
+        "imageId": null,
+        "imageUrl": null,
+        "name": "Synthetic playlist",
+        "size": null,
+        "songCount": 0,
+        "thumbHash": null
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "full",
+      "operation": "getPlaylistDetail",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "name": "Synthetic playlist",
+        "duration": 123.125,
+        "songCount": 10,
+        "comment": "Synthetic comment",
+        "coverArt": 42,
+        "changed": "raw changed &=?",
+        "owner": "Synthetic owner",
+        "public": true,
+        "ignored": "metadata"
+      },
+      "expected": {
+        "_itemType": "playlist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "blurHash": null,
+        "description": "Synthetic comment",
+        "dominantColor": null,
+        "duration": 123125,
+        "evaluatedAt": null,
+        "genres": [],
+        "id": "playlist-1",
+        "imageId": "42&_=raw changed &=?",
+        "imageUrl": null,
+        "name": "Synthetic playlist",
+        "owner": "Synthetic owner",
+        "ownerId": "Synthetic owner",
+        "public": true,
+        "size": null,
+        "songCount": 10,
+        "thumbHash": null
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "empty-values",
+      "operation": "getPlaylistDetail",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "name": "",
+        "duration": 0,
+        "songCount": 0,
+        "comment": "",
+        "coverArt": "",
+        "changed": "",
+        "owner": "",
+        "public": false
+      },
+      "expected": {
+        "_itemType": "playlist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "blurHash": null,
+        "description": null,
+        "dominantColor": null,
+        "duration": 0,
+        "evaluatedAt": null,
+        "genres": [],
+        "id": "playlist-1",
+        "imageId": null,
+        "imageUrl": null,
+        "name": "",
+        "owner": "",
+        "ownerId": "",
+        "public": false,
+        "size": null,
+        "songCount": 0,
+        "thumbHash": null
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "null-optionals",
+      "operation": "getPlaylistDetail",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "name": "Synthetic playlist",
+        "duration": 0,
+        "songCount": null,
+        "comment": null,
+        "coverArt": null,
+        "changed": null,
+        "owner": null,
+        "public": null
+      },
+      "expected": {
+        "_itemType": "playlist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "blurHash": null,
+        "description": null,
+        "dominantColor": null,
+        "duration": 0,
+        "evaluatedAt": null,
+        "genres": [],
+        "id": "playlist-1",
+        "imageId": null,
+        "imageUrl": null,
+        "name": "Synthetic playlist",
+        "owner": null,
+        "ownerId": null,
+        "public": null,
+        "size": null,
+        "songCount": null,
+        "thumbHash": null
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "numeric-zero-cover",
+      "operation": "getPlaylistDetail",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "name": "Synthetic playlist",
+        "duration": 0,
+        "songCount": 0,
+        "coverArt": 0,
+        "changed": "raw"
+      },
+      "expected": {
+        "_itemType": "playlist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "blurHash": null,
+        "description": null,
+        "dominantColor": null,
+        "duration": 0,
+        "evaluatedAt": null,
+        "genres": [],
+        "id": "playlist-1",
+        "imageId": "0&_=raw",
+        "imageUrl": null,
+        "name": "Synthetic playlist",
+        "size": null,
+        "songCount": 0,
+        "thumbHash": null
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "no-cache-suffix",
+      "operation": "getPlaylistDetail",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "name": "Synthetic playlist",
+        "duration": 0,
+        "songCount": 0,
+        "coverArt": "cover",
+        "changed": ""
+      },
+      "expected": {
+        "_itemType": "playlist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "blurHash": null,
+        "description": null,
+        "dominantColor": null,
+        "duration": 0,
+        "evaluatedAt": null,
+        "genres": [],
+        "id": "playlist-1",
+        "imageId": "cover",
+        "imageUrl": null,
+        "name": "Synthetic playlist",
+        "size": null,
+        "songCount": 0,
+        "thumbHash": null
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "fractional-millisecond",
+      "operation": "getPlaylistDetail",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "name": "Synthetic playlist",
+        "duration": 1.2349,
+        "songCount": 0
+      },
+      "expected": {
+        "_itemType": "playlist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "blurHash": null,
+        "description": null,
+        "dominantColor": null,
+        "duration": 1234.9,
+        "evaluatedAt": null,
+        "genres": [],
+        "id": "playlist-1",
+        "imageId": null,
+        "imageUrl": null,
+        "name": "Synthetic playlist",
+        "size": null,
+        "songCount": 0,
+        "thumbHash": null
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "negative-duration",
+      "operation": "getPlaylistDetail",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "name": "Synthetic playlist",
+        "duration": -1,
+        "songCount": 0
+      },
+      "target_error": true,
+      "expected": {
+        "_itemType": "playlist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "blurHash": null,
+        "description": null,
+        "dominantColor": null,
+        "duration": -1000,
+        "evaluatedAt": null,
+        "genres": [],
+        "id": "playlist-1",
+        "imageId": null,
+        "imageUrl": null,
+        "name": "Synthetic playlist",
+        "size": null,
+        "songCount": 0,
+        "thumbHash": null
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "null-duration",
+      "operation": "getPlaylistDetail",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "name": "Synthetic playlist",
+        "duration": null,
+        "songCount": 0
+      },
+      "target_error": true,
+      "expected": {
+        "_itemType": "playlist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "blurHash": null,
+        "description": null,
+        "dominantColor": null,
+        "duration": 0,
+        "evaluatedAt": null,
+        "genres": [],
+        "id": "playlist-1",
+        "imageId": null,
+        "imageUrl": null,
+        "name": "Synthetic playlist",
+        "size": null,
+        "songCount": 0,
+        "thumbHash": null
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "missing-duration",
+      "operation": "getPlaylistDetail",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "name": "Synthetic playlist",
+        "songCount": 0
+      },
+      "target_error": true,
+      "expected": {
+        "_itemType": "playlist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "blurHash": null,
+        "description": null,
+        "dominantColor": null,
+        "duration": null,
+        "evaluatedAt": null,
+        "genres": [],
+        "id": "playlist-1",
+        "imageId": null,
+        "imageUrl": null,
+        "name": "Synthetic playlist",
+        "size": null,
+        "songCount": 0,
+        "thumbHash": null
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "missing-name",
+      "operation": "getPlaylistDetail",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "duration": 0,
+        "songCount": 0
+      },
+      "target_error": true,
+      "expected": {
+        "_itemType": "playlist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "blurHash": null,
+        "description": null,
+        "dominantColor": null,
+        "duration": 0,
+        "evaluatedAt": null,
+        "genres": [],
+        "id": "playlist-1",
+        "imageId": null,
+        "imageUrl": null,
+        "size": null,
+        "songCount": 0,
+        "thumbHash": null
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "fractional-count",
+      "operation": "getPlaylistDetail",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "name": "Synthetic playlist",
+        "duration": 0,
+        "songCount": 1.5
+      },
+      "target_error": true,
+      "expected": {
+        "_itemType": "playlist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "blurHash": null,
+        "description": null,
+        "dominantColor": null,
+        "duration": 0,
+        "evaluatedAt": null,
+        "genres": [],
+        "id": "playlist-1",
+        "imageId": null,
+        "imageUrl": null,
+        "name": "Synthetic playlist",
+        "size": null,
+        "songCount": 1.5,
+        "thumbHash": null
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "unsafe-id",
+      "operation": "getPlaylistDetail",
+      "request_id": "9007199254740992",
+      "input": {
+        "id": 9007199254740992,
+        "name": "Synthetic playlist",
+        "duration": 0,
+        "songCount": 0
+      },
+      "target_error": true,
+      "expected": {
+        "_itemType": "playlist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "blurHash": null,
+        "description": null,
+        "dominantColor": null,
+        "duration": 0,
+        "evaluatedAt": null,
+        "genres": [],
+        "id": "9007199254740992",
+        "imageId": null,
+        "imageUrl": null,
+        "name": "Synthetic playlist",
+        "size": null,
+        "songCount": 0,
+        "thumbHash": null
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "9007199254740992"
+      }
+    },
+    {
+      "name": "wrong-public",
+      "operation": "getPlaylistDetail",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "name": "Synthetic playlist",
+        "duration": 0,
+        "songCount": 0,
+        "public": "true"
+      },
+      "target_error": true,
+      "expected": {
+        "_itemType": "playlist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "blurHash": null,
+        "description": null,
+        "dominantColor": null,
+        "duration": 0,
+        "evaluatedAt": null,
+        "genres": [],
+        "id": "playlist-1",
+        "imageId": null,
+        "imageUrl": null,
+        "name": "Synthetic playlist",
+        "public": "true",
+        "size": null,
+        "songCount": 0,
+        "thumbHash": null
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "wrong-changed",
+      "operation": "getPlaylistDetail",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "name": "Synthetic playlist",
+        "duration": 0,
+        "songCount": 0,
+        "coverArt": "art",
+        "changed": 123
+      },
+      "target_error": true,
+      "expected": {
+        "_itemType": "playlist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "blurHash": null,
+        "description": null,
+        "dominantColor": null,
+        "duration": 0,
+        "evaluatedAt": null,
+        "genres": [],
+        "id": "playlist-1",
+        "imageId": "art&_=123",
+        "imageUrl": null,
+        "name": "Synthetic playlist",
+        "size": null,
+        "songCount": 0,
+        "thumbHash": null
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "entries-absent",
+      "operation": "getPlaylistSongList",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1"
+      },
+      "expected": {
+        "items": [],
+        "startIndex": 0,
+        "totalRecordCount": 0
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "entries-null",
+      "operation": "getPlaylistSongList",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "entry": null
+      },
+      "expected": {
+        "items": [],
+        "startIndex": 0,
+        "totalRecordCount": 0
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "entries-empty",
+      "operation": "getPlaylistSongList",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "entry": []
+      },
+      "expected": {
+        "items": [],
+        "startIndex": 0,
+        "totalRecordCount": 0
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "repeated-songs",
+      "operation": "getPlaylistSongList",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "name": "Synthetic playlist",
+        "duration": 0,
+        "songCount": 999,
+        "entry": [
+          {
+            "id": "same",
+            "title": "Synthetic title",
+            "contentType": "audio/flac",
+            "created": "raw-created-not-ISO",
+            "size": 123,
+            "artist": "Legacy",
+            "artistId": 7,
+            "genre": "Rock",
+            "discNumber": 2
+          },
+          {
+            "id": "same",
+            "title": "Synthetic title",
+            "contentType": "audio/flac",
+            "created": "raw-created-not-ISO",
+            "size": 123,
+            "artist": "Legacy",
+            "artistId": 7,
+            "genre": "Rock",
+            "discNumber": 2
+          },
+          {
+            "id": "other",
+            "title": "Synthetic title",
+            "contentType": "audio/flac",
+            "created": "raw-created-not-ISO",
+            "size": 123,
+            "artist": "Legacy",
+            "artistId": 7,
+            "genre": "Rock",
+            "discNumber": 2
+          }
+        ]
+      },
+      "query": {
+        "startIndex": 2,
+        "limit": 1
+      },
+      "expected": {
+        "items": [
+          {
+            "_itemType": "song",
+            "_serverId": "server-a",
+            "_serverType": "subsonic",
+            "album": "",
+            "albumArtistName": "Legacy",
+            "albumArtists": [
+              {
+                "id": "7",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Legacy",
+                "userFavorite": false,
+                "userRating": null
+              }
+            ],
+            "albumId": "",
+            "artistName": "Legacy",
+            "artists": [
+              {
+                "id": "7",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Legacy",
+                "userFavorite": false,
+                "userRating": null
+              }
+            ],
+            "bitDepth": null,
+            "bitRate": 0,
+            "blurHash": null,
+            "bpm": null,
+            "channels": null,
+            "codec": null,
+            "comment": null,
+            "compilation": null,
+            "container": "flac",
+            "createdAt": "raw-created-not-ISO",
+            "date": null,
+            "discNumber": 2,
+            "discSubtitle": null,
+            "duration": 0,
+            "explicitStatus": null,
+            "folderId": null,
+            "gain": null,
+            "genres": [
+              {
+                "_itemType": "genre",
+                "_serverId": "server-a",
+                "_serverType": "subsonic",
+                "albumCount": null,
+                "id": "Rock",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Rock",
+                "songCount": null
+              }
+            ],
+            "id": "same",
+            "imageId": null,
+            "imageUrl": null,
+            "lastPlayedAt": null,
+            "libraryId": null,
+            "libraryName": null,
+            "lyrics": null,
+            "mbzAlbumId": null,
+            "mbzAlbumType": null,
+            "mbzRecordingId": null,
+            "mbzReleaseGroupId": null,
+            "mbzTrackId": null,
+            "missing": null,
+            "name": "Synthetic title",
+            "originalDate": null,
+            "originalYear": null,
+            "participants": null,
+            "path": "",
+            "peak": null,
+            "playCount": 0,
+            "playlistItemId": "0",
+            "releaseDate": null,
+            "releaseYear": null,
+            "sampleRate": null,
+            "size": 123,
+            "sortName": "Synthetic title",
+            "tags": null,
+            "thumbHash": null,
+            "trackNumber": 1,
+            "trackSubtitle": null,
+            "updatedAt": "",
+            "userFavorite": false,
+            "userRating": null,
+            "year": null
+          },
+          {
+            "_itemType": "song",
+            "_serverId": "server-a",
+            "_serverType": "subsonic",
+            "album": "",
+            "albumArtistName": "Legacy",
+            "albumArtists": [
+              {
+                "id": "7",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Legacy",
+                "userFavorite": false,
+                "userRating": null
+              }
+            ],
+            "albumId": "",
+            "artistName": "Legacy",
+            "artists": [
+              {
+                "id": "7",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Legacy",
+                "userFavorite": false,
+                "userRating": null
+              }
+            ],
+            "bitDepth": null,
+            "bitRate": 0,
+            "blurHash": null,
+            "bpm": null,
+            "channels": null,
+            "codec": null,
+            "comment": null,
+            "compilation": null,
+            "container": "flac",
+            "createdAt": "raw-created-not-ISO",
+            "date": null,
+            "discNumber": 2,
+            "discSubtitle": null,
+            "duration": 0,
+            "explicitStatus": null,
+            "folderId": null,
+            "gain": null,
+            "genres": [
+              {
+                "_itemType": "genre",
+                "_serverId": "server-a",
+                "_serverType": "subsonic",
+                "albumCount": null,
+                "id": "Rock",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Rock",
+                "songCount": null
+              }
+            ],
+            "id": "same",
+            "imageId": null,
+            "imageUrl": null,
+            "lastPlayedAt": null,
+            "libraryId": null,
+            "libraryName": null,
+            "lyrics": null,
+            "mbzAlbumId": null,
+            "mbzAlbumType": null,
+            "mbzRecordingId": null,
+            "mbzReleaseGroupId": null,
+            "mbzTrackId": null,
+            "missing": null,
+            "name": "Synthetic title",
+            "originalDate": null,
+            "originalYear": null,
+            "participants": null,
+            "path": "",
+            "peak": null,
+            "playCount": 0,
+            "playlistItemId": "1",
+            "releaseDate": null,
+            "releaseYear": null,
+            "sampleRate": null,
+            "size": 123,
+            "sortName": "Synthetic title",
+            "tags": null,
+            "thumbHash": null,
+            "trackNumber": 1,
+            "trackSubtitle": null,
+            "updatedAt": "",
+            "userFavorite": false,
+            "userRating": null,
+            "year": null
+          },
+          {
+            "_itemType": "song",
+            "_serverId": "server-a",
+            "_serverType": "subsonic",
+            "album": "",
+            "albumArtistName": "Legacy",
+            "albumArtists": [
+              {
+                "id": "7",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Legacy",
+                "userFavorite": false,
+                "userRating": null
+              }
+            ],
+            "albumId": "",
+            "artistName": "Legacy",
+            "artists": [
+              {
+                "id": "7",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Legacy",
+                "userFavorite": false,
+                "userRating": null
+              }
+            ],
+            "bitDepth": null,
+            "bitRate": 0,
+            "blurHash": null,
+            "bpm": null,
+            "channels": null,
+            "codec": null,
+            "comment": null,
+            "compilation": null,
+            "container": "flac",
+            "createdAt": "raw-created-not-ISO",
+            "date": null,
+            "discNumber": 2,
+            "discSubtitle": null,
+            "duration": 0,
+            "explicitStatus": null,
+            "folderId": null,
+            "gain": null,
+            "genres": [
+              {
+                "_itemType": "genre",
+                "_serverId": "server-a",
+                "_serverType": "subsonic",
+                "albumCount": null,
+                "id": "Rock",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Rock",
+                "songCount": null
+              }
+            ],
+            "id": "other",
+            "imageId": null,
+            "imageUrl": null,
+            "lastPlayedAt": null,
+            "libraryId": null,
+            "libraryName": null,
+            "lyrics": null,
+            "mbzAlbumId": null,
+            "mbzAlbumType": null,
+            "mbzRecordingId": null,
+            "mbzReleaseGroupId": null,
+            "mbzTrackId": null,
+            "missing": null,
+            "name": "Synthetic title",
+            "originalDate": null,
+            "originalYear": null,
+            "participants": null,
+            "path": "",
+            "peak": null,
+            "playCount": 0,
+            "playlistItemId": "2",
+            "releaseDate": null,
+            "releaseYear": null,
+            "sampleRate": null,
+            "size": 123,
+            "sortName": "Synthetic title",
+            "tags": null,
+            "thumbHash": null,
+            "trackNumber": 1,
+            "trackSubtitle": null,
+            "updatedAt": "",
+            "userFavorite": false,
+            "userRating": null,
+            "year": null
+          }
+        ],
+        "startIndex": 0,
+        "totalRecordCount": 3
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "ids-repeated",
+      "operation": "getPlaylistSongIds",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "name": "Synthetic playlist",
+        "duration": 0,
+        "songCount": 0,
+        "entry": [
+          {
+            "id": "same",
+            "title": "Synthetic title",
+            "contentType": "audio/flac",
+            "created": "raw-created-not-ISO",
+            "size": 123,
+            "artist": "Legacy",
+            "artistId": 7,
+            "genre": "Rock",
+            "discNumber": 2
+          },
+          {
+            "id": "same",
+            "title": "Synthetic title",
+            "contentType": "audio/flac",
+            "created": "raw-created-not-ISO",
+            "size": 123,
+            "artist": "Legacy",
+            "artistId": 7,
+            "genre": "Rock",
+            "discNumber": 2
+          }
+        ]
+      },
+      "expected": {
+        "items": [
+          "same",
+          "same"
+        ],
+        "startIndex": 0,
+        "totalRecordCount": 2
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "entries-malformed-array",
+      "operation": "getPlaylistSongList",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "name": "Synthetic playlist",
+        "duration": 0,
+        "songCount": 0,
+        "entry": {}
+      },
+      "target_error": true,
+      "expected_error": "TypeError",
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "entries-null-song",
+      "operation": "getPlaylistSongList",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "name": "Synthetic playlist",
+        "duration": 0,
+        "songCount": 0,
+        "entry": [
+          null
+        ]
+      },
+      "target_error": true,
+      "expected_error": "TypeError",
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "entries-malformed-song",
+      "operation": "getPlaylistSongList",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "name": "Synthetic playlist",
+        "duration": 0,
+        "songCount": 0,
+        "entry": [
+          {
+            "id": "same",
+            "title": "Synthetic title",
+            "contentType": null,
+            "created": "raw-created-not-ISO",
+            "size": 123,
+            "artist": "Legacy",
+            "artistId": 7,
+            "genre": "Rock",
+            "discNumber": 2
+          }
+        ]
+      },
+      "target_error": true,
+      "expected_error": "TypeError",
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "entries-missing-parent-id",
+      "operation": "getPlaylistSongList",
+      "request_id": "playlist-1",
+      "input": {
+        "entry": []
+      },
+      "target_error": true,
+      "expected": {
+        "items": [],
+        "startIndex": 0,
+        "totalRecordCount": 0
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    },
+    {
+      "name": "entries-ignore-metadata",
+      "operation": "getPlaylistSongList",
+      "request_id": "playlist-1",
+      "input": {
+        "id": "playlist-1",
+        "duration": -1,
+        "public": {},
+        "entry": [
+          {
+            "id": "same",
+            "title": "Synthetic title",
+            "contentType": "audio/flac",
+            "created": "raw-created-not-ISO",
+            "size": 123,
+            "artist": "Legacy",
+            "artistId": 7,
+            "genre": "Rock",
+            "discNumber": 2
+          }
+        ]
+      },
+      "expected": {
+        "items": [
+          {
+            "_itemType": "song",
+            "_serverId": "server-a",
+            "_serverType": "subsonic",
+            "album": "",
+            "albumArtistName": "Legacy",
+            "albumArtists": [
+              {
+                "id": "7",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Legacy",
+                "userFavorite": false,
+                "userRating": null
+              }
+            ],
+            "albumId": "",
+            "artistName": "Legacy",
+            "artists": [
+              {
+                "id": "7",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Legacy",
+                "userFavorite": false,
+                "userRating": null
+              }
+            ],
+            "bitDepth": null,
+            "bitRate": 0,
+            "blurHash": null,
+            "bpm": null,
+            "channels": null,
+            "codec": null,
+            "comment": null,
+            "compilation": null,
+            "container": "flac",
+            "createdAt": "raw-created-not-ISO",
+            "date": null,
+            "discNumber": 2,
+            "discSubtitle": null,
+            "duration": 0,
+            "explicitStatus": null,
+            "folderId": null,
+            "gain": null,
+            "genres": [
+              {
+                "_itemType": "genre",
+                "_serverId": "server-a",
+                "_serverType": "subsonic",
+                "albumCount": null,
+                "id": "Rock",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Rock",
+                "songCount": null
+              }
+            ],
+            "id": "same",
+            "imageId": null,
+            "imageUrl": null,
+            "lastPlayedAt": null,
+            "libraryId": null,
+            "libraryName": null,
+            "lyrics": null,
+            "mbzAlbumId": null,
+            "mbzAlbumType": null,
+            "mbzRecordingId": null,
+            "mbzReleaseGroupId": null,
+            "mbzTrackId": null,
+            "missing": null,
+            "name": "Synthetic title",
+            "originalDate": null,
+            "originalYear": null,
+            "participants": null,
+            "path": "",
+            "peak": null,
+            "playCount": 0,
+            "playlistItemId": "0",
+            "releaseDate": null,
+            "releaseYear": null,
+            "sampleRate": null,
+            "size": 123,
+            "sortName": "Synthetic title",
+            "tags": null,
+            "thumbHash": null,
+            "trackNumber": 1,
+            "trackSubtitle": null,
+            "updatedAt": "",
+            "userFavorite": false,
+            "userRating": null,
+            "year": null
+          }
+        ],
+        "startIndex": 0,
+        "totalRecordCount": 1
+      },
+      "request": {
+        "endpoint": "getPlaylist",
+        "id": "playlist-1"
+      }
+    }
+  ]
+}

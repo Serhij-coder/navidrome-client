@@ -1,0 +1,11 @@
+# Subsonic playlist snapshot reads
+
+P03.03 now exposes get_playlist, get_playlist_songs and get_playlist_song_ids through the existing local ProtocolTransport. Every operation issues GET getPlaylist.view with the requested ID, uses the existing envelope/HTTP/context guards and returns normalized portable models. The caller binds scoped server/playlist identity, base and credentials to the same profile. No production HTTP or facade is supplied. See [ADR-017](../adr/017-subsonic-playlist-reads.md), [migration map](../migration/p03-playlist-reads.csv) and [verification](playlist-reads-verification.md).
+
+get_playlist returns metadata with checked duration/counts, optional owner/public state, description and source artwork cache suffix. get_playlist_songs returns Page<PlaylistSong> containing every entry in order. Missing/null entries become an empty page. Total count is the returned array length, not the playlist's metadata songCount. This endpoint has no pagination contract: upstream ignores ordinary page/sort/filter arguments. get_playlist_song_ids delegates to normalization and projects the IDs, retaining duplicates and failures rather than bypassing song validation.
+
+Entry identity is a typed zero-based decimal position within the server/playlist snapshot. Two entries of the same song keep distinct IDs. It is not stable after edits and is not a queue occurrence ID. Consumers must retain server/playlist/snapshot context; no mutation API accepts these IDs yet.
+
+Identity, work and byte limits, exact request/generation correlation and final cancellation/deadline priority are tested with deterministic non-Send doubles. Metadata ignores embedded entries and entry reads ignore unrelated metadata. The aggregate entry work budget counts root, entries and supplied metadata rows, with existing per-collection limits. Transport reception, timers and forced network abort remain the eventual transport's responsibility.
+
+The [25-case fixture](../../../tests/fixtures/p03/subsonic-playlist-reads.json) binds exact original source and expression hashes. Its observed source results remain unmodified; tests project nullable/omitted fields and integer milliseconds according to ADR-017. Malformed successes, unsafe numbers and missing parent identity are deliberately rejected. No live server, browser runtime, mutation or phase completion is established.

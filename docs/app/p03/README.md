@@ -54,3 +54,5 @@ The maintainer subsequently authorized a managed parallel [P03.02 protocol conti
 The [P03.03 song detail continuation](song-reads.md) adds one normalized `getSong` operation with exact source fixtures and typed context checks. [Verification](song-reads-verification.md) separates this tested local adapter from remaining library reads, live conformance and transport integration.
 
 The [album/album-artist continuation](album-reads.md) adds two guarded detail operations with nested song/disc normalization and an aggregate work budget. [Verification](album-reads-verification.md) and [ADR-016](../adr/016-subsonic-album-reads.md) record source comparisons and deliberate differences.
+
+The [playlist snapshot continuation](playlist-reads.md) adds separate metadata, ordered entry and song-ID reads, preserving duplicate songs with scoped position identities. [Verification](playlist-reads-verification.md) records original-controller replay and bounded local transport tests.

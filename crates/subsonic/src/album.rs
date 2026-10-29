@@ -1,4 +1,5 @@
 //! Album/detail wire handling; all returned values are normalized domain models.
+use crate::read_support::{Budget, validate_identity};
 use crate::song::{
     array, artists, favorite, genres, id, integer, nonzero, number, object, participants,
     release_fields, required_text, text,
@@ -9,44 +10,6 @@ use serde_json::{Map, Value};
 use std::collections::BTreeMap;
 
 type Result<T> = std::result::Result<T, ExchangeError>;
-
-// Count entities and supplied metadata rows across the complete nested response.
-// This is a work/item budget, not an allocator or transport reception guarantee.
-struct Budget {
-    limit: usize,
-    used: usize,
-}
-impl Budget {
-    fn take(&mut self, count: usize) -> Result<()> {
-        self.used = self
-            .used
-            .checked_add(count)
-            .filter(|used| *used <= self.limit)
-            .ok_or(ExchangeError::Context(DomainError::Capacity))?;
-        Ok(())
-    }
-    fn metadata(
-        &mut self,
-        obj: &Map<String, Value>,
-        keys: &[&str],
-        context: OperationContext<'_>,
-    ) -> Result<()> {
-        for key in keys {
-            if let Some(values) = array(obj, key, context)? {
-                self.take(values.len())?;
-            }
-        }
-        Ok(())
-    }
-}
-
-fn validate_identity(server: &ServerId, entity: &str) -> Result<()> {
-    if server.as_str().trim().is_empty() || server.as_str().len() > 128 || entity.is_empty() {
-        Err(ExchangeError::Malformed)
-    } else {
-        Ok(())
-    }
-}
 
 /// Caller binds base, auth and scoped identity to the same profile.
 pub async fn get_album(

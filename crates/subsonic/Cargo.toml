@@ -30,3 +30,7 @@ path = "../../tests/subsonic/song_reads.rs"
 [[test]]
 name = "album_reads"
 path = "../../tests/subsonic/album_reads.rs"
+
+[[test]]
+name = "playlist_reads"
+path = "../../tests/subsonic/playlist_reads.rs"

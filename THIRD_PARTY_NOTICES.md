@@ -43,3 +43,5 @@ P03.02 also adapts Subsonic envelope validation, protocol error categories, cond
 P03.03 adapts song normalization and partial-date helper rules from the same pinned Feishin shared Subsonic normalizer/controller under GPL-3.0-only. The controlled source replay and synthetic expected outputs retain source/expression hashes in [song-read verification](docs/app/p03/song-reads-verification.md); no new distributed dependency is added.
 
 The P03.03 album/artist detail continuation also adapts the pinned Feishin album, artist, release-type and nested-disc normalization rules under GPL-3.0-only. Original-controller replay and synthetic output provenance are recorded in [album verification](docs/app/p03/album-reads-verification.md). No new distributed dependency is added.
+
+The P03.03 playlist read continuation adapts pinned Feishin playlist metadata and ordered-entry controller/normalizer rules under GPL-3.0-only. Synthetic output provenance and original-expression replay are recorded in [playlist verification](docs/app/p03/playlist-reads-verification.md). No new distributed dependency is added.

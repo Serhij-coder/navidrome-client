@@ -281,7 +281,7 @@ fn gain(obj: &Map<String, Value>, album: &str, track: &str) -> Result<Option<Gai
         None
     })
 }
-fn normalize(
+pub(super) fn normalize(
     obj: &Map<String, Value>,
     server: &ServerId,
     context: OperationContext<'_>,
