@@ -2,7 +2,8 @@
 """Run tracked native tests and expose failed test names as CI annotations.
 
 Public check annotations remain readable when detailed hosted logs need login.
-Only Rust test identifiers enter annotations; assertion data/payloads do not.
+Only Rust test identifiers and allowlisted source locations enter annotations;
+assertion data, thread names and payloads do not.
 """
 import argparse
 import os
@@ -11,11 +12,29 @@ import subprocess
 import sys
 
 FAILED = re.compile(r"^test ([A-Za-z0-9_:]+) \.\.\. FAILED$")
+PANIC_LOCATION = re.compile(
+    r"^thread '[^'\r\n]*'(?: \([0-9]+\))? panicked at "
+    r"(?:[A-Za-z0-9_./-]*/)?tests/native-spike/"
+    r"(mpris|handoff|control_session|prepared_handoff)\.rs:"
+    r"([1-9][0-9]{0,5}):([1-9][0-9]{0,5}):$"
+)
 
 
 def annotation(line):
     match = FAILED.fullmatch(line.strip())
     return f"::error title=Native Rust regression::{match[1]} failed; inspect the authenticated job log for assertion details" if match else None
+
+
+def location_annotation(line):
+    match = PANIC_LOCATION.fullmatch(line.strip())
+    if not match:
+        return None
+    # Reconstruct only an allowlisted repository path and bounded decimal units.
+    # Never copy a thread name, checkout prefix, assertion or child payload.
+    filename, row, column = match.groups()
+    return (f"::error file=tests/native-spike/{filename}.rs,line={row},col={column},"
+            "title=Native Rust panic::Rust test panicked at this source location; "
+            "assertion details remain in the authenticated job log")
 
 
 def run(command):
@@ -24,7 +43,9 @@ def run(command):
     assert process.stdout is not None  # PIPE invariant, not external input.
     for line in process.stdout:
         print(line, end="", flush=True)
-        if os.environ.get("GITHUB_ACTIONS") == "true" and (message := annotation(line)):
+        if os.environ.get("GITHUB_ACTIONS") == "true" and (
+            message := annotation(line) or location_annotation(line)
+        ):
             print(message, flush=True)
     return process.wait()
 

@@ -29,6 +29,48 @@ class NativeCiTests(unittest.TestCase):
         for line in ("test success ... ok", "thread panicked: private-token-payload", "test id%0A::warning ... FAILED", "error: test failed", "test failure ... FAILED with private payload"):
             self.assertIsNone(ci.annotation(line))
 
+    def test_allowlisted_panic_locations_exclude_thread_and_payload(self):
+        for prefix in ("", "crates/native-spike/../../", "/home/runner/work/repo/repo/"):
+            for filename in ("mpris", "handoff", "control_session", "prepared_handoff"):
+                with self.subTest(prefix=prefix, filename=filename):
+                    line = (f"thread 'private-marker' (123) panicked at "
+                            f"{prefix}tests/native-spike/{filename}.rs:246:18:\n")
+                    result = ci.location_annotation(line)
+                    self.assertTrue(result.startswith(
+                        f"::error file=tests/native-spike/{filename}.rs,line=246,col=18,"))
+                    self.assertNotIn("private-marker", result)
+                    self.assertNotIn("runner", result)
+        self.assertIsNotNone(ci.location_annotation(
+            "thread 'fixture' panicked at tests/native-spike/mpris.rs:1:1:"))
+        for line in (
+            "thread 'x' panicked at tests/native-spike/unlisted.rs:1:1:",
+            "thread 'x' panicked at tests/storage/mpris.rs:1:1:",
+            "thread 'x' panicked at https://private/tests/native-spike/mpris.rs:1:1:",
+            "thread 'x' panicked at tests/native-spike/mpris.rs:0:1:",
+            "thread 'x' panicked at tests/native-spike/mpris.rs:1:0:",
+            "thread 'x' panicked at tests/native-spike/mpris.rs:1000000:1:",
+            "thread 'x' panicked at tests/native-spike/mpris.rs:1:1: private-marker",
+            "thread 'x' panicked at tests/native-spike/mpris.rs:1:1:%0A::warning",
+            "thread 'x\nprivate-marker' panicked at tests/native-spike/mpris.rs:1:1:",
+        ):
+            self.assertIsNone(ci.location_annotation(line), line)
+
+    def test_location_annotation_streaming_preserves_exit_and_ci_scope(self):
+        header = ("thread 'private-marker' (4) panicked at "
+                  "crates/native-spike/../../tests/native-spike/mpris.rs:246:18:\n")
+        for enabled in ("true", "false"):
+            process = mock.Mock(stdout=iter([header, "private assertion payload\n"]))
+            process.wait.return_value = 101
+            output = io.StringIO()
+            with mock.patch.object(ci.subprocess, "Popen", return_value=process), \
+                 mock.patch.dict(ci.os.environ, {"GITHUB_ACTIONS": enabled}), \
+                 contextlib.redirect_stdout(output):
+                self.assertEqual(ci.run(["cargo", "test"]), 101)
+            annotations = [line for line in output.getvalue().splitlines() if line.startswith("::")]
+            self.assertEqual(annotations, [ci.location_annotation(header)] if enabled == "true" else [])
+            self.assertIn(header, output.getvalue())
+            self.assertTrue(all("private" not in line for line in annotations))
+
     def test_modes_keep_the_exact_test_scope_and_preserve_cargo_failure(self):
         for arguments, command in [
             ([], ["cargo", "test", "--workspace", "--locked", "--no-fail-fast"]),
