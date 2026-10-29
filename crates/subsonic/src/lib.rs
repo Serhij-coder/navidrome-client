@@ -1,6 +1,9 @@
-//! Portable Subsonic request construction. This crate performs no network I/O.
+//! Portable Subsonic planning, protocol and normalized song reads.
+//! Concrete network I/O is supplied by the caller through a local transport.
 mod protocol;
+mod song;
 pub use protocol::*;
+pub use song::get_song;
 
 use md5::{Digest, Md5};
 use std::fmt;

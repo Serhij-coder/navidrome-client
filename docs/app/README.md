@@ -47,3 +47,7 @@ The [query cache foundation](p02/query-cache.md) supplies bounded server/library
 The [P03.01 Subsonic foundation](p03/README.md) implements portable URL/subpath/query construction, salted or explicit legacy parameters and redacted wire values under a bounded maintainer-authorized sequencing exception while P02 remains open. Exact pinned-source replay and [verification](p03/verification.md) cover construction only; no HTTP login, library operation or P02/P03 phase exit is claimed.
 
 The [P02.07 serialization continuation](p02/serialization.md) enforces existing durable snapshot byte limits during output construction. The parallel [P03.02 protocol foundation](p03/protocol.md) adds envelope/errors, conditional discovery and server-bound form planning with cooperative local transport checks. Live transport and phase exits remain open.
+
+The [P02.07 payload continuation](p02/payloads.md) adds bounded normalized song-summary page and retained-queue handoff codecs with exact cache accounting. The source remote protocol is a separate unported contract.
+
+The bounded [P03.03 song detail read](p03/song-reads.md) normalizes `getSong` through the existing local transport, with pinned-source replay and checked IDs/units. Other reads, production HTTP and phase exits remain open.

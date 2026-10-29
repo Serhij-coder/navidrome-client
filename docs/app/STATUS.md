@@ -1,24 +1,21 @@
 # Project scratchpad
 
-- Stage: bounded P02 foundations plus P03.01 request/auth construction. P00/P01/P02/P03 exits open; not a working music client.
-- Sequencing: [P02 exception](p01/exit-decision.md) keeps P01 open; address only concrete implementation blockers. No release/parity waiver.
+- Stage: bounded P02 foundations/storage/cache plus P03.01-.03 request/protocol/song-read foundations; P00/P01/P02/P03 exits open. Not a working music client.
+- Sequencing: [P02 exception](p01/exit-decision.md) keeps P01 open; address only concrete implementation blockers. Continued bounded P03 work authorized; no exit waiver.
 - Scope: Linux/WASM/browser checks; Windows/macOS excluded. Both Linux AppImage CPUs retained.
-- P02.07: seven normalized list-key factories and scoped detail identity; server/library/filter/page separation, bounded schema-v1 keys, redacted Debug.
-- Cache: deterministic bounded LRU; 10s freshness/20s idle expiry; producer-accounted value budgets, fixed counts-only diagnostics. No heap/transport allocation guarantee.
-- Async: exact request/instance/server-generation tickets, deadline/supersession/cancel/invalidation/retirement rejection; Drop cancels pending flags. No HTTP abortion claim.
-- Credential executor: integrated branch9ab58b5; typed local dispatcher and bounded native worker; provider constructed/called on worker, no universal Send bound.
-- Credential limits: session-only default; explicit remember/restore/forget. Uncertain mutations preserved; latest-start deadline only, prompt/in-flight calls not interruptible.
-- Storage: isolated versioned profiles/import journal/active-state repository and bounded worker; opt-in desktop two-field preferences. Full shell/auth/import adoption open.
-- Checks: combined workspace234 pass incl4 compile-fail/13 optional ignored; workspace fmt/Clippy and domain/storage/Subsonic/web/remote WASM Clippy pass.
-- Optional credential-feature Clippy and12 executor/worker cases pass. Cache WASM runtime: Chromium141/Firefox142/WebKit26 each4 assertions pass, stores unchanged.
-- [Cache contract](p02/query-cache.md), [ADR007](adr/007-query-cache.md), [migration](migration/p02-cache.csv), [verification](p02/query-cache-verification.md).
-- [Credential executor](p02/credential-executor.md) separately reviewed; branch CI all5 jobs passed. Combined independent Sol medium review satisfied; no actionable issues.
-- Gaps: P02.05 complete imports/adoption; P02.06 auth/consent/revocation/prompt integration; P02.07 endpoint coverage, transport/UI cancellation and runtime queue/query budgets.
-- P03.01: portable Subsonic URL/query encoding, salted/explicit legacy auth and redacted wire values. No HTTP/login/library or platform RNG implementation.
-- Delivered: P03.01 merged/pushed5c4096f; local220 pass/review clear. Hosted cargo-test step failed noarrival fixture; classification correction and strict diagnostic added.
-- [P03 contract/entry exception](p03/README.md), [ADR012](adr/012-subsonic-request-foundation.md), [source map](migration/p03-foundation.csv), [verification](p03/verification.md).
-- Parallel: managed Sol high orchestrator/Terra completed bounded P03.02 in isolated worktree; root assembled/reviewed it and retains commit/push ownership.
-- Active: bounded durable serializer and P03.02 protocol patch assembled; focused checks pass. Combined verification and one independent final review pass; no actionable findings. Fresh CI pending.
-- Next: after hosted CI, bounded P03.03 normalized read slice and remaining P02.07 runtime queue/query encodings; production transport remains open.
-- P01 [remaining gates](p01/README.md) stay open; no unrelated prototype expansion or production reducer/engine claims.
-- Workflow: Sol high orchestration, Terra medium implementation, one final independent Sol medium review. [Setup](development-workflow.md).
+- Delivered main8d0c49f: [all five hosted jobs passed](https://github.com/Serhij-coder/navidrome-client/actions/runs/40883323297), including strict prepared-handoff fixture and both AppImages.
+- Current combined checks:248 tests pass incl4 compile-fail/13 optional ignored; fmt/workspace Clippy/WASM Clippy pass; independent review clear.
+- Cache: seven modeled list-key families/detail identity, server/library/filter/page isolation, bounded canonical keys and producer-accounted LRU values;10s fresh/20s idle expiry.
+- Async: exact correlated tickets, supersession/cancel/invalidation/retirement rejection and Drop flags; no actual HTTP abortion claim.
+- Storage: isolated versioned profiles/import journal/active-state repository and bounded worker; opt-in desktop two-field preferences; shared capped durable JSON writer.
+- Credentials: explicit session-only/remember/restore/forget and optional Linux Secret Service; bounded executor. Consent/revocation/provider-prompt integration remains open.
+- P03: envelope/errors, conditional extension discovery, server-bound form planning and cooperative non-Send transport guards. No production HTTP/timer/login UI.
+- Active primary: P02.07 bounded normalized SongSummary-page and retained-queue codecs implemented; exact serialized cache Weight; focused checks pass. Combined checks and final independent review pass; no actionable findings.
+- Active parallel: managed Sol high orchestrator/Sol medium implementer completed P03.03 getSong with18 source cases and guarded transport tests; assembled and independently reviewed; no actionable findings.
+- Ownership: primary storage/payload docs; secondary Subsonic/read docs. Domain unchanged; root integrates/reviews/commits/pushes both streams.
+- Evidence: source remote queue/list schemas differ from normalized/retained DTOs; no captured full queue WebSocket byte-size evidence. New payload ceilings are target policy.
+- [Payload decision](adr/015-bounded-payloads.md), [contract](p02/payloads.md), [source map](migration/p02-payloads.csv); [P03 protocol](p03/protocol.md).
+- Gaps: full imports/adoption; credential consent/revocation/prompt composition; full runtime queue/query serialization and consumers; remaining P03 operations/live conformance.
+- Next: hosted CI, then advance the next bounded P03 read slice; P02 exit gaps stay explicit.
+- P01 [remaining gates](p01/README.md) remain open; no unrelated prototype expansion or production reducer/engine claims.
+- Workflow: Sol high orchestrators, default Terra medium implementer, bounded Sol medium escalation; [setup](development-workflow.md).

@@ -232,7 +232,7 @@ impl<T> Future for Checked<'_, T> {
         }
     }
 }
-async fn exchange(
+pub(crate) async fn exchange(
     transport: &dyn ProtocolTransport,
     clock: &dyn Clock,
     context: OperationContext<'_>,

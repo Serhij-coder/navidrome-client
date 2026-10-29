@@ -22,3 +22,7 @@ path = "../../tests/subsonic/foundation.rs"
 [[test]]
 name = "protocol"
 path = "../../tests/subsonic/protocol.rs"
+
+[[test]]
+name = "song_reads"
+path = "../../tests/subsonic/song_reads.rs"
