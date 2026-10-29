@@ -43,3 +43,11 @@ path = "../../tests/storage/imports.rs"
 [[test]]
 name = "journal"
 path = "../../tests/storage/journal.rs"
+
+[[test]]
+name = "settings_migration"
+path = "../../tests/storage/settings_migration.rs"
+
+[[test]]
+name = "settings_versions"
+path = "../../tests/storage/settings_versions.rs"

@@ -85,6 +85,32 @@ mod probe {
                     .as_ref()
                     .is_some_and(|d| d.profile.preferences.language == "uk"))
             }
+            "import-historical" => {
+                let raw = br#"{"version":20,"state":{"lists":{"song":{"table":{"columns":[{"id":"titleCombined","align":"end","autoSize":false,"isEnabled":true,"pinned":null,"width":73}]}}},"autoDJ":{"mode":"old","songStrategy":"similar_forward"}}}"#;
+                let input = CopiedInputs {
+                    settings: Some(raw),
+                    ..CopiedInputs::default()
+                };
+                let before = repo.load()?;
+                let prepared = repo.prepare(&input)?;
+                let reviewed = prepared.preview().data().clone();
+                let expected = reviewed.columns.iter().any(|list| {
+                    list.columns
+                        .iter()
+                        .any(|c| c.id == imports::ColumnId::TitleArtist)
+                }) && reviewed
+                    .auto_dj
+                    .as_ref()
+                    .is_some_and(|d| d.song_strategy == imports::AutoDjStrategy::Similar);
+                let applied = repo.apply(&prepared)?;
+                let repeated = repo.prepare(&input)?;
+                let unchanged = repo.apply(&repeated)? == applied;
+                let restored = repo.prepare_rollback()?;
+                Ok(expected
+                    && applied.data == Some(reviewed)
+                    && unchanged
+                    && repo.rollback(&restored)?.data == before.data)
+            }
             "import-corrupt-current" => {
                 let input = CopiedInputs {
                     player: Some(br#"{"version":4,"state":{"player":{"shuffle":"none","index":1},"queue":{"default":["missing","first","second"],"priority":[],"shuffled":[],"songs":{"first":{"id":"song","_serverId":"server","name":"First","duration":5000},"second":{"id":"song","_serverId":"server","name":"Second","duration":5000}}}}}"#),

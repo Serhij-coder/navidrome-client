@@ -5,6 +5,7 @@ use serde_json::Value;
 
 pub mod imports;
 pub mod journal;
+pub mod settings_migration;
 
 #[cfg(target_arch = "wasm32")]
 mod browser;

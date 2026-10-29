@@ -1,0 +1,5323 @@
+{
+  "schema": 1,
+  "baseline": "7d6ad318c79802e226996cfc39acba6b05bb22e8",
+  "methodId": "src/renderer/store/settings.store.ts:2442:13",
+  "methodSha256": "4113f0fd417709d00fbd141e4a4595845dbde7eb2be9c2560b86796958b293ac",
+  "sources": {
+    "src/renderer/store/settings.store.ts": "24f11f940ea02261459255639871fb3ddba30f225c71e21b0dbb5cfd99e688c2",
+    "src/shared/types/types.ts": "6b52103372fca31dc540458766a318835c418a993a37d62db3a4ea554c57af82",
+    "src/shared/types/domain-types.ts": "acd9d435728a90bab09773fbfa8e5cbe9bd4eec549aa764474c458dc013a834a",
+    "src/renderer/router/routes.ts": "28d5abf440dffec1a9de897c57538794a1b561dad2be1bbc7633d35c05cddc74",
+    "src/renderer/store/utils.ts": "53f34cbb4daeb628bfeb596bd07ae37bea05632ef9773f622e985832128b9fc6"
+  },
+  "compiler": "6.0.3",
+  "lodash": "4.17.21",
+  "boundaries": [
+    "Exact original migration method and mergeOverridingColumns; selected exact enums/defaults only",
+    "Synthetic valid structural fields for unrelated migration branches",
+    "Fixed translation and preset-ID functions; no UI/runtime/storage initialization"
+  ],
+  "input": [
+    {
+      "id": "titleCombined",
+      "align": "end",
+      "autoSize": false,
+      "isEnabled": true,
+      "pinned": "right",
+      "width": 17
+    },
+    {
+      "id": "artists",
+      "align": "end",
+      "autoSize": false,
+      "isEnabled": true,
+      "pinned": "right",
+      "width": 17
+    },
+    {
+      "id": "releaseYear",
+      "align": "end",
+      "autoSize": false,
+      "isEnabled": true,
+      "pinned": "right",
+      "width": 17
+    },
+    {
+      "id": "releaseDate",
+      "align": "end",
+      "autoSize": false,
+      "isEnabled": true,
+      "pinned": "right",
+      "width": 17
+    }
+  ],
+  "cases": [
+    {
+      "version": 14,
+      "list": "song",
+      "view": "table",
+      "shape": "98482430a730f6cb"
+    },
+    {
+      "version": 14,
+      "list": "album",
+      "view": "table",
+      "shape": "d7ab5f7ec32f1161"
+    },
+    {
+      "version": 14,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "98482430a730f6cb"
+    },
+    {
+      "version": 14,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "98482430a730f6cb"
+    },
+    {
+      "version": 14,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "84df8ab12d61bc24"
+    },
+    {
+      "version": 14,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 14,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 14,
+      "list": "folder",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 14,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 14,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 14,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 14,
+      "list": "album",
+      "view": "detail",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 14,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 15,
+      "list": "song",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 15,
+      "list": "album",
+      "view": "table",
+      "shape": "d7ab5f7ec32f1161"
+    },
+    {
+      "version": 15,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 15,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 15,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "04a2bbb86aeb6b07"
+    },
+    {
+      "version": 15,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 15,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 15,
+      "list": "folder",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 15,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 15,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 15,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 15,
+      "list": "album",
+      "view": "detail",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 15,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 16,
+      "list": "song",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 16,
+      "list": "album",
+      "view": "table",
+      "shape": "d7ab5f7ec32f1161"
+    },
+    {
+      "version": 16,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 16,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 16,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "04a2bbb86aeb6b07"
+    },
+    {
+      "version": 16,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 16,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 16,
+      "list": "folder",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 16,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 16,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 16,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 16,
+      "list": "album",
+      "view": "detail",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 16,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 17,
+      "list": "song",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 17,
+      "list": "album",
+      "view": "table",
+      "shape": "d7ab5f7ec32f1161"
+    },
+    {
+      "version": 17,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 17,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 17,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "04a2bbb86aeb6b07"
+    },
+    {
+      "version": 17,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 17,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 17,
+      "list": "folder",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 17,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 17,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 17,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 17,
+      "list": "album",
+      "view": "detail",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 17,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 18,
+      "list": "song",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 18,
+      "list": "album",
+      "view": "table",
+      "shape": "d7ab5f7ec32f1161"
+    },
+    {
+      "version": 18,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 18,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 18,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "04a2bbb86aeb6b07"
+    },
+    {
+      "version": 18,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 18,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 18,
+      "list": "folder",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 18,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 18,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 18,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 18,
+      "list": "album",
+      "view": "detail",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 18,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 19,
+      "list": "song",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 19,
+      "list": "album",
+      "view": "table",
+      "shape": "d7ab5f7ec32f1161"
+    },
+    {
+      "version": 19,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 19,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 19,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "04a2bbb86aeb6b07"
+    },
+    {
+      "version": 19,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 19,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 19,
+      "list": "folder",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 19,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 19,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 19,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 19,
+      "list": "album",
+      "view": "detail",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 19,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 20,
+      "list": "song",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 20,
+      "list": "album",
+      "view": "table",
+      "shape": "d7ab5f7ec32f1161"
+    },
+    {
+      "version": 20,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 20,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 20,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "04a2bbb86aeb6b07"
+    },
+    {
+      "version": 20,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 20,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "931ae04f234a236e"
+    },
+    {
+      "version": 20,
+      "list": "folder",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 20,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 20,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 20,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 20,
+      "list": "album",
+      "view": "detail",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 20,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 21,
+      "list": "song",
+      "view": "table",
+      "shape": "0a5bdd0d987ad119"
+    },
+    {
+      "version": 21,
+      "list": "album",
+      "view": "table",
+      "shape": "1841428c83e8619a"
+    },
+    {
+      "version": 21,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "0a5bdd0d987ad119"
+    },
+    {
+      "version": 21,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "0a5bdd0d987ad119"
+    },
+    {
+      "version": 21,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "c55d851fdb63256e"
+    },
+    {
+      "version": 21,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "0a5bdd0d987ad119"
+    },
+    {
+      "version": 21,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "0a5bdd0d987ad119"
+    },
+    {
+      "version": 21,
+      "list": "folder",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 21,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 21,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 21,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 21,
+      "list": "album",
+      "view": "detail",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 21,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 22,
+      "list": "song",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 22,
+      "list": "album",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 22,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 22,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 22,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 22,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 22,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 22,
+      "list": "folder",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 22,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 22,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 22,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 22,
+      "list": "album",
+      "view": "detail",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 22,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 23,
+      "list": "song",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 23,
+      "list": "album",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 23,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 23,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 23,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 23,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 23,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 23,
+      "list": "folder",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 23,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 23,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 23,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 23,
+      "list": "album",
+      "view": "detail",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 23,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 24,
+      "list": "song",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 24,
+      "list": "album",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 24,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 24,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 24,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 24,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 24,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 24,
+      "list": "folder",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 24,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 24,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 24,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 24,
+      "list": "album",
+      "view": "detail",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 24,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 25,
+      "list": "song",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 25,
+      "list": "album",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 25,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 25,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 25,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 25,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 25,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 25,
+      "list": "folder",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 25,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 25,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 25,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 25,
+      "list": "album",
+      "view": "detail",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 25,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 26,
+      "list": "song",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 26,
+      "list": "album",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 26,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 26,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 26,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 26,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 26,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 26,
+      "list": "folder",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 26,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 26,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "1664c4f352875278"
+    },
+    {
+      "version": 26,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 26,
+      "list": "album",
+      "view": "detail",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 26,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 27,
+      "list": "song",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 27,
+      "list": "album",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 27,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 27,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 27,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 27,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 27,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 27,
+      "list": "folder",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 27,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 27,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 27,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 27,
+      "list": "album",
+      "view": "detail",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 27,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 28,
+      "list": "song",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 28,
+      "list": "album",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 28,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 28,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 28,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 28,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 28,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 28,
+      "list": "folder",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 28,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 28,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 28,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 28,
+      "list": "album",
+      "view": "detail",
+      "shape": "cd120b634f703c8a"
+    },
+    {
+      "version": 28,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 29,
+      "list": "song",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 29,
+      "list": "album",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 29,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 29,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 29,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 29,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 29,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 29,
+      "list": "folder",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 29,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 29,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 29,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 29,
+      "list": "album",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 29,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 30,
+      "list": "song",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 30,
+      "list": "album",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 30,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 30,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 30,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 30,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 30,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 30,
+      "list": "folder",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 30,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 30,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 30,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 30,
+      "list": "album",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 30,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 31,
+      "list": "song",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 31,
+      "list": "album",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 31,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 31,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 31,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 31,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 31,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 31,
+      "list": "folder",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 31,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 31,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 31,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 31,
+      "list": "album",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 31,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 32,
+      "list": "song",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 32,
+      "list": "album",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 32,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 32,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 32,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 32,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 32,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 32,
+      "list": "folder",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 32,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 32,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 32,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 32,
+      "list": "album",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 32,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 33,
+      "list": "song",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 33,
+      "list": "album",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 33,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 33,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 33,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 33,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 33,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 33,
+      "list": "folder",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 33,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 33,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 33,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 33,
+      "list": "album",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 33,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 34,
+      "list": "song",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 34,
+      "list": "album",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 34,
+      "list": "playlistSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 34,
+      "list": "queueSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 34,
+      "list": "albumDetail",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 34,
+      "list": "fullScreen",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 34,
+      "list": "sideQueue",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 34,
+      "list": "folder",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 34,
+      "list": "albumArtistSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 34,
+      "list": "genreSong",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 34,
+      "list": "artist",
+      "view": "table",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 34,
+      "list": "album",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    },
+    {
+      "version": 34,
+      "list": "song",
+      "view": "detail",
+      "shape": "8243d503a9e17636"
+    }
+  ],
+  "shapes": {
+    "98482430a730f6cb": [
+      {
+        "id": "titleCombined",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "start",
+        "autoSize": false,
+        "id": "titleArtist",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 300
+      },
+      {
+        "id": "artists",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "start",
+        "autoSize": false,
+        "id": "composer",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 300
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "year",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 200
+      },
+      {
+        "id": "releaseYear",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "date",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 240
+      },
+      {
+        "id": "releaseDate",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "bitDepth",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 100
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "sampleRate",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 100
+      },
+      {
+        "align": "start",
+        "autoSize": false,
+        "id": "albumGroup",
+        "isEnabled": false,
+        "pinned": "left",
+        "width": 240
+      }
+    ],
+    "d7ab5f7ec32f1161": [
+      {
+        "id": "titleCombined",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "start",
+        "autoSize": false,
+        "id": "titleArtist",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 300
+      },
+      {
+        "id": "artists",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "start",
+        "autoSize": false,
+        "id": "composer",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 300
+      },
+      {
+        "id": "releaseYear",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "id": "releaseDate",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      }
+    ],
+    "84df8ab12d61bc24": [
+      {
+        "id": "titleCombined",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "start",
+        "autoSize": false,
+        "id": "titleArtist",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 300
+      },
+      {
+        "id": "artists",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "start",
+        "autoSize": false,
+        "id": "composer",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 300
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "year",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 200
+      },
+      {
+        "id": "releaseYear",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "date",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 240
+      },
+      {
+        "id": "releaseDate",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "bitDepth",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 100
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "sampleRate",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 100
+      }
+    ],
+    "931ae04f234a236e": [
+      {
+        "id": "titleCombined",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "start",
+        "autoSize": false,
+        "id": "titleArtist",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 300
+      },
+      {
+        "id": "artists",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "start",
+        "autoSize": false,
+        "id": "composer",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 300
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "year",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 200
+      },
+      {
+        "id": "releaseYear",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "date",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 240
+      },
+      {
+        "id": "releaseDate",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "start",
+        "autoSize": false,
+        "id": "albumGroup",
+        "isEnabled": false,
+        "pinned": "left",
+        "width": 240
+      }
+    ],
+    "1664c4f352875278": [
+      {
+        "id": "titleCombined",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "id": "artists",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "year",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 200
+      },
+      {
+        "id": "releaseYear",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "date",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 240
+      },
+      {
+        "id": "releaseDate",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "start",
+        "autoSize": false,
+        "id": "albumGroup",
+        "isEnabled": false,
+        "pinned": "left",
+        "width": 240
+      }
+    ],
+    "8243d503a9e17636": [
+      {
+        "id": "titleCombined",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "id": "artists",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "id": "releaseYear",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "id": "releaseDate",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      }
+    ],
+    "cd120b634f703c8a": [
+      {
+        "id": "titleCombined",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "id": "artists",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "year",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 200
+      },
+      {
+        "id": "releaseYear",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "date",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 240
+      },
+      {
+        "id": "releaseDate",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      }
+    ],
+    "04a2bbb86aeb6b07": [
+      {
+        "id": "titleCombined",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "start",
+        "autoSize": false,
+        "id": "titleArtist",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 300
+      },
+      {
+        "id": "artists",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "start",
+        "autoSize": false,
+        "id": "composer",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 300
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "year",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 200
+      },
+      {
+        "id": "releaseYear",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "date",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 240
+      },
+      {
+        "id": "releaseDate",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      }
+    ],
+    "0a5bdd0d987ad119": [
+      {
+        "id": "titleCombined",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "id": "artists",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "start",
+        "autoSize": false,
+        "id": "composer",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 300
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "year",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 200
+      },
+      {
+        "id": "releaseYear",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "date",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 240
+      },
+      {
+        "id": "releaseDate",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "start",
+        "autoSize": false,
+        "id": "albumGroup",
+        "isEnabled": false,
+        "pinned": "left",
+        "width": 240
+      }
+    ],
+    "1841428c83e8619a": [
+      {
+        "id": "titleCombined",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "id": "artists",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "start",
+        "autoSize": false,
+        "id": "composer",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 300
+      },
+      {
+        "id": "releaseYear",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "id": "releaseDate",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      }
+    ],
+    "c55d851fdb63256e": [
+      {
+        "id": "titleCombined",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "id": "artists",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "start",
+        "autoSize": false,
+        "id": "composer",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 300
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "year",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 200
+      },
+      {
+        "id": "releaseYear",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "date",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 240
+      },
+      {
+        "id": "releaseDate",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      }
+    ]
+  },
+  "autoCases": [
+    {
+      "version": 14,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 14,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 14,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 14,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 14,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 14,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 14,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 14,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 14,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 14,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 15,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 15,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 15,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 15,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 15,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 15,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 15,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 15,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 15,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 15,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 20,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 20,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 20,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 20,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 20,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 20,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 20,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 20,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 20,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 20,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 21,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 21,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 21,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 21,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 21,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 21,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 21,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 21,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 21,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 21,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 22,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 22,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 22,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 22,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 22,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 22,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 22,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 22,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 22,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 22,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 26,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 26,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 26,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 26,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 26,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 26,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 26,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 26,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 26,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 26,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 27,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 27,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 27,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 27,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 27,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 27,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 27,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 27,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 27,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 27,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 28,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 28,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 28,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 28,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 28,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 28,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 28,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 28,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 28,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 28,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 29,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 29,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 29,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 29,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 29,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 29,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 29,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 29,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 29,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 29,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 33,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 33,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 33,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 33,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 33,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 33,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 33,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 33,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 33,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 33,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 34,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 34,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 34,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 34,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 34,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 34,
+      "input": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 34,
+      "input": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 34,
+      "input": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "default",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 34,
+      "input": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "similar_forward",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      }
+    },
+    {
+      "version": 34,
+      "input": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      },
+      "output": {
+        "albumStrategy": "unknown",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "unknown",
+        "timing": 1.25
+      }
+    }
+  ],
+  "sparseAutoDj": {
+    "input": {
+      "songStrategy": "default",
+      "mode": "legacy"
+    },
+    "migrated": {
+      "songStrategy": "similar",
+      "mode": "songs",
+      "albumStrategy": "similar"
+    },
+    "merged": {
+      "albumStrategy": "similar",
+      "allowDuplicates": false,
+      "enabled": false,
+      "itemCount": 5,
+      "mode": "songs",
+      "onlySimilar": false,
+      "songStrategy": "similar",
+      "timing": 1
+    }
+  },
+  "observations": {
+    "duplicateInput": [
+      {
+        "id": "titleCombined",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "id": "artists",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "id": "releaseYear",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "id": "releaseDate",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "id": "bitDepth",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      }
+    ],
+    "duplicated": [
+      {
+        "id": "titleCombined",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "start",
+        "autoSize": false,
+        "id": "titleArtist",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 300
+      },
+      {
+        "id": "artists",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "start",
+        "autoSize": false,
+        "id": "composer",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 300
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "year",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 200
+      },
+      {
+        "id": "releaseYear",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "date",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 240
+      },
+      {
+        "id": "releaseDate",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "id": "bitDepth",
+        "align": "end",
+        "autoSize": false,
+        "isEnabled": true,
+        "pinned": "right",
+        "width": 17
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "bitDepth",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 100
+      },
+      {
+        "align": "center",
+        "autoSize": false,
+        "id": "sampleRate",
+        "isEnabled": false,
+        "pinned": null,
+        "width": 100
+      },
+      {
+        "align": "start",
+        "autoSize": false,
+        "id": "albumGroup",
+        "isEnabled": false,
+        "pinned": "left",
+        "width": 240
+      }
+    ],
+    "keyCases": [
+      {
+        "list": "fullScreen",
+        "output": [
+          {
+            "id": "titleCombined",
+            "align": "end",
+            "autoSize": false,
+            "isEnabled": true,
+            "pinned": "right",
+            "width": 17
+          },
+          {
+            "align": "start",
+            "autoSize": false,
+            "id": "titleArtist",
+            "isEnabled": false,
+            "pinned": null,
+            "width": 300
+          },
+          {
+            "id": "artists",
+            "align": "end",
+            "autoSize": false,
+            "isEnabled": true,
+            "pinned": "right",
+            "width": 17
+          },
+          {
+            "align": "start",
+            "autoSize": false,
+            "id": "composer",
+            "isEnabled": false,
+            "pinned": null,
+            "width": 300
+          },
+          {
+            "align": "center",
+            "autoSize": false,
+            "id": "year",
+            "isEnabled": false,
+            "pinned": null,
+            "width": 200
+          },
+          {
+            "id": "releaseYear",
+            "align": "end",
+            "autoSize": false,
+            "isEnabled": true,
+            "pinned": "right",
+            "width": 17
+          },
+          {
+            "align": "center",
+            "autoSize": false,
+            "id": "date",
+            "isEnabled": false,
+            "pinned": null,
+            "width": 240
+          },
+          {
+            "id": "releaseDate",
+            "align": "end",
+            "autoSize": false,
+            "isEnabled": true,
+            "pinned": "right",
+            "width": 17
+          },
+          {
+            "align": "start",
+            "autoSize": false,
+            "id": "albumGroup",
+            "isEnabled": false,
+            "pinned": "left",
+            "width": 240
+          }
+        ]
+      },
+      {
+        "list": "fullscreen",
+        "output": [
+          {
+            "id": "titleCombined",
+            "align": "end",
+            "autoSize": false,
+            "isEnabled": true,
+            "pinned": "right",
+            "width": 17
+          },
+          {
+            "id": "artists",
+            "align": "end",
+            "autoSize": false,
+            "isEnabled": true,
+            "pinned": "right",
+            "width": 17
+          },
+          {
+            "id": "releaseYear",
+            "align": "end",
+            "autoSize": false,
+            "isEnabled": true,
+            "pinned": "right",
+            "width": 17
+          },
+          {
+            "id": "releaseDate",
+            "align": "end",
+            "autoSize": false,
+            "isEnabled": true,
+            "pinned": "right",
+            "width": 17
+          },
+          {
+            "align": "center",
+            "autoSize": false,
+            "id": "bitDepth",
+            "isEnabled": false,
+            "pinned": null,
+            "width": 100
+          },
+          {
+            "align": "center",
+            "autoSize": false,
+            "id": "sampleRate",
+            "isEnabled": false,
+            "pinned": null,
+            "width": 100
+          }
+        ]
+      },
+      {
+        "list": "sideQueue",
+        "output": [
+          {
+            "id": "titleCombined",
+            "align": "end",
+            "autoSize": false,
+            "isEnabled": true,
+            "pinned": "right",
+            "width": 17
+          },
+          {
+            "align": "start",
+            "autoSize": false,
+            "id": "titleArtist",
+            "isEnabled": false,
+            "pinned": null,
+            "width": 300
+          },
+          {
+            "id": "artists",
+            "align": "end",
+            "autoSize": false,
+            "isEnabled": true,
+            "pinned": "right",
+            "width": 17
+          },
+          {
+            "align": "start",
+            "autoSize": false,
+            "id": "composer",
+            "isEnabled": false,
+            "pinned": null,
+            "width": 300
+          },
+          {
+            "align": "center",
+            "autoSize": false,
+            "id": "year",
+            "isEnabled": false,
+            "pinned": null,
+            "width": 200
+          },
+          {
+            "id": "releaseYear",
+            "align": "end",
+            "autoSize": false,
+            "isEnabled": true,
+            "pinned": "right",
+            "width": 17
+          },
+          {
+            "align": "center",
+            "autoSize": false,
+            "id": "date",
+            "isEnabled": false,
+            "pinned": null,
+            "width": 240
+          },
+          {
+            "id": "releaseDate",
+            "align": "end",
+            "autoSize": false,
+            "isEnabled": true,
+            "pinned": "right",
+            "width": 17
+          },
+          {
+            "align": "start",
+            "autoSize": false,
+            "id": "albumGroup",
+            "isEnabled": false,
+            "pinned": "left",
+            "width": 240
+          }
+        ]
+      },
+      {
+        "list": "sidequeue",
+        "output": [
+          {
+            "id": "titleCombined",
+            "align": "end",
+            "autoSize": false,
+            "isEnabled": true,
+            "pinned": "right",
+            "width": 17
+          },
+          {
+            "id": "artists",
+            "align": "end",
+            "autoSize": false,
+            "isEnabled": true,
+            "pinned": "right",
+            "width": 17
+          },
+          {
+            "id": "releaseYear",
+            "align": "end",
+            "autoSize": false,
+            "isEnabled": true,
+            "pinned": "right",
+            "width": 17
+          },
+          {
+            "id": "releaseDate",
+            "align": "end",
+            "autoSize": false,
+            "isEnabled": true,
+            "pinned": "right",
+            "width": 17
+          },
+          {
+            "align": "center",
+            "autoSize": false,
+            "id": "bitDepth",
+            "isEnabled": false,
+            "pinned": null,
+            "width": 100
+          },
+          {
+            "align": "center",
+            "autoSize": false,
+            "id": "sampleRate",
+            "isEnabled": false,
+            "pinned": null,
+            "width": 100
+          }
+        ]
+      }
+    ]
+  }
+}

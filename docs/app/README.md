@@ -29,3 +29,5 @@ Update app documentation, licenses/notices and relevant operational instructions
 P02 decisions are recorded in [ADR-004](adr/004-persistence.md) and [ADR-005](adr/005-portable-contracts.md); separate [foundation](migration/p02-foundation.csv) and [storage](migration/p02-storage.csv) maps retain source evidence and unfinished imports/credentials/cache work.
 
 The bounded [P02.05 import continuation](p02/imports.md) adds copied-input preview and a separate durable [apply/backup/rollback journal](p02/import-journal.md). It preserves source copies and explicitly reports unported settings/transforms; shell adoption and full historical compatibility remain open.
+
+The [retained historical settings continuation](p02/settings-history.md) covers settings versions 14-34 for columns and supplied Auto DJ objects, using captured original migration outputs. Full settings hydration/adoption and phase exits remain open.

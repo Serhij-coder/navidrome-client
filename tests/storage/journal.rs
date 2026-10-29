@@ -271,3 +271,41 @@ fn corrupted_backup_data_is_never_used_as_a_rollback_source() {
     ));
     assert_eq!(*store.bytes.borrow(), Some(bytes));
 }
+
+#[test]
+fn historical_transforms_are_the_exact_reviewed_applied_and_rollback_data() {
+    use feishin_storage::imports::{AutoDjStrategy, ColumnId};
+    let store = Memory::default();
+    let mut repo = JournalRepository::new(store.clone());
+    let initial = repo.prepare(&settings("uk")).unwrap();
+    let previous = repo.apply(&initial).unwrap();
+    let raw = br#"{"version":20,"state":{"lists":{"song":{"table":{"columns":[{"id":"titleCombined","align":"end","autoSize":false,"isEnabled":true,"pinned":null,"width":73}]}}},"autoDJ":{"mode":"old","songStrategy":"similar_forward"}}}"#;
+    let source_before = raw.to_vec();
+    let input = CopiedInputs {
+        settings: Some(raw),
+        ..CopiedInputs::default()
+    };
+    let prepared = repo.prepare(&input).unwrap();
+    let reviewed = prepared.preview().data().clone();
+    assert!(
+        reviewed.columns[0]
+            .columns
+            .iter()
+            .any(|c| c.id == ColumnId::TitleArtist)
+    );
+    assert_eq!(reviewed.columns[0].columns[0].width.as_u64(), Some(73));
+    assert_eq!(
+        reviewed.auto_dj.as_ref().unwrap().song_strategy,
+        AutoDjStrategy::Similar
+    );
+    assert_eq!(repo.load().unwrap(), previous);
+    let applied = repo.apply(&prepared).unwrap();
+    assert_eq!(applied.data, Some(reviewed));
+    let before = store.bytes.borrow().clone();
+    let again = repo.prepare(&input).unwrap();
+    assert_eq!(repo.apply(&again).unwrap(), applied);
+    assert_eq!(*store.bytes.borrow(), before);
+    let rollback = repo.prepare_rollback().unwrap();
+    assert_eq!(repo.rollback(&rollback).unwrap().data, previous.data);
+    assert_eq!(raw.as_slice(), source_before);
+}
