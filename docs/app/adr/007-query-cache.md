@@ -23,3 +23,5 @@ Callers must bind logout, profile/permission/endpoint changes, server selection,
 Source behavior is static evidence; target budgets, idle policy, explicit library context and universally server-scoped modeled keys are architectural choices. [Migration records](../migration/p02-cache.csv) distinguish these replacements from deferred feature keys/call sites. The existing bounded imported-queue serializer remains separate from full P05 queue/session transport serialization.
 
 See [contract](../p02/query-cache.md), [verification](../p02/query-cache-verification.md) and [ADR-005](005-portable-contracts.md). The parallel credential executor is integrated separately and preserves its [own documented scope](../p02/credential-executor.md).
+
+The bounded [payload codec continuation](015-bounded-payloads.md) derives exact byte/item Weight for encoded SongSummary pages and retained queue snapshots. Generic cache values still rely on trusted producer accounting; this does not add backend/remote wire identity or transport allocation guarantees.

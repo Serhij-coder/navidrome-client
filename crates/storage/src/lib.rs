@@ -7,6 +7,7 @@ mod bounded_json;
 
 pub mod imports;
 pub mod journal;
+pub mod payloads;
 pub mod settings_migration;
 pub mod state;
 

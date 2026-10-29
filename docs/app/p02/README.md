@@ -68,3 +68,5 @@ The [credential library continuation](credentials.md) adds session-only default 
 The [query cache continuation](query-cache.md) and [ADR-007](../adr/007-query-cache.md) define portable bounded identity/lifecycle rules; [verification](query-cache-verification.md) records combined executor integration and actual three-browser execution. The [credential executor](credential-executor.md) runs native provider work off the caller thread without claiming hard prompt cancellation or shell consumption.
 
 The [bounded serialization continuation](serialization.md) applies the existing durable profile/import-queue/journal/active-state budget during encoding, with no partial output or writes on overflow. Full normalized runtime queue/query transport encoding remains separate.
+
+The [portable payload continuation](payloads.md) adds bounded song-summary page and retained-queue encoding/decoding, with exact encoded cache Weight. It preserves distinct occurrences and server identity; full normalized metadata, additional query payloads and production consumers remain open.

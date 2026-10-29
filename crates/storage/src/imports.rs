@@ -420,6 +420,42 @@ fn valid_columns(columns: &[Column]) -> bool {
                     .is_some_and(|w| w.is_finite() && (0.0..=16384.0).contains(&w))
         })
 }
+pub(crate) fn validate_queue(q: &QueueSnapshot) -> Result<(), ImportError> {
+    let mut occurrences = BTreeSet::new();
+    if q.occurrences.len() > MAX_QUEUE
+        || q.occurrences.iter().any(|o| {
+            !bounded(&o.occurrence_id, 128)
+                || !bounded(&o.song_id, 128)
+                || !bounded(&o.server_id, 128)
+                || o.title.len() > 1024
+                || !occurrences.insert(&o.occurrence_id)
+        })
+    {
+        return Err(ImportError::InvalidData);
+    }
+    let mut priorities = BTreeSet::new();
+    let mut shuffled = BTreeSet::new();
+    if q.priority.len() > q.occurrences.len()
+        || q.priority
+            .iter()
+            .any(|id| !occurrences.contains(id) || !priorities.insert(id))
+        || (!q.shuffled.is_empty()
+            && (q.shuffled.len() != occurrences.len()
+                || q.shuffled
+                    .iter()
+                    .any(|id| !occurrences.contains(id) || !shuffled.insert(id))))
+        || q.current_occurrence
+            .as_ref()
+            .is_some_and(|id| !occurrences.contains(id))
+        || q.position
+            .as_ref()
+            .is_some_and(|pos| q.current_occurrence.as_ref() != Some(&pos.occurrence_id))
+    {
+        return Err(ImportError::InvalidData);
+    }
+    Ok(())
+}
+
 /// Revalidates durable values too, including old journal revisions. No silent repair.
 pub fn validate_data(data: &MigrationData) -> Result<(), ImportError> {
     let p = &data.profile;
@@ -447,38 +483,7 @@ pub fn validate_data(data: &MigrationData) -> Result<(), ImportError> {
         return Err(ImportError::InvalidData);
     }
     if let Some(q) = &data.queue {
-        let mut occurrences = BTreeSet::new();
-        if q.occurrences.len() > MAX_QUEUE
-            || q.occurrences.iter().any(|o| {
-                !bounded(&o.occurrence_id, 128)
-                    || !bounded(&o.song_id, 128)
-                    || !bounded(&o.server_id, 128)
-                    || o.title.len() > 1024
-                    || !occurrences.insert(&o.occurrence_id)
-            })
-        {
-            return Err(ImportError::InvalidData);
-        }
-        let mut priorities = BTreeSet::new();
-        let mut shuffled = BTreeSet::new();
-        if q.priority.len() > q.occurrences.len()
-            || q.priority
-                .iter()
-                .any(|id| !occurrences.contains(id) || !priorities.insert(id))
-            || (!q.shuffled.is_empty()
-                && (q.shuffled.len() != occurrences.len()
-                    || q.shuffled
-                        .iter()
-                        .any(|id| !occurrences.contains(id) || !shuffled.insert(id))))
-            || q.current_occurrence
-                .as_ref()
-                .is_some_and(|id| !occurrences.contains(id))
-            || q.position
-                .as_ref()
-                .is_some_and(|pos| q.current_occurrence.as_ref() != Some(&pos.occurrence_id))
-        {
-            return Err(ImportError::InvalidData);
-        }
+        validate_queue(q)?;
     }
     crate::bounded_json::encode(data, MAX_BYTES).map_err(|error| match error {
         crate::bounded_json::EncodeError::TooLarge => ImportError::OutputTooLarge,
