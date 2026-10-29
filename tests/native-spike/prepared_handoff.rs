@@ -171,7 +171,11 @@ fn preparation_failures_retire_candidate_before_explicit_retry() {
                     failure,
                     Err(HandoffFailure::Engine(Error::Protocol))
                 )),
-                "noarrival" => assert!(matches!(failure, Err(HandoffFailure::Deadline))),
+                "noarrival" => assert!(
+                    matches!(failure, Err(HandoffFailure::Deadline)),
+                    "failure: {:?}",
+                    failure.as_ref().err()
+                ),
                 _ => unreachable!(),
             }
             let next = submit(

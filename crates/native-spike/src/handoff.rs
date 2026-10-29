@@ -352,8 +352,10 @@ fn valid_path(path: &std::path::Path) -> bool {
 
 fn control_failure(failure: ControlFailure) -> HandoffFailure {
     match failure {
+        ControlFailure::Engine(Error::Deadline) | ControlFailure::Deadline => {
+            HandoffFailure::Deadline
+        }
         ControlFailure::Engine(error) => HandoffFailure::Engine(error),
-        ControlFailure::Deadline => HandoffFailure::Deadline,
         ControlFailure::Cancelled => HandoffFailure::Cancelled,
         ControlFailure::Stopped => HandoffFailure::Stopped,
         ControlFailure::QueueFull | ControlFailure::Stale => {
@@ -468,3 +470,7 @@ fn prepared_command(
         std::thread::sleep(Duration::from_millis(5));
     }
 }
+
+#[cfg(test)]
+#[path = "../../../tests/native-spike/handoff_internals.rs"]
+mod tests;
