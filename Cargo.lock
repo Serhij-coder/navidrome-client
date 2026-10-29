@@ -1260,6 +1260,7 @@ dependencies = [
 name = "feishin-subsonic"
 version = "0.1.0"
 dependencies = [
+ "feishin-domain",
  "md-5",
  "serde_json",
  "url",

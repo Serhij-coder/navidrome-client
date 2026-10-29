@@ -9,15 +9,16 @@
 - Credential executor: integrated branch9ab58b5; typed local dispatcher and bounded native worker; provider constructed/called on worker, no universal Send bound.
 - Credential limits: session-only default; explicit remember/restore/forget. Uncertain mutations preserved; latest-start deadline only, prompt/in-flight calls not interruptible.
 - Storage: isolated versioned profiles/import journal/active-state repository and bounded worker; opt-in desktop two-field preferences. Full shell/auth/import adoption open.
-- Checks: combined workspace220 pass incl4 compile-fail/13 optional ignored; workspace fmt/Clippy and domain/storage/web/remote WASM Clippy pass.
+- Checks: combined workspace234 pass incl4 compile-fail/13 optional ignored; workspace fmt/Clippy and domain/storage/Subsonic/web/remote WASM Clippy pass.
 - Optional credential-feature Clippy and12 executor/worker cases pass. Cache WASM runtime: Chromium141/Firefox142/WebKit26 each4 assertions pass, stores unchanged.
 - [Cache contract](p02/query-cache.md), [ADR007](adr/007-query-cache.md), [migration](migration/p02-cache.csv), [verification](p02/query-cache-verification.md).
 - [Credential executor](p02/credential-executor.md) separately reviewed; branch CI all5 jobs passed. Combined independent Sol medium review satisfied; no actionable issues.
 - Gaps: P02.05 complete imports/adoption; P02.06 auth/consent/revocation/prompt integration; P02.07 endpoint coverage, transport/UI cancellation and runtime queue/query budgets.
 - P03.01: portable Subsonic URL/query encoding, salted/explicit legacy auth and redacted wire values. No HTTP/login/library or platform RNG implementation.
-- P03 integration: branchc877070 reviewed/CI all5 pass; merged over371afa4, retaining both app-guide sections. Combined checks and independent integration review pass; no actionable findings.
+- Delivered: P03.01 merged/pushed5c4096f; local220 pass/review clear. Hosted cargo-test step failed noarrival fixture; classification correction and strict diagnostic added.
 - [P03 contract/entry exception](p03/README.md), [ADR012](adr/012-subsonic-request-foundation.md), [source map](migration/p03-foundation.csv), [verification](p03/verification.md).
-- Parallel: managed Sol high orchestrator owns bounded P03.02 protocol work in isolated p03-protocol-foundation worktree; root retains reviews/commit/push.
-- Next: wait for merge CI, then primary P02.07 runtime query/queue serialization budgets alongside isolated P03.02.
+- Parallel: managed Sol high orchestrator/Terra completed bounded P03.02 in isolated worktree; root assembled/reviewed it and retains commit/push ownership.
+- Active: bounded durable serializer and P03.02 protocol patch assembled; focused checks pass. Combined verification and one independent final review pass; no actionable findings. Fresh CI pending.
+- Next: after hosted CI, bounded P03.03 normalized read slice and remaining P02.07 runtime queue/query encodings; production transport remains open.
 - P01 [remaining gates](p01/README.md) stay open; no unrelated prototype expansion or production reducer/engine claims.
 - Workflow: Sol high orchestration, Terra medium implementation, one final independent Sol medium review. [Setup](development-workflow.md).

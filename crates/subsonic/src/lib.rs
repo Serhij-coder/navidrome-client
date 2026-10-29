@@ -1,4 +1,7 @@
 //! Portable Subsonic request construction. This crate performs no network I/O.
+mod protocol;
+pub use protocol::*;
+
 use md5::{Digest, Md5};
 use std::fmt;
 use url::Url;

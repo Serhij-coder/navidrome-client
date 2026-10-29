@@ -8,10 +8,9 @@ publish.workspace = true
 
 [dependencies]
 url.workspace = true
-md-5 = "=0.10.6"
-
-[dev-dependencies]
 serde_json.workspace = true
+feishin-domain = { path = "../domain" }
+md-5 = "=0.10.6"
 
 [lints]
 workspace = true
@@ -19,3 +18,7 @@ workspace = true
 [[test]]
 name = "foundation"
 path = "../../tests/subsonic/foundation.rs"
+
+[[test]]
+name = "protocol"
+path = "../../tests/subsonic/protocol.rs"
