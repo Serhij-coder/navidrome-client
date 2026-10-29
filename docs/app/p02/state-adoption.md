@@ -2,6 +2,8 @@
 
 P02.05 now provides `state::StateRepository` in the existing storage crate. It owns the active value, the staged import journal and the earlier profile reader through one mutable worker API. This is the durable repository boundary for a future application owner. The P01 shells still do not open these stores, hydrate UI settings, restore playback or execute production worker messages.
 
+The subsequent [storage session/native worker](state-worker.md) now supplies typed review/apply dispatch and a bounded native executor around this repository. Shell composition and background browser execution remain separate.
+
 ## Reviewed replacement and recovery
 
 `load` is read-only. Before an active value exists it synthesizes revision zero from the existing schema-v1 non-secret profile, including typed partial-recovery diagnostics. Missing profiles use existing defaults; malformed/future whole profiles fail without writes. Other fields start at `MigrationData` defaults. Neither the legacy profile nor the staged import becomes active implicitly.

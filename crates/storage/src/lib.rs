@@ -285,3 +285,7 @@ pub fn decode(bytes: &[u8]) -> Result<Loaded, Error> {
     }
     Ok(loaded)
 }
+
+#[cfg(not(target_arch = "wasm32"))]
+pub mod native_worker;
+pub mod session;

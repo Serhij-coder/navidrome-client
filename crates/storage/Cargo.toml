@@ -59,3 +59,11 @@ path = "../../tests/storage/early_versions.rs"
 [[test]]
 name = "state"
 path = "../../tests/storage/state.rs"
+
+[[test]]
+name = "session"
+path = "../../tests/storage/session.rs"
+
+[[test]]
+name = "native_worker"
+path = "../../tests/storage/native_worker.rs"

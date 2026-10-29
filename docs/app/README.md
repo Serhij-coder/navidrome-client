@@ -35,3 +35,5 @@ The [retained historical settings continuation](p02/settings-history.md) covers 
 The [early settings continuation](p02/early-settings.md) covers versions 0-13, including explicit retained-settings reset previews for 10/11, preserved profile/queue state and journal undo. Full state adoption and phase exits remain separate.
 
 The [active-state continuation](p02/state-adoption.md) adds a single durable repository for reviewed stage adoption, local saves and undo/redo, with v1 profile compatibility. Production shell/worker composition and phase exits remain open. Current build/test scope is Linux and WASM/browser; Windows and macOS runs are excluded per the maintainer's instruction in [ADR-002](adr/002-target-matrix.md).
+
+The [storage worker continuation](p02/state-worker.md) adds typed local session dispatch and a bounded native storage thread with review token ownership, correlation and latest-start cancellation. UI/shell composition and in-flight browser/native I/O cancellation remain open.

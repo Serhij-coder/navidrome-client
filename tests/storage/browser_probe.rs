@@ -1,5 +1,8 @@
 //! Test-only WASM export; not linked into either application shell.
 #[cfg(target_arch = "wasm32")]
+#[path = "session_browser_probe.rs"]
+mod session_probe;
+#[cfg(target_arch = "wasm32")]
 #[path = "state_browser_probe.rs"]
 mod state_probe;
 
@@ -14,6 +17,9 @@ mod probe {
         Ok(result)
     }
     fn run(action: &str) -> Result<bool, Error> {
+        if action.starts_with("session-") {
+            return super::session_probe::run(action).map_err(|_| Error::InvalidDocument);
+        }
         if action.starts_with("state-") {
             return super::state_probe::run(action).map_err(|_| Error::InvalidDocument);
         }

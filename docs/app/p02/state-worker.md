@@ -1,0 +1,33 @@
+# Storage session and native worker
+
+P02.02-P02.05 now has a typed application-facing dispatcher around the [durable repository](state-adoption.md), plus a dedicated native storage thread. Both are modules in the existing storage crate. The desktop/full-web shells still use P01 spike state; this increment does not hydrate UI or restore production playback. Remote remains a controller and gains no playback owner.
+
+## Portable protocol
+
+`session::Session` owns all three repository handles. Requests carry a nonzero session generation, nonzero request ID, explicit monotonic `Duration` deadline and a typed command. Replies echo the request correlation and contain a typed response or closed error category. Callers must choose a new generation for every replacement session and use increasing request IDs for correlation. No raw copied-source bytes appear in response/error diagnostics or `Debug` formatting.
+
+Commands load active state, prepare a serialized local save, prepare copied import inputs, prepare stage adoption, prepare active rollback, apply a review token or discard the review. Only one prepared operation is retained at a time. A successful preparation supersedes its predecessor and returns an opaque generation-scoped token plus the owned review data. Applying uses the exact retained prepared object, preserving repository stale guards. An apply attempt consumes the token even on storage failure; uncertain writes require explicit load/reconciliation and another review. Wrong or superseded tokens fail without mutation. Failed preparation leaves the previous valid plan intact; callers can explicitly discard it.
+
+This dispatcher exposes active rollback. Stage rollback remains in the lower-level journal API; a production import UI still needs its explicit command mapping. It is not silently treated as active rollback.
+
+Admission checks raw save bytes against 256 KiB and sums all copied-input byte lengths, including split category copies, against 2 MiB using checked addition. Parsing, projection, durable validation, candidate-plus-backup capacity and serialization occur inside the dispatcher. The native submit path only checks lengths and moves owned bytes. Caller buffers before submission and snapshots retained by callers remain their responsibility; this boundary does not add an unbounded internal history.
+
+Wrong generation, cancellation and expiry (`now >= deadline`) are checked before any command storage access. The native factory may already have opened/created the isolated development directory; cancellation does not undo initialization. These are latest-start checks. An operation that already started can finish after its deadline or a cancellation request; its real success/error is returned. Neither the dispatcher nor the native wrapper pretends to interrupt synchronous I/O, reverse a committed mutation or provide retry-safe exactly-once writes. This bounded storage behavior does not complete P02.07 backend/cache cancellation.
+
+## Native execution and lifecycle
+
+`native_worker::NativeWorker::open` receives an explicit development root, generation and capacity of 1-8 outstanding requests. The worker thread opens the active/stage/legacy stores and exclusively runs parsing and repository operations. A `Send` factory can also construct thread-local non-`Send` stores entirely inside the worker. Store values do not cross threads; command/reply values do. The portable session itself has no `Send` bound.
+
+`submit` and `poll` are nonblocking. Outstanding admission includes queued, active and completed-but-unread requests, bounding both channels and retained replies. Polling a reply releases admission capacity. Request IDs advance with checked arithmetic. `cancel(generation, id)` marks an outstanding request and rejects foreign generations; a true return acknowledges marking, not that cancellation won a race against dispatch. Errors include full/closed admission, invalid payload size, exhausted counters, thread creation failure, factory failure and panic. `try_join` provides terminal factory/panic results.
+
+`begin_shutdown` stops new admission and cancels work that has not started; an active operation may still complete. `try_join` joins only a finished thread. Queued replies fit the outstanding capacity even if the caller has not polled them. Drop signals shutdown and drops channels without blocking the caller. An OS-blocked operation cannot be forcibly killed by this API and may outlive a dropped handle; filesystem operation deadlines and hard shutdown certification remain open. Applications should explicitly shut down and observe completion rather than depend on Drop for a durability acknowledgment.
+
+Before opening a replacement writer over the same namespace, retire and join the preceding native worker. A new generation distinguishes replies/tokens; it does not fence an old in-flight filesystem write. Terminal exit with an outstanding mutation also requires reload/reconciliation: absence of a reply does not prove absence of a commit. This API provides no concurrent-writer coordinator.
+
+## Browser boundary and evidence
+
+The same dispatcher runs with browser localStorage handles and with `Rc` test stores. The [browser fixture](../../../tests/browser/p02-session.cjs) exercises local dispatch, stage/adoption/undo/redo, correlation, supersession, expiry/cancellation, byte bounds, discard and consumed tokens after injected storage failure. It is synchronous local dispatch; no Web Worker/off-thread browser storage or frame-latency result is claimed. localStorage belongs to Window and is unavailable in a Web Worker. A future browser executor must preserve explicit review and use an appropriate storage/message boundary for larger responsive work.
+
+The exact pinned source still has auth merge at `auth.store.ts:114`, settings migration at `settings.store.ts:2442` and player/queue writes at `utils.ts:119-143` (`7d6ad318c79802e226996cfc39acba6b05bb22e8`). The new session/worker protocol is a target architecture decision, not a port of an upstream actor or transaction. See [ADR-004](../adr/004-persistence.md), [migration anchors](../migration/p02-worker.csv), [verification](state-worker-verification.md) and explicitly wired [session](../../../tests/storage/session.rs)/[native worker](../../../tests/storage/native_worker.rs) tests.
+
+Full shell/UI composition, historical fields/real old-user exports, credentials (P02.06), cache lifecycle and broader cancellation (P02.07), queue reducers (P05) and production playback (P06) remain open. Current build/test scope is Linux and WASM/browser; no Windows/macOS runs or phase exits are claimed.
