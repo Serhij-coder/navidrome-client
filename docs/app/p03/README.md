@@ -56,3 +56,5 @@ The [P03.03 song detail continuation](song-reads.md) adds one normalized `getSon
 The [album/album-artist continuation](album-reads.md) adds two guarded detail operations with nested song/disc normalization and an aggregate work budget. [Verification](album-reads-verification.md) and [ADR-016](../adr/016-subsonic-album-reads.md) record source comparisons and deliberate differences.
 
 The [playlist snapshot continuation](playlist-reads.md) adds separate metadata, ordered entry and song-ID reads, preserving duplicate songs with scoped position identities. [Verification](playlist-reads-verification.md) records original-controller replay and bounded local transport tests.
+
+The [collection read continuation](collection-reads.md) adds music folders, typed artist-role choices, random songs and similar songs with source-specific filtering and UTF-16 ordering. General lists/counting and real transport remain open.

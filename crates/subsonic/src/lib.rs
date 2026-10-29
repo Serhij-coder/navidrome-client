@@ -1,11 +1,13 @@
 //! Portable Subsonic planning, protocol and normalized detail reads.
 //! Concrete network I/O is supplied by the caller through a local transport.
 mod album;
+mod collections;
 mod playlist;
 mod protocol;
 mod read_support;
 mod song;
 pub use album::{get_album, get_album_artist};
+pub use collections::{get_artist_roles, get_music_folders, get_random_songs, get_similar_songs};
 pub use playlist::{get_playlist, get_playlist_song_ids, get_playlist_songs};
 pub use protocol::*;
 pub use song::get_song;

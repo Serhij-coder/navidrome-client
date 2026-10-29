@@ -68,6 +68,29 @@ pub struct MusicFolder {
     pub name: String,
 }
 
+/// An unlocalized role filter choice; a server can also return an empty named role.
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub enum ArtistRoleChoice {
+    AllArtists,
+    Role(String),
+}
+
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct RandomSongQuery {
+    pub genre: Option<String>,
+    pub limit: Option<u64>,
+    pub max_year: Option<i32>,
+    pub min_year: Option<i32>,
+    pub music_folder_ids: Option<Vec<FolderId>>,
+    pub played: Played,
+}
+
+#[derive(Clone, Debug, Default, PartialEq, Eq)]
+pub struct SimilarSongsQuery {
+    pub count: Option<u64>,
+    pub music_folder_ids: Option<Vec<FolderId>>,
+}
+
 #[derive(Clone, Debug, PartialEq)]
 pub struct User {
     pub server: ServerId,

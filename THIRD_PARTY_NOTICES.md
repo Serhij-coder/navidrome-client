@@ -45,3 +45,5 @@ P03.03 adapts song normalization and partial-date helper rules from the same pin
 The P03.03 album/artist detail continuation also adapts the pinned Feishin album, artist, release-type and nested-disc normalization rules under GPL-3.0-only. Original-controller replay and synthetic output provenance are recorded in [album verification](docs/app/p03/album-reads-verification.md). No new distributed dependency is added.
 
 The P03.03 playlist read continuation adapts pinned Feishin playlist metadata and ordered-entry controller/normalizer rules under GPL-3.0-only. Synthetic output provenance and original-expression replay are recorded in [playlist verification](docs/app/p03/playlist-reads-verification.md). No new distributed dependency is added.
+
+The P03.03 collection continuation adapts pinned Feishin folder/role/random/similar-song controllers and shared song rules under GPL-3.0-only. [Collection verification](docs/app/p03/collection-reads.md) binds original expressions and route declarations; no new distributed dependency is added.
