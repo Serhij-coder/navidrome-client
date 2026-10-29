@@ -88,6 +88,8 @@ cargo test --workspace
 
 Run target-specific native/WASM checks using the crate names/features established in P01; do not blindly enable mutually exclusive platform features with `--all-features`.
 
+Current maintainer-directed build/test scope is Linux and WASM/browser. Exclude Windows and macOS build/test runs; retain historical evidence and platform code without claiming current verification. Linux x86_64/aarch64 AppImage checks remain required.
+
 - Test queue/scrobble reducers using fixed clocks/RNG and meaningful generated/property/differential traces.
 - Use redacted backend fixtures for success, malformed/optional data, protocol errors, cancellation and unsupported capabilities. Test mutations against disposable fixtures/resources.
 - Test persistence using historical/corrupt serialized inputs and interruption recovery, not only current-schema round trips.

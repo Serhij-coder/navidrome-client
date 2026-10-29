@@ -1,19 +1,20 @@
 # Project scratchpad
 
-- Stage: P02 foundations/storage/import journal implemented; retained settings versions0-34 now handled through explicit early/reset/transform paths. Checks and independent review passed. P00/P01/P02 exits remain open; not a usable client.
-- Sequencing: [P02 exception/continuation](p01/exit-decision.md) keeps P01 open; address it only for concrete implementation blockers. No release/parity gate waived.
+- Stage: P02 foundations/storage/import journal and active durable-state repository implemented. P00/P01/P02 exits remain open; not a usable client.
+- Sequencing: [P02 exception](p01/exit-decision.md) keeps P01 open; address it only for concrete implementation blockers. No release/parity gate waived.
+- Scope: maintainer excludes Windows/macOS build/test runs. Current CI/verification covers Linux and WASM/browser; both Linux AppImage CPUs retained. [ADR002](adr/002-target-matrix.md).
 - Domain: portable normalized models/catalogs, scoped IDs, checked units, bounded example owner and !Send contracts; no production backend/P05 reducer/P06 engine claimed.
-- Import: copies only, immutable partial preview. Settings0-9 return early,10/11 reset retained settings,12-34 transform. Profiles/selected server and queue/current/position survive resets; malformed reset envelopes fail without writes.
-- Reset precedence: authoritative reset dominates weaker copies; selected supplemental reset affects its category only. Source null-reset permissiveness is deliberately rejected at the typed boundary; full UI default hydration remains open.
-- Journal: isolated current+one-backup value, exact reviewed apply, stale guards, idempotence and undo/redo. No source/profile activation; worker composition and external concurrent writers remain open.
-- Checks: workspace fmt/Clippy/tests pass153 incl4 compile-fail;13 optional ignored. Storage53 pass; native/WASM/Windows-MSVC Clippy pass; Windows-GNU/Wine53 pass.
-- Source proof: original273 column/110 AutoDJ replays unchanged; new56 early/reset cases and5 malformed observations matched. Fixtures are synthetic/source-derived, not older real-user exports.
-- Browser: Chromium/Firefox/WebKit each pass profile10 + import/reset17 on final WASM fixture, including reset save/reload/undo; quota/security fault injection remains explicit.
-- Reference/tooling: inventory/P00 checks pass;7 local reference tests pass; tooling72 pass/8 optional skips; Node syntax and both replay-mode tamper guards pass.
-- Records: [early/reset scope](p02/early-settings.md), [verification](p02/early-settings-verification.md), [migration](migration/p02-settings-transforms.csv), [imports](p02/imports.md), [ADRs004](adr/004-persistence.md)/[009](adr/009-source-differences.md).
-- Prior delivered:0121a86 pushed; [hosted run](https://github.com/Serhij-coder/navidrome-client/actions/runs/40791476724) passed all seven jobs. Older foundation/import increments remain delivered.
-- Gaps: full settings/queue metadata and production state adoption remain P02.05/P08; P02.06 credential policy/platform stores and P02.07 cache/cancellation remain open. Numeric version handling is not full historical parity.
-- P01: [remaining gates](p01/README.md) still need physical renderer/input/performance, fallback/device/browser/preset/distribution evidence; no prototype expansion this task.
-- Review: one independent Sol medium review satisfied; stale ADR coverage corrected and documentation checks rerun.
-- Next: implement the staged-data adoption boundary before credential/cache continuations.
-- Workflow: Sol high orchestration, Terra medium helper implementation, one final independent Sol medium review. See [setup](development-workflow.md).
+- Import: copied inputs only; retained settings0-34 explicit early/reset/transform paths. Partial schema, no credential/raw-source storage or full historical parity.
+- Stage journal: isolated current+one-backup; immutable review, stale guards, idempotence and undo/redo. Journal rollback affects staging only.
+- Active repository: whole reviewed stage replaces retained active data in one new envelope with backup/revision. Missing active bootstraps legacy profile read-only; initial undo restores it. Legacy ignored after activation.
+- Ownership: one mutable synchronous worker boundary; target/stage/initial-profile byte guards. No cross-process/tab CAS, cached publication or automatic uncertain-write retry. Shell/worker integration remains open.
+- Checks: workspace tests160 pass incl4 compile-fail/13 optional ignored; final affected storage tests62 pass incl state9. Workspace fmt/Clippy and native/WASM all-target checks pass.
+- Browser: Chromium141/Firefox142/WebKit26 each pass18 new active-state assertions, including adoption/reload/undo/redo/stale/quota/future protection.
+- Tooling/reference: P00/link/inventory checks and7 local reference tests pass; tooling72 pass/8 optional skips. No source replay needed for new target adoption policy.
+- Records: [adoption contract](p02/state-adoption.md), [verification](p02/state-adoption-verification.md), [migration](migration/p02-state.csv), [ADR004](adr/004-persistence.md).
+- Prior delivered:c4e6505 pushed; [hosted run](https://github.com/Serhij-coder/navidrome-client/actions/runs/40828231313) passed all former seven jobs. Historical Windows/macOS results remain retained.
+- Review: one independent Sol medium reviewer satisfied after bounds fix, regression and passing affected checks; focused re-review independently passed state9 and diff checking.
+- Gaps: full settings/queue metadata and real older-user exports P02.05; production shell/worker composition P02.05/P08; P02.06 credential policy/stores; P02.07 cache/cancellation.
+- P01: [remaining gates](p01/README.md) remain open; no unrelated prototype expansion this task.
+- Next: wire this repository through a bounded application worker before shell consumption; then credential/cache continuations.
+- Workflow: Sol high orchestration, Terra medium implementation, one final independent Sol medium review. See [setup](development-workflow.md).

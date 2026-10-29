@@ -2,6 +2,8 @@
 
 Status: P00 scope recorded; candidate OS floors and validation matrix proposed, no target certified. Final support claims depend on P01/P13/P14 evidence.
 
+2026-10-29 maintainer override: exclude Windows and macOS from build/test work. Current verification and CI cover Linux desktop (both AppImage CPUs) and WASM/browser/remote. The Windows/macOS rows below retain the historical proposed scope and its unverified requirements; they are outside the active validation matrix. Existing platform code and historical results are retained. No Windows/macOS support or certification follows from current checks.
+
 Keep desktop, full browser and remote controller deliverables. Desktop is prioritized; prioritization does not defer other targets. The upstream `electron-builder.yml` declares Windows x64/arm64, macOS x64/arm64 and Linux packaging, with separate Linux arm64 workflow. Use that as scope evidence, not proof all machines run the rewrite.
 
 | Deliverable | CPU / candidate validation environment | Required evidence |

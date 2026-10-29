@@ -89,6 +89,13 @@ impl<S: AtomicStore> JournalRepository<S> {
     pub fn new(store: S) -> Self {
         Self { store }
     }
+    pub(crate) fn snapshot_and_bytes(
+        &mut self,
+    ) -> Result<(Snapshot, Option<Vec<u8>>), JournalError> {
+        let bytes = self.store.read()?;
+        let snapshot = decode(bytes.as_deref())?.current;
+        Ok((snapshot, bytes))
+    }
     pub fn load(&mut self) -> Result<Snapshot, JournalError> {
         let bytes = self.store.read()?;
         Ok(decode(bytes.as_deref())?.current)

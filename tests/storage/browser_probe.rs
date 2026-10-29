@@ -1,5 +1,9 @@
 //! Test-only WASM export; not linked into either application shell.
 #[cfg(target_arch = "wasm32")]
+#[path = "state_browser_probe.rs"]
+mod state_probe;
+
+#[cfg(target_arch = "wasm32")]
 mod probe {
     use feishin_storage::*;
     use wasm_bindgen::prelude::*;
@@ -10,6 +14,9 @@ mod probe {
         Ok(result)
     }
     fn run(action: &str) -> Result<bool, Error> {
+        if action.starts_with("state-") {
+            return super::state_probe::run(action).map_err(|_| Error::InvalidDocument);
+        }
         if action.starts_with("import-") {
             return import_run(action).map_err(|_| Error::InvalidDocument);
         }

@@ -27,11 +27,7 @@ jobs:
       - run: python3 tools/app/check-p00.py
       - run: python3 -m unittest discover -s tests/tooling -p 'test_*.py'
   native:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-24.04, windows-latest, macos-14]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v6

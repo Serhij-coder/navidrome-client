@@ -2,6 +2,8 @@
 
 `JournalRepository` complements the [copied-input projector](imports.md). It persists a reviewed, bounded non-secret target projection, not the original source bytes. It is not yet adopted by a shell or the production queue/settings owner.
 
+The subsequent [active-state repository](state-adoption.md) adds explicit reviewed adoption into a separate atomic active envelope. It keeps this stage unchanged and supports rollback to the prior active/legacy state. Shell/worker composition remains open; journal rollback still changes staging only.
+
 The caller explicitly supplies copied JSON bytes, calls `prepare`, reviews the immutable candidate and typed report, then calls `apply` with that same prepared object. The repository prepares against its current imported state or an empty state. Projection of selected categories preserves unaffected target fields. `prepare` performs no writes and checks that both the candidate and its one-level backup fit the 256 KiB journal limit before presenting a result.
 
 Native storage uses `NativeStore::open_imports(canonical_development_root)` and writes only `feishin-rust-dev-p02/imports-v1.json`. Browser storage uses `BrowserStore::open_imports()` and `feishin-rust:dev:p02:imports:v1`. The earlier non-secret profile store and upstream-named keys are separate. No Electron profile discovery, source file write, credential import, live-profile migration or implicit application of imported settings occurs.

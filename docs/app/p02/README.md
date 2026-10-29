@@ -27,7 +27,7 @@ cargo clippy -p feishin-domain -p feishin-storage --all-targets --target wasm32-
 cargo clippy -p feishin-web -p feishin-remote --target wasm32-unknown-unknown --locked -- -D warnings
 ```
 
-Tests live under [tests/domain](../../../tests/domain/), [tests/storage](../../../tests/storage/) and [tracked fixtures](../../../tests/fixtures/p02/). Manifests explicitly wire integration tests and the test-only WASM example. CI executes native tests on its existing Linux/Windows/macOS matrix and checks all new WASM targets. Compilation is separate from actual browser execution.
+Tests live under [tests/domain](../../../tests/domain/), [tests/storage](../../../tests/storage/) and [tracked fixtures](../../../tests/fixtures/p02/). Manifests explicitly wire integration tests and the test-only WASM example. At the maintainer's direction, CI and current build verification cover Linux and WASM/browser targets; Windows and macOS builds/tests are excluded. Linux AppImage checks retain x86_64 and aarch64. Historical platform results remain evidence of earlier runs. Compilation is separate from actual browser execution.
 
 Optional browser runtime check, requiring the existing external Playwright 1.56.1 lab/browsers and wasm-bindgen-cli 0.2.106:
 
@@ -56,3 +56,5 @@ The [foundation migration map](../migration/p02-foundation.csv) and [storage mig
 The [historical settings continuation](settings-history.md) expands retained-field transforms to versions 14-34, with exact pinned source replay and current/backup transaction coverage.
 
 The [early/reset continuation](early-settings.md) completes retained settings version handling for 0-34, keeping reset scope and rollback explicit.
+
+The [active-state repository](state-adoption.md) adds explicit staged-projection replacement, legacy-v1 bootstrap, stale guards and one-value rollback. It remains a durable boundary awaiting production worker/shell composition; [verification](state-adoption-verification.md) separates repository and browser results from runtime application integration.

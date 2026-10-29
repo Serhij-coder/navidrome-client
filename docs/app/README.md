@@ -33,3 +33,5 @@ The bounded [P02.05 import continuation](p02/imports.md) adds copied-input previ
 The [retained historical settings continuation](p02/settings-history.md) covers settings versions 14-34 for columns and supplied Auto DJ objects, using captured original migration outputs. Full settings hydration/adoption and phase exits remain open.
 
 The [early settings continuation](p02/early-settings.md) covers versions 0-13, including explicit retained-settings reset previews for 10/11, preserved profile/queue state and journal undo. Full state adoption and phase exits remain separate.
+
+The [active-state continuation](p02/state-adoption.md) adds a single durable repository for reviewed stage adoption, local saves and undo/redo, with v1 profile compatibility. Production shell/worker composition and phase exits remain open. Current build/test scope is Linux and WASM/browser; Windows and macOS runs are excluded per the maintainer's instruction in [ADR-002](adr/002-target-matrix.md).
