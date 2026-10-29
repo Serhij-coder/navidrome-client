@@ -26,3 +26,7 @@ path = "../../tests/subsonic/protocol.rs"
 [[test]]
 name = "song_reads"
 path = "../../tests/subsonic/song_reads.rs"
+
+[[test]]
+name = "album_reads"
+path = "../../tests/subsonic/album_reads.rs"

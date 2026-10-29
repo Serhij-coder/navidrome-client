@@ -1,0 +1,1785 @@
+{
+  "baseline": "7d6ad318c79802e226996cfc39acba6b05bb22e8",
+  "sources": {
+    "src/shared/api/subsonic/subsonic-normalize.ts": "73f6a36816a6d76f5b2d124ae7d810b3e3527d0f87234adf3262360b4a51316d",
+    "src/shared/api/partial-iso-date.ts": "f18ae8e82c5651ddaf4c5d3e48b48633d438ae9cd05c9808623cbfecc1215835",
+    "src/shared/types/domain-types.ts": "acd9d435728a90bab09773fbfa8e5cbe9bd4eec549aa764474c458dc013a834a",
+    "src/renderer/api/subsonic/subsonic-controller.ts": "c5afb4748f8b6eaa721d8388e656172326074e7f002cd90b0505e4c1ec348af0"
+  },
+  "typescript_sha256": "569177652966bd528c319171c7dd22860dbf72bde116cbc4f644f1d02bb12e39",
+  "functions": {
+    "src/shared/api/subsonic/subsonic-normalize.ts:21:23": "6067ba3228a3da2b1f352684daf204ba9b580d53997373ba2231b1a3aa7e1064",
+    "src/shared/api/subsonic/subsonic-normalize.ts:65:25": "fe0eaf12b2aff2ead6efaf2339133883d8fe3b4123f04e8f4f6b33904a74120e",
+    "src/shared/api/subsonic/subsonic-normalize.ts:101:19": "86be6686207cd64e59556bf6d99ea77da33a012f40a7f5d825633446c84e874d",
+    "src/shared/api/subsonic/subsonic-normalize.ts:137:14": "a9c3629f49a357729581480d06d90b98b008ac172b58dafbae86b369c5e35edc",
+    "src/shared/api/subsonic/subsonic-normalize.ts:139:31": "7c45c3374771f54e64ed5919f34011380c799c876ee81725c1ef9b427c92463e",
+    "src/shared/api/subsonic/subsonic-normalize.ts:162:32": "35ddb3acfd1fc74b017b1f47c3e934ce3d52666acdb3ab0ed514d94b731e47a3",
+    "src/shared/api/subsonic/subsonic-normalize.ts:173:23": "7e3e7bd6fcf78f8cb8f86531818d5e758d32622a24bc638801521ea49bde0a81",
+    "src/shared/api/subsonic/subsonic-normalize.ts:271:30": "a08c844f729b870d4591d6510c623e6afece559901dec9afc212f71c5d572b83",
+    "src/shared/api/subsonic/subsonic-normalize.ts:323:24": "2853aee5b42ad4cca382c1e047955350157fea77749dd1e3419f9f3a2b8527f2",
+    "src/shared/api/subsonic/subsonic-normalize.ts:334:24": "4958504a4af71ea53d1ea7dcdc2d6b69d58f68a63a2fddb3c0002eaa0182f1f1",
+    "src/shared/api/partial-iso-date.ts:3:27": "d5048f7b2801423653ba99b5ecd19d044465fb1eaf1120d0e9fdb0eaec1c3db1",
+    "src/shared/api/partial-iso-date.ts:12:36": "e6c42a1c5da53b8885675e3c7f62da886545c9ad5501bb3c9a8a0506c80ad5a7",
+    "src/renderer/api/subsonic/subsonic-controller.ts:483:27": "06fff69bdbdd1fabc377b2f36e18887dd820d71087f5e95e23515c657ed1dfbd",
+    "src/renderer/api/subsonic/subsonic-controller.ts:577:21": "a65da62e2789812aa3e0b93417d24ec4aff47fe28256cba05295c61fa4f4820c"
+  },
+  "cases": [
+    {
+      "kind": "album",
+      "name": "minimal-without-title",
+      "input": {
+        "id": "album-1",
+        "name": "Synthetic album",
+        "artist": "Legacy artist",
+        "artistId": "artist-1",
+        "created": "raw-created",
+        "duration": 12.3455,
+        "songCount": 2
+      },
+      "request": {
+        "endpoint": "getAlbum",
+        "id": "album-1"
+      },
+      "expected": {
+        "_itemType": "album",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "albumArtistName": "Legacy artist",
+        "albumArtists": [
+          {
+            "id": "artist-1",
+            "imageId": null,
+            "imageUrl": null,
+            "name": "Legacy artist",
+            "userFavorite": false,
+            "userRating": null
+          }
+        ],
+        "artists": [],
+        "blurHash": null,
+        "comment": null,
+        "createdAt": "raw-created",
+        "discs": null,
+        "dominantColor": null,
+        "duration": 12345.5,
+        "explicitStatus": null,
+        "gain": null,
+        "genres": [],
+        "id": "album-1",
+        "imageId": null,
+        "imageUrl": null,
+        "isCompilation": null,
+        "lastPlayedAt": null,
+        "mbzId": null,
+        "mbzReleaseGroupId": null,
+        "missing": null,
+        "name": "Synthetic album",
+        "originalDate": null,
+        "originalYear": null,
+        "participants": null,
+        "peak": null,
+        "playCount": null,
+        "ratedAt": null,
+        "recordLabels": [],
+        "releaseDate": null,
+        "releaseType": null,
+        "releaseTypes": [],
+        "releaseYear": null,
+        "size": null,
+        "songCount": 2,
+        "songs": [],
+        "starredAt": null,
+        "tags": null,
+        "thumbHash": null,
+        "trackYearRange": null,
+        "updatedAt": "raw-created",
+        "userFavorite": false,
+        "userRating": null,
+        "version": null
+      }
+    },
+    {
+      "kind": "album",
+      "name": "rich-nested-duplicates",
+      "input": {
+        "id": "album-1",
+        "name": "Synthetic album",
+        "title": "Sort album",
+        "artist": "Legacy artist",
+        "artistId": "artist-1",
+        "created": "raw-created",
+        "duration": 12.3455,
+        "songCount": 2,
+        "artists": [
+          {
+            "id": "artist-1",
+            "name": "One"
+          },
+          {
+            "id": 2,
+            "name": "Two"
+          }
+        ],
+        "genres": [
+          {
+            "name": "Rock"
+          }
+        ],
+        "contributors": [
+          {
+            "role": "remixer",
+            "artist": {
+              "id": "r",
+              "name": "Remix"
+            }
+          }
+        ],
+        "discTitles": [
+          {
+            "disc": 2,
+            "title": "old"
+          },
+          {
+            "disc": 2,
+            "title": "new"
+          },
+          {
+            "disc": 0,
+            "title": "zero"
+          }
+        ],
+        "recordLabels": [
+          {
+            "name": "Label"
+          },
+          {
+            "name": "Label"
+          }
+        ],
+        "releaseTypes": [
+          "live",
+          "single",
+          "album"
+        ],
+        "releaseDate": {
+          "year": 2020,
+          "month": 2,
+          "day": 31
+        },
+        "coverArt": 12,
+        "explicitStatus": "explicit",
+        "starred": "stamp",
+        "userRating": 3,
+        "version": "v",
+        "song": [
+          {
+            "id": "song-1",
+            "title": "Synthetic title",
+            "contentType": "audio/flac",
+            "created": "raw-created-not-ISO",
+            "size": 123,
+            "artist": "Legacy",
+            "artistId": 7,
+            "genre": "Rock",
+            "discNumber": 2
+          },
+          {
+            "id": "song-1",
+            "title": "Synthetic title",
+            "contentType": "audio/flac",
+            "created": "raw-created-not-ISO",
+            "size": 123,
+            "artist": "Legacy",
+            "artistId": 7,
+            "genre": "Rock",
+            "discNumber": 0
+          }
+        ]
+      },
+      "request": {
+        "endpoint": "getAlbum",
+        "id": "album-1"
+      },
+      "expected": {
+        "_itemType": "album",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "albumArtistName": "Legacy artist",
+        "albumArtists": [
+          {
+            "id": "artist-1",
+            "imageId": null,
+            "imageUrl": null,
+            "name": "One",
+            "userFavorite": false,
+            "userRating": null
+          },
+          {
+            "id": "2",
+            "imageId": null,
+            "imageUrl": null,
+            "name": "Two",
+            "userFavorite": false,
+            "userRating": null
+          }
+        ],
+        "artists": [],
+        "blurHash": null,
+        "comment": null,
+        "createdAt": "raw-created",
+        "discs": {
+          "0": "zero",
+          "2": "new"
+        },
+        "dominantColor": null,
+        "duration": 12345.5,
+        "explicitStatus": "EXPLICIT",
+        "gain": null,
+        "genres": [
+          {
+            "_itemType": "genre",
+            "_serverId": "server-a",
+            "_serverType": "subsonic",
+            "albumCount": null,
+            "id": "Rock",
+            "imageId": null,
+            "imageUrl": null,
+            "name": "Rock",
+            "songCount": null
+          }
+        ],
+        "id": "album-1",
+        "imageId": "12",
+        "imageUrl": null,
+        "isCompilation": null,
+        "lastPlayedAt": null,
+        "mbzId": null,
+        "mbzReleaseGroupId": null,
+        "missing": null,
+        "name": "Synthetic album",
+        "originalDate": "2020-02-31",
+        "originalYear": 2020,
+        "participants": {
+          "remixer": [
+            {
+              "id": "r",
+              "imageId": null,
+              "imageUrl": null,
+              "name": "Remix",
+              "userFavorite": false,
+              "userRating": null
+            }
+          ]
+        },
+        "peak": null,
+        "playCount": null,
+        "ratedAt": null,
+        "recordLabels": [
+          "Label",
+          "Label"
+        ],
+        "releaseDate": "2020-02-31",
+        "releaseType": "single",
+        "releaseTypes": [
+          "live",
+          "single",
+          "album"
+        ],
+        "releaseYear": 2020,
+        "size": null,
+        "songCount": 2,
+        "songs": [
+          {
+            "_itemType": "song",
+            "_serverId": "server-a",
+            "_serverType": "subsonic",
+            "album": "",
+            "albumArtistName": "Legacy",
+            "albumArtists": [
+              {
+                "id": "7",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Legacy",
+                "userFavorite": false,
+                "userRating": null
+              }
+            ],
+            "albumId": "",
+            "artistName": "Legacy",
+            "artists": [
+              {
+                "id": "7",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Legacy",
+                "userFavorite": false,
+                "userRating": null
+              }
+            ],
+            "bitDepth": null,
+            "bitRate": 0,
+            "blurHash": null,
+            "bpm": null,
+            "channels": null,
+            "codec": null,
+            "comment": null,
+            "compilation": null,
+            "container": "flac",
+            "createdAt": "raw-created-not-ISO",
+            "date": null,
+            "discNumber": 2,
+            "discSubtitle": "new",
+            "duration": 0,
+            "explicitStatus": null,
+            "folderId": null,
+            "gain": null,
+            "genres": [
+              {
+                "_itemType": "genre",
+                "_serverId": "server-a",
+                "_serverType": "subsonic",
+                "albumCount": null,
+                "id": "Rock",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Rock",
+                "songCount": null
+              }
+            ],
+            "id": "song-1",
+            "imageId": null,
+            "imageUrl": null,
+            "lastPlayedAt": null,
+            "libraryId": null,
+            "libraryName": null,
+            "lyrics": null,
+            "mbzAlbumId": null,
+            "mbzAlbumType": null,
+            "mbzRecordingId": null,
+            "mbzReleaseGroupId": null,
+            "mbzTrackId": null,
+            "missing": null,
+            "name": "Synthetic title",
+            "originalDate": null,
+            "originalYear": null,
+            "participants": null,
+            "path": "",
+            "peak": null,
+            "playCount": 0,
+            "releaseDate": null,
+            "releaseYear": null,
+            "sampleRate": null,
+            "size": 123,
+            "sortName": "Synthetic title",
+            "tags": null,
+            "thumbHash": null,
+            "trackNumber": 1,
+            "trackSubtitle": null,
+            "updatedAt": "",
+            "userFavorite": false,
+            "userRating": null,
+            "year": null
+          },
+          {
+            "_itemType": "song",
+            "_serverId": "server-a",
+            "_serverType": "subsonic",
+            "album": "",
+            "albumArtistName": "Legacy",
+            "albumArtists": [
+              {
+                "id": "7",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Legacy",
+                "userFavorite": false,
+                "userRating": null
+              }
+            ],
+            "albumId": "",
+            "artistName": "Legacy",
+            "artists": [
+              {
+                "id": "7",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Legacy",
+                "userFavorite": false,
+                "userRating": null
+              }
+            ],
+            "bitDepth": null,
+            "bitRate": 0,
+            "blurHash": null,
+            "bpm": null,
+            "channels": null,
+            "codec": null,
+            "comment": null,
+            "compilation": null,
+            "container": "flac",
+            "createdAt": "raw-created-not-ISO",
+            "date": null,
+            "discNumber": 1,
+            "discSubtitle": "zero",
+            "duration": 0,
+            "explicitStatus": null,
+            "folderId": null,
+            "gain": null,
+            "genres": [
+              {
+                "_itemType": "genre",
+                "_serverId": "server-a",
+                "_serverType": "subsonic",
+                "albumCount": null,
+                "id": "Rock",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Rock",
+                "songCount": null
+              }
+            ],
+            "id": "song-1",
+            "imageId": null,
+            "imageUrl": null,
+            "lastPlayedAt": null,
+            "libraryId": null,
+            "libraryName": null,
+            "lyrics": null,
+            "mbzAlbumId": null,
+            "mbzAlbumType": null,
+            "mbzRecordingId": null,
+            "mbzReleaseGroupId": null,
+            "mbzTrackId": null,
+            "missing": null,
+            "name": "Synthetic title",
+            "originalDate": null,
+            "originalYear": null,
+            "participants": null,
+            "path": "",
+            "peak": null,
+            "playCount": 0,
+            "releaseDate": null,
+            "releaseYear": null,
+            "sampleRate": null,
+            "size": 123,
+            "sortName": "Synthetic title",
+            "tags": null,
+            "thumbHash": null,
+            "trackNumber": 1,
+            "trackSubtitle": null,
+            "updatedAt": "",
+            "userFavorite": false,
+            "userRating": null,
+            "year": null
+          }
+        ],
+        "sortName": "Sort album",
+        "starredAt": null,
+        "tags": null,
+        "thumbHash": null,
+        "trackYearRange": null,
+        "updatedAt": "raw-created",
+        "userFavorite": true,
+        "userRating": 3,
+        "version": "v"
+      }
+    },
+    {
+      "kind": "album",
+      "name": "empty-arrays",
+      "input": {
+        "id": "album-1",
+        "name": "Synthetic album",
+        "title": "",
+        "artist": "Legacy artist",
+        "artistId": "artist-1",
+        "created": "raw-created",
+        "duration": 0,
+        "songCount": 2,
+        "artists": [],
+        "genres": [],
+        "contributors": [],
+        "song": [],
+        "discTitles": [],
+        "recordLabels": [],
+        "releaseTypes": [],
+        "year": 0,
+        "starred": false
+      },
+      "request": {
+        "endpoint": "getAlbum",
+        "id": "album-1"
+      },
+      "expected": {
+        "_itemType": "album",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "albumArtistName": "Legacy artist",
+        "albumArtists": [],
+        "artists": [],
+        "blurHash": null,
+        "comment": null,
+        "createdAt": "raw-created",
+        "discs": null,
+        "dominantColor": null,
+        "duration": 0,
+        "explicitStatus": null,
+        "gain": null,
+        "genres": [],
+        "id": "album-1",
+        "imageId": null,
+        "imageUrl": null,
+        "isCompilation": null,
+        "lastPlayedAt": null,
+        "mbzId": null,
+        "mbzReleaseGroupId": null,
+        "missing": null,
+        "name": "Synthetic album",
+        "originalDate": null,
+        "originalYear": null,
+        "participants": {},
+        "peak": null,
+        "playCount": null,
+        "ratedAt": null,
+        "recordLabels": [],
+        "releaseDate": null,
+        "releaseType": null,
+        "releaseTypes": [],
+        "releaseYear": null,
+        "size": null,
+        "songCount": 2,
+        "songs": [],
+        "sortName": "",
+        "starredAt": null,
+        "tags": null,
+        "thumbHash": null,
+        "trackYearRange": null,
+        "updatedAt": "raw-created",
+        "userFavorite": false,
+        "userRating": null,
+        "version": null
+      }
+    },
+    {
+      "kind": "album",
+      "name": "null-songs-and-title",
+      "input": {
+        "id": "album-1",
+        "name": "Synthetic album",
+        "title": null,
+        "artist": "Legacy artist",
+        "artistId": "artist-1",
+        "created": "raw-created",
+        "duration": 12.3455,
+        "songCount": 2,
+        "song": null,
+        "releaseDate": {
+          "year": 9,
+          "month": 1,
+          "day": 1
+        },
+        "releaseTypes": [
+          "LIVE",
+          "ep"
+        ]
+      },
+      "request": {
+        "endpoint": "getAlbum",
+        "id": "album-1"
+      },
+      "expected": {
+        "_itemType": "album",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "albumArtistName": "Legacy artist",
+        "albumArtists": [
+          {
+            "id": "artist-1",
+            "imageId": null,
+            "imageUrl": null,
+            "name": "Legacy artist",
+            "userFavorite": false,
+            "userRating": null
+          }
+        ],
+        "artists": [],
+        "blurHash": null,
+        "comment": null,
+        "createdAt": "raw-created",
+        "discs": null,
+        "dominantColor": null,
+        "duration": 12345.5,
+        "explicitStatus": null,
+        "gain": null,
+        "genres": [],
+        "id": "album-1",
+        "imageId": null,
+        "imageUrl": null,
+        "isCompilation": null,
+        "lastPlayedAt": null,
+        "mbzId": null,
+        "mbzReleaseGroupId": null,
+        "missing": null,
+        "name": "Synthetic album",
+        "originalDate": null,
+        "originalYear": 0,
+        "participants": null,
+        "peak": null,
+        "playCount": null,
+        "ratedAt": null,
+        "recordLabels": [],
+        "releaseDate": null,
+        "releaseType": "ep",
+        "releaseTypes": [
+          "LIVE",
+          "ep"
+        ],
+        "releaseYear": 0,
+        "size": null,
+        "songCount": 2,
+        "songs": [],
+        "sortName": null,
+        "starredAt": null,
+        "tags": null,
+        "thumbHash": null,
+        "trackYearRange": null,
+        "updatedAt": "raw-created",
+        "userFavorite": false,
+        "userRating": null,
+        "version": null
+      }
+    },
+    {
+      "kind": "artist",
+      "name": "count-None",
+      "input": {
+        "id": "artist-1",
+        "name": "Synthetic artist",
+        "albumCount": null,
+        "coverArt": 0,
+        "starred": "stamp"
+      },
+      "request": {
+        "endpoint": "getArtist",
+        "id": "artist-1"
+      },
+      "expected": {
+        "_itemType": "albumArtist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "albumCount": 0,
+        "biography": null,
+        "blurHash": null,
+        "dominantColor": null,
+        "duration": null,
+        "genres": [],
+        "id": "artist-1",
+        "imageId": "0",
+        "imageUrl": null,
+        "lastPlayedAt": null,
+        "mbz": null,
+        "missing": null,
+        "name": "Synthetic artist",
+        "playCount": null,
+        "ratedAt": null,
+        "similarArtists": null,
+        "songCount": null,
+        "starredAt": "stamp",
+        "thumbHash": null,
+        "userFavorite": true,
+        "userRating": null
+      }
+    },
+    {
+      "kind": "artist",
+      "name": "count-",
+      "input": {
+        "id": "artist-1",
+        "name": "Synthetic artist",
+        "albumCount": "",
+        "coverArt": 0,
+        "starred": "stamp"
+      },
+      "request": {
+        "endpoint": "getArtist",
+        "id": "artist-1"
+      },
+      "expected": {
+        "_itemType": "albumArtist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "albumCount": 0,
+        "biography": null,
+        "blurHash": null,
+        "dominantColor": null,
+        "duration": null,
+        "genres": [],
+        "id": "artist-1",
+        "imageId": "0",
+        "imageUrl": null,
+        "lastPlayedAt": null,
+        "mbz": null,
+        "missing": null,
+        "name": "Synthetic artist",
+        "playCount": null,
+        "ratedAt": null,
+        "similarArtists": null,
+        "songCount": null,
+        "starredAt": "stamp",
+        "thumbHash": null,
+        "userFavorite": true,
+        "userRating": null
+      }
+    },
+    {
+      "kind": "artist",
+      "name": "count- 2 ",
+      "input": {
+        "id": "artist-1",
+        "name": "Synthetic artist",
+        "albumCount": " 2 ",
+        "coverArt": 0,
+        "starred": "stamp"
+      },
+      "request": {
+        "endpoint": "getArtist",
+        "id": "artist-1"
+      },
+      "expected": {
+        "_itemType": "albumArtist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "albumCount": 2,
+        "biography": null,
+        "blurHash": null,
+        "dominantColor": null,
+        "duration": null,
+        "genres": [],
+        "id": "artist-1",
+        "imageId": "0",
+        "imageUrl": null,
+        "lastPlayedAt": null,
+        "mbz": null,
+        "missing": null,
+        "name": "Synthetic artist",
+        "playCount": null,
+        "ratedAt": null,
+        "similarArtists": null,
+        "songCount": null,
+        "starredAt": "stamp",
+        "thumbHash": null,
+        "userFavorite": true,
+        "userRating": null
+      }
+    },
+    {
+      "kind": "artist",
+      "name": "count-1e1",
+      "input": {
+        "id": "artist-1",
+        "name": "Synthetic artist",
+        "albumCount": "1e1",
+        "coverArt": 0,
+        "starred": "stamp"
+      },
+      "request": {
+        "endpoint": "getArtist",
+        "id": "artist-1"
+      },
+      "expected": {
+        "_itemType": "albumArtist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "albumCount": 10,
+        "biography": null,
+        "blurHash": null,
+        "dominantColor": null,
+        "duration": null,
+        "genres": [],
+        "id": "artist-1",
+        "imageId": "0",
+        "imageUrl": null,
+        "lastPlayedAt": null,
+        "mbz": null,
+        "missing": null,
+        "name": "Synthetic artist",
+        "playCount": null,
+        "ratedAt": null,
+        "similarArtists": null,
+        "songCount": null,
+        "starredAt": "stamp",
+        "thumbHash": null,
+        "userFavorite": true,
+        "userRating": null
+      }
+    },
+    {
+      "kind": "artist",
+      "name": "empty-albums",
+      "input": {
+        "id": "artist-1",
+        "name": "Synthetic artist",
+        "album": [],
+        "similarArtists": []
+      },
+      "request": {
+        "endpoint": "getArtist",
+        "id": "artist-1"
+      },
+      "expected": {
+        "_itemType": "albumArtist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "albumCount": 0,
+        "biography": null,
+        "blurHash": null,
+        "dominantColor": null,
+        "duration": null,
+        "genres": [],
+        "id": "artist-1",
+        "imageId": null,
+        "imageUrl": null,
+        "lastPlayedAt": null,
+        "mbz": null,
+        "missing": null,
+        "name": "Synthetic artist",
+        "playCount": null,
+        "ratedAt": null,
+        "similarArtists": null,
+        "songCount": null,
+        "starredAt": null,
+        "thumbHash": null,
+        "userFavorite": false,
+        "userRating": null,
+        "albums": []
+      }
+    },
+    {
+      "kind": "artist",
+      "name": "nested-albums",
+      "input": {
+        "id": "artist-1",
+        "name": "Synthetic artist",
+        "albumCount": "2",
+        "album": [
+          {
+            "id": "album-1",
+            "name": "Synthetic album",
+            "title": "Sort album",
+            "artist": "Legacy artist",
+            "artistId": "artist-1",
+            "created": "raw-created",
+            "duration": 12.3455,
+            "songCount": 2,
+            "artists": [
+              {
+                "id": "artist-1",
+                "name": "One"
+              },
+              {
+                "id": 2,
+                "name": "Two"
+              }
+            ],
+            "genres": [
+              {
+                "name": "Rock"
+              }
+            ],
+            "contributors": [
+              {
+                "role": "remixer",
+                "artist": {
+                  "id": "r",
+                  "name": "Remix"
+                }
+              }
+            ],
+            "discTitles": [
+              {
+                "disc": 2,
+                "title": "old"
+              },
+              {
+                "disc": 2,
+                "title": "new"
+              },
+              {
+                "disc": 0,
+                "title": "zero"
+              }
+            ],
+            "recordLabels": [
+              {
+                "name": "Label"
+              },
+              {
+                "name": "Label"
+              }
+            ],
+            "releaseTypes": [
+              "live",
+              "single",
+              "album"
+            ],
+            "releaseDate": {
+              "year": 2020,
+              "month": 2,
+              "day": 31
+            },
+            "coverArt": 12,
+            "explicitStatus": "explicit",
+            "starred": "stamp",
+            "userRating": 3,
+            "version": "v",
+            "song": [
+              {
+                "id": "song-1",
+                "title": "Synthetic title",
+                "contentType": "audio/flac",
+                "created": "raw-created-not-ISO",
+                "size": 123,
+                "artist": "Legacy",
+                "artistId": 7,
+                "genre": "Rock",
+                "discNumber": 2
+              },
+              {
+                "id": "song-1",
+                "title": "Synthetic title",
+                "contentType": "audio/flac",
+                "created": "raw-created-not-ISO",
+                "size": 123,
+                "artist": "Legacy",
+                "artistId": 7,
+                "genre": "Rock",
+                "discNumber": 0
+              }
+            ]
+          },
+          {
+            "id": "album-1",
+            "name": "Synthetic album",
+            "title": "Sort album",
+            "artist": "Legacy artist",
+            "artistId": "artist-1",
+            "created": "raw-created",
+            "duration": 12.3455,
+            "songCount": 2
+          }
+        ],
+        "similarArtists": [
+          {
+            "id": "unused",
+            "name": "Unused"
+          }
+        ]
+      },
+      "request": {
+        "endpoint": "getArtist",
+        "id": "artist-1"
+      },
+      "expected": {
+        "_itemType": "albumArtist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "albumCount": 2,
+        "biography": null,
+        "blurHash": null,
+        "dominantColor": null,
+        "duration": null,
+        "genres": [],
+        "id": "artist-1",
+        "imageId": null,
+        "imageUrl": null,
+        "lastPlayedAt": null,
+        "mbz": null,
+        "missing": null,
+        "name": "Synthetic artist",
+        "playCount": null,
+        "ratedAt": null,
+        "similarArtists": null,
+        "songCount": null,
+        "starredAt": null,
+        "thumbHash": null,
+        "userFavorite": false,
+        "userRating": null,
+        "albums": [
+          {
+            "_itemType": "album",
+            "_serverId": "server-a",
+            "_serverType": "subsonic",
+            "albumArtistName": "Legacy artist",
+            "albumArtists": [
+              {
+                "id": "artist-1",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "One",
+                "userFavorite": false,
+                "userRating": null
+              },
+              {
+                "id": "2",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Two",
+                "userFavorite": false,
+                "userRating": null
+              }
+            ],
+            "artists": [],
+            "blurHash": null,
+            "comment": null,
+            "createdAt": "raw-created",
+            "discs": {
+              "0": "zero",
+              "2": "new"
+            },
+            "dominantColor": null,
+            "duration": 12345.5,
+            "explicitStatus": "EXPLICIT",
+            "gain": null,
+            "genres": [
+              {
+                "_itemType": "genre",
+                "_serverId": "server-a",
+                "_serverType": "subsonic",
+                "albumCount": null,
+                "id": "Rock",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Rock",
+                "songCount": null
+              }
+            ],
+            "id": "album-1",
+            "imageId": "12",
+            "imageUrl": null,
+            "isCompilation": null,
+            "lastPlayedAt": null,
+            "mbzId": null,
+            "mbzReleaseGroupId": null,
+            "missing": null,
+            "name": "Synthetic album",
+            "originalDate": "2020-02-31",
+            "originalYear": 2020,
+            "participants": {
+              "remixer": [
+                {
+                  "id": "r",
+                  "imageId": null,
+                  "imageUrl": null,
+                  "name": "Remix",
+                  "userFavorite": false,
+                  "userRating": null
+                }
+              ]
+            },
+            "peak": null,
+            "playCount": null,
+            "ratedAt": null,
+            "recordLabels": [
+              "Label",
+              "Label"
+            ],
+            "releaseDate": "2020-02-31",
+            "releaseType": "single",
+            "releaseTypes": [
+              "live",
+              "single",
+              "album"
+            ],
+            "releaseYear": 2020,
+            "size": null,
+            "songCount": 2,
+            "songs": [
+              {
+                "_itemType": "song",
+                "_serverId": "server-a",
+                "_serverType": "subsonic",
+                "album": "",
+                "albumArtistName": "Legacy",
+                "albumArtists": [
+                  {
+                    "id": "7",
+                    "imageId": null,
+                    "imageUrl": null,
+                    "name": "Legacy",
+                    "userFavorite": false,
+                    "userRating": null
+                  }
+                ],
+                "albumId": "",
+                "artistName": "Legacy",
+                "artists": [
+                  {
+                    "id": "7",
+                    "imageId": null,
+                    "imageUrl": null,
+                    "name": "Legacy",
+                    "userFavorite": false,
+                    "userRating": null
+                  }
+                ],
+                "bitDepth": null,
+                "bitRate": 0,
+                "blurHash": null,
+                "bpm": null,
+                "channels": null,
+                "codec": null,
+                "comment": null,
+                "compilation": null,
+                "container": "flac",
+                "createdAt": "raw-created-not-ISO",
+                "date": null,
+                "discNumber": 2,
+                "discSubtitle": "new",
+                "duration": 0,
+                "explicitStatus": null,
+                "folderId": null,
+                "gain": null,
+                "genres": [
+                  {
+                    "_itemType": "genre",
+                    "_serverId": "server-a",
+                    "_serverType": "subsonic",
+                    "albumCount": null,
+                    "id": "Rock",
+                    "imageId": null,
+                    "imageUrl": null,
+                    "name": "Rock",
+                    "songCount": null
+                  }
+                ],
+                "id": "song-1",
+                "imageId": null,
+                "imageUrl": null,
+                "lastPlayedAt": null,
+                "libraryId": null,
+                "libraryName": null,
+                "lyrics": null,
+                "mbzAlbumId": null,
+                "mbzAlbumType": null,
+                "mbzRecordingId": null,
+                "mbzReleaseGroupId": null,
+                "mbzTrackId": null,
+                "missing": null,
+                "name": "Synthetic title",
+                "originalDate": null,
+                "originalYear": null,
+                "participants": null,
+                "path": "",
+                "peak": null,
+                "playCount": 0,
+                "releaseDate": null,
+                "releaseYear": null,
+                "sampleRate": null,
+                "size": 123,
+                "sortName": "Synthetic title",
+                "tags": null,
+                "thumbHash": null,
+                "trackNumber": 1,
+                "trackSubtitle": null,
+                "updatedAt": "",
+                "userFavorite": false,
+                "userRating": null,
+                "year": null
+              },
+              {
+                "_itemType": "song",
+                "_serverId": "server-a",
+                "_serverType": "subsonic",
+                "album": "",
+                "albumArtistName": "Legacy",
+                "albumArtists": [
+                  {
+                    "id": "7",
+                    "imageId": null,
+                    "imageUrl": null,
+                    "name": "Legacy",
+                    "userFavorite": false,
+                    "userRating": null
+                  }
+                ],
+                "albumId": "",
+                "artistName": "Legacy",
+                "artists": [
+                  {
+                    "id": "7",
+                    "imageId": null,
+                    "imageUrl": null,
+                    "name": "Legacy",
+                    "userFavorite": false,
+                    "userRating": null
+                  }
+                ],
+                "bitDepth": null,
+                "bitRate": 0,
+                "blurHash": null,
+                "bpm": null,
+                "channels": null,
+                "codec": null,
+                "comment": null,
+                "compilation": null,
+                "container": "flac",
+                "createdAt": "raw-created-not-ISO",
+                "date": null,
+                "discNumber": 1,
+                "discSubtitle": "zero",
+                "duration": 0,
+                "explicitStatus": null,
+                "folderId": null,
+                "gain": null,
+                "genres": [
+                  {
+                    "_itemType": "genre",
+                    "_serverId": "server-a",
+                    "_serverType": "subsonic",
+                    "albumCount": null,
+                    "id": "Rock",
+                    "imageId": null,
+                    "imageUrl": null,
+                    "name": "Rock",
+                    "songCount": null
+                  }
+                ],
+                "id": "song-1",
+                "imageId": null,
+                "imageUrl": null,
+                "lastPlayedAt": null,
+                "libraryId": null,
+                "libraryName": null,
+                "lyrics": null,
+                "mbzAlbumId": null,
+                "mbzAlbumType": null,
+                "mbzRecordingId": null,
+                "mbzReleaseGroupId": null,
+                "mbzTrackId": null,
+                "missing": null,
+                "name": "Synthetic title",
+                "originalDate": null,
+                "originalYear": null,
+                "participants": null,
+                "path": "",
+                "peak": null,
+                "playCount": 0,
+                "releaseDate": null,
+                "releaseYear": null,
+                "sampleRate": null,
+                "size": 123,
+                "sortName": "Synthetic title",
+                "tags": null,
+                "thumbHash": null,
+                "trackNumber": 1,
+                "trackSubtitle": null,
+                "updatedAt": "",
+                "userFavorite": false,
+                "userRating": null,
+                "year": null
+              }
+            ],
+            "sortName": "Sort album",
+            "starredAt": null,
+            "tags": null,
+            "thumbHash": null,
+            "trackYearRange": null,
+            "updatedAt": "raw-created",
+            "userFavorite": true,
+            "userRating": 3,
+            "version": "v"
+          },
+          {
+            "_itemType": "album",
+            "_serverId": "server-a",
+            "_serverType": "subsonic",
+            "albumArtistName": "Legacy artist",
+            "albumArtists": [
+              {
+                "id": "artist-1",
+                "imageId": null,
+                "imageUrl": null,
+                "name": "Legacy artist",
+                "userFavorite": false,
+                "userRating": null
+              }
+            ],
+            "artists": [],
+            "blurHash": null,
+            "comment": null,
+            "createdAt": "raw-created",
+            "discs": null,
+            "dominantColor": null,
+            "duration": 12345.5,
+            "explicitStatus": null,
+            "gain": null,
+            "genres": [],
+            "id": "album-1",
+            "imageId": null,
+            "imageUrl": null,
+            "isCompilation": null,
+            "lastPlayedAt": null,
+            "mbzId": null,
+            "mbzReleaseGroupId": null,
+            "missing": null,
+            "name": "Synthetic album",
+            "originalDate": null,
+            "originalYear": null,
+            "participants": null,
+            "peak": null,
+            "playCount": null,
+            "ratedAt": null,
+            "recordLabels": [],
+            "releaseDate": null,
+            "releaseType": null,
+            "releaseTypes": [],
+            "releaseYear": null,
+            "size": null,
+            "songCount": 2,
+            "songs": [],
+            "sortName": "Sort album",
+            "starredAt": null,
+            "tags": null,
+            "thumbHash": null,
+            "trackYearRange": null,
+            "updatedAt": "raw-created",
+            "userFavorite": false,
+            "userRating": null,
+            "version": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "artist",
+      "name": "null-albums",
+      "input": {
+        "id": "artist-1",
+        "name": "Synthetic artist",
+        "album": null
+      },
+      "request": {
+        "endpoint": "getArtist",
+        "id": "artist-1"
+      },
+      "expected": {
+        "_itemType": "albumArtist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "albumCount": 0,
+        "biography": null,
+        "blurHash": null,
+        "dominantColor": null,
+        "duration": null,
+        "genres": [],
+        "id": "artist-1",
+        "imageId": null,
+        "imageUrl": null,
+        "lastPlayedAt": null,
+        "mbz": null,
+        "missing": null,
+        "name": "Synthetic artist",
+        "playCount": null,
+        "ratedAt": null,
+        "similarArtists": null,
+        "songCount": null,
+        "starredAt": null,
+        "thumbHash": null,
+        "userFavorite": false,
+        "userRating": null
+      }
+    },
+    {
+      "kind": "artist",
+      "name": "invalid-count-source-nan",
+      "input": {
+        "id": "artist-1",
+        "name": "Synthetic artist",
+        "albumCount": "bad"
+      },
+      "target_error": true,
+      "request": {
+        "endpoint": "getArtist",
+        "id": "artist-1"
+      },
+      "expected": {
+        "_itemType": "albumArtist",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "albumCount": null,
+        "biography": null,
+        "blurHash": null,
+        "dominantColor": null,
+        "duration": null,
+        "genres": [],
+        "id": "artist-1",
+        "imageId": null,
+        "imageUrl": null,
+        "lastPlayedAt": null,
+        "mbz": null,
+        "missing": null,
+        "name": "Synthetic artist",
+        "playCount": null,
+        "ratedAt": null,
+        "similarArtists": null,
+        "songCount": null,
+        "starredAt": null,
+        "thumbHash": null,
+        "userFavorite": false,
+        "userRating": null
+      }
+    },
+    {
+      "kind": "album",
+      "name": "invalid-disc-fraction",
+      "input": {
+        "id": "album-1",
+        "name": "Synthetic album",
+        "title": "Sort album",
+        "artist": "Legacy artist",
+        "artistId": "artist-1",
+        "created": "raw-created",
+        "duration": 12.3455,
+        "songCount": 2,
+        "discTitles": [
+          {
+            "disc": 1.5,
+            "title": "Fraction"
+          }
+        ]
+      },
+      "target_error": true,
+      "request": {
+        "endpoint": "getAlbum",
+        "id": "album-1"
+      },
+      "expected": {
+        "_itemType": "album",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "albumArtistName": "Legacy artist",
+        "albumArtists": [
+          {
+            "id": "artist-1",
+            "imageId": null,
+            "imageUrl": null,
+            "name": "Legacy artist",
+            "userFavorite": false,
+            "userRating": null
+          }
+        ],
+        "artists": [],
+        "blurHash": null,
+        "comment": null,
+        "createdAt": "raw-created",
+        "discs": {
+          "1.5": "Fraction"
+        },
+        "dominantColor": null,
+        "duration": 12345.5,
+        "explicitStatus": null,
+        "gain": null,
+        "genres": [],
+        "id": "album-1",
+        "imageId": null,
+        "imageUrl": null,
+        "isCompilation": null,
+        "lastPlayedAt": null,
+        "mbzId": null,
+        "mbzReleaseGroupId": null,
+        "missing": null,
+        "name": "Synthetic album",
+        "originalDate": null,
+        "originalYear": null,
+        "participants": null,
+        "peak": null,
+        "playCount": null,
+        "ratedAt": null,
+        "recordLabels": [],
+        "releaseDate": null,
+        "releaseType": null,
+        "releaseTypes": [],
+        "releaseYear": null,
+        "size": null,
+        "songCount": 2,
+        "songs": [],
+        "sortName": "Sort album",
+        "starredAt": null,
+        "tags": null,
+        "thumbHash": null,
+        "trackYearRange": null,
+        "updatedAt": "raw-created",
+        "userFavorite": false,
+        "userRating": null,
+        "version": null
+      }
+    },
+    {
+      "kind": "album",
+      "name": "inherited-contributor",
+      "input": {
+        "id": "album-1",
+        "name": "Synthetic album",
+        "title": "Sort album",
+        "artist": "Legacy artist",
+        "artistId": "artist-1",
+        "created": "raw-created",
+        "duration": 12.3455,
+        "songCount": 2,
+        "contributors": [
+          {
+            "role": "constructor",
+            "artist": {
+              "id": "x",
+              "name": "X"
+            }
+          }
+        ]
+      },
+      "request": {
+        "endpoint": "getAlbum",
+        "id": "album-1"
+      },
+      "expected_error": "TypeError"
+    },
+    {
+      "kind": "artist",
+      "name": "null-similar-entry",
+      "input": {
+        "id": "artist-1",
+        "name": "Synthetic artist",
+        "similarArtists": [
+          null
+        ]
+      },
+      "request": {
+        "endpoint": "getArtist",
+        "id": "artist-1"
+      },
+      "expected_error": "TypeError"
+    },
+    {
+      "kind": "album",
+      "name": "null-duration",
+      "input": {
+        "id": "album-1",
+        "name": "Synthetic album",
+        "artist": "Legacy artist",
+        "artistId": "artist-1",
+        "created": "raw-created",
+        "duration": null,
+        "songCount": 2
+      },
+      "target_error": true,
+      "expected": {
+        "_itemType": "album",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "albumArtistName": "Legacy artist",
+        "albumArtists": [
+          {
+            "id": "artist-1",
+            "imageId": null,
+            "imageUrl": null,
+            "name": "Legacy artist",
+            "userFavorite": false,
+            "userRating": null
+          }
+        ],
+        "artists": [],
+        "blurHash": null,
+        "comment": null,
+        "createdAt": "raw-created",
+        "discs": null,
+        "dominantColor": null,
+        "duration": 0,
+        "explicitStatus": null,
+        "gain": null,
+        "genres": [],
+        "id": "album-1",
+        "imageId": null,
+        "imageUrl": null,
+        "isCompilation": null,
+        "lastPlayedAt": null,
+        "mbzId": null,
+        "mbzReleaseGroupId": null,
+        "missing": null,
+        "name": "Synthetic album",
+        "originalDate": null,
+        "originalYear": null,
+        "participants": null,
+        "peak": null,
+        "playCount": null,
+        "ratedAt": null,
+        "recordLabels": [],
+        "releaseDate": null,
+        "releaseType": null,
+        "releaseTypes": [],
+        "releaseYear": null,
+        "size": null,
+        "songCount": 2,
+        "songs": [],
+        "starredAt": null,
+        "tags": null,
+        "thumbHash": null,
+        "trackYearRange": null,
+        "updatedAt": "raw-created",
+        "userFavorite": false,
+        "userRating": null,
+        "version": null
+      },
+      "request": {
+        "endpoint": "getAlbum",
+        "id": "album-1"
+      }
+    },
+    {
+      "kind": "album",
+      "name": "missing-duration",
+      "input": {
+        "id": "album-1",
+        "name": "Synthetic album",
+        "artist": "Legacy artist",
+        "artistId": "artist-1",
+        "created": "raw-created",
+        "songCount": 2
+      },
+      "target_error": true,
+      "expected": {
+        "_itemType": "album",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "albumArtistName": "Legacy artist",
+        "albumArtists": [
+          {
+            "id": "artist-1",
+            "imageId": null,
+            "imageUrl": null,
+            "name": "Legacy artist",
+            "userFavorite": false,
+            "userRating": null
+          }
+        ],
+        "artists": [],
+        "blurHash": null,
+        "comment": null,
+        "createdAt": "raw-created",
+        "discs": null,
+        "dominantColor": null,
+        "duration": null,
+        "explicitStatus": null,
+        "gain": null,
+        "genres": [],
+        "id": "album-1",
+        "imageId": null,
+        "imageUrl": null,
+        "isCompilation": null,
+        "lastPlayedAt": null,
+        "mbzId": null,
+        "mbzReleaseGroupId": null,
+        "missing": null,
+        "name": "Synthetic album",
+        "originalDate": null,
+        "originalYear": null,
+        "participants": null,
+        "peak": null,
+        "playCount": null,
+        "ratedAt": null,
+        "recordLabels": [],
+        "releaseDate": null,
+        "releaseType": null,
+        "releaseTypes": [],
+        "releaseYear": null,
+        "size": null,
+        "songCount": 2,
+        "songs": [],
+        "starredAt": null,
+        "tags": null,
+        "thumbHash": null,
+        "trackYearRange": null,
+        "updatedAt": "raw-created",
+        "userFavorite": false,
+        "userRating": null,
+        "version": null
+      },
+      "request": {
+        "endpoint": "getAlbum",
+        "id": "album-1"
+      }
+    },
+    {
+      "kind": "album",
+      "name": "missing-artist",
+      "input": {
+        "id": "album-1",
+        "name": "Synthetic album",
+        "artistId": "artist-1",
+        "created": "raw-created",
+        "duration": 12.3455,
+        "songCount": 2
+      },
+      "target_error": true,
+      "expected": {
+        "_itemType": "album",
+        "_serverId": "server-a",
+        "_serverType": "subsonic",
+        "albumArtists": [
+          {
+            "id": "artist-1",
+            "imageId": null,
+            "imageUrl": null,
+            "name": "",
+            "userFavorite": false,
+            "userRating": null
+          }
+        ],
+        "artists": [],
+        "blurHash": null,
+        "comment": null,
+        "createdAt": "raw-created",
+        "discs": null,
+        "dominantColor": null,
+        "duration": 12345.5,
+        "explicitStatus": null,
+        "gain": null,
+        "genres": [],
+        "id": "album-1",
+        "imageId": null,
+        "imageUrl": null,
+        "isCompilation": null,
+        "lastPlayedAt": null,
+        "mbzId": null,
+        "mbzReleaseGroupId": null,
+        "missing": null,
+        "name": "Synthetic album",
+        "originalDate": null,
+        "originalYear": null,
+        "participants": null,
+        "peak": null,
+        "playCount": null,
+        "ratedAt": null,
+        "recordLabels": [],
+        "releaseDate": null,
+        "releaseType": null,
+        "releaseTypes": [],
+        "releaseYear": null,
+        "size": null,
+        "songCount": 2,
+        "songs": [],
+        "starredAt": null,
+        "tags": null,
+        "thumbHash": null,
+        "trackYearRange": null,
+        "updatedAt": "raw-created",
+        "userFavorite": false,
+        "userRating": null,
+        "version": null
+      },
+      "request": {
+        "endpoint": "getAlbum",
+        "id": "album-1"
+      }
+    }
+  ]
+}

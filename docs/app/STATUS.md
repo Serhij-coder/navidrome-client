@@ -1,21 +1,20 @@
 # Project scratchpad
 
-- Stage: bounded P02 foundations/storage/cache plus P03.01-.03 request/protocol/song-read foundations; P00/P01/P02/P03 exits open. Not a working music client.
-- Sequencing: [P02 exception](p01/exit-decision.md) keeps P01 open; address only concrete implementation blockers. Continued bounded P03 work authorized; no exit waiver.
-- Scope: Linux/WASM/browser checks; Windows/macOS excluded. Both Linux AppImage CPUs retained.
-- Delivered main8d0c49f: [all five hosted jobs passed](https://github.com/Serhij-coder/navidrome-client/actions/runs/40883323297), including strict prepared-handoff fixture and both AppImages.
-- Current combined checks:248 tests pass incl4 compile-fail/13 optional ignored; fmt/workspace Clippy/WASM Clippy pass; independent review clear.
-- Cache: seven modeled list-key families/detail identity, server/library/filter/page isolation, bounded canonical keys and producer-accounted LRU values;10s fresh/20s idle expiry.
-- Async: exact correlated tickets, supersession/cancel/invalidation/retirement rejection and Drop flags; no actual HTTP abortion claim.
-- Storage: isolated versioned profiles/import journal/active-state repository and bounded worker; opt-in desktop two-field preferences; shared capped durable JSON writer.
-- Credentials: explicit session-only/remember/restore/forget and optional Linux Secret Service; bounded executor. Consent/revocation/provider-prompt integration remains open.
-- P03: envelope/errors, conditional extension discovery, server-bound form planning and cooperative non-Send transport guards. No production HTTP/timer/login UI.
-- Active primary: P02.07 bounded normalized SongSummary-page and retained-queue codecs implemented; exact serialized cache Weight; focused checks pass. Combined checks and final independent review pass; no actionable findings.
-- Active parallel: managed Sol high orchestrator/Sol medium implementer completed P03.03 getSong with18 source cases and guarded transport tests; assembled and independently reviewed; no actionable findings.
-- Ownership: primary storage/payload docs; secondary Subsonic/read docs. Domain unchanged; root integrates/reviews/commits/pushes both streams.
-- Evidence: source remote queue/list schemas differ from normalized/retained DTOs; no captured full queue WebSocket byte-size evidence. New payload ceilings are target policy.
-- [Payload decision](adr/015-bounded-payloads.md), [contract](p02/payloads.md), [source map](migration/p02-payloads.csv); [P03 protocol](p03/protocol.md).
-- Gaps: full imports/adoption; credential consent/revocation/prompt composition; full runtime queue/query serialization and consumers; remaining P03 operations/live conformance.
-- Next: hosted CI, then advance the next bounded P03 read slice; P02 exit gaps stay explicit.
-- P01 [remaining gates](p01/README.md) remain open; no unrelated prototype expansion or production reducer/engine claims.
-- Workflow: Sol high orchestrators, default Terra medium implementer, bounded Sol medium escalation; [setup](development-workflow.md).
+- Stage: bounded P02 foundations/storage/cache plus P03.01-.03 request/protocol/detail reads. P00/P01/P02/P03 exits remain open; not a working client.
+- Sequencing: [P02 exception](p01/exit-decision.md) keeps P01 open; only address concrete blockers. Continued bounded P03 authorized; no exit waiver.
+- Scope: Linux/WASM/browser checks only; Windows/macOS excluded. Both Linux AppImage CPUs retained.
+- Latest delivery341df20: [all5 CI jobs passed](https://github.com/Serhij-coder/navidrome-client/actions/runs/40890040081), including both AppImages.
+- Current task: primary implements P03.03 album and album-artist detail personally; no second orchestrator per maintainer correction. Required final reviewer remains independent.
+- Reads: getAlbum/getArtist reuse guarded local transport and song helpers; optional albums preserved through new portable AlbumArtistDetail wrapper.
+- Nested rules: repeated songs retained; duplicate disc keys last-wins; raw nullable disc lookup differs from normalized zero-to-one discNumber.
+- Limits: aggregate entities/supplied metadata work budget, plus per-collection checks; no heap or streaming reception guarantee.
+- Source differences: missing/null title falls back to name for sortName; checked numeric/count/disc policies and root stale-ID guard explicit in ADR016.
+- Checks: workspace252 pass incl4 compile-fail/13 optional ignored; adapter32 pass; native/workspace and selected WASM Clippy pass; source18-case replay pass.
+- [Album contract](p03/album-reads.md), [ADR016](adr/016-subsonic-album-reads.md), [migration](migration/p03-album-reads.csv), [verification](p03/album-reads-verification.md).
+- Prior: getSong18-case source replay, guarded correlation/cancel/deadline; bounded payload codecs/encoded cache Weight, retained queue identity and durable capped writer.
+- Storage/credentials: isolated profiles/import journal/active state and bounded workers; optional native preferences and Linux Secret Service. Consent/revocation/prompt/shell integration remains open.
+- Gaps: remaining P03 reads/pagination/counting, production HTTP/timers, live conformance and adoption; P02 complete imports/consumers/runtime metadata gaps remain explicit.
+- Review: one independent Sol medium reviewer found no actionable findings; four album tests,18 source cases and two tooling guards independently pass.
+- Next: await hosted CI, then continue bounded P03 playlist/detail reads; remaining phase gates stay open.
+- P01 [remaining gates](p01/README.md) stay open; no unrelated prototype expansion or production reducer/engine claims.
+- Workflow: sole Sol high orchestrator, direct implementation requested; final Sol medium review. [Setup](development-workflow.md).

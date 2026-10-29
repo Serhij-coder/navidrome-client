@@ -75,3 +75,5 @@ The private storage `bounded_json` tests are included from `tests/storage/bounde
 Storage `payloads` explicitly wires `tests/storage/payloads.rs` for schema/bounds/corruption, server and occurrence identity, u64 precision, redaction and a real QueryCache encode/publish/decode flow. These synthetic local payloads are not P11 remote messages.
 
 Subsonic `song_reads` explicitly wires `tests/subsonic/song_reads.rs`, comparing all modeled detail fields with tracked original-expression fixtures and testing guarded local transport results. The new `test_p03_song_reads.py` default tooling checks validate provenance and reject altered source before loading the reference compiler. Source replay remains optional local evidence.
+
+Subsonic `album_reads` explicitly wires the top-level album/artist fixtures and nested-budget/context regressions. `tests/subsonic/support/projection.rs` is shared by song/album test harnesses; it adds no production serialization. Default album tooling guards bind four source hashes and reject tampering before compiler execution. See [album verification](../docs/app/p03/album-reads-verification.md).

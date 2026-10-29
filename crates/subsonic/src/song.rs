@@ -58,19 +58,19 @@ pub async fn get_song(
     context.check(clock.now()).map_err(ExchangeError::Context)?;
     result
 }
-fn text<'a>(obj: &'a Map<String, Value>, key: &str) -> Result<Option<&'a str>> {
+pub(super) fn text<'a>(obj: &'a Map<String, Value>, key: &str) -> Result<Option<&'a str>> {
     match obj.get(key) {
         None | Some(Value::Null) => Ok(None),
         Some(Value::String(s)) => Ok(Some(s)),
         _ => Err(ExchangeError::Malformed),
     }
 }
-fn required_text(obj: &Map<String, Value>, key: &str) -> Result<String> {
+pub(super) fn required_text(obj: &Map<String, Value>, key: &str) -> Result<String> {
     text(obj, key)?
         .map(str::to_owned)
         .ok_or(ExchangeError::Malformed)
 }
-fn number(obj: &Map<String, Value>, key: &str) -> Result<Option<f64>> {
+pub(super) fn number(obj: &Map<String, Value>, key: &str) -> Result<Option<f64>> {
     match obj.get(key) {
         None | Some(Value::Null) => Ok(None),
         Some(Value::Number(n)) => n
@@ -81,7 +81,7 @@ fn number(obj: &Map<String, Value>, key: &str) -> Result<Option<f64>> {
         _ => Err(ExchangeError::Malformed),
     }
 }
-fn integer(obj: &Map<String, Value>, key: &str) -> Result<Option<u64>> {
+pub(super) fn integer(obj: &Map<String, Value>, key: &str) -> Result<Option<u64>> {
     match obj.get(key) {
         None | Some(Value::Null) => Ok(None),
         Some(Value::Number(n)) => n
@@ -99,13 +99,13 @@ fn integer(obj: &Map<String, Value>, key: &str) -> Result<Option<u64>> {
         _ => Err(ExchangeError::Malformed),
     }
 }
-fn nonzero(n: Option<f64>) -> Option<f64> {
+pub(super) fn nonzero(n: Option<f64>) -> Option<f64> {
     n.filter(|n| *n != 0.0)
 }
 fn nonzero_int(n: Option<u64>) -> Option<u64> {
     n.filter(|n| *n != 0)
 }
-fn id(obj: &Map<String, Value>, key: &str) -> Result<Option<String>> {
+pub(super) fn id(obj: &Map<String, Value>, key: &str) -> Result<Option<String>> {
     match obj.get(key) {
         None | Some(Value::Null) => Ok(None),
         Some(Value::String(s)) => Ok(Some(s.clone())),
@@ -124,7 +124,7 @@ fn id(obj: &Map<String, Value>, key: &str) -> Result<Option<String>> {
         _ => Err(ExchangeError::Malformed),
     }
 }
-fn array<'a>(
+pub(super) fn array<'a>(
     obj: &'a Map<String, Value>,
     key: &str,
     context: OperationContext<'_>,
@@ -140,7 +140,7 @@ fn array<'a>(
         _ => Err(ExchangeError::Malformed),
     }
 }
-fn object(value: &Value) -> Result<&Map<String, Value>> {
+pub(super) fn object(value: &Value) -> Result<&Map<String, Value>> {
     value.as_object().ok_or(ExchangeError::Malformed)
 }
 fn related(id: String, name: String) -> RelatedArtist {
@@ -153,7 +153,7 @@ fn related(id: String, name: String) -> RelatedArtist {
         user_rating: None,
     }
 }
-fn artists(
+pub(super) fn artists(
     values: Option<&[Value]>,
     fallback_id: &str,
     fallback_name: &str,
@@ -184,7 +184,7 @@ fn artists(
     }
     Ok(result)
 }
-fn participants(
+pub(super) fn participants(
     obj: &Map<String, Value>,
     context: OperationContext<'_>,
 ) -> Result<Option<BTreeMap<String, Vec<RelatedArtist>>>> {
@@ -240,7 +240,7 @@ fn year_fields(obj: &Map<String, Value>) -> Result<(Option<String>, Option<i32>)
     let year = year as i32;
     Ok((Some(year.to_string()), Some(year)))
 }
-fn release_fields(obj: &Map<String, Value>) -> Result<(Option<String>, Option<i32>)> {
+pub(super) fn release_fields(obj: &Map<String, Value>) -> Result<(Option<String>, Option<i32>)> {
     if let Some(value) = obj.get("releaseDate").filter(|v| !v.is_null()) {
         let rd = object(value)?;
         if let (Some(y), Some(m), Some(d)) = (
@@ -312,42 +312,14 @@ fn normalize(
         participants.as_ref(),
         context,
     )?;
-    let mut genres = Vec::new();
-    let names = if let Some(values) = array(obj, "genres", context)? {
-        values
-            .iter()
-            .map(|v| required_text(object(v)?, "name"))
-            .collect::<Result<Vec<_>>>()?
-    } else {
-        text(obj, "genre")?
-            .filter(|s| !s.is_empty())
-            .map(|s| vec![s.into()])
-            .unwrap_or_default()
-    };
-    for name in names {
-        genres.push(Genre {
-            server: server.clone(),
-            server_type: ServerType::Subsonic,
-            id: GenreId::new(name.clone()),
-            name,
-            album_count: None,
-            song_count: None,
-            image_id: None,
-            image_url: None,
-        });
-    }
+    let genres = genres(obj, server, context)?;
     let (date, year) = year_fields(obj)?;
     let (release_date, release_year) = release_fields(obj)?;
     let duration = Milliseconds::from_seconds(number(obj, "duration")?.unwrap_or(0.0))
         .map_err(|_| ExchangeError::Malformed)?;
     // `starred` is boolean in the diagnostic schema but timestamps also occur on
     // servers; preserve the normalizer's Boolean(string) behavior for either form.
-    let user_favorite = match obj.get("starred") {
-        None | Some(Value::Null) => false,
-        Some(Value::Bool(v)) => *v,
-        Some(Value::String(s)) => !s.is_empty(),
-        _ => return Err(ExchangeError::Malformed),
-    };
+    let user_favorite = favorite(obj)?;
     Ok(Song {
         server: server.clone(),
         server_type: ServerType::Subsonic,
@@ -420,4 +392,60 @@ fn normalize(
         user_rating: nonzero(number(obj, "userRating")?),
         year,
     })
+}
+
+pub(super) fn genres(
+    obj: &Map<String, Value>,
+    server: &ServerId,
+    context: OperationContext<'_>,
+) -> Result<Vec<Genre>> {
+    let mut genres = Vec::new();
+    let names = if let Some(values) = array(obj, "genres", context)? {
+        values
+            .iter()
+            .map(|v| required_text(object(v)?, "name"))
+            .collect::<Result<Vec<_>>>()?
+    } else {
+        text(obj, "genre")?
+            .filter(|s| !s.is_empty())
+            .map(|s| vec![s.into()])
+            .unwrap_or_default()
+    };
+    for name in names {
+        genres.push(Genre {
+            server: server.clone(),
+            server_type: ServerType::Subsonic,
+            id: GenreId::new(name.clone()),
+            name,
+            album_count: None,
+            song_count: None,
+            image_id: None,
+            image_url: None,
+        });
+    }
+    Ok(genres)
+}
+
+pub(super) fn normalize_with_discs(
+    obj: &Map<String, Value>,
+    server: &ServerId,
+    context: OperationContext<'_>,
+    discs: &BTreeMap<u32, String>,
+) -> Result<Song> {
+    let mut song = normalize(obj, server, context)?;
+    // Source uses nullish defaulting for the lookup, unlike discNumber's falsy default.
+    let disc = integer(obj, "discNumber")?.unwrap_or(1);
+    song.disc_subtitle = u32::try_from(disc)
+        .ok()
+        .and_then(|disc| discs.get(&disc).cloned());
+    Ok(song)
+}
+
+pub(super) fn favorite(obj: &Map<String, Value>) -> Result<bool> {
+    match obj.get("starred") {
+        None | Some(Value::Null) => Ok(false),
+        Some(Value::Bool(value)) => Ok(*value),
+        Some(Value::String(value)) => Ok(!value.is_empty()),
+        _ => Err(ExchangeError::Malformed),
+    }
 }

@@ -52,3 +52,5 @@ Future composition must provide secure native/browser entropy, an HTTP transport
 The maintainer subsequently authorized a managed parallel [P03.02 protocol continuation](protocol.md) while P02 remains open. It supplies bounded envelope/error handling, conditional extension discovery, server-bound form planning and cooperative local transport guards. See [verification](protocol-verification.md); no production HTTP/runtime or phase exit is implied.
 
 The [P03.03 song detail continuation](song-reads.md) adds one normalized `getSong` operation with exact source fixtures and typed context checks. [Verification](song-reads-verification.md) separates this tested local adapter from remaining library reads, live conformance and transport integration.
+
+The [album/album-artist continuation](album-reads.md) adds two guarded detail operations with nested song/disc normalization and an aggregate work budget. [Verification](album-reads-verification.md) and [ADR-016](../adr/016-subsonic-album-reads.md) record source comparisons and deliberate differences.

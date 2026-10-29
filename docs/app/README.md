@@ -51,3 +51,5 @@ The [P02.07 serialization continuation](p02/serialization.md) enforces existing 
 The [P02.07 payload continuation](p02/payloads.md) adds bounded normalized song-summary page and retained-queue handoff codecs with exact cache accounting. The source remote protocol is a separate unported contract.
 
 The bounded [P03.03 song detail read](p03/song-reads.md) normalizes `getSong` through the existing local transport, with pinned-source replay and checked IDs/units. Other reads, production HTTP and phase exits remain open.
+
+The [P03.03 album detail continuation](p03/album-reads.md) adds album and album-artist reads, preserving optional albums and nested disc/song behavior under a bounded work budget. Other operations, real transport and phase exits remain open.

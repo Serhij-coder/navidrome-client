@@ -158,6 +158,13 @@ pub struct AlbumArtist {
     pub user_rating: Option<f64>,
 }
 
+/// Normalized artist detail; absent albums differ from an explicitly empty list.
+#[derive(Clone, Debug, PartialEq)]
+pub struct AlbumArtistDetail {
+    pub artist: AlbumArtist,
+    pub albums: Option<Vec<Album>>,
+}
+
 #[derive(Clone, Debug, PartialEq)]
 pub struct Playlist {
     pub server: ServerId,
