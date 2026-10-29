@@ -58,3 +58,5 @@ The [album/album-artist continuation](album-reads.md) adds two guarded detail op
 The [playlist snapshot continuation](playlist-reads.md) adds separate metadata, ordered entry and song-ID reads, preserving duplicate songs with scoped position identities. [Verification](playlist-reads-verification.md) records original-controller replay and bounded local transport tests.
 
 The [collection read continuation](collection-reads.md) adds music folders, typed artist-role choices, random songs and similar songs with source-specific filtering and UTF-16 ordering. General lists/counting and real transport remain open.
+
+The [local list continuation](local-lists.md) adds playlist lists/counts and genre lists with full local sort/search/page behavior. General server count probing and pagination remain open.

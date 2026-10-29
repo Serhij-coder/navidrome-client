@@ -57,3 +57,5 @@ The [P03.03 album detail continuation](p03/album-reads.md) adds album and album-
 The [P03.03 playlist snapshot reads](p03/playlist-reads.md) preserve metadata, ordered duplicate entries and song-ID projections. The maintainer requested continuous progression through the rewrite plan; required reviews, evidence gates and release/deployment authorization remain in force.
 
 The [P03.03 collection reads](p03/collection-reads.md) add music folders, artist roles and random/similar songs with explicit source folder/filter limits and deterministic original-controller evidence.
+
+The [P03.03/P03.04 local lists](p03/local-lists.md) add playlist lists/counts and genre lists with source search/sort/slicing, including null-order and zero-limit characterization.

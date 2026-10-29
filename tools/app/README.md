@@ -27,3 +27,5 @@ P01 continuation adds `test-native.py` (normal Cargo test execution with payload
 `p03-playlist-reference.cjs` verifies pinned source/compiler hashes before replaying only selected original playlist/song expressions and controllers against an in-memory API double. It requires explicitly supplied optional source/compiler paths; default builds and CI use tracked Rust fixtures and integrity checks. See [playlist verification](../../docs/app/p03/playlist-reads-verification.md).
 
 `p03-collection-reference.cjs` additionally binds original API route method/path declarations while replaying selected folder/role/random/similar-song controller expressions. Explicit optional source/compiler inputs never become build/CI dependencies. See [collection checks](../../docs/app/p03/collection-reads.md).
+
+`p03-list-reference.cjs` replays selected original playlist/genre list/count/normalizer/slicing expressions with hash-bound Lodash and in-memory endpoint doubles. Explicit source/compiler/Lodash inputs remain optional local evidence. See [local list checks](../../docs/app/p03/local-lists.md).

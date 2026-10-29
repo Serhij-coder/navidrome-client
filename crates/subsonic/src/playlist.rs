@@ -64,7 +64,7 @@ pub async fn get_playlist(
     result
 }
 
-fn normalize(obj: &Map<String, Value>, server: &ServerId) -> Result<Playlist> {
+pub(super) fn normalize(obj: &Map<String, Value>, server: &ServerId) -> Result<Playlist> {
     let cover = id(obj, "coverArt")?.filter(|s| !s.is_empty());
     let changed = text(obj, "changed")?.filter(|s| !s.is_empty());
     let image_id = match (cover, changed) {

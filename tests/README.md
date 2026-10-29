@@ -81,3 +81,5 @@ Subsonic `album_reads` explicitly wires the top-level album/artist fixtures and 
 Subsonic `playlist_reads` explicitly wires the top-level metadata/ordered-entry/ID fixtures and context/budget regressions. Default playlist tooling checks provenance and pre-compiler tampering rejection; optional original-controller replay compares 25 synthetic cases. See [playlist verification](../docs/app/p03/playlist-reads-verification.md).
 
 Subsonic `collection_reads` explicitly wires folder/role/random/similar fixtures, UTF-16/strict-ID behavior and bounded context regressions. The collection tooling guard verifies provenance and pre-compiler tampering rejection. See [collection checks](../docs/app/p03/collection-reads.md).
+
+Subsonic `list_reads` explicitly wires local playlist/genre sort/filter/page/count fixtures, full-input bounds and context regressions. Default list tooling checks provenance and tampering rejection. See [local list checks](../docs/app/p03/local-lists.md).
