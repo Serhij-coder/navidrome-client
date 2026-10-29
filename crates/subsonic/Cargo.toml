@@ -1,0 +1,21 @@
+[package]
+name = "feishin-subsonic"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+url.workspace = true
+md-5 = "=0.10.6"
+
+[dev-dependencies]
+serde_json.workspace = true
+
+[lints]
+workspace = true
+
+[[test]]
+name = "foundation"
+path = "../../tests/subsonic/foundation.rs"

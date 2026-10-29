@@ -1,5 +1,5 @@
 [workspace]
-members = ["crates/domain", "crates/storage", "crates/spike-model", "crates/spike-ui", "crates/native-spike", "crates/browser-spike", "apps/desktop", "apps/web", "apps/remote"]
+members = ["crates/subsonic", "crates/domain", "crates/storage", "crates/spike-model", "crates/spike-ui", "crates/native-spike", "crates/browser-spike", "apps/desktop", "apps/web", "apps/remote"]
 resolver = "3"
 
 [workspace.package]

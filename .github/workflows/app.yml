@@ -23,7 +23,7 @@ jobs:
       - run: cargo clippy --workspace --all-targets --locked -- -D warnings
       - run: cargo test --workspace --locked
       - run: cargo check -p feishin-spike-model --target wasm32-unknown-unknown --locked
-      - run: cargo clippy -p feishin-domain -p feishin-storage --all-targets --target wasm32-unknown-unknown --locked -- -D warnings
+      - run: cargo clippy -p feishin-domain -p feishin-storage -p feishin-subsonic --all-targets --target wasm32-unknown-unknown --locked -- -D warnings
       - run: python3 tools/app/check-p00.py
       - run: python3 -m unittest discover -s tests/tooling -p 'test_*.py'
   native:

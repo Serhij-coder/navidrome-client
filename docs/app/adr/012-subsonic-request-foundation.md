@@ -1,0 +1,27 @@
+# ADR-012: bounded Subsonic request construction
+
+Status: accepted for the P03.01 foundation under the maintainer's 2026-10-29 sequencing exception. No P02/P03 exit is established. See [scope and limits](../p03/README.md).
+
+## Evidence
+
+Pinned Feishin `7d6ad318c79802e226996cfc39acba6b05bb22e8` constructs `/rest` URLs, uses `c=Feishin`, `f=json`, `v=1.13.0`, a 12-character alphanumeric salt and MD5(password + salt), or explicit legacy `p`. The controller creates a credential string; the client later splits that string and decodes the stored username. `qs.stringify(..., {arrayFormat: 'repeat'})` emits RFC3986 UTF-8 query encoding. The [migration map](../migration/p03-foundation.csv) records exact stable IDs and target symbols.
+
+The [hash-bound replay](../../../tests/fixtures/p03/subsonic-foundation.json) executes seven original expressions with frozen upstream JavaScript dependencies, synthetic credentials and a fake Axios boundary. Seven ordinary cases match the target wire URL exactly. An eighth records a saved raw `percent%name` username causing URIError during `decodeURIComponent(server.username)`, before Axios is invoked. The original authentication-controller expression succeeds against the synthetic acknowledgement boundary; this is an isolated saved-request defect characterization, not a live server/login result.
+
+## Decision
+
+Use one small portable `feishin-subsonic` crate for URL/auth construction, with no HTTP/runtime dependency or changes to portable domain. Keep `Auth`, `ServerBase` and `RequestUrl` opaque, non-serializable and redacted in Debug; omit Display for these values. Expose the complete authenticated URL only through the explicitly named transport accessor. Fixed error categories never retain source strings or provider errors. This removes the need for a general URL sanitizer that might miss secrets under unrecognized query names.
+
+Preserve raw UTF-8 username/password values and encode exactly once. Do not persist or reparse the upstream credential string. This deliberately fixes the characterized literal-percent username defect; regression tests also preserve `%2F` as literal text rather than converting it to a slash. Credentials and URLs remain outside domain, storage, UI and diagnostics. Passwords/tokens are still ordinary process-memory allocations; no zeroization guarantee is introduced.
+
+Retain the source wire alphabet and 12-character salt length. Replace Math.random with a caller-supplied trusted fallible cryptographic entropy boundary. Rejection sampling discards bytes 248-255, distributing accepted bytes uniformly across 62 characters. Construction stops after 256 draws and reports a fixed error on failure/exhaustion. No platform RNG is selected here, and the adapter cannot prove the caller's entropy is strong. Salted construction is explicit; legacy requires a separate explicit constructor and has no automatic fallback. Reusing an Auth reuses its salt/token, matching upstream post-login credential reuse. MD5 is required by this protocol and is not a password-storage choice.
+
+Accept ordered decoded string pairs, with repeated keys and empty values. This typed boundary replaces the TS route-string shim: it does not strip bracket suffixes or reinterpret literal `null`/`undefined` strings as missing values. Future wire DTOs must represent omitted values explicitly. Protect `c/f/v/u/p/s/t` and credential/default aliases (case-insensitively, including bracket suffixes) from query override. The source permits route parameters to override defaults/auth through object spread; the target intentionally rejects those collisions. No current library endpoint DTO is being ported in this increment.
+
+Validate absolute HTTP(S) bases without URL credentials, query or fragment; allow intentional LAN/loopback/IPv6 servers. Trim surrounding spaces, reject controls/backslashes/malformed percent escapes, and use the existing URL parser's canonical representation. Preserve subpaths and existing percent escapes. Remove exactly one trailing slash, then append `/rest`; a supplied `/rest` base therefore becomes `/rest/rest`, and repeated trailing slashes are not collapsed. This follows the observed helper/client rules rather than guessing whether a base already points at the API. Endpoint input is a single bounded ASCII segment, without traversal, slash, encoded syntax, query or fragment. Validation and bounds are explicit target tightening, covered by rejected-input regressions.
+
+## Alternatives and consequences
+
+Keeping credential query strings would retain decoding ambiguity and make accidental serialization/logging easy. Adding a common API/HTTP abstraction now would exceed the authorized request-construction scope; no empty transport crate is introduced. A built-in desktop RNG would add a platform boundary before browser composition is selected. Caller-supplied entropy keeps the adapter portable but requires a real secure provider at the future composition root. Legacy passwords and salted tokens remain sensitive in transport URLs: future HTTP/logging/error code must preserve this boundary, use explicit transport policies and never print the exposed URL.
+
+The sequencing exception permits this bounded P03.01 foundation while P02 is open. It does not authorize further P03 operations, complete P02 contracts, waive source/fixture/live-server requirements, select a transport or establish any phase exit. [P03 verification](../p03/verification.md) distinguishes constructor/replay evidence from unimplemented runtime behavior.

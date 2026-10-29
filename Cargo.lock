@@ -1257,6 +1257,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "feishin-subsonic"
+version = "0.1.0"
+dependencies = [
+ "md-5",
+ "serde_json",
+ "url",
+]
+
+[[package]]
 name = "feishin-web"
 version = "0.1.0"
 dependencies = [
@@ -2131,6 +2140,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "62bb907fe88d54d8d9ce32a3cceab4218ed2f6b7d35617cafe9adf84e43919cb"
 dependencies = [
  "libc",
+]
+
+[[package]]
+name = "md-5"
+version = "0.10.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d89e7ee0cfbedfc4da3340218492196241d89eefb6dab27de5df917a6d2e78cf"
+dependencies = [
+ "cfg-if",
+ "digest 0.10.7",
 ]
 
 [[package]]
