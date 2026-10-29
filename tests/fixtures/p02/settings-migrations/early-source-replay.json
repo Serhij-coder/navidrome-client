@@ -1,0 +1,7498 @@
+{
+  "schema": 1,
+  "baseline": "7d6ad318c79802e226996cfc39acba6b05bb22e8",
+  "methodId": "src/renderer/store/settings.store.ts:2442:13",
+  "methodSha256": "4113f0fd417709d00fbd141e4a4595845dbde7eb2be9c2560b86796958b293ac",
+  "sources": {
+    "src/renderer/store/settings.store.ts": "24f11f940ea02261459255639871fb3ddba30f225c71e21b0dbb5cfd99e688c2",
+    "src/shared/types/types.ts": "6b52103372fca31dc540458766a318835c418a993a37d62db3a4ea554c57af82",
+    "src/shared/types/domain-types.ts": "acd9d435728a90bab09773fbfa8e5cbe9bd4eec549aa764474c458dc013a834a",
+    "src/renderer/router/routes.ts": "28d5abf440dffec1a9de897c57538794a1b561dad2be1bbc7633d35c05cddc74",
+    "src/renderer/store/utils.ts": "53f34cbb4daeb628bfeb596bd07ae37bea05632ef9773f622e985832128b9fc6"
+  },
+  "compiler": "6.0.3",
+  "lodash": "4.17.21",
+  "boundaries": [
+    "Exact original migration and merge helper with selected exact defaults",
+    "Synthetic structural fields and fixed translation/preset identifiers",
+    "Reset defaults cover only retained preferences/AutoDJ; empty lists means removed imported overrides, not source UI column defaults"
+  ],
+  "defaults": {
+    "general": {
+      "language": "en",
+      "followSystemTheme": false
+    },
+    "autoDJ": {
+      "albumStrategy": "similar",
+      "allowDuplicates": false,
+      "enabled": false,
+      "itemCount": 5,
+      "mode": "songs",
+      "onlySimilar": false,
+      "songStrategy": "similar",
+      "timing": 1
+    },
+    "lists": {}
+  },
+  "cases": [
+    {
+      "version": 0,
+      "variant": "valid",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "library_random",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "albums",
+          "onlySimilar": false,
+          "songStrategy": "library_random",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 0,
+      "variant": "aliases",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "default",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "legacy",
+          "onlySimilar": false,
+          "songStrategy": "similar_forward",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 0,
+      "variant": "sparse",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "enabled": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": true,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 0,
+      "variant": "missing",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 1,
+      "variant": "valid",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "library_random",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "albums",
+          "onlySimilar": false,
+          "songStrategy": "library_random",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 1,
+      "variant": "aliases",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "default",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "legacy",
+          "onlySimilar": false,
+          "songStrategy": "similar_forward",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 1,
+      "variant": "sparse",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "enabled": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": true,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 1,
+      "variant": "missing",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 2,
+      "variant": "valid",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "library_random",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "albums",
+          "onlySimilar": false,
+          "songStrategy": "library_random",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 2,
+      "variant": "aliases",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "default",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "legacy",
+          "onlySimilar": false,
+          "songStrategy": "similar_forward",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 2,
+      "variant": "sparse",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "enabled": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": true,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 2,
+      "variant": "missing",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 3,
+      "variant": "valid",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "library_random",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "albums",
+          "onlySimilar": false,
+          "songStrategy": "library_random",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 3,
+      "variant": "aliases",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "default",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "legacy",
+          "onlySimilar": false,
+          "songStrategy": "similar_forward",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 3,
+      "variant": "sparse",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "enabled": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": true,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 3,
+      "variant": "missing",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 4,
+      "variant": "valid",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "library_random",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "albums",
+          "onlySimilar": false,
+          "songStrategy": "library_random",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 4,
+      "variant": "aliases",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "default",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "legacy",
+          "onlySimilar": false,
+          "songStrategy": "similar_forward",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 4,
+      "variant": "sparse",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "enabled": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": true,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 4,
+      "variant": "missing",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 5,
+      "variant": "valid",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "library_random",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "albums",
+          "onlySimilar": false,
+          "songStrategy": "library_random",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 5,
+      "variant": "aliases",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "default",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "legacy",
+          "onlySimilar": false,
+          "songStrategy": "similar_forward",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 5,
+      "variant": "sparse",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "enabled": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": true,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 5,
+      "variant": "missing",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 6,
+      "variant": "valid",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "library_random",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "albums",
+          "onlySimilar": false,
+          "songStrategy": "library_random",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 6,
+      "variant": "aliases",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "default",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "legacy",
+          "onlySimilar": false,
+          "songStrategy": "similar_forward",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 6,
+      "variant": "sparse",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "enabled": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": true,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 6,
+      "variant": "missing",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 7,
+      "variant": "valid",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "library_random",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "albums",
+          "onlySimilar": false,
+          "songStrategy": "library_random",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 7,
+      "variant": "aliases",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "default",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "legacy",
+          "onlySimilar": false,
+          "songStrategy": "similar_forward",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 7,
+      "variant": "sparse",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "enabled": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": true,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 7,
+      "variant": "missing",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 8,
+      "variant": "valid",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "library_random",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "albums",
+          "onlySimilar": false,
+          "songStrategy": "library_random",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Artists-all"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 8,
+      "variant": "aliases",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "default",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "legacy",
+          "onlySimilar": false,
+          "songStrategy": "similar_forward",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Artists-all"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 8,
+      "variant": "sparse",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "enabled": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": true,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Artists-all"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 8,
+      "variant": "missing",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Artists-all"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 9,
+      "variant": "valid",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "library_random",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "albums",
+          "onlySimilar": false,
+          "songStrategy": "library_random",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 9,
+      "variant": "aliases",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "default",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "legacy",
+          "onlySimilar": false,
+          "songStrategy": "similar_forward",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "default",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "legacy",
+        "onlySimilar": false,
+        "songStrategy": "similar_forward",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 9,
+      "variant": "sparse",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "enabled": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": true,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 9,
+      "variant": "missing",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders"
+      ],
+      "homeIds": [],
+      "windowBarStyle": "linux"
+    },
+    {
+      "version": 10,
+      "variant": "valid",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "library_random",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "albums",
+          "onlySimilar": false,
+          "songStrategy": "library_random",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": true,
+      "columns": null,
+      "general": {
+        "language": "en",
+        "followSystemTheme": false
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [],
+      "homeIds": [],
+      "windowBarStyle": null
+    },
+    {
+      "version": 10,
+      "variant": "aliases",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "default",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "legacy",
+          "onlySimilar": false,
+          "songStrategy": "similar_forward",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": true,
+      "columns": null,
+      "general": {
+        "language": "en",
+        "followSystemTheme": false
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [],
+      "homeIds": [],
+      "windowBarStyle": null
+    },
+    {
+      "version": 10,
+      "variant": "sparse",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "enabled": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": true,
+      "columns": null,
+      "general": {
+        "language": "en",
+        "followSystemTheme": false
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [],
+      "homeIds": [],
+      "windowBarStyle": null
+    },
+    {
+      "version": 10,
+      "variant": "missing",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": true,
+      "columns": null,
+      "general": {
+        "language": "en",
+        "followSystemTheme": false
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [],
+      "homeIds": [],
+      "windowBarStyle": null
+    },
+    {
+      "version": 11,
+      "variant": "valid",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "library_random",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "albums",
+          "onlySimilar": false,
+          "songStrategy": "library_random",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": true,
+      "columns": null,
+      "general": {
+        "language": "en",
+        "followSystemTheme": false
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [],
+      "homeIds": [],
+      "windowBarStyle": null
+    },
+    {
+      "version": 11,
+      "variant": "aliases",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "default",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "legacy",
+          "onlySimilar": false,
+          "songStrategy": "similar_forward",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": true,
+      "columns": null,
+      "general": {
+        "language": "en",
+        "followSystemTheme": false
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [],
+      "homeIds": [],
+      "windowBarStyle": null
+    },
+    {
+      "version": 11,
+      "variant": "sparse",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "enabled": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": true,
+      "columns": null,
+      "general": {
+        "language": "en",
+        "followSystemTheme": false
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [],
+      "homeIds": [],
+      "windowBarStyle": null
+    },
+    {
+      "version": 11,
+      "variant": "missing",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": true,
+      "columns": null,
+      "general": {
+        "language": "en",
+        "followSystemTheme": false
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [],
+      "homeIds": [],
+      "windowBarStyle": null
+    },
+    {
+      "version": 12,
+      "variant": "valid",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "library_random",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "albums",
+          "onlySimilar": false,
+          "songStrategy": "library_random",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "titleArtist",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 300
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "composer",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 300
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "year",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 200
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "date",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 240
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "bitDepth",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 100
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "sampleRate",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 100
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "albumGroup",
+          "isEnabled": false,
+          "pinned": "left",
+          "width": 240
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders",
+        "Folders",
+        "Radio"
+      ],
+      "homeIds": [
+        "genres",
+        "playlists"
+      ],
+      "windowBarStyle": null
+    },
+    {
+      "version": 12,
+      "variant": "aliases",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "default",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "legacy",
+          "onlySimilar": false,
+          "songStrategy": "similar_forward",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "titleArtist",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 300
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "composer",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 300
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "year",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 200
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "date",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 240
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "bitDepth",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 100
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "sampleRate",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 100
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "albumGroup",
+          "isEnabled": false,
+          "pinned": "left",
+          "width": 240
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders",
+        "Folders",
+        "Radio"
+      ],
+      "homeIds": [
+        "genres",
+        "playlists"
+      ],
+      "windowBarStyle": null
+    },
+    {
+      "version": 12,
+      "variant": "sparse",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "enabled": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "titleArtist",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 300
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "composer",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 300
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "year",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 200
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "date",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 240
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "bitDepth",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 100
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "sampleRate",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 100
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "albumGroup",
+          "isEnabled": false,
+          "pinned": "left",
+          "width": 240
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": true,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders",
+        "Folders",
+        "Radio"
+      ],
+      "homeIds": [
+        "genres",
+        "playlists"
+      ],
+      "windowBarStyle": null
+    },
+    {
+      "version": 12,
+      "variant": "missing",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "titleArtist",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 300
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "composer",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 300
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "year",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 200
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "date",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 240
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "bitDepth",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 100
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "sampleRate",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 100
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "albumGroup",
+          "isEnabled": false,
+          "pinned": "left",
+          "width": 240
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders",
+        "Folders",
+        "Radio"
+      ],
+      "homeIds": [
+        "genres",
+        "playlists"
+      ],
+      "windowBarStyle": null
+    },
+    {
+      "version": 13,
+      "variant": "valid",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "library_random",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "albums",
+          "onlySimilar": false,
+          "songStrategy": "library_random",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "titleArtist",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 300
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "composer",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 300
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "year",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 200
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "date",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 240
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "bitDepth",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 100
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "sampleRate",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 100
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "albumGroup",
+          "isEnabled": false,
+          "pinned": "left",
+          "width": 240
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "library_random",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "albums",
+        "onlySimilar": false,
+        "songStrategy": "library_random",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders",
+        "Radio"
+      ],
+      "homeIds": [
+        "genres",
+        "playlists"
+      ],
+      "windowBarStyle": null
+    },
+    {
+      "version": 13,
+      "variant": "aliases",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "albumStrategy": "default",
+          "allowDuplicates": false,
+          "enabled": false,
+          "itemCount": 7.5,
+          "mode": "legacy",
+          "onlySimilar": false,
+          "songStrategy": "similar_forward",
+          "timing": 1.25
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "titleArtist",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 300
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "composer",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 300
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "year",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 200
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "date",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 240
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "bitDepth",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 100
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "sampleRate",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 100
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "albumGroup",
+          "isEnabled": false,
+          "pinned": "left",
+          "width": 240
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 7.5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1.25
+      },
+      "sidebarIds": [
+        "Folders",
+        "Radio"
+      ],
+      "homeIds": [
+        "genres",
+        "playlists"
+      ],
+      "windowBarStyle": null
+    },
+    {
+      "version": 13,
+      "variant": "sparse",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "autoDJ": {
+          "enabled": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "titleArtist",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 300
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "composer",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 300
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "year",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 200
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "date",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 240
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "bitDepth",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 100
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "sampleRate",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 100
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "albumGroup",
+          "isEnabled": false,
+          "pinned": "left",
+          "width": 240
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": true,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders",
+        "Radio"
+      ],
+      "homeIds": [
+        "genres",
+        "playlists"
+      ],
+      "windowBarStyle": null
+    },
+    {
+      "version": 13,
+      "variant": "missing",
+      "input": {
+        "lists": {
+          "song": {
+            "table": {
+              "columns": [
+                {
+                  "id": "titleCombined",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "artists",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseYear",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                },
+                {
+                  "id": "releaseDate",
+                  "align": "end",
+                  "autoSize": false,
+                  "isEnabled": true,
+                  "pinned": "right",
+                  "width": 17
+                }
+              ]
+            },
+            "detail": {
+              "columns": []
+            }
+          }
+        },
+        "general": {
+          "sidebarItems": [
+            {
+              "id": "Folders",
+              "disabled": false,
+              "label": "fixture-folder",
+              "route": "fixture-route"
+            }
+          ],
+          "homeItems": [],
+          "artistItems": [],
+          "language": "uk",
+          "followSystemTheme": true
+        },
+        "window": {},
+        "playback": {},
+        "lyrics": {},
+        "lyricsDisplay": {},
+        "visualizer": {},
+        "tagEditor": {}
+      },
+      "returnedEmpty": false,
+      "columns": [
+        {
+          "id": "titleCombined",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "titleArtist",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 300
+        },
+        {
+          "id": "artists",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "composer",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 300
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "year",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 200
+        },
+        {
+          "id": "releaseYear",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "date",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 240
+        },
+        {
+          "id": "releaseDate",
+          "align": "end",
+          "autoSize": false,
+          "isEnabled": true,
+          "pinned": "right",
+          "width": 17
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "bitDepth",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 100
+        },
+        {
+          "align": "center",
+          "autoSize": false,
+          "id": "sampleRate",
+          "isEnabled": false,
+          "pinned": null,
+          "width": 100
+        },
+        {
+          "align": "start",
+          "autoSize": false,
+          "id": "albumGroup",
+          "isEnabled": false,
+          "pinned": "left",
+          "width": 240
+        }
+      ],
+      "general": {
+        "language": "uk",
+        "followSystemTheme": true
+      },
+      "autoDJ": {
+        "albumStrategy": "similar",
+        "allowDuplicates": false,
+        "enabled": false,
+        "itemCount": 5,
+        "mode": "songs",
+        "onlySimilar": false,
+        "songStrategy": "similar",
+        "timing": 1
+      },
+      "sidebarIds": [
+        "Folders",
+        "Radio"
+      ],
+      "homeIds": [
+        "genres",
+        "playlists"
+      ],
+      "windowBarStyle": null
+    }
+  ],
+  "invalidResetCases": [
+    {
+      "name": "missing-general",
+      "version": 10,
+      "input": {},
+      "returnedEmpty": false,
+      "error": "TypeError"
+    },
+    {
+      "name": "missing-sidebar",
+      "version": 10,
+      "input": {
+        "general": {}
+      },
+      "returnedEmpty": false,
+      "error": "TypeError"
+    },
+    {
+      "name": "null-sidebar",
+      "version": 10,
+      "input": {
+        "general": {
+          "sidebarItems": null
+        }
+      },
+      "returnedEmpty": false,
+      "error": "TypeError"
+    },
+    {
+      "name": "null-general",
+      "version": 11,
+      "input": {
+        "general": null
+      },
+      "returnedEmpty": true,
+      "error": null
+    },
+    {
+      "name": "null-state",
+      "version": 11,
+      "input": null,
+      "returnedEmpty": true,
+      "error": null
+    }
+  ]
+}

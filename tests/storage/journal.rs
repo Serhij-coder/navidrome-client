@@ -309,3 +309,90 @@ fn historical_transforms_are_the_exact_reviewed_applied_and_rollback_data() {
     assert_eq!(repo.rollback(&rollback).unwrap().data, previous.data);
     assert_eq!(raw.as_slice(), source_before);
 }
+
+#[test]
+fn reset_preview_apply_and_rollback_preserve_profile_and_queue_state() {
+    use feishin_storage::imports::Code;
+    let store = Memory::default();
+    let mut repo = JournalRepository::new(store.clone());
+    let initial=br#"{"version":34,"general":{"language":"uk","followSystemTheme":true},"autoDJ":{"albumStrategy":"library_random","allowDuplicates":true,"enabled":true,"itemCount":9,"mode":"albums","onlySimilar":false,"songStrategy":"library_random","timing":2},"lists":{"song":{"table":{"columns":[{"id":"duration","align":"end","autoSize":false,"isEnabled":true,"pinned":null,"width":73}]}}}}"#;
+    let input = CopiedInputs {
+        settings: Some(initial),
+        auth: Some(include_bytes!("../fixtures/p02/imports/auth-v2.json")),
+        player: Some(include_bytes!("../fixtures/p02/imports/player-v3.json")),
+        timestamp: Some(b"12.5"),
+        ..Default::default()
+    };
+    let prepared = repo.prepare(&input).unwrap();
+    let previous = repo.apply(&prepared).unwrap();
+    let raw=br#"{"version":10,"state":{"general":{"sidebarItems":[]},"autoDJ":{"credential":"SYNTHETIC-RESET-CANARY"},"lists":null}}"#;
+    let before = raw.to_vec();
+    let input = CopiedInputs {
+        settings: Some(raw),
+        ..Default::default()
+    };
+    let prepared = repo.prepare(&input).unwrap();
+    let expected = prepared.preview().data().clone();
+    assert!(
+        prepared
+            .preview()
+            .report()
+            .diagnostics
+            .iter()
+            .any(|d| d.code == Code::SettingsReset)
+    );
+    assert_eq!(repo.load().unwrap(), previous);
+    let old = previous.data.as_ref().unwrap();
+    assert_eq!(expected.profile.profiles, old.profile.profiles);
+    assert_eq!(expected.profile.current_server, old.profile.current_server);
+    assert_eq!(expected.queue, old.queue);
+    assert_eq!(expected.profile.preferences, Default::default());
+    assert!(expected.columns.is_empty());
+    assert!(!expected.auto_dj.as_ref().unwrap().enabled);
+    *store.fail.borrow_mut() = true;
+    assert_eq!(
+        repo.apply(&prepared),
+        Err(JournalError::Storage(Error::Unavailable))
+    );
+    assert_eq!(repo.load().unwrap(), previous);
+    *store.fail.borrow_mut() = false;
+    let applied = repo.apply(&prepared).unwrap();
+    assert_eq!(applied.data, Some(expected));
+    let writes = *store.writes.borrow();
+    let repeated = repo.prepare(&input).unwrap();
+    assert_eq!(repo.apply(&repeated).unwrap(), applied);
+    assert_eq!(*store.writes.borrow(), writes);
+    assert!(
+        !String::from_utf8(store.bytes.borrow().as_ref().unwrap().clone())
+            .unwrap()
+            .contains("SYNTHETIC-RESET-CANARY")
+    );
+    let rollback = repo.prepare_rollback().unwrap();
+    assert_eq!(rollback.restored(), previous.data.as_ref());
+    assert_eq!(repo.rollback(&rollback).unwrap().data, previous.data);
+    assert_eq!(raw.as_slice(), before);
+}
+#[test]
+fn malformed_reset_never_creates_a_prepared_mutation() {
+    let store = Memory::default();
+    let mut repo = JournalRepository::new(store.clone());
+    let valid = repo.prepare(&settings("uk")).unwrap();
+    let before = repo.apply(&valid).unwrap();
+    let writes = *store.writes.borrow();
+    for raw in [
+        br#"{"version":10,"state":{}}"#.as_slice(),
+        br#"{"version":11,"state":null}"#.as_slice(),
+    ] {
+        assert!(matches!(
+            repo.prepare(&CopiedInputs {
+                settings: Some(raw),
+                ..Default::default()
+            }),
+            Err(JournalError::Import(
+                feishin_storage::imports::ImportError::InvalidDocument
+            ))
+        ));
+        assert_eq!(repo.load().unwrap(), before);
+        assert_eq!(*store.writes.borrow(), writes);
+    }
+}

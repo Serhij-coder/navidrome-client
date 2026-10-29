@@ -43,6 +43,11 @@ async function connect(page, origin) {
         assert.equal(await page.evaluate(() => window.probe('import-stale')), true);
         assert.equal(await page.evaluate(() => window.probe('import-corrupt-current')), true);
         assert.equal(await page.evaluate(() => window.probe('import-historical')), true);
+        assert.equal(await page.evaluate(() => window.probe('import-reset-malformed')), true);
+        assert.equal(await page.evaluate(() => window.probe('import-reset-save')), true);
+        await connect(page, origin);
+        assert.equal(await page.evaluate(() => window.probe('import-reset-reload')), true);
+        assert.equal(await page.evaluate(() => window.probe('import-reset-undo')), true);
         assert.equal(await page.evaluate(() => localStorage.getItem('store_settings')), 'original copy remains');
         assert.equal(await page.evaluate(() => localStorage.getItem('feishin-rust:dev:p02:profiles:v1')), 'independent development profile remains');
         assert.equal(await page.evaluate(key => {
@@ -62,7 +67,7 @@ async function connect(page, origin) {
           return rejected && localStorage.getItem(key) === before;
         }, key), true);
         await context.close();
-        console.log(`${name} ${browser.version()}: 13 import-journal checks passed`);
+        console.log(`${name} ${browser.version()}: 17 import-journal checks passed`);
       } finally { await browser.close(); }
     }
   } finally { await new Promise(resolve => server.close(resolve)); }

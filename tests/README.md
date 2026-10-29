@@ -57,3 +57,5 @@ P02 domain contracts and non-secret profile persistence have explicit integratio
 P02.05 adds explicit `imports` and `journal` Cargo integration targets in the storage crate, with source-derived synthetic fixtures under `tests/fixtures/p02/imports/` and the tracked captured P00 current export. The optional `tests/browser/p02-imports.cjs` harness executes the test-only WASM example against real browser storage; see the [apply/rollback guide](../docs/app/p02/import-journal.md).
 
 P02.05 historical settings tests are wired as storage `settings_migration` and `settings_versions` Cargo targets. They compare retained fields to tracked pinned-source replay outputs. Optional source replay uses external TypeScript/Lodash without module initialization; the default tooling suite includes its modified-source rejection guard. See the [settings history guide](../docs/app/p02/settings-history.md).
+
+The storage `early_versions` target adds source-derived version0-13/reset projection cases. Journal and browser regressions cover reset preview/apply/reload/rollback without affecting profile or queue state. See the [early/reset guide](../docs/app/p02/early-settings.md).

@@ -1,8 +1,42 @@
 //! Bounded transformations of retained column and Auto DJ fields from copied historical inputs.
-//! Versions 14 through 34 are supported; other settings fields are outside this module.
-use crate::imports::{Alignment, AutoDj, Column, ColumnId, ColumnView, ImportError, ListId, Pin};
+//! Versions 0 through 34 are supported; other settings fields are outside this module.
+use crate::imports::{
+    Alignment, AutoDj, AutoDjMode, AutoDjStrategy, Column, ColumnId, ColumnView, ImportError,
+    ListId, Pin,
+};
 use serde_json::{Number, Value};
 use std::collections::BTreeSet;
+
+/// Source migration control flow for retained settings.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum SettingsPath {
+    EarlyReturn,
+    Reset,
+    Transform,
+}
+
+pub fn settings_path(version: u64) -> Result<SettingsPath, ImportError> {
+    match version {
+        0..=9 => Ok(SettingsPath::EarlyReturn),
+        10..=11 => Ok(SettingsPath::Reset),
+        12..=34 => Ok(SettingsPath::Transform),
+        _ => Err(ImportError::UnsupportedVersion),
+    }
+}
+
+/// Initial Auto DJ settings in the pinned source.
+pub fn default_auto_dj() -> AutoDj {
+    AutoDj {
+        album_strategy: AutoDjStrategy::Similar,
+        allow_duplicates: false,
+        enabled: false,
+        item_count: Number::from(5),
+        mode: AutoDjMode::Songs,
+        only_similar: false,
+        song_strategy: AutoDjStrategy::Similar,
+        timing: Number::from(1),
+    }
+}
 
 /// Migrate one whole, already decoded column array without mutating it on failure.
 pub fn migrate_columns(
@@ -11,8 +45,9 @@ pub fn migrate_columns(
     view: ColumnView,
     version: u64,
 ) -> Result<bool, ImportError> {
-    if !(14..=34).contains(&version) {
-        return Err(ImportError::UnsupportedVersion);
+    let path = settings_path(version)?;
+    if path == SettingsPath::Reset {
+        return Err(ImportError::SettingsReset);
     }
     let mut ids = BTreeSet::new();
     if columns.len() > 64
@@ -25,6 +60,9 @@ pub fn migrate_columns(
         })
     {
         return Err(ImportError::InvalidData);
+    }
+    if path == SettingsPath::EarlyReturn {
+        return Ok(false);
     }
     let mut result = columns.clone();
     let song_tables = matches!(
@@ -161,38 +199,35 @@ fn insert(
 
 /// Normalize a supplied legacy Auto DJ object; current objects remain strict.
 pub fn migrate_auto_dj(value: &Value, version: u64) -> Result<AutoDj, ImportError> {
-    if !(14..=34).contains(&version) {
-        return Err(ImportError::UnsupportedVersion);
+    let path = settings_path(version)?;
+    if path == SettingsPath::Reset {
+        return Err(ImportError::SettingsReset);
     }
     let mut value = value.clone();
     if version < 28 {
         let object = value.as_object_mut().ok_or(ImportError::InvalidData)?;
-        let defaults = [
-            ("albumStrategy", serde_json::json!("similar")),
-            ("allowDuplicates", serde_json::json!(false)),
-            ("enabled", serde_json::json!(false)),
-            ("itemCount", serde_json::json!(5)),
-            ("mode", serde_json::json!("songs")),
-            ("onlySimilar", serde_json::json!(false)),
-            ("songStrategy", serde_json::json!("similar")),
-            ("timing", serde_json::json!(1)),
-        ];
+        let defaults =
+            serde_json::to_value(default_auto_dj()).map_err(|_| ImportError::InvalidData)?;
+        let defaults = defaults.as_object().ok_or(ImportError::InvalidData)?;
         for (key, default) in defaults {
-            object.entry(key).or_insert(default);
+            object.entry(key).or_insert_with(|| default.clone());
         }
-        if !matches!(
-            object.get("mode").and_then(Value::as_str),
-            Some("albums" | "songs")
-        ) {
-            object.insert("mode".into(), serde_json::json!("songs"));
-        }
-        for key in ["albumStrategy", "songStrategy"] {
-            let normalized = if object.get(key).and_then(Value::as_str) == Some("library_random") {
-                "library_random"
-            } else {
-                "similar"
-            };
-            object.insert(key.into(), serde_json::json!(normalized));
+        if path == SettingsPath::Transform {
+            if !matches!(
+                object.get("mode").and_then(Value::as_str),
+                Some("albums" | "songs")
+            ) {
+                object.insert("mode".into(), serde_json::json!("songs"));
+            }
+            for key in ["albumStrategy", "songStrategy"] {
+                let normalized =
+                    if object.get(key).and_then(Value::as_str) == Some("library_random") {
+                        "library_random"
+                    } else {
+                        "similar"
+                    };
+                object.insert(key.into(), serde_json::json!(normalized));
+            }
         }
     }
     let result: AutoDj = serde_json::from_value(value).map_err(|_| ImportError::InvalidData)?;

@@ -31,3 +31,5 @@ P02 decisions are recorded in [ADR-004](adr/004-persistence.md) and [ADR-005](ad
 The bounded [P02.05 import continuation](p02/imports.md) adds copied-input preview and a separate durable [apply/backup/rollback journal](p02/import-journal.md). It preserves source copies and explicitly reports unported settings/transforms; shell adoption and full historical compatibility remain open.
 
 The [retained historical settings continuation](p02/settings-history.md) covers settings versions 14-34 for columns and supplied Auto DJ objects, using captured original migration outputs. Full settings hydration/adoption and phase exits remain open.
+
+The [early settings continuation](p02/early-settings.md) covers versions 0-13, including explicit retained-settings reset previews for 10/11, preserved profile/queue state and journal undo. Full state adoption and phase exits remain separate.

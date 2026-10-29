@@ -51,3 +51,7 @@ path = "../../tests/storage/settings_migration.rs"
 [[test]]
 name = "settings_versions"
 path = "../../tests/storage/settings_versions.rs"
+
+[[test]]
+name = "early_versions"
+path = "../../tests/storage/early_versions.rs"

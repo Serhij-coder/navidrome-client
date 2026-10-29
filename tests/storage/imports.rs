@@ -426,7 +426,7 @@ fn copied_auth_projects_only_non_secret_profiles_and_clears_invalid_selection() 
 fn unsupported_versions_and_malformed_envelopes_fail_without_partial_success() {
     for settings in [
         br#"{"version":999,"general":{}}"#.as_slice(),
-        br#"{"version":13,"general":{}}"#,
+        br#"{"version":36,"general":{}}"#,
         br#"{"version":35,"general":{}}"#,
     ] {
         assert_eq!(

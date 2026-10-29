@@ -1,21 +1,23 @@
 # Retained historical settings transforms (P02.05)
 
-Copied combined, exported and split settings now accept integer versions 14 through 34. The [import projector](imports.md) applies each selected category's own source version before replacing target values. Authentication, queue and timestamp version matrices are unchanged. This extends retained fields, not the entire settings store or P02 phase.
+The retained transform path covers versions 12-34; the [early/reset continuation](early-settings.md) completes explicit version handling for 0-34. The [import projector](imports.md) applies each selected category's own source version before replacing target values. Authentication, queue and timestamp version matrices are unchanged. This extends retained fields, not the entire settings store or P02 phase.
 
 ## Implemented transforms
 
+These conditions apply only on the transform path (12-34); early-return and reset paths do not run them.
+
 | Source condition | Retained transformation |
 | --- | --- |
-| Version <=14 | Append missing `bitDepth` and `sampleRate` disabled columns on the supported matching song/playlist-song/queue-song/album-detail table keys |
-| Version <=20 | Insert disabled `titleArtist` after `titleCombined`, or append if the anchor is absent, on the source-listed tables |
-| Version <=21 | Insert disabled `composer` after `artists`, or append if the anchor is absent, on the source-listed tables |
-| Version <=26 | Append disabled `albumGroup`, width 240 and left-pinned, on the source-listed song/folder/queue tables |
-| Version <29 | Insert disabled `year` before `releaseYear` and `date` before `releaseDate`, or append without an anchor, on the source-listed tables and album detail view |
-| Version <28 | Normalize a supplied legacy Auto DJ object: `default`/`similar_forward`/unknown strategies to `similar`, retain `library_random`, invalid mode to `songs`, and fill missing known fields from the pinned initial defaults |
+| Version 12-14 | Append missing `bitDepth` and `sampleRate` disabled columns on the supported matching song/playlist-song/queue-song/album-detail table keys |
+| Version 12-20 | Insert disabled `titleArtist` after `titleCombined`, or append if the anchor is absent, on the source-listed tables |
+| Version 12-21 | Insert disabled `composer` after `artists`, or append if the anchor is absent, on the source-listed tables |
+| Version 12-26 | Append disabled `albumGroup`, width 240 and left-pinned, on the source-listed song/folder/queue tables |
+| Version 12-28 | Insert disabled `year` before `releaseYear` and `date` before `releaseDate`, or append without an anchor, on the source-listed tables and album detail view |
+| Version 12-27 | Normalize a supplied legacy Auto DJ object: `default`/`similar_forward`/unknown strategies to `similar`, retain `library_random`, invalid mode to `songs`, and fill missing known fields from the pinned initial defaults |
 
 Column insertions preserve existing order and user properties. Existing IDs are kept once; corrupt/duplicate incoming arrays are rejected before migration, retaining the target baseline. The migration operates on a copy and fails without partial mutation. Arrays then replace the complete corresponding target array. A v34 empty array remains empty; a historical empty array receives the applicable disabled schema additions. Invalid widths, bounds and vocabulary retain the existing validation policy. Version 28 and newer Auto DJ objects remain strict; aliases and missing required fields are rejected as a category. Explicit wrong/null booleans or numbers are not defaulted.
 
-A wholly absent Auto DJ category is not synthesized over existing target state. For older copies this is reported as `LegacyDefaultsDeferred`, because the importer is a partial overlay rather than full source hydration. Missing list categories/views likewise leave the baseline untouched. Other source transforms (sidebar/home items, lyrics/display, filters, presets, headers, tags and window fields) remain deferred and continue to produce partial/deferred diagnostics. Versions 0-13 remain unsupported because their early-return/reset paths need a separate compatibility decision and fixtures; future versions fail closed.
+A wholly absent Auto DJ category is not synthesized over existing target state. For older copies this is reported as `LegacyDefaultsDeferred`, because the importer is a partial overlay rather than full source hydration. Missing list categories/views likewise leave the baseline untouched. Other source transforms (sidebar/home items, lyrics/display, filters, presets, headers, tags and window fields) remain deferred and continue to produce partial/deferred diagnostics. The [early/reset contract](early-settings.md) covers 0-11 and versions 12/13 continuing into these transforms; future versions fail closed.
 
 ## Source observations and deliberate differences
 

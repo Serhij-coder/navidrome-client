@@ -1,7 +1,9 @@
 use feishin_storage::imports::{
     Alignment, Column, ColumnId as Id, ColumnView as View, ListId as List, Pin,
 };
-use feishin_storage::settings_migration::{migrate_auto_dj, migrate_columns};
+use feishin_storage::settings_migration::{
+    SettingsPath, default_auto_dj, migrate_auto_dj, migrate_columns, settings_path,
+};
 use serde_json::{Number, json};
 
 fn col(id: Id) -> Column {
@@ -206,7 +208,7 @@ fn table_applicability_matches_each_source_list() {
 #[test]
 fn unsupported_versions_reject_without_mutation() {
     use feishin_storage::imports::ImportError;
-    for version in [0, 9, 11, 13, 35, u64::MAX] {
+    for version in [35, u64::MAX] {
         let mut columns = vec![col(Id::TitleCombined)];
         let before = columns.clone();
         assert_eq!(
@@ -221,5 +223,98 @@ fn unsupported_versions_reject_without_mutation() {
             Err(ImportError::UnsupportedVersion)
         );
         assert_eq!(value, original);
+    }
+}
+
+#[test]
+fn early_reset_and_transform_boundaries() {
+    use feishin_storage::imports::ImportError;
+    for version in 0..=34 {
+        let expected = match version {
+            0..=9 => SettingsPath::EarlyReturn,
+            10..=11 => SettingsPath::Reset,
+            _ => SettingsPath::Transform,
+        };
+        assert_eq!(settings_path(version), Ok(expected));
+        let mut columns = vec![col(Id::TitleCombined), col(Id::Artist)];
+        let before = columns.clone();
+        let result = migrate_columns(&mut columns, List::Song, View::Table, version);
+        match expected {
+            SettingsPath::EarlyReturn => {
+                assert_eq!(result, Ok(false));
+                assert_eq!(columns, before);
+            }
+            SettingsPath::Reset => {
+                assert_eq!(result, Err(ImportError::SettingsReset));
+                assert_eq!(columns, before);
+            }
+            SettingsPath::Transform if version <= 13 => {
+                assert_eq!(result, Ok(true));
+                assert!(columns.contains(&before[0]));
+                assert!(ids(&columns).contains(&Id::BitDepth));
+            }
+            SettingsPath::Transform => assert!(result.is_ok()),
+        }
+    }
+    for version in [35, u64::MAX] {
+        assert_eq!(settings_path(version), Err(ImportError::UnsupportedVersion));
+    }
+    let mut duplicate = vec![col(Id::Year), col(Id::Year)];
+    let before = duplicate.clone();
+    assert_eq!(
+        migrate_columns(&mut duplicate, List::Song, View::Table, 9),
+        Err(ImportError::InvalidData)
+    );
+    assert_eq!(duplicate, before);
+}
+
+#[test]
+fn early_autodj_defaults_without_alias_normalization() {
+    use feishin_storage::imports::ImportError;
+    let defaults = serde_json::to_value(default_auto_dj()).unwrap();
+    assert_eq!(
+        defaults,
+        json!({"albumStrategy":"similar","allowDuplicates":false,"enabled":false,"itemCount":5,"mode":"songs","onlySimilar":false,"songStrategy":"similar","timing":1})
+    );
+    for version in 0..=9 {
+        let input = json!({"mode":"albums", "itemCount":3.5});
+        let before = input.clone();
+        let mut expected = defaults.clone();
+        expected["mode"] = json!("albums");
+        expected["itemCount"] = json!(3.5);
+        assert_eq!(
+            serde_json::to_value(migrate_auto_dj(&input, version).unwrap()).unwrap(),
+            expected
+        );
+        assert_eq!(input, before);
+        for invalid in [
+            json!({"mode":"invalid"}),
+            json!({"songStrategy":"default"}),
+            json!({"albumStrategy":"similar_forward"}),
+            json!({"mode":null}),
+            json!({"extra":true}),
+        ] {
+            assert_eq!(
+                migrate_auto_dj(&invalid, version),
+                Err(ImportError::InvalidData)
+            );
+        }
+    }
+    for version in [10, 11] {
+        let input = json!({"mode":"albums"});
+        let before = input.clone();
+        assert_eq!(
+            migrate_auto_dj(&input, version),
+            Err(ImportError::SettingsReset)
+        );
+        assert_eq!(input, before);
+    }
+    for version in [12, 13] {
+        let result = migrate_auto_dj(
+            &json!({"mode":"invalid", "songStrategy":"default", "albumStrategy":"similar_forward"}),
+            version,
+        )
+        .unwrap();
+        assert_eq!(serde_json::to_value(result).unwrap(), defaults);
     }
 }

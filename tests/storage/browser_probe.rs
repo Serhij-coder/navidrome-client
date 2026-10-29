@@ -85,6 +85,51 @@ mod probe {
                     .as_ref()
                     .is_some_and(|d| d.profile.preferences.language == "uk"))
             }
+            "import-reset-save" => {
+                let raw = br#"{"version":10,"state":{"general":{"sidebarItems":[]},"lists":null}}"#;
+                let prepared = repo.prepare(&CopiedInputs {
+                    settings: Some(raw),
+                    ..Default::default()
+                })?;
+                let reported = prepared
+                    .preview()
+                    .report()
+                    .diagnostics
+                    .iter()
+                    .any(|d| d.code == imports::Code::SettingsReset);
+                let expected = prepared.preview().data().clone();
+                let applied = repo.apply(&prepared)?;
+                Ok(reported && applied.data == Some(expected))
+            }
+            "import-reset-reload" => Ok(repo.load()?.data.as_ref().is_some_and(|d| {
+                d.profile.preferences == Preferences::default()
+                    && d.columns.is_empty()
+                    && d.auto_dj.as_ref().is_some_and(|auto| {
+                        !auto.enabled && auto.mode == imports::AutoDjMode::Songs
+                    })
+            })),
+            "import-reset-undo" => {
+                let prepared = repo.prepare_rollback()?;
+                let expected = prepared.restored().cloned();
+                let restored = repo.rollback(&prepared)?;
+                Ok(restored.data == expected
+                    && restored
+                        .data
+                        .as_ref()
+                        .is_some_and(|d| d.profile.preferences.language == "uk"))
+            }
+            "import-reset-malformed" => {
+                let before = repo.load()?;
+                let raw = br#"{"version":10,"state":{"general":{}}}"#;
+                let rejected = matches!(
+                    repo.prepare(&CopiedInputs {
+                        settings: Some(raw),
+                        ..Default::default()
+                    }),
+                    Err(JournalError::Import(imports::ImportError::InvalidDocument))
+                );
+                Ok(rejected && repo.load()? == before)
+            }
             "import-historical" => {
                 let raw = br#"{"version":20,"state":{"lists":{"song":{"table":{"columns":[{"id":"titleCombined","align":"end","autoSize":false,"isEnabled":true,"pinned":null,"width":73}]}}},"autoDJ":{"mode":"old","songStrategy":"similar_forward"}}}"#;
                 let input = CopiedInputs {

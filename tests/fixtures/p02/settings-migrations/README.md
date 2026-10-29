@@ -5,3 +5,5 @@
 The matrix contains 273 column cases, with identical complete outputs stored once under a shape key, plus 110 Auto DJ cases. Sparse default merging executes the original merge helper using Lodash. Duplicate insertion and legacy key spelling are retained as observations; target normalization differences are tested explicitly. No credentials, server URLs or user data are included. Feishin attribution and GPL-3.0-only project terms apply to the derived evidence.
 
 `legacy-autodj.json` contains small synthetic alias/default/corruption inputs used by the focused Rust tests. See [supported behavior and limitations](../../../../docs/app/p02/settings-history.md).
+
+`early-source-replay.json` adds 56 synthetic original migration/default-merge cases for versions 0-13 and five malformed observations. It records early sidebar/window effects without claiming those fields are ported, and distinguishes original null-reset behavior from stricter target validation. Reproduce using the optional replay's `--early` mode.

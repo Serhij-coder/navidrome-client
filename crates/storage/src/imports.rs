@@ -16,6 +16,7 @@ pub enum ImportError {
     OutputTooLarge,
     InvalidDocument,
     UnsupportedVersion,
+    SettingsReset,
     InvalidData,
 }
 impl std::fmt::Display for ImportError {
@@ -69,6 +70,9 @@ pub enum Code {
     DeferredMigrations,
     HistoricalTransformApplied,
     LegacyDefaultsDeferred,
+    SettingsReset,
+    EarlySettingsReturn,
+    LegacyDefaultsApplied,
     UnsupportedCategory,
     UnsupportedFields,
     IgnoredSplitCopy,
@@ -486,6 +490,42 @@ pub fn validate_data(data: &MigrationData) -> Result<(), ImportError> {
     Ok(())
 }
 
+fn note_settings_path(
+    version: u64,
+    report: &mut ImportReport,
+) -> Result<crate::settings_migration::SettingsPath, ImportError> {
+    let path = crate::settings_migration::settings_path(version)?;
+    if version < 34 {
+        report.note(Category::UnknownSettings, Code::DeferredMigrations);
+    }
+    if path == crate::settings_migration::SettingsPath::EarlyReturn {
+        report.note(Category::UnknownSettings, Code::EarlySettingsReturn);
+    }
+    Ok(path)
+}
+fn validate_reset_context(version: u64, general: Option<&Value>) -> Result<(), ImportError> {
+    // v10 executes sidebarItems.push before returning {}; malformed copies must
+    // not turn that source failure into a destructive successful reset preview.
+    if version == 10 {
+        let general = general
+            .and_then(Value::as_object)
+            .ok_or(ImportError::InvalidDocument)?;
+        general
+            .get("sidebarItems")
+            .and_then(Value::as_array)
+            .ok_or(ImportError::InvalidDocument)?;
+    } else if general.is_some_and(|v| !v.is_object()) {
+        return Err(ImportError::InvalidDocument);
+    }
+    Ok(())
+}
+fn reset_retained_settings(data: &mut MigrationData, report: &mut ImportReport) {
+    data.profile.preferences = crate::Preferences::default();
+    data.columns.clear(); // Remove imported overrides; not an explicit empty view.
+    data.auto_dj = Some(crate::settings_migration::default_auto_dj());
+    report.note(Category::UnknownSettings, Code::SettingsReset);
+}
+
 pub fn preview(
     input: &CopiedInputs<'_>,
     base: &MigrationData,
@@ -512,7 +552,8 @@ pub fn preview(
     report.note(Category::UnknownSettings, Code::PartialProjection);
     let mut legacy_settings = false;
     let mut auto_dj_supplied = false;
-    // A supplied general split copy makes split storage authoritative, as in source.
+    let mut full_reset = false;
+    // General marks an authoritative split snapshot, including reset versions.
     if input
         .split_categories
         .contains_key(&SettingsCategory::General)
@@ -520,20 +561,26 @@ pub fn preview(
     {
         if !input.split_categories.is_empty() {
             let ver = input.split_settings_version.unwrap_or(14);
-            if !(14..=34).contains(&ver) {
-                return Err(ImportError::UnsupportedVersion);
-            }
-            if ver < 34 {
-                report.note(Category::UnknownSettings, Code::DeferredMigrations);
-            }
+            let path = note_settings_path(ver, &mut report)?;
             legacy_settings |= ver < 28;
-            for (&category, bytes) in &input.split_categories {
-                auto_dj_supplied |= category == SettingsCategory::AutoDJ;
-                match parse(bytes) {
-                    Ok(value) => {
-                        project_category(category, &value, ver, &mut candidate, &mut report)
+            if path == crate::settings_migration::SettingsPath::Reset
+                && input
+                    .split_categories
+                    .contains_key(&SettingsCategory::General)
+            {
+                let general = parse(input.split_categories[&SettingsCategory::General])?;
+                validate_reset_context(ver, Some(&general))?;
+                reset_retained_settings(&mut candidate, &mut report);
+                full_reset = true;
+            } else {
+                for (&category, bytes) in &input.split_categories {
+                    auto_dj_supplied |= category == SettingsCategory::AutoDJ;
+                    match parse(bytes) {
+                        Ok(value) => {
+                            project_category(category, &value, ver, &mut candidate, &mut report)
+                        }
+                        Err(_) => report.note(Category::Settings(category), Code::CorruptCategory),
                     }
-                    Err(_) => report.note(Category::Settings(category), Code::CorruptCategory),
                 }
             }
         }
@@ -543,41 +590,35 @@ pub fn preview(
             .get("version")
             .and_then(Value::as_u64)
             .ok_or(ImportError::InvalidDocument)?;
-        if !(14..=34).contains(&ver) {
-            return Err(ImportError::UnsupportedVersion);
-        }
-        let state = value.get("state").unwrap_or(&value);
-        let state = object(state)?;
-        if ver < 34 {
-            report.note(Category::UnknownSettings, Code::DeferredMigrations);
-        }
+        let path = note_settings_path(ver, &mut report)?;
+        let state = object(value.get("state").unwrap_or(&value))?;
         legacy_settings |= ver < 28;
-        for (key, value) in state {
-            if key == "version" {
-                continue;
-            }
-            match serde_json::from_value::<SettingsCategory>(Value::String(key.clone())) {
-                Ok(category) => {
-                    auto_dj_supplied |= category == SettingsCategory::AutoDJ;
-                    project_category(category, value, ver, &mut candidate, &mut report);
+        if path == crate::settings_migration::SettingsPath::Reset {
+            validate_reset_context(ver, state.get("general"))?;
+            reset_retained_settings(&mut candidate, &mut report);
+            full_reset = true;
+        } else {
+            for (key, value) in state {
+                if key == "version" {
+                    continue;
                 }
-                Err(_) => report.note(Category::UnknownSettings, Code::UnsupportedCategory),
+                match serde_json::from_value::<SettingsCategory>(Value::String(key.clone())) {
+                    Ok(category) => {
+                        auto_dj_supplied |= category == SettingsCategory::AutoDJ;
+                        project_category(category, value, ver, &mut candidate, &mut report);
+                    }
+                    Err(_) => report.note(Category::UnknownSettings, Code::UnsupportedCategory),
+                }
             }
         }
         if !input.split_categories.is_empty() {
             let split_version = input.split_settings_version.unwrap_or(14);
-            if !(14..=34).contains(&split_version) {
-                return Err(ImportError::UnsupportedVersion);
-            }
-            if split_version < 34 {
-                report.note(Category::UnknownSettings, Code::DeferredMigrations);
-            }
+            note_settings_path(split_version, &mut report)?;
             for (&category, bytes) in &input.split_categories {
                 let key = serde_json::to_value(category).map_err(|_| ImportError::InvalidData)?;
-                // Source's legacy split helper never overwrites an existing split Auto DJ.
-                // Retain combined Auto DJ too when that separate category is absent (ADR-009).
-                if category != SettingsCategory::AutoDJ
-                    && key.as_str().is_some_and(|key| state.contains_key(key))
+                if full_reset
+                    || (category != SettingsCategory::AutoDJ
+                        && key.as_str().is_some_and(|key| state.contains_key(key)))
                 {
                     report.note(Category::Settings(category), Code::IgnoredSplitCopy);
                     continue;
@@ -597,7 +638,7 @@ pub fn preview(
             }
         }
     }
-    if legacy_settings && !auto_dj_supplied {
+    if legacy_settings && !auto_dj_supplied && !full_reset {
         report.note(
             Category::Settings(SettingsCategory::AutoDJ),
             Code::LegacyDefaultsDeferred,
@@ -667,6 +708,29 @@ fn project_category(
     report: &mut ImportReport,
 ) {
     let cat = Category::Settings(category);
+    if crate::settings_migration::settings_path(version)
+        == Ok(crate::settings_migration::SettingsPath::Reset)
+    {
+        match category {
+            SettingsCategory::General => {
+                if validate_reset_context(version, Some(value)).is_err() {
+                    report.note(cat, Code::CorruptCategory);
+                    return;
+                }
+                data.profile.preferences = crate::Preferences::default();
+            }
+            SettingsCategory::Lists => data.columns.clear(),
+            SettingsCategory::AutoDJ => {
+                data.auto_dj = Some(crate::settings_migration::default_auto_dj())
+            }
+            _ => {
+                report.note(cat, Code::UnsupportedCategory);
+                return;
+            }
+        }
+        report.note(cat, Code::SettingsReset);
+        return;
+    }
     match category {
         SettingsCategory::General => {
             let Some(general) = value.as_object() else {
@@ -704,8 +768,10 @@ fn project_category(
             // Legacy aliases normalize into the closed target schema; unknown fields never survive.
             match crate::settings_migration::migrate_auto_dj(value, version) {
                 Ok(dj) => {
-                    if version < 28 {
+                    if (12..28).contains(&version) {
                         report.note(cat, Code::HistoricalTransformApplied);
+                    } else if version <= 9 && value.as_object().is_some_and(|v| v.len() < 8) {
+                        report.note(cat, Code::LegacyDefaultsApplied);
                     }
                     data.auto_dj = Some(dj);
                 }

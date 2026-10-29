@@ -119,7 +119,7 @@ fn duplicate_insertion_difference_and_source_key_spelling_are_explicit() {
     assert!(has(&result, Code::UnsupportedFields));
 }
 #[test]
-fn every_supported_version_works_through_combined_and_split_projection() {
+fn versions_14_to_34_work_through_combined_and_split_projection() {
     let columns = json!([
         column("titleCombined"),
         column("artists"),

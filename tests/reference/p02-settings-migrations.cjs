@@ -8,7 +8,7 @@ const assert = require('node:assert/strict');
 const repo = path.resolve(__dirname, '../..');
 const fixturePath = path.join(repo, 'tests/fixtures/p02/settings-migrations/source-replay.json');
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
-function replay(referenceRoot, compilerPath, lodashPath) {
+function replay(referenceRoot, compilerPath, lodashPath, early = false) {
   const audit = JSON.parse(fs.readFileSync(path.join(repo, 'docs/app/baseline/source-audit.json')));
   const sources = {};
   function read(relative) {
@@ -57,8 +57,12 @@ function replay(referenceRoot, compilerPath, lodashPath) {
   const initial = initializer(settings, 'initialState');
   const auto = initial.properties.find(n => n.name?.getText(parsed[settings]) === 'autoDJ').initializer.getText(parsed[settings]);
   const general = initial.properties.find(n => n.name?.getText(parsed[settings]) === 'general').initializer;
-  const layout = general.properties.find(n => n.name?.getText(parsed[settings]) === 'sideQueueLayout').initializer.getText(parsed[settings]);
-  evaluate(`const initialState = {autoDJ:${auto}, general:{sideQueueLayout:${layout}}}; const i18n={t:()=>"fixture-label"}; const nanoid=()=>"fixture-preset-id";`);
+  function property(section, name) {
+    const object = initial.properties.find(n => n.name?.getText(parsed[settings]) === section).initializer;
+    return object.properties.find(n => n.name?.getText(parsed[settings]) === name).initializer.getText(parsed[settings]);
+  }
+  const layout = property('general','sideQueueLayout');
+  evaluate(`const initialState = {autoDJ:${auto}, general:{sideQueueLayout:${layout}, language:${property('general','language')}, followSystemTheme:${property('general','followSystemTheme')}, artistBackground:${property('general','artistBackground')}, artistBackgroundBlur:${property('general','artistBackgroundBlur')}}, window:{releaseChannel:${property('window','releaseChannel')}}, playback:{mediaSession:${property('playback','mediaSession')}}}; const i18n={t:()=>"fixture-label"}; const nanoid=()=>"fixture-preset-id";`);
   evaluate(`globalThis.migrate = ({${methodText}}).migrate;`);
   const merge = initializer(utils, 'mergeOverridingColumns').getText(parsed[utils]);
   evaluate(`globalThis.mergeDefaults = ${merge}; globalThis.defaults = initialState.autoDJ;`);
@@ -72,6 +76,29 @@ function replay(referenceRoot, compilerPath, lodashPath) {
     context.fixture = JSON.parse(JSON.stringify(value)); context.version = version;
     vm.runInContext('globalThis.result = migrate(fixture,version)', context, {timeout:2000});
     return JSON.parse(JSON.stringify(context.result));
+  }
+  if (early) {
+    evaluate('globalThis.retainedDefaults={general:{language:initialState.general.language,followSystemTheme:initialState.general.followSystemTheme},autoDJ:initialState.autoDJ,lists:{}};');
+    const defaults = JSON.parse(JSON.stringify(context.retainedDefaults));
+    const cases=[];
+    for(let version=0;version<=13;version++) for(const variant of ['valid','aliases','sparse','missing']) {
+      const autoDJ=variant==='sparse'?{enabled:true}:{...context.defaults,mode:variant==='aliases'?'legacy':'albums',albumStrategy:variant==='aliases'?'default':'library_random',songStrategy:variant==='aliases'?'similar_forward':'library_random',itemCount:7.5,timing:1.25};
+      const incoming=state('song','table',input,autoDJ);
+      incoming.general.language='uk'; incoming.general.followSystemTheme=true;
+      incoming.general.sidebarItems=[{id:'Folders',disabled:false,label:'fixture-folder',route:'fixture-route'}];
+      if(variant==='missing')delete incoming.autoDJ;
+      const output=migrate(incoming,version);
+      context.output=output;
+      const merged=vm.runInContext('mergeDefaults(output,JSON.parse(JSON.stringify(retainedDefaults)))',context,{timeout:2000});
+      const retained=JSON.parse(JSON.stringify(merged));
+      cases.push({version,variant,input:incoming,returnedEmpty:Object.keys(output).length===0,columns:retained.lists?.song?.table?.columns??null,general:{language:retained.general.language,followSystemTheme:retained.general.followSystemTheme},autoDJ:retained.autoDJ,sidebarIds:output.general?.sidebarItems?.map(x=>x.id)??[],homeIds:output.general?.homeItems?.map(x=>x.id)??[],windowBarStyle:output.window?.windowBarStyle??null});
+    }
+    const invalidResetCases=[];
+    for(const [name,version,value] of [['missing-general',10,{}],['missing-sidebar',10,{general:{}}],['null-sidebar',10,{general:{sidebarItems:null}}],['null-general',11,{general:null}],['null-state',11,null]]) {
+      try { const output=migrate(value,version); invalidResetCases.push({name,version,input:value,returnedEmpty:Object.keys(output).length===0,error:null}); }
+      catch(error){ invalidResetCases.push({name,version,input:value,returnedEmpty:false,error:error.name}); }
+    }
+    return {schema:1,baseline:'7d6ad318c79802e226996cfc39acba6b05bb22e8',methodId:'src/renderer/store/settings.store.ts:2442:13',methodSha256:sha(methodText),sources,compiler:ts.version,lodash:lodash.VERSION,boundaries:['Exact original migration and merge helper with selected exact defaults','Synthetic structural fields and fixed translation/preset identifiers','Reset defaults cover only retained preferences/AutoDJ; empty lists means removed imported overrides, not source UI column defaults'],defaults,cases,invalidResetCases};
   }
   const cases = [], shapes = {};
   const targets = [['song','table'],['album','table'],['playlistSong','table'],['queueSong','table'],['albumDetail','table'],['fullScreen','table'],['sideQueue','table'],['folder','table'],['albumArtistSong','table'],['genreSong','table'],['artist','table'],['album','detail'],['song','detail']];
@@ -100,10 +127,12 @@ function replay(referenceRoot, compilerPath, lodashPath) {
 }
 module.exports={replay};
 if(require.main===module){
-  const [root,compiler,lodash,mode] = process.argv.slice(2);
-  if(!root||!compiler||!lodash) throw new Error('Usage: node tests/reference/p02-settings-migrations.cjs REFERENCE_ROOT TYPESCRIPT_JS LODASH_JS [--write]');
-  const result=replay(root,compiler,lodash);
-  if(mode==='--write') fs.writeFileSync(fixturePath,JSON.stringify(result,null,2)+'\n');
-  else assert.deepEqual(result,JSON.parse(fs.readFileSync(fixturePath)));
-  console.log(`${result.cases.length} column and ${result.autoCases.length} Auto DJ source replays matched; sparse defaults/duplicate/key-spelling observations recorded`);
+  const [root,compiler,lodash,...flags] = process.argv.slice(2);
+  if(!root||!compiler||!lodash||flags.some(x=>!['--early','--write'].includes(x))) throw new Error('Usage: node tests/reference/p02-settings-migrations.cjs REFERENCE_ROOT TYPESCRIPT_JS LODASH_JS [--early] [--write]');
+  const early=flags.includes('--early');
+  const result=replay(root,compiler,lodash,early);
+  const target=early?path.join(repo,'tests/fixtures/p02/settings-migrations/early-source-replay.json'):fixturePath;
+  if(flags.includes('--write')) fs.writeFileSync(target,JSON.stringify(result,null,2)+'\n');
+  else assert.deepEqual(result,JSON.parse(fs.readFileSync(target)));
+  console.log(early?`${result.cases.length} early/reset source cases and ${result.invalidResetCases.length} malformed observations matched`:`${result.cases.length} column and ${result.autoCases.length} Auto DJ source replays matched; sparse defaults/duplicate/key-spelling observations recorded`);
 }

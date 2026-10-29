@@ -39,7 +39,7 @@ P02_PLAYWRIGHT=/absolute/playwright node tests/browser/p02-storage.cjs target/p0
 
 The harness serves the test-only WASM bundle on ephemeral loopback in fresh browser contexts. It exercises actual storage across reload, context isolation, unchanged original key, read-only partial recovery and future/malformed protection. Quota and security failures are explicitly injected at the real storage API boundary. It loads no user profile or media. Browser runtime remains an optional external check, not a dependency on ignored source or scripts.
 
-See [foundation verification](verification.md), [bounded import verification](import-verification.md) and [historical transform verification](settings-history-verification.md) for exact results and limitations.
+See [foundation verification](verification.md), [bounded import verification](import-verification.md), [historical transform verification](settings-history-verification.md) and [early/reset verification](early-settings-verification.md) for exact results and limitations.
 
 ## Remaining bounded tasks
 
@@ -47,10 +47,12 @@ See [foundation verification](verification.md), [bounded import verification](im
 | --- | --- |
 | P02.01-P02.03 | Foundation implemented and exercised; backend normalization/version discovery and concrete runtime scheduling remain their adapter/integration tasks |
 | P02.04 | Bounded native/browser non-secret subset implemented; full settings surface, production shell/worker composition, multi-process/tab coordination and OS/filesystem power-loss evidence remain unverified |
-| P02.05 | Bounded copied-input projection and atomic target backup/rollback implemented; versions below 14, unsupported transforms, full settings/queue metadata, real historical-profile corpus and production adoption remain open |
+| P02.05 | Bounded copied-input projection and atomic target backup/rollback implemented; unsupported fields/transforms, full settings/queue metadata, real historical-profile corpus and production adoption remain open |
 | P02.06 | Explicit remember-credential policy and native/browser secret-store implementations required; only the portable secret boundary exists |
 | P02.07 | Server-scoped cache keys, lifecycle/invalidation/cancellation and bounded queue/query/diagnostic serialization required; existing profile byte limits and operation contexts do not complete this task |
 
 The [foundation migration map](../migration/p02-foundation.csv) and [storage migration map](../migration/p02-storage.csv) retain exact source anchors, actual stable inventory IDs where functions exist, verification and gaps. Local reference analysis remains immutable and ignored. No full historical import, audio/device or end-to-end parity claim is made. See the [supported import matrix](imports.md) and [apply/rollback contract](import-journal.md).
 
 The [historical settings continuation](settings-history.md) expands retained-field transforms to versions 14-34, with exact pinned source replay and current/backup transaction coverage.
+
+The [early/reset continuation](early-settings.md) completes retained settings version handling for 0-34, keeping reset scope and rollback explicit.
