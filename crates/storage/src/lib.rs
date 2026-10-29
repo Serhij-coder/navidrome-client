@@ -293,3 +293,7 @@ pub mod session;
 pub mod credentials;
 #[cfg(all(target_os = "linux", feature = "linux-secret-service"))]
 pub mod linux_credentials;
+
+pub mod credential_executor;
+#[cfg(not(target_arch = "wasm32"))]
+pub mod credential_worker;

@@ -84,3 +84,11 @@ path = "../../tests/storage/credentials.rs"
 name = "linux_credentials"
 path = "../../tests/storage/linux_credentials.rs"
 required-features = ["linux-secret-service"]
+
+[[test]]
+name = "credential_executor"
+path = "../../tests/storage/credential_executor.rs"
+
+[[test]]
+name = "credential_worker"
+path = "../../tests/storage/credential_worker.rs"
