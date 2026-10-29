@@ -61,3 +61,5 @@ The [P03.03 collection reads](p03/collection-reads.md) add music folders, artist
 The [P03.03/P03.04 local lists](p03/local-lists.md) add playlist lists/counts and genre lists with source search/sort/slicing, including null-order and zero-limit characterization.
 
 The [P03.03 enrichment reads](p03/enrichment-reads.md) add artist information and album/artist recommendations while retaining duplicate songs, optional metadata and source-specific HTTP behavior.
+
+The [P03.03/P03.04 artist lists](p03/artist-lists.md) add artist/album-artist list/count flows with source filter timing, related metadata and characterized ineffective sorts.

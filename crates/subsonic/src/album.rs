@@ -282,38 +282,46 @@ fn normalize_artist(
                 .collect::<Result<Vec<_>>>()
         })
         .transpose()?;
+    Ok(AlbumArtistDetail {
+        artist: normalize_artist_base(obj, server, None)?,
+        albums,
+    })
+}
+
+pub(super) fn normalize_artist_base(
+    obj: &Map<String, Value>,
+    server: &ServerId,
+    similar_artists: Option<Vec<RelatedArtist>>,
+) -> Result<AlbumArtist> {
     let starred_at = match obj.get("starred") {
         None | Some(Value::Null) | Some(Value::Bool(false)) => None,
         Some(Value::String(value)) => (!value.is_empty()).then(|| value.clone()),
         _ => return Err(ExchangeError::Malformed),
     };
-    Ok(AlbumArtistDetail {
-        artist: AlbumArtist {
-            server: server.clone(),
-            server_type: ServerType::Subsonic,
-            album_count: Some(artist_count(obj)?),
-            biography: None,
-            blur_hash: None,
-            dominant_color: None,
-            duration: None,
-            genres: vec![],
-            id: ArtistId::new(id(obj, "id")?.ok_or(ExchangeError::Malformed)?),
-            image_id: id(obj, "coverArt")?.filter(|id| !id.is_empty()),
-            image_url: None,
-            last_played_at: None,
-            mbz: None,
-            missing: None,
-            name: required_text(obj, "name")?,
-            play_count: None,
-            rated_at: None,
-            similar_artists: None,
-            song_count: None,
-            starred_at,
-            thumb_hash: None,
-            uploaded_image: None,
-            user_favorite: favorite(obj)?,
-            user_rating: None,
-        },
-        albums,
+    Ok(AlbumArtist {
+        server: server.clone(),
+        server_type: ServerType::Subsonic,
+        album_count: Some(artist_count(obj)?),
+        biography: None,
+        blur_hash: None,
+        dominant_color: None,
+        duration: None,
+        genres: vec![],
+        id: ArtistId::new(id(obj, "id")?.ok_or(ExchangeError::Malformed)?),
+        image_id: id(obj, "coverArt")?.filter(|id| !id.is_empty()),
+        image_url: None,
+        last_played_at: None,
+        mbz: None,
+        missing: None,
+        name: required_text(obj, "name")?,
+        play_count: None,
+        rated_at: None,
+        similar_artists,
+        song_count: None,
+        starred_at,
+        thumb_hash: None,
+        uploaded_image: None,
+        user_favorite: favorite(obj)?,
+        user_rating: None,
     })
 }

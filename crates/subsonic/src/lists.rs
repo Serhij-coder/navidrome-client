@@ -84,7 +84,7 @@ fn genre_key(obj: &Map<String, Value>, sort: GenreListSort) -> Result<Key> {
         GenreListSort::Name => Ok(Key::Text(required_text(obj, "value")?.to_lowercase())),
     }
 }
-fn check(
+pub(super) fn check(
     clock: &dyn Clock,
     context: OperationContext<'_>,
     server: &ServerId,
@@ -150,7 +150,7 @@ fn sorted<T>(mut values: Vec<(Key, T)>, order: SortOrder) -> Vec<T> {
     });
     values.into_iter().map(|(_, v)| v).collect()
 }
-fn paginate<T>(items: Vec<T>, start: u64, limit: Option<u64>) -> Result<Page<T>> {
+pub(super) fn paginate<T>(items: Vec<T>, start: u64, limit: Option<u64>) -> Result<Page<T>> {
     let total =
         u64::try_from(items.len()).map_err(|_| ExchangeError::Context(DomainError::Capacity))?;
     let count = limit.filter(|v| *v != 0).unwrap_or(total);

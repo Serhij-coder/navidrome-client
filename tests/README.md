@@ -85,3 +85,5 @@ Subsonic `collection_reads` explicitly wires folder/role/random/similar fixtures
 Subsonic `list_reads` explicitly wires local playlist/genre sort/filter/page/count fixtures, full-input bounds and context regressions. Default list tooling checks provenance and tampering rejection. See [local list checks](../docs/app/p03/local-lists.md).
 
 Subsonic `enrichment_reads` explicitly wires artist-info/album-radio/artist-radio fixtures and bounded context/error regressions. Default enrichment tooling checks source provenance and pre-compiler tampering rejection. See [enrichment checks](../docs/app/p03/enrichment-reads.md).
+
+Subsonic `artist_lists` explicitly wires artist/album-artist index/filter/sort/count fixtures and context/work regressions; existing detail/enrichment targets cover helper reuse. Default artist tooling checks provenance and pre-compiler tampering rejection. See [artist checks](../docs/app/p03/artist-lists.md).

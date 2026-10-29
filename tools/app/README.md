@@ -31,3 +31,5 @@ P01 continuation adds `test-native.py` (normal Cargo test execution with payload
 `p03-list-reference.cjs` replays selected original playlist/genre list/count/normalizer/slicing expressions with hash-bound Lodash and in-memory endpoint doubles. Explicit source/compiler/Lodash inputs remain optional local evidence. See [local list checks](../../docs/app/p03/local-lists.md).
 
 `p03-enrichment-reference.cjs` replays selected original artist-info and album/artist radio expressions with in-memory HTTP-status/body fixtures. Explicit optional source/compiler inputs never become build dependencies. See [enrichment checks](../../docs/app/p03/enrichment-reads.md).
+
+`p03-artist-reference.cjs` replays selected original artist/album-artist list/count, normalizer and shared-sort expressions against in-memory indexes with pinned Lodash. Source enum aliases are read as literals from hash-verified input. See [artist checks](../../docs/app/p03/artist-lists.md).

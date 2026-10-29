@@ -128,15 +128,7 @@ fn normalize_info(
                 .map(|v| {
                     budget.take(1)?;
                     let obj = object(v)?;
-                    let artist_id = id(obj, "id")?.ok_or(ExchangeError::Malformed)?;
-                    Ok(RelatedArtist {
-                        image_id: Some(id(obj, "coverArt")?.unwrap_or_else(|| artist_id.clone())),
-                        id: ArtistId::new(artist_id),
-                        name: required_text(obj, "name")?,
-                        image_url: None,
-                        user_favorite: favorite(obj)?,
-                        user_rating: number(obj, "userRating")?,
-                    })
+                    normalize_related(obj, true)
                 })
                 .collect::<Result<Vec<_>>>()
         })
@@ -182,4 +174,19 @@ pub async fn get_album_artist_info(
     };
     context.check(clock.now()).map_err(ExchangeError::Context)?;
     result
+}
+
+pub(super) fn normalize_related(
+    obj: &Map<String, Value>,
+    preserve_zero: bool,
+) -> Result<RelatedArtist> {
+    let artist_id = id(obj, "id")?.ok_or(ExchangeError::Malformed)?;
+    Ok(RelatedArtist {
+        image_id: Some(id(obj, "coverArt")?.unwrap_or_else(|| artist_id.clone())),
+        id: ArtistId::new(artist_id),
+        name: required_text(obj, "name")?,
+        image_url: None,
+        user_favorite: favorite(obj)?,
+        user_rating: number(obj, "userRating")?.filter(|n| preserve_zero || *n != 0.0),
+    })
 }

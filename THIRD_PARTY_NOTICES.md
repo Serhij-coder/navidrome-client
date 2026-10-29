@@ -51,3 +51,5 @@ The P03.03 collection continuation adapts pinned Feishin folder/role/random/simi
 The local P03 playlist/genre list continuation adapts pinned Feishin list/count/normalization/slicing rules under GPL-3.0-only. Optional source replay uses hash-bound Lodash4.17.21 (MIT), already reference infrastructure rather than a distributed dependency. See [list verification](docs/app/p03/local-lists.md).
 
 The P03 enrichment continuation adapts pinned Feishin artist-info and album/artist-radio controller rules and shared song normalization under GPL-3.0-only. [Enrichment verification](docs/app/p03/enrichment-reads.md) records original-expression provenance; no new distributed dependency is added.
+
+The artist-list continuation adapts pinned Feishin artist/album-artist list/count and shared sorting/normalization rules under GPL-3.0-only. [Artist verification](docs/app/p03/artist-lists.md) records original-expression provenance; no distributed dependency is added.

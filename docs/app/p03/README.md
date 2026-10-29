@@ -62,3 +62,5 @@ The [collection read continuation](collection-reads.md) adds music folders, type
 The [local list continuation](local-lists.md) adds playlist lists/counts and genre lists with full local sort/search/page behavior. General server count probing and pagination remain open.
 
 The [enrichment continuation](enrichment-reads.md) adds artist biography/similar artists and album/artist radio recommendations, with a characterized HTTP-only optional-info fallback. No radio/playback engine is implied.
+
+The [artist list continuation](artist-lists.md) adds distinct artist/album-artist lists and counts, retaining source role/favorite/filter/sort limits and related-artist metadata. General song/album count probing remains open.
