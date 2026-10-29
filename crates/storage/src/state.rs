@@ -223,11 +223,10 @@ impl<A: AtomicStore, J: AtomicStore, P: AtomicStore> StateRepository<A, J, P> {
     }
 }
 fn encode(env: &Envelope) -> Result<Vec<u8>, StateError> {
-    let bytes = serde_json::to_vec(env).map_err(|_| StateError::InvalidState)?;
-    if bytes.len() > MAX_BYTES {
-        return Err(StateError::Storage(Error::TooLarge));
-    }
-    Ok(bytes)
+    crate::bounded_json::encode(env, MAX_BYTES).map_err(|error| match error {
+        crate::bounded_json::EncodeError::TooLarge => StateError::Storage(Error::TooLarge),
+        crate::bounded_json::EncodeError::Invalid => StateError::InvalidState,
+    })
 }
 fn decode(bytes: &[u8]) -> Result<Envelope, StateError> {
     if bytes.len() > MAX_BYTES {

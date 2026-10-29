@@ -201,10 +201,13 @@ fn recovery_field_shapes_and_unknown_keys_are_predictable() {
         })
         .collect();
     oversized.current_server = None;
-    assert_eq!(
-        ProfileRepository::new(Memory::default()).save(&oversized),
-        Err(Error::TooLarge)
-    );
+    let store = Memory::default();
+    let mut repo = ProfileRepository::new(store.clone());
+    repo.save(&data()).unwrap();
+    let before = store.bytes.borrow().clone();
+    assert_eq!(repo.save(&oversized), Err(Error::TooLarge));
+    assert_eq!(*store.bytes.borrow(), before);
+    assert_eq!(repo.load().unwrap().data, data());
 }
 
 #[cfg(windows)]

@@ -166,11 +166,10 @@ fn replace_current(
     Ok(())
 }
 fn encode(envelope: &Envelope) -> Result<Vec<u8>, JournalError> {
-    let bytes = serde_json::to_vec(envelope).map_err(|_| JournalError::InvalidJournal)?;
-    if bytes.len() > MAX_BYTES {
-        return Err(JournalError::Storage(Error::TooLarge));
-    }
-    Ok(bytes)
+    crate::bounded_json::encode(envelope, MAX_BYTES).map_err(|error| match error {
+        crate::bounded_json::EncodeError::TooLarge => JournalError::Storage(Error::TooLarge),
+        crate::bounded_json::EncodeError::Invalid => JournalError::InvalidJournal,
+    })
 }
 fn decode(bytes: Option<&[u8]>) -> Result<Envelope, JournalError> {
     let Some(bytes) = bytes else {

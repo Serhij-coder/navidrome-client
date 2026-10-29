@@ -480,13 +480,10 @@ pub fn validate_data(data: &MigrationData) -> Result<(), ImportError> {
             return Err(ImportError::InvalidData);
         }
     }
-    if serde_json::to_vec(data)
-        .map_err(|_| ImportError::InvalidData)?
-        .len()
-        > MAX_BYTES
-    {
-        return Err(ImportError::OutputTooLarge);
-    }
+    crate::bounded_json::encode(data, MAX_BYTES).map_err(|error| match error {
+        crate::bounded_json::EncodeError::TooLarge => ImportError::OutputTooLarge,
+        crate::bounded_json::EncodeError::Invalid => ImportError::InvalidData,
+    })?;
     Ok(())
 }
 

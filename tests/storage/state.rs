@@ -260,6 +260,16 @@ fn preparation_bounds_current_and_backup_together() {
     };
     let save = r.prepare_save(&data).unwrap();
     r.apply(&save).unwrap();
+    let before = a.0.borrow().bytes.clone();
+    let loaded = r.load().unwrap();
+    assert_eq!(
+        loaded.snapshot.data.queue.as_ref().unwrap().occurrences[0].song_id,
+        "song"
+    );
+    assert_eq!(
+        loaded.snapshot.data.queue.as_ref().unwrap().occurrences[1].song_id,
+        "song"
+    );
     data.profile.preferences.language = "de".into();
     assert_eq!(
         r.prepare_preferences(1, data.profile.preferences.clone())
@@ -271,6 +281,8 @@ fn preparation_bounds_current_and_backup_together() {
         Some(StateError::Storage(Error::TooLarge))
     );
     assert_eq!(a.0.borrow().writes, 1);
+    assert_eq!(a.0.borrow().bytes, before);
+    assert_eq!(r.load().unwrap(), loaded);
 }
 
 #[test]

@@ -3,6 +3,8 @@
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
+mod bounded_json;
+
 pub mod imports;
 pub mod journal;
 pub mod settings_migration;
@@ -176,13 +178,22 @@ impl<S: AtomicStore> ProfileRepository<S> {
         if let Some(old) = self.store.read()? {
             decode(&old)?;
         }
-        let bytes = serde_json::to_vec(&serde_json::json!({
-            "schema_version": SCHEMA_VERSION, "data": data
-        }))
-        .map_err(|_| Error::InvalidDocument)?;
-        if bytes.len() > MAX_BYTES {
-            return Err(Error::TooLarge);
+        #[derive(Serialize)]
+        struct Envelope<'a> {
+            data: &'a ProfileData,
+            schema_version: u64,
         }
+        let bytes = bounded_json::encode(
+            &Envelope {
+                data,
+                schema_version: SCHEMA_VERSION,
+            },
+            MAX_BYTES,
+        )
+        .map_err(|error| match error {
+            bounded_json::EncodeError::TooLarge => Error::TooLarge,
+            bounded_json::EncodeError::Invalid => Error::InvalidDocument,
+        })?;
         self.store.replace(&bytes)
     }
 }
