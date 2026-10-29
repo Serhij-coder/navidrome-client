@@ -1,0 +1,29 @@
+# ADR-006: explicit credential retention and optional Linux Secret Service
+
+Status: accepted for bounded P02.06 library policy/adapters, 2026-10-29. Authentication UI, persisted consent/revocation reconciliation and prompt-aware executor integration remain open. This does not complete P02.06 or P02.
+
+## Source evidence
+
+Pinned Feishin `7d6ad318c79802e226996cfc39acba6b05bb22e8` has two different persistence mechanisms. `auth.store.ts` persists credential-bearing current/server records; its logout action clears credential/ndCredential/savePassword in renderer state. The main password handlers use Electron safeStorage and electron-store (`src/main/features/core/settings/index.ts:154-194`): encrypted strings are hex-encoded by server ID; unavailable encryption makes Get return null and Set return false. These handlers do not establish a Rust-compatible encrypted file format or a safe import procedure.
+
+Static call-site inspection also distinguishes explicit Add/Edit opt-in from LoginRoute: AddServerForm stores the separate password only with localSettings and savePassword; EditServerForm can set/remove it; LoginRoute stores a nonempty entered password whenever localSettings exists, without that checkbox. See [migration anchors](../migration/p02-credentials.csv). These are exact source observations, not a runtime keychain replay or a claim that upstream defaults are globally session-only.
+
+## Decision and boundaries
+
+Use a bounded `CredentialOwner` inside the existing storage crate. Default/new session ownership performs no provider I/O and retains values only in memory. Explicit `remember`, `restore_remembered` and `forget` operations are separate from session insertion/clear. They are action-level APIs, not a persisted preference or implemented login checkbox. There is no automatic remembered lookup/retry and no credential import from the old renderer/password files. Profile, preference, import and backup schemas remain non-secret and unchanged.
+
+Keys are domain-separated length-prefixed SHA-256 digests of an explicit development-data namespace, server ID, backend, canonical validated endpoint, account and credential slot. The key retains only the digest; display-name changes preserve identity. Session tokens and login passwords have distinct slots. Selectors prevent accidental cross-profile reuse; hashes/attributes are not an application access-control mechanism. Payloads are opaque bytes, keeping backend-specific token/password DTOs outside portable code. Secrets have no Debug/Serialize implementation. Ownership release is not a guarantee to zero every allocator/SDK copy.
+
+The owner retains at most 128 values of at most 64 KiB each, without a universal Send bound. Failed oversized/capacity replacement preserves the previous session value. Remember failure leaves the session usable but reports an error. Forget removes the session value first; if provider deletion fails, it reports an error because a durable copy may remain. The future auth/settings owner must reconcile that result before claiming revocation. Clearing only the session deliberately leaves a previously remembered OS entry intact.
+
+Browser/default feature-off code uses `NoPersistence`: explicit remember/restore returns Unsupported and no localStorage/sessionStorage/cookie fallback exists. A local session forget succeeds because that provider never persisted the namespace. This deliberately differs from automatic upstream credential-bearing profile persistence and the LoginRoute password setter. Future durable browser remembering requires a separate explicit policy; it is not silently enabled.
+
+On Linux, optional `linux-secret-service` selects pinned secret-service 5.2.0 with Rust crypto and the existing zbus 5.19.0. Constructing `LinuxCredentials` is lazy. Blocking operations negotiate encrypted DH sessions without plaintext-session fallback, use only fixed application/development/schema attributes plus the hashed key, and reject locked or ambiguous matching items across collections. New entries use the default collection; lookup/update/deletion also find existing matching entries in another collection. They never unlock a collection themselves, read the Electron store or create a collection merely to read. Errors map to closed categories without provider messages or secret contents. Production constructors can use the user's Secret Service only when the caller explicitly invokes an operation; tests pass a private connection.
+
+These synchronous methods belong on a bounded worker. Secret Service method timeouts do not guarantee a bound on every provider prompt: the library can execute a prompt during item creation/deletion even after an unlocked precheck. Prompt/cancellation/outcome handling must be integrated before application remembering is advertised. The new adapter is not yet wired into the desktop storage worker or the asynchronous domain SecretStore port. Retained-value limits are not a preallocation limit on all provider/SDK replies. GNOME fixture success does not certify other providers or OS environments.
+
+## Alternatives and consequences
+
+Plaintext profile/localStorage fallback would violate secret separation. Reusing the original password file would couple the rewrite to Electron encryption and live user data. A new crate per credential layer or full auth UI would exceed this bounded task. Secret Service supplies an existing Linux protection boundary; implementing custom cryptography or a password-file format is unnecessary. The feature remains optional and does not promise a provider is installed/unlocked. Existing package versions remain locked; added dependency notices are collected with the same feature selection.
+
+See [implemented policy/API](../p02/credentials.md) and [verification](../p02/credential-verification.md). P02.06 consent/login/logout/server-removal wiring and P02.07 cache/cancellation remain explicitly tracked.

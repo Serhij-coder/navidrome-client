@@ -1,21 +1,22 @@
 # Project scratchpad
 
-- Stage: bounded P02 foundations/storage/imports/worker plus opt-in native preference consumption. P00/P01/P02 exits remain open; not a working music client.
+- Stage: bounded P02 foundations/storage/imports/worker, opt-in native preferences and credential library. P00/P01/P02 exits remain open; not a working music client.
 - Sequencing: [P02 exception](p01/exit-decision.md) keeps P01 open; address it only for concrete implementation blockers. No release/parity gate waived.
-- Scope: Linux and WASM/browser build/test only; Windows/macOS excluded. Both Linux AppImage CPUs retained. [ADR002](adr/002-target-matrix.md).
-- Native: `--profile-root ABS_PATH` loads isolated profiles/preferences via one storage worker; default P01 mode opens none. Synthetic table remains independent; no backend connection/playback restore.
-- Preferences: explicit Save/Reload, language retained only, confirmed System/Dark egui mapping. Revision-checked small worker patch preserves all other durable fields; no full DTO serialization on UI.
-- Close/error: accepted save finishes before cooperative shutdown; failure keeps window open. Reload required after error/uncertainty. Unavailable Save is inert text because pinned AT-SPI disabled-button states are misleading.
-- Storage: active current+backup/revision; legacy-v1 read-only seed; immutable reviewed tokens, stale guards, repeated occurrence identities. Profile/import activation UI still open.
-- Worker: bounded1-8 outstanding incl unread replies; queued cancel/expiry only. No live replacement; old writer must finish before replacement and blocked OS calls cannot be killed.
-- Browser: local non-Send dispatcher proven; new command compiles for WASM. Background storage and browser shell consumption remain open.
-- Checks: workspace184 pass incl4 compile-fail/13 optional ignored; final desktop5 controller+2 CLI pass; strengthened state patch regression pass. Storage state10/session7, workspace fmt/Clippy, wgpu-only and WASM checks pass.
-- Native runtime: rebuilt offline on Ubuntu24.04 after host glibc mismatch; final owned Xvfb/private-bus journey16/16 pass, screenshot inspected. No physical/Wayland/live theme-change certification.
-- Tooling/reference: P00/link/inventory and7 reference tests pass; tooling74 pass/8 optional skips. Migration IDs/CSV and runtime evidence checked.
-- Records: [native contract](p02/desktop-preferences.md), [verification](p02/desktop-preferences-verification.md), [migration](migration/p02-desktop.csv), [ADR004](adr/004-persistence.md).
-- Prior delivered:1df585c pushed; [hosted run](https://github.com/Serhij-coder/navidrome-client/actions/runs/40843105916) passed all five Linux/WASM/AppImage jobs.
-- Review: one independent Sol medium reviewer satisfied with no actionable findings; independently passed desktop7/storage17/tooling2 and diff checks.
-- Gaps: full profiles/import/browser/localization/theme surfaces, real older-user corpus; P02.06 credential policy/stores; P02.07 cache/invalidation and broader cancellation. P05/P06 production reducers/engine not claimed.
-- P01: [remaining gates](p01/README.md) remain open; no unrelated prototype expansion this task.
-- Next: bounded P02.06 credential remembering policy/platform-store implementation, keeping browser limitations explicit; then cache/invalidation work.
+- Scope: Linux/WASM/browser build/test only; Windows/macOS excluded. Both Linux AppImage CPUs retained.
+- Native preferences: `--profile-root ABS_PATH`, small revision-checked worker patches, explicit Save/Reload and cooperative close. Synthetic table remains independent; no authentication/playback restoration.
+- Credentials: bounded session-only owner, no provider I/O on insertion; explicit remember/restore/forget. Keys bind namespace/server/backend/canonical endpoint/account/slot, retain digest only. No secrets in profile/journal schemas.
+- Linux optional `linux-secret-service`: encrypted DH, lazy worker-only provider; exact own attributes across collections, default collection only for creation; locked/ambiguous/unavailable errors, no plaintext fallback.
+- Browser/default: remember/restore Unsupported; local memory only, unchanged origin stores. Remember failure keeps session usable; forget clears memory but reports durable delete failure.
+- Retention difference: source Add/Edit checkbox differs from LoginRoute automatic password setter and auth-store credential persistence. [ADR006](adr/006-credentials.md) records deliberate explicit-action policy.
+- Checks: workspace190 pass incl4 compile-fail/13 optional ignored; feature-on credentials5/Linux2 pass, owned GNOME ignored fixture separately passes. Workspace/feature Clippy, fmt and WASM all-target checks pass.
+- Provider proof: private GNOME46.1/D-Bus1.14.10 on Ubuntu24.04; restart durability, replace/delete, locks, cross-collection/ambiguous/foreign selectors and plaintext scans pass. No live keyring/HOME override.
+- Browser proof: Chromium141/Firefox142/WebKit26 each pass5 credential-policy assertions; no localStorage/sessionStorage changes. No new auth UI claimed.
+- Dependencies:29 packages added, all earlier versions/checksums preserved; optional-feature registry notice inventory402 collected. Daemon is test infrastructure, not bundled.
+- Tooling/reference: P00/link/inventory and7 reference tests pass; tooling74 pass/8 optional skips. Migration CSV/stable IDs checked.
+- Records: [credential contract](p02/credentials.md), [verification](p02/credential-verification.md), [migration](migration/p02-credentials.csv), [ADR006](adr/006-credentials.md).
+- Prior delivered:bfbd9b9 pushed; [hosted run](https://github.com/Serhij-coder/navidrome-client/actions/runs/40847131827) passed all five jobs before this implementation began.
+- Review: one independent Sol medium reviewer satisfied, no actionable findings; independently passed seven optional-feature unit cases and diff checks.
+- Gaps: P02.06 auth/UI consent, durable revocation reconciliation, prompt-aware executor/async port and other providers; full imports/browser/localization; P02.07 cache/invalidation and broader cancellation. No P05/P06 production reducers/engine.
+- P01: [remaining gates](p01/README.md) stay open; no unrelated prototype expansion.
+- Next: bounded P02.07 server-scoped query keys/invalidation/cancellation; keep P02.06 login/consent/prompt integration tracked for adapter composition.
 - Workflow: Sol high orchestration, Terra medium implementation, one final independent Sol medium review. See [setup](development-workflow.md).

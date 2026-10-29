@@ -48,7 +48,7 @@ See [foundation verification](verification.md), [bounded import verification](im
 | P02.01-P02.03 | Foundation implemented and exercised; backend normalization/version discovery and concrete runtime scheduling remain their adapter/integration tasks |
 | P02.04 | Bounded native/browser non-secret subset implemented; full settings surface, shell composition/background browser scheduling, multi-process/tab coordination and OS/filesystem power-loss evidence remain unverified |
 | P02.05 | Bounded copied-input projection and atomic target backup/rollback implemented; unsupported fields/transforms, full settings/queue metadata, real historical-profile corpus and production adoption remain open |
-| P02.06 | Explicit remember-credential policy and native/browser secret-store implementations required; only the portable secret boundary exists |
+| P02.06 | Bounded session owner/explicit retention APIs and optional Linux Secret Service adapter implemented; browser remembering explicitly Unsupported. Login/UI consent, durable consent/revocation reconciliation and prompt-aware executor integration remain open |
 | P02.07 | Server-scoped cache keys, lifecycle/invalidation/cancellation and bounded queue/query/diagnostic serialization required; existing profile byte limits and operation contexts do not complete this task |
 
 The [foundation migration map](../migration/p02-foundation.csv) and [storage migration map](../migration/p02-storage.csv) retain exact source anchors, actual stable inventory IDs where functions exist, verification and gaps. Local reference analysis remains immutable and ignored. No full historical import, audio/device or end-to-end parity claim is made. See the [supported import matrix](imports.md) and [apply/rollback contract](import-journal.md).
@@ -62,3 +62,5 @@ The [active-state repository](state-adoption.md) adds explicit staged-projection
 The [storage worker continuation](state-worker.md) adds typed session dispatch, generation-scoped single-use review tokens and a bounded native thread. Browser local dispatch is exercised without a Web Worker claim. Shell/UI composition remains open; [verification](state-worker-verification.md) records exact results and lifecycle limits.
 
 The [native preferences continuation](desktop-preferences.md) wires explicit isolated storage into the desktop for two preference fields, with revision-checked worker patches and cooperative close. Full import/profile-management/browser consumption remains open; [verification](desktop-preferences-verification.md) records native input and recovery evidence.
+
+The [credential library continuation](credentials.md) adds session-only default ownership, explicit remember/restore/forget and optional Linux Secret Service, preserving non-secret profile/journal schemas. It remains separate from application authentication/remember controls; [verification](credential-verification.md) records owned provider/browser evidence and remaining gates.

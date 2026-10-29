@@ -1,5 +1,8 @@
 //! Test-only WASM export; not linked into either application shell.
 #[cfg(target_arch = "wasm32")]
+#[path = "credential_browser_probe.rs"]
+mod credential_probe;
+#[cfg(target_arch = "wasm32")]
 #[path = "session_browser_probe.rs"]
 mod session_probe;
 #[cfg(target_arch = "wasm32")]
@@ -17,6 +20,9 @@ mod probe {
         Ok(result)
     }
     fn run(action: &str) -> Result<bool, Error> {
+        if action.starts_with("credential-") {
+            return super::credential_probe::run(action).map_err(|_| Error::InvalidDocument);
+        }
         if action.starts_with("session-") {
             return super::session_probe::run(action).map_err(|_| Error::InvalidDocument);
         }

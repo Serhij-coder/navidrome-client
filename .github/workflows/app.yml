@@ -43,6 +43,12 @@ jobs:
           sudo apt-get update && sudo apt-get install -y dbus-daemon
           cargo clippy -p feishin-native-spike --features mpris-probe --all-targets --locked -- -D warnings
           cargo test -p feishin-native-spike --features mpris-probe --test mpris --locked
+      - name: Check optional credentials on an owned Secret Service
+        run: |
+          sudo apt-get update && sudo apt-get install -y dbus-daemon gnome-keyring
+          cargo clippy -p feishin-storage --features linux-secret-service --all-targets --locked -- -D warnings
+          cargo test -p feishin-storage --features linux-secret-service --test credentials --test linux_credentials --locked
+          P02_OWNED_SECRET_SERVICE=1 cargo test -p feishin-storage --features linux-secret-service --test linux_credentials owned_secret_service_roundtrip --locked -- --ignored
       - name: Check isolated optional GStreamer candidate
         if: runner.os == 'Linux'
         run: |

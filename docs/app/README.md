@@ -39,3 +39,5 @@ The [active-state continuation](p02/state-adoption.md) adds a single durable rep
 The [storage worker continuation](p02/state-worker.md) adds typed local session dispatch and a bounded native storage thread with review token ownership, correlation and latest-start cancellation. UI/shell composition and in-flight browser/native I/O cancellation remain open.
 
 The [opt-in desktop preferences](p02/desktop-preferences.md) now consume the isolated worker for two preference fields. This native flow preserves imported durable data and keeps the synthetic table independent; full profiles/import/browser/playback integration remains open.
+
+The [credential library](p02/credentials.md) adds bounded session-only defaults, explicit retention operations and an optional Linux Secret Service adapter, tested on an owned GNOME provider. Browser remembering is explicitly unsupported; application authentication/consent and provider-prompt integration remain open. [ADR-006](adr/006-credentials.md) records deliberate differences from upstream retention.

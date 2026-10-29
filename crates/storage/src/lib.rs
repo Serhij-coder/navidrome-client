@@ -289,3 +289,7 @@ pub fn decode(bytes: &[u8]) -> Result<Loaded, Error> {
 #[cfg(not(target_arch = "wasm32"))]
 pub mod native_worker;
 pub mod session;
+
+pub mod credentials;
+#[cfg(all(target_os = "linux", feature = "linux-secret-service"))]
+pub mod linux_credentials;

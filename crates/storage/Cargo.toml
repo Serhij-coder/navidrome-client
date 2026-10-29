@@ -14,6 +14,7 @@ feishin-domain = { path = "../domain" }
 serde.workspace = true
 serde_json.workspace = true
 url.workspace = true
+sha2 = "=0.10.9"
 
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
 tempfile.workspace = true
@@ -67,3 +68,19 @@ path = "../../tests/storage/session.rs"
 [[test]]
 name = "native_worker"
 path = "../../tests/storage/native_worker.rs"
+
+[features]
+linux-secret-service = ["dep:secret-service", "dep:zbus"]
+
+[target.'cfg(target_os = "linux")'.dependencies]
+secret-service = { version = "=5.2.0", default-features = false, features = ["rt-async-io-crypto-rust"], optional = true }
+zbus = { version = "=5.19.0", optional = true }
+
+[[test]]
+name = "credentials"
+path = "../../tests/storage/credentials.rs"
+
+[[test]]
+name = "linux_credentials"
+path = "../../tests/storage/linux_credentials.rs"
+required-features = ["linux-secret-service"]
