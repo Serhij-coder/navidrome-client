@@ -12,3 +12,7 @@ workspace = true
 [[test]]
 name = "foundation"
 path = "../../tests/domain/foundation.rs"
+
+[[test]]
+name = "query_cache"
+path = "../../tests/domain/query_cache.rs"

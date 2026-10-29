@@ -374,3 +374,5 @@ impl ServerFeature {
         }
     }
 }
+
+pub mod query_cache;

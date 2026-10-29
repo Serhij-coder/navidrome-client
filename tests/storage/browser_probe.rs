@@ -3,6 +3,9 @@
 #[path = "credential_browser_probe.rs"]
 mod credential_probe;
 #[cfg(target_arch = "wasm32")]
+#[path = "query_cache_browser_probe.rs"]
+mod query_cache_probe;
+#[cfg(target_arch = "wasm32")]
 #[path = "session_browser_probe.rs"]
 mod session_probe;
 #[cfg(target_arch = "wasm32")]
@@ -20,6 +23,9 @@ mod probe {
         Ok(result)
     }
     fn run(action: &str) -> Result<bool, Error> {
+        if action == "query-cache-flow" {
+            return super::query_cache_probe::run().map_err(|_| Error::InvalidDocument);
+        }
         if action.starts_with("credential-") {
             return super::credential_probe::run(action).map_err(|_| Error::InvalidDocument);
         }

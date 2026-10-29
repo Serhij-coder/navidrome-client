@@ -23,3 +23,5 @@ The private bounded Owner is a concrete contract demonstration: loads are correl
 See [foundation rules and verification](../p02/foundation.md) and [migration map](../migration/p02-foundation.csv). Full cache keys, per-server cancellation/invalidation and serialization budgets beyond the implemented bounded fixtures remain P02.07. ADR-004 covers bounded persistence separately; historical credential/import policy remains open.
 
 The subsequent [storage session/native worker](../p02/state-worker.md) implements concrete bounded storage scheduling only. It retains non-Send local stores, explicit correlation and owned review tokens. Its latest-start cancellation/deadlines do not implement in-flight backend/engine cancellation or change the general service-port obligations above.
+
+The bounded [query cache continuation](007-query-cache.md) implements server/library-scoped modeled keys and cooperative correlated invalidation/cancellation in the existing domain crate. This does not complete endpoint coverage, transport cancellation or runtime queue/query serialization.

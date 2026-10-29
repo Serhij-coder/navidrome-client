@@ -1,22 +1,19 @@
 # Project scratchpad
 
-- Stage: bounded P02 foundations/storage/imports/worker, opt-in native preferences and credential library. P00/P01/P02 exits remain open; not a working music client.
-- Sequencing: [P02 exception](p01/exit-decision.md) keeps P01 open; address it only for concrete implementation blockers. No release/parity gate waived.
-- Scope: Linux/WASM/browser build/test only; Windows/macOS excluded. Both Linux AppImage CPUs retained.
-- Native preferences: `--profile-root ABS_PATH`, small revision-checked worker patches, explicit Save/Reload and cooperative close. Synthetic table remains independent; no authentication/playback restoration.
-- Credentials: bounded session-only owner, no provider I/O on insertion; explicit remember/restore/forget. Keys bind namespace/server/backend/canonical endpoint/account/slot, retain digest only. No secrets in profile/journal schemas.
-- Linux optional `linux-secret-service`: encrypted DH, lazy worker-only provider; exact own attributes across collections, default collection only for creation; locked/ambiguous/unavailable errors, no plaintext fallback.
-- Browser/default: remember/restore Unsupported; local memory only, unchanged origin stores. Remember failure keeps session usable; forget clears memory but reports durable delete failure.
-- Retention difference: source Add/Edit checkbox differs from LoginRoute automatic password setter and auth-store credential persistence. [ADR006](adr/006-credentials.md) records deliberate explicit-action policy.
-- Checks: workspace190 pass incl4 compile-fail/13 optional ignored; feature-on credentials5/Linux2 pass, owned GNOME ignored fixture separately passes. Workspace/feature Clippy, fmt and WASM all-target checks pass.
-- Provider proof: private GNOME46.1/D-Bus1.14.10 on Ubuntu24.04; restart durability, replace/delete, locks, cross-collection/ambiguous/foreign selectors and plaintext scans pass. No live keyring/HOME override.
-- Browser proof: Chromium141/Firefox142/WebKit26 each pass5 credential-policy assertions; no localStorage/sessionStorage changes. No new auth UI claimed.
-- Dependencies:29 packages added, all earlier versions/checksums preserved; optional-feature registry notice inventory402 collected. Daemon is test infrastructure, not bundled.
-- Tooling/reference: P00/link/inventory and7 reference tests pass; tooling74 pass/8 optional skips. Migration CSV/stable IDs checked.
-- Records: [credential contract](p02/credentials.md), [verification](p02/credential-verification.md), [migration](migration/p02-credentials.csv), [ADR006](adr/006-credentials.md).
-- Prior delivered:bfbd9b9 pushed; [hosted run](https://github.com/Serhij-coder/navidrome-client/actions/runs/40847131827) passed all five jobs before this implementation began.
-- Review: one independent Sol medium reviewer satisfied, no actionable findings; independently passed seven optional-feature unit cases and diff checks.
-- Gaps: P02.06 auth/UI consent, durable revocation reconciliation, prompt-aware executor/async port and other providers; full imports/browser/localization; P02.07 cache/invalidation and broader cancellation. No P05/P06 production reducers/engine.
-- P01: [remaining gates](p01/README.md) stay open; no unrelated prototype expansion.
-- Next: bounded P02.07 server-scoped query keys/invalidation/cancellation; keep P02.06 login/consent/prompt integration tracked for adapter composition.
-- Workflow: Sol high orchestration, Terra medium implementation, one final independent Sol medium review. See [setup](development-workflow.md).
+- Stage: bounded P02 models/storage/imports/preferences/credentials/cache foundations. P00/P01/P02 exits open; not a working music client.
+- Sequencing: [P02 exception](p01/exit-decision.md) keeps P01 open; address only concrete implementation blockers. No release/parity waiver.
+- Scope: Linux/WASM/browser checks; Windows/macOS excluded. Both Linux AppImage CPUs retained.
+- P02.07: seven normalized list-key factories and scoped detail identity; server/library/filter/page separation, bounded schema-v1 keys, redacted Debug.
+- Cache: deterministic bounded LRU; 10s freshness/20s idle expiry; producer-accounted value budgets, fixed counts-only diagnostics. No heap/transport allocation guarantee.
+- Async: exact request/instance/server-generation tickets, deadline/supersession/cancel/invalidation/retirement rejection; Drop cancels pending flags. No HTTP abortion claim.
+- Credential executor: integrated branch9ab58b5; typed local dispatcher and bounded native worker; provider constructed/called on worker, no universal Send bound.
+- Credential limits: session-only default; explicit remember/restore/forget. Uncertain mutations preserved; latest-start deadline only, prompt/in-flight calls not interruptible.
+- Storage: isolated versioned profiles/import journal/active-state repository and bounded worker; opt-in desktop two-field preferences. Full shell/auth/import adoption open.
+- Checks: assembled workspace213 pass incl4 compile-fail/13 optional ignored; workspace fmt/Clippy and domain/storage/web/remote WASM Clippy pass.
+- Optional credential-feature Clippy and12 executor/worker cases pass. Cache WASM runtime: Chromium141/Firefox142/WebKit26 each4 assertions pass, stores unchanged.
+- [Cache contract](p02/query-cache.md), [ADR007](adr/007-query-cache.md), [migration](migration/p02-cache.csv), [verification](p02/query-cache-verification.md).
+- [Credential executor](p02/credential-executor.md) separately reviewed; branch CI all5 jobs passed. Combined independent Sol medium review satisfied; no actionable issues.
+- Gaps: P02.05 complete imports/adoption; P02.06 auth/consent/revocation/prompt integration; P02.07 endpoint coverage, transport/UI cancellation and runtime queue/query budgets.
+- Next: after hosted CI, bound runtime query/queue serialization and diagnostic consumers; keep P03 on its separate branch pending integration decision.
+- P01 [remaining gates](p01/README.md) stay open; no unrelated prototype expansion or production reducer/engine claims.
+- Workflow: Sol high orchestration, Terra medium implementation, one final independent Sol medium review. [Setup](development-workflow.md).
