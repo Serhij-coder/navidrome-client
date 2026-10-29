@@ -13,7 +13,7 @@ fn check(clock: &dyn Clock, context: OperationContext<'_>, server: &ServerId) ->
     context.check_items(1).map_err(ExchangeError::Context)?;
     validate_identity(server, "collection")
 }
-fn count(value: Option<u64>) -> Result<Option<String>> {
+pub(super) fn count(value: Option<u64>) -> Result<Option<String>> {
     value
         .map(|v| {
             if v > 9_007_199_254_740_991 {
@@ -24,7 +24,7 @@ fn count(value: Option<u64>) -> Result<Option<String>> {
         })
         .transpose()
 }
-fn nested_array<'a>(
+pub(super) fn nested_array<'a>(
     response: &'a Map<String, Value>,
     parent: &str,
     key: &str,
@@ -159,7 +159,7 @@ pub async fn get_artist_roles(
     result
 }
 
-fn songs(
+pub(super) fn songs(
     values: &[Value],
     server: &ServerId,
     context: OperationContext<'_>,

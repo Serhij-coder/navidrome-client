@@ -60,3 +60,5 @@ The [playlist snapshot continuation](playlist-reads.md) adds separate metadata, 
 The [collection read continuation](collection-reads.md) adds music folders, typed artist-role choices, random songs and similar songs with source-specific filtering and UTF-16 ordering. General lists/counting and real transport remain open.
 
 The [local list continuation](local-lists.md) adds playlist lists/counts and genre lists with full local sort/search/page behavior. General server count probing and pagination remain open.
+
+The [enrichment continuation](enrichment-reads.md) adds artist biography/similar artists and album/artist radio recommendations, with a characterized HTTP-only optional-info fallback. No radio/playback engine is implied.

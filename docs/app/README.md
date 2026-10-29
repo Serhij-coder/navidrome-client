@@ -59,3 +59,5 @@ The [P03.03 playlist snapshot reads](p03/playlist-reads.md) preserve metadata, o
 The [P03.03 collection reads](p03/collection-reads.md) add music folders, artist roles and random/similar songs with explicit source folder/filter limits and deterministic original-controller evidence.
 
 The [P03.03/P03.04 local lists](p03/local-lists.md) add playlist lists/counts and genre lists with source search/sort/slicing, including null-order and zero-limit characterization.
+
+The [P03.03 enrichment reads](p03/enrichment-reads.md) add artist information and album/artist recommendations while retaining duplicate songs, optional metadata and source-specific HTTP behavior.

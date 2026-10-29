@@ -2,6 +2,7 @@
 //! Concrete network I/O is supplied by the caller through a local transport.
 mod album;
 mod collections;
+mod enrichment;
 mod lists;
 mod playlist;
 mod protocol;
@@ -9,6 +10,7 @@ mod read_support;
 mod song;
 pub use album::{get_album, get_album_artist};
 pub use collections::{get_artist_roles, get_music_folders, get_random_songs, get_similar_songs};
+pub use enrichment::{get_album_artist_info, get_album_radio, get_artist_radio};
 pub use lists::{get_genres, get_playlist_count, get_playlists};
 pub use playlist::{get_playlist, get_playlist_song_ids, get_playlist_songs};
 pub use protocol::*;
