@@ -1,6 +1,6 @@
 //! Single-owner active durable state. Blocking operations belong on a bounded worker.
 use crate::{
-    AtomicStore, Error, MAX_BYTES, Recovery,
+    AtomicStore, Error, MAX_BYTES, Preferences, Recovery,
     imports::{self, MigrationData},
     journal::{JournalError, JournalRepository},
 };
@@ -131,6 +131,19 @@ impl<A: AtomicStore, J: AtomicStore, P: AtomicStore> StateRepository<A, J, P> {
         // Reject oversized caller-owned input before duplicating its allocations.
         imports::validate_data(data).map_err(|_| StateError::InvalidState)?;
         self.prepare(data.clone(), None, false)
+    }
+    pub fn prepare_preferences(
+        &mut self,
+        expected_revision: u64,
+        preferences: Preferences,
+    ) -> Result<PreparedState, StateError> {
+        let (expected, legacy, mut env, _) = self.baseline()?;
+        if env.current.revision != expected_revision {
+            return Err(StateError::Conflict);
+        }
+        let mut data = env.current.data.clone();
+        data.profile.preferences = preferences;
+        Self::make(expected, legacy, None, &mut env, data, false)
     }
     pub fn prepare_adoption(&mut self) -> Result<PreparedState, StateError> {
         let (stage, bytes) = self.journal.snapshot_and_bytes()?;

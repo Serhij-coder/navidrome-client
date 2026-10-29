@@ -1,5 +1,5 @@
 //! Bounded non-secret development profiles. Native methods are blocking worker APIs.
-//! No shell loads these profiles yet. Credentials and historical imports are separate work.
+//! Opt-in desktop consumption uses the session/native worker. Credentials remain separate.
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 

@@ -2,6 +2,8 @@
 
 P02.02-P02.05 now has a typed application-facing dispatcher around the [durable repository](state-adoption.md), plus a dedicated native storage thread. Both are modules in the existing storage crate. The desktop/full-web shells still use P01 spike state; this increment does not hydrate UI or restore production playback. Remote remains a controller and gains no playback owner.
 
+The subsequent [opt-in desktop preferences](desktop-preferences.md) consume this worker and add a revision-checked preference-only patch command. Full import UI, browser consumption and production queue/playback ownership remain separate.
+
 ## Portable protocol
 
 `session::Session` owns all three repository handles. Requests carry a nonzero session generation, nonzero request ID, explicit monotonic `Duration` deadline and a typed command. Replies echo the request correlation and contain a typed response or closed error category. Callers must choose a new generation for every replacement session and use increasing request IDs for correlation. No raw copied-source bytes appear in response/error diagnostics or `Debug` formatting.

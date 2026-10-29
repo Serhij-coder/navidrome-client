@@ -14,8 +14,12 @@ wgpu = ["dep:wgpu", "eframe/wgpu", "eframe/x11", "eframe/wayland"]
 [dependencies]
 wgpu = { version = "=27.0.1", default-features = false, features = ["vulkan", "gles", "dx12", "metal", "wgsl"], optional = true }
 eframe.workspace = true
+feishin-storage = { path = "../../crates/storage" }
 feishin-spike-ui = { path = "../../crates/spike-ui" }
 feishin-native-spike = { path = "../../crates/native-spike" }
+
+[dev-dependencies]
+tempfile.workspace = true
 
 [lints]
 workspace = true

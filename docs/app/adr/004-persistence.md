@@ -1,6 +1,6 @@
 # ADR-004: bounded development profile persistence
 
-Status: accepted for P02.04 non-secret development profiles and bounded P02.05 copied-input projection/journal, 2026-10-28. Full historical migration, shell adoption and credential policy remain open.
+Status: accepted for P02.04 non-secret development profiles and bounded P02.05 copied-input projection/journal, 2026-10-28. Full historical migration, profile/import shell adoption and credential policy remain open; bounded native preference consumption is accepted below.
 
 2026-10-29 continuation: accepted single-owner active durable repository below; production shell/worker composition remains open.
 
@@ -68,3 +68,9 @@ Accept a typed portable `session::Session` and a native `NativeWorker` inside th
 The native wrapper uses a dedicated thread and nonblocking submit/poll instead of adding a general async runtime or blocking the UI with filesystem work. Explicit shutdown closes admission, rejects queued work and permits an active operation to finish; joining is conditional on observed thread completion. No thread API can forcibly interrupt a blocked filesystem call. Deadline/cancellation checks are latest-start gates and cannot change the outcome of a write already dispatched. Cross-process/tab CAS remains unimplemented.
 
 Browser localStorage stays a local synchronous dispatcher path, verified separately from native threading. It is unavailable in Web Workers. IndexedDB/message-worker composition and browser frame-latency evidence remain later work. The alternative of claiming a universal background worker over Window-only storage was rejected; moving to a new browser database during this bounded task would require a separate compatibility decision. Shell/UI integration remains open, and none of this establishes P05 playback ownership or full P02.07 cancellation. See [protocol and lifecycle](../p02/state-worker.md) and [checks](../p02/state-worker-verification.md).
+
+## Opt-in desktop consumption
+
+Accept explicit `--profile-root` native consumption of the retained profile/preferences subset. Default P01 launch opens no application profile. The UI sends a small preference DTO and expected revision; `prepare_preferences` patches the current data against one exact baseline on the worker, preserving profiles/selection and all imported queue/settings data. Preparing/applying the whole serialized UI snapshot would add UI work and risk dropping fields outside the form, so it is rejected. Only a matching apply acknowledgment publishes durable state/theme. Failure requires Reload; cooperative close waits for accepted work and stays open if a save fails.
+
+Map confirmed follow-system=true to egui System, false to Dark, anchored to source defaults at `settings.store.ts:1360,1374,1433`. Full source theme identities, overrides and localization are deferred; preferred language is explicitly storage-only in the current English UI. Hide the P01 global theme controls only in persistent mode to keep one theme preference owner. A pinned AT-SPI disabled-button mapping issue is bounded here by exposing inert unavailable-save text instead of a misleading action. This is native preference consumption, not full application/profile/import/playback parity. See [contract](../p02/desktop-preferences.md), [migration](../migration/p02-desktop.csv) and [verification](../p02/desktop-preferences-verification.md).

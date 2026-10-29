@@ -1043,6 +1043,8 @@ dependencies = [
  "eframe",
  "feishin-native-spike",
  "feishin-spike-ui",
+ "feishin-storage",
+ "tempfile",
  "wgpu",
 ]
 

@@ -1,0 +1,31 @@
+{
+  "checks": {
+    "legacy_startup_read_only": true,
+    "profile_summary": true,
+    "startup_language": true,
+    "startup_appearance": true,
+    "native_save": true,
+    "double_save_idempotent": true,
+    "profile_preserved": true,
+    "legacy_unchanged": true,
+    "reload": true,
+    "reopen": true,
+    "accepted_save_survives_close": true,
+    "checked_revision": true,
+    "future_save_unavailable": true,
+    "future_preserved": true,
+    "default_has_no_preferences": true,
+    "default_no_profile_namespace": true
+  },
+  "conclusion": "success",
+  "binary_sha256": "a31e79eeaef18605b037c73e1b59d9945aa741046193fe6780ba93f90a081876",
+  "scope": "Actual AT-SPI state and injected X11 keys on private Xvfb/D-Bus; no physical input, Wayland, browser, translation or playback certification",
+  "environment": {
+    "date": "2026-10-29",
+    "os": "Ubuntu 24.04.3 container; network disconnected",
+    "display": "owned Xvfb 1280x900/private D-Bus/Openbox; Mesa software GL",
+    "toolchain": "Rust/Cargo 1.92.0; native debug build inside Ubuntu with locked offline Cargo inputs",
+    "source_base": "1df585c; desktop-preference increment",
+    "screen_reader": "AT-SPI states inspected; no speech journey claimed"
+  }
+}

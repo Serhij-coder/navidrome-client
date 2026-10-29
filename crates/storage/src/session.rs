@@ -1,6 +1,6 @@
 //! Portable single-owner session. Deadlines and cancellation gate operation start only.
 use crate::{
-    AtomicStore, MAX_BYTES,
+    AtomicStore, MAX_BYTES, Preferences,
     imports::{CopiedInputs, ImportReport, MAX_INPUT_BYTES, MigrationData, SettingsCategory},
     journal::{self, PreparedImport},
     state::{self, PreparedState, StateRepository},
@@ -57,6 +57,10 @@ impl OwnedInputs {
 pub enum Command {
     Load,
     PrepareSave(Vec<u8>),
+    PreparePreferences {
+        expected_revision: u64,
+        preferences: Preferences,
+    },
     PrepareStage(OwnedInputs),
     PrepareAdoption,
     PrepareRollback,
@@ -66,6 +70,9 @@ pub enum Command {
 impl Command {
     pub fn validate_size(&self) -> Result<(), SessionError> {
         match self {
+            Self::PreparePreferences { preferences, .. } if preferences.language.len() > 64 => {
+                Err(SessionError::TooLarge)
+            }
             Self::PrepareSave(b) if b.len() > MAX_BYTES => Err(SessionError::TooLarge),
             Self::PrepareStage(i) if !i.bounded() => Err(SessionError::TooLarge),
             _ => Ok(()),
@@ -180,6 +187,16 @@ impl<A: AtomicStore, J: AtomicStore, P: AtomicStore> Session<A, J, P> {
                 let p = self
                     .repository
                     .prepare_save(&data)
+                    .map_err(SessionError::State)?;
+                self.active_review(p)
+            }
+            Command::PreparePreferences {
+                expected_revision,
+                preferences,
+            } => {
+                let p = self
+                    .repository
+                    .prepare_preferences(expected_revision, preferences)
                     .map_err(SessionError::State)?;
                 self.active_review(p)
             }

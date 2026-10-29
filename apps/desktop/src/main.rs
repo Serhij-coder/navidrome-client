@@ -1,9 +1,10 @@
+mod preferences;
 use feishin_native_spike::{
     AnalysisSession, AnalysisSource, AnalysisStatus, LogEvent, log_event, write_tone,
 };
 use feishin_spike_ui::SpikeApp;
 use std::{
-    path::Path,
+    path::{Component, Path, PathBuf},
     time::{Duration, Instant},
 };
 
@@ -81,6 +82,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         #[cfg(not(any(unix, windows)))]
         return Err("mpv IPC probe not implemented on this platform".into());
     }
+    let mut profile_root: Option<PathBuf> = None;
     let mut capture = None;
     let mut smoke = false;
     let mut hidden_smoke = false;
@@ -88,6 +90,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut index = 0;
     while index < args.len() {
         match args[index].as_str() {
+            "--profile-root" if index + 1 < args.len() && profile_root.is_none() => {
+                let path = PathBuf::from(&args[index + 1]);
+                if !path.is_absolute() || path.components().any(|c| matches!(c, Component::ParentDir)) { return Err("invalid profile root".into()); }
+                profile_root = Some(path); index += 2;
+            }
             "--capture-monitor" if index + 1 < args.len() => {
                 capture = Some(AnalysisSource::Monitor(args[index + 1].clone())); index += 2;
             }
@@ -95,7 +102,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             "--smoke" => { smoke = true; index += 1; }
             "--hidden-smoke" => { smoke = true; hidden_smoke = true; index += 1; }
             "--wgpu" => { renderer_wgpu = true; index += 1; }
-            _ => return Err("usage: feishin-desktop [--smoke|--hidden-smoke] [--wgpu] [--analysis-test-tone|--capture-monitor SOURCE] | --tone NEW.wav | --mpv-probe[-null] MPV FILE.wav | --ffplay-probe[-null] FFPLAY FILE.wav".into()),
+            _ => return Err("usage: feishin-desktop [--profile-root ABS_PATH] [--smoke|--hidden-smoke] [--wgpu] [--analysis-test-tone|--capture-monitor SOURCE] | --tone NEW.wav | --mpv-probe[-null] MPV FILE.wav | --ffplay-probe[-null] FFPLAY FILE.wav".into()),
         }
     }
     let renderer = if renderer_wgpu {
@@ -130,6 +137,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         options,
         Box::new(move |cc| {
             let mut ui = SpikeApp::new(&cc.egui_ctx, false);
+            ui.show_theme_controls = profile_root.is_none();
+            let preferences = profile_root.map(preferences::Controller::new).transpose()?;
             if capture.is_some() {
                 ui.enable_analysis();
             }
@@ -141,6 +150,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 .transpose()?;
             Ok(Box::new(DesktopProbe {
                 ui,
+                preferences,
                 capture,
                 started: Instant::now(),
                 smoke,
@@ -156,6 +166,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 struct DesktopProbe {
     ui: SpikeApp,
+    preferences: Option<preferences::Controller>,
     capture: Option<AnalysisSession>,
     started: Instant,
     smoke: bool,
@@ -181,6 +192,17 @@ impl eframe::App for DesktopProbe {
                 );
             } else {
                 self.ui.notice = None;
+            }
+        }
+        if let Some(preferences) = &mut self.preferences {
+            if !preferences.stopped() && ctx.input(|i| i.viewport().close_requested()) {
+                ctx.send_viewport_cmd(eframe::egui::ViewportCommand::CancelClose);
+                preferences.close();
+            }
+            preferences.tick(ctx);
+            preferences.show(ctx);
+            if preferences.stopped() {
+                ctx.send_viewport_cmd(eframe::egui::ViewportCommand::Close);
             }
         }
         self.ui.show(ctx);

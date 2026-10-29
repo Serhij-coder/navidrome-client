@@ -262,6 +262,11 @@ fn preparation_bounds_current_and_backup_together() {
     r.apply(&save).unwrap();
     data.profile.preferences.language = "de".into();
     assert_eq!(
+        r.prepare_preferences(1, data.profile.preferences.clone())
+            .err(),
+        Some(StateError::Storage(Error::TooLarge))
+    );
+    assert_eq!(
         r.prepare_save(&data).err(),
         Some(StateError::Storage(Error::TooLarge))
     );
@@ -288,4 +293,53 @@ fn oversized_local_input_is_rejected_without_changing_the_active_snapshot() {
     assert_eq!(r.prepare_save(&data).err(), Some(StateError::InvalidState));
     assert_eq!(r.load().unwrap().snapshot, before);
     assert_eq!(a.0.borrow().writes, 1);
+}
+
+#[test]
+fn preference_patch_preserves_adopted_data_and_rejects_stale_revision() {
+    let (mut r, active, journal, legacy) = repo();
+    let inputs = CopiedInputs {
+        settings: Some(include_bytes!("../fixtures/p02/imports/settings-v14.json")),
+        auth: Some(include_bytes!("../fixtures/p02/imports/auth-v2.json")),
+        player: Some(include_bytes!("../fixtures/p02/imports/player-v3.json")),
+        timestamp: Some(b"12.5"),
+        ..Default::default()
+    };
+    let stage = r.journal_mut().prepare(&inputs).unwrap();
+    r.journal_mut().apply(&stage).unwrap();
+    let adoption = r.prepare_adoption().unwrap();
+    let before = r.apply(&adoption).unwrap();
+    let mut expected = before.data.clone();
+    expected.profile.preferences.language = "de".into();
+    expected.profile.preferences.follow_system_theme = true;
+    let patch = r
+        .prepare_preferences(before.revision, expected.profile.preferences.clone())
+        .unwrap();
+    let after = r.apply(&patch).unwrap();
+    assert_eq!(after.data, expected);
+    assert_eq!(after.data.queue.as_ref().unwrap().occurrences.len(), 2);
+    assert!(!after.data.columns.is_empty());
+    assert!(after.data.auto_dj.is_some());
+    let writes = active.0.borrow().writes;
+    assert_eq!(
+        r.prepare_preferences(before.revision, Default::default())
+            .err(),
+        Some(StateError::Conflict)
+    );
+    let invalid = feishin_storage::Preferences {
+        language: "not valid".into(),
+        follow_system_theme: false,
+    };
+    assert_eq!(
+        r.prepare_preferences(after.revision, invalid).err(),
+        Some(StateError::InvalidState)
+    );
+    assert_eq!(active.0.borrow().writes, writes);
+    assert_eq!(
+        StateRepository::new(active, journal, legacy)
+            .load()
+            .unwrap()
+            .snapshot,
+        after
+    );
 }

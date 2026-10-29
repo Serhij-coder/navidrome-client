@@ -264,3 +264,42 @@ fn portable_bounds_malformed_save_and_recovery() {
         Err(SessionError::TooLarge)
     ));
 }
+
+#[test]
+fn typed_preference_patch_obeys_admission_and_review() {
+    let mut s = Session::new(
+        generation(1),
+        StateRepository::new(Store::default(), Store::default(), Store::default()),
+    );
+    let mut preferences = feishin_storage::Preferences {
+        language: "de".into(),
+        follow_system_theme: true,
+    };
+    let Response::ActiveReview { token, .. } = call(
+        &mut s,
+        Command::PreparePreferences {
+            expected_revision: 0,
+            preferences: preferences.clone(),
+        },
+    )
+    .ok()
+    .unwrap() else {
+        panic!()
+    };
+    let Response::AppliedActive(snapshot) = call(&mut s, Command::Apply(token)).ok().unwrap()
+    else {
+        panic!()
+    };
+    assert_eq!(snapshot.data.profile.preferences, preferences);
+    preferences.language = "a".repeat(65);
+    assert!(matches!(
+        call(
+            &mut s,
+            Command::PreparePreferences {
+                expected_revision: 1,
+                preferences
+            }
+        ),
+        Err(SessionError::TooLarge)
+    ));
+}

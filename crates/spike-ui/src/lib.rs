@@ -68,6 +68,7 @@ pub struct SpikeApp {
     #[cfg(not(target_arch = "wasm32"))]
     artwork: artwork::Artwork,
     artwork_enabled: bool,
+    pub show_theme_controls: bool,
 }
 
 impl SpikeApp {
@@ -87,6 +88,7 @@ impl SpikeApp {
             #[cfg(not(target_arch = "wasm32"))]
             artwork: artwork::Artwork::new(_ctx.clone()),
             artwork_enabled: false,
+            show_theme_controls: true,
             data,
             rows,
             query: Query::default(),
@@ -234,7 +236,7 @@ impl SpikeApp {
                 ui.toggle_value(&mut self.rtl, "RTL layout");
                 ui.toggle_value(&mut self.visualizer, "Analysis preset");
                 ui.add_enabled(!cfg!(target_arch = "wasm32"), egui::Checkbox::new(&mut self.artwork_enabled, "Owned artwork churn"));
-                egui::widgets::global_theme_preference_buttons(ui);
+                if self.show_theme_controls { egui::widgets::global_theme_preference_buttons(ui); }
             });
             if changed { self.reorder_notice = None; self.submit(ctx); }
             ui.label("Drag selected tracks to reorder. With album groups, tracks stay in one album; drag a header to move its whole album.");
