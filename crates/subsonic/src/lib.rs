@@ -14,6 +14,8 @@ mod read_support;
 mod search;
 mod song;
 mod song_count;
+mod song_list;
+mod song_order;
 pub use album::{get_album, get_album_artist};
 pub use album_count::get_album_count;
 pub use album_list::{AlbumReadEnvironment, get_albums};
@@ -26,6 +28,7 @@ pub use protocol::*;
 pub use search::search;
 pub use song::get_song;
 pub use song_count::get_song_count;
+pub use song_list::get_songs;
 
 use md5::{Digest, Md5};
 use std::fmt;

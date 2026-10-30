@@ -71,3 +71,5 @@ The [P03.03/P03.04 album lists](p03/album-lists.md) add all source list branches
 The [P03.04 song counts](p03/song-counts.md) add bounded stride/backtracking, search pages and album/artist fan-out with source-specific favorite rules and malformed-response fixtures.
 
 The [combined Subsonic search](p03/search.md) adds independently paged album-artist/album/song result families under one aggregate normalization budget.
+
+The [song-list continuation](p03/song-lists.md) adds all source routing paths, bounded album/artist fan-out and deterministic local favorite sorting with explicit created-date policies.

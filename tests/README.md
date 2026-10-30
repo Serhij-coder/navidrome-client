@@ -95,3 +95,5 @@ Subsonic `album_lists` explicitly wires every album-list branch/sort fixture, de
 The explicitly wired song_count Cargo target consumes [source count fixtures](fixtures/p03/subsonic-song-count.json) and a fixed-dataset server double for stride/page boundaries, bounded fan-out and asynchronous failure guards. [Contract](../docs/app/p03/song-counts.md).
 
 The explicitly wired search_reads Cargo target compares [combined-search fixtures](fixtures/p03/subsonic-search.json), all normalized fields and cross-family work/context bounds. [Contract](../docs/app/p03/search.md).
+
+The explicitly wired song_lists Cargo target consumes [song-list fixtures](fixtures/p03/subsonic-song-lists.json) for all routing/sort branches, full normalized outputs, RNG consumption, aggregate work and context guards. [Contract](../docs/app/p03/song-lists.md).

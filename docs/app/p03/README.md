@@ -72,3 +72,5 @@ The [complete album-list continuation](album-lists.md) adds all low-level source
 The [song-count continuation](song-counts.md) implements endpoint-specific 5000-stride probes, 500-row pages and bounded album/artist fan-out. Normalized song lists and runtime composition remain open.
 
 The [combined search continuation](search.md) adds normalized result families with independent optional windows and a shared work bound; no runtime facade is implied.
+
+The [song-list continuation](song-lists.md) implements all low-level source branches and local favorite sorting. Date-policy differences, folder/top/favorite composition and runtime integration remain explicit.
