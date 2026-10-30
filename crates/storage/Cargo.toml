@@ -96,3 +96,7 @@ path = "../../tests/storage/credential_worker.rs"
 [[test]]
 name = "payloads"
 path = "../../tests/storage/payloads.rs"
+
+[[test]]
+name = "playlist_backups"
+path = "../../tests/storage/playlist_backups.rs"

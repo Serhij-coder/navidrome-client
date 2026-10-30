@@ -1,0 +1,92 @@
+{
+  "baseline": "7d6ad318c79802e226996cfc39acba6b05bb22e8",
+  "sources": {
+    "src/renderer/api/subsonic/subsonic-controller.ts": "c5afb4748f8b6eaa721d8388e656172326074e7f002cd90b0505e4c1ec348af0"
+  },
+  "typescript_sha256": "569177652966bd528c319171c7dd22860dbf72bde116cbc4f644f1d02bb12e39",
+  "functions": {
+    "src/renderer/api/subsonic/subsonic-controller.ts:2212:22": "258e8ba33b18e6d7e223e3aa888c16666fb9400464a691c24a23cf40067f8ece"
+  },
+  "expressions": {
+    "backup": "07c2c3f5518b2ce1aad82ab35b0d83bdd23814ea2f24be0c4763b287ffa38465",
+    "backupKey": "75048a54b5d7963ae121bdcaca2e0a5e25bb9e646aabe19e39a00b223f93f010",
+    "write": "8d9260f8334ee042c4b55d077cfa9e29352c9e43f78dd04937a14f2ecd1489f8"
+  },
+  "cases": [
+    {
+      "server_id": "server-a",
+      "playlist_id": "p",
+      "song_ids": [
+        "same",
+        "other",
+        "same"
+      ],
+      "captured_at_unix_ms": 1234567890123,
+      "case_id": "same-id-server-a",
+      "name": "Canonical",
+      "expected": [
+        {
+          "key": "playlist-backup-p",
+          "value": {
+            "id": "p",
+            "name": "Canonical",
+            "songIds": [
+              "same",
+              "other",
+              "same"
+            ],
+            "timestamp": 1234567890123
+          }
+        }
+      ]
+    },
+    {
+      "server_id": "server-b",
+      "playlist_id": "p",
+      "song_ids": [
+        "same",
+        "other",
+        "same"
+      ],
+      "captured_at_unix_ms": 1234567890123,
+      "case_id": "same-id-server-b",
+      "name": "Canonical",
+      "expected": [
+        {
+          "key": "playlist-backup-p",
+          "value": {
+            "id": "p",
+            "name": "Canonical",
+            "songIds": [
+              "same",
+              "other",
+              "same"
+            ],
+            "timestamp": 1234567890123
+          }
+        }
+      ]
+    },
+    {
+      "server_id": "server-a",
+      "playlist_id": "p",
+      "song_ids": [],
+      "captured_at_unix_ms": 0,
+      "reject_write": true,
+      "case_id": "storage-rejection",
+      "name": "Canonical",
+      "expected_error": "Error",
+      "expected": [
+        {
+          "key": "playlist-backup-p",
+          "value": {
+            "id": "p",
+            "name": "Canonical",
+            "songIds": [],
+            "timestamp": 0
+          }
+        }
+      ]
+    }
+  ]
+}

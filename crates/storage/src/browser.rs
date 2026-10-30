@@ -9,6 +9,10 @@ pub struct BrowserStore {
 impl BrowserStore {
     pub const KEY: &'static str = "feishin-rust:dev:p02:profiles:v1";
     pub const IMPORT_KEY: &'static str = "feishin-rust:dev:p02:imports:v1";
+    pub const PLAYLIST_BACKUP_KEY: &'static str = "feishin-rust:dev:p03:playlist-backups:v1";
+    pub fn open_playlist_backups() -> Result<Self, Error> {
+        Self::open_key(Self::PLAYLIST_BACKUP_KEY)
+    }
     pub const STATE_KEY: &'static str = "feishin-rust:dev:p02:state:v1";
     pub fn open_state() -> Result<Self, Error> {
         Self::open_key(Self::STATE_KEY)

@@ -13,6 +13,10 @@ mod session_probe;
 mod state_probe;
 
 #[cfg(target_arch = "wasm32")]
+#[path = "playlist_backup_browser_probe.rs"]
+mod playlist_backup_probe;
+
+#[cfg(target_arch = "wasm32")]
 mod probe {
     use feishin_storage::*;
     use wasm_bindgen::prelude::*;

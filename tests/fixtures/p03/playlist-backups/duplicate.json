@@ -1,0 +1,1 @@
+{"schema_version":1,"revision":7,"backups":[{"serverId":"server-a","playlistId":"p","name":"First","songIds":["same"],"capturedAtUnixMs":123},{"serverId":"server-a","playlistId":"p","name":"Ambiguous second","songIds":["different"],"capturedAtUnixMs":124}]}

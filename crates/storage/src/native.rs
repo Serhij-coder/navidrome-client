@@ -22,6 +22,9 @@ impl NativeStore {
     pub fn open_state(development_root: impl AsRef<Path>) -> Result<Self, Error> {
         Self::open_file(development_root.as_ref(), "state-v1.json")
     }
+    pub fn open_playlist_backups(development_root: impl AsRef<Path>) -> Result<Self, Error> {
+        Self::open_file(development_root.as_ref(), "playlist-backups-v1.json")
+    }
     fn open_file(root: &Path, filename: &'static str) -> Result<Self, Error> {
         if !root.is_absolute() || root.components().any(|c| matches!(c, Component::ParentDir)) {
             return Err(Error::UnsafePath);

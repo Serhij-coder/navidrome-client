@@ -82,3 +82,5 @@ The [folder-navigation continuation](folders.md) adds root and music-directory r
 The [basic mutation continuation](basic-mutations.md) adds bounded favorite/rating/scan operations and checked user info. Application reconciliation, remaining mutations and real-server conformance stay open.
 
 The [playlist mutation continuation](playlist-mutations.md) adds create/metadata/delete/append/remove/direct-set requests and tracks the separate durable-backup replacement workflow.
+
+The [playlist-backup repository](playlist-backups.md) adds isolated versioned server-scoped recovery values with native and browser evidence; asynchronous replacement orchestration remains open.
