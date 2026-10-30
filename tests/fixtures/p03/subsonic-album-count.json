@@ -1,0 +1,3361 @@
+{
+  "baseline": "7d6ad318c79802e226996cfc39acba6b05bb22e8",
+  "sources": {
+    "src/renderer/api/subsonic/subsonic-controller.ts": "c5afb4748f8b6eaa721d8388e656172326074e7f002cd90b0505e4c1ec348af0",
+    "src/renderer/api/subsonic/subsonic-api.ts": "5c10deab6015915945d656578d0a6aa54cee7fdbcb846734698fc3d04dcbe54e",
+    "src/shared/api/subsonic/subsonic-types.ts": "06ecfdd15fd0b160ff404aa3cb54a6a87c4c02c8c1baa9f9943f0f9b68ebedc2"
+  },
+  "typescript_sha256": "569177652966bd528c319171c7dd22860dbf72bde116cbc4f644f1d02bb12e39",
+  "functions": {
+    "src/renderer/api/subsonic/subsonic-controller.ts:743:24": "3bc72300dc04a37b4d271017e1b8e5d4d77fa0345abc0e5a1b09049bbe9c3086",
+    "src/renderer/api/subsonic/subsonic-controller.ts:2504:1": "c2a1496b19ae0a4739d2778c4c1ff93f1aa62924bc2c515a47503d63a186efb4"
+  },
+  "bindings": {
+    "MAX_SUBSONIC_ITEMS": 500,
+    "AlbumListSortType": {
+      "ALPHABETICAL_BY_ARTIST": "alphabeticalByArtist",
+      "ALPHABETICAL_BY_NAME": "alphabeticalByName",
+      "BY_GENRE": "byGenre",
+      "BY_YEAR": "byYear",
+      "FREQUENT": "frequent",
+      "NEWEST": "newest",
+      "RANDOM": "random",
+      "RECENT": "recent",
+      "STARRED": "starred"
+    }
+  },
+  "routes": {
+    "getAlbumList2": {
+      "path": "getAlbumList2.view",
+      "method": "GET"
+    },
+    "getArtist": {
+      "path": "getArtist.view",
+      "method": "GET"
+    },
+    "getStarred": {
+      "path": "getStarred.view",
+      "method": "GET"
+    },
+    "search3": {
+      "path": "search3.view",
+      "method": "GET"
+    }
+  },
+  "cases": [
+    {
+      "name": "empty",
+      "current_year": 2026,
+      "query": {},
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": []
+            }
+          }
+        }
+      ],
+      "expected": 0,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "pages500-then2",
+      "current_year": 2026,
+      "query": {},
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            }
+          }
+        },
+        {
+          "body": {
+            "albumList2": {
+              "album": [
+                null,
+                null
+              ]
+            }
+          }
+        }
+      ],
+      "expected": 502,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        },
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 500,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "pages500-then0",
+      "current_year": 2026,
+      "query": {},
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            }
+          }
+        },
+        {
+          "body": {
+            "albumList2": {
+              "album": []
+            }
+          }
+        }
+      ],
+      "expected": 500,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        },
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 500,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "search-pages",
+      "current_year": 2026,
+      "query": {
+        "searchTerm": "A & B",
+        "musicFolderId": [
+          "first /&",
+          "ignored"
+        ]
+      },
+      "responses": [
+        {
+          "body": {
+            "searchResult3": {
+              "album": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            }
+          }
+        },
+        {
+          "body": {
+            "searchResult3": {
+              "album": [
+                null
+              ]
+            }
+          }
+        }
+      ],
+      "expected": 501,
+      "requests": [
+        {
+          "endpoint": "search3",
+          "args": {
+            "query": {
+              "albumCount": 500,
+              "albumOffset": 0,
+              "artistCount": 0,
+              "artistOffset": 0,
+              "musicFolderId": "first /&",
+              "query": "A & B",
+              "songCount": 0,
+              "songOffset": 0
+            }
+          }
+        },
+        {
+          "endpoint": "search3",
+          "args": {
+            "query": {
+              "albumCount": 500,
+              "albumOffset": 500,
+              "artistCount": 0,
+              "artistOffset": 0,
+              "musicFolderId": "first /&",
+              "query": "A & B",
+              "songCount": 0,
+              "songOffset": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "search-priority",
+      "current_year": 2026,
+      "query": {
+        "searchTerm": "x",
+        "artistIds": [],
+        "favorite": true
+      },
+      "responses": [
+        {
+          "body": {
+            "searchResult3": {
+              "album": [
+                null,
+                null
+              ]
+            }
+          }
+        }
+      ],
+      "expected": 2,
+      "requests": [
+        {
+          "endpoint": "search3",
+          "args": {
+            "query": {
+              "albumCount": 500,
+              "albumOffset": 0,
+              "artistCount": 0,
+              "artistOffset": 0,
+              "query": "x",
+              "songCount": 0,
+              "songOffset": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "search-missing",
+      "current_year": 2026,
+      "query": {
+        "searchTerm": "x"
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": 0,
+      "requests": [
+        {
+          "endpoint": "search3",
+          "args": {
+            "query": {
+              "albumCount": 500,
+              "albumOffset": 0,
+              "artistCount": 0,
+              "artistOffset": 0,
+              "query": "x",
+              "songCount": 0,
+              "songOffset": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "search-malformed",
+      "current_year": 2026,
+      "query": {
+        "searchTerm": "x"
+      },
+      "responses": [
+        {
+          "body": {
+            "searchResult3": {
+              "album": {}
+            }
+          }
+        }
+      ],
+      "target_error": "Malformed",
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "search3",
+          "args": {
+            "query": {
+              "albumCount": 500,
+              "albumOffset": 0,
+              "artistCount": 0,
+              "artistOffset": 0,
+              "query": "x",
+              "songCount": 0,
+              "songOffset": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "search-http",
+      "current_year": 2026,
+      "query": {
+        "searchTerm": "x"
+      },
+      "responses": [
+        {
+          "body": {
+            "searchResult3": {
+              "album": []
+            }
+          },
+          "status": 500
+        }
+      ],
+      "target_error": "Http",
+      "expected_error": "Error",
+      "requests": [
+        {
+          "endpoint": "search3",
+          "args": {
+            "query": {
+              "albumCount": 500,
+              "albumOffset": 0,
+              "artistCount": 0,
+              "artistOffset": 0,
+              "query": "x",
+              "songCount": 0,
+              "songOffset": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "artist-empty-priority",
+      "current_year": 2026,
+      "query": {
+        "artistIds": [],
+        "favorite": true
+      },
+      "responses": [],
+      "expected": 0,
+      "requests": []
+    },
+    {
+      "name": "artist-three",
+      "current_year": 2026,
+      "query": {
+        "artistIds": [
+          "a",
+          "b",
+          "a"
+        ]
+      },
+      "responses": [
+        {
+          "body": {
+            "artist": {
+              "album": [
+                null,
+                null
+              ]
+            }
+          }
+        },
+        {
+          "body": {
+            "artist": {
+              "album": [
+                null
+              ]
+            }
+          }
+        },
+        {
+          "body": {
+            "artist": {
+              "album": []
+            }
+          }
+        }
+      ],
+      "expected": 3,
+      "requests": [
+        {
+          "endpoint": "getArtist",
+          "args": {
+            "query": {
+              "id": "a"
+            }
+          }
+        },
+        {
+          "endpoint": "getArtist",
+          "args": {
+            "query": {
+              "id": "b"
+            }
+          }
+        },
+        {
+          "endpoint": "getArtist",
+          "args": {
+            "query": {
+              "id": "a"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "artist-http-reset",
+      "current_year": 2026,
+      "query": {
+        "artistIds": [
+          "a",
+          "b",
+          "c"
+        ]
+      },
+      "responses": [
+        {
+          "body": {
+            "artist": {
+              "album": [
+                null,
+                null
+              ]
+            }
+          }
+        },
+        {
+          "body": {},
+          "status": 500
+        },
+        {
+          "body": {
+            "artist": {
+              "album": [
+                null
+              ]
+            }
+          }
+        }
+      ],
+      "expected": 1,
+      "requests": [
+        {
+          "endpoint": "getArtist",
+          "args": {
+            "query": {
+              "id": "a"
+            }
+          }
+        },
+        {
+          "endpoint": "getArtist",
+          "args": {
+            "query": {
+              "id": "b"
+            }
+          }
+        },
+        {
+          "endpoint": "getArtist",
+          "args": {
+            "query": {
+              "id": "c"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "artist-null-albums",
+      "current_year": 2026,
+      "query": {
+        "artistIds": [
+          "a"
+        ]
+      },
+      "responses": [
+        {
+          "body": {
+            "artist": {
+              "album": null
+            }
+          }
+        }
+      ],
+      "expected": 0,
+      "requests": [
+        {
+          "endpoint": "getArtist",
+          "args": {
+            "query": {
+              "id": "a"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "artist-bad-array",
+      "current_year": 2026,
+      "query": {
+        "artistIds": [
+          "a"
+        ]
+      },
+      "responses": [
+        {
+          "body": {
+            "artist": {
+              "album": {}
+            }
+          }
+        }
+      ],
+      "target_error": "Malformed",
+      "expected": 0,
+      "requests": [
+        {
+          "endpoint": "getArtist",
+          "args": {
+            "query": {
+              "id": "a"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "favorite",
+      "current_year": 2026,
+      "query": {
+        "favorite": true,
+        "musicFolderId": "only"
+      },
+      "responses": [
+        {
+          "body": {
+            "starred": {
+              "album": [
+                null,
+                null
+              ]
+            }
+          }
+        }
+      ],
+      "expected": 2,
+      "requests": [
+        {
+          "endpoint": "getStarred",
+          "args": {
+            "query": {
+              "musicFolderId": "only"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "favorite-absent",
+      "current_year": 2026,
+      "query": {
+        "favorite": true
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": 0,
+      "requests": [
+        {
+          "endpoint": "getStarred",
+          "args": {
+            "query": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "favorite-malformed",
+      "current_year": 2026,
+      "query": {
+        "favorite": true
+      },
+      "responses": [
+        {
+          "body": {
+            "starred": {
+              "album": {}
+            }
+          }
+        }
+      ],
+      "target_error": "Malformed",
+      "expected": 0,
+      "requests": [
+        {
+          "endpoint": "getStarred",
+          "args": {
+            "query": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "favorite-http",
+      "current_year": 2026,
+      "query": {
+        "favorite": true
+      },
+      "responses": [
+        {
+          "body": {},
+          "status": 500
+        }
+      ],
+      "target_error": "Http",
+      "expected_error": "Error",
+      "requests": [
+        {
+          "endpoint": "getStarred",
+          "args": {
+            "query": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "genre-first",
+      "current_year": 2026,
+      "query": {
+        "genreIds": [
+          "first &",
+          "ignored"
+        ],
+        "musicFolderId": [
+          "f1",
+          "f2"
+        ]
+      },
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": []
+            }
+          }
+        }
+      ],
+      "expected": 0,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "genre": "first &",
+              "musicFolderId": "f1",
+              "offset": 0,
+              "size": 500,
+              "type": "byGenre"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "year-min",
+      "current_year": 2025,
+      "query": {
+        "minYear": 2000
+      },
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": []
+            }
+          }
+        }
+      ],
+      "expected": 0,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "fromYear": 2000,
+              "offset": 0,
+              "size": 500,
+              "toYear": 2025,
+              "type": "byYear"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "year-max",
+      "current_year": 2026,
+      "query": {
+        "maxYear": 1990
+      },
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": []
+            }
+          }
+        }
+      ],
+      "expected": 0,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "fromYear": 0,
+              "offset": 0,
+              "size": 500,
+              "toYear": 1990,
+              "type": "byYear"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "year-both",
+      "current_year": 2026,
+      "query": {
+        "minYear": 2000,
+        "maxYear": 2020,
+        "genreIds": [
+          "Rock"
+        ]
+      },
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": []
+            }
+          }
+        }
+      ],
+      "expected": 0,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "fromYear": 2000,
+              "genre": "Rock",
+              "offset": 0,
+              "size": 500,
+              "toYear": 2020,
+              "type": "byYear"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "year-zero-ignored",
+      "current_year": 2026,
+      "query": {
+        "minYear": 0,
+        "maxYear": 0,
+        "sortBy": "year",
+        "sortOrder": "DESC"
+      },
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": []
+            }
+          }
+        }
+      ],
+      "expected": 0,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "year-negative",
+      "current_year": 2026,
+      "query": {
+        "minYear": -10,
+        "maxYear": -1
+      },
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": []
+            }
+          }
+        }
+      ],
+      "expected": 0,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "fromYear": -10,
+              "offset": 0,
+              "size": 500,
+              "toYear": -1,
+              "type": "byYear"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "unused-query",
+      "current_year": 2026,
+      "query": {
+        "limit": 0,
+        "startIndex": 99,
+        "compilation": true,
+        "hasRating": true,
+        "isRecentlyPlayed": true,
+        "favorite": false
+      },
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": []
+            }
+          }
+        }
+      ],
+      "expected": 0,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "header-normal",
+      "current_year": 2026,
+      "query": {},
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": []
+            }
+          },
+          "header": "123"
+        }
+      ],
+      "expected": 123,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "header-zero",
+      "current_year": 2026,
+      "query": {},
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": []
+            }
+          },
+          "header": "0"
+        }
+      ],
+      "expected": 0,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "header-exponent",
+      "current_year": 2026,
+      "query": {},
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": []
+            }
+          },
+          "header": " 2e2 "
+        }
+      ],
+      "expected": 200,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "header-whitespace",
+      "current_year": 2026,
+      "query": {},
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": []
+            }
+          },
+          "header": " "
+        }
+      ],
+      "expected": 0,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "header-empty",
+      "current_year": 2026,
+      "query": {},
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": []
+            }
+          },
+          "header": ""
+        }
+      ],
+      "expected": 0,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "header-negative",
+      "current_year": 2026,
+      "query": {},
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": []
+            }
+          },
+          "header": "-1"
+        }
+      ],
+      "target_error": "Malformed",
+      "expected": -1,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "header-fraction",
+      "current_year": 2026,
+      "query": {},
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": []
+            }
+          },
+          "header": "1.5"
+        }
+      ],
+      "target_error": "Malformed",
+      "expected": 1.5,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "header-nan",
+      "current_year": 2026,
+      "query": {},
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": []
+            }
+          },
+          "header": "NaN"
+        }
+      ],
+      "target_error": "Malformed",
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "header-hex",
+      "current_year": 2026,
+      "query": {},
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": []
+            }
+          },
+          "header": "0x10"
+        }
+      ],
+      "target_error": "Malformed",
+      "expected": 16,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "header-safe",
+      "current_year": 2026,
+      "query": {},
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": []
+            }
+          },
+          "header": "9007199254740991"
+        }
+      ],
+      "expected": 9007199254740991,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "header-unsafe",
+      "current_year": 2026,
+      "query": {},
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": []
+            }
+          },
+          "header": "9007199254740992"
+        }
+      ],
+      "target_error": "Malformed",
+      "expected": 9007199254740992,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "header-before-body",
+      "current_year": 2026,
+      "query": {},
+      "responses": [
+        {
+          "body": {},
+          "header": "123"
+        }
+      ],
+      "expected": 123,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "header-second-page",
+      "current_year": 2026,
+      "query": {},
+      "responses": [
+        {
+          "body": {
+            "albumList2": {
+              "album": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            }
+          }
+        },
+        {
+          "body": {},
+          "header": "123"
+        }
+      ],
+      "expected": 123,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        },
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 500,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "header-http-rejected",
+      "current_year": 2026,
+      "query": {},
+      "responses": [
+        {
+          "body": {},
+          "header": "123",
+          "status": 500
+        }
+      ],
+      "target_error": "Http",
+      "expected": 123,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "header-protocol-rejected",
+      "current_year": 2026,
+      "query": {},
+      "responses": [
+        {
+          "body": {
+            "status": "failed",
+            "error": {
+              "code": 40
+            }
+          },
+          "header": "123"
+        }
+      ],
+      "target_error": "Protocol",
+      "expected": 123,
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "required-array-missing",
+      "current_year": 2026,
+      "query": {},
+      "responses": [
+        {
+          "body": {
+            "albumList2": {}
+          }
+        }
+      ],
+      "target_error": "Malformed",
+      "expected_error": "TypeError",
+      "requests": [
+        {
+          "endpoint": "getAlbumList2",
+          "args": {
+            "query": {
+              "offset": 0,
+              "size": 500,
+              "type": "alphabeticalByName"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

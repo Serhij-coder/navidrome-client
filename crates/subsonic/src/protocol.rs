@@ -209,6 +209,9 @@ pub struct TransportResponse {
     pub correlation: RequestContext,
     pub status: u16,
     pub body: Vec<u8>,
+    /// Selected wire metadata only; never diagnostic or domain data. Transports
+    /// must bound reception. The wrapper caps this header at 128 UTF-8 bytes.
+    pub total_count_header: Option<String>,
 }
 impl fmt::Debug for TransportResponse {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -238,6 +241,21 @@ pub(crate) async fn exchange(
     context: OperationContext<'_>,
     request: PlannedRequest,
 ) -> Result<Map<String, Value>, ExchangeError> {
+    exchange_with_metadata(transport, clock, context, request)
+        .await
+        .map(|response| response.body)
+}
+
+pub(crate) struct ProtocolResponse {
+    pub body: Map<String, Value>,
+    pub total_count_header: Option<String>,
+}
+pub(crate) async fn exchange_with_metadata(
+    transport: &dyn ProtocolTransport,
+    clock: &dyn Clock,
+    context: OperationContext<'_>,
+    request: PlannedRequest,
+) -> Result<ProtocolResponse, ExchangeError> {
     context.check(clock.now()).map_err(ExchangeError::Context)?;
     context
         .check_request_size(request.size())
@@ -253,8 +271,17 @@ pub(crate) async fn exchange(
     if response.correlation != context.correlation {
         return Err(ExchangeError::Stale);
     }
+    let header_bytes = response.total_count_header.as_ref().map_or(0, String::len);
+    if header_bytes > 128 {
+        return Err(ExchangeError::Context(DomainError::Capacity));
+    }
+    let response_bytes = response
+        .body
+        .len()
+        .checked_add(header_bytes)
+        .ok_or(ExchangeError::Context(DomainError::Capacity))?;
     context
-        .check_response_size(response.body.len())
+        .check_response_size(response_bytes)
         .map_err(ExchangeError::Context)?;
     if response.status != 200 {
         return Err(ExchangeError::Http(match response.status {
@@ -268,7 +295,10 @@ pub(crate) async fn exchange(
     }
     let result = envelope(&response.body);
     context.check(clock.now()).map_err(ExchangeError::Context)?;
-    result
+    result.map(|body| ProtocolResponse {
+        body,
+        total_count_header: response.total_count_header,
+    })
 }
 /// Ping, then query extensions only when both OpenSubsonic and a nonempty server version are advertised.
 pub async fn discover(

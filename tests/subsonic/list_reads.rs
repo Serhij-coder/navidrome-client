@@ -73,6 +73,7 @@ impl ProtocolTransport for Fake {
                 correlation.request = RequestId(9)
             }
             Ok(TransportResponse {
+                total_count_header: None,
                 correlation,
                 status: self.status,
                 body: self.body.clone(),

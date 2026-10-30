@@ -70,6 +70,7 @@ impl ProtocolTransport for Fake {
                 correlation.generation = Generation(3)
             }
             Ok(TransportResponse {
+                total_count_header: None,
                 correlation,
                 status: self.status,
                 body: self.body.clone(),
@@ -418,6 +419,7 @@ fn merged_artist_output_is_bounded_and_late_completion_is_rejected() {
                     self.state.now.set(11)
                 }
                 Ok(TransportResponse {
+                    total_count_header: None,
                     correlation: ctx.correlation,
                     status: 200,
                     body: fake(minimal()).body,

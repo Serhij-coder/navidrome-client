@@ -64,3 +64,5 @@ The [local list continuation](local-lists.md) adds playlist lists/counts and gen
 The [enrichment continuation](enrichment-reads.md) adds artist biography/similar artists and album/artist radio recommendations, with a characterized HTTP-only optional-info fallback. No radio/playback engine is implied.
 
 The [artist list continuation](artist-lists.md) adds distinct artist/album-artist lists and counts, retaining source role/favorite/filter/sort limits and related-artist metadata. General song/album count probing remains open.
+
+The [album-count continuation](album-counts.md) implements distinct search/artist/favorite/general count paths with bounded requests/rows and selected header metadata. Album/song list and song-count algorithms remain open.

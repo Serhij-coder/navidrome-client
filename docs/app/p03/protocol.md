@@ -43,3 +43,5 @@ python3 tools/app/check-p00.py
 ```
 
 See [verification](protocol-verification.md) and the [migration map](../migration/p03-protocol.csv) for exact checks, source anchors and limitations. Generic/extension-enabled live server conformance, authentication/re-login, production transport policy, browser CORS/runtime, streaming reception limits, full capability composition and P03.03-P03.07 remain open. No audio, device, packaged-adapter or full P03.02/P03 completion is established by deterministic doubles.
+
+The [album-count continuation](album-counts.md) adds optional selected total_count_header metadata to TransportResponse, capped at 128 UTF-8 bytes and included with body bytes in the response budget. Existing operations ignore the value after those guards; only the general album-count path interprets it after HTTP/envelope success. Debug stays fully redacted. This selected-value budget does not replace a production transport's full-header or streaming reception limits.

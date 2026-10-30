@@ -63,3 +63,5 @@ The [P03.03/P03.04 local lists](p03/local-lists.md) add playlist lists/counts an
 The [P03.03 enrichment reads](p03/enrichment-reads.md) add artist information and album/artist recommendations while retaining duplicate songs, optional metadata and source-specific HTTP behavior.
 
 The [P03.03/P03.04 artist lists](p03/artist-lists.md) add artist/album-artist list/count flows with source filter timing, related metadata and characterized ineffective sorts.
+
+The [P03.04 album counts](p03/album-counts.md) add bounded source-specific pagination/header/fan-out replacement, explicit calendar samples and error/context evidence. No generic count or phase exit is claimed.

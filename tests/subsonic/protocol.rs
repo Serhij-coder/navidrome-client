@@ -44,6 +44,7 @@ impl ProtocolTransport for Fake {
                 correlation.request = RequestId(2);
             }
             Ok(TransportResponse {
+                total_count_header: None,
                 correlation,
                 status,
                 body,
@@ -228,6 +229,7 @@ impl ProtocolTransport for PendingTransport {
             if complete {
                 state.cancelled.set(true);
                 Poll::Ready(Ok(TransportResponse {
+                    total_count_header: None,
                     correlation: context.correlation,
                     status: 200,
                     body: PING.as_bytes().to_vec(),
@@ -339,6 +341,7 @@ impl ProtocolTransport for GenerationMismatch {
             let mut correlation = context.correlation;
             correlation.generation = Generation(2);
             Ok(TransportResponse {
+                total_count_header: None,
                 correlation,
                 status: 200,
                 body: PING.as_bytes().to_vec(),
@@ -574,11 +577,13 @@ fn transport_failure_and_response_debug_are_redacted() {
         Err(ExchangeError::Transport(TransportError::Network))
     );
     let response = TransportResponse {
+        total_count_header: Some("header-private-marker".into()),
         correlation: context(&s).correlation,
         status: 200,
         body: b"https://example.com/rest?u=user&p=secret".to_vec(),
     };
     let debug = format!("{response:?}");
     assert!(!debug.contains("secret"));
+    assert!(!debug.contains("header-private-marker"));
     assert!(!debug.contains("example.com"));
 }

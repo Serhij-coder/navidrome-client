@@ -50,3 +50,7 @@ path = "../../tests/subsonic/enrichment_reads.rs"
 [[test]]
 name = "artist_lists"
 path = "../../tests/subsonic/artist_lists.rs"
+
+[[test]]
+name = "album_count"
+path = "../../tests/subsonic/album_count.rs"

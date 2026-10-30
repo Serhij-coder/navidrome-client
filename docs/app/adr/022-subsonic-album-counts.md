@@ -1,0 +1,31 @@
+# ADR-022: bounded album counts and selected response metadata
+
+Status: accepted for bounded P03.04 continuation, 2026-10-30. General album/song lists, song count probing and phase exits remain open.
+
+## Source and branching
+
+Pinned Feishin `7d6ad318c79802e226996cfc39acba6b05bb22e8` Subsonic controller getAlbumListCount at `743:24` has four distinct paths. A nonempty search takes precedence and fetches search3 in 500-row pages. A supplied artistIds array, including empty, takes precedence over favorite and counts embedded album arrays. True favorite counts getStarred albums. Otherwise getAlbumList2 probes 500-row pages with first-genre/folder and optional year filters; a truthy x-total-count header short-circuits that general path. getLibraryId at `2504:1` takes only the first selected folder. Source MAX_SUBSONIC_ITEMS and AlbumListSortType literals and all four API method/path declarations are hash-bound in replay.
+
+Use the existing AlbumListQuery and an explicit captured current_year argument. The source uses dayjs().year() only when a nonzero minimum year needs an upper bound; the caller supplies that calendar sample. Monotonic Clock remains exclusively for deadlines. Page/limit/sort and other unconsumed query filters have no effect on this count method. Zero year bounds are ignored as source falsy values; maximum-only uses fromYear 0; minimum-only uses the supplied calendar year. Year filtering overrides genre mode while still forwarding the first genre parameter. Empty artist selection returns zero without transport work.
+
+Search/general probes advance by the observed page length and continue only for exactly 500 rows. Counts use raw array cardinality without normalizing album DTOs, including null entries. Search/favorite optional collections become empty; the general albumList2.album array is required when no usable header shortcut exists. Header counts can replace an already accumulated prefix and terminate, including when smaller than that prefix. The algorithm does not certify a consistent snapshot during library changes.
+
+The source artist fan-out uses Promise.all. The target serializes those requests under one logical operation context and work owner, preserving order/results while bounding outstanding work. Every transport exchange owns its own reply future; the transport must not attribute another exchange's network result to it. Source artist reduction resets the accumulated total on a non-200 artist response instead of skipping it. This order-sensitive behavior is characterized and retained as an explicit compatibility exception. Network/protocol/context failures still fail the operation, with no partial total published. No retries or fabricated count estimates are added.
+
+## Selected metadata boundary and guards
+
+TransportResponse gains optional total_count_header wire metadata, and private exchange_with_metadata exposes it only inside the adapter. Existing exchange callers continue receiving the same parsed map. Default doubles explicitly provide None. Domain code imports no wire fields or platform implementation. TransportResponse Debug remains fully redacted, including the header.
+
+The selected header value is capped at 128 UTF-8 bytes. Its value bytes plus body bytes must fit the existing response budget, using checked addition, before envelope parsing. This is not the complete HTTP header/framing size or a streaming reception guarantee; concrete transports must bound both independently. The general count path ignores absent/empty header strings, accepts trimmed empty as zero and decimal/exponent values that become nonnegative safe integers, and rejects fractional/nonfinite/negative/unsafe/non-decimal forms. The source Number conversion's extra coercions and malformed successes are characterized. Empty string is distinct from whitespace because the source tests truthiness before converting.
+
+Existing HTTP200 and successful-envelope guards run before the header shortcut. An error HTTP/envelope response cannot become a successful count through a header. The isolated original controller checks its header before HTTP status; replay records that source observation and the deliberate target guard. It does not establish the original HTTP client's live behavior, which may reject before that branch. Malformed consumed non-array collections are rejected instead of source undefined-length/NaN/zero coercions. Fixed errors never retain header/body text.
+
+Every path validates nonblank <=128-byte server identity, query text and selector cardinality, request/response bytes, exact correlation, cancellation and inclusive deadlines. Final operation checks override success, malformed header/body and error outcomes. Futures remain local/non-Send. Caller binds base/auth/server and supplies the correct calendar sample. No production HTTP/calendar provider is added.
+
+Aggregate work counts root, each requested artist and every observed album row. Every request also consumes a separately checked request counter bounded by OperationLimits.items. Repeated full pages therefore fail at a bounded capacity even when the source would continue; an empty final page can still terminate at the exact row budget. Per-array checks remain. Header results can exceed the item work limit because they do not enumerate the reported total. These are processing bounds, not exact heap/allocation or UI-latency measurements.
+
+## Evidence and remaining work
+
+The 40-case fixture replays the original controller and getLibraryId with three original source hashes, captured calendar years, source constants and four API routes. It covers branch priority, pagination offsets/end detection, artist error-reset behavior, first folder/genre, year rules, header shortcuts/coercions and deliberate HTTP/envelope guards. Five grouped Rust tests additionally exercise changing/nonterminating pages, byte/header bounds, scopes, stale/network/protocol failures, no partial totals, pending/between-page cancellation and final context priority. Existing protocol tests add selected-header Debug redaction.
+
+See [contract and checks](../p03/album-counts.md) and [migration map](../migration/p03-album-counts.csv). Actual HTTP reception, concurrent scheduling, live changing-library behavior, count cache integration, the remaining Subsonic operations and all phase exits stay open.

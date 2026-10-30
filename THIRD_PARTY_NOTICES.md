@@ -53,3 +53,5 @@ The local P03 playlist/genre list continuation adapts pinned Feishin list/count/
 The P03 enrichment continuation adapts pinned Feishin artist-info and album/artist-radio controller rules and shared song normalization under GPL-3.0-only. [Enrichment verification](docs/app/p03/enrichment-reads.md) records original-expression provenance; no new distributed dependency is added.
 
 The artist-list continuation adapts pinned Feishin artist/album-artist list/count and shared sorting/normalization rules under GPL-3.0-only. [Artist verification](docs/app/p03/artist-lists.md) records original-expression provenance; no distributed dependency is added.
+
+The album-count continuation adapts pinned Feishin count branching, pagination, header and first-folder rules under GPL-3.0-only. [Count verification](docs/app/p03/album-counts.md) binds original expressions, constants and routes; no distributed dependency is added.
