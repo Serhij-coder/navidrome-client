@@ -84,3 +84,5 @@ The [basic mutation continuation](basic-mutations.md) adds bounded favorite/rati
 The [playlist mutation continuation](playlist-mutations.md) adds create/metadata/delete/append/remove/direct-set requests and tracks the separate durable-backup replacement workflow.
 
 The [playlist-backup repository](playlist-backups.md) adds isolated versioned server-scoped recovery values with native and browser evidence; asynchronous replacement orchestration remains open.
+
+The [backup executor](backup-executor.md) adds a typed local-future port, bounded native filesystem owner and browser bridge; server replacement orchestration remains next.

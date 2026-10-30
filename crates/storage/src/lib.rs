@@ -310,3 +310,11 @@ pub mod linux_credentials;
 pub mod credential_executor;
 #[cfg(not(target_arch = "wasm32"))]
 pub mod credential_worker;
+
+mod backup_executor;
+#[cfg(target_arch = "wasm32")]
+pub use backup_executor::BrowserPlaylistBackups;
+#[cfg(not(target_arch = "wasm32"))]
+mod backup_worker;
+#[cfg(not(target_arch = "wasm32"))]
+pub use backup_worker::NativePlaylistBackups;

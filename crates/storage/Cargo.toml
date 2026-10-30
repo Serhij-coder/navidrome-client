@@ -100,3 +100,7 @@ path = "../../tests/storage/payloads.rs"
 [[test]]
 name = "playlist_backups"
 path = "../../tests/storage/playlist_backups.rs"
+
+[[test]]
+name = "backup_worker"
+path = "../../tests/storage/backup_worker.rs"

@@ -376,3 +376,6 @@ impl ServerFeature {
 }
 
 pub mod query_cache;
+
+mod playlist_backups;
+pub use playlist_backups::*;

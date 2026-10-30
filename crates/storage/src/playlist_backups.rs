@@ -52,7 +52,7 @@ impl Backup {
             id: PlaylistId::new(&self.playlist_id),
         }
     }
-    fn valid(&self) -> bool {
+    pub(crate) fn valid(&self) -> bool {
         scope_valid(&self.server_id, &self.playlist_id)
             && self.name.len() <= MAX_ID_BYTES
             && self.song_ids.len() <= MAX_SONGS
@@ -141,12 +141,21 @@ impl<S: AtomicStore> Repository<S> {
     }
     /// Explicit single-owner compare-and-replace. No cross-process/tab CAS claim.
     pub fn save(&mut self, backup: &Backup, expected: Revision) -> Result<Revision, Error> {
+        self.save_guarded(backup, expected, MAX_BYTES, || Ok(()))
+    }
+    pub(crate) fn save_guarded<E: From<Error>>(
+        &mut self,
+        backup: &Backup,
+        expected: Revision,
+        limit: usize,
+        can_write: impl FnOnce() -> Result<(), E>,
+    ) -> Result<Revision, E> {
         if !backup.valid() {
-            return Err(Error::InvalidBackup);
+            return Err(Error::InvalidBackup.into());
         }
         let snapshot = self.load()?;
         if snapshot.revision != expected {
-            return Err(Error::Stale);
+            return Err(Error::Stale.into());
         }
         let mut replaced = false;
         let mut rows: Vec<_> = snapshot
@@ -165,9 +174,9 @@ impl<S: AtomicStore> Repository<S> {
             rows.push(backup);
         }
         if rows.len() > MAX_BACKUPS {
-            return Err(Error::Capacity);
+            return Err(Error::Capacity.into());
         }
-        self.write(expected, &rows)
+        self.write(expected, &rows, limit, can_write)
     }
     /// Explicit scope removal permits retention cleanup; never evict automatically.
     pub fn remove(
@@ -192,9 +201,15 @@ impl<S: AtomicStore> Repository<S> {
         if rows.len() == snapshot.backups.len() {
             return Ok(expected);
         }
-        self.write(expected, &rows)
+        self.write(expected, &rows, MAX_BYTES, || Ok(()))
     }
-    fn write(&mut self, current: Revision, rows: &[&Backup]) -> Result<Revision, Error> {
+    fn write<E: From<Error>>(
+        &mut self,
+        current: Revision,
+        rows: &[&Backup],
+        limit: usize,
+        can_write: impl FnOnce() -> Result<(), E>,
+    ) -> Result<Revision, E> {
         let revision = current.next().map_err(|_| Error::Exhausted)?;
         #[derive(Serialize)]
         struct View<'a> {
@@ -208,13 +223,14 @@ impl<S: AtomicStore> Repository<S> {
                 revision: revision.0,
                 backups: rows,
             },
-            MAX_BYTES,
+            MAX_BYTES.min(limit),
         )
         .map_err(|e| match e {
             bounded_json::EncodeError::TooLarge => Error::TooLarge,
             bounded_json::EncodeError::Invalid => Error::InvalidBackup,
         })?;
-        self.store.replace(&bytes)?;
+        can_write()?;
+        self.store.replace(&bytes).map_err(Error::from)?;
         Ok(revision)
     }
 }

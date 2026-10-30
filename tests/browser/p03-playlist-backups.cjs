@@ -6,7 +6,7 @@ const server=http.createServer((req,res)=>{
  if(req.url==='/'){res.end('<!doctype html><title>Owned playlist backup storage</title>');return;}
  const files={'/probe.js':['probe.js','text/javascript'],'/probe_bg.wasm':['probe_bg.wasm','application/wasm']};const entry=files[req.url];if(!entry){res.writeHead(404).end();return;}res.setHeader('Content-Type',entry[1]);res.end(fs.readFileSync(path.join(bundle,entry[0])));
 });
-async function connect(page,origin){await page.goto(origin);await page.evaluate(async()=>{const m=await import('/probe.js');await m.default();window.backupProbe=m.playlist_backup_probe;});}
+async function connect(page,origin){await page.goto(origin);await page.evaluate(async()=>{const m=await import('/probe.js');await m.default();window.backupProbe=m.playlist_backup_probe;window.backupPort=m.playlist_backup_port_probe;});}
 (async()=>{
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const origin=`http://127.0.0.1:${server.address().port}`;
  try{for(const[name,engine]of Object.entries({chromium,firefox,webkit})){
@@ -27,6 +27,15 @@ async function connect(page,origin){await page.goto(origin);await page.evaluate(
    }
    await page.evaluate(({key,valid})=>localStorage.setItem(key,valid),{key,valid});assert.equal(await page.evaluate(()=>window.backupProbe('remove-a')),true);
    await connect(page,origin);assert.equal(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).backups.length,key),1);
+   for(const action of ['cancelled','expired','small']) {
+    const before=await page.evaluate(key=>localStorage.getItem(key),key);
+    assert.equal(await page.evaluate(action=>window.backupPort(action),action),true);
+    assert.equal(await page.evaluate(key=>localStorage.getItem(key),key),before);
+   }
+   assert.equal(await page.evaluate(()=>window.backupPort('save')),true);
+   await connect(page,origin);
+   assert.equal(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).backups.find(b=>b.serverId==='boundary').songIds.join(','),key),'same,same');
+   assert.equal(await page.evaluate(()=>{const original=Storage.prototype.setItem;let rejected=false;Storage.prototype.setItem=()=>{throw new DOMException('private-marker','QuotaExceededError');};try{window.backupPort('save');}catch(e){rejected=!String(e).includes('private-marker');}finally{Storage.prototype.setItem=original;}return rejected;}),true);
    await context.close();process.stdout.write(`${name}: isolated scoped backups, reload, bounds/protection and injected storage failures passed\n`);
   }finally{await browser.close();}
  }}finally{await new Promise(resolve=>server.close(resolve));}
