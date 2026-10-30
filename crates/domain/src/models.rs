@@ -548,3 +548,23 @@ pub enum StructuredLyrics {
         language: String,
     },
 }
+
+/// Independent result-family windows for the shared upstream search contract.
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct SearchQuery {
+    pub server: ServerId,
+    pub album_artist_limit: Option<u64>,
+    pub album_artist_start_index: Option<u64>,
+    pub album_limit: Option<u64>,
+    pub album_start_index: Option<u64>,
+    pub music_folder_ids: Option<Vec<FolderId>>,
+    pub query: Option<String>,
+    pub song_limit: Option<u64>,
+    pub song_start_index: Option<u64>,
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct SearchResults {
+    pub album_artists: Vec<AlbumArtist>,
+    pub albums: Vec<Album>,
+    pub songs: Vec<Song>,
+}

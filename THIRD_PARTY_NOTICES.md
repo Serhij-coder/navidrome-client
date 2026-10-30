@@ -59,3 +59,5 @@ The album-count continuation adapts pinned Feishin count branching, pagination, 
 The album-list continuation adapts pinned Feishin album-list, normalization and shared local-sort/shuffle rules under GPL-3.0-only. [Album-list verification](docs/app/p03/album-lists.md) binds original expressions/constants/routes and pinned optional Lodash infrastructure. No distributed dependency is added.
 
 The song-count continuation adapts pinned Feishin count/probe/fan-out rules under GPL-3.0-only. [Song-count verification](docs/app/p03/song-counts.md) binds original expressions, constants and API routes; no distributed dependency is added.
+
+The combined-search continuation adapts pinned Feishin search/window/normalization rules under GPL-3.0-only. [Search verification](docs/app/p03/search.md) binds original expressions and route; no distributed dependency is added.

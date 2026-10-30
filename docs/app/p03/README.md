@@ -57,16 +57,18 @@ The [album/album-artist continuation](album-reads.md) adds two guarded detail op
 
 The [playlist snapshot continuation](playlist-reads.md) adds separate metadata, ordered entry and song-ID reads, preserving duplicate songs with scoped position identities. [Verification](playlist-reads-verification.md) records original-controller replay and bounded local transport tests.
 
-The [collection read continuation](collection-reads.md) adds music folders, typed artist-role choices, random songs and similar songs with source-specific filtering and UTF-16 ordering. General lists/counting and real transport remain open.
+The [collection read continuation](collection-reads.md) adds music folders, typed artist-role choices, random songs and similar songs with source-specific filtering and UTF-16 ordering. Remaining song/folder operations and real transport remain open.
 
-The [local list continuation](local-lists.md) adds playlist lists/counts and genre lists with full local sort/search/page behavior. General server count probing and pagination remain open.
+The [local list continuation](local-lists.md) adds playlist lists/counts and genre lists with full local sort/search/page behavior. Other endpoint-specific list/pagination work and runtime integration remain open.
 
 The [enrichment continuation](enrichment-reads.md) adds artist biography/similar artists and album/artist radio recommendations, with a characterized HTTP-only optional-info fallback. No radio/playback engine is implied.
 
-The [artist list continuation](artist-lists.md) adds distinct artist/album-artist lists and counts, retaining source role/favorite/filter/sort limits and related-artist metadata. General song/album count probing remains open.
+The [artist list continuation](artist-lists.md) adds distinct artist/album-artist lists and counts, retaining source role/favorite/filter/sort limits and related-artist metadata. Remaining song-list/folder algorithms and runtime integration remain open.
 
-The [album-count continuation](album-counts.md) implements distinct search/artist/favorite/general count paths with bounded requests/rows and selected header metadata. Album/song list and song-count algorithms remain open.
+The [album-count continuation](album-counts.md) implements distinct search/artist/favorite/general count paths with bounded requests/rows and selected header metadata. Remaining song-list/folder algorithms and runtime integration remain open.
 
 The [complete album-list continuation](album-lists.md) adds all low-level source branches and local ordering/shuffle, with explicit date policies and bounded nested normalization. Remaining song/folder/search algorithms and integration remain open.
 
 The [song-count continuation](song-counts.md) implements endpoint-specific 5000-stride probes, 500-row pages and bounded album/artist fan-out. Normalized song lists and runtime composition remain open.
+
+The [combined search continuation](search.md) adds normalized result families with independent optional windows and a shared work bound; no runtime facade is implied.

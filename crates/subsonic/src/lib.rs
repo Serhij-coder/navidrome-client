@@ -11,6 +11,7 @@ mod lists;
 mod playlist;
 mod protocol;
 mod read_support;
+mod search;
 mod song;
 mod song_count;
 pub use album::{get_album, get_album_artist};
@@ -22,6 +23,7 @@ pub use enrichment::{get_album_artist_info, get_album_radio, get_artist_radio};
 pub use lists::{get_genres, get_playlist_count, get_playlists};
 pub use playlist::{get_playlist, get_playlist_song_ids, get_playlist_songs};
 pub use protocol::*;
+pub use search::search;
 pub use song::get_song;
 pub use song_count::get_song_count;
 
