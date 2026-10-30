@@ -101,3 +101,5 @@ The explicitly wired song_lists Cargo target consumes [song-list fixtures](fixtu
 The explicitly wired catalog_reads Cargo target consumes [composed/service fixtures](fixtures/p03/subsonic-catalog-reads.json), verifies source totals/ranking/features and covers direct/composed completion guards. [Contract](../docs/app/p03/catalog-reads.md).
 
 The explicitly wired folder_reads Cargo target consumes [folder fixtures](fixtures/p03/subsonic-folder-reads.json), compares recursive normalized output and verifies pre-filter bounds/context rules. [Contract](../docs/app/p03/folders.md).
+
+The explicitly wired basic_mutations Cargo target consumes [mutation/user fixtures](fixtures/p03/subsonic-basic-mutations.json) and a disposable stateful transport to verify ordered effects, acknowledged prefixes, uncertain outcomes and protected target-username construction. [Contract](../docs/app/p03/basic-mutations.md).

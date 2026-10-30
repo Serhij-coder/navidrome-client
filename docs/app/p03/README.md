@@ -78,3 +78,5 @@ The [song-list continuation](song-lists.md) implements all low-level source bran
 The [catalog-read continuation](catalog-reads.md) adds source-specific composed song views and read-only radio/scan metadata with explicit count and capability rules.
 
 The [folder-navigation continuation](folders.md) adds root and music-directory reads with scoped trees, duplicate songs and bounded pre-filter work.
+
+The [basic mutation continuation](basic-mutations.md) adds bounded favorite/rating/scan operations and checked user info. Application reconciliation, remaining mutations and real-server conformance stay open.

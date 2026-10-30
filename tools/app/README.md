@@ -47,3 +47,5 @@ P01 continuation adds `test-native.py` (normal Cargo test execution with payload
 `p03-catalog-reference.cjs` replays original favorite/top composition plus radio/scan controllers and feature membership using hash-bound source/TypeScript/Lodash. Default CI requires only tracked fixtures. See [catalog checks](../../docs/app/p03/catalog-reads.md).
 
 `p03-folder-reference.cjs` replays original root/directory/normalizer/sort expressions against bounded synthetic trees with pinned optional source/TypeScript/Lodash. See [folder checks](../../docs/app/p03/folders.md).
+
+`p03-mutation-reference.cjs` replays selected original favorite/rating/scan/user-info expressions against disposable in-memory replies, preserving swallowed-error observations and exact array/order inputs. Explicit source/compiler inputs remain optional. See [mutation checks](../../docs/app/p03/basic-mutations.md).

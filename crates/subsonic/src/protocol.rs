@@ -164,7 +164,7 @@ impl PlannedRequest {
             .as_ref()
             .map(|_| "application/x-www-form-urlencoded")
     }
-    fn size(&self) -> usize {
+    pub(crate) fn size(&self) -> usize {
         self.url
             .len()
             .saturating_add(self.body.as_ref().map_or(0, String::len))
@@ -195,6 +195,19 @@ pub fn plan_request(
         None
     };
     Ok(PlannedRequest { url, body })
+}
+pub(crate) fn plan_user_request(
+    base: &ServerBase,
+    auth: &Auth,
+    username: &str,
+) -> Result<PlannedRequest, ExchangeError> {
+    let request = base
+        .user_request(auth, username)
+        .map_err(ExchangeError::Request)?;
+    Ok(PlannedRequest {
+        url: request.expose_for_transport().to_owned(),
+        body: None,
+    })
 }
 /// Transport must bound I/O while pending and arrange wakeups on cancellation/deadline.
 /// The wrapper checks on every poll but cannot wake or stop an uncooperative future.

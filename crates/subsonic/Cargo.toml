@@ -78,3 +78,7 @@ path = "../../tests/subsonic/catalog_reads.rs"
 [[test]]
 name = "folder_reads"
 path = "../../tests/subsonic/folder_reads.rs"
+
+[[test]]
+name = "basic_mutations"
+path = "../../tests/subsonic/basic_mutations.rs"

@@ -10,6 +10,7 @@ mod collections;
 mod enrichment;
 mod folders;
 mod lists;
+mod mutations;
 mod playlist;
 mod protocol;
 mod read_support;
@@ -23,12 +24,16 @@ pub use album_count::get_album_count;
 pub use album_list::{AlbumReadEnvironment, get_albums};
 pub use artists::{get_album_artist_count, get_album_artists, get_artist_count, get_artists};
 pub use catalog_reads::{
-    get_favorite_songs, get_internet_radio_stations, get_scan_status, get_top_songs,
+    get_favorite_songs, get_internet_radio_stations, get_scan_status, get_top_songs, get_user_info,
 };
 pub use collections::{get_artist_roles, get_music_folders, get_random_songs, get_similar_songs};
 pub use enrichment::{get_album_artist_info, get_album_radio, get_artist_radio};
 pub use folders::get_folder;
 pub use lists::{get_genres, get_playlist_count, get_playlists};
+pub use mutations::{
+    MutationFailure, MutationReceipt, create_favorite, delete_favorite, refresh_items, set_rating,
+    start_library_scan,
+};
 pub use playlist::{get_playlist, get_playlist_song_ids, get_playlist_songs};
 pub use protocol::*;
 pub use search::search;
@@ -229,6 +234,19 @@ impl ServerBase {
             return Err(Error::InputTooLarge);
         }
         Ok(RequestUrl(out))
+    }
+    // getUser's target username is endpoint data, distinct from authenticated u.
+    // Keep the generic pair API's alias protection intact.
+    pub(crate) fn user_request(&self, auth: &Auth, username: &str) -> Result<RequestUrl, Error> {
+        if username.len() > MAX_INPUT {
+            return Err(Error::InputTooLarge);
+        }
+        let mut request = self.request(auth, "getUser.view", &[])?;
+        add_pair(&mut request.0, "username", username);
+        if request.0.len() > MAX_URL {
+            return Err(Error::InputTooLarge);
+        }
+        Ok(request)
     }
 }
 fn valid_percent_escapes(input: &str) -> bool {

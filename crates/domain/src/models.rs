@@ -594,3 +594,53 @@ pub struct TopSongListQuery {
     pub limit: Option<u64>,
     pub mode: TopSongMode,
 }
+
+/// A favorite request groups one supported identity family. Playlist songs use
+/// their song IDs, never positional playlist-entry or queue-occurrence IDs.
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub enum FavoriteTarget {
+    Albums(Vec<AlbumId>),
+    AlbumArtists(Vec<ArtistId>),
+    Artists(Vec<ArtistId>),
+    Songs(Vec<SongId>),
+    PlaylistSongs(Vec<SongId>),
+}
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct FavoriteMutation {
+    pub server: ServerId,
+    pub target: FavoriteTarget,
+}
+/// Rating's source controller forwards every ID without an item-type branch.
+/// Contextual song variants still carry song IDs rather than occurrence IDs.
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub enum LibraryEntityId {
+    Album(AlbumId),
+    AlbumArtist(ArtistId),
+    Artist(ArtistId),
+    Folder(FolderId),
+    Genre(GenreId),
+    Playlist(PlaylistId),
+    PlaylistSong(SongId),
+    QueueSong(SongId),
+    RadioStation(RadioStationId),
+    Song(SongId),
+}
+impl LibraryEntityId {
+    pub fn as_str(&self) -> &str {
+        match self {
+            Self::Album(id) => id.as_str(),
+            Self::AlbumArtist(id) | Self::Artist(id) => id.as_str(),
+            Self::Folder(id) => id.as_str(),
+            Self::Genre(id) => id.as_str(),
+            Self::Playlist(id) => id.as_str(),
+            Self::PlaylistSong(id) | Self::QueueSong(id) | Self::Song(id) => id.as_str(),
+            Self::RadioStation(id) => id.as_str(),
+        }
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct RatingMutation {
+    pub server: ServerId,
+    pub items: Vec<LibraryEntityId>,
+    pub rating: f64,
+}

@@ -302,3 +302,45 @@ pub async fn get_scan_status(
     context.check(clock.now()).map_err(ExchangeError::Context)?;
     result
 }
+
+/// User metadata only; no credential/profile updates or role inference from
+/// non-boolean wire values. Server canonical username may differ in casing.
+pub async fn get_user_info(
+    transport: &dyn ProtocolTransport,
+    clock: &dyn Clock,
+    context: OperationContext<'_>,
+    base: &ServerBase,
+    auth: &Auth,
+    server: &ServerId,
+    username: &str,
+) -> Result<User> {
+    check(clock, context, server, "user")?;
+    let response = crate::protocol::exchange(
+        transport,
+        clock,
+        context,
+        crate::protocol::plan_user_request(base, auth, username)?,
+    )
+    .await?;
+    let result = (|| {
+        let obj = object(response.get("user").ok_or(ExchangeError::Malformed)?)?;
+        let name = required_text(obj, "username")?;
+        let is_admin = match obj.get("adminRole") {
+            None | Some(serde_json::Value::Null) => false,
+            Some(serde_json::Value::Bool(v)) => *v,
+            _ => return Err(ExchangeError::Malformed),
+        };
+        Ok(User {
+            server: server.clone(),
+            id: UserId::new(name.clone()),
+            name,
+            is_admin: Some(is_admin),
+            created_at: None,
+            email: None,
+            last_login_at: None,
+            updated_at: None,
+        })
+    })();
+    context.check(clock.now()).map_err(ExchangeError::Context)?;
+    result
+}

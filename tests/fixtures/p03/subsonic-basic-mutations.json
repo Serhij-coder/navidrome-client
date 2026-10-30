@@ -1,0 +1,1774 @@
+{
+  "baseline": "7d6ad318c79802e226996cfc39acba6b05bb22e8",
+  "typescript_sha256": "569177652966bd528c319171c7dd22860dbf72bde116cbc4f644f1d02bb12e39",
+  "sources": {
+    "src/renderer/api/subsonic/subsonic-controller.ts": "c5afb4748f8b6eaa721d8388e656172326074e7f002cd90b0505e4c1ec348af0",
+    "src/renderer/api/subsonic/subsonic-api.ts": "5c10deab6015915945d656578d0a6aa54cee7fdbcb846734698fc3d04dcbe54e",
+    "src/shared/types/domain-types.ts": "acd9d435728a90bab09773fbfa8e5cbe9bd4eec549aa764474c458dc013a834a"
+  },
+  "functions": {
+    "src/renderer/api/subsonic/subsonic-controller.ts:374:21": "2f705f8308ff45d2adaa9bf56bb5d5e1c83fa788bd35d0385edf97d4b85ef20a",
+    "src/renderer/api/subsonic/subsonic-controller.ts:430:21": "bc53a83c9033853bb640967dbdcdf85ab9cc97a7e6ef162ca6a9e01f34abcfe2",
+    "src/renderer/api/subsonic/subsonic-controller.ts:2149:18": "7e9f2d952eea0242ef9a6e90b8c466951772d3f4dd05248bd9442ad733de14d4",
+    "src/renderer/api/subsonic/subsonic-controller.ts:2187:19": "50edc73ba22196b2f6fd39cb1bd8dac7230a5ae42b5fd64d64ffe8680625b205",
+    "src/renderer/api/subsonic/subsonic-controller.ts:2439:16": "77748c718d2ab95fe726d45c9b56d35d3c5ed9546788cb978d5f904763ed5798",
+    "src/renderer/api/subsonic/subsonic-controller.ts:2455:23": "a1ead673360b1c06b080f476c71ac2baa64a731a31ff1cb7650320966d844f7d"
+  },
+  "bindings": {
+    "LibraryItem": {
+      "ALBUM": "album",
+      "ALBUM_ARTIST": "albumArtist",
+      "ARTIST": "artist",
+      "FOLDER": "folder",
+      "GENRE": "genre",
+      "PLAYLIST": "playlist",
+      "PLAYLIST_SONG": "playlistSong",
+      "QUEUE_SONG": "queueSong",
+      "RADIO_STATION": "radioStation",
+      "SONG": "song"
+    }
+  },
+  "routes": {
+    "createFavorite": {
+      "path": "star.view",
+      "method": "GET"
+    },
+    "getUser": {
+      "path": "getUser.view",
+      "method": "GET"
+    },
+    "removeFavorite": {
+      "path": "unstar.view",
+      "method": "GET"
+    },
+    "setRating": {
+      "path": "setRating.view",
+      "method": "GET"
+    },
+    "startScan": {
+      "path": "startScan.view",
+      "method": "GET"
+    }
+  },
+  "cases": [
+    {
+      "name": "createFavorite-album",
+      "kind": "createFavorite",
+      "query": {
+        "type": "album",
+        "id": [
+          "one/a",
+          "one/a",
+          "two & 漢"
+        ]
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "createFavorite",
+          "args": {
+            "query": {
+              "albumId": [
+                "one/a",
+                "one/a",
+                "two & 漢"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "createFavorite-albumArtist",
+      "kind": "createFavorite",
+      "query": {
+        "type": "albumArtist",
+        "id": [
+          "one/a",
+          "one/a",
+          "two & 漢"
+        ]
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "createFavorite",
+          "args": {
+            "query": {
+              "artistId": [
+                "one/a",
+                "one/a",
+                "two & 漢"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "createFavorite-artist",
+      "kind": "createFavorite",
+      "query": {
+        "type": "artist",
+        "id": [
+          "one/a",
+          "one/a",
+          "two & 漢"
+        ]
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "createFavorite",
+          "args": {
+            "query": {
+              "artistId": [
+                "one/a",
+                "one/a",
+                "two & 漢"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "createFavorite-song",
+      "kind": "createFavorite",
+      "query": {
+        "type": "song",
+        "id": [
+          "one/a",
+          "one/a",
+          "two & 漢"
+        ]
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "createFavorite",
+          "args": {
+            "query": {
+              "id": [
+                "one/a",
+                "one/a",
+                "two & 漢"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "createFavorite-playlistSong",
+      "kind": "createFavorite",
+      "query": {
+        "type": "playlistSong",
+        "id": [
+          "one/a",
+          "one/a",
+          "two & 漢"
+        ]
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "createFavorite",
+          "args": {
+            "query": {
+              "id": [
+                "one/a",
+                "one/a",
+                "two & 漢"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "createFavorite-empty",
+      "kind": "createFavorite",
+      "query": {
+        "type": "song",
+        "id": []
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_error": "Malformed",
+      "target_acknowledged": 0,
+      "target_unknown": false,
+      "target_request_count": 0,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "createFavorite",
+          "args": {
+            "query": {
+              "id": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "createFavorite-blank-id",
+      "kind": "createFavorite",
+      "query": {
+        "type": "song",
+        "id": [
+          ""
+        ]
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_error": "Malformed",
+      "target_acknowledged": 0,
+      "target_unknown": false,
+      "target_request_count": 0,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "createFavorite",
+          "args": {
+            "query": {
+              "id": [
+                ""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "createFavorite-forbidden",
+      "kind": "createFavorite",
+      "query": {
+        "type": "song",
+        "id": [
+          "a"
+        ]
+      },
+      "responses": [
+        {
+          "status": 403,
+          "body": {}
+        }
+      ],
+      "target_error": "Http",
+      "target_acknowledged": 0,
+      "target_unknown": true,
+      "expected_error": "Error",
+      "requests": [
+        {
+          "endpoint": "createFavorite",
+          "args": {
+            "query": {
+              "id": [
+                "a"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "createFavorite-protocol",
+      "kind": "createFavorite",
+      "query": {
+        "type": "song",
+        "id": [
+          "a"
+        ]
+      },
+      "responses": [
+        {
+          "body": {
+            "status": "failed",
+            "error": {
+              "code": 40,
+              "message": "synthetic"
+            }
+          }
+        }
+      ],
+      "target_error": "Protocol",
+      "target_acknowledged": 0,
+      "target_unknown": true,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "createFavorite",
+          "args": {
+            "query": {
+              "id": [
+                "a"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "deleteFavorite-album",
+      "kind": "deleteFavorite",
+      "query": {
+        "type": "album",
+        "id": [
+          "one/a",
+          "one/a",
+          "two & 漢"
+        ]
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "removeFavorite",
+          "args": {
+            "query": {
+              "albumId": [
+                "one/a",
+                "one/a",
+                "two & 漢"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "deleteFavorite-albumArtist",
+      "kind": "deleteFavorite",
+      "query": {
+        "type": "albumArtist",
+        "id": [
+          "one/a",
+          "one/a",
+          "two & 漢"
+        ]
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "removeFavorite",
+          "args": {
+            "query": {
+              "artistId": [
+                "one/a",
+                "one/a",
+                "two & 漢"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "deleteFavorite-artist",
+      "kind": "deleteFavorite",
+      "query": {
+        "type": "artist",
+        "id": [
+          "one/a",
+          "one/a",
+          "two & 漢"
+        ]
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "removeFavorite",
+          "args": {
+            "query": {
+              "artistId": [
+                "one/a",
+                "one/a",
+                "two & 漢"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "deleteFavorite-song",
+      "kind": "deleteFavorite",
+      "query": {
+        "type": "song",
+        "id": [
+          "one/a",
+          "one/a",
+          "two & 漢"
+        ]
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "removeFavorite",
+          "args": {
+            "query": {
+              "id": [
+                "one/a",
+                "one/a",
+                "two & 漢"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "deleteFavorite-playlistSong",
+      "kind": "deleteFavorite",
+      "query": {
+        "type": "playlistSong",
+        "id": [
+          "one/a",
+          "one/a",
+          "two & 漢"
+        ]
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "removeFavorite",
+          "args": {
+            "query": {
+              "id": [
+                "one/a",
+                "one/a",
+                "two & 漢"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "deleteFavorite-empty",
+      "kind": "deleteFavorite",
+      "query": {
+        "type": "song",
+        "id": []
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_error": "Malformed",
+      "target_acknowledged": 0,
+      "target_unknown": false,
+      "target_request_count": 0,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "removeFavorite",
+          "args": {
+            "query": {
+              "id": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "deleteFavorite-blank-id",
+      "kind": "deleteFavorite",
+      "query": {
+        "type": "song",
+        "id": [
+          ""
+        ]
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_error": "Malformed",
+      "target_acknowledged": 0,
+      "target_unknown": false,
+      "target_request_count": 0,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "removeFavorite",
+          "args": {
+            "query": {
+              "id": [
+                ""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "deleteFavorite-forbidden",
+      "kind": "deleteFavorite",
+      "query": {
+        "type": "song",
+        "id": [
+          "a"
+        ]
+      },
+      "responses": [
+        {
+          "status": 403,
+          "body": {}
+        }
+      ],
+      "target_error": "Http",
+      "target_acknowledged": 0,
+      "target_unknown": true,
+      "expected_error": "Error",
+      "requests": [
+        {
+          "endpoint": "removeFavorite",
+          "args": {
+            "query": {
+              "id": [
+                "a"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "deleteFavorite-protocol",
+      "kind": "deleteFavorite",
+      "query": {
+        "type": "song",
+        "id": [
+          "a"
+        ]
+      },
+      "responses": [
+        {
+          "body": {
+            "status": "failed",
+            "error": {
+              "code": 40,
+              "message": "synthetic"
+            }
+          }
+        }
+      ],
+      "target_error": "Protocol",
+      "target_acknowledged": 0,
+      "target_unknown": true,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "removeFavorite",
+          "args": {
+            "query": {
+              "id": [
+                "a"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rating-0",
+      "kind": "setRating",
+      "query": {
+        "type": "song",
+        "id": [
+          "a",
+          "a",
+          "b"
+        ],
+        "rating": 0
+      },
+      "responses": [
+        {
+          "body": {}
+        },
+        {
+          "body": {}
+        },
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 3,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 0
+            }
+          }
+        },
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 0
+            }
+          }
+        },
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "b",
+              "rating": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rating-0.5",
+      "kind": "setRating",
+      "query": {
+        "type": "song",
+        "id": [
+          "a",
+          "a",
+          "b"
+        ],
+        "rating": 0.5
+      },
+      "responses": [
+        {
+          "body": {}
+        },
+        {
+          "body": {}
+        },
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 3,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 0.5
+            }
+          }
+        },
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 0.5
+            }
+          }
+        },
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "b",
+              "rating": 0.5
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rating-5",
+      "kind": "setRating",
+      "query": {
+        "type": "song",
+        "id": [
+          "a",
+          "a",
+          "b"
+        ],
+        "rating": 5
+      },
+      "responses": [
+        {
+          "body": {}
+        },
+        {
+          "body": {}
+        },
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 3,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 5
+            }
+          }
+        },
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 5
+            }
+          }
+        },
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "b",
+              "rating": 5
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rating--2",
+      "kind": "setRating",
+      "query": {
+        "type": "song",
+        "id": [
+          "a",
+          "a",
+          "b"
+        ],
+        "rating": -2
+      },
+      "responses": [
+        {
+          "body": {}
+        },
+        {
+          "body": {}
+        },
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 3,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": -2
+            }
+          }
+        },
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": -2
+            }
+          }
+        },
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "b",
+              "rating": -2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rating-9",
+      "kind": "setRating",
+      "query": {
+        "type": "song",
+        "id": [
+          "a",
+          "a",
+          "b"
+        ],
+        "rating": 9
+      },
+      "responses": [
+        {
+          "body": {}
+        },
+        {
+          "body": {}
+        },
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 3,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 9
+            }
+          }
+        },
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 9
+            }
+          }
+        },
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "b",
+              "rating": 9
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rating-family-album",
+      "kind": "setRating",
+      "query": {
+        "type": "album",
+        "id": [
+          "a"
+        ],
+        "rating": 3
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rating-family-albumArtist",
+      "kind": "setRating",
+      "query": {
+        "type": "albumArtist",
+        "id": [
+          "a"
+        ],
+        "rating": 3
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rating-family-artist",
+      "kind": "setRating",
+      "query": {
+        "type": "artist",
+        "id": [
+          "a"
+        ],
+        "rating": 3
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rating-family-folder",
+      "kind": "setRating",
+      "query": {
+        "type": "folder",
+        "id": [
+          "a"
+        ],
+        "rating": 3
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rating-family-genre",
+      "kind": "setRating",
+      "query": {
+        "type": "genre",
+        "id": [
+          "a"
+        ],
+        "rating": 3
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rating-family-playlist",
+      "kind": "setRating",
+      "query": {
+        "type": "playlist",
+        "id": [
+          "a"
+        ],
+        "rating": 3
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rating-family-playlistSong",
+      "kind": "setRating",
+      "query": {
+        "type": "playlistSong",
+        "id": [
+          "a"
+        ],
+        "rating": 3
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rating-family-queueSong",
+      "kind": "setRating",
+      "query": {
+        "type": "queueSong",
+        "id": [
+          "a"
+        ],
+        "rating": 3
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rating-family-radioStation",
+      "kind": "setRating",
+      "query": {
+        "type": "radioStation",
+        "id": [
+          "a"
+        ],
+        "rating": 3
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rating-empty",
+      "kind": "setRating",
+      "query": {
+        "type": "song",
+        "id": [],
+        "rating": 3
+      },
+      "responses": [],
+      "target_acknowledged": 0,
+      "expected": null,
+      "requests": []
+    },
+    {
+      "name": "rating-forbidden-prefix",
+      "kind": "setRating",
+      "query": {
+        "type": "song",
+        "id": [
+          "a",
+          "b",
+          "c"
+        ],
+        "rating": 3
+      },
+      "responses": [
+        {
+          "body": {}
+        },
+        {
+          "status": 403,
+          "body": {}
+        },
+        {
+          "body": {}
+        }
+      ],
+      "target_error": "Http",
+      "target_acknowledged": 1,
+      "target_unknown": true,
+      "target_request_count": 2,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 3
+            }
+          }
+        },
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "b",
+              "rating": 3
+            }
+          }
+        },
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "c",
+              "rating": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rating-protocol-prefix",
+      "kind": "setRating",
+      "query": {
+        "type": "song",
+        "id": [
+          "a",
+          "b",
+          "c"
+        ],
+        "rating": 3
+      },
+      "responses": [
+        {
+          "body": {}
+        },
+        {
+          "body": {
+            "status": "failed",
+            "error": {
+              "code": 40,
+              "message": "synthetic"
+            }
+          }
+        },
+        {
+          "body": {}
+        }
+      ],
+      "target_error": "Protocol",
+      "target_acknowledged": 1,
+      "target_unknown": true,
+      "target_request_count": 2,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 3
+            }
+          }
+        },
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "b",
+              "rating": 3
+            }
+          }
+        },
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "c",
+              "rating": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rating-transport-prefix",
+      "kind": "setRating",
+      "query": {
+        "type": "song",
+        "id": [
+          "a",
+          "b",
+          "c"
+        ],
+        "rating": 3
+      },
+      "responses": [
+        {
+          "body": {}
+        },
+        {
+          "throw": "network"
+        }
+      ],
+      "target_error": "Transport",
+      "target_acknowledged": 1,
+      "target_unknown": true,
+      "expected_error": "Error",
+      "requests": [
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 3
+            }
+          }
+        },
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "b",
+              "rating": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rating-invalid-later-id",
+      "kind": "setRating",
+      "query": {
+        "type": "song",
+        "id": [
+          "a",
+          ""
+        ],
+        "rating": 3
+      },
+      "responses": [
+        {
+          "body": {}
+        },
+        {
+          "body": {}
+        }
+      ],
+      "target_error": "Malformed",
+      "target_acknowledged": 0,
+      "target_unknown": false,
+      "target_request_count": 0,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "a",
+              "rating": 3
+            }
+          }
+        },
+        {
+          "endpoint": "setRating",
+          "args": {
+            "query": {
+              "id": "",
+              "rating": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "startLibraryScan",
+      "kind": "startLibraryScan",
+      "query": {},
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "startScan",
+          "args": {
+            "query": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "startLibraryScan-forbidden",
+      "kind": "startLibraryScan",
+      "query": {},
+      "responses": [
+        {
+          "status": 403,
+          "body": {}
+        }
+      ],
+      "target_error": "Http",
+      "target_acknowledged": 0,
+      "target_unknown": true,
+      "expected_error": "Error",
+      "requests": [
+        {
+          "endpoint": "startScan",
+          "args": {
+            "query": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "refreshItems",
+      "kind": "refreshItems",
+      "query": {},
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_acknowledged": 1,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "startScan",
+          "args": {
+            "query": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "refreshItems-forbidden",
+      "kind": "refreshItems",
+      "query": {},
+      "responses": [
+        {
+          "status": 403,
+          "body": {}
+        }
+      ],
+      "target_error": "Http",
+      "target_acknowledged": 0,
+      "target_unknown": true,
+      "expected_error": "Error",
+      "requests": [
+        {
+          "endpoint": "startScan",
+          "args": {
+            "query": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "user-admin-None",
+      "kind": "getUserInfo",
+      "query": {
+        "username": "CANONICAL"
+      },
+      "responses": [
+        {
+          "body": {
+            "user": {
+              "username": "canonical",
+              "email": "ignored"
+            }
+          }
+        }
+      ],
+      "expected": {
+        "id": "canonical",
+        "isAdmin": false,
+        "name": "canonical"
+      },
+      "requests": [
+        {
+          "endpoint": "getUser",
+          "args": {
+            "query": {
+              "username": "CANONICAL"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "user-admin-False",
+      "kind": "getUserInfo",
+      "query": {
+        "username": "CANONICAL"
+      },
+      "responses": [
+        {
+          "body": {
+            "user": {
+              "username": "canonical",
+              "email": "ignored",
+              "adminRole": false
+            }
+          }
+        }
+      ],
+      "expected": {
+        "id": "canonical",
+        "isAdmin": false,
+        "name": "canonical"
+      },
+      "requests": [
+        {
+          "endpoint": "getUser",
+          "args": {
+            "query": {
+              "username": "CANONICAL"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "user-admin-True",
+      "kind": "getUserInfo",
+      "query": {
+        "username": "CANONICAL"
+      },
+      "responses": [
+        {
+          "body": {
+            "user": {
+              "username": "canonical",
+              "email": "ignored",
+              "adminRole": true
+            }
+          }
+        }
+      ],
+      "expected": {
+        "id": "canonical",
+        "isAdmin": true,
+        "name": "canonical"
+      },
+      "requests": [
+        {
+          "endpoint": "getUser",
+          "args": {
+            "query": {
+              "username": "CANONICAL"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "user-admin-false",
+      "kind": "getUserInfo",
+      "query": {
+        "username": "CANONICAL"
+      },
+      "responses": [
+        {
+          "body": {
+            "user": {
+              "username": "canonical",
+              "email": "ignored",
+              "adminRole": "false"
+            }
+          }
+        }
+      ],
+      "target_error": "Malformed",
+      "expected": {
+        "id": "canonical",
+        "isAdmin": true,
+        "name": "canonical"
+      },
+      "requests": [
+        {
+          "endpoint": "getUser",
+          "args": {
+            "query": {
+              "username": "CANONICAL"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "user-admin-0",
+      "kind": "getUserInfo",
+      "query": {
+        "username": "CANONICAL"
+      },
+      "responses": [
+        {
+          "body": {
+            "user": {
+              "username": "canonical",
+              "email": "ignored",
+              "adminRole": 0
+            }
+          }
+        }
+      ],
+      "target_error": "Malformed",
+      "expected": {
+        "id": "canonical",
+        "isAdmin": false,
+        "name": "canonical"
+      },
+      "requests": [
+        {
+          "endpoint": "getUser",
+          "args": {
+            "query": {
+              "username": "CANONICAL"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "user-admin-[]",
+      "kind": "getUserInfo",
+      "query": {
+        "username": "CANONICAL"
+      },
+      "responses": [
+        {
+          "body": {
+            "user": {
+              "username": "canonical",
+              "email": "ignored",
+              "adminRole": []
+            }
+          }
+        }
+      ],
+      "target_error": "Malformed",
+      "expected": {
+        "id": "canonical",
+        "isAdmin": true,
+        "name": "canonical"
+      },
+      "requests": [
+        {
+          "endpoint": "getUser",
+          "args": {
+            "query": {
+              "username": "CANONICAL"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "user-missing-name",
+      "kind": "getUserInfo",
+      "query": {
+        "username": "a"
+      },
+      "responses": [
+        {
+          "body": {
+            "user": {}
+          }
+        }
+      ],
+      "target_error": "Malformed",
+      "expected": {
+        "isAdmin": false
+      },
+      "requests": [
+        {
+          "endpoint": "getUser",
+          "args": {
+            "query": {
+              "username": "a"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "user-http",
+      "kind": "getUserInfo",
+      "query": {
+        "username": "a"
+      },
+      "responses": [
+        {
+          "status": 500,
+          "body": {}
+        }
+      ],
+      "target_error": "Http",
+      "expected_error": "Error",
+      "requests": [
+        {
+          "endpoint": "getUser",
+          "args": {
+            "query": {
+              "username": "a"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "user-protocol",
+      "kind": "getUserInfo",
+      "query": {
+        "username": "a"
+      },
+      "responses": [
+        {
+          "body": {
+            "status": "failed",
+            "error": {
+              "code": 40,
+              "message": "synthetic"
+            }
+          }
+        }
+      ],
+      "target_error": "Protocol",
+      "expected_error": "TypeError",
+      "requests": [
+        {
+          "endpoint": "getUser",
+          "args": {
+            "query": {
+              "username": "a"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

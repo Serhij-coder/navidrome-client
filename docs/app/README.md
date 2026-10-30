@@ -77,3 +77,5 @@ The [song-list continuation](p03/song-lists.md) adds all source routing paths, b
 The [catalog-read continuation](p03/catalog-reads.md) adds composed favorite/rating/personal-top songs, feature-gated community top songs, radio metadata and scan status.
 
 The [folder-navigation continuation](p03/folders.md) adds synthetic root indexes and complete recursive directory normalization with immediate-child source filtering/sorting.
+
+The [basic mutation continuation](p03/basic-mutations.md) adds typed favorite/rating/scan requests with acknowledged-prefix and uncertain-outcome reporting, plus checked user metadata.
