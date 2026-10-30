@@ -69,3 +69,5 @@ The catalog-read continuation adapts pinned Feishin favorite/top-song compositio
 The folder continuation adapts pinned Feishin root/directory normalization and filtering/sorting rules under GPL-3.0-only. [Folder verification](docs/app/p03/folders.md) binds original expressions/routes; no distributed dependency is added.
 
 The basic-mutation continuation adapts pinned Feishin favorite/rating/scan and user-info rules under GPL-3.0-only. [Mutation verification](docs/app/p03/basic-mutations.md) records deliberate failure/role-policy differences and original request provenance; no distributed dependency is added.
+
+The playlist-mutation continuation adapts pinned Feishin playlist request/projection rules under GPL-3.0-only. [Playlist mutation verification](docs/app/p03/playlist-mutations.md) binds original expressions/routes and records deferred backup replacement; no distributed dependency is added.

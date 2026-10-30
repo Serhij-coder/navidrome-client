@@ -5,6 +5,7 @@ use crate::{
     plan_request,
 };
 use feishin_domain::*;
+use serde_json::{Map, Value};
 /// Counts validated HTTP/protocol acknowledgements, not server-side exactly-once
 /// effects. A batched favorite request counts as one request, not one per ID.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -20,6 +21,11 @@ pub struct MutationFailure {
     pub outcome_unknown: bool,
     pub cause: ExchangeError,
 }
+#[derive(Clone, Debug, PartialEq)]
+pub struct MutationValue<T> {
+    pub value: T,
+    pub receipt: MutationReceipt,
+}
 type Result<T> = std::result::Result<T, MutationFailure>;
 struct Progress {
     acknowledged: usize,
@@ -33,13 +39,13 @@ impl Progress {
             cause,
         }
     }
-    async fn send(
+    async fn reply(
         &mut self,
         transport: &dyn ProtocolTransport,
         clock: &dyn Clock,
         context: OperationContext<'_>,
         request: PlannedRequest,
-    ) -> Result<()> {
+    ) -> Result<Map<String, Value>> {
         context
             .check(clock.now())
             .map_err(|e| self.fail(ExchangeError::Context(e)))?;
@@ -47,12 +53,40 @@ impl Progress {
             .check_request_size(request.size())
             .map_err(|e| self.fail(ExchangeError::Context(e)))?;
         self.unknown = true;
-        crate::protocol::exchange(transport, clock, context, request)
+        let response = crate::protocol::exchange(transport, clock, context, request)
             .await
             .map_err(|e| self.fail(e))?;
         self.acknowledged += 1;
         self.unknown = false;
-        Ok(())
+        Ok(response)
+    }
+    async fn send(
+        &mut self,
+        transport: &dyn ProtocolTransport,
+        clock: &dyn Clock,
+        context: OperationContext<'_>,
+        request: PlannedRequest,
+    ) -> Result<()> {
+        self.reply(transport, clock, context, request)
+            .await
+            .map(|_| ())
+    }
+    fn finish_value<T>(
+        self,
+        clock: &dyn Clock,
+        context: OperationContext<'_>,
+        result: Result<T>,
+    ) -> Result<MutationValue<T>> {
+        context
+            .check(clock.now())
+            .map_err(|e| self.fail(ExchangeError::Context(e)))?;
+        let value = result?;
+        Ok(MutationValue {
+            value,
+            receipt: MutationReceipt {
+                acknowledged_requests: self.acknowledged,
+            },
+        })
     }
     fn finish(
         self,
@@ -60,13 +94,7 @@ impl Progress {
         context: OperationContext<'_>,
         result: Result<()>,
     ) -> Result<MutationReceipt> {
-        context
-            .check(clock.now())
-            .map_err(|e| self.fail(ExchangeError::Context(e)))?;
-        result?;
-        Ok(MutationReceipt {
-            acknowledged_requests: self.acknowledged,
-        })
+        self.finish_value(clock, context, result).map(|r| r.receipt)
     }
 }
 fn check(clock: &dyn Clock, context: OperationContext<'_>, server: &ServerId) -> Result<Progress> {
@@ -237,4 +265,204 @@ pub async fn refresh_items(
     server: &ServerId,
 ) -> Result<MutationReceipt> {
     start_library_scan(transport, clock, context, base, auth, server).await
+}
+
+pub async fn create_playlist(
+    transport: &dyn ProtocolTransport,
+    clock: &dyn Clock,
+    context: OperationContext<'_>,
+    base: &ServerBase,
+    auth: &Auth,
+    server: &ServerId,
+    name: &str,
+) -> Result<MutationValue<CreatedPlaylist>> {
+    let mut p = check(clock, context, server)?;
+    let result = async {
+        let request = plan_request(
+            base,
+            auth,
+            "createPlaylist.view",
+            &[("name", name)],
+            PostPreference::Get,
+            None,
+        )
+        .map_err(|e| p.fail(e))?;
+        let response = p.reply(transport, clock, context, request).await?;
+        let value = (|| {
+            let obj =
+                crate::song::object(response.get("playlist").ok_or(ExchangeError::Malformed)?)?;
+            let id = crate::song::id(obj, "id")?.ok_or(ExchangeError::Malformed)?;
+            validate_identity(server, &id)?;
+            Ok(CreatedPlaylist {
+                identity: Scoped {
+                    server: server.clone(),
+                    id: PlaylistId::new(id),
+                },
+                name: crate::song::required_text(obj, "name")?,
+            })
+        })();
+        value.map_err(|e| p.fail(e))
+    }
+    .await;
+    p.finish_value(clock, context, result)
+}
+pub async fn update_playlist(
+    transport: &dyn ProtocolTransport,
+    clock: &dyn Clock,
+    context: OperationContext<'_>,
+    base: &ServerBase,
+    auth: &Auth,
+    query: &PlaylistMetadataMutation,
+) -> Result<MutationReceipt> {
+    let mut p = check(clock, context, &query.playlist.server)?;
+    let result = async {
+        validate_identity(&query.playlist.server, query.playlist.id.as_str())
+            .map_err(|e| p.fail(e))?;
+        let public = query.public.map(|v| if v { "true" } else { "false" });
+        let mut pairs = Vec::new();
+        if let Some(comment) = &query.comment {
+            pairs.push(("comment", comment.as_str()));
+        }
+        pairs.extend([
+            ("name", query.name.as_str()),
+            ("playlistId", query.playlist.id.as_str()),
+        ]);
+        if let Some(public) = public {
+            pairs.push(("public", public));
+        }
+        let request = plan_request(
+            base,
+            auth,
+            "updatePlaylist.view",
+            &pairs,
+            PostPreference::Get,
+            None,
+        )
+        .map_err(|e| p.fail(e))?;
+        p.send(transport, clock, context, request).await
+    }
+    .await;
+    p.finish(clock, context, result)
+}
+pub async fn delete_playlist(
+    transport: &dyn ProtocolTransport,
+    clock: &dyn Clock,
+    context: OperationContext<'_>,
+    base: &ServerBase,
+    auth: &Auth,
+    playlist: &Scoped<PlaylistId>,
+) -> Result<MutationReceipt> {
+    let mut p = check(clock, context, &playlist.server)?;
+    let result = async {
+        validate_identity(&playlist.server, playlist.id.as_str()).map_err(|e| p.fail(e))?;
+        let request = plan_request(
+            base,
+            auth,
+            "deletePlaylist.view",
+            &[("id", playlist.id.as_str())],
+            PostPreference::Get,
+            None,
+        )
+        .map_err(|e| p.fail(e))?;
+        p.send(transport, clock, context, request).await
+    }
+    .await;
+    p.finish(clock, context, result)
+}
+async fn playlist_songs(
+    transport: &dyn ProtocolTransport,
+    clock: &dyn Clock,
+    context: OperationContext<'_>,
+    base: &ServerBase,
+    auth: &Auth,
+    query: &PlaylistSongsMutation,
+    replace: bool,
+) -> Result<MutationReceipt> {
+    let mut p = check(clock, context, &query.playlist.server)?;
+    let result = async {
+        validate_identity(&query.playlist.server, query.playlist.id.as_str())
+            .map_err(|e| p.fail(e))?;
+        context
+            .check_items(query.songs.len())
+            .map_err(|e| p.fail(ExchangeError::Context(e)))?;
+        if query.songs.iter().any(|s| s.as_str().is_empty()) {
+            return Err(p.fail(ExchangeError::Malformed));
+        }
+        let mut pairs = vec![("playlistId", query.playlist.id.as_str())];
+        let key = if replace { "songId" } else { "songIdToAdd" };
+        pairs.extend(query.songs.iter().map(|s| (key, s.as_str())));
+        let request = plan_request(
+            base,
+            auth,
+            if replace {
+                "createPlaylist.view"
+            } else {
+                "updatePlaylist.view"
+            },
+            &pairs,
+            PostPreference::Get,
+            None,
+        )
+        .map_err(|e| p.fail(e))?;
+        p.send(transport, clock, context, request).await
+    }
+    .await;
+    p.finish(clock, context, result)
+}
+pub async fn add_to_playlist(
+    transport: &dyn ProtocolTransport,
+    clock: &dyn Clock,
+    context: OperationContext<'_>,
+    base: &ServerBase,
+    auth: &Auth,
+    query: &PlaylistSongsMutation,
+) -> Result<MutationReceipt> {
+    playlist_songs(transport, clock, context, base, auth, query, false).await
+}
+/// Direct source createPlaylist replacement request, distinct from the source's
+/// backup/remove/add workflow. Empty song arrays omit the repeated parameter.
+pub async fn set_playlist_songs(
+    transport: &dyn ProtocolTransport,
+    clock: &dyn Clock,
+    context: OperationContext<'_>,
+    base: &ServerBase,
+    auth: &Auth,
+    query: &PlaylistSongsMutation,
+) -> Result<MutationReceipt> {
+    playlist_songs(transport, clock, context, base, auth, query, true).await
+}
+pub async fn remove_from_playlist(
+    transport: &dyn ProtocolTransport,
+    clock: &dyn Clock,
+    context: OperationContext<'_>,
+    base: &ServerBase,
+    auth: &Auth,
+    query: &PlaylistPositionsMutation,
+) -> Result<MutationReceipt> {
+    let mut p = check(clock, context, &query.playlist.server)?;
+    let result = async {
+        validate_identity(&query.playlist.server, query.playlist.id.as_str())
+            .map_err(|e| p.fail(e))?;
+        context
+            .check_items(query.positions.len())
+            .map_err(|e| p.fail(ExchangeError::Context(e)))?;
+        if query.positions.iter().any(|i| i.0 > 9_007_199_254_740_991) {
+            return Err(p.fail(ExchangeError::Malformed));
+        }
+        let indices: Vec<_> = query.positions.iter().map(|i| i.0.to_string()).collect();
+        let mut pairs = vec![("playlistId", query.playlist.id.as_str())];
+        pairs.extend(indices.iter().map(|i| ("songIndexToRemove", i.as_str())));
+        let request = plan_request(
+            base,
+            auth,
+            "updatePlaylist.view",
+            &pairs,
+            PostPreference::Get,
+            None,
+        )
+        .map_err(|e| p.fail(e))?;
+        p.send(transport, clock, context, request).await
+    }
+    .await;
+    p.finish(clock, context, result)
 }

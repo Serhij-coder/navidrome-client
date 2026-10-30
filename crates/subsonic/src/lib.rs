@@ -31,8 +31,9 @@ pub use enrichment::{get_album_artist_info, get_album_radio, get_artist_radio};
 pub use folders::get_folder;
 pub use lists::{get_genres, get_playlist_count, get_playlists};
 pub use mutations::{
-    MutationFailure, MutationReceipt, create_favorite, delete_favorite, refresh_items, set_rating,
-    start_library_scan,
+    MutationFailure, MutationReceipt, MutationValue, add_to_playlist, create_favorite,
+    create_playlist, delete_favorite, delete_playlist, refresh_items, remove_from_playlist,
+    set_playlist_songs, set_rating, start_library_scan, update_playlist,
 };
 pub use playlist::{get_playlist, get_playlist_song_ids, get_playlist_songs};
 pub use protocol::*;

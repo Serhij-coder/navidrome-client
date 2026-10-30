@@ -644,3 +644,30 @@ pub struct RatingMutation {
     pub items: Vec<LibraryEntityId>,
     pub rating: f64,
 }
+
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct CreatedPlaylist {
+    pub identity: Scoped<PlaylistId>,
+    pub name: String,
+}
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct PlaylistMetadataMutation {
+    pub playlist: Scoped<PlaylistId>,
+    pub name: String,
+    pub comment: Option<String>,
+    pub public: Option<bool>,
+}
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct PlaylistSongsMutation {
+    pub playlist: Scoped<PlaylistId>,
+    pub songs: Vec<SongId>,
+}
+/// A wire removal position, not a durable entry identity or a mutation handle
+/// derived automatically from an old playlist snapshot.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PlaylistIndex(pub u64);
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct PlaylistPositionsMutation {
+    pub playlist: Scoped<PlaylistId>,
+    pub positions: Vec<PlaylistIndex>,
+}

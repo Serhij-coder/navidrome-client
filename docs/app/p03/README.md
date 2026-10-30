@@ -80,3 +80,5 @@ The [catalog-read continuation](catalog-reads.md) adds source-specific composed 
 The [folder-navigation continuation](folders.md) adds root and music-directory reads with scoped trees, duplicate songs and bounded pre-filter work.
 
 The [basic mutation continuation](basic-mutations.md) adds bounded favorite/rating/scan operations and checked user info. Application reconciliation, remaining mutations and real-server conformance stay open.
+
+The [playlist mutation continuation](playlist-mutations.md) adds create/metadata/delete/append/remove/direct-set requests and tracks the separate durable-backup replacement workflow.

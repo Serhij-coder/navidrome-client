@@ -1,0 +1,1261 @@
+{
+  "baseline": "7d6ad318c79802e226996cfc39acba6b05bb22e8",
+  "typescript_sha256": "569177652966bd528c319171c7dd22860dbf72bde116cbc4f644f1d02bb12e39",
+  "sources": {
+    "src/renderer/api/subsonic/subsonic-controller.ts": "c5afb4748f8b6eaa721d8388e656172326074e7f002cd90b0505e4c1ec348af0",
+    "src/renderer/api/subsonic/subsonic-api.ts": "5c10deab6015915945d656578d0a6aa54cee7fdbcb846734698fc3d04dcbe54e"
+  },
+  "functions": {
+    "src/renderer/api/subsonic/subsonic-controller.ts:302:20": "e51d08ea982c83349e389db2947f05714825717de0db9e0ffb41f0ea0a2c4293",
+    "src/renderer/api/subsonic/subsonic-controller.ts:414:21": "4b55b3a975204ac683f3304cc35fea1e800293f40243500752cd100bbaaeadfa",
+    "src/renderer/api/subsonic/subsonic-controller.ts:468:21": "d0388d292ada345a4e55d137b842714dd933c99272568c9edbaacc60c14803c1",
+    "src/renderer/api/subsonic/subsonic-controller.ts:2198:25": "43a13a25ab2affb4bb14d65bf0c78115a43f2972869f2a3d63fb099aa355b9bd",
+    "src/renderer/api/subsonic/subsonic-controller.ts:2423:23": "219573c461f8cc2ff8e17b882b2e9600dce2ed5e0cb017614ec1df34603fdbe6",
+    "src/renderer/api/subsonic/subsonic-controller.ts:2484:21": "6fc1c6b7465df487633ce11bd4c524e240075f3f9ec4119a8f76635e78ebffd8"
+  },
+  "bindings": {},
+  "routes": {
+    "createPlaylist": {
+      "path": "createPlaylist.view",
+      "method": "GET"
+    },
+    "deletePlaylist": {
+      "path": "deletePlaylist.view",
+      "method": "GET"
+    },
+    "updatePlaylist": {
+      "path": "updatePlaylist.view",
+      "method": "GET"
+    }
+  },
+  "cases": [
+    {
+      "name": "create-name-only",
+      "kind": "createPlaylist",
+      "query": {},
+      "body": {
+        "name": " Name & / 漢 ",
+        "comment": "ignored",
+        "public": true,
+        "ownerId": "ignored"
+      },
+      "responses": [
+        {
+          "body": {
+            "playlist": {
+              "id": 42,
+              "name": "Canonical",
+              "owner": "ignored"
+            }
+          }
+        }
+      ],
+      "expected": {
+        "id": "42",
+        "name": "Canonical"
+      },
+      "requests": [
+        {
+          "endpoint": "createPlaylist",
+          "args": {
+            "query": {
+              "name": " Name & / 漢 "
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "create-empty-name",
+      "kind": "createPlaylist",
+      "query": {},
+      "body": {
+        "name": ""
+      },
+      "responses": [
+        {
+          "body": {
+            "playlist": {
+              "id": "new",
+              "name": ""
+            }
+          }
+        }
+      ],
+      "expected": {
+        "id": "new",
+        "name": ""
+      },
+      "requests": [
+        {
+          "endpoint": "createPlaylist",
+          "args": {
+            "query": {
+              "name": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "create-missing-response-id",
+      "kind": "createPlaylist",
+      "query": {},
+      "body": {
+        "name": "N"
+      },
+      "responses": [
+        {
+          "body": {
+            "playlist": {
+              "name": "N"
+            }
+          }
+        }
+      ],
+      "target_error": "Malformed",
+      "target_acknowledged": 1,
+      "target_unknown": false,
+      "expected_error": "TypeError",
+      "requests": [
+        {
+          "endpoint": "createPlaylist",
+          "args": {
+            "query": {
+              "name": "N"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "create-empty-response-id",
+      "kind": "createPlaylist",
+      "query": {},
+      "body": {
+        "name": "N"
+      },
+      "responses": [
+        {
+          "body": {
+            "playlist": {
+              "id": "",
+              "name": "N"
+            }
+          }
+        }
+      ],
+      "target_error": "Malformed",
+      "target_acknowledged": 1,
+      "target_unknown": false,
+      "expected": {
+        "id": "",
+        "name": "N"
+      },
+      "requests": [
+        {
+          "endpoint": "createPlaylist",
+          "args": {
+            "query": {
+              "name": "N"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "create-missing-response-name",
+      "kind": "createPlaylist",
+      "query": {},
+      "body": {
+        "name": "N"
+      },
+      "responses": [
+        {
+          "body": {
+            "playlist": {
+              "id": "new"
+            }
+          }
+        }
+      ],
+      "target_error": "Malformed",
+      "target_acknowledged": 1,
+      "target_unknown": false,
+      "expected": {
+        "id": "new"
+      },
+      "requests": [
+        {
+          "endpoint": "createPlaylist",
+          "args": {
+            "query": {
+              "name": "N"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "metadata-None-None",
+      "kind": "updatePlaylist",
+      "query": {
+        "id": "p"
+      },
+      "body": {
+        "name": "Name",
+        "ownerId": "ignored",
+        "queryBuilderRules": {},
+        "sync": true
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "name": "Name",
+              "playlistId": "p"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "metadata-None-",
+      "kind": "updatePlaylist",
+      "query": {
+        "id": "p"
+      },
+      "body": {
+        "name": "Name",
+        "ownerId": "ignored",
+        "queryBuilderRules": {},
+        "sync": true,
+        "comment": ""
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "comment": "",
+              "name": "Name",
+              "playlistId": "p"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "metadata-None- Q & + 漢 ",
+      "kind": "updatePlaylist",
+      "query": {
+        "id": "p"
+      },
+      "body": {
+        "name": "Name",
+        "ownerId": "ignored",
+        "queryBuilderRules": {},
+        "sync": true,
+        "comment": " Q & + 漢 "
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "comment": " Q & + 漢 ",
+              "name": "Name",
+              "playlistId": "p"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "metadata-False-None",
+      "kind": "updatePlaylist",
+      "query": {
+        "id": "p"
+      },
+      "body": {
+        "name": "Name",
+        "ownerId": "ignored",
+        "queryBuilderRules": {},
+        "sync": true,
+        "public": false
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "name": "Name",
+              "playlistId": "p",
+              "public": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "metadata-False-",
+      "kind": "updatePlaylist",
+      "query": {
+        "id": "p"
+      },
+      "body": {
+        "name": "Name",
+        "ownerId": "ignored",
+        "queryBuilderRules": {},
+        "sync": true,
+        "public": false,
+        "comment": ""
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "comment": "",
+              "name": "Name",
+              "playlistId": "p",
+              "public": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "metadata-False- Q & + 漢 ",
+      "kind": "updatePlaylist",
+      "query": {
+        "id": "p"
+      },
+      "body": {
+        "name": "Name",
+        "ownerId": "ignored",
+        "queryBuilderRules": {},
+        "sync": true,
+        "public": false,
+        "comment": " Q & + 漢 "
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "comment": " Q & + 漢 ",
+              "name": "Name",
+              "playlistId": "p",
+              "public": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "metadata-True-None",
+      "kind": "updatePlaylist",
+      "query": {
+        "id": "p"
+      },
+      "body": {
+        "name": "Name",
+        "ownerId": "ignored",
+        "queryBuilderRules": {},
+        "sync": true,
+        "public": true
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "name": "Name",
+              "playlistId": "p",
+              "public": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "metadata-True-",
+      "kind": "updatePlaylist",
+      "query": {
+        "id": "p"
+      },
+      "body": {
+        "name": "Name",
+        "ownerId": "ignored",
+        "queryBuilderRules": {},
+        "sync": true,
+        "public": true,
+        "comment": ""
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "comment": "",
+              "name": "Name",
+              "playlistId": "p",
+              "public": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "metadata-True- Q & + 漢 ",
+      "kind": "updatePlaylist",
+      "query": {
+        "id": "p"
+      },
+      "body": {
+        "name": "Name",
+        "ownerId": "ignored",
+        "queryBuilderRules": {},
+        "sync": true,
+        "public": true,
+        "comment": " Q & + 漢 "
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "comment": " Q & + 漢 ",
+              "name": "Name",
+              "playlistId": "p",
+              "public": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "add-0",
+      "kind": "addToPlaylist",
+      "query": {
+        "id": "p"
+      },
+      "body": {
+        "songId": []
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "playlistId": "p",
+              "songIdToAdd": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "set-0",
+      "kind": "setPlaylistSongs",
+      "query": {},
+      "body": {
+        "id": "p",
+        "songIds": []
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "createPlaylist",
+          "args": {
+            "query": {
+              "playlistId": "p",
+              "songId": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "add-1",
+      "kind": "addToPlaylist",
+      "query": {
+        "id": "p"
+      },
+      "body": {
+        "songId": [
+          "same"
+        ]
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "playlistId": "p",
+              "songIdToAdd": [
+                "same"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "set-1",
+      "kind": "setPlaylistSongs",
+      "query": {},
+      "body": {
+        "id": "p",
+        "songIds": [
+          "same"
+        ]
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "createPlaylist",
+          "args": {
+            "query": {
+              "playlistId": "p",
+              "songId": [
+                "same"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "add-3",
+      "kind": "addToPlaylist",
+      "query": {
+        "id": "p"
+      },
+      "body": {
+        "songId": [
+          "same",
+          "same",
+          "other & / 漢"
+        ]
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "playlistId": "p",
+              "songIdToAdd": [
+                "same",
+                "same",
+                "other & / 漢"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "set-3",
+      "kind": "setPlaylistSongs",
+      "query": {},
+      "body": {
+        "id": "p",
+        "songIds": [
+          "same",
+          "same",
+          "other & / 漢"
+        ]
+      },
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "createPlaylist",
+          "args": {
+            "query": {
+              "playlistId": "p",
+              "songId": [
+                "same",
+                "same",
+                "other & / 漢"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "remove-0",
+      "kind": "removeFromPlaylist",
+      "query": {
+        "id": "p",
+        "songId": []
+      },
+      "body": {},
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "playlistId": "p",
+              "songIndexToRemove": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "remove-1",
+      "kind": "removeFromPlaylist",
+      "query": {
+        "id": "p",
+        "songId": [
+          "0"
+        ]
+      },
+      "body": {},
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "playlistId": "p",
+              "songIndexToRemove": [
+                "0"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "remove-2",
+      "kind": "removeFromPlaylist",
+      "query": {
+        "id": "p",
+        "songId": [
+          "2",
+          "0"
+        ]
+      },
+      "body": {},
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "playlistId": "p",
+              "songIndexToRemove": [
+                "2",
+                "0"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "remove-3",
+      "kind": "removeFromPlaylist",
+      "query": {
+        "id": "p",
+        "songId": [
+          "2",
+          "2",
+          "0"
+        ]
+      },
+      "body": {},
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "playlistId": "p",
+              "songIndexToRemove": [
+                "2",
+                "2",
+                "0"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "delete",
+      "kind": "deletePlaylist",
+      "query": {
+        "id": "p"
+      },
+      "body": {},
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "deletePlaylist",
+          "args": {
+            "query": {
+              "id": "p"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "delete-blank",
+      "kind": "deletePlaylist",
+      "query": {
+        "id": ""
+      },
+      "body": {},
+      "responses": [
+        {
+          "body": {}
+        }
+      ],
+      "target_error": "Malformed",
+      "target_acknowledged": 0,
+      "target_unknown": false,
+      "target_request_count": 0,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "deletePlaylist",
+          "args": {
+            "query": {
+              "id": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "createPlaylist-forbidden",
+      "kind": "createPlaylist",
+      "query": {},
+      "body": {
+        "name": "N"
+      },
+      "responses": [
+        {
+          "status": 403,
+          "body": {}
+        }
+      ],
+      "target_error": "Http",
+      "target_acknowledged": 0,
+      "target_unknown": true,
+      "expected_error": "Error",
+      "requests": [
+        {
+          "endpoint": "createPlaylist",
+          "args": {
+            "query": {
+              "name": "N"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "createPlaylist-protocol",
+      "kind": "createPlaylist",
+      "query": {},
+      "body": {
+        "name": "N"
+      },
+      "responses": [
+        {
+          "body": {
+            "status": "failed",
+            "error": {
+              "code": 40,
+              "message": "synthetic"
+            }
+          }
+        }
+      ],
+      "target_error": "Protocol",
+      "target_acknowledged": 0,
+      "target_unknown": true,
+      "expected_error": "TypeError",
+      "requests": [
+        {
+          "endpoint": "createPlaylist",
+          "args": {
+            "query": {
+              "name": "N"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "updatePlaylist-forbidden",
+      "kind": "updatePlaylist",
+      "query": {
+        "id": "p"
+      },
+      "body": {
+        "name": "N"
+      },
+      "responses": [
+        {
+          "status": 403,
+          "body": {}
+        }
+      ],
+      "target_error": "Http",
+      "target_acknowledged": 0,
+      "target_unknown": true,
+      "expected_error": "Error",
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "name": "N",
+              "playlistId": "p"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "updatePlaylist-protocol",
+      "kind": "updatePlaylist",
+      "query": {
+        "id": "p"
+      },
+      "body": {
+        "name": "N"
+      },
+      "responses": [
+        {
+          "body": {
+            "status": "failed",
+            "error": {
+              "code": 40,
+              "message": "synthetic"
+            }
+          }
+        }
+      ],
+      "target_error": "Protocol",
+      "target_acknowledged": 0,
+      "target_unknown": true,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "name": "N",
+              "playlistId": "p"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "deletePlaylist-forbidden",
+      "kind": "deletePlaylist",
+      "query": {
+        "id": "p"
+      },
+      "body": {},
+      "responses": [
+        {
+          "status": 403,
+          "body": {}
+        }
+      ],
+      "target_error": "Http",
+      "target_acknowledged": 0,
+      "target_unknown": true,
+      "expected_error": "Error",
+      "requests": [
+        {
+          "endpoint": "deletePlaylist",
+          "args": {
+            "query": {
+              "id": "p"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "deletePlaylist-protocol",
+      "kind": "deletePlaylist",
+      "query": {
+        "id": "p"
+      },
+      "body": {},
+      "responses": [
+        {
+          "body": {
+            "status": "failed",
+            "error": {
+              "code": 40,
+              "message": "synthetic"
+            }
+          }
+        }
+      ],
+      "target_error": "Protocol",
+      "target_acknowledged": 0,
+      "target_unknown": true,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "deletePlaylist",
+          "args": {
+            "query": {
+              "id": "p"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "addToPlaylist-forbidden",
+      "kind": "addToPlaylist",
+      "query": {
+        "id": "p"
+      },
+      "body": {
+        "songId": [
+          "a"
+        ]
+      },
+      "responses": [
+        {
+          "status": 403,
+          "body": {}
+        }
+      ],
+      "target_error": "Http",
+      "target_acknowledged": 0,
+      "target_unknown": true,
+      "expected_error": "Error",
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "playlistId": "p",
+              "songIdToAdd": [
+                "a"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "addToPlaylist-protocol",
+      "kind": "addToPlaylist",
+      "query": {
+        "id": "p"
+      },
+      "body": {
+        "songId": [
+          "a"
+        ]
+      },
+      "responses": [
+        {
+          "body": {
+            "status": "failed",
+            "error": {
+              "code": 40,
+              "message": "synthetic"
+            }
+          }
+        }
+      ],
+      "target_error": "Protocol",
+      "target_acknowledged": 0,
+      "target_unknown": true,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "playlistId": "p",
+              "songIdToAdd": [
+                "a"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "removeFromPlaylist-forbidden",
+      "kind": "removeFromPlaylist",
+      "query": {
+        "id": "p",
+        "songId": [
+          "0"
+        ]
+      },
+      "body": {},
+      "responses": [
+        {
+          "status": 403,
+          "body": {}
+        }
+      ],
+      "target_error": "Http",
+      "target_acknowledged": 0,
+      "target_unknown": true,
+      "expected_error": "Error",
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "playlistId": "p",
+              "songIndexToRemove": [
+                "0"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "removeFromPlaylist-protocol",
+      "kind": "removeFromPlaylist",
+      "query": {
+        "id": "p",
+        "songId": [
+          "0"
+        ]
+      },
+      "body": {},
+      "responses": [
+        {
+          "body": {
+            "status": "failed",
+            "error": {
+              "code": 40,
+              "message": "synthetic"
+            }
+          }
+        }
+      ],
+      "target_error": "Protocol",
+      "target_acknowledged": 0,
+      "target_unknown": true,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "updatePlaylist",
+          "args": {
+            "query": {
+              "playlistId": "p",
+              "songIndexToRemove": [
+                "0"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "setPlaylistSongs-forbidden",
+      "kind": "setPlaylistSongs",
+      "query": {},
+      "body": {
+        "id": "p",
+        "songIds": [
+          "a"
+        ]
+      },
+      "responses": [
+        {
+          "status": 403,
+          "body": {}
+        }
+      ],
+      "target_error": "Http",
+      "target_acknowledged": 0,
+      "target_unknown": true,
+      "expected_error": "Error",
+      "requests": [
+        {
+          "endpoint": "createPlaylist",
+          "args": {
+            "query": {
+              "playlistId": "p",
+              "songId": [
+                "a"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "setPlaylistSongs-protocol",
+      "kind": "setPlaylistSongs",
+      "query": {},
+      "body": {
+        "id": "p",
+        "songIds": [
+          "a"
+        ]
+      },
+      "responses": [
+        {
+          "body": {
+            "status": "failed",
+            "error": {
+              "code": 40,
+              "message": "synthetic"
+            }
+          }
+        }
+      ],
+      "target_error": "Protocol",
+      "target_acknowledged": 0,
+      "target_unknown": true,
+      "expected": null,
+      "requests": [
+        {
+          "endpoint": "createPlaylist",
+          "args": {
+            "query": {
+              "playlistId": "p",
+              "songId": [
+                "a"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
