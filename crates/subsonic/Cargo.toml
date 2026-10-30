@@ -74,3 +74,7 @@ path = "../../tests/subsonic/song_lists.rs"
 [[test]]
 name = "catalog_reads"
 path = "../../tests/subsonic/catalog_reads.rs"
+
+[[test]]
+name = "folder_reads"
+path = "../../tests/subsonic/folder_reads.rs"

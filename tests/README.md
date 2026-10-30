@@ -99,3 +99,5 @@ The explicitly wired search_reads Cargo target compares [combined-search fixture
 The explicitly wired song_lists Cargo target consumes [song-list fixtures](fixtures/p03/subsonic-song-lists.json) for all routing/sort branches, full normalized outputs, RNG consumption, aggregate work and context guards. [Contract](../docs/app/p03/song-lists.md).
 
 The explicitly wired catalog_reads Cargo target consumes [composed/service fixtures](fixtures/p03/subsonic-catalog-reads.json), verifies source totals/ranking/features and covers direct/composed completion guards. [Contract](../docs/app/p03/catalog-reads.md).
+
+The explicitly wired folder_reads Cargo target consumes [folder fixtures](fixtures/p03/subsonic-folder-reads.json), compares recursive normalized output and verifies pre-filter bounds/context rules. [Contract](../docs/app/p03/folders.md).

@@ -45,3 +45,5 @@ P01 continuation adds `test-native.py` (normal Cargo test execution with payload
 `p03-song-list-reference.cjs` replays the original song-list/normalizer/sort expressions against finite endpoint doubles with pinned Lodash RNG contexts and a restored process timezone. Explicit external inputs remain optional. See [song-list checks](../../docs/app/p03/song-lists.md).
 
 `p03-catalog-reference.cjs` replays original favorite/top composition plus radio/scan controllers and feature membership using hash-bound source/TypeScript/Lodash. Default CI requires only tracked fixtures. See [catalog checks](../../docs/app/p03/catalog-reads.md).
+
+`p03-folder-reference.cjs` replays original root/directory/normalizer/sort expressions against bounded synthetic trees with pinned optional source/TypeScript/Lodash. See [folder checks](../../docs/app/p03/folders.md).

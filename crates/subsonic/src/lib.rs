@@ -8,6 +8,7 @@ mod artists;
 mod catalog_reads;
 mod collections;
 mod enrichment;
+mod folders;
 mod lists;
 mod playlist;
 mod protocol;
@@ -26,6 +27,7 @@ pub use catalog_reads::{
 };
 pub use collections::{get_artist_roles, get_music_folders, get_random_songs, get_similar_songs};
 pub use enrichment::{get_album_artist_info, get_album_radio, get_artist_radio};
+pub use folders::get_folder;
 pub use lists::{get_genres, get_playlist_count, get_playlists};
 pub use playlist::{get_playlist, get_playlist_song_ids, get_playlist_songs};
 pub use protocol::*;

@@ -75,3 +75,5 @@ The [combined Subsonic search](p03/search.md) adds independently paged album-art
 The [song-list continuation](p03/song-lists.md) adds all source routing paths, bounded album/artist fan-out and deterministic local favorite sorting with explicit created-date policies.
 
 The [catalog-read continuation](p03/catalog-reads.md) adds composed favorite/rating/personal-top songs, feature-gated community top songs, radio metadata and scan status.
+
+The [folder-navigation continuation](p03/folders.md) adds synthetic root indexes and complete recursive directory normalization with immediate-child source filtering/sorting.

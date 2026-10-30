@@ -76,3 +76,5 @@ The [combined search continuation](search.md) adds normalized result families wi
 The [song-list continuation](song-lists.md) implements all low-level source branches and local favorite sorting. Date-policy differences, folder/top/favorite composition and runtime integration remain explicit.
 
 The [catalog-read continuation](catalog-reads.md) adds source-specific composed song views and read-only radio/scan metadata with explicit count and capability rules.
+
+The [folder-navigation continuation](folders.md) adds root and music-directory reads with scoped trees, duplicate songs and bounded pre-filter work.
