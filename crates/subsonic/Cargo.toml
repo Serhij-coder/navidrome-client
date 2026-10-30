@@ -58,3 +58,7 @@ path = "../../tests/subsonic/album_count.rs"
 [[test]]
 name = "album_lists"
 path = "../../tests/subsonic/album_lists.rs"
+
+[[test]]
+name = "song_count"
+path = "../../tests/subsonic/song_count.rs"

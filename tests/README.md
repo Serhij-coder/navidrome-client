@@ -91,3 +91,5 @@ Subsonic `artist_lists` explicitly wires artist/album-artist index/filter/sort/c
 Subsonic `album_count` explicitly wires original-controller count fixtures, bounded changing-page/metadata tests and context/error regressions. Protocol tests also cover redacted selected-header data. See [album-count checks](../docs/app/p03/album-counts.md).
 
 Subsonic `album_lists` explicitly wires every album-list branch/sort fixture, deterministic non-Send RNG, nested scopes/bounds and context regressions. Tooling guards retain original date observations and constrain the one explicit target tie-order override. See [album-list checks](../docs/app/p03/album-lists.md).
+
+The explicitly wired song_count Cargo target consumes [source count fixtures](fixtures/p03/subsonic-song-count.json) and a fixed-dataset server double for stride/page boundaries, bounded fan-out and asynchronous failure guards. [Contract](../docs/app/p03/song-counts.md).

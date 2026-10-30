@@ -12,6 +12,7 @@ mod playlist;
 mod protocol;
 mod read_support;
 mod song;
+mod song_count;
 pub use album::{get_album, get_album_artist};
 pub use album_count::get_album_count;
 pub use album_list::{AlbumReadEnvironment, get_albums};
@@ -22,6 +23,7 @@ pub use lists::{get_genres, get_playlist_count, get_playlists};
 pub use playlist::{get_playlist, get_playlist_song_ids, get_playlist_songs};
 pub use protocol::*;
 pub use song::get_song;
+pub use song_count::get_song_count;
 
 use md5::{Digest, Md5};
 use std::fmt;

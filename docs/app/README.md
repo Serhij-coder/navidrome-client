@@ -67,3 +67,5 @@ The [P03.03/P03.04 artist lists](p03/artist-lists.md) add artist/album-artist li
 The [P03.04 album counts](p03/album-counts.md) add bounded source-specific pagination/header/fan-out replacement, explicit calendar samples and error/context evidence. No generic count or phase exit is claimed.
 
 The [P03.03/P03.04 album lists](p03/album-lists.md) add all source list branches, normalized nested data and deterministic local ordering with characterized date differences.
+
+The [P03.04 song counts](p03/song-counts.md) add bounded stride/backtracking, search pages and album/artist fan-out with source-specific favorite rules and malformed-response fixtures.

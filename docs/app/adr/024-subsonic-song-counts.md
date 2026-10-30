@@ -1,0 +1,25 @@
+# ADR-024: bounded Subsonic song-count probing and fan-out
+
+Status: accepted for bounded P03.04 continuation, 2026-10-30. No phase exit or production transport decision.
+
+## Evidence and contract
+
+Pinned Feishin `7d6ad318c79802e226996cfc39acba6b05bb22e8`, src/renderer/api/subsonic/subsonic-controller.ts getSongListCount at `1728:23` and getLibraryId at `2504:1`, defines separate count algorithms. The original-expression replay captures both functions, MAX_SUBSONIC_ITEMS=500, SUBSONIC_FAST_BATCH_SIZE=5000 and five API method/path declarations from hash-verified files. Exact source/controller results and request sequences remain tracked in the fixture; application builds require no ignored evidence.
+
+Use existing SongListQuery and portable protocol transport with a new adapter get_song_count. Counts observe raw array lengths; they do not normalize songs, deduplicate repeated IDs, synthesize queue occurrences, infer optional extension support or create a universal pagination abstraction. No new crate, dependency, domain wire type or persisted schema.
+
+Nonempty search has first priority and pages search3 by 500 until a page length differs from 500. Supplied genre IDs come next, including an empty vector: forward only the first genre if present. Genre and general-library counts probe offsets 0,5000,... with size 1 until the result length differs from 1, backtrack one stride, then fetch 500-row pages. The count is the last offset plus returned length. An overfull page also terminates, as in source. Only the first selected music folder is forwarded. Empty search follows the general path. No total-count header shortcut is inferred.
+
+True favorites count all raw starred song rows, ignoring album/artist/year/rating filters. This deliberately preserves the source count/list discrepancy: getSongList filters favorite songs by selected album artists. Album-artist selectors take precedence over artist selectors even when explicitly empty. Supplied album/artist vectors select the fan-out path, including empty vectors that return zero without I/O. Count direct albums first, request selected artists, then request every discovered album in original order. Repeated selectors and repeated songs contribute repeatedly. HTTP-only artist/album failures are skipped; other typed failures return no partial count. Sort/page/image/year/rating inputs do not affect counts.
+
+## Bounded scheduling and deliberate differences
+
+Replace Promise.all fan-out with serial work under one operation context. This preserves request/result order on successful finite fixtures but can stop earlier on failure instead of starting all source promises. Retain one bounded list of discovered album IDs until artist requests finish. Charge operation root, every dispatched request and observed artist-album/song rows against one aggregate work budget; validate selector cardinality before any branch dispatch. Empty/repeated/changing-library results cannot create unbounded work. Checked safe-integer offsets reject overflow. Byte limits, exact correlation and pending/between-request/final cancellation/deadline guards remain inherited from the protocol boundary. Futures and transport doubles can be non-Send. This is a logical work bound, not a streaming reception or exact heap bound; concrete runtime wakeups remain open.
+
+Source album.song is required by its schema, but JavaScript flatMap counts missing, null or scalar values as one result when validation is disabled. The target rejects those shapes as Malformed rather than reporting a phantom song. It also rejects malformed optional array/parent shapes and unsafe/non-string-or-number derived IDs under the existing checked ID policy. The fixture preserves source observations and explicitly marks each target error; unsafe IDs stop before the derived request. HTTP/protocol error categories retain ADR-013 rather than treating failed protocol envelopes as successful counts. Raw array row contents otherwise remain uninspected on count-only paths.
+
+Counts are not consistent library snapshots. A shrinking library can return a stale lower boundary such as 5000 after earlier successful stride probes. Preserve this characterized source observation instead of inventing consistency/retry semantics. Alternatives - enumerate every page, deduplicate, filter favorites or replace the probe with a generic search count - change observed behavior and are not selected.
+
+## Verification and remaining work
+
+See [contract and results](../p03/song-counts.md) and [migration map](../migration/p03-song-counts.csv). Source fixtures cover all branches, exact routes/parameters, failed/skipped results, zero/empty/missing arrays, repeated IDs, changing-library probes and explicit malformed differences. A fixed-dataset transport double independently slices by requested offset/size across page/stride boundaries. Production HTTP/form transport, song-list/local-sort adoption, live conformance, cache/facade integration and phase exits remain open. Linux/WASM only; Windows/macOS build/tests remain excluded.

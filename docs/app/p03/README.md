@@ -68,3 +68,5 @@ The [artist list continuation](artist-lists.md) adds distinct artist/album-artis
 The [album-count continuation](album-counts.md) implements distinct search/artist/favorite/general count paths with bounded requests/rows and selected header metadata. Album/song list and song-count algorithms remain open.
 
 The [complete album-list continuation](album-lists.md) adds all low-level source branches and local ordering/shuffle, with explicit date policies and bounded nested normalization. Remaining song/folder/search algorithms and integration remain open.
+
+The [song-count continuation](song-counts.md) implements endpoint-specific 5000-stride probes, 500-row pages and bounded album/artist fan-out. Normalized song lists and runtime composition remain open.

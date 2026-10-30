@@ -37,3 +37,5 @@ P01 continuation adds `test-native.py` (normal Cargo test execution with payload
 `p03-album-count-reference.cjs` replays only the original album-count controller and first-folder helper with finite in-memory response/header fixtures and explicit calendar samples. Source constants/routes are extracted from hash-verified inputs. See [count checks](../../docs/app/p03/album-counts.md).
 
 `p03-album-list-reference.cjs` replays selected original album-list/normalizer/sort expressions with captured calendar years and pinned Lodash RNG contexts. It reads source mappings/enum aliases as literals, temporarily scopes its process timezone and records a second-zone probe. Source/TypeScript/Lodash inputs remain optional. See [album-list checks](../../docs/app/p03/album-lists.md).
+
+`p03-song-count-reference.cjs` replays the original song-count controller and first-folder helper using finite synthetic responses. Hash-verified source/compiler inputs remain optional; constants and five API routes are bound to the fixture. See [song-count checks](../../docs/app/p03/song-counts.md).
