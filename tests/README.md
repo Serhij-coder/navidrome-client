@@ -89,3 +89,5 @@ Subsonic `enrichment_reads` explicitly wires artist-info/album-radio/artist-radi
 Subsonic `artist_lists` explicitly wires artist/album-artist index/filter/sort/count fixtures and context/work regressions; existing detail/enrichment targets cover helper reuse. Default artist tooling checks provenance and pre-compiler tampering rejection. See [artist checks](../docs/app/p03/artist-lists.md).
 
 Subsonic `album_count` explicitly wires original-controller count fixtures, bounded changing-page/metadata tests and context/error regressions. Protocol tests also cover redacted selected-header data. See [album-count checks](../docs/app/p03/album-counts.md).
+
+Subsonic `album_lists` explicitly wires every album-list branch/sort fixture, deterministic non-Send RNG, nested scopes/bounds and context regressions. Tooling guards retain original date observations and constrain the one explicit target tie-order override. See [album-list checks](../docs/app/p03/album-lists.md).

@@ -103,7 +103,7 @@ pub async fn get_album_artist(
     result
 }
 
-fn normalize_album(
+pub(super) fn normalize_album(
     obj: &Map<String, Value>,
     server: &ServerId,
     context: OperationContext<'_>,
