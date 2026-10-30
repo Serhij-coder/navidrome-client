@@ -63,3 +63,5 @@ The song-count continuation adapts pinned Feishin count/probe/fan-out rules unde
 The combined-search continuation adapts pinned Feishin search/window/normalization rules under GPL-3.0-only. [Search verification](docs/app/p03/search.md) binds original expressions and route; no distributed dependency is added.
 
 The song-list continuation adapts pinned Feishin list/filter/sort/shuffle rules under GPL-3.0-only. [Song-list verification](docs/app/p03/song-lists.md) binds original expressions/routes and pinned optional Lodash infrastructure; no distributed dependency is added.
+
+The catalog-read continuation adapts pinned Feishin favorite/top-song composition, radio normalization, scan status and feature checks under GPL-3.0-only. [Catalog verification](docs/app/p03/catalog-reads.md) binds source expressions/routes; no distributed dependency is added.

@@ -74,3 +74,5 @@ The [song-count continuation](song-counts.md) implements endpoint-specific 5000-
 The [combined search continuation](search.md) adds normalized result families with independent optional windows and a shared work bound; no runtime facade is implied.
 
 The [song-list continuation](song-lists.md) implements all low-level source branches and local favorite sorting. Date-policy differences, folder/top/favorite composition and runtime integration remain explicit.
+
+The [catalog-read continuation](catalog-reads.md) adds source-specific composed song views and read-only radio/scan metadata with explicit count and capability rules.

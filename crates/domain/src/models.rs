@@ -568,3 +568,29 @@ pub struct SearchResults {
     pub albums: Vec<Album>,
     pub songs: Vec<Song>,
 }
+
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub enum FavoriteSongMode {
+    #[default]
+    Favorite,
+    Rating,
+}
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct FavoriteSongListQuery {
+    pub artist: Scoped<ArtistId>,
+    pub limit: Option<u64>,
+    pub mode: FavoriteSongMode,
+}
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub enum TopSongMode {
+    #[default]
+    Community,
+    Personal,
+}
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct TopSongListQuery {
+    pub artist: Scoped<ArtistId>,
+    pub artist_name: String,
+    pub limit: Option<u64>,
+    pub mode: TopSongMode,
+}
